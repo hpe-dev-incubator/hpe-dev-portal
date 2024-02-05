@@ -15,8 +15,9 @@ tags:
   - Private Cloud Enterprise
   - logging
   - Splunk
-  - GreenLake
+  - HPE GreenLake
   - Cribl
+  - hpe-ezmeral
 ---
 Hewlett Packard Enterprise and [Cribl](https://cribl.io/) bring together breakthrough technology to optimize and modernize observability data management, offering new levels of performance and platform independence.
 
@@ -41,7 +42,7 @@ Deploying Cribl Stream containers on HPE GreenLake offers a number of advantages
 
 Before you deploy Cribl Stream containers on HPE GreenLake, you will need to:
 
-* Have an active HPE GreenLake agreement and deployed HPE GreenLake for Private Cloud Enterprise and an account on [https://common.cloud.hpe.com/](<* https://common.cloud.hpe.com/>).
+* Have an active HPE GreenLake agreement and deployed HPE GreenLake for Private Cloud Enterprise and an account on [https://common.cloud.hpe.com/](https://common.cloud.hpe.com/).
 * Install the HPE Ezmeral Runtime Enterprise [Kubectl executable](https://docs.ezmeral.hpe.com/runtime-enterprise/56/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html).
 * Create a HPE Ezmeral Runtime Enterprise [Kubernetes cluster](https://youtu.be/HSYWa2MalF4).
 * Install the Cribl Stream [Kubernetes operator](https://docs.cribl.io/stream/getting-started-guide/).
@@ -233,6 +234,6 @@ Once you have configured Cribl Stream to collect and process your data, you need
 
 #### Conclusion
 
-For more information on Cribl Stream, check out "Optimized Enterprise Logging Solution With HPE Ezmeral And Cribl Business white paper": <https://www.hpe.com/psnow/doc/a50006507enw>
+For more information on Cribl Stream, check out [Optimized Enterprise Logging Solution With HPE Ezmeral And Cribl Business white paper](https://www.hpe.com/psnow/doc/a50006507enw).
 
 For more blog posts related to HPE Ezmeral Software, keep coming back to the HPE Developer Community blog and search on HPE Ezmeral.
