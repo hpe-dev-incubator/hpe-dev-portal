@@ -8,13 +8,12 @@ export const AppContext = React.createContext({
   setUser: () => null,
 });
 
-const { GATSBY_COCKPIT_HPE_USER } = process.env;
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const fetchUserDetail = () => {
-    fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
+    fetch(`${process.env.GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
       .then((response) => {
         return response.json();
       })

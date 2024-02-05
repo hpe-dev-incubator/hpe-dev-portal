@@ -7,8 +7,6 @@ import { graphql } from 'gatsby';
 import { Layout, SEO } from '../../components';
 import { AppContext } from '../../providers/AppProvider';
 
-const { GATSBY_SLACK_TOKEN } = process.env;
-const { GATSBY_SLACK_INVITE_URL } = process.env;
 const image = '/images/hero-pic.png';
 const buttonstyle = {
   backgroundColor: '#dcdcdc',
@@ -27,9 +25,9 @@ export default function Slacksignup() {
       const doInvite = () => {
         const formData = new FormData();
         formData.append('email', email);
-        formData.append('token', GATSBY_SLACK_TOKEN);
+        formData.append('token', process.env.GATSBY_SLACK_TOKEN);
         formData.append('set_active', true);
-        return fetch(GATSBY_SLACK_INVITE_URL, {
+        return fetch(process.env.GATSBY_SLACK_INVITE_URL, {
           method: 'POST',
           body: formData,
           json: true,

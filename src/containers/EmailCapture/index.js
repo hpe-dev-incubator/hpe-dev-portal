@@ -15,7 +15,6 @@ import {
 import { Link } from '../../components';
 import { AppContext } from '../../providers/AppProvider';
 
-const { GATSBY_NEWSLETTER_API } = process.env;
 
 const emailValidation = [
   {
@@ -58,7 +57,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
     setErrorMsg('');
     const { email } = formData;
     const listId = 14530343;
-    return fetch(GATSBY_NEWSLETTER_API, {
+    return fetch(process.env.GATSBY_NEWSLETTER_API, {
       method: 'POST',
       headers: new Headers({
         'content-type': 'application/json',

@@ -41,11 +41,9 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-
   try {
     // eslint-disable-next-line
-    const specialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
+    const specialBadgesApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
     const getSpecialBadges = await axios({
       method: 'GET',
       url: specialBadgesApi,
@@ -75,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   try {
     // eslint-disable-next-line max-len
-    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+    const replaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
     const getReplays = await axios({
       method: 'GET',
       url: replaysApi,
