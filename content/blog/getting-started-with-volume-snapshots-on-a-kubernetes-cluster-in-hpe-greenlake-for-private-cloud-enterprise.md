@@ -58,7 +58,7 @@ As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterpris
 
 2. The per-node component is deployed as a _DaemonSet_ on every node in the cluster. It implements the CSI Node service, together with the _node-driver-registrar_ sidecar container, which registers the CSI driver to kubelet that runs on every cluster node and is responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.
 
-Details about the deployed HPE CSI driver for K8s in the cluster to its namespace *hpe-storage* are shown below:
+Details about the deployed HPE CSI driver for K8s in the cluster to its namespace *hpe-storage* are shown below:
  
 ```markdown
 $ k﻿ubectl get all -n hpe-storage
@@ -836,4 +836,4 @@ T﻿his indicates the database restore using the volume snapshot succeeded and t
 
 I﻿n this blog post, I described persistent volumes, volume snapshots, and the CSI driver for K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database and how to restore a database using the created volume snapshot in the cluster. The volume snapshot capability can be easily integrated with third-party tools like [Kasten K10 by Veeam](https://www.veeam.com/products/cloud/kubernetes-data-protection.html) as an automatic backup and recovery solution. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster. Feel free to take a look at my blog post [How to backup and restore stateful app using Kasten 10](https://developer.hpe.com/blog/how-to-backup-and-restore-stateful-applications-on-kubernetes-using-kasten-k10-in-hpe-greenlake-for-private-cloud-enterprise/).
 
-Please keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
+Please keep coming back to the [HPE Developer Community blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
