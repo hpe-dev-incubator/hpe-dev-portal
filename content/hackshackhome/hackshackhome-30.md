@@ -1,5 +1,6 @@
 ---
 title: " Enabling business automation using HPE GreenLake platform foundational APIs"
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/meetups
 imageBackground: white
