@@ -237,7 +237,7 @@ replicaset.apps/mysql-6974b58d48   1         1         1       24s
 
 
 
-Y﻿ou can check that the PVC and the PV are created as part of the MySQL database deployment:
+Y﻿ou can check that the PVC and the PV were created as part of the MySQL database deployment:
 
 
 
