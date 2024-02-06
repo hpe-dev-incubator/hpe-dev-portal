@@ -657,4 +657,4 @@ T﻿his indicates the MySQL database has been recovered from its backup and the 
 
 In this blog post, I explored the functionalities of Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 to backup the persistent volume of a sample MySQL database deployed in the cluster in HPE GreenLake for Private Cloud Enterprise. I then illustrated how to restore the database from the backup. Kasten K10, with its user-friendly and intuitive interface, simplifies the backup and recovery of stateful applications running in the cluster. It enhances the efficiency and reliability of data management in a K8s cluster.
 
-Please keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
