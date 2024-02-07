@@ -83,7 +83,7 @@ validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
 
 
 
-$ k get all -n cert-manager
+$ kubectl get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-6bcdd5f7c-f7lfw               1/1     Running   0          3m36s
 pod/cert-manager-cainjector-5d4577b4d9-jmpsp   1/1     Running   0          3m36s
@@ -135,12 +135,12 @@ spec:
 
 ```shell
 
-$ k apply -f issuer-selfsigned.yaml -n game-mario
+$ kubectl apply -f issuer-selfsigned.yaml -n game-mario
 issuer.cert-manager.io/cfe-selfsigned-issuer created
 
 
 
-$ k get issuer -n game-mario
+$ kubectl get issuer -n game-mario
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    7s
 ```
@@ -195,7 +195,7 @@ spec:
 
 
 
-$ k apply -n game-mario -f certificate.yaml
+$ kubectl apply -n game-mario -f certificate.yaml
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
 
@@ -203,13 +203,13 @@ certificate.cert-manager.io/cfe-selfsigned-tls created
 
 
 
-$ k get certificate -n game-mario
+$ kubectl get certificate -n game-mario
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   2m56s
 
 
 
-$ k get secret -n game-mario cfe-tls-key-pair
+$ kubectl get secret -n game-mario cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      63s
 ```
@@ -227,7 +227,7 @@ It shows that there are 3 keys contained in the secret, ca.crt, tls.crt and tls.
 ### Test the certificate
 
 ```shell
-$ openssl x509 -in <(k get secret -n game-mario cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
+$ openssl x509 -in <(kubectl get secret -n game-mario cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
 Certificate:
     Data:
         Version: 3 (0x2)
