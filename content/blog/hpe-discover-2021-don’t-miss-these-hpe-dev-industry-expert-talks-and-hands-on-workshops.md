@@ -7,6 +7,7 @@ priority: 6
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/discover-event-logo.png
+disable: true
 ---
 HPE Discover 2021 is where the next wave of digital transformation begins, powered by the rise of the Intelligent Edge and the vital data it creates. Spanning three days packed with actionable live and on-demand sessions, HPE Discover is where you’ll learn what Hewlett Packard Enterprise (HPE) offers in a world where software reigns supreme and helps define so many of our experiences today.
 
