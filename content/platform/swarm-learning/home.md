@@ -43,7 +43,13 @@ This video is a sample of the Learn On-Demand course for HPE Swarm Learning that
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dPsYUF7FbO0?si=Bk67dtzmNsUxZ-U8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-\-﻿ 
+\-﻿ **HPE Swarm Learning Management UI demo**
+
+Learn about the new UI for HPE Swarm Learning Management UI (SLM-UI) in this demo video.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TVYPsZs3UkY?si=98XbxT-toYs4MohD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 
 - - -
 
