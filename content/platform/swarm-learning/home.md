@@ -17,6 +17,8 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
 
+We are happy to announce [Swarm 2.2.0 community release](https://github.com/HewlettPackard/swarm-learning/releases/tag/v2.2.0). In this release, we have delivered key enhancements on UI/UX, which includes experiment tracking for easier “birds-eye” visualization of past training rounds, parallel Swarm installation on multiple hosts, Podman support via SLM-UI etc., that will significantly enhance user experience. We have also added powerful features to Swarm manageability framework for better management of user ML workloads.
+
 - - -
 
 ## Articles
@@ -40,6 +42,8 @@ Swarm learning is the next gold rush for machine intelligence - training at the 
 This video is a sample of the Learn On-Demand course for HPE Swarm Learning that is available when you enroll in the free course at https://learn.software.hpe.com/swarm-...
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dPsYUF7FbO0?si=Bk67dtzmNsUxZ-U8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+\-﻿ 
 
 - - -
 
