@@ -49,6 +49,14 @@ Learn about the new UI for HPE Swarm Learning Management UI (SLM-UI) in this dem
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TVYPsZs3UkY?si=98XbxT-toYs4MohD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+\-﻿ **HPE Swarm Learning: new HA feature demo**
+
+With HPE Swarm Learning, a Sentinel Node is critical. New features in HPE Swarm Learning 2.0 increase high availability by recovery a Sentinel Node.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ryVzhFZqhLs?si=2jnir4PhA_dYfckl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
 
 
 - - -
