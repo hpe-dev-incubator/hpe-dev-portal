@@ -13,8 +13,6 @@ tags:
 ---
 HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning framework. This ML framework utilizes the computing power at, or near, the distributed data sources to run the Machine Learning algorithms that train the models. It uses the security of a blockchain platform to share learnings with peers in a safe and secure manner. In  HPE Swarm Learning, training of the model occurs at the edge, where data is most recent, and where prompt, data-driven decisions are mostly necessary. In this completely decentralized architecture, only the insights learned are shared with the collaborating ML peers, not the raw data. This tremendously enhances data security and privacy.
 
-
-
 ![HPE Swarm Learning architecture](/img/hpe-swarm-learning-diagram.png "HPE Swarm Learning architecture")
 
 With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
@@ -31,29 +29,17 @@ With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to supp
 
 ## Learn more about HPE Swarm Learning and its underlying technology
 
-**\-﻿ What's all the buzz about Swarm Learning?**
-
-In this video, Dr. Eng Lim Goh highlights the challenges of data privacy for organizations using siloed data to bring about collective insights. Also, he explains HPE Swarm Learning has the potential to change our lives and solve some of the world's most pressing and complex problems.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JqwjyENd89I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 **\-﻿ The big shift: What is swarm learning?**
 
 Swarm learning is the next gold rush for machine intelligence - training at the edge so the edge devices get smarter and also train their peers. With no central authority, Blockchain is integrated to add control, privacy, and security.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**\-﻿ HPE Swarm Learning product introduction**
+**\-﻿ HPE Learn On-Demand: HPE Swarm Learning**
 
-HPE Swarm Learning is the industry’s first privacy preserving, decentralized machine learning solution. Developed by HPE Labs, HPE Swarm Learning enables AI/ML model developers to increase accuracy and reduce biases in their models.
+This video is a sample of the Learn On-Demand course for HPE Swarm Learning that is available when you enroll in the free course at https://learn.software.hpe.com/swarm-...
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ORujFJ1lVVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-**\-﻿ HPE Swarm Learning Demo**
-
-In this around the IT Block demo, see HPE Swarm Learning in action, bringing machine learning model training to the data source and enabling collaboration across data silos. The example shown in this use case is cred card fraud detection.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_LQsalXojSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dPsYUF7FbO0?si=Bk67dtzmNsUxZ-U8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - - -
 
