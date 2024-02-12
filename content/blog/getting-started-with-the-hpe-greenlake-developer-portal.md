@@ -37,7 +37,7 @@ Users with the Partner role can access restricted content that is specific to a 
 
 ## Services:  Discover the HPE GreenLake platform APIs  
 
-Clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, an API needs a token to be tested. Therefore, the very first step described in the documentation n API [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
+Clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, an API needs a token to be tested. Therefore, the very first step described in the documentation API [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
 
 ![](/img/blog-greenlake-dev-portal2.png)
 
@@ -45,7 +45,7 @@ Once you have your token, you can try the different APIs that are related to the
 
 [The HPE GreenLake audit log service](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/), for instance, will offer a collection of RESTful APIs for publishing audit logs, managing configurations, and retrieving application-specific and overall platform logs.
 
-Each service section offers, at a minimum, an overview, a guide, the Open API specification, and the associated API reference documentation. Some services provide additional parts to dive into more specific's areas of the service. For instance, HPE GreenLake for Compute Ops Management service provide additional details about event webhooks and jobs. A webhook is an HTTP-based callback function that allows lightweight, event-driven communication between two APIs.  A job is a multi-step task that is managed by Compute Ops Management to perform an action on a resource. For example, performing power operations or firmware updates on a server. 
+Each service section offers, at a minimum, an overview, a guide, the Open API specification, and the associated API reference documentation. Some services provide additional parts to dive into more specific areas of the service. For instance, HPE GreenLake for Compute Ops Management service provides additional details about event webhooks and jobs. A webhook is an HTTP-based callback function that allows lightweight, event-driven communication between two APIs.  A job is a multi-step task that is managed by Compute Ops Management to perform an action on a resource. For example, performing power operations or firmware updates on a server. 
 
 The Overview gives a definition of the service. The Guide explains the core details of the service from an API standpoint. Finally, the API reference documentation will provide you with a download link to the Open API specification file in JSON format of the API. This JSON file can be used in Postman, allowing you to build collection of REST API calls. In fact, the HPE Developer Community team has already put together a nice HPE GreenLake platform API collection. You can get the Postman collection from the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections)
 
@@ -69,7 +69,7 @@ In addition, a Change Log section will inform you about the versioning of the AP
 
 ## HPE Developer Community
 
-T﻿her third tile allows you to reach out to us,  \[the HPE Developer Community](https://developer.hpe.com/). Our web portal as mentionned in the introductionnary words of this blog, will help you find all things software at HPE.[Join us](https://developer.hpe.com/community) to collaborate and build applications and integrations with HPE products using the latest software and open source technologies.
+T﻿he third tile allows you to reach out to us,  \[The HPE Developer Community](https://developer.hpe.com/). Our web portal as mentionned in the introductionnary words of this blog, will help you find all things software at HPE [Join us](https://developer.hpe.com/community) to collaborate and build applications and integrations with HPE products using the latest software and open source technologies.
 
 The HPE GreenLake Developer Portal offers one last important feature: 
 
