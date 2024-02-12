@@ -1,6 +1,6 @@
 ---
 title: HPE Swarm Learning
-version: 2.0.0
+version: 2.2.0
 description: "HPE Swarm Learning is a decentralized, privacy-preserving Machine
   Learning framework. "
 image: /img/platforms/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg
@@ -55,7 +55,11 @@ With HPE Swarm Learning, a Sentinel Node is critical. New features in HPE Swarm 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ryVzhFZqhLs?si=2jnir4PhA_dYfckl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+\-﻿ **HPE Swarm Learning: Leader failure and recovery demo**
 
+In this demo, learn about a new feature that allows an HPE Swarm Learning cluster to finish a training with the recovery of a leader failure.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Cxwsa1Or1Xg?si=aV7veg9lHgg7Tjhp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 
@@ -73,7 +77,6 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
-* **[H﻿PE Swarm Learning home page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
 * [**HPE Swarm Learning community edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
 * [**Try HPE Swarm Learning examples ![](Github)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
 * [**H﻿PE Swarm Learning client ![](Github)**](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md)
