@@ -7,23 +7,23 @@ disable: false
 tags:
   - " API,hpe-greenlake,hpe-greenlake-platform"
 ---
-# Getting started with the HPE GreenLake Developer Portal 
-
 You know about the [HPE Developer Community portal](https://developer.hpe.com/) that provides an entry point to everything you need to know about HPE from a software developer and  IT Ops standpoint, including how to access APIs (application programming interfaces), SDKs (software development kits), and training. The HPE Developer Community portal covers a wide range of HPE products, from HPE OneView, iLO, and Cray to the HPE GreenLake platform. 
 
-From the HPE Developer Community portal, you can access the HPE GreenLake-specific developer portal where you can access the API documentation along with some trial capabilities. 
+From the HPE Developer Community portal, you can access the HPE GreenLake-specific developer portal where you can find the API documentation along with some trial capabilities. 
 
 When reaching the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/), you are presented with three tiles that allow you to make the best use of the portal.
 
 ![](/img/blog-greenlake-dev-portal1.png)
 
-## Guides: Learn how to get started using the HPE GreenLake Developer Portal. 
+## Guides: Learn how to get started using the HPE GreenLake Developer Portal
 
- The minimal requirement of being able to start using the portal is to have an HPE user account or an HPE GreenLake Account. To leverage the HPE GreenLake platform APIs, the user will need to create an API client credentials for the HPE GreenLake platform. With the API client credentials, the user will be able to create an access token.  
+The minimal requirement of being able to start using the portal is to have an HPE user account or an HPE GreenLake Account. To leverage the HPE GreenLake platform APIs, the user will need to obtain  API client credentials for the HPE GreenLake platform. With the API client credentials, the user will be able to create an access token.  
 
-One cannot generate an access token without having an HPE account part of a workspace. You will be guided through all the different steps to create the account either through the present portal or through the HPE GreenLake portal. 
+One cannot generate an access token without having an HPE account associated to a workspace. You will be guided through all the different steps to create the account either through the HPE GreenLake developer portal or through the HPE GreenLake portal. 
 
-It is important to note that some content on the portal is private or only visible to a restricted group (for example, partners or developers). The portal comes with the following roles:  
+
+
+It is important to note that some content on the portal is private or only visible to a restricted group (for example, partners or developers). W﻿ithin each group, several roles are identified and have specific privileges:  
 
  *Public* 
 
@@ -35,9 +35,9 @@ Authenticated-User: Every logged in user will have this role. 
 
 Users with the Partner role can access restricted content that is specific to a Partner.  
 
-## Services:  Discover the HPE Greenlake platform APIs  
+## Services:  Discover the HPE GreenLake platform APIs  
 
-When clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, an API needs a token to be tested. Therefore, the very first step described in the documentation n API [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
+Clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, an API needs a token to be tested. Therefore, the very first step described in the documentation n API [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
 
 ![](/img/blog-greenlake-dev-portal2.png)
 
