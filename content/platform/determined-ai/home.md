@@ -60,4 +60,4 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 
 ## Any questions on Determined AI or about the Determined open-source project?
 
-Join the [Determined AI Slack Workspace](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew) and start a discussion.
+Join the [Determined AI Slack Workspace](https://determined-community.slack.com/join/shared_invite/zt-1f4hj60z5-JMHb~wSr2xksLZVBN61g_Q#/shared-invite/email) and start a discussion.
