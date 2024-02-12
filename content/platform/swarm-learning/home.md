@@ -13,7 +13,7 @@ tags:
 ---
 HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning framework. This ML framework utilizes the computing power at, or near, the distributed data sources to run the Machine Learning algorithms that train the models. It uses the security of a blockchain platform to share learnings with peers in a safe and secure manner. In  HPE Swarm Learning, training of the model occurs at the edge, where data is most recent, and where prompt, data-driven decisions are mostly necessary. In this completely decentralized architecture, only the insights learned are shared with the collaborating ML peers, not the raw data. This tremendously enhances data security and privacy.
 
-![HPE Swarm Learning architecture](/img/hpe-swarm-learning-diagram.png "HPE Swarm Learning architecture")
+![HPE Swarm Learning architecture](/img/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg "HPE Swarm Learning architecture")
 
 With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
 
