@@ -15,7 +15,7 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 ![HPE Swarm Learning architecture](/img/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg "HPE Swarm Learning architecture")
 
-With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
+User can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
 
 We are happy to announce [Swarm 2.2.0 community release](https://github.com/HewlettPackard/swarm-learning/releases/tag/v2.2.0). In this release, we have delivered key enhancements on UI/UX, which includes experiment tracking for easier “birds-eye” visualization of past training rounds, parallel Swarm installation on multiple hosts, Podman support via SLM-UI etc., that will significantly enhance user experience. We have also added powerful features to Swarm manageability framework for better management of user ML workloads.
 
@@ -60,8 +60,6 @@ With HPE Swarm Learning, a Sentinel Node is critical. New features in HPE Swarm 
 In this demo, learn about a new feature that allows an HPE Swarm Learning cluster to finish a training with the recovery of a leader failure.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Cxwsa1Or1Xg?si=aV7veg9lHgg7Tjhp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
 
 - - -
 
