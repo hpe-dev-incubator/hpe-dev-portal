@@ -43,7 +43,7 @@ Swarm learning is the next gold rush for machine intelligence - training at the 
 
 **\-﻿ HPE Learn On-Demand: HPE Swarm Learning**
 
-This video is a sample of the Learn On-Demand course for HPE Swarm Learning that is available when you enroll in the free course at [https://learn.software.hpe.com/swarm-...](https://learn.software.hpe.com/swarm-learning-essentials)
+This video is a sample of the HPE Learn On-Demand course for HPE Swarm Learning that is available when you enroll in the free course at [the HPE Learn On-Demand](https://learn.software.hpe.com/swarm-learning-essentials)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dPsYUF7FbO0?si=Bk67dtzmNsUxZ-U8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -87,4 +87,4 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 
 ## Any questions on HPE Swarm Learning?
 
-J﻿oin the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
+J﻿oin the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
