@@ -6,7 +6,6 @@ author: Michael Ferguson
 authorimage: https://chapel-lang.org/blog/authors/michael-ferguson/photo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - Python
   - chapel
