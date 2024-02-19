@@ -5,6 +5,8 @@ author: François Donzé
 authorimage: /img/fdz-photoprofile.png
 thumbnailimage: ""
 disable: false
+tags:
+  - redfish
 ---
 ## Redfish® brief recap
 
