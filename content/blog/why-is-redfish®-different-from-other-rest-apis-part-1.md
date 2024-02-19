@@ -6,7 +6,8 @@ authorimage: /img/fdz-photoprofile.png
 thumbnailimage: ""
 disable: false
 tags:
-  - redfish
+  - Redfish
+  - ilo-restful-api
 ---
 ## Redfish® brief recap
 
