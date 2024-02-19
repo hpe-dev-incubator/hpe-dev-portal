@@ -1,6 +1,6 @@
 ---
 title: Using HPE GreenLake edge-to-cloud platform to build a private cloud
-active: true
+active: false
 fit: contain
 link: ""
 path: https://hpe.zoom.us/webinar/register/9117032307627/WN_KA1t3_QOSoi4cL-_EjPkXg
