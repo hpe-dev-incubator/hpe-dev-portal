@@ -7,7 +7,6 @@ import {
   Button,
   Heading,
   Image as GrommetImage,
-  Markdown as GrommetMarkdown,
   Paragraph,
 } from 'grommet';
 import { Download, Github } from 'grommet-icons';
@@ -15,6 +14,7 @@ import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { deepMerge } from 'grommet/utils';
 import codestyle from './markdownTheme';
+import MarkdownToJSX from 'markdown-to-jsx';
 
 class Image extends React.Component {
   render() {
@@ -158,13 +158,13 @@ export const titleComponents = deepMerge(cardComponents, {
 });
 
 export const Markdown = (props) => (
-  <GrommetMarkdown components={components} {...props} />
+  <MarkdownToJSX components={components} {...props} />
 );
 export const CardMarkdown = (props) => (
-  <GrommetMarkdown components={cardComponents} {...props} />
+  <MarkdownToJSX components={cardComponents} {...props} />
 );
 export const TitleMarkdown = (props) => (
-  <GrommetMarkdown components={titleComponents} {...props} />
+  <MarkdownToJSX components={titleComponents} {...props} />
 );
 
 export default Markdown;

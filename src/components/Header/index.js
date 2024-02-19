@@ -17,9 +17,6 @@ import { ButtonLink } from '..';
 import { UserMenu } from './UserMenu';
 
 
-// const { GATSBY_CLIENT_ID } = process.env;
-// const { GATSBY_CLIENT_OAUTH } = process.env;
-
 const TextAlignLeft = styled(Box)`
   & > a {
     text-align: left;

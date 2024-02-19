@@ -4,8 +4,6 @@ import { LinkNext } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { ButtonLink } from '..';
 
-// const { GATSBY_HPE_SIGNOUT } = process.env;
-// const { GATSBY_REDIRECT_URI } = process.env;
 
 function getInitials(name) {
   if (!name) {
