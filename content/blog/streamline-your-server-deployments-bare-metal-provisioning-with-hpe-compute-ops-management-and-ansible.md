@@ -17,12 +17,12 @@ tags:
 
 /* Targets list items in nested unordered lists */
 <style>ul ul li {
-  padding-bottom: 10px; 
+  padding-bottom: 8px; 
 }</style>
 
 /* Targets list items in nested ordered lists */
 <style>ol ol li {
-  padding-bottom: 10px; 
+  padding-bottom: 8px; 
 }</style>
 
 
@@ -68,9 +68,8 @@ Main operations include:
 * Creating server groups with specific settings   
 * Adding servers to temporary and permanent server groups   
 * Executing firmware updates   
-* Monitoring task execution  
+* Monitoring task execution
 * Managing errors related to tasks  
-  
 
 In this project, automating the provisioning of operating systems on bare metal servers is made simple and accessible to anyone with basic knowledge of Ansible, HPE Compute Ops Management, and kickstart techniques. While it is generally a complex process that requires a wide range of skills, this project simplifies it with the use of auto-customized kickstarts, auto-generated ISO files and by exploiting the very compelling features of HPE Compute Ops Management server groups.
 
