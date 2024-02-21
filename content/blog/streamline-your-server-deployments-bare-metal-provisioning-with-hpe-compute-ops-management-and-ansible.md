@@ -89,15 +89,23 @@ A key attribute of Ansible that I looked for in this project is its impressive c
 
 To gain an understanding of the project, please refer to the [readme.md](https://github.com/jullienl/HPE-COM-baremetal/blob/main/readme.md) file within the project's repository. It will provide you with detailed instructions on:
 
-- The necessary prerequisites for utilizing this project: [[Open]](https://github.com/jullienl/HPE-COM-baremetal#prerequisites)
-- The process for setting up the Ansible control node: [[Open]](https://github.com/jullienl/HPE-COM-baremetal#ansible-control-node-information)
-- The initial steps required prior to executing a playbook: [[Open]](https://github.com/jullienl/HPE-COM-baremetal#preparation-to-run-the-playbooks)
+- The necessary prerequisites for utilizing this project [[Open]](https://github.com/jullienl/HPE-COM-baremetal#prerequisites)
+- The process for setting up the Ansible control node [[Open]](https://github.com/jullienl/HPE-COM-baremetal#ansible-control-node-information)
+- The initial steps required prior to executing a playbook [[Open]](https://github.com/jullienl/HPE-COM-baremetal#preparation-to-run-the-playbooks)
 
-To provision all hosts present in the corresponding inventory group, run the following command to have Ansible prompt you for the vault and sudo passwords:
+## How to run a playbook
 
-ansible-playbook <ESXi|RHEL|WIN>_provisioning.yml> -i hosts_<OS> --ask-vault-pass --ask-become-pass
+A single command is required to provision all hosts listed in an inventory file: 
 
-For example, running ansible-playbook ESXi80_provisioning.yml -i hosts_ESX --ask-vault-pass --ask-become-pass will provision all servers listed in hosts_ESX in the [All] inventory group, i.e. ESX-1 and ESX-2.
+
+```shell
+ansible-playbook <provisioning_file>.yml -i <inventory_file> --ask-vault-pass --ask-become-pass
+```
+
+Where `<provisioning_file>` should be replaced with `ESXi_provisioning`, `RHEL_provisioning`, or `WIN_provisioning` depending on the target operating system. Similarly, replace `<inventory_file>` with the appropriate inventory filename such as `hosts_ESXi`, `hosts_RHEL`, or `hosts_WIN`.
+
+Upon running this command, Ansible will prompt you to enter the vault password and the sudo password to proceed with the provisioning process.
+
 
 
 ## Explore my video series
