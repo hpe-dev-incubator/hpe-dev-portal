@@ -1,5 +1,5 @@
 ---
-title: "Streamline Your Server Deployments: Bare Metal Provisioning with HPE
+title: "Streamline your server deployments: Bare metal provisioning with HPE
   GreenLake for Compute Ops Management and Ansible"
 date: 2024-01-26T07:03:53.659Z
 externalLink: ""
