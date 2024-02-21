@@ -43,15 +43,14 @@ I am excited to share a new project. It is an open-source initiative hosted on G
 
 The initial aim of this project was to focus on server provisioning for the ESXi, RHEL and Windows Server platforms. However, it also aims to provide an overview of the various capabilities of the Compute Ops Management API. The project effectively demonstrates a wide range of API interactions, covering everything from initial installation (Day0 operations) through the early stages of active use (Day1) to ongoing maintenance (Day2) with automated firmware updates.
 
-Main operations include:     
+Main operations include:   
+  
 * Collecting server information   
 * Identifying storage destinations for the operating system install   
 * Configuring server settings:  
- 
    * BIOS settings   
    * Storage configurations   
    * OS provisioning   
-
 * Creating tailor-made kickstart scripts and assembling ISOs   
 * Starting and monitoring OS image installation   
 * Installing and monitoring HPE AMS (Agentless Management Service) and SUT (Smart Update Tool)  
