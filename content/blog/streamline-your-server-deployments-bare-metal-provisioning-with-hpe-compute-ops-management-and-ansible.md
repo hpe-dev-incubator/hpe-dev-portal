@@ -25,7 +25,7 @@ tags:
 <style>li > ul {margin-top: 10px;}</style>
 
 /* Target the last sub-list item */
-<style>li > ul > li:last-child {margin-bottom: 10px;}</style>
+<style>li > ul > li:last-child {margin-bottom: 0px;}</style>
 
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
