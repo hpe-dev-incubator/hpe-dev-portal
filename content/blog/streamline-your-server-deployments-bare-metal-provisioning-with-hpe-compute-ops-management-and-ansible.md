@@ -11,9 +11,20 @@ tags:
   - COM
   - Ansible
 ---
-<style>ul li{ font-size:28px;padding-bottom: 0.5em;}</style>
+<style>ul li{ font-size:27px;padding-bottom: 0.5em;}</style>
 
-<style>ol li{ font-size:28px;padding-bottom: 0.5em;}</style>
+<style>ol li{ font-size:27px;padding-bottom: 0.5em;}</style>
+
+/* Targets list items in nested unordered lists */
+<style>ul ul li {
+  padding-bottom: 10px; 
+}</style>
+
+/* Targets list items in nested ordered lists */
+<style>ol ol li {
+  padding-bottom: 10px; 
+}</style>
+
 
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
@@ -53,11 +64,11 @@ Main operations include:
    * OS provisioning   
 * Creating tailor-made kickstart scripts and assembling ISOs   
 * Starting and monitoring OS image installation   
-* Installing and monitoring HPE AMS (Agentless Management Service) and SUT (Smart Update Tool)  
+* Installing and monitoring HPE Agentless Management Service (AMS) and Smart Update Tool (SUT)  
 * Creating server groups with specific settings   
 * Adding servers to temporary and permanent server groups   
 * Executing firmware updates   
-* Monitoring task execution   
+* Monitoring task execution  
 * Managing errors related to tasks  
   
 
