@@ -24,7 +24,7 @@ Before starting, make sure you have the following:
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The o﻿ptional openssl CLI tool, for validating the generated certificates 
 
-`﻿``shell
+```shell
 $ k get all -n metallb-system
 NAME                              READY   STATUS    RESTARTS   AGE
 pod/controller-57b4fdc957-dr4h4   1/1     Running   0          18d
@@ -45,9 +45,11 @@ deployment.apps/controller   1/1     1            1           18d
 
 NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-57b4fdc957   1         1         1       18d
-`﻿``
+```
 
-`﻿``shell
+
+
+```shell
 $ k get all -n ingress-nginx
 NAME                                            READY   STATUS    RESTARTS   AGE
 pod/ingress-nginx-controller-5957546d75-zjwjh   1/1     Running   0          15d
@@ -61,9 +63,9 @@ deployment.apps/ingress-nginx-controller   1/1     1            1           15d
 
 NAME                                                  DESIRED   CURRENT   READY   AGE
 replicaset.apps/ingress-nginx-controller-5957546d75   1         1         1       15d
-`﻿``
+```
 
-`﻿``shell
+```shell
  $ k get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-6bcdd5f7c-f7lfw               1/1     Running   0          18d
@@ -83,4 +85,5 @@ NAME                                                 DESIRED   CURRENT   READY  
 replicaset.apps/cert-manager-6bcdd5f7c               1         1         1       18d
 replicaset.apps/cert-manager-cainjector-5d4577b4d9   1         1         1       18d
 replicaset.apps/cert-manager-webhook-bf957dc77       1         1         1       18d
-`﻿``
+```
+
