@@ -16,15 +16,16 @@ tags:
 <style>ol li{ font-size:27px;padding-bottom: 0.5em;}</style>
 
 /* Targets list items in nested unordered lists */
-<style>ul ul li {
-  padding-bottom: 8px; 
-}</style>
+<style>ul ul li {padding-bottom: 8px;}</style>
 
 /* Targets list items in nested ordered lists */
-<style>ol ol li {
-  padding-bottom: 8px; 
-}</style>
+<style>ol ol li {padding-bottom: 8px;}</style>
 
+/* Add spacing to the top of sub-lists within list items */
+<style>li > ul {margin-top: 10px;}</style>
+
+/* Target the last sub-list item */
+<style>li > ul > li:last-child {margin-bottom: 10px;}</style>
 
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
