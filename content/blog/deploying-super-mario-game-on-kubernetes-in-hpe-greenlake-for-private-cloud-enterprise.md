@@ -12,5 +12,14 @@ tags:
   - Ingress
   - Ingress controller
   - Super Mario
+  - Tetris
 ---
 T﻿his blog post shows you the detailed process to deploy Super Mario game to the Kubernetes in HPE GreenLake for Private Cloud Enterprise
+
+### Prerequisites
+
+Before starting, make sure you have the following:
+
+* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The o﻿ptional openssl CLI tool, for validating the generated certificates 
