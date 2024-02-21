@@ -47,9 +47,9 @@ Main operations include:
 - Collecting server information   
 - Identifying storage destinations for the operating system install   
 - Configuring server settings:   
-     - BIOS settings   
-     - Storage configurations   
-     - OS provisioning   
+       - BIOS settings   
+       - Storage configurations   
+       - OS provisioning   
 - Creating tailor-made kickstart scripts and assembling ISOs   
 - Starting and monitoring OS image installation   
 - Installing and monitoring HPE AMS (Agentless Management Service) and SUT (Smart Update Tool)  
