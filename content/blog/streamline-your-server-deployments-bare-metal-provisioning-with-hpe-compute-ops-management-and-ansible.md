@@ -41,19 +41,23 @@ In the rapidly-evolving world of IT infrastructure management, achieving speed, 
 ## Introducing a new GitHub project
 I am excited to share a new project. It is an open-source initiative hosted on GitHub that aims to enhance the integration between HPE GreenLake for Compute Ops Management and Ansible. This endeavor is focused on making it easier to configure, manage and provision bare metal servers at scale.
 
-The initial aim of this project was to focus on server provisioning for the ESXi, RHEL and Windows Server platforms. However, it also aims to provide an overview of the various capabilities of the Compute Ops Management API. The project effectively demonstrates a wide range of API interactions, covering everything from initial installation (Day0 operations) through the early stages of active use (Day1) to ongoing maintenance (Day2), which includes automated firmware updates.
+The initial aim of this project was to focus on server provisioning for the ESXi, RHEL and Windows Server platforms. However, it also aims to provide an overview of the various capabilities of the Compute Ops Management API. The project effectively demonstrates a wide range of API interactions, covering everything from initial installation (Day0 operations) through the early stages of active use (Day1) to ongoing maintenance (Day2) with automated firmware updates.
 
 Main operations include:
- - Collecting server information
- - Configuring server settings:
-   - BIOS settings
-   - Storage configurations
-   - OS provisioning
- - Creating server groups with specific settings
- - Adding servers to temporary and permanent server groups
- - Executing firmware updates
- - Monitoring task execution
- - Managing errors related to tasks
+- Collecting server information
+- Identifying storage destinations for the operating system install
+- Configuring server settings:
+    - BIOS settings
+    - Storage configurations
+    - OS provisioning
+- Creating tailor-made kickstart scripts and assembling ISOs
+- Starting and monitoring OS image installation
+- Installing and monitoring HPE AMS (Agentless Management Service) and SUT (Smart Update Tool) 
+- Creating server groups with specific settings
+- Adding servers to temporary and permanent server groups
+- Executing firmware updates
+- Monitoring task execution
+- Managing errors related to tasks
 
 In this project, automating the provisioning of operating systems on bare metal servers is made simple and accessible to anyone with basic knowledge of Ansible, HPE Compute Ops Management, and kickstart techniques. While it is generally a complex process that requires a wide range of skills, this project simplifies it with the use of auto-customized kickstarts, auto-generated ISO files and by exploiting the very compelling features of HPE Compute Ops Management server groups.
 
