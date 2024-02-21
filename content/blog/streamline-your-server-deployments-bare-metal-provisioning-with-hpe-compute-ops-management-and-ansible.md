@@ -46,9 +46,9 @@ The initial aim of this project was to focus on server provisioning for the ESXi
 Main operations include:
 - Collecting server information
 - Configuring server settings:
-  - BIOS settings
-  - Storage configurations
-  - OS provisioning
+   - BIOS settings
+   - Storage configurations
+   - OS provisioning
 - Creating server groups with specific settings
 - Adding servers to temporary and permanent server groups
 - Executing firmware updates
@@ -89,9 +89,9 @@ A key attribute of Ansible that I looked for in this project is its impressive c
 
 To gain an understanding of the project, please refer to the [readme.md](https://github.com/jullienl/HPE-COM-baremetal/blob/main/readme.md) file within the project's repository. It will provide you with detailed instructions on:
 
-- The necessary prerequisites for utilizing this project [[Open]](https://github.com/jullienl/HPE-COM-baremetal#prerequisites)
-- The process for setting up the Ansible control node [[Open]](https://github.com/jullienl/HPE-COM-baremetal#ansible-control-node-information)
-- The initial steps required prior to executing a playbook [[Open]](https://github.com/jullienl/HPE-COM-baremetal#preparation-to-run-the-playbooks)
+- [The necessary prerequisites for utilizing this project](https://github.com/jullienl/HPE-COM-baremetal#prerequisites)
+- [The process for setting up the Ansible control node](https://github.com/jullienl/HPE-COM-baremetal#ansible-control-node-information)
+- [The initial steps required prior to executing a playbook](https://github.com/jullienl/HPE-COM-baremetal#preparation-to-run-the-playbooks)
 
 ## How to run a playbook
 
