@@ -93,7 +93,7 @@ To gain an understanding of the project, please refer to the [readme.md](https:/
 - [The process for setting up the Ansible control node](https://github.com/jullienl/HPE-COM-baremetal#ansible-control-node-information)
 - [The initial steps required prior to executing a playbook](https://github.com/jullienl/HPE-COM-baremetal#preparation-to-run-the-playbooks)
 
-## How to run a playbook
+## How to run a playbook?
 
 A single command is required to provision all hosts listed in an inventory file: 
 
