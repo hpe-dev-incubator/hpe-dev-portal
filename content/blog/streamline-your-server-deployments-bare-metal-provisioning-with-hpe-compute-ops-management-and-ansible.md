@@ -1,7 +1,7 @@
 ---
 title: "Streamline your server deployments: Bare metal provisioning with HPE
   GreenLake for Compute Ops Management and Ansible"
-date: 2024-01-26T07:03:53.659Z
+date: 2024-02-21T13:16:34.418Z
 externalLink: ""
 author: Lionel Jullien
 authorimage: /img/id-4_5_small_2.jpg
@@ -47,9 +47,9 @@ Main operations include:
 - Collecting server information
 - Identifying storage destinations for the operating system install
 - Configuring server settings:
-    - BIOS settings
-    - Storage configurations
-    - OS provisioning
+     - BIOS settings
+     - Storage configurations
+     - OS provisioning
 - Creating tailor-made kickstart scripts and assembling ISOs
 - Starting and monitoring OS image installation
 - Installing and monitoring HPE AMS (Agentless Management Service) and SUT (Smart Update Tool) 
