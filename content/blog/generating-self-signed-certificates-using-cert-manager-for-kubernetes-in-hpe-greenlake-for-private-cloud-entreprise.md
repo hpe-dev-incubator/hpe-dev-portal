@@ -79,6 +79,8 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook c
 validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
 ```
 
+T﻿he cert-manager will be installed to the namespace *cert-manager*. Type the following command to check that all the Pods  are in running status:
+
 ```shell
 
 
@@ -140,12 +142,19 @@ issuer.cert-manager.io/cfe-selfsigned-issuer created
 
 
 
+$ k apply -f issuer-selfsigned.yaml -n cfe-apps
+issuer.cert-manager.io/cfe-selfsigned-issuer created
+
+$ k get issuer -n cfe-apps
+NAME                    READY   AGE
+cfe-selfsigned-issuer   True    30s
+
 $ kubectl get issuer -n game-mario
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    7s
 ```
 
-An issuer created in this way works only for the current namespace. If you want to be able to request certificates from any namespace in a cluster, create a custom Kubernetes resource called ClusterIssuer using the available selfsigned-issuer.yaml file:
+An issuer created in this way works only for the current namespace. If you want to be able to request certificates from any namespace in a cluster, create a custom Kubernetes resource called *ClusterIssuer* using the available selfsigned-issuer.yaml file:
 
 ```shell
 
@@ -198,6 +207,17 @@ spec:
 $ kubectl apply -n game-mario -f certificate.yaml
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
+$ k apply -f certificate.yaml -n cfe-apps
+certificate.cert-manager.io/cfe-selfsigned-tls created
+
+$ k get certificate -n cfe-apps
+NAME                 READY   SECRET             AGE
+cfe-selfsigned-tls   True    cfe-tls-key-pair   23s
+
+$ k get secrets -n cfe-apps cfe-tls-key-pair
+NAME               TYPE                DATA   AGE
+cfe-tls-key-pair   kubernetes.io/tls   3      52s
+
 
 
 
@@ -227,6 +247,67 @@ It shows that there are 3 keys contained in the secret, ca.crt, tls.crt and tls.
 ### Test the certificate
 
 ```shell
+$ openssl x509 -in <(kubectl get secret -n cfe-apps cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d)
+-text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            2a:2a:5d:0f:d1:e2:6f:60:3e:8a:93:4f:f4:e8:52:1e
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = example.com
+        Validity
+            Not Before: Feb 21 14:17:18 2024 GMT
+            Not After : May 21 14:17:18 2024 GMT
+        Subject: CN = example.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:b7:7d:95:7f:55:a7:32:fd:66:b2:78:c0:2b:1f:
+                    1f:69:c6:de:1f:85:eb:fb:2b:69:f3:60:23:df:9d:
+                    3e:3d:41:df:c9:6b:b0:92:80:fe:6a:6f:19:4d:61:
+                    20:3e:fc:19:af:f1:1d:5e:f6:b6:4f:17:5d:76:99:
+                    3f:f4:d3:4a:70:15:f8:d5:3e:02:5c:c4:29:32:75:
+                    cd:e3:5a:07:7d:ea:47:71:37:3b:3d:36:89:36:e5:
+                    8f:0e:03:57:ab:99:b3:6d:47:67:8a:6b:3b:2b:61:
+                    b0:08:96:a6:a2:5d:46:ed:ee:f3:5a:e3:6b:1d:05:
+                    08:f1:ab:1b:ea:49:a3:2f:0d:82:37:80:76:00:18:
+                    77:99:39:08:2e:06:54:28:24:e2:c8:9f:48:9c:ec:
+                    75:0e:5e:a6:7b:ce:0b:68:96:d1:1a:4e:56:e1:ca:
+                    42:ab:8e:11:a8:37:e1:70:ae:25:e3:2f:26:f1:7c:
+                    95:fa:da:48:57:1f:a3:d7:47:84:86:9d:76:b3:99:
+                    a5:ef:10:98:96:31:ee:32:31:05:bc:5a:c0:94:bd:
+                    25:ba:d6:86:32:d1:a6:3e:8c:21:99:a8:96:d6:5d:
+                    69:35:01:8e:4f:d8:e9:90:78:17:ce:ac:4a:f8:13:
+                    59:9b:e3:a8:9b:59:cc:c6:5f:5b:ca:6c:73:5e:e6:
+                    88:f9
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment, Certificate Sign
+            X509v3 Basic Constraints: critical
+                CA:TRUE
+            X509v3 Subject Key Identifier:
+                53:55:6D:56:AA:75:E2:87:9E:BB:C2:C7:45:32:2F:E3:1C:FF:17:62
+            X509v3 Subject Alternative Name:
+                DNS:nginx.example.com, DNS:example.com
+    Signature Algorithm: sha256WithRSAEncryption
+         69:e4:ae:bb:15:c1:d7:1a:54:49:10:6b:04:f9:1b:ed:bf:64:
+         0f:da:5e:b8:c2:e7:e2:d9:45:9e:66:92:0f:ce:f5:c9:5f:aa:
+         b3:28:36:cd:16:da:6a:60:7f:eb:1d:85:fe:3a:38:65:71:0f:
+         eb:da:e8:9e:1b:dc:f5:b7:14:4f:70:00:fd:bf:44:ed:37:35:
+         bc:67:c7:4f:68:bc:5e:3b:bd:64:aa:5c:cd:1a:4f:11:90:c4:
+         6f:6a:d2:4b:90:4c:25:e7:ab:83:12:d7:38:b1:bf:70:8c:d5:
+         cc:cb:70:70:b6:de:dc:8f:66:21:42:88:d5:7e:59:5f:6e:83:
+         73:81:e4:63:57:d1:c6:63:c0:9a:49:09:44:b5:d0:33:6b:3b:
+         fd:3e:e4:c7:b7:d4:e4:72:0d:36:cf:a8:31:26:e3:ce:55:9f:
+         46:b8:fd:ab:7c:cc:2a:4b:e2:a6:a5:cd:2f:0c:3a:b1:2d:84:
+         1a:51:8b:e8:73:0f:cb:49:2e:a2:a6:ed:d5:e2:e8:cf:79:44:
+         b9:2b:00:03:86:1a:a6:33:d4:20:33:9c:04:71:43:2d:9c:66:
+         3b:13:9b:6f:9f:f6:5f:f2:e0:e4:4a:04:64:c3:e6:bd:78:18:
+         19:22:d9:98:b5:47:85:0d:bd:b6:56:44:e6:89:34:30:90:20:
+         36:63:4f:1e
 $ openssl x509 -in <(kubectl get secret -n game-mario cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
 Certificate:
     Data:
@@ -290,3 +371,144 @@ Certificate:
 
 ```
 
+### Expose an app over TLS termination
+
+```shell
+$ cat apps/nginx.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-main
+  labels:
+    run: nginx-main
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: nginx-main
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx
+  name: nginx-main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx-main
+  template:
+    metadata:
+      labels:
+        run: nginx-main
+    spec:
+      volumes:
+      - name: webdata
+        emptyDir: {}
+      initContainers:
+      - name: web-content
+        image: busybox
+        volumeMounts:
+        - name: webdata
+          mountPath: "/webdata"
+        command: ["/bin/sh", "-c", 'echo "<h1>This is the <font color=turquoise>Nginx MAIN app</font> over secure HTTP</h1>" > /webdata/index.html']
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+        - name: webdata
+          mountPath: "/usr/share/nginx/html"
+```
+
+
+
+```shell
+$ k apply -f apps/nginx.yaml -n cfe-apps
+service/nginx-main created
+deployment.apps/nginx-main created
+```
+
+
+
+```shell
+$ k get all -n cfe-apps
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/nginx-main-88458c48d-n4qfk   1/1     Running   0          26s
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/nginx-main   ClusterIP   10.99.86.182   <none>        80/TCP    32s
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-main   1/1     1            1           32s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-main-88458c48d   1         1         1       32s
+```
+
+
+
+```shell
+ $ cat ingress-simple-selfsigned.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-selfsigned
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    #kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "cfe-selfsinged-issuer"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - nginx.example.com
+    secretName: cfe-tls-key-pair
+  rules:
+  - host: nginx.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-main
+            port:
+              number: 80
+```
+
+
+
+```shell
+$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
+ingress.networking.k8s.io/nginx-ingress-selfsigned created
+```
+
+
+
+```shell
+$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
+ingress.networking.k8s.io/nginx-ingress-selfsigned created
+```
+
+
+
+```shell
+$ host nginx.example.com
+nginx.example.com has address 10.6.115.251
+```
+
+
+
+
+```shell
+
+```
+
+
+
+
+```shell
+
+```
