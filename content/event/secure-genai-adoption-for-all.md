@@ -4,7 +4,7 @@ dateStart: 2024-02-20T23:01:49.855Z
 dateEnd: 2024-02-21T22:59:49.885Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/3317067980871/WN_0ABGS4bpSL2dXngwg4lMTA
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 ---
 ## Secure GenAI Adoption for all!
