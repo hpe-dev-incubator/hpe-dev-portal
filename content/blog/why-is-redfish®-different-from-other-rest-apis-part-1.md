@@ -54,7 +54,7 @@ The Redfish® protocol specification is published in DMTF document <a href="http
 
 Responses to Redfish® requests consist of JSON packets containing key/value properties defined by the DMTF in a schema file. The name of the schema file describing responses is contained in the `@odata.type` property that must be present in each response.
 
-For example, the schema defining the root of the Redfish® tree is `#ServiceRoot`. Its full name returned by `curl -sk https://bmc-ip/redfish/v1 | jq '."@odata.type"'` is: `#ServiceRoot.v1_13_0.ServiceRoot`. Appended to the `#ServiceRoot` fragment, a version number (`1_13_0`) and then a subtype that, in this specific case, is identical to the main schema. All schemas are publicly available on the <a href="at https://redfish.dmtf.org/schemas" target="_blank">DMTF website</a> and, are sometimes included in the service itself (see the [Self Sufficient Model](#self-sufficient-model) paragraph below). Note that schema versions can evolve independently of each other.
+For example, the schema defining the root of the Redfish® tree is `#ServiceRoot`. Its full name returned by `curl -sk https://bmc-ip/redfish/v1 | jq '."@odata.type"'` is: `#ServiceRoot.v1_13_0.ServiceRoot`. Appended to the `#ServiceRoot` fragment, a version number (`1_13_0`) and then a subtype that, in this specific case, is identical to the main schema. All schemas are publicly available on the <a href="at https://redfish.dmtf.org/schemas" target="_blank">DMTF website</a> and, are sometimes included in the service itself (see the [Self Describing Model](#self-describing-model) paragraph below). Note that schema versions can evolve independently of each other.
 
 With a close look to the Redfish® root diagram in (Figure 3), you will notice the presence of endpoints allowing access to the modeling of the server subsystems. For example, the `Chassis{}` object points to `/redfish/v1/Chassis`, which contains the exhaustive collection of URIs (`./{ChassisId}`) modeling the different chassis constituting the server (racks, blades, enclosures, storage enclosures, etc.).
 
@@ -98,9 +98,11 @@ Figure 8 is taken from the base message registry. It shows the modeling of the �
 
 ![Figure 8: Modeling an error message with an argument](/img/fig8-registredesmessagesdebase.png "Figure 8: Modeling an error message with an argument")
 
-## Self-sufficient model
+## Self-describing model
 
-Redfish® is considered "self-sufficient" because all (or almost) of the information regarding data modeling, operations and possible actions is documented and programmatically accessible. Client programmers no longer have to consult paper specifications before implementing them. They can transfer this task to their code in order to ensure a certain portability in time and space.
+Redfish® is considered "self-describing" because the information regarding data modeling, operations and possible actions is documented and programmatically accessible. Client programmers no longer have to consult paper specifications before implementing them. They can transfer this task to their code in order to ensure a certain portability in time and space.
+
+The benefits of this "hypermedia API" concept are explained in this <a href="https://hpe-dev-portal.netlify.app/admin/#/collections/blog/entries/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1?ref=workflow" target="_blank">blog post</a>
 
 ### Accessing Schemas and registries
 
