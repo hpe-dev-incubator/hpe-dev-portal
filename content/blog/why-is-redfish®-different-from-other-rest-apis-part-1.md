@@ -9,6 +9,7 @@ tags:
   - Redfish
   - ilo-restful-api
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style> 
 ## Redfish® brief recap
 
 Redfish® is a low-level management RESTful API standardized by the Distributed Management Task Force (<a href="https://dmtf.org" target="_blank">DMTF</a>) consortium. DMTF publishes several standards related to server management, like the Common Information Model (CIM) implemented as OpenPegasus on Linux and Windows Management Instrumentation (WMI) on Microsoft Windows.
