@@ -88,11 +88,11 @@ The naming flexibility given to Redfish® services generates extra work for clie
 
 ## Registries
 
-The data modeling described above don't represent resources that have interdependencies (i.e., BIOS attribute %1 depends of attribute %2) as well as information or error messages and their arguments (e.g.: "error on disk %s in location %s"). To address this problem, Redfish® uses "registries".
+The data modeling described above don't represent resources that have inter-dependencies (i.e., BIOS attribute %1 depends of attribute %2) as well as information or error messages and their arguments (e.g.: "error on disk %s in location %s"). To address this problem, Redfish® uses "registries".
 
 Figure 7 is extracted from a BIOS registry that has the effect of prohibiting the activation of Windows secure mode support if the server does not contain a TPM (Trusted Platform Module). It is interesting to note that the BIOS registry also describes the GUI menus (`MapToProperty=GrayOut`).
 
-![Figure 7: Example of interdependency in BIOS registry](/img/fig7-registrebios.png "Figure 7: Example of interdependency in BIOS registry")
+![Figure 7: Example of inter-dependency in BIOS registry](/img/fig7-registrebios.png "Figure 7: Example of inter-dependency in BIOS registry")
 
 Figure 8 is taken from the base message registry. It shows the modeling of the “Access prohibited” message with the name of the prohibited resource as an argument (%1).
 
@@ -102,7 +102,7 @@ Figure 8 is taken from the base message registry. It shows the modeling of the �
 
 Redfish® is considered "self-describing" because the information regarding data modeling, operations and possible actions is documented and programmatically accessible. Client programmers no longer have to consult paper specifications before implementing them. They can transfer this task to their code in order to ensure a certain portability in time and space.
 
-The benefits of this "hypermedia API" concept are explained in this <a href="https://hpe-dev-portal.netlify.app/admin/#/collections/blog/entries/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1?ref=workflow" target="_blank">blog post</a>
+The benefits of this "hypermedia API" concept are explained in this <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">blog post</a>
 
 ### Accessing Schemas and registries
 
@@ -111,7 +111,7 @@ Redfish® provides access to schemas and registries through the following endpoi
 * `/redfish/v1/JsonSchemas`
 * `/redfish/v1/Registries`
 
-These URIs contain links to all schemas and registries used by the service. They point to documents stored in the BMC, if it has the storage capacity, or to the official DMTF website. In the latter case, Redfish® clients must have a means to access the Internet to download those documents. They are helpful to identify property interdependencies, supported values or read-write capability.
+These URIs contain links to all schemas and registries used by the service. They point to documents stored in the BMC, if it has the storage capacity, or to the official DMTF website. In the latter case, Redfish® clients must have a means to access the Internet to download those documents. They are helpful to identify property inter-dependencies, supported values or read-write capability.
 
 ### Allowed requests
 
@@ -119,7 +119,7 @@ The Redfish® protocol requires GET request responses to contain the `Allow` hea
 
 ![Figure 9: Possible operations on the URI](/img/fig9-allowheader.png "Figure 9: Possible operations on the URI")
 
-After verification, the client code can change (PATCH) the properties marked as `ReadOnly=False` in the schema. The main server chassis in Figure 9 shows the PATCH method and the IndicatorLED property can be modified (Figure 10), so one should be able to turn on the small blue LED on this chassis to better identify it in the data center. A good programmer will perform all of these checks before sending their changes. The bad programmer will not perform any checks and will leave the end user to deal with the error(s) returned by the service!
+After verification, the client code can change (PATCH) the properties marked as `ReadOnly=False` in the schema. The main server chassis in Figure 9 shows the PATCH method and the `IndicatorLED` property can be modified (Figure 10), so one should be able to turn on the small blue LED on this chassis to better identify it in the data center. A good programmer will perform all of these checks before sending their changes. The bad programmer will not perform any checks and will leave the end user to deal with the error(s) returned by the service!
 
 ### Deprecated resources
 
