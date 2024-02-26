@@ -28,7 +28,7 @@ This blog presents the <a href="https://servermanagementportal.ext.hpe.com/docs/
 
 As mentioned in the [HPE iLO 4](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo4/#poststate) API Reference documents, the `PostState` property can have the following values: `Null`, `Unknown`, `Reset`, `PowerOff`, `InPost`, `InPostDiscoveryComplete` and `FinishedPost`.
 
-<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_156/ilo6_computersystem_resourcedefns156/#oemhpepoststate" target="_blank">Following HPE iLO generations</a> have one more value: `InPostDiscoveryStart`. 
+The <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_156/ilo6_computersystem_resourcedefns156/#oemhpepoststate" target="_blank">Following HPE iLO generations</a> have one more value: `InPostDiscoveryStart`. 
 
 Since the first four values have a straight forward meaning, I'll focus only focus on the other ones.
 
