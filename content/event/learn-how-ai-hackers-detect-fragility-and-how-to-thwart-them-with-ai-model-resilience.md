@@ -12,4 +12,5 @@ width: large
 
 March 20, 2024
 
-On every lab test, your AI was superhuman. But how will it fare in the real world of smog, smears, and nation state hackers? We'll be demonstrating the irony of how AI hackers can measure the fragility of today's AI models. This will explain the AI model's vulnerability under real-world conditions across applications of varying data dimensions, from signals to images to videos. But this isn't just a zero-day warning; we'll show how to engineer robustness into models and sketch out tomorrow's AI supply chain where confidence is measurable and the model's perception can be inspected.
+Learn how AI hackers detect fragility and how to thwart them with AI model resilience
+On every lab test, your AI was superhuman. But how will it fare in the real world of smog, smears, and nation state hackers? In this session, we'll explore how AI hackers can measure the fragility of today's AI models, covering the model's vulnerability under real-world conditions across applications of varying data dimensions, from signals to images to videos. We’ll then show how to engineer robustness into models and sketch out tomorrow's AI supply chain where confidence is measurable and the model's perception can be inspected.
