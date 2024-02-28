@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Aruba Central automation
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2517026430853/WN__9e84eGrRdO5uXAUAeuF3A
 imageBackground: white
