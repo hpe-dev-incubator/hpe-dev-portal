@@ -1,5 +1,6 @@
 ---
 title: HPE GreenLake Data Services Cloud Console (DSCC) APIs – Putting it all together
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3817089634772/WN_YJ3l4-XIQ8mWluh8vul7lg
 imageBackground: white
