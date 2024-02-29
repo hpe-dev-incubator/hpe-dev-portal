@@ -16,7 +16,7 @@ tags:
   - ProLiant
   - Synergy
 ---
-Updated February 26, 2024
+Updated February 29, 2024
 
 ## Introduction
 
@@ -34,13 +34,13 @@ Since the first four values have a straight forward meaning, I'll focus only foc
 
 The `InPost` value means that the server is still performing the Pre-OS Tasks (tests and hardware discovery). With a graphical console opened, when a server is in this state you can see a green progress bar:
 
-![InPost state 1](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/1-InPost.png)
+![InPost state 1](/img/1-inpost.png "InPost state 1")
 
-![InPost state 2](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/2-InPost.png)
+![InPost state 2](/img/2-inpost.png "InPost state 2")
 
 `InPostDiscoveryStart` follows the `InPost` state and then, `InPostDiscoveryComplete`.  For the purpose of this blog, I'll assume that it corresponds to the state in which UEFI is loaded and running:
 
-![InPostDiscoveryComplete / UEFI](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/3-InPostDiscoveryComplete.png)
+![InPostDiscoveryComplete / UEFI](/img/3-inpostdiscoverycomplete.png "InPostDiscoveryComplete / UEFI")
 
 Note that when an UEFI executable is running (i.e. UEFI Shell, `grubx64.efi`...) the server stays in the `InPostDiscoveryComplete` state.
 
@@ -54,7 +54,7 @@ In a server management and configuration context, several properties can only be
 
 In the following screenshot I used <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a> to change the next boot entry of a server being in the `InPostDiscoveryComplete` state. In this case, the iLO returns a `[400]` error code with an explicit message.
 
-![Boot Order cannot be changed when in POST](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/4-CannotChangeBootOrderWhenInPost.png)
+![Boot Order cannot be changed when in POST](/img/4-cannotchangebootorderwheninpost.png "Boot Order cannot be changed when in POST")
 
 In a Bios and/or storage controller configuration process, the `PostState` property plays a crucial role. As explained in [Setting Bios and Storage Controller Properties with Redfish](/blog/setting-bios-and-storage-controller-properties-with-redfish) this process is performed in two phases: 1 - parameter setup into a Redfish pending area. 2 - Reset / Cold Boot of the server to trigger a POST during which the new settings will be verified and transferred, if validated, from  the pending area into the active area.
 
@@ -68,7 +68,7 @@ The easiest way to obtain the `PostState` of a server is to issue the `serversta
 
 The <a href="https://github.com/HewlettPackard/python-redfish-utility" target="_blank">Open Source</a> version of iLOrest contains the source of this <a href="https://github.com/HewlettPackard/python-redfish-utility/blob/master/src/extensions/iLO_COMMANDS/ServerStateCommand.py" target="_blank">ServerState</a> macro command in Python. Feel free to consult it.
 
-![Retrieve `PostState` with iLOrest](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/5-RetrieveServerStateWithIlorest.png)
+![Retrieve `PostState` with iLOrest](/img/5-retrieveserverstatewithilorest.png "Retrieve `PostState` with iLOrest")
 
 If you decide to create your own Redfish client, you will have to adapt your code to the potential Redfish <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_adaptation/#ilo-5-data-model-changes" target="_blank">data model changes</a> between the different generations of servers or iLOs. 
 
@@ -136,7 +136,7 @@ Two seconds later the next iteration returns the `InPostDiscoveryComplete` state
 
 In iteration 62 we are still in `InPostDiscoveryComplete` but both `DeviceDiscovery` and `SmartArrayDiscovery` have reached their final `Complete` state. Hence the the corresponding devices can be queried safely.
 
-![The `DeviceDiscoveryComplete` collection](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/6-DeviceDiscoveryComplete.png)
+![The `DeviceDiscoveryComplete{}` object](/img/6-devicediscoverycomplete.png "The `DeviceDiscoveryComplete{}` object")
 
 ## Conclusion
 
