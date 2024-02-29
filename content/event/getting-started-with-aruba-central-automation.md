@@ -4,7 +4,7 @@ dateStart: 2024-02-27T23:01:00.318Z
 dateEnd: 2024-02-28T22:59:21.527Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/4017026430747/WN__9e84eGrRdO5uXAUAeuF3A
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## Getting Started with Aruba Central automation
