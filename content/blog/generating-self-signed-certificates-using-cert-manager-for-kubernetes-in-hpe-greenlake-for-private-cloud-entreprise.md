@@ -35,6 +35,8 @@ Before starting, make sure you have the following:
 
 [cert-manager](https://cert-manager.io/) is a certificate controller that works with K8s. When deployed in K8s, cert-manager will automatically issue certificates required by Ingress controllers and will ensure they are valid and up to date. 
 
+#﻿## Generate a self-signed certificate
+
 #### Install cert-manager
 
 Following [cert-manager installation page](https://cert-manager.io/docs/installation/), cert-manager can be installed by typing the following _kubectl  apply_ command:
@@ -118,7 +120,7 @@ replicaset.apps/cert-manager-6bcdd5f7c               1         1         1      
 replicaset.apps/cert-manager-cainjector-5d4577b4d9   1         1         1       3m39s
 replicaset.apps/cert-manager-webhook-bf957dc77       1         1         1       3m38s
 ```
-### Create a Certificate Issuer
+#### Create a Certificate Issuer
 
 **Create a namespace**
 
@@ -127,7 +129,7 @@ where you plan to generate certificates:
 ```shell
 
 
-$ k create namespace game-mario
+$ k create namespace cfe-apps
 ```
 
 
@@ -150,24 +152,18 @@ spec:
 
 ```shell
 
-$ kubectl apply -f issuer-selfsigned.yaml -n game-mario
+
+
+$ kubectl apply -f issuer-selfsigned.yaml -n cfe-apps
 issuer.cert-manager.io/cfe-selfsigned-issuer created
 
-
-
-$ k apply -f issuer-selfsigned.yaml -n cfe-apps
-issuer.cert-manager.io/cfe-selfsigned-issuer created
-
-$ k get issuer -n cfe-apps
+$ kubectl get issuer -n cfe-apps
 NAME                    READY   AGE
-cfe-selfsigned-issuer   True    30s
 
-$ kubectl get issuer -n game-mario
-NAME                    READY   AGE
 cfe-selfsigned-issuer   True    7s
 ```
 
-An issuer created in this way works only for the current namespace. If you want to be able to request certificates from any namespace in a cluster, create a custom Kubernetes resource called *ClusterIssuer* using the available selfsigned-issuer.yaml file:
+An issuer created in this way works only for the current namespace. If you want to be able to request certificates from any namespace in a cluster, create a custom Kubernetes resource called *ClusterIssuer* using the following YAM manifest file *clusterissuer.yaml*:
 
 ```shell
 
@@ -183,10 +179,10 @@ spec:
 
 
 
-### Generate a certificate
+#### Generate a certificate
 
 
-Generate a self-signed certificate by using the following Certificate yaml file:
+Generate a self-signed certificate by using the following YAML file *certificate.yaml*:
 
 ```shell
 
@@ -257,7 +253,7 @@ It shows that there are 3 keys contained in the secret, ca.crt, tls.crt and tls.
 
 
 
-### Test the certificate
+#### Test the certificate
 
 ```shell
 $ openssl x509 -in <(kubectl get secret -n cfe-apps cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d)
@@ -321,66 +317,7 @@ Certificate:
          3b:13:9b:6f:9f:f6:5f:f2:e0:e4:4a:04:64:c3:e6:bd:78:18:
          19:22:d9:98:b5:47:85:0d:bd:b6:56:44:e6:89:34:30:90:20:
          36:63:4f:1e
-$ openssl x509 -in <(kubectl get secret -n game-mario cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number:
-            25:db:00:3b:27:91:76:a1:d2:ba:15:1f:bc:0b:0d:d0
-        Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = example.com
-        Validity
-            Not Before: Feb  5 17:12:18 2024 GMT
-            Not After : May  5 17:12:18 2024 GMT
-        Subject: CN = example.com
-        Subject Public Key Info:
-            Public Key Algorithm: rsaEncryption
-                RSA Public-Key: (2048 bit)
-                Modulus:
-                    00:b5:13:33:b5:de:ae:e0:57:8e:15:86:21:96:b5:
-                    0f:0e:d9:9e:2c:30:9d:5e:e8:2c:ba:2c:90:b3:67:
-                    f7:3b:91:ee:2b:39:d6:6f:b9:a5:67:62:88:91:61:
-                    07:1d:06:19:ae:6c:10:73:f0:5e:c4:35:67:01:23:
-                    6c:b5:a3:7d:86:91:67:fe:0e:b8:03:5c:1c:72:2a:
-                    f8:2f:b4:ce:7e:00:c7:8e:a7:0e:7b:7d:69:6b:8d:
-                    24:9c:00:57:3e:c4:34:7d:37:57:fa:05:4c:c7:94:
-                    a3:07:a2:e9:5d:4c:cb:ec:21:cf:82:a2:35:1a:e7:
-                    ff:1e:ff:01:c8:09:9a:9b:7a:70:ee:84:4d:ed:82:
-                    0d:c5:88:27:c7:ec:f2:52:c2:73:5c:33:07:dc:bc:
-                    43:af:d5:1e:c6:3f:24:fe:9e:ca:81:0b:31:71:01:
-                    59:37:76:b4:80:e6:bf:69:c4:1a:27:46:50:a0:bf:
-                    01:71:72:12:ba:0f:da:a0:28:df:36:c9:fd:d4:46:
-                    3b:2d:8e:78:72:39:e7:aa:46:a5:ac:b5:1b:0e:9a:
-                    06:35:af:00:78:ef:26:f9:a6:33:6c:96:ff:8c:eb:
-                    c6:88:bc:b1:90:a0:84:6b:b6:9b:0a:90:6d:64:92:
-                    d0:9c:c9:a7:15:65:06:c9:69:03:bd:af:a6:9d:20:
-                    32:e9
-                Exponent: 65537 (0x10001)
-        X509v3 extensions:
-            X509v3 Key Usage: critical
-                Digital Signature, Key Encipherment, Certificate Sign
-            X509v3 Basic Constraints: critical
-                CA:TRUE
-            X509v3 Subject Key Identifier:
-                7D:B6:37:6B:FB:3C:C9:CF:2A:5D:0A:FB:95:6D:DC:4A:8D:E9:6F:2E
-            X509v3 Subject Alternative Name:
-                DNS:nginx.example.com, DNS:example.com
-    Signature Algorithm: sha256WithRSAEncryption
-         0c:8f:ae:26:d6:f9:1b:9a:e4:c8:01:ef:32:44:5e:df:f6:5b:
-         7f:0b:25:ed:c6:3d:4d:3e:a7:4d:dc:70:ca:16:5c:51:f4:1e:
-         4d:b3:4d:47:76:9d:6e:5d:11:3c:be:1f:f5:60:63:d8:a4:a0:
-         99:4b:bf:f6:39:1c:17:f1:bf:d2:a5:53:04:43:0a:b7:59:c7:
-         c3:de:ec:40:f4:9c:37:b0:53:99:e5:9e:3a:e2:b8:cc:d9:4b:
-         fb:66:64:dd:41:0f:b1:f5:d9:8f:ea:b0:bc:de:67:24:85:e7:
-         3a:19:4f:1c:32:fe:0f:8f:8a:a2:34:f6:fa:b5:30:bd:c2:39:
-         43:7e:e4:a3:4f:a7:90:ab:c0:61:a8:9c:42:cc:36:94:eb:23:
-         59:62:b5:63:af:6b:a5:1b:65:73:c3:d9:cc:13:9d:5a:a0:87:
-         25:21:91:d8:6c:bd:ab:08:9e:5d:58:a7:7f:98:a3:24:cf:1f:
-         3c:23:d0:df:a5:b7:ca:26:21:d5:a1:8d:70:d6:50:51:c9:fe:
-         c3:08:ca:92:49:76:b7:9b:7a:42:da:81:0b:5d:89:c5:fc:cb:
-         57:41:d4:ff:16:0b:de:01:30:e1:51:de:11:4d:42:53:c5:67:
-         32:4a:c6:2e:05:84:a0:b3:6c:80:ab:d3:42:a8:6d:b6:e6:05:
-         e6:72:f6:cb
+
 
 ```
 
