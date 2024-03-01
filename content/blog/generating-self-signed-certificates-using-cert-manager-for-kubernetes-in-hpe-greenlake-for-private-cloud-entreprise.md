@@ -323,6 +323,12 @@ Certificate:
 
 ### Expose an app over TLS termination
 
+#﻿### Set up load balancer 
+
+#﻿### Install Nginx ingress controller
+
+#﻿### Deploy Nginx application
+
 ```shell
 $ cat apps/nginx.yaml
 apiVersion: v1
@@ -397,7 +403,7 @@ NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-main-88458c48d   1         1         1       32s
 ```
 
-
+#﻿### Configure Ingress
 
 ```shell
  $ cat ingress-simple-selfsigned.yaml
@@ -429,7 +435,6 @@ spec:
 ```
 
 
-
 ```shell
 $ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
@@ -448,6 +453,13 @@ ingress.networking.k8s.io/nginx-ingress-selfsigned created
 $ host nginx.example.com
 nginx.example.com has address 10.6.115.251
 ```
+
+
+![](/img/nginx-private.png)  
+
+![](/img/nginx-cert.png)
+
+![](/img/nginx-app-https.png)
 
 
 ### Conclusion
