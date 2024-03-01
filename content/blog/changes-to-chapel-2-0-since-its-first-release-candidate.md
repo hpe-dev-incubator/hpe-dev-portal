@@ -6,7 +6,6 @@ author: Lydia Duncan, Jeremiah Corrado, Jade Abraham, Shreyas Khandekar
 authorimage: https://chapel-lang.org/blog/img/logo.png
 disable: false
 tags:
-  - Chapel
   - opensource
   - chapel
   - HPC
