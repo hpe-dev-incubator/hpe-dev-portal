@@ -1,20 +1,25 @@
 ---
-title: "In-band management with ilorest and a LiveCD"
+title: In-band management with HPE iLOrest and a LiveCD
 date: 2018-03-30T11:19:26.056Z
-author: François Donzé 
-tags: ["iLO","ilorest","ProLiant"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé
+authorimage: /img/fdz-photoprofile.png
+thumbnailimage: null
+tags:
+  - iLO
+  - ilorest
+  - ProLiant
 ---
-# In-band management with `ilorest` and a LiveCD
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-In a [previous blog](/blog/how-to-change-the-factory-generated-ilo-administrator-password), I explained how the RESTful interface tool ([iLOREST](http://www.hpe.com/info/resttool)) (former `hprest`) is able to communicate securely with the underlying iLO and perform in band management of the lower layers of the server. This blog provides a method to create a custom bootable LiveCD that embeds the `ilorest` utility and potentially other management tools.
+Updated March 4 2024
+
+In a <a href="https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd" target="_blank">previous blog</a>, I explained how the HPE RESTful interface tool (<a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOREST</a>) is able to communicate securely with the underlying iLO and perform in band management of the lower layers of the server. This blog post provides a method to create a custom bootable LiveCD that embeds the HPE ilorest utility and potentially other management tools.
 
 After booting the server on the LiveCD, it is possible, locally or from a remote location, to perform in-band management operations.
 
-Although the solution presented here is based on Red Hat / CentOS distributions, it can be adapted to other Linux distributions as well as to Windows since the support of `ilorest` in WinPE exists since `hprest` version 1.5 (at that time this utilitiy was still called `hprest`).
+Although the solution presented here is based on Red Hat / CentOS distributions, it can be adapted to other Linux distributions as well as to Windows since the support of iLOrest in WinPE exists since `hprest` version 1.5 (at that time this utility was still called `hprest`).
 
 ## High level solution description
 
@@ -22,15 +27,16 @@ The Red Hat / CentOS ecosystem provides the `livecd-tools` package for an easy g
 
 The basic steps for embedding `ilorest` in a customized bootable LiveCD are:
 
-1.  Setup of a RHEL / CentOS Media Server configured with the `livecd-tools` and the `createrepo` packages. The custom repository containing `ilorest` (see next step) will also be hosted on this Media Server
-2.  Creation of a custom repository on the Media Server holding the `ilorest` package (and potentially other packages). 
+1.  Setup of a RHEL / CentOS Media Server configured with the `livecd-tools` and the `createrepo` packages. The custom repository containing iLOrest (see next step) will also be hosted on this Media Server
+2.  Creation of a custom repository on the Media Server holding the iLOrest package (and potentially other packages). 
 3.  Customization of the LiveCD configuration file.
 4.  Creation of the ISO bootable image.
 
 Once the LiveCD ISO file is created we will describe how to use it:
+
 1. Presentation of the LiveCD to a managed server as an iLO Virtual Drive.
 2. Boot of the managed server on the LiveCD ISO image.
-3. Submission of `ilorest` in band management commands to the managed server using `ssh`
+3. Submission of iLOrest in band management commands to the managed server using SSH.
 
 ## Media Server setup
 
@@ -38,7 +44,7 @@ The following instructions suppose you are logged in as root in a CentOS or RHEL
 
 The first step in the above list is not fully described in this article; I assume that [Apache](https://httpd.apache.org/download.cgi) or another Web server application is installed and configured to provide Linux YUM repositories to other servers on your network.
 
-You can obtain the `livecd-tools` package from the [Extra Packages for Enterprise Linux 7](http://fedoraproject.org/wiki/EPEL) (EPEL) repository. 
+You can obtain the `livecd-tools` package from the <a href="http://fedoraproject.org/wiki/EPEL" target="_blank">Extra Packages for Enterprise Linux 7</a> (EPEL) repository. 
 
 On a CentOS server issue:
 
@@ -81,14 +87,14 @@ MediaServer# wget https://raw.githubusercontent.com/CentOS/sig-core-livemedia/ma
 We will customize this kickstart file later.
 ## Create a package repository for `ilorest`
 
-If not already done, download the [latest RESTful Interface Tool package](http://h20565.www2.hpe.com/hpsc/swd/public/readIndex?sp4ts.oid=7630409&ac.admitted=1415623837684.876444892.492883150&lang=en&lang=en&cc=us&cc=us) and store it on your Media Server in a location accessible from the network:
+If not already done, download the <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">latest RESTful Interface Tool package</a> and store it on your Media Server in a location accessible from the network:
 
 ~~~
 MediaServer# ls myrepo
 ilorest-2.1-73.x86_64.rpm
 ~~~
 
-Create your custom `ilorest` repository with `createrepo(8`)and verify that a `repodata` directory has been created along with the `ilorest` package. The `createrepo` utility is present by default on RHEL / CentOS, so you should not have to install it:
+Create your custom iLOrest repository with `createrepo(8`)and verify that a `repodata` directory has been created along with the iLOrest package. The `createrepo` utility is present by default on RHEL / CentOS, so you should not have to install it:
 
 ~~~
 MediaServer# createrepo myrepo
@@ -97,7 +103,7 @@ MediaServer# ls myrepo
 ilorest-2.1-73.x86_64.rpm  repodata
 ~~~
 
-Ultimately, you should verify that this repository can be accessed by other servers on your network. A simple local test could be to retrieve the `repomd.xm`l file using `wget` or `curl`:
+Ultimately, you should verify that this repository can be accessed by other servers on your network. A simple local test could be to retrieve the `repomd.xm` file using `wget` or `curl`:
 
 
 ~~~
@@ -114,9 +120,9 @@ It is now time to edit and customize the RHEL/CentOS LiveCD configuration file. 
 
 ·         Start service `sshd`
 
-·         Add the `ilorest` repository
+·         Add the iLOrest repository
 
-·         Add the `ilorest` package
+·         Add the iLOrest package
 
 ·         Modify the `sshd` config file to allow root’s SSH connections with a null password because the LiveCD post configuration script deletes the root password string (`passwd -d root`).
 
@@ -163,28 +169,29 @@ The last step is to generate the LivCD ISO bootable file:
 Host# livecd-creator --config centos-7-livecd.cfg
 ~~~
 
-The above command generates a bootable `livecd-centos-7-livecd-<timestamp>.iso` image containing an OS and the required packages including `ilorest`.
+The above command generates a bootable `livecd-centos-7-livecd-<timestamp>.iso` image containing an OS and the required packages including iLOrest.
+
 ## Presenting the LiveCD to a server
 
 To boot the server on this image, we just need to present it as an iLO Virtual Drive and make sure it boots automatically during next reboot. The iLO Web Graphical User Interface can help to perform those tasks in an interactive manner.
 
-However, for didactic reasons, we will use the ilorest interface tool in an Out-Of-Band manner from the Media Server. This tool provides atomic and macro commands for reading and setting parameters in the iLO, the BIOS or other subsystems
+However, for didactic reasons, we will use the iLOrest interface tool in an Out-Of-Band manner from the Media Server. This tool provides atomic and macro commands for reading and setting parameters in the iLO, the BIOS or other subsystems
 
-Moreover, it respects the good practices rules described in the *Getting Started with the iLO X Redfish API – A primer for coders* articles ([iLO 4](https://sourceforge.net/p/redfish-lab/wiki/Getting-started-with-the-iLO4-Redfish-API/), [iLO 5](https://sourceforge.net/p/redfish-lab/wiki/Getting-started-with-the-iLO5-Redfish-API/)]: It does not assume that REST objects are at a specific location, but smartly crawls the entire mesh of REST types and subtypes.
+Moreover, it respects the good practices rules described in the *Getting Started with the iLO X Redfish API – A primer for coders* articles ([iLO 4](https://sourceforge.net/p/redfish-lab/wiki/Getting-started-with-the-iLO4-Redfish-API/), [iLO 5](https://sourceforge.net/p/redfish-lab/wiki/Getting-started-with-the-iLO5-Redfish-API/)]: It does not assume that REST objects are at a specific location, but smartly crawls the entire mesh of REST types and sub-types.
 
-Fortunately, `ilorest` provides a buildin macro command described in its [online documentation](https://hewlettpackard.github.io/python-redfish-utility/#virtualmedia-command).
+Fortunately, iLOrest provides a builtin macro command described in its <a href="https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide/ilocommands/#virtualmedia-command" target="_blank">online documentation</a>.
 
 To present the LiveCD to the managed server, the following basics steps will be performed from the Media Server:
 
-1.     Open an `ilorest` session with the managed iLO.
+1.     Open an iLOrest session with the managed iLO.
 
 2.     Retrieve the ID number of the CD/DvD media type (usually 2):
 
-3.     Present the LiveCD as a Virtual CD/DVD using the buildin `virtualmedia` command with the `--bootnextreset` option to trigger the next reboot on this Virtual Drive.
+3.     Present the LiveCD as a Virtual CD/DVD using the builtin `virtualmedia` command with the `--bootnextreset` option to trigger the next reboot on this Virtual Drive.
 
 3.     Close the session
 
-Opening an Out-of-Band management session with `ilorest` is very straightforward. You just need to supply the IP address of the managed iLO and the privileged credentials:
+Opening an Out-of-Band management session with iLOrest is very straightforward. You just need to supply the IP address of the managed iLO and the privileged credentials:
 
 ~~~
 Host# ilorest login <iLO_IP> -u <username> -p <password>
@@ -202,7 +209,7 @@ We are now ready to present the virtual CD/DVD with:
 Host# ilorest virtualmedia $VID http://<MediaServerIP>/livecd-centos-7-livecd-<timestamp>.iso --bootnextreset
 ~~~
 
-Make sure you logout this `ilorest` session:
+Make sure you logout this iLOrest session:
 
 ~~~
 Host# ilorest logout
@@ -210,9 +217,9 @@ Host# ilorest logout
 
 
 
-## In-Band Management with `ilorest`
+## In-Band Management with iLOrest
 
-Once the managed server is powered on, it boots on the LiveCD and can be accessed via SSH, as root without supplying any password. This gives us the possibility to send `ilorest` in-band management commands to the managed server:
+Once the managed server is powered on, it boots on the LiveCD and can be accessed via SSH, as root without supplying any password. This gives us the possibility to send iLOrest in-band management commands to the managed server:
 
 ~~~
 MediaServer# ssh root@livecd ilorest login
@@ -225,4 +232,4 @@ The above commands can be includes in a shell script file to perform specific ac
 
 ## Conclusion
 
-We’ve learned how to create a Linux (RHEL / CentOS) LiveCD embedding the RESTful interface tool (`ilorest`) and enabling in band management of a single managed server. In case you have more than one server to manage, it is also possible to use this solution and to configure all of them the exact same way at once. In this case you would use a tool like the parallel distributed shell (`pdsh`) or the cluster shell (`clush`). Look forward to more blogs that will cover topics like `pdsh` or `clush`. 
+We’ve learned how to create a Linux (RHEL / CentOS) LiveCD embedding the iLOrest RESTful interface tool and enabling in band management of a single managed server. In case you have more than one server to manage, it is also possible to use this solution and to configure all of them the exact same way at once. In this case you would use a tool like the parallel distributed shell (`pdsh`) or the cluster shell (`clush`). Look forward to more blogs that will cover topics like `pdsh` or `clush`. 
