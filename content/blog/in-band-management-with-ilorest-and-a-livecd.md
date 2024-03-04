@@ -232,4 +232,6 @@ The above commands can be includes in a shell script file to perform specific ac
 
 ## Conclusion
 
-We’ve learned how to create a Linux (RHEL / CentOS) LiveCD embedding the iLOrest RESTful interface tool and enabling in band management of a single managed server. In case you have more than one server to manage, it is also possible to use this solution and to configure all of them the exact same way at once. In this case you would use a tool like the parallel distributed shell (`pdsh`) or the cluster shell (`clush`). Look forward to more blogs that will cover topics like `pdsh` or `clush`. 
+We’ve learned how to create a Linux (RHEL / CentOS) LiveCD embedding the iLOrest RESTful interface tool and enabling in band management of a single managed server. In case you have more than one server to manage, it is also possible to use this solution and to configure all of them the exact same way at once. In this case you would use a tool like the parallel distributed shell (`pdsh`) or the cluster shell (`clush`). Look forward to more blogs that will cover topics like `pdsh` or `clush`.
+
+Don't forget to check out some of my other <a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer portal to learn more about Redfish tips and tricks.
