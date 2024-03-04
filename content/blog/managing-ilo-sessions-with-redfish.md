@@ -138,7 +138,7 @@ Future invocations of `ilorest --nocache` will have to login again and thus, cre
 
 ### In-band session deletion
 
-The previous example shows clearly a high risk of session saturation when using `ilorest --nocache`. To avoid this saturation you should include in your `ilorest` scripts, a formal deletion of one or several sessions before being locked out.
+The previous example shows clearly a high risk of session saturation when using `ilorest --nocache`. To avoid this saturation you should include in your iLOrest scripts, a formal deletion of one or several sessions before being locked out.
 
 In an in-band management context, this can be done with `ilorest rawdelete`. You can adapt the following pseudo code and insert it in different places of your in-band scripts:
 
@@ -153,3 +153,5 @@ done
 ## Conclusion
 
 Generally speaking, iLO session saturation can be avoided by performing formal logout operations using Redfish or tools like iLOrest. This best practice is valid in both out-of-band and in-band management contexts.
+
+Don't forget to check out some of my other <a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer portal to learn more about Redfish tips and tricks.
