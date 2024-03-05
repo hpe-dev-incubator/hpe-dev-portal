@@ -31,18 +31,11 @@ T﻿erms used in this blog post
 
 A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that will create the long-term token
 
-L﻿og in to the GreenLake tenant
-
-C﻿lick the "User Management" icon on the top right corner
-
-S﻿elect user/user group that will generate the SCIM proxy token
-
-S﻿elect "Actions" and then "Create Assignment"
-
-S﻿elect "SCIM Proxy Token Contributor" role
-
-S﻿elect "All Resources"  space and "greenlake.service.system" scope
-
-E﻿nable "I confirm that I want to create the assignments listed above"
-
-c﻿lick "Create Assignment"
+* L﻿og in to the GreenLake tenant
+* C﻿lick the "User Management" icon on the top right corner
+* S﻿elect user/user group that will generate the SCIM proxy token
+* S﻿elect "Actions" and then "Create Assignment"
+* S﻿elect "SCIM Proxy Token Contributor" role
+* S﻿elect "All Resources"  space and "greenlake.service.system" scope
+* E﻿nable "I confirm that I want to create the assignments listed above"
+* C﻿lick "Create Assignment" button
