@@ -14,11 +14,11 @@ tags:
 
 In <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">part 1</a> of this series, I presented the fundamentals of the Redfish® standard published by the Distributed Management Task Force (DMTF) consortium. This standard issued in 2015 aims to replace the aging Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to manage the lower layers of the local server or remote servers using a modern REST-type API. The most representative fundamentals are the separation of the protocol from the data modeling, a <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">self-describing model</a> and OEM extensions. Here in part 2, you will find other unique properties contributing to the massive adoption of this "hypermedia API" by equipment manufacturers.
 
-## Actions
+## The Redfish concept of "Actions"
 
-Redfish resources support the GET request to retrieve their current state. Modifications or deletions can be performed to certain resources using POST, PUT, PATCH and DELETE requests. Until then, nothing exceptional in the world of REST APIs, except perhaps, that it is possible to retrieve the exhaustive list of possible requests on a given resource, by consulting the `Allow` header of GET request responses. Refer to the <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">Allowed requests</a> paragraph in part 1.
+Redfish resources support the GET request to retrieve their current state. Modifications or deletions can be performed to certain resources using POST, PUT, PATCH and DELETE basic requests. Nothing exceptional in the world of REST APIs, except perhaps, that it is possible to retrieve the exhaustive list of possible requests on a given resource, by consulting the `Allow` header of GET request responses. Refer to the <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">Allowed requests</a> paragraph in Part 1.
 
-However, other types of operations are difficult to model with classic HTTP requests. For example, it is impossible to "read" the server's power button to know its status! Asking for the "return to factory settings" of a storage controller may require additional parameters like the preservation (or not) of existing logical volumes.
+However, some operations are difficult to model with the above classic HTTP requests. For example, it is impossible to "read" the server's power button to know its status. An other example that cannot be addressed by classic HTTP requests is the "return to factory settings" of a sub-system like a storage controller. This operation requires additional parameters like the preservation (or not) of existing logical volumes.
 
 To address these cases and others, Redfish offers the concept of **Actions**. These are special POST requests including the operation(s) to be performed and an empty body or a body with parameters. The POST endpoint as well as the parameters and their possible values are described in an `Actions{}` object contained in the response to a GET. Figure 1 shows the retrieval of the list of possible actions on the `ComputerSystem` subsystem of a given server, as well as their description. In this specific case, it is possible to perform a single action (`#ComputerSystem.Reset`) with a parameter (`ResetType`) which can take several values.
 
@@ -26,21 +26,21 @@ To address these cases and others, Redfish offers the concept of **Actions**. Th
 
 Figure 1: Computer system actions
 
-Figure 2 shows the graceful restart action of a server with its destination (target URI), its payload as well as the payload of the response (`Success`).
+Figure 2 shows the graceful restart action of a server with its destination (target URI) and its payload as well as the payload of the response (`Success`).
 
 ![System reset action](/img/fig2-resetaction.png "System reset action")
 
 Figure 2: System reset action
 
-The precise description of possible actions in the main body of GET responses allows Redfish clients to carry out checks to avoid sending erroneous requests, therefore creating unwanted network traffic.
+The precise description of possible actions in the main body of GET responses allows Redfish clients to carry out checks to avoid sending erroneous requests, thereby avoiding the creating of unwanted network traffic.
 
 ## The Redfish event service
 
-The Baseboard Management Controller (BMC) of modern servers communicates with almost all the server's subsystems. This privileged role allows it to be notified of events occurring in the system such as errors appearing in the memory, in the storage controllers or elsewhere. These events are stored in "log" files and SNMP traps can be triggered if the BMC has been configured beforehand.
+The Baseboard Management Controller (BMC) of modern servers communicates with almost all the server's subsystems. This privileged role allows it to be notified of events occurring in the system, such as errors appearing in the memory, in the storage controllers or elsewhere. These events are stored in "log" files. Note that SNMP traps can be triggered if the BMC has been configured beforehand.
 
 SNMP is an aging protocol that, due to its design, can saturate a network during an event storm. The processing of events by Network Management Systems (NMS) can also constitute a bottleneck in terms of CPU load or storage. Furthermore, the security linked to SNMP is often mentioned as insufficient.
 
-An alternative to SNMP is the Redfish Event Service which is based on the subscription principle. The major advantage of this principle is that events are sorted at source according to subscription criteria and sent only to subscribers. Thus, the risk of network saturation is reduced. The security of these messages is based on the Transport Layer Security (TLS) protocol used by HTTPS, and which is unanimously considered as secure.
+An alternative to SNMP is the Redfish Event Service which, is based on the subscription principle. The major advantage of this principle is that events are sorted at the source according to subscription criteria and sent only to subscribers. Thus, the risk of network saturation is reduced. The security of these messages is based on the Transport Layer Security (TLS) protocol used by HTTPS, which is unanimously considered as secure.
 
 ### Event model
 
@@ -52,7 +52,7 @@ The exhaustive list of registers that can be used to subscribe to events is retu
 
 Figure 3: Enumeration of prefixes available for event subscriptions
 
-### How to subscribe to events ?
+### How to subscribe to events?
 
 Subscription to events is done by a POST request to the standard URI `/redfish/v1/EventService/Subscriptions` that includes, in its body, the IP address of the listening service and the list of events to send to it.
 
@@ -70,7 +70,7 @@ The collection of subscriptions received by the BMC can be found at the URI: `/r
 
 Figure 5: Subscription collection
 
-The event service also allows you to easily test the subscriptions by creating an test action to `/redfish/v1/EventService/Actions/EventService.SubmitTestEvent` with, in its body, the first part of the `MessageId` property correctly populated so that the test event is sent to the correct system (Figure 6).
+The event service also allows you to easily test the subscriptions by creating a test action to `/redfish/v1/EventService/Actions/EventService.SubmitTestEvent` with, in its body, the first part of the `MessageId` property correctly populated so that the test event is sent to the correct system (Figure 6).
 
 ![Test event](/img/fig6-testevent.png "Test event")
 
@@ -78,7 +78,7 @@ Figure 6: Test event
 
 ## The Telemetry service
 
-Supervising a server fleet involves retrieving indicators such as the temperature of certain components, the energy consumed by power supplies, CPUs or fans, in order to create metric reports, graphs or generate alerts. The most obvious recovery method is to locate the URI of the desired indicators and retrieve them on demand. There is an alternative to this "pull" type method: a "push" of indicators from the BMC towards subscribers. This alternative is possible thanks to the Redfish telemetry service.
+Supervising a server fleet involves retrieving indicators such as the temperature of certain components and the energy consumed by power supplies, CPUs or fans, in order to create metric reports, graphs or generate alerts. The most obvious recovery method is to locate the URI of the desired indicators and retrieve them on demand. There is an alternative to this "pull" type method: a "push" of indicators from the BMC towards subscribers. This alternative is possible thanks to the Redfish telemetry service.
 
 The telemetry entry point is at `/redfish/v1/TelemetryService` and has the following resources:
 
@@ -135,7 +135,7 @@ Thus, the components of a server powered on but without an operating system can 
 
 ## Swordfish® integration
 
-Very quickly after the publication of the first version of Redfish in 2015, the SNIA, which develops data standards, created an extension of Redfish dedicated to storage and called Swordfish®. Figure 10 shows the headers of a response to a request on a logical volume. The Link header points to a subdirectory dedicated to Swordfish® on the DMTF site. Most storage-related schemes are developed by the Storage Networking Industry Association (<a href="https://www.snia.org/" target="_blank">SNIA</a>) and hosted by the DMTF. A great example of cooperation between standardization organizations!
+Very quickly after the publication of the first version of Redfish in 2015, the SNIA, which develops data standards, created an extension of Redfish dedicated to storage and called Swordfish®. Figure 10 shows the headers of a response to a request on a logical volume. The Link header points to a sub-directory dedicated to Swordfish® on the DMTF site. Most storage-related schemes are developed by the Storage Networking Industry Association (<a href="https://www.snia.org/" target="_blank">SNIA</a>) and hosted by the DMTF. A great example of cooperation between standardization organizations!
 
 ![ Link to Swordfish® URL](/img/fig10-swordfishschema.png " Link to Swordfish® URL")
 
@@ -143,7 +143,7 @@ Figure 10:  Link to Swordfish® URL
 
 ## Security and component integrity
 
-The majority of computer manufacturers have implemented secure production methods that guarantee all the components constituting a server do not contain viruses or other malware when leaving the factory or even when leaving the truck at final destination. Indeed, a lot can happen during intercontinental transport of electronic goods!
+The majority of computer manufacturers have implemented secure production methods that guarantee all the components constituting a server do not contain viruses or other malware when leaving the factory or even when leaving the truck at its final destination. Indeed, a lot can happen during intercontinental transport of electronic goods!
 
 However, this warranty does not necessarily apply to additional components purchased on the Internet or at a local electronics store.
 
@@ -157,9 +157,9 @@ Figure 11: SPDM configuration
 
 ## What about the future ?
 
-While the first part of this introduction to Redfish® focused on the architectural specifics of the API, this second part goes deeper in the server data model and its smooth integration with additional components using powerful internal communication standards helping the improvement of security and firmware update.
+While the first part of this introduction to Redfish focused on the architectural specifics of the API, this second part goes deeper in the server data model and its smooth integration with additional components using powerful internal communication standards helping the improvement of security and firmware update.
 
-Overall, the Redfish API has sufficiently solid foundations to handle future long term developments; on the protocol side, everything is stable with HTTPs and JSON. On the other hand, there are new technologies that are starting to arrive on the market and their modeling by Redfish is in progress. I am particularly thinking of the "Compute Express Link" (<a href="https://computeexpresslink.org/" target="_blank">CXL</a>) which will change the internal architecture of the servers and which will therefore have to be modeled. The current <a href="https://www.dmtf.org/standards/wip" target="_blank">project</a> can be consulted on the DMTF website.
+Overall, the Redfish API has sufficiently solid foundations to handle future long term developments; on the protocol side, everything is stable with HTTPs and JSON. On the other hand, there are new technologies that are starting to arrive on the market and their modeling by Redfish is in progress. I am particularly thinking of the "Compute Express Link" (<a href="https://computeexpresslink.org/" target="_blank">CXL</a>), which will change the internal architecture of the servers and which will therefore have to be modeled. The current <a href="https://www.dmtf.org/standards/wip" target="_blank">project</a> can be consulted on the DMTF website.
 
 And so, the best is yet to come!
 
