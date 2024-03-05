@@ -19,7 +19,7 @@ This blog post describes the details steps on how to generate a self-signed cert
 
 
 
-After containerized applications being deployed in the cluster, one common requirement is to expose the application to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates in is not always easy. ….
+After containerized applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates in is not always easy. ….
 
 This blog post, I 
 
@@ -31,13 +31,15 @@ Before starting, make sure you have the following:
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The o﻿ptional openssl CLI tool, for validating the generated certificate 
 
-### cert-manager
+### Cert-manager
 
-[cert-manager](https://cert-manager.io/) is a certificate controller that works with K8s. When deployed in K8s, cert-manager will automatically issue certificates required by Ingress controllers and will ensure they are valid and up to date. 
+[Cert-manager](https://cert-manager.io/) is a native K8s certificate management controller that streamlines the process of acquiring, renewing, and utilizing SSL/TLS certificates within a K8s cluster. When deployed in a K8s cluster, cert-manager introduces two custom resource definitions (CRDs): *Issuers* and *Certificates*. These CRDs automate the generation and renewal of certificates for various scenarios. Cert-manager can obtain certificates from a variety of certificate authorities (CAs), including *Let’s Encrypt*, *HashiCorp Vault*, and *private PKIs*. It can also be configured to generate self-signed certificates if needed. When cert-manager creates a certificate, it  makes it available to the entire cluster by storing certificate as a K8s *Secret* object, which can be mounted by application Pods or used by an Ingress controller. This makes the certificate accessible across all namespaces within the K8s cluster. This blog post describes the detailed steps on generating a self-signed certificate using cert-manager in K8s.
 
 #﻿## Generate a self-signed certificate
 
 #### Install cert-manager
+
+
 
 Following [cert-manager installation page](https://cert-manager.io/docs/installation/), cert-manager can be installed by typing the following _kubectl  apply_ command:
 
@@ -120,21 +122,27 @@ replicaset.apps/cert-manager-6bcdd5f7c               1         1         1      
 replicaset.apps/cert-manager-cainjector-5d4577b4d9   1         1         1       3m39s
 replicaset.apps/cert-manager-webhook-bf957dc77       1         1         1       3m38s
 ```
-#### Create a Certificate Issuer
 
-**Create a namespace**
-
-where you plan to generate certificates:
+A﻿s part of cert-manager installation, a list of cert-manager CRDs has been added to the cluster:
 
 ```shell
 
 
-$ k create namespace cfe-apps
+
+$ kubectl get crds | grep cert-manager
+certificaterequests.cert-manager.io                                 2024-02-02T15:42:53Z
+certificates.cert-manager.io                                        2024-02-02T15:42:53Z
+challenges.acme.cert-manager.io                                     2024-02-02T15:42:54Z
+clusterissuers.cert-manager.io                                      2024-02-02T15:42:55Z
+issuers.cert-manager.io                                             2024-02-02T15:42:55Z
+orders.acme.cert-manager.io                                         2024-02-02T15:42:56Z
 ```
 
+#### Create an Issuer
 
+A﻿n *Issuer* in cert-manager is a K8s CRD resource that represents a certificate authority (CA) that's able to generate a signed certificate by honoring certificate signing request (CSR). All cert-manager certificates require a referenced issuer that is in a ready condition to attempt to honor the request. 
 
-**Define a certificate issuer**
+H﻿ere is a self-signed issuer YAML manifest file *issuer-selfsigned.yaml*:
 
 ```shell
 
@@ -148,11 +156,14 @@ spec:
  selfSigned: {}
 ```
 
-**Deploy a certificate issuer**
-
+Type the following commands to create a namespace *cfe-apps* in which you want to generate certificates and deploy the issuer:
+ 
 ```shell
 
 
+
+$ kubectl create ns cfe-apps
+namespace/cfe-apps created
 
 $ kubectl apply -f issuer-selfsigned.yaml -n cfe-apps
 issuer.cert-manager.io/cfe-selfsigned-issuer created
@@ -163,7 +174,7 @@ NAME                    READY   AGE
 cfe-selfsigned-issuer   True    7s
 ```
 
-An issuer created in this way works only for the current namespace. If you want to be able to request certificates from any namespace in a cluster, create a custom Kubernetes resource called *ClusterIssuer* using the following YAM manifest file *clusterissuer.yaml*:
+If you want to be able to request certificates from any namespace in a cluster, create a CRD resource called *ClusterIssuer* using the following YAM manifest file *clusterissuer.yaml*:
 
 ```shell
 
@@ -198,32 +209,29 @@ spec:
  secretName: cfe-tls-key-pair
  isCA: true
  issuerRef:
-
    name: cfe-selfsigned-issuer
    kind: Issuer
  commonName: "example.com"
  dnsNames:
  # one or more fully-qualified domain name
  # can be defined here
-
  - nginx.example.com
-
  - example.com
 
 
 
 
-$ kubectl apply -n game-mario -f certificate.yaml
+$ kubectl apply -n game-mario -f certificate.yaml
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
-$ k apply -f certificate.yaml -n cfe-apps
+$ kubectl apply -f certificate.yaml -n kubectl
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
 $ k get certificate -n cfe-apps
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   23s
 
-$ k get secrets -n cfe-apps cfe-tls-key-pair
+$ kubectl get secrets -n cfe-apps cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      52s
 
@@ -232,13 +240,13 @@ cfe-tls-key-pair   kubernetes.io/tls   3      52s
 
 
 
-$ kubectl get certificate -n game-mario
+$ kubectl get certificate -n kubectl
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   2m56s
 
 
 
-$ kubectl get secret -n game-mario cfe-tls-key-pair
+$ kubectl get secret -n game-mario cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      63s
 ```
