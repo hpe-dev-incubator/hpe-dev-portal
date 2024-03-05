@@ -13,3 +13,11 @@ The Azure AD provisioning service provisions users to GreenLake portal by connec
 I'll explain the process for configuring Azure AD to use a long-term token for user and group provisioning.
 
 ## C﻿ontents
+
+## \
+T﻿erms used in this blog post
+
+* **A﻿D**: Active Directory
+* **I﻿AM**: Identity and Access Management
+
+## S﻿teps to configure long-term token in Azure AD
