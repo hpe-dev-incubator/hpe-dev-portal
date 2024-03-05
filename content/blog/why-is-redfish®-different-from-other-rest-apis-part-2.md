@@ -12,7 +12,13 @@ tags:
 
 ## Introduction
 
-In <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">part 1</a> of this series, I presented the fundamentals of the Redfish® standard published by the Distributed Management Task Force (DMTF) consortium. This standard issued in 2015 aims to replace the aging Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to manage the lower layers of the local server or remote servers using a modern REST-type API. The most representative fundamentals are the separation of the protocol from the data modeling, a <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">self-describing model</a> and OEM extensions. Here in part 2, you will find other unique properties contributing to the massive adoption of this "hypermedia API" by equipment manufacturers.
+In <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">part 1</a> of this series, I presented some of the fundamentals of the Redfish® standard published by the Distributed Management Task Force (DMTF) consortium in 2015. Among them:
+
+* The separation of the protocol from the data modeling
+* A <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">self-describing model</a> 
+* OEM extensions.
+
+Here in part 2, you will find other unique properties contributing to the massive adoption of this "hypermedia API" by equipment manufacturers and to the replacement of the aging Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>). 
 
 ## The Redfish concept of "Actions"
 
@@ -82,8 +88,8 @@ Supervising a server fleet involves retrieving indicators such as the temperatur
 
 The telemetry entry point is at `/redfish/v1/TelemetryService` and has the following resources:
 
-* **Metric Definitions:** CPU or memory bus usage, power supply consumption, etc. Each definition contains multiple properties such as the indicator type (decimal, integer, percentage), its maximum-minimum values and the URI allowing its value to be retrieved at a given time.
-* **Report definitions**: For example, Figure 7 shows a report aggregating all indicators relating to the power used by the system. These definitions also indicate when to generate reports (periodically, on demand, or following a change in state or value). We also find the URI of the generated reports.
+* **Metric definitions:** CPU or memory bus usage, power supply consumption, etc. Each definition contains multiple properties such as the indicator type (decimal, integer, percentage), its maximum-minimum values and the URI allowing its value to be retrieved at a given time.
+* **Report definitions**: These definitions mainly indicate  which metrics are part of a report, when to generate the report and where it will be posted. For example, Figure 7 shows a report aggregating all indicators relating to the power used by the system. This report will be generated periodically and will be posted at the `@odata.id` URI.
 * **Definitions of triggering actions**: Depending on the value or trend (increasing or decreasing) of certain indicators, one or more actions will be triggered, such as recording in a log file, generating an event or requesting the generation of a new telemetry report.
 
 ![ Metric report definition](/img/fig7-metricreportdefinition.png " Metric report definition")
@@ -93,7 +99,7 @@ Figure 7:  Metric report definition
 The model shown above is both powerful and extremely flexible. It allows you to:
 
 * Retrieve indicators individually whenever you want.
-* Retrieve telemetry reports potentially aggregating several indicators and following a customizable frequency.
+* Retrieve telemetry reports, potentially aggregating several indicators and following a customizable frequency.
 * Be informed when an indicator crosses a threshold or leaves a given range following a certain trend.
 * Subscribe to telemetry reports asynchronously.
 
@@ -107,9 +113,9 @@ Figure 8: Telemetry event subscription
 
 ## Additional components integration
 
-Additional components such as network cards and storage controllers are integrated in the  Redfish data model transparently to Redfish clients. The retrieval of their state, their configuration and their firmware update is done in a similar manner to the other components of the server. This is possible with the implementation in the BMC and in these components of the Platform Level Data Model (<a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0240_1.0.0.pdf" target="_blank">PLDM</a>) protocol.
+Additional components, such as network cards and storage controllers, are integrated in the  Redfish data model transparently to Redfish clients. The retrieval of their state, their configuration and their firmware update is done in a similar manner to the other components of the server. This is possible with the implementation in the BMC and in these components of the Platform Level Data Model (<a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0240_1.0.0.pdf" target="_blank">PLDM</a>) protocol.
 
-PLDM, published by the DMTF, standardizes messages between the BMC and server components. Thus, add-on cards manufacturers and generic BMCs providers like <a href="https://www.openbmc.org/" target="_blank">OpenBMC</a>, no longer have to implement proprietary protocols to communicate with the different subsystems.
+PLDM, published by the DMTF, standardizes messages between the BMC and server components. Thus, add-on card manufacturers and generic BMCs providers like <a href="https://www.openbmc.org/" target="_blank">OpenBMC</a>, no longer have to implement proprietary protocols to communicate with the different subsystems.
 
 Figure 9 explains the communication between a Redfish client and an add-on card. HTTPS requests sent by the client are transformed by the BMC into PLDM messages. These messages are transported by the Management Component Transport Protocol (<a href="https://www.dmtf.org/documents/pmci/mctp-base-specification-121"  target="_blank">MCTP</a>) to the component that will respond via the same communication channel. When the dialogue between the BMC and the component is finished, the BMC aggregates the received PLDM messages and responds to the client via HTTPS/JSON.
 
@@ -121,7 +127,7 @@ Figure 9: Offload Redfish processing to device
 
 PLDM specifications are generic and must be supplemented to satisfy specific uses such as a Redfish Device Enablement (<a href="https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish%C2%AE-device-enablement-standard/" target="_blank">RDE</a>). This <a href="https://www.dmtf.org/content/dmtf-releases-update-pldm-redfish-device-enablement-specification" target="_blank">specification</a> describes a set of specific messages allowing the BMC to communicate with additional components.
 
-But why do I focus on hidden internal server communication protocols? To make certain consequences easier to understand:
+But why do I focus on hidden internal server communication protocols? I do so to make certain consequences easier to understand, such as:
 
 * If the server is not powered on, the BMC, which is always powered, will not be able to communicate with the add-on components. In other words, for a Redfish client to be able to communicate with those components, they must be powered (server powered on), and must have been discovered by the BMC. It is recommended to test the <a href="https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme/" target="_blank">server state</a> before querying additional components.
 * If additional component responses contain OEM extensions, they will not mention the server manufacturer, but the component manufacturer.
@@ -133,13 +139,13 @@ PLDM also facilitates updates of additional components. The <a href="https://dev
 
 Thus, the components of a server powered on but without an operating system can be updated by a remote Redfish client. PLDM for firmware updates constitutes real progress much appreciated by system managers and other devOps.
 
-## Swordfish® integration
+## Swordfish integration
 
-Very quickly after the publication of the first version of Redfish in 2015, the SNIA, which develops data standards, created an extension of Redfish dedicated to storage and called Swordfish®. Figure 10 shows the headers of a response to a request on a logical volume. The Link header points to a sub-directory dedicated to Swordfish® on the DMTF site. Most storage-related schemes are developed by the Storage Networking Industry Association (<a href="https://www.snia.org/" target="_blank">SNIA</a>) and hosted by the DMTF. A great example of cooperation between standardization organizations!
+Very quickly after the publication of the first version of Redfish in 2015, the SNIA, which develops data standards, created an extension of Redfish dedicated to storage and called Swordfish®. Figure 10 shows the headers of a response to a request on a logical volume. The Link header points to a sub-directory dedicated to Swordfish on the DMTF site. Most storage-related schemes are developed by the Storage Networking Industry Association (<a href="https://www.snia.org/" target="_blank">SNIA</a>) and hosted by the DMTF. A great example of cooperation between standardization organizations!
 
 ![ Link to Swordfish® URL](/img/fig10-swordfishschema.png " Link to Swordfish® URL")
 
-Figure 10:  Link to Swordfish® URL
+Figure 10:  Link to Swordfish URL
 
 ## Security and component integrity
 
@@ -159,7 +165,7 @@ Figure 11: SPDM configuration
 
 While the first part of this introduction to Redfish focused on the architectural specifics of the API, this second part goes deeper in the server data model and its smooth integration with additional components using powerful internal communication standards helping the improvement of security and firmware update.
 
-Overall, the Redfish API has sufficiently solid foundations to handle future long term developments; on the protocol side, everything is stable with HTTPs and JSON. On the other hand, there are new technologies that are starting to arrive on the market and their modeling by Redfish is in progress. I am particularly thinking of the "Compute Express Link" (<a href="https://computeexpresslink.org/" target="_blank">CXL</a>), which will change the internal architecture of the servers and which will therefore have to be modeled. The current <a href="https://www.dmtf.org/standards/wip" target="_blank">project</a> can be consulted on the DMTF website.
+The specificities of the Redfish standard listed in both parts of this introduction provide a solid foundation to ensure a long term stability of the protocol and the computer data model. This stability is necessary for a smooth adoption of this standard by programmers. Moreover, it will facilitate the creation of new models for emerging technologies like the "Compute Express Link" (<a href="https://computeexpresslink.org/" target="_blank">CXL</a>). 
 
 And so, the best is yet to come!
 
