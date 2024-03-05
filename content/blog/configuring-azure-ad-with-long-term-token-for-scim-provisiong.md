@@ -31,11 +31,25 @@ T﻿erms used in this blog post
 
 A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that will create the long-term token
 
-* L﻿og in to the GreenLake tenant
-* C﻿lick the "User Management" icon on the top right corner
-* S﻿elect user/user group that will generate the SCIM proxy token
-* S﻿elect "Actions" and then "Create Assignment"
-* S﻿elect "SCIM Proxy Token Contributor" role
-* S﻿elect "All Resources"  space and "greenlake.service.system" scope
-* E﻿nable "I confirm that I want to create the assignments listed above"
-* C﻿lick "Create Assignment" button
+* L﻿og in to the HPE GreenLake Cental.
+* C﻿lick the "User Management" icon on the top right corner.
+* S﻿elect user/user group that will generate the SCIM proxy token.
+* S﻿elect "Actions" and then "Create Assignment".
+* S﻿elect "SCIM Proxy Token Contributor" role.
+* S﻿elect "All Resources"  space and "greenlake.service.system" scope.
+* E﻿nable "I confirm that I want to create the assignments listed above".
+* C﻿lick "Create Assignment" button.
+
+## S﻿tep 2: G﻿et a personal access token
+
+An API token issued by the GreenLake Central platform must be used as the Bearer token in the Authorization header of GreenLake Central REST API requests. Perform the following steps to get API access token from GreenLake Central portal:
+
+* Log in to HPE GreenLake Central.
+* Click the profile icon in the top-right corner.
+* Select API Access.
+* Copy the API access token.
+* Save it for use with curl or other REST API client.
+
+  For example: export BEARER_TOKEN=<paste token value>
+
+## S﻿tep 3: Create a SCIM proxy token
