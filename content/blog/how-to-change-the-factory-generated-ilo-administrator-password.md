@@ -10,6 +10,7 @@ tags:
   - iLO
   - Redfish
   - ilorest
+  - ilo-restful-api
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
