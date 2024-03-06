@@ -53,7 +53,7 @@ An API token issued by the HPE GreenLake Central platform must be used as the Be
 
 A SCIM Proxy Token is required for the SCIM integration to work. Run the following curl command to generate the SCIM Proxy token:
 
-\`curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-hpe.com/v1alpha1/proxytoken\\`
+\`curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-hpe.com/v1alpha1/proxytoken\`
 
 **N﻿ote**: This step must be performed once during initial setup and every time a token is deleted.
 
