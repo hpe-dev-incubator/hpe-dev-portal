@@ -24,7 +24,7 @@ I'll explain the process for configuring Azure AD to use a long-term token for u
 A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that will create the long-term token
 
 * L﻿og in to the HPE GreenLake Cental.
-* C﻿lick the "User Management" icon on the top right corner.
+* C﻿lick the "User Management" icon on the top-right corner.
 * S﻿elect user/user group that will generate the SCIM proxy token.
 * S﻿elect "Actions" and then "Create Assignment".
 * S﻿elect "SCIM Proxy Token Contributor" role.
@@ -39,7 +39,7 @@ A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that wil
 An API token issued by the GreenLake Central platform must be used as the Bearer token in the Authorization header of GreenLake Central REST API requests. Perform the following steps to get API access token from GreenLake Central portal:
 
 * Log in to HPE GreenLake Central.
-* Click the profile icon in the top-right corner.
+* Click the profile icon on the top-right corner.
 * Select API Access.
 * Copy the API access token.
 * Save it for use with curl or other REST API client.
@@ -61,12 +61,12 @@ curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-
 
 The generated SCIM Proxy Token should be copied and applied in the Azure AD Enterprise Application.
 
-*   In Azure AD go to the “Enterprise applications”
-*   Click the “SSO-Integration” application
-*   Click the “Provisioning” on the left navigation window
-*   Click the “Edit provisioning
-*   Click the “Admin Credentials”
-*   Update the generated token in the “Secret Token” field
-*   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field
+*   In Azure AD, go to the “Enterprise applications”.
+*   Click the “SSO-Integration” application.
+*   Click the “Provisioning” on the left navigation window.
+*   Click the “Edit provisioning.
+*   Click the “Admin Credentials”.
+*   Update the generated token in the “Secret Token” field.
+*   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
 
 ![](/img/screenshot-2024-02-14-at-2.08.46 pm.png)
