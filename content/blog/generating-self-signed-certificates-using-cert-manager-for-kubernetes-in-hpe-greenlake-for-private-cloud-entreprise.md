@@ -193,7 +193,7 @@ spec:
 #### Generate a certificate
 
 
-Generate a self-signed certificate by using the following YAML file *certificate.yaml*:
+H﻿ere is a sample YAML manifest file *certificate.yaml* that can be used for generating a self-signed certificate:
 
 ```shell
 
@@ -213,20 +213,28 @@ spec:
    kind: Issuer
  commonName: "example.com"
  dnsNames:
- # one or more fully-qualified domain name
- # can be defined here
+
  - nginx.example.com
  - example.com
 
 
 
+```
 
-$ kubectl apply -n game-mario -f certificate.yaml
+I﻿n this YAML file, the *commonName* is set to a sample domain *'example.com'*. The *dnsNames* includes *'example.com'* and its subdomain *'nginx.example.com'*. 
+
+Cert-manager  supports generate wildcard certificates, e.g., using *'*.example.com'*, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
+
+T﻿ype the following command to generate the certificate in the namespace *cfe-apps*:
+
+```shell
+$ kubectl apply -f certificate.yaml -n cfe-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
+```
 
-$ kubectl apply -f certificate.yaml -n kubectl
-certificate.cert-manager.io/cfe-selfsigned-tls created
+T﻿ype the following commands to check the generated certificate and the secret in the namespace *cfe-apps*:
 
+```shell
 $ k get certificate -n cfe-apps
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   23s
@@ -239,29 +247,18 @@ cfe-tls-key-pair   kubernetes.io/tls   3      52s
 
 
 
-
-$ kubectl get certificate -n kubectl
-NAME                 READY   SECRET             AGE
-cfe-selfsigned-tls   True    cfe-tls-key-pair   2m56s
-
-
-
-$ kubectl get secret -n game-mario cfe-tls-key-pair
-NAME               TYPE                DATA   AGE
-cfe-tls-key-pair   kubernetes.io/tls   3      63s
 ```
 
-
-
-View information about the Secret
+T﻿he created secret *cfe-tls-key-pair* contains 3 keys, *ca.crt*, *tls.crt* and *tls.key*, which can be checked using the option **-o yaml** in above *get secrets* command.
 
 
 
-It shows that there are 3 keys contained in the secret, ca.crt, tls.crt and tls.key.
 
 
 
 #### Test the certificate
+
+T﻿ype the following *openssl* command to check the generated certificate:
 
 ```shell
 $ openssl x509 -in <(kubectl get secret -n cfe-apps cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d)
@@ -329,87 +326,84 @@ Certificate:
 
 ```
 
-### Expose an app over TLS termination
+The line *X509v3 Subject Alternative Name* contains the *dnsNames* specified in the file *certificate.yaml* during the certificate generation.  
 
-#﻿### Set up load balancer 
+### Integrate certificate with applications 
 
-#﻿### Install Nginx ingress controller
+There are several ways to integrate the generated certificates into applications deployed in the K8s cluster and configure applications to be accessed securely over HTTPS.
 
-#﻿### Deploy Nginx application
+
+The simplest way is to create the K8s *Deployment* resource with TLS block and *containerPort* configuration.
+
+
+Here is one sample Nginx Deployment YAML manifest file *nginx-deployment.yaml* that integrates the generated certificate:  
 
 ```shell
-$ cat apps/nginx.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-main
-  labels:
-    run: nginx-main
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    run: nginx-main
----
+$ cat nginx-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    run: nginx
-  name: nginx-main
+  name: nginx-app
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      run: nginx-main
   template:
-    metadata:
-      labels:
-        run: nginx-main
     spec:
-      volumes:
-      - name: webdata
-        emptyDir: {}
-      initContainers:
-      - name: web-content
-        image: busybox
-        volumeMounts:
-        - name: webdata
-          mountPath: "/webdata"
-        command: ["/bin/sh", "-c", 'echo "<h1>This is the <font color=turquoise>Nginx MAIN app</font> over secure HTTP</h1>" > /webdata/index.html']
       containers:
       - image: nginx
         name: nginx
-        volumeMounts:
-        - name: webdata
-          mountPath: "/usr/share/nginx/html"
+        ports:
+        - containerPort: 443
+      tls:
+      - secretName: cfe-tls-key-pair
 ```
 
+By specifying the *containerPort* as *443* and referring the *secretName* to the generated K8s secret *cfe-tls-key-pair* under *tls* section, it enables TLS termination for the Nginx application.
+
+
+
+There is another way to integrate certificate and configure it using the K8s *Ingress* resource with TLS parameters. This configuration requires a working Ingress controller setup in the cluster.
+
+
+
+Here is one such sample Ingress YAML manifest file *ingress-nginx-selfsigned.yaml*:
 
 
 ```shell
-$ k apply -f apps/nginx.yaml -n cfe-apps
-service/nginx-main created
-deployment.apps/nginx-main created
+$ cat ingress-nginx-selfsigned.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-selfsigned
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/issuer: "cfe-selfsinged-issuer"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - nginx.example.com
+    secretName: cfe-tls-key-pair
+  rules:
+  - host: nginx.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-app
+            port:
+              number: 80
 ```
+It assumes the Nginx Ingress controller is deployed in the cluster. It configures the TLS block with the hostname *’nginx.example.com’* and the generated K8s secret. 
 
 
 
-```shell
-$ k get all -n cfe-apps
-NAME                             READY   STATUS    RESTARTS   AGE
-pod/nginx-main-88458c48d-n4qfk   1/1     Running   0          26s
+One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*. The Ingress controller will handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.
 
-NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
-service/nginx-main   ClusterIP   10.99.86.182   <none>        80/TCP    32s
 
-NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/nginx-main   1/1     1            1           32s
 
-NAME                                   DESIRED   CURRENT   READY   AGE
-replicaset.apps/nginx-main-88458c48d   1         1         1       32s
-```
+
 
 #﻿### Configure Ingress
 
