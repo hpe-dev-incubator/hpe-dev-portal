@@ -14,8 +14,9 @@ I'll explain the process for configuring Azure AD to use a long-term token for u
 
 ## C﻿ontents
 
-## \
-T﻿erms used in this blog post
+
+
+## T﻿erms used in this blog post
 
 * **A﻿D**: Active Directory
 * **I﻿AM**: Identity and Access Management
@@ -49,8 +50,7 @@ An API token issued by the GreenLake Central platform must be used as the Bearer
 * Select API Access.
 * Copy the API access token.
 * Save it for use with curl or other REST API client.
-
-  For example: export BEARER_TOKEN=<paste token value>
+* For example: export BEARER_TOKEN=<paste token value>
 
 **N﻿ote**: This token is valid for 15 minutes after generation
 
@@ -68,12 +68,12 @@ curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-
 
 The generated SCIM Proxy Token should be copied and applied in the Azure AD Enterprise Application.
 
-1.   In Azure AD go to the “Enterprise applications”
-2.   Click the “SSO-Integration” application
-3.   Click the “Provisioning” on the left navigation window
-4.   Click the “Edit provisioning
-5.   Click the “Admin Credentials”
-6.   Update the generated token in the “Secret Token” field
-7.   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field
+*   In Azure AD go to the “Enterprise applications”
+*   Click the “SSO-Integration” application
+*   Click the “Provisioning” on the left navigation window
+*   Click the “Edit provisioning
+*   Click the “Admin Credentials”
+*   Update the generated token in the “Secret Token” field
+*   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field
 
 ![](/img/screenshot-2024-02-14-at-2.08.46 pm.png)
