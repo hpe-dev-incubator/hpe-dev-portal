@@ -30,9 +30,56 @@ Before starting, make sure you have the following:
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The o﻿ptional openssl CLI tool, for validating the generated certificates 
 
+#﻿### Configure Ingress
+
+```shell
+ $ cat ingress-simple-selfsigned.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-selfsigned
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    #kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "cfe-selfsinged-issuer"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - nginx.example.com
+    secretName: cfe-tls-key-pair
+  rules:
+  - host: nginx.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-main
+            port:
+              number: 80
+```
+
+
+```shell
+$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
+ingress.networking.k8s.io/nginx-ingress-selfsigned created
+```
 
 
 
+```shell
+$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
+ingress.networking.k8s.io/nginx-ingress-selfsigned created
+```
+
+
+
+```shell
+$ host nginx.example.com
+nginx.example.com has address 10.6.115.251
+```
 
 ![](/img/nginx-private.png)  
 
