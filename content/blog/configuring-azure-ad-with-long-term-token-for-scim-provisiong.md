@@ -65,3 +65,13 @@ curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-
 
 
 ## S﻿tep 4: Update the SCIM proxy token and the tenant URL in Azure AD Enterprise Application
+
+The generated SCIM Proxy Token should be copied and applied in the Azure AD Enterprise Application.
+
+1.   In Azure AD go to the “Enterprise applications”
+2.   Click the “SSO-Integration” application
+3.   Click the “Provisioning” on the left navigation window
+4.   Click the “Edit provisioning
+5.   Click the “Admin Credentials”
+6.   Update the generated token in the “Secret Token” field
+7.   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field
