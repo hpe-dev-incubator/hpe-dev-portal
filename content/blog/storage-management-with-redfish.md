@@ -3,7 +3,7 @@ title: Storage management with Redfish
 date: 2018-10-30T17:05:18.375Z
 featuredBlog: false
 priority: null
-author: Francois Donze
+author: François Donzé
 authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
 thumbnailimage: null
 tags:
@@ -35,7 +35,7 @@ I've used the <a href="https://www.getpostman.com/" target="_blank">Postman</a> 
 
 The reader should have the knowledge of HTTP <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank">request methods</a> like `GET`, `PUT` and `PATCH`.
 
-Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://servermanagementportal.ext.hpe.com/docs/concepts/redfishauthentication/). More hints for managing iLO sessions with Redfish can be found in this <a href="https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/" target="_blank">article</a>.
+Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the <a href="https://servermanagementportal.ext.hpe.com/docs/concepts/redfishauthentication/" target="_blank">HPE Redfish API Reference documentation</a>. More hints for managing iLO sessions with Redfish can be found in this <a href="https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/" target="_blank">article</a>.
 
 ## Storage data models
 
@@ -72,7 +72,7 @@ Modification of Bios and storage controller configurations are performed in two 
 
 Upon reboot, and once the server has finished its Pre-OS Tasks (POST), you should check carefully whether the modifications have been accepted as the current configuration.
 
-## The `DataGuard` property
+## The DataGuard property
 
 The management of HPE Smart Storage devices requires a proper understanding of the `DataGuard` property part of the `SmartStorageConfig` sub-tree. The value of this attribute "*indicates  whether or not data destructive actions are allowed*" as explained in the [API Reference documentation](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_290/ilo5_other_resourcedefns290/#dataguard).
 
