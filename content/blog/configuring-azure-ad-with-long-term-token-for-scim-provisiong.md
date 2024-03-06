@@ -5,6 +5,8 @@ priority: 9
 author: Meena Krishnamoorthy
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - HPE GreenLake for Private Cloud Enterprise
 ---
 Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service, designed to simplify user authentication and authorization across various applications and platforms. It offers a centralized solution for managing user identities, enforcing security policies, and facilitating seamless access to cloud-based resources. Azure AD automatic user provisioning simplifies the creation, maintenance, and removal of user identities in SaaS applications based on business rules.
 
