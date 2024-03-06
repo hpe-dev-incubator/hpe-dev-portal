@@ -25,7 +25,7 @@ HPE rack-mount servers, unless they have been customized by the <a href="https:/
 
 Instead, I will use an in-band management access method with the <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">HPE iLOrest</a> tool. This RESTful Interface tool can talk to iLO 4/5/6 either from remote (out-of-band) or from the Operating System (Linux or Windows) running on the server itself (In-band management).
 
-> **NOTE**: The method presented below works only if the security state is `Production`. In higher security states, it is required to supply credentials. Use the following command to retrieve the `SecurityState` property of a server:
+> **NOTE**: The method presented below works only if the iLO security state is `Production`. In higher security states, it is required to supply credentials. Use the following command to retrieve the `SecurityState` property of an iLO:
 >
 > `ilorest get SecurityState --select HpeSecurityService. --url <ilo-ip> --user <ilo-user> --password password --logout`
 
@@ -40,7 +40,7 @@ To set the iLO Administrator password, when logged in to the OS as a privileged 
 }
 ```
 
-Then, using the HPE iLOrest tool, I connect to the iLO via the <a href="https://developer.hpe.com/blog/chif-driver-not-found/" target="_blank">Channel Interface</a> (CHIF). Again, when logged as a privileged user, when the iLO is in `Production` mode, you don't need to supply any credential, and you can send the password request modification:
+Then, using the HPE iLOrest tool, I connect to the iLO via the <a href="https://developer.hpe.com/blog/chif-driver-not-found/" target="_blank">Channel Interface</a> (CHIF). Again, when logged as a privileged user, when the iLO is in `Production` security state, you don't need to supply any credential, and you can send the password request modification:
 
 ![Changing the iLO factory generated Administrator password with iLOrest](/img/1-change-password-with-ilorest.png "Changing the iLO factory generated Administrator password with iLOrest")
 
