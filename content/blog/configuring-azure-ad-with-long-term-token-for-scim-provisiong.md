@@ -1,5 +1,5 @@
 ---
-title: Configuring Azure AD with Long Term Token for SCIM Provisiong
+title: Configuring Azure AD with long term token for user provisiong
 date: 2024-03-05T22:06:07.623Z
 priority: 9
 author: Meena Krishnamoorthy
@@ -57,18 +57,16 @@ curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-
 
 **N﻿ote**: This step must be performed once during initial setup and every time a token is deleted.
 
-
-
 ## S﻿tep 4: Update the SCIM proxy token and the tenant URL in Azure AD Enterprise Application
 
 The generated SCIM Proxy Token should be copied and applied in the Azure AD Enterprise Application.
 
-*   In Azure AD, go to the “Enterprise applications”.
-*   Click the “SSO-Integration” application.
-*   Click the “Provisioning” on the left navigation window.
-*   Click the “Edit provisioning.
-*   Click the “Admin Credentials”.
-*   Update the generated token in the “Secret Token” field.
-*   Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
+*  In Azure AD, go to the “Enterprise applications”.
+*  Click the “SSO-Integration” application.
+*  Click the “Provisioning” on the left navigation window.
+*  Click the “Edit provisioning.
+*  Click the “Admin Credentials”.
+*  Update the generated token in the “Secret Token” field.
+*  Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
 
 ![](/img/screenshot-2024-02-14-at-2.08.46 pm.png)
