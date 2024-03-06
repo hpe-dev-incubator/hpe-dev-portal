@@ -123,7 +123,7 @@ replicaset.apps/cert-manager-cainjector-5d4577b4d9   1         1         1      
 replicaset.apps/cert-manager-webhook-bf957dc77       1         1         1       3m38s
 ```
 
-A﻿s part of cert-manager installation, a list of cert-manager CRDs has been added to the cluster:
+A﻿s part of cert-manager installation, a list of cert-manager related CRDs has been added to the cluster:
 
 ```shell
 
