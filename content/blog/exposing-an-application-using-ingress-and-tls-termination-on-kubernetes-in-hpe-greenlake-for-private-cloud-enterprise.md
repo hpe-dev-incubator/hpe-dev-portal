@@ -362,7 +362,7 @@ Events:
 ```
 #﻿## Access deployed Nginx apps
 
-W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address assigned to the *Nginx Ingress controller* *’10.12.15.251’*. 
+W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* assigned to the *Nginx ingress controller*. 
 
 Type the following commands to check this is done correctly: 
 
@@ -375,14 +375,6 @@ green.nginx.example.com has address 10.6.115.251
 
 $ host blue.nginx.example.com
 blue.nginx.example.com has address 10.6.115.251
-```
-
-
-
-
-```shell
-$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
-ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
 S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
