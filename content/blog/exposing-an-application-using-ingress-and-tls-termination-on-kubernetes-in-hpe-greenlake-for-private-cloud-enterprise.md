@@ -47,7 +47,7 @@ Before starting, make sure you have the following:
 ### Set up load balancer
 
 ```shell
-$ k get all -n metallb-system
+$ kubectl get all -n metallb-system
 NAME                              READY   STATUS    RESTARTS   AGE
 pod/controller-57b4fdc957-56wv8   1/1     Running   0          22m
 pod/speaker-c7sgk                 1/1     Running   0          22m
@@ -71,13 +71,13 @@ replicaset.apps/controller-57b4fdc957   1         1         1       22m
 ```
 
 ```shell
-$ k get ipaddresspools -n metallb-system
+$ kubectl get ipaddresspools -n metallb-system
 NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
 cfe-pool   true          false             ["10.6.115.251-10.6.115.254"]
 ```
 
 ```shell
-$ k get l2advertisements -n metallb-system
+$ kubectl get l2advertisements -n metallb-system
 NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
 ```
@@ -139,7 +139,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
 ```
 
 ```shell
-guoping@guoping-vm ~/CFE/POC/ingress-nginx $ k get all -n ingress-nginx
+$ kubectl get all -n ingress-nginx
 NAME                                            READY   STATUS    RESTARTS   AGE
 pod/ingress-nginx-controller-548768956f-8bz2q   1/1     Running   0          15m
 
@@ -159,7 +159,7 @@ T﻿he service *ingress-nginx-controller* gets deployed as the service type of *
 ### Install cert-manager
 
 ```shell
-$ k get all -n cert-manager
+$ kubectl get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-59fbb6655d-h7sqb              1/1     Running   0          18s
 pod/cert-manager-cainjector-69548575fb-7fqd2   1/1     Running   0          18s
@@ -181,7 +181,7 @@ replicaset.apps/cert-manager-webhook-57b78f476d      1         1         1      
 ```
 
 ```shell
-$ k create ns nginx-apps
+$ kubectl create ns nginx-apps
 namespace/nginx-apps created
 
 $ cat issuer-selfsigned.yaml
@@ -192,10 +192,10 @@ metadata:
 spec:
  selfSigned: {}
 
-$ k apply -f issuer-selfsigned.yaml -n nginx-apps
+$ kubectl apply -f issuer-selfsigned.yaml -n nginx-apps
 issuer.cert-manager.io/cfe-selfsigned-issuer created
 
- $ k get issuer -n nginx-apps
+$ kubectl get issuer -n nginx-apps
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    115s
 ```
@@ -225,14 +225,14 @@ spec:
 ```
 
 ```shell
-$ k apply -f certificate.yaml -n nginx-apps
+$ kubectl apply -f certificate.yaml -n nginx-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
-$ k get certificate -n nginx-apps
+$ kubectl get certificate -n nginx-apps
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   17s
 
-$ k get secrets -n nginx-apps cfe-tls-key-pair
+$ kubectl get secrets -n nginx-apps cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      2m25s
 ```
@@ -253,19 +253,19 @@ ingress-demo/
 
 ```shell
 $ cd ingress-demo/
-$ k apply -f apps/nginx-main.yaml -n nginx-apps
+$ kubectl apply -f apps/nginx-main.yaml -n nginx-apps
 service/nginx-main created
 deployment.apps/nginx-main created
-$ k apply -f apps/nginx-green.yaml -n nginx-apps
+$ kubectl apply -f apps/nginx-green.yaml -n nginx-apps
 service/nginx-green created
 deployment.apps/nginx-green created
-$ k apply -f apps/nginx-blue.yaml -n nginx-apps
+$ kubectl apply -f apps/nginx-blue.yaml -n nginx-apps
 service/nginx-blue created
 deployment.apps/nginx-blue created
 ```
 
 ```shell
-$ k get all -n nginx-apps
+$ kubectl get all -n nginx-apps
 NAME                              READY   STATUS    RESTARTS   AGE
 pod/nginx-blue-78647f4c4b-z8wq9   1/1     Running   0          10s
 pod/nginx-green-8956bbd9f-zz7hk   1/1     Running   0          22s
@@ -339,12 +339,12 @@ spec:
 ```
 
 ```shell
-$ k apply -f ingress-host-based-selfsigned.yaml -n nginx-apps
+$ kubectl apply -f ingress-host-based-selfsigned.yaml -n nginx-apps
 ingress.networking.k8s.io/ingress-host-based-selfsigned created
-$ k get ingress -n nginx-apps
+$ kubectl get ingress -n nginx-apps
 NAME                            CLASS   HOSTS                                                              ADDRESS   PORTS     AGE
 ingress-host-based-selfsigned   nginx   nginx.example.com,blue.nginx.example.com,green.nginx.example.com             80, 443   9s
-$ k describe ingress -n nginx-apps
+$ kubectl describe ingress -n nginx-apps
 Name:             ingress-host-based-selfsigned
 Labels:           <none>
 Namespace:        nginx-apps
