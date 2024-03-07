@@ -1,21 +1,25 @@
 ---
-title: "The Redfish® Event Service"
+title: The Redfish Event Service
 date: 2018-03-27T15:17:22.504Z
-author: François Donzé - Technical consultant 
-tags: ["ilo-restful-api","Redfish","iLO"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé - Technical consultant
+authorimage: /img/fdz-photoprofile.png
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - Redfish
+  - iLO
 ---
-# The Redfish Event Subscription Service
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 Updated: October 2019   
-  
+
 ## Scope of this article
 
 This article describes the Redfish Event Subscription service implemented in HPE iLO 5 with a firmware version of 1.40 or later. The implementation of this service in iLO 4 may differ slightly.
 
-The Event Receiver program presented in this blog is an alternative to the DMTF [Redfish-Event-Listener tool](https://github.com/DMTF/Redfish-Event-Listener).
+The Event Receiver program presented in this blog is an alternative to the DMTF <a href="https://github.com/DMTF/Redfish-Event-Listener" target="_blank">Redfish-Event-Listener tool</a>.
 
 ## Traps versus event subscriptions
 
@@ -23,9 +27,9 @@ The Simple Network Management Protocol (SNMP) uses a "trap" mechanism to report 
 
 Another approach consists in filtering the events at the source, so only selected events are sent on the network toward specified event receivers (i.e. management consoles). Practically, the event receivers send a subscription request to the managed nodes containing the types of event that they are prepared to receive and process.
 
-The Web-Based Enterprise Management (WBEM) standard uses this subscription paradigm, as well as the [DMTF Redfish standard](https://www.dmtf.org/standards/redfish). Both of them define management web services but Redfish is much simpler for a common human being to understand, prototype and implement.
+The Web-Based Enterprise Management (WBEM) standard uses this subscription paradigm, as well as the <a href="https://www.dmtf.org/standards/redfish" target="_blank">DMTF Redfish standard</a>. Both of them define management web services but Redfish is much simpler for a common human being to understand, prototype and implement.
 
-![Redfish Event Subscription functional diagram](https://redfish-lab.sourceforge.io/media/redfish-wiki/event-subscription-service/Event-subscription-diagram.png)
+![Redfish Event Subscription functional diagram](/img/event-subscription-diagram.png "Redfish Event Subscription functional diagram")
 
 ## Do it yourself, it doesn't hurt
 
@@ -34,7 +38,6 @@ If you want to quickly prototype a Redfish event receiver, you need first to con
 The following example is based on a simple PHP event receiver program installed in an Apache server. Any other web server (i.e. IIS) and language (i.e. JavaScript or cgi-bin) are possible alternatives.
 
 Start to configure the Web Server and let it know the location of the `EventReceiver.php` program; the code below added in the Apache configuration file (`httpd.conf`) tells Apache to redirect requests to directory `/opt/hpe/RedFishEventService`. You may want to better secure this configuration entry to suite your security policy.
-
 
 ```xml
 Alias /RedfishEvents** "/opt/hpe/RedfishEventService"
@@ -52,7 +55,6 @@ Alias /RedfishEvents** "/opt/hpe/RedfishEventService"
 In the `/opt/hpe/RedFishEventService` directory of the Web Server, create the `EventReceiver.php` file with the following content. This code is triggered by the Web Server when an event comes from a managed node. Then event, which is an HTTPS POST message, is written to a text file so you can read it or submit it to other applications for further processing.
 
 Read the comments enclosed in `/*..*/` or following `//` to get a detailed explanation:
-
 
 ```php
 <?php
@@ -104,10 +106,9 @@ Once the event receiver program is in place and Apache restarted, it waits for s
 
 The exhaustive list of possible events to subscribe to is present at: `https://<ilo-IP>/redfish/v1/EventService/`
 
-For testing and prototyping, the subscription can be done manually using the **[POSTMAN](https://www.getpostman.com/)** API development platform , PowerShell, or curl. In a production environment, I would recommend to use `ilorest` (former `hprest`)  the [iLO RESTful Interface Tool](http://hpe.com/resttool/) or an application using the [best practices to crawl and parse remote managed nodes schemas](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance).
+For testing and prototyping, the subscription can be done manually using the **[POSTMAN](https://www.getpostman.com/)** API development platform , PowerShell, or curl. In a production environment, I would recommend to use <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a> (former `hprest`) the HPE iLO RESTful Interface Tool or an application using the <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">best practices to crawl and parse remote managed nodes schemas</a>.
 
 Before posting the following payload toward your managed node at `https://<IP>/redfish/v1/EventService/EventSubscriptions/` you must edit and replace the `Destination` attribute with the `<IP>` address of the event receiver and its location. Optionally you can add or remove EventTypes:
-
 
 ```json
 {
@@ -141,14 +142,13 @@ Moreover, the status message mentions as well in its `Location` header the locat
 
 To avoid un-wanted network traffic or overloaded Redfish engine, HPE implemented an `Oem.Hpe` section containing attributes regulating subscriptions. In case a managed node continuously fails to post events at its destination, the subscription is deleted automatically after a certain amount of time (`DeliveryRetryAttempts * DeliveryRetryIntervalSeconds` seconds). Otherwise, a subscription has a infinite life time until it is deleted using a HTTPs `DELETE` request to it `Location` URI.
 
-![](https://redfish-lab.sourceforge.io/media/redfish-wiki/event-subscription-service/Subscription.png)
+![](/img/subscription.png)
 
 ## Fake events
 
 To test our event receiver PhP code, Redfish provides an URI in the managed node to simulate an event and send an alert to the subscribers.
 
 POST the following JSON body to  trigger a fake event in the managed node:
-
 
 ```json
 {
@@ -164,7 +164,6 @@ POST the following JSON body to  trigger a fake event in the managed node:
 ```
 
 Check your Event Receiver, you should find an entry like the following in the `Redfish_events.txt` file:
-
 
 ```json
 IP Address of Managed node: 192.168.1.111
@@ -201,5 +200,6 @@ X_HP-CHRP-Service-Version: 1.0.3
 
 ## Conclusion
 
-SNMP is still the preferred management protocol and may stay as such for a long time. However, modern alternatives like this Redfish Event Subscription exist for compute nodes and the upcoming [Swordfish](http://www.snia.org/forums/smi/swordfish). Swordfish is the extension of Redfish for storage devices from the [SNIA](http://www.snia.org/) proposing as well this Event Service in its Specification version 1.0.
+SNMP is still the preferred management protocol and may stay as such for a long time. However, modern alternatives like this Redfish Event Subscription exist for compute nodes and the upcoming [Swordfish](http://www.snia.org/forums/smi/swordfish). Swordfish is the extension of Redfish for storage devices from the <a href="http://www.snia.org/" target="_blank">SNIA</a> proposing as well this Event Service in its Specification version 1.0.
 
+Don't forget to check out some of my other <a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer portal to learn more about Redfish tips and tricks.
