@@ -24,8 +24,6 @@ This blog post describes the process to expose an application that's deployed an
 A Nginx app that serves as a Web server that prints out a customized application name will be used as a sample app to expose. The application itself will be deployed as 
 the service type of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the application will be exposed over HTTPS. 
 
-
-
 ### Overview
 
 ### Prerequisites
@@ -37,7 +35,6 @@ Before starting, make sure you have the following:
 * The o﻿ptional openssl CLI tool, for validating the generated certificates 
 
 ### Set up load balancer
-
 
 ```shell
 $ k get all -n metallb-system
@@ -131,9 +128,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
   type: kubernetes.io/tls
 ```
 
-
 ```shell
-
 guoping@guoping-vm ~/CFE/POC/ingress-nginx $ k get all -n ingress-nginx
 NAME                                            READY   STATUS    RESTARTS   AGE
 pod/ingress-nginx-controller-548768956f-8bz2q   1/1     Running   0          15m
@@ -148,6 +143,7 @@ deployment.apps/ingress-nginx-controller   1/1     1            1           15m
 NAME                                                  DESIRED   CURRENT   READY   AGE
 replicaset.apps/ingress-nginx-controller-548768956f   1         1         1       15m
 ```
+
 T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*.
 
 ### Install cert-manager
@@ -174,8 +170,6 @@ replicaset.apps/cert-manager-cainjector-69548575fb   1         1         1      
 replicaset.apps/cert-manager-webhook-57b78f476d      1         1         1       18s
 ```
 
-
-
 ```shell
 $ k create ns nginx-apps
 namespace/nginx-apps created
@@ -195,7 +189,6 @@ issuer.cert-manager.io/cfe-selfsigned-issuer created
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    115s
 ```
-
 
 ```shell
 $ cat certificate.yaml
@@ -220,7 +213,6 @@ spec:
  - nginx.example.com
  - example.com
 ```
-
 
 ```shell
 $ k apply -f certificate.yaml -n nginx-apps
@@ -249,7 +241,6 @@ ingress-demo/
 └── README.md
 ```
 
-
 ```shell
 $ cd ingress-demo/
 $ k apply -f apps/nginx-main.yaml -n nginx-apps
@@ -262,7 +253,6 @@ $ k apply -f apps/nginx-blue.yaml -n nginx-apps
 service/nginx-blue created
 deployment.apps/nginx-blue created
 ```
-
 
 ```shell
 $ k get all -n nginx-apps
@@ -338,7 +328,6 @@ spec:
               number: 80
 ```
 
-
 ```shell
 $ k apply -f ingress-host-based-selfsigned.yaml -n nginx-apps
 ingress.networking.k8s.io/ingress-host-based-selfsigned created
@@ -375,15 +364,17 @@ Events:
 ```shell
 $ host nginx.example.com
 nginx.example.com has address 10.6.115.251
-Host nginx.example.com not found: 3(NXDOMAIN)
+
+
 $ host green.nginx.example.com
 green.nginx.example.com has address 10.6.115.251
-Host green.nginx.example.com not found: 3(NXDOMAIN)
+
+
 $ host blue.nginx.example.com
 blue.nginx.example.com has address 10.6.115.251
 ```
 
-#﻿### Configure Ingress
+\#﻿### Configure Ingress
 
 ```shell
  $ cat ingress-simple-selfsigned.yaml
@@ -414,30 +405,32 @@ spec:
               number: 80
 ```
 
-
 ```shell
 $ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
-
-
 ```shell
 $ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
-
-
 
 ```shell
 $ host nginx.example.com
 nginx.example.com has address 10.6.115.251
 ```
 
-![](/img/nginx-private.png)  
+![](/img/nginx-main-warning.png)
 
-![](/img/nginx-cert.png)
+![](/img/nginx-main-cert.png)
 
-![](/img/nginx-app-https.png)
+![](/img/nginx-main.png)
 
+![](/img/nginx-green-warning.png)
+
+![](/img/nginx-green.png)
+
+![](/img/nginx-blue-warning.png)
+
+![](/img/nginx-blue.png)
 
