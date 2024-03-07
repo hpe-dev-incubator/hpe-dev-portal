@@ -28,11 +28,7 @@ the service type of *ClusterIP*, running on the port 80 over HTTP. Using cert-ma
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-
-
-After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates in is not always easy. ….
-
-
+When application workloads get deployed to the K8s cluster, you can create services to expose the applications. By default, a service is created with the service type of *ClusterIP* that supports internal connectivity between different components of the application. In HPE GreenLake for Private Cloud Enterprise: Containers, you can create services with the type of NodePort for the application workloads deployed in K8s clusters using the label hpecp.hpe.com/hpecp-internal-gateway=true. The services will be automatically exposed to a container platform gateway host with assigned ports. The deployed workloads will become accessible externally using the gateway host name and the assigned ports as access URLs. For both service type, *ClusterIP* and NodePort , applications themselves run on HTTP. There is one common requirement to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s and work with load balancers and Ingress.
 
 This blog post, I 
 
@@ -370,7 +366,8 @@ Events:
   Normal  Sync               20s   nginx-ingress-controller   Scheduled for sync
   Normal  CreateCertificate  20s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
-#﻿## Access deployed Nginx apps
+
+\#﻿## Access deployed Nginx apps
 
 W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* assigned to the *Nginx ingress controller*. 
 
@@ -419,8 +416,6 @@ C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx 
 
 ### Conclusion
 
-
-
-This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt]( https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
+This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt](https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
