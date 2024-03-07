@@ -12,7 +12,7 @@ tags:
 
 ## Introduction
 
-In <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">part 1</a> of this series, I presented some of the fundamentals of the Redfish® standard published by the Distributed Management Task Force (DMTF) consortium in 2015. Among them:
+In <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/" target="_blank">part 1</a> of this series, I presented some of the fundamentals of the Redfish® standard published by the Distributed Management Task Force (DMTF) consortium in 2015. Among them:
 
 * The separation of the protocol from the data modeling
 * A <a href="https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/" target="_blank">self-describing model</a> 
@@ -22,7 +22,7 @@ Here in part 2, you will find other unique properties contributing to the massiv
 
 ## The Redfish concept of "Actions"
 
-Redfish resources support the GET request to retrieve their current state. Modifications or deletions can be performed to certain resources using POST, PUT, PATCH and DELETE basic requests. Nothing exceptional in the world of REST APIs, except perhaps, that it is possible to retrieve the exhaustive list of possible requests on a given resource, by consulting the `Allow` header of GET request responses. Refer to the <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">Allowed requests</a> paragraph in Part 1.
+Redfish resources support the GET request to retrieve their current state. Modifications or deletions can be performed to certain resources using POST, PUT, PATCH and DELETE basic requests. Nothing exceptional in the world of REST APIs, except perhaps, that it is possible to retrieve the exhaustive list of possible requests on a given resource, by consulting the `Allow` header of GET request responses. Refer to the <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/" target="_blank">Allowed requests</a> paragraph in Part 1.
 
 However, some operations are difficult to model with the above classic HTTP requests. For example, it is impossible to "read" the server's power button to know its status. An other example that cannot be addressed by classic HTTP requests is the "return to factory settings" of a sub-system like a storage controller. This operation requires additional parameters like the preservation (or not) of existing logical volumes.
 
@@ -50,7 +50,7 @@ An alternative to SNMP is the Redfish Event Service which, is based on the subsc
 
 ### Event model
 
-Asynchronous events and error messages are all listed and described in registers (refer to the <a href="https://developer.hpe.com/blog/why-is-redfish-different-from-other-rest-apis-part-1" target="_blank">first part</a> of this article for an introduction to registers). The registers collection is at the URI `/redfish/v1/Registries`. These objects (events, messages, notifications, etc.) have a common format: `RegistryPrefix.Version.Identifier`. For example, the message for restarting a server (Figure 2) is described in the `Base` registry, version `1.17` and with `Success` as identifier. For more information on this message, simply follow the link `/redfish/v1/Registries/Base` and read the description related to the identifier.
+Asynchronous events and error messages are all listed and described in registers (refer to the <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/" target="_blank">first part</a> of this article for an introduction to registers). The registers collection is at the URI `/redfish/v1/Registries`. These objects (events, messages, notifications, etc.) have a common format: `RegistryPrefix.Version.Identifier`. For example, the message for restarting a server (Figure 2) is described in the `Base` registry, version `1.17` and with `Success` as identifier. For more information on this message, simply follow the link `/redfish/v1/Registries/Base` and read the description related to the identifier.
 
 The exhaustive list of registers that can be used to subscribe to events is returned in the `RegistryPrefixes[]` array of a GET on `/redfish/v1/EventService`. Figure 3 shows an example of such a list from an HPE server. Among other things, there are registers containing messages relating to network and storage equipment.
 
