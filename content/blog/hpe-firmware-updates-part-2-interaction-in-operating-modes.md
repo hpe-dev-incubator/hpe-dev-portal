@@ -12,6 +12,8 @@ tags:
   - uefi
   - redfish
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 ### Updated: July 25, 2023
 
 ## Introduction
