@@ -14,4 +14,3 @@ April 24, 2024
 
 HPE recently announced a set of HPE GreenLake Data Services (DSCC) Cloud Console APIs in for HPE GreenLake for Backup and Recovery (GLBR), HPE GreenLake for Private Cloud Business Edition (PCBE), HPE GreenLake for Disaster Recovery (GLDR) and common DSCC data services. In this session, A team of DSCC product managers and architects will present common API service interactions (e.g. hybrid services, data services, etc.) to accelerate your consumption of these APIs for use cases such as automation and monitoring. They’ll help you understand the benefits of these API modules, how to interact with them, and their relation to the DSCC Storage APIs published earlier.
 
-
