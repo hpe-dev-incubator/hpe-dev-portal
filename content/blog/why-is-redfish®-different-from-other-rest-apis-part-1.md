@@ -11,7 +11,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-<style> figcaption {font-size: 20px; line-height: 33px; max-width: none;} </style>
+<style> figcaption {font-size: 19px; line-height: 33px; max-width: none;} </style>
 
 ## Redfish brief recap
 
@@ -34,6 +34,7 @@ The Redfish service is included in the server management controller firmware and
 ![Figure1: Client/service model](/img/fig-1-modelserviceclient.png "Figure1: Service-Client model")
 
 _<figcaption>Figure 1: Service-Client model</figcaption>_
+
 
 Redfish clients are numerous and varied. For development and troubleshooting, the <a href="https://www.postman.com/" target="_blank">Postman API platform</a> is very popular. For one-off actions or “quick and dirty” scripts, <a href="https://curl.se/" target="_blank">cURL</a>, PowerShell, Python or even <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="blank">HPE iLOrest</a> do the trick. For more sophisticated client programs, you can use an <a href="https://galaxy.ansible.com/ui/repo/published/hpe/ilo/" target="_blank">Ansible playbook library</a>, Chef or Go and its <a href="https://pkg.go.dev/github.com/stmcginnis/gofish/redfish" target="_blank">Go-Redfish library</a>.
 
@@ -94,7 +95,7 @@ Each member of the collection is an endpoint for accessing the member properties
 
 ![Figure 6: Universal backplane model](/img/fig6-storagechassis.png "Figure 6: Universal backplane model")
 
-_<figcaption>Figure 6: Universal backplane model</a>_
+_<figcaption>Figure 6: Universal backplane model</figcaption>_
 
 ### Naming convention of collection members
 
