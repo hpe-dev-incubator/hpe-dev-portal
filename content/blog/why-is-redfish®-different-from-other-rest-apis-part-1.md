@@ -11,7 +11,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-<style> figcaption {font-size: 12px; line-height: 33px; max-width: none;} </style>
+<style> figcaption {font-size: 15px; line-height: 33px; max-width: none;} </style>
 
 ## Redfish brief recap
 
@@ -19,7 +19,7 @@ Redfish® is a low-level management RESTful API standardized by the Distributed 
 
 Redfish was first introduced in August 2015. As of today, more than <a href="https://dmtf.org/about/list" target="_blank">sixty members</a> contribute to its development: computer makers, storage and network device manufacturers and software developers. A funny story relates how "Redfish" comes from the name of a restaurant near the Compaq drive in Houston, Texas, where initiators of the project were meeting before DMTF took over the entire project.
 
-The main reason Redfish was introduced was to replace the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IMPI</a>) originally created by Intel®. In a nutshell, Redfish is able to monitor, configure and perform actions (i.e. power-on/off) on remote (out-of-band) or local (in-band) servers. Also, it provides an event subscription mechanism that can replace the Simple Network Management Protocol (SNMP).
+The main reason Redfish was introduced was to replace the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) originally created by Intel®. In a nutshell, Redfish is able to monitor, configure and perform actions (i.e. power-on/off) on remote (out-of-band) or local (in-band) servers. Also, it provides an event subscription mechanism that can replace the Simple Network Management Protocol (SNMP).
 
 The adoption of this standard across the industry has been very quick and this article is an attempt to explain some of the specificities that have contributed to its success.
 
@@ -34,6 +34,7 @@ The Redfish service is included in the server management controller firmware and
 ![Figure1: Client/service model](/img/fig-1-modelserviceclient.png "Figure1: Service-Client model")
 
 _<figcaption>Figure 1: Service-Client model</figcaption>_
+
 Redfish clients are numerous and varied. For development and troubleshooting, the <a href="https://www.postman.com/" target="_blank">Postman API platform</a> is very popular. For one-off actions or “quick and dirty” scripts, <a href="https://curl.se/" target="_blank">cURL</a>, PowerShell, Python or even <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="blank">HPE iLOrest</a> do the trick. For more sophisticated client programs, you can use an <a href="https://galaxy.ansible.com/ui/repo/published/hpe/ilo/" target="_blank">Ansible playbook library</a>, Chef or Go and its <a href="https://pkg.go.dev/github.com/stmcginnis/gofish/redfish" target="_blank">Go-Redfish library</a>.
 
 Proprietary monitoring applications (i.e., <a href="https://www.hpe.com/us/en/hpe-greenlake-compute-ops-management.html" target="_blank">HPE Compute Ops Management</a>) or open source applications (<a href="https://github.com/ODIM-Project/ODIM" target="_blank">ODIM</a>, <a href="https://github.com/nsfcac/Nagios-Redfish-API-Integration" target="_blank">Nagios</a>, etc.) constitute native Redfish clients or can become so using specific plugins.
