@@ -360,77 +360,65 @@ Events:
   Normal  Sync               20s   nginx-ingress-controller   Scheduled for sync
   Normal  CreateCertificate  20s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
+#﻿## Access deployed Nginx apps
+
+W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address assigned to the *Nginx Ingress controller* *’10.12.15.251’*. 
+
+Type the following commands to check this is done correctly: 
 
 ```shell
 $ host nginx.example.com
 nginx.example.com has address 10.6.115.251
 
-
 $ host green.nginx.example.com
 green.nginx.example.com has address 10.6.115.251
-
 
 $ host blue.nginx.example.com
 blue.nginx.example.com has address 10.6.115.251
 ```
 
-\#﻿### Configure Ingress
 
-```shell
- $ cat ingress-simple-selfsigned.yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: nginx-ingress-selfsigned
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: "true"
-    #kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/issuer: "cfe-selfsinged-issuer"
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - nginx.example.com
-    secretName: cfe-tls-key-pair
-  rules:
-  - host: nginx.example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: nginx-main
-            port:
-              number: 80
-```
+
 
 ```shell
 $ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
-```shell
-$ k apply -f ingress-simple-selfsigned.yaml -n cfe-apps
-ingress.networking.k8s.io/nginx-ingress-selfsigned created
-```
-
-```shell
-$ host nginx.example.com
-nginx.example.com has address 10.6.115.251
-```
+S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-main-warning.png)
 
+T﻿his is due to the fact the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
+
+C﻿lick *Not secure* and start Certificate Viewer to check the certificate:
+
 ![](/img/nginx-main-cert.png)
+
+C﻿lick *Proceed to nginx.example.com (unsafe)*, you then go to the Nginx *MAIN* page:
 
 ![](/img/nginx-main.png)
 
+Type the URL *green.nginx.example.com* to the browser, it will be rediected over HTTPS with the same warning message *'Your connection is not private'*:   
+
 ![](/img/nginx-green-warning.png)
+
+C﻿lick *Proceed to green.nginx.example.com (unsafe)*, you then go to the Nginx *GREEN* page:
 
 ![](/img/nginx-green.png)
 
+T﻿he same thing occurs when type the URL *blue.nginx.example.com* to the browser. The access will be rediected over HTTPS with the same warning message *'Your connection is not private'*:  
+
 ![](/img/nginx-blue-warning.png)
+
+C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx *BLEU* page:  
 
 ![](/img/nginx-blue.png)
 
+### Conclusion
+
+
+
+This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt]( https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
