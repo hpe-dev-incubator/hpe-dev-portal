@@ -26,6 +26,16 @@ the service type of *ClusterIP*, running on the port 80 over HTTP. Using cert-ma
 
 ### Overview
 
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+
+
+
+After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates in is not always easy. ….
+
+
+
+This blog post, I 
+
 ### Prerequisites
 
 Before starting, make sure you have the following:
