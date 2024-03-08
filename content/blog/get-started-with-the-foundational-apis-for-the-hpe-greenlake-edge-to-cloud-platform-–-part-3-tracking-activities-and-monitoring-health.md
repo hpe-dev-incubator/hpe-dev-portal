@@ -10,12 +10,12 @@ tags:
   - hpe-greenlake-platform
   - API
 ---
-
 This is part three of a blog series that showcases the capabilities of the APIs for common HPE GreenLake platform services using a real customer scenario, displaying it from the perspective of a user of the platform, such as an IT administrator. 
 
 Continuing on from the [second part of this series](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/), where I had put on my IT administrator’s hat for a ***Standard Enterprise*** workspace, I will now explore the set of REST API calls used for tracking activities in the workspace and monitoring the overall health of HPE services and HPE products in the workspace.
 
 ## Tracking activities in the workspace
+
 **Audit log** service records the occurrence of events emitted by users, any device or service in the workspace. These logs can be used for tracking user activities, doing root cause analysis of an incident, investigating breaches, and for auditing purposes.
 
 Let’s assume that I have been notified of unusual activities in the workspace and I would like to act to begin an investigation and identify the root cause of the incident in the workspace. This involves an analysis of logs for the services and the platform in the workspace, and tracking activities for users. To conduct this analysis, I will use the set of audit log API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
@@ -42,27 +42,25 @@ The **GET** REST API call ***Get all audit logs of a user*** derived from the RE
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 2: Tracking activities for a specific user</span>
 
-
 ### Monitoring health events for the workspace
 
 The HPE GreenLake platform provides a **wellness** service to enable you to monitor the overall health of the managed services and devices in the workspace. The wellness service API provides programmatic access to view health events and insights about HPE services and HPE products in the workspace.
 
-I will use the set of Wellness API calls from the Postman collection folder: ***Tracking GLP Workspace/Step6-Wellness/wellness/v2beta1/events***.
+I will use the set of Wellness API calls from the Postman collection folder: ***Tracking GLP Workspace/Step6-Wellness***.
 
-The **GET** REST API call ***Get list of wellness events*** is used to retrieve a list of health events for services (for example, Networking, Storage, Compute or HPE GreenLake platform services) and HPE device models in the workspace. In the example below, I use a set of query parameters to view health information for a specific device model, service and severity:
+The **GET** REST API call ***Get a list of wellness events*** is used to retrieve a list of health events for services (for example, Networking, Storage, Compute or HPE GreenLake platform services) and HPE device models in the workspace. In the example below, I use a set of query parameters to view health information for a specific device model, service and severity:
 
-`GET {{baseUrl}}/wellness/v2beta1/events?filter=service in ('Storage')&filter=product in ('HPE Nimble Storage')&filter=severity eq 'warning'&limit=100` 
+`GET {{baseUrl}}/wellness/v2beta2/events?filter=serviceName in ('Storage')&filter=productName eq 'HPE Alletra 6000'&filter=condition/severity eq 'warning'&limit=100`
 
-![Figure 3: Retrieve list of health events for a specific service, device model and severity](/img/blog-part3-list-wellness-events-for-service-product-severity-image3.png "Figure 3: Retrieve list of health events for a specific service, device model and severity")
+![Figure 3: Retrieve list of health events for a specific service, device model and severity](/img/blog-part3-list-wellness-v2beta2-events-for-service-product-severity-image3.png "Figure 3: Retrieve list of health events for a specific service, device model and severity")
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 3:Retrieve list of health events for a specific service, device model and severity</span>
 
-To view information about a specific event ID, I can use the REST API request ***Get Event with specific event ID*** by specifying the event ID as a Path variable in the parameters of the API call:
+To view information about a specific event ID, I can use the REST API request ***Get wellness event with specific ID*** by specifying the event ID as a Path variable in the parameters of the API call:
 
-`GET {{baseUrl}}/wellness/v2beta1/events/:id`
+`GET {{baseUrl}}/wellness/v2beta2/events/:id`
 
-
-![Figure 4: View information for a specific event ID](/img/blog-part3-view-wellness-event-for-specific-event-id-image4.png "Figure 4: View information for a specific event ID")
+![Figure 4: View information for a specific event ID](/img/blog-part3-view-wellness-v2beta2-event-for-specific-event-id-image4.png "Figure 4: View information for a specific event ID")
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: View information for a specific event ID</span>
 
