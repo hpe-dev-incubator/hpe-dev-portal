@@ -155,7 +155,7 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 ### Assigning the device to a regional instance of a service
 
-Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifier of the device is specified as a query parameter, the HPE Aruba Networking Central service _identifier_ and *region* are specified in the data payload (Body) as shown below: 
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifier of the device is specified as a query parameter, the HPE Aruba Networking Central service *identifier* and *region* are specified in the data payload (Body) as shown below: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
@@ -228,7 +228,7 @@ This blog post walks you through the APIs for common HPE GreenLake platform serv
 
 To learn more about all the REST API calls for the platform, I invite you to refer to the [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs. You can get the Postman collection from the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
 
-In the next part of this blog series, I will explore the set of APIs used for tracking activities and monitoring overall health of services and devices in the workspace.
+In [the next part](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/) of this blog series, I will explore the set of APIs used for tracking activities and monitoring overall health of services and devices in the workspace.
 
 If you’re interested in trying out what I just discussed, you might want to check out one of our hands-on Workshops-on-Demand that lets you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested in and go! It’s as simple as that. 
 
