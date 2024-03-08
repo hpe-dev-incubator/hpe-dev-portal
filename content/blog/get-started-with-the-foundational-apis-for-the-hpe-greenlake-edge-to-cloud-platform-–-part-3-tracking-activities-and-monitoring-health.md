@@ -8,7 +8,9 @@ disable: false
 tags:
   - hpe-greenlake
   - hpe-greenlake-platform
+  - API
 ---
+
 This is part three of a blog series that showcases the capabilities of the APIs for common HPE GreenLake platform services using a real customer scenario, displaying it from the perspective of a user of the platform, such as an IT administrator. 
 
 Continuing on from the [second part of this series](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/), where I had put on my IT administrator’s hat for a ***Standard Enterprise*** workspace, I will now explore the set of REST API calls used for tracking activities in the workspace and monitoring the overall health of HPE services and HPE products in the workspace.
