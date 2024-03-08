@@ -11,7 +11,7 @@ tags:
   - Private Networks
   - 5G
 ---
-In February 2024, Harvard Business Review published an insightful article titled “Turn Generative AI from an Existential Threat into a Competitive Advantage” [[Link](https://hbr.org/2024/01/turn-generative-ai-from-an-existential-threat-into-a-competitive-advantage)]. The article outlines three strategic approaches for integrating generative AI into business operations to secure a competitive edge:
+In February 2024, Harvard Business Review published an insightful article titled “[Turn Generative AI from an Existential Threat into a Competitive Advantage](https://hbr.org/2024/01/turn-generative-ai-from-an-existential-threat-into-a-competitive-advantage)”. The article outlines three strategic approaches for integrating generative AI into business operations to secure a competitive edge:
 
 1. **Adopting Public AI Tools:** Utilizing readily available AI technologies, like ChatGPT, offers early movers a competitive edge by enhancing efficiency and innovation. Early adoption offers a competitive edge, though the advantage may be short-lived as such tools become universally essential. 
 2. **Customizing AI Tools:** Tailoring AI tools with company-specific data improves customer experiences through personalized services and interfaces. This strategy, fuelled by user feedback, advances towards more sophisticated AI applications, enhancing both customization and usability.
