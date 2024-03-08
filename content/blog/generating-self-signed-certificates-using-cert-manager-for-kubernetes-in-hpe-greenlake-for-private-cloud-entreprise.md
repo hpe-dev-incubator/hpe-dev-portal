@@ -14,19 +14,23 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes the details steps on how to generate a self-signed certificate using cert-manager for Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. Cert-manager integrates seamlessly with K8s for automated handling of certificate and it aligns well with the K8s resource model. This makes it a native and powerful solution for creating and managing certificates within K8s clusters. The generated self-signed certificates can be used by DevOps teams and developers to configure TLS termination and expose applications deployed in the K8s cluster securely via HTTPS. 
+This blog post describes the details steps on how to generate a self-signed certificate using cert-manager for Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. The generated self-signed certificates can be used by DevOps teams and developers to configure TLS termination and expose applications deployed in the K8s cluster securely via HTTPS. 
 
 ### Overview
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
 
 
-After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates in is not always easy. ….
+After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates is not always easy, especially in K8s. There is a list of popular tools and utilities, e.g, . [OpenSSL](https://www.openssl.org/), [CloudFlare’s CFSSL]( https://github.com/cloudflare/cfssl), [OpenVPN’s Easy-RSA](https://github.com/OpenVPN/easy-rsa) etc, which you can use for generating certificates. However, you have to follow up the process to create the root certificate authorities, generate certificate singing requests (CSRs), and sign the certificates. The process to generate those items is not very intuitive. Most often, it requires *DevOps* engineers to help and different teams to involve in installing and configuring the certificate chain. 
+
+
+This blog post describes the process to generate a self-signed certificates using cert-manager for K8s. Cert-manager integrates seamlessly with K8s for automated handling of certificates and it aligns well with the K8s resource model. This makes cert-manager a native and powerful solution for creating and managing certificates within K8s clusters. 
 
 
 
-This blog post, I 
+
+
 
 ### Prerequisites
 
@@ -38,9 +42,9 @@ Before starting, make sure you have the following:
 
 ### Cert-manager
 
-[Cert-manager](https://cert-manager.io/) is a native K8s certificate management controller that streamlines the process of acquiring, renewing, and utilizing SSL/TLS certificates within a K8s cluster. When deployed in a K8s cluster, cert-manager introduces two custom resource definitions (CRDs): *Issuers* and *Certificates*. These CRDs automate the generation and renewal of certificates for various scenarios. Cert-manager can obtain certificates from a variety of certificate authorities (CAs), including *Let’s Encrypt*, *HashiCorp Vault*, and *private PKIs*. It can also be configured to generate self-signed certificates if needed. When cert-manager creates a certificate, it  makes it available to the entire cluster by storing certificate as a K8s *Secret* object, which can be mounted by application Pods or used by an Ingress controller. This makes the certificate accessible across all namespaces within the K8s cluster. This blog post describes the detailed steps on generating a self-signed certificate using cert-manager in K8s.
+[Cert-manager](https://cert-manager.io/) is a native K8s certificate management controller that streamlines the process of acquiring, renewing, and utilizing SSL/TLS certificates within a K8s cluster. When deployed in a K8s cluster, cert-manager introduces two custom resource definitions (CRDs): *Issuer* and *Certificate*. These CRDs automate the generation and renewal of certificates for various scenarios in K8s. Cert-manager can obtain certificates from a variety of certificate authorities (CAs), including *Let’s Encrypt*, *HashiCorp Vault*, and *private PKIs*. It can also be configured to generate self-signed certificates if needed. When cert-manager creates a certificate, it makes it available to the entire cluster by storing certificate as a K8s *Secret* object, which can be mounted by application Pods or used by an Ingress controller. This makes the certificate accessible across all namespaces within the K8s cluster. This blog post describes the detailed steps on generating a self-signed certificate using cert-manager in K8s.
 
-#﻿## Generate a self-signed certificate
+### Generate a self-signed certificate
 
 #### Install cert-manager
 
@@ -101,13 +105,13 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook c
 validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
 ```
 
-T﻿he latest cert-manager v1.14.3 will be installed to the namespace *cert-manager*. Type the following command to check that all the Pods are in running status: 
+T﻿he latest cert-manager *v1.14.3* will be installed to the namespace *cert-manager*. Type the following command to check that all the Pods are in running status: 
 
 ```shell
 
 
 
-$ kubectl get all -n cert-manager
+$ kubectl get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-6bcdd5f7c-f7lfw               1/1     Running   0          3m36s
 pod/cert-manager-cainjector-5d4577b4d9-jmpsp   1/1     Running   0          3m36s
@@ -161,7 +165,7 @@ spec:
  selfSigned: {}
 ```
 
-Type the following commands to create a namespace *cfe-apps* in which you want to generate certificates and deploy the issuer:
+Type the following commands to create a namespace in which you want to generate certificates and deploy the issuer. Replace the sample namespace *cfe-apps* with your own namespace.
  
 ```shell
 
@@ -172,14 +176,20 @@ namespace/cfe-apps created
 
 $ kubectl apply -f issuer-selfsigned.yaml -n cfe-apps
 issuer.cert-manager.io/cfe-selfsigned-issuer created
+```
 
+T﻿ype the following command to check the deployed issuer in the namespace. The issuer should show *READY* as ***True***.
+
+```shell
 $ kubectl get issuer -n cfe-apps
 NAME                    READY   AGE
 
 cfe-selfsigned-issuer   True    7s
 ```
 
-If you want to be able to request certificates from any namespace in a cluster, create a CRD resource called *ClusterIssuer* using the following YAM manifest file *clusterissuer.yaml*:
+If you want to be able to request certificates from any namespace in a cluster, use the CRD resource called *ClusterIssuer*. 
+
+Here is a sample *ClusterIssuer* YAM manifest file *clusterissuer.yaml*: 
 
 ```shell
 
@@ -198,7 +208,9 @@ spec:
 #### Generate a certificate
 
 
-H﻿ere is a sample YAML manifest file *certificate.yaml* that can be used for generating a self-signed certificate:
+Y﻿ou can use the CRD resource *Certificate* to generate a self-signed certificate. 
+
+H﻿ere is a sample *Certificate* YAML manifest file *certificate.yaml* :
 
 ```shell
 
@@ -228,7 +240,7 @@ spec:
 
 I﻿n this YAML file, the *commonName* is set to a sample domain *'example.com'*. The *dnsNames* includes *'example.com'* and its subdomain *'nginx.example.com'*. 
 
-Cert-manager  supports generate wildcard certificates, e.g., using *'*.example.com'*, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
+Cert-manager  supports generate wildcard certificates, e.g., using _*'\*.example.com'*_, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
 
 T﻿ype the following command to generate the certificate in the namespace *cfe-apps*:
 
@@ -237,7 +249,7 @@ $ kubectl apply -f certificate.yaml -n cfe-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
 ```
 
-T﻿ype the following commands to check the generated certificate and the secret in the namespace *cfe-apps*:
+Check the generated certificate and the secret in the namespace *cfe-apps* by typing the following commands:
 
 ```shell
 $ k get certificate -n cfe-apps
