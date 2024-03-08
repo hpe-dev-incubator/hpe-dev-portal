@@ -30,8 +30,6 @@ This blog post describes the process to generate a self-signed certificates usin
 
 
 
-
-
 ### Prerequisites
 
 Before starting, make sure you have the following:
@@ -240,7 +238,7 @@ spec:
 
 I﻿n this YAML file, the *commonName* is set to a sample domain *'example.com'*. The *dnsNames* includes *'example.com'* and its subdomain *'nginx.example.com'*. 
 
-Cert-manager  supports generate wildcard certificates, e.g., using _*'\*.example.com'*_, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
+Cert-manager supports generate wildcard certificates, e.g., using _*'\*.example.com'*_, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
 
 T﻿ype the following command to generate the certificate in the namespace *cfe-apps*:
 
@@ -249,13 +247,17 @@ $ kubectl apply -f certificate.yaml -n cfe-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
 ```
 
-Check the generated certificate and the secret in the namespace *cfe-apps* by typing the following commands:
+Check the generated certificate in the namespace *cfe-apps* by typing the following commands:
 
 ```shell
 $ k get certificate -n cfe-apps
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   23s
+```
 
+T﻿he K8s secret *cfe-tls-key-pair* will be created automatically in the same namespace as part of certificate deployment. Type below command to check it:
+
+```shell
 $ kubectl get secrets -n cfe-apps cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      52s
@@ -266,7 +268,7 @@ cfe-tls-key-pair   kubernetes.io/tls   3      52s
 
 ```
 
-T﻿he created secret *cfe-tls-key-pair* contains 3 keys, *ca.crt*, *tls.crt* and *tls.key*, which can be checked using the option **-o yaml** in above *get secrets* command.
+T﻿he secret *cfe-tls-key-pair* contains 3 keys, *ca.crt*, *tls.crt* and *tls.key*, which can be checked using the option **-o yaml** in above *get secrets* command.
 
 
 
@@ -378,7 +380,7 @@ By specifying the *containerPort* as *443* and referring the *secretName* to the
 
 
 
-There is another way to integrate certificate and configure it using the K8s *Ingress* resource with TLS parameters. This configuration requires a working Ingress controller setup in the cluster.
+There is another way to integrate certificate and configure it using the K8s *Ingress* resource with TLS parameters. This configuration requires a working Ingress controller setup in the cluster. There is a list of Ingress controllers, e.g., [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme), [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/), etc, you can deploy in the cluster.
 
 
 
@@ -412,12 +414,12 @@ spec:
             port:
               number: 80
 ```
+
 It assumes the Nginx Ingress controller is deployed in the cluster. It configures the TLS block with the hostname *'nginx.example.com'* and the generated K8s secret. 
 
 
 
-One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*. The Ingress controller will handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.
-
+One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*, which provides internal connectivity and can solely be accessed from within the cluster. The Ingress controller will p﻿rovide external access and handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.  
 
 
 
@@ -426,18 +428,17 @@ $ k apply -f ingress-nginx-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
-```shell
-$ host nginx.example.com
-nginx.example.com has address 10.6.115.251
-```
+A﻿fter deploying the Ingress using the above command, together with Nginx deployment, to the namespace *cfe-apps*, you can validate the Ingress TLS using the browser by typing the URL *nginx.example.com*. The browser will show a warning *Your connection is not private*:
 
 ![](/img/nginx-private.png)  
 
+Y﻿ou can click *Not secure* and access the certificate viewer to check the TLS certificate:
+
 ![](/img/nginx-cert.png)
 
-![](/img/nginx-app-https.png)
-
 ### Conclusion
+
+
 
 This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt]( https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
 
