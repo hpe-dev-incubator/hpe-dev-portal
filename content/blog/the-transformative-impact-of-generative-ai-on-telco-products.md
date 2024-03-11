@@ -1,5 +1,5 @@
 ---
-title: The Transformative Impact of Generative AI on Telco Products
+title: The transformative impact of generative AI on Telco products
 date: 2024-03-07T16:28:15.237Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
