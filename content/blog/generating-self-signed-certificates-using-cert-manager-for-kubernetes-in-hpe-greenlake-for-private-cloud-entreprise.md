@@ -428,7 +428,9 @@ $ k apply -f ingress-nginx-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
-A﻿fter deploying the Ingress using the above command, together with Nginx deployment, to the namespace *cfe-apps*, you can validate the Ingress TLS using the browser by typing the URL *nginx.example.com*. The browser will show a warning *Your connection is not private*:
+A﻿fter deploying the Ingress using the above command, together with Nginx deployment, to the namespace *cfe-apps*, you can validate the Ingress TLS using the browser. Type the URL *nginx.example.com* in the browser, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
+
+S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-private.png)  
 
