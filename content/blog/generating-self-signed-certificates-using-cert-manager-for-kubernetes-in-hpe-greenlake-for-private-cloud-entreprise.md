@@ -1,7 +1,7 @@
 ---
 title: Generating self-signed certificates using cert-manager for Kubernetes in
   HPE GreenLake for Private Cloud Entreprise
-date: 2024-02-07T09:19:25.857Z
+date: 2024-03-11T16:19:11.107Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -20,15 +20,9 @@ This blog post describes the details steps on how to generate a self-signed cert
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
+After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s. Generating and managing SSL/TLS certificates in K8s is not always easy. There is a list of popular tools and utilities, e.g, . [OpenSSL](https://www.openssl.org/), [CloudFlare’s CFSSL](https://github.com/cloudflare/cfssl), [OpenVPN’s Easy-RSA](https://github.com/OpenVPN/easy-rsa), etc, which you can use for generating certificates. However, you have to follow up the process to create the root certificate authorities, generate certificate signing requests (CSRs), and sign the certificates. The process to generate those items is not very intuitive. Most often, it requires *DevOps* engineers to help and different teams to involve in installing and configuring the certificate chain. 
 
-
-After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s . Generating and managing SSL/TLS certificates is not always easy, especially in K8s. There is a list of popular tools and utilities, e.g, . [OpenSSL](https://www.openssl.org/), [CloudFlare’s CFSSL]( https://github.com/cloudflare/cfssl), [OpenVPN’s Easy-RSA](https://github.com/OpenVPN/easy-rsa) etc, which you can use for generating certificates. However, you have to follow up the process to create the root certificate authorities, generate certificate singing requests (CSRs), and sign the certificates. The process to generate those items is not very intuitive. Most often, it requires *DevOps* engineers to help and different teams to involve in installing and configuring the certificate chain. 
-
-
-This blog post describes the process to generate a self-signed certificates using cert-manager for K8s. Cert-manager integrates seamlessly with K8s for automated handling of certificates and it aligns well with the K8s resource model. This makes cert-manager a native and powerful solution for creating and managing certificates within K8s clusters. 
-
-
-
+This blog post describes the process to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Cert-manager integrates seamlessly with K8s for automated handling of certificates and it aligns well with the K8s resource model. This makes cert-manager a native and powerful solution for creating and managing certificates within K8s clusters. 
 
 ### Prerequisites
 
@@ -46,10 +40,7 @@ Before starting, make sure you have the following:
 
 #### Install cert-manager
 
-
-
-Following [cert-manager installation page](https://cert-manager.io/docs/installation/), cert-manager can be installed by typing the following _kubectl  apply_ command:
-
+Following [cert-manager installation page](https://cert-manager.io/docs/installation/), cert-manager can be installed by typing the following *kubectl  apply* command:
 
 ```shell
 $ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.3/cert-manager.yaml
@@ -106,9 +97,6 @@ validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
 T﻿he latest cert-manager *v1.14.3* will be installed to the namespace *cert-manager*. Type the following command to check that all the Pods are in running status: 
 
 ```shell
-
-
-
 $ kubectl get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-6bcdd5f7c-f7lfw               1/1     Running   0          3m36s
@@ -133,9 +121,6 @@ replicaset.apps/cert-manager-webhook-bf957dc77       1         1         1      
 A﻿s part of cert-manager installation, a list of cert-manager related CRDs has been added to the cluster:
 
 ```shell
-
-
-
 $ kubectl get crds | grep cert-manager
 certificaterequests.cert-manager.io                                 2024-02-02T15:42:53Z
 certificates.cert-manager.io                                        2024-02-02T15:42:53Z
@@ -152,8 +137,6 @@ A﻿n *Issuer* in cert-manager is a K8s CRD resource that represents a certifica
 H﻿ere is a self-signed issuer YAML manifest file *issuer-selfsigned.yaml*:
 
 ```shell
-
-
 $ cat issuer-selfsigned.yaml                                                            
 apiVersion: cert-manager.io/v1                                                                                                                   
 kind: Issuer                                                                                                                                     
@@ -164,11 +147,8 @@ spec:
 ```
 
 Type the following commands to create a namespace in which you want to generate certificates and deploy the issuer. Replace the sample namespace *cfe-apps* with your own namespace.
- 
+
 ```shell
-
-
-
 $ kubectl create ns cfe-apps
 namespace/cfe-apps created
 
@@ -190,8 +170,6 @@ If you want to be able to request certificates from any namespace in a cluster, 
 Here is a sample *ClusterIssuer* YAM manifest file *clusterissuer.yaml*: 
 
 ```shell
-
-
 $ cat clusterissuer.yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -201,26 +179,19 @@ spec:
   selfSigned: {}
 ```
 
-
-
 #### Generate a certificate
-
 
 Y﻿ou can use the CRD resource *Certificate* to generate a self-signed certificate. 
 
 H﻿ere is a sample *Certificate* YAML manifest file *certificate.yaml* :
 
 ```shell
-
-
 $ cat certificate.yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
  name: cfe-selfsigned-tls
 spec:
- # name of the tls secret to store
- # the automatically generated certificate/key pair
  secretName: cfe-tls-key-pair
  isCA: true
  issuerRef:
@@ -228,17 +199,13 @@ spec:
    kind: Issuer
  commonName: "example.com"
  dnsNames:
-
  - nginx.example.com
  - example.com
-
-
-
 ```
 
 I﻿n this YAML file, the *commonName* is set to a sample domain *'example.com'*. The *dnsNames* includes *'example.com'* and its subdomain *'nginx.example.com'*. 
 
-Cert-manager supports generate wildcard certificates, e.g., using _*'\*.example.com'*_, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
+Cert-manager supports generate wildcard certificates, e.g., using *'*.example.com'*, which allows to secure multiple subdomains under a single certificate. Wildcard certificates cover all subdomains under the specified domain. You need to be cautious when using them, as they grant access to any subdomain matching the pattern.
 
 T﻿ype the following command to generate the certificate in the namespace *cfe-apps*:
 
@@ -247,7 +214,7 @@ $ kubectl apply -f certificate.yaml -n cfe-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
 ```
 
-Check the generated certificate in the namespace *cfe-apps* by typing the following commands:
+Check the generated certificate in the namespace *cfe-apps* by typing the following command:
 
 ```shell
 $ k get certificate -n cfe-apps
@@ -261,21 +228,11 @@ T﻿he K8s secret *cfe-tls-key-pair* will be created automatically in the same n
 $ kubectl get secrets -n cfe-apps cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      52s
-
-
-
-
-
 ```
 
-T﻿he secret *cfe-tls-key-pair* contains 3 keys, *ca.crt*, *tls.crt* and *tls.key*, which can be checked using the option **-o yaml** in above *get secrets* command.
+T﻿he secret *cfe-tls-key-pair* contains 3 keys, *ca.crt*, *tls.crt* and *tls.key*, which can be checked using the option **\-o yaml** in above *get secrets* command.
 
-
-
-
-
-
-#### Test the certificate
+### Test the certificate
 
 T﻿ype the following *openssl* command to check the generated certificate:
 
@@ -341,19 +298,15 @@ Certificate:
          3b:13:9b:6f:9f:f6:5f:f2:e0:e4:4a:04:64:c3:e6:bd:78:18:
          19:22:d9:98:b5:47:85:0d:bd:b6:56:44:e6:89:34:30:90:20:
          36:63:4f:1e
-
-
 ```
 
 The line *X509v3 Subject Alternative Name* contains the *dnsNames* specified in the file *certificate.yaml* during the certificate generation.  
 
-### Integrate certificate with applications 
+### Integrate certificate with applications
 
 There are several ways to integrate the generated certificates into applications deployed in the K8s cluster and configure applications to be accessed securely over HTTPS.
 
-
 The simplest way is to create the K8s *Deployment* resource with TLS block and *containerPort* configuration.
-
 
 Here is one sample Nginx Deployment YAML manifest file *nginx-deployment.yaml* that integrates the generated certificate:  
 
@@ -378,14 +331,9 @@ spec:
 
 By specifying the *containerPort* as *443* and referring the *secretName* to the generated K8s secret *cfe-tls-key-pair* under *tls* section, it enables TLS termination for the Nginx application.
 
-
-
 There is another way to integrate certificate and configure it using the K8s *Ingress* resource with TLS parameters. This configuration requires a working Ingress controller setup in the cluster. There is a list of Ingress controllers, e.g., [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme), [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/), etc, you can deploy in the cluster.
 
-
-
 Here is one such sample Ingress YAML manifest file *ingress-nginx-selfsigned.yaml*:
-
 
 ```shell
 $ cat ingress-nginx-selfsigned.yaml
@@ -417,14 +365,10 @@ spec:
 
 It assumes the Nginx Ingress controller is deployed in the cluster. It configures the TLS block with the hostname *'nginx.example.com'* and the generated K8s secret. 
 
-
-
-One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*, which provides internal connectivity and can solely be accessed from within the cluster. The Ingress controller will p﻿rovide external access and handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.  
-
-
+One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*, which provides internal connectivity and can solely be accessed from within the cluster. The Ingress controller will p﻿rovide external access and handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.  
 
 ```shell
-$ k apply -f ingress-nginx-selfsigned.yaml -n cfe-apps
+$ kubectl apply -f ingress-nginx-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
@@ -432,7 +376,7 @@ A﻿fter deploying the Ingress using the above command, together with Nginx depl
 
 S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
-![](/img/nginx-private.png)  
+![](/img/nginx-private.png)
 
 Y﻿ou can click *Not secure* and start the certificate viewer to check the TLS certificate before clicking *Proceed to nginx.example.com (unsafe)* go to the Nginx page:
 
@@ -440,8 +384,6 @@ Y﻿ou can click *Not secure* and start the certificate viewer to check the TLS 
 
 ### Conclusion
 
-
-
-This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt]( https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
+This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt](https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
