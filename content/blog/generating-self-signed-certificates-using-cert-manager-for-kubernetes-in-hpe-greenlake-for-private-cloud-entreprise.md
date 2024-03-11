@@ -434,7 +434,7 @@ S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected 
 
 ![](/img/nginx-private.png)  
 
-Y﻿ou can click *Not secure* and access the certificate viewer to check the TLS certificate:
+Y﻿ou can click *Not secure* and start the certificate viewer to check the TLS certificate before clicking *Proceed to nginx.example.com (unsafe)* go to the Nginx page:
 
 ![](/img/nginx-cert.png)
 
