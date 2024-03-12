@@ -1,6 +1,6 @@
 ---
 title: Generating self-signed certificates using cert-manager for Kubernetes in
-  HPE GreenLake for Private Cloud Entreprise
+  HPE GreenLake for Private Cloud Enterprise
 date: 2024-03-11T16:19:11.107Z
 author: Guoping Jia
 authorimage: /img/guoping.png
@@ -11,6 +11,7 @@ tags:
   - cert-manager
   - HPE GreenLake for Private Cloud Entreprise
   - hpe-greenlake-for-private-cloud-enterprise
+  - SSL/TLS certificates
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
@@ -22,15 +23,15 @@ This blog post describes the details steps on how to generate a self-signed cert
 
 After applications being deployed in the cluster, one common requirement is to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s. Generating and managing SSL/TLS certificates in K8s is not always easy. There is a list of popular tools and utilities, e.g, . [OpenSSL](https://www.openssl.org/), [CloudFlare’s CFSSL](https://github.com/cloudflare/cfssl), [OpenVPN’s Easy-RSA](https://github.com/OpenVPN/easy-rsa), etc, which you can use for generating certificates. However, you have to follow up the process to create the root certificate authorities, generate certificate signing requests (CSRs), and sign the certificates. The process to generate those items is not very intuitive. Most often, it requires *DevOps* engineers to help and different teams to involve in installing and configuring the certificate chain. 
 
-This blog post describes the process to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Cert-manager integrates seamlessly with K8s for automated handling of certificates and it aligns well with the K8s resource model. This makes cert-manager a native and powerful solution for creating and managing certificates within K8s clusters. 
+This blog post describes the process to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Cert-manager integrates seamlessly with K8s for automated handling of certificates. It aligns well with the K8s resource model. This makes cert-manager a native and powerful solution for creating and managing certificates within K8s clusters. 
 
 ### Prerequisites
 
 Before starting, make sure you have the following:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The o﻿ptional openssl CLI tool, for validating the generated certificate 
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The o﻿ptional *openssl* CLI tool, for validating the generated certificate 
 
 ### Cert-manager
 
@@ -146,7 +147,7 @@ spec:
  selfSigned: {}
 ```
 
-Type the following commands to create a namespace in which you want to generate certificates and deploy the issuer. Replace the sample namespace *cfe-apps* with your own namespace.
+Type the following commands to create a namespace in which you want to generate certificates and deploy the issuer. Replace the sample namespace *cfe-apps* in the commands with your own namespace.
 
 ```shell
 $ kubectl create ns cfe-apps
@@ -217,7 +218,7 @@ certificate.cert-manager.io/cfe-selfsigned-tls created
 Check the generated certificate in the namespace *cfe-apps* by typing the following command:
 
 ```shell
-$ k get certificate -n cfe-apps
+$ kubectl get certificate -n cfe-apps
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   23s
 ```
@@ -300,7 +301,7 @@ Certificate:
          36:63:4f:1e
 ```
 
-The line *X509v3 Subject Alternative Name* contains the *dnsNames* specified in the file *certificate.yaml* during the certificate generation.  
+The line *X509v3 Subject Alternative Name* contains the *dnsNames* specified in the YAML file *certificate.yaml* during the certificate generation.
 
 ### Integrate certificate with applications
 
@@ -367,23 +368,25 @@ It assumes the Nginx Ingress controller is deployed in the cluster. It configure
 
 One benefit of this approach is that the sample Nginx application can be deployed in the cluster with the default service type *ClusterIP*, which provides internal connectivity and can solely be accessed from within the cluster. The Ingress controller will p﻿rovide external access and handle SSL by accessing the certificate in the cluster and route the traffic to the deployed Nginx application in the backend.  
 
+T﻿ype the following command to deploy the Ingress resource to the namespace *cfe-apps*: 
+
 ```shell
 $ kubectl apply -f ingress-nginx-selfsigned.yaml -n cfe-apps
 ingress.networking.k8s.io/nginx-ingress-selfsigned created
 ```
 
-A﻿fter deploying the Ingress using the above command, together with Nginx deployment, to the namespace *cfe-apps*, you can validate the Ingress TLS using the browser. Type the URL *nginx.example.com* in the browser, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
+A﻿fter deploying the Ingress using the above command, together with Nginx application deployment, to the namespace *cfe-apps*, you can validate the Ingress TLS using the browser. 
 
 S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-private.png)
 
-Y﻿ou can click *Not secure* and start the certificate viewer to check the TLS certificate before clicking *Proceed to nginx.example.com (unsafe)* go to the Nginx page:
+Y﻿ou can click *Not secure* and start the Certificate Viewer to check the TLS certificate before clicking *Proceed to nginx.example.com (unsafe)* to go to the Nginx page:
 
 ![](/img/nginx-cert.png)
 
 ### Conclusion
 
-This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt](https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
+This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt](https://letsencrypt.org/). You can refer to [cert-manager documentation](https://cert-manager.io/docs/) on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.  
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
