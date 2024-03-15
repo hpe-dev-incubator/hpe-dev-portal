@@ -1,5 +1,6 @@
 ---
 title: The Transformative Impact of Generative AI on Telco Products
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/munch-and-learn
 imageBackground: white
