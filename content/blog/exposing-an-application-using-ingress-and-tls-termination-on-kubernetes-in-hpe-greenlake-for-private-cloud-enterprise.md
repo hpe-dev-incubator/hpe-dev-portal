@@ -1,7 +1,7 @@
 ---
-title: Exposing an application using Ingress and TLS termination on Kubernetes
-  in HPE GreenLake for Private Cloud Enterprise
-date: 2024-02-21T09:22:08.283Z
+title: Exposing applications using Ingress and TLS termination on Kubernetes in
+  HPE GreenLake for Private Cloud Enterprise
+date: 2024-03-14T13:35:56.941Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -20,15 +20,17 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes the process to expose an application that's deployed and runs on Kubernetes in HPE GreenLake for Private Cloud Enterprise to the external world. 
-A Nginx app that serves as a Web server that prints out a customized application name will be used as a sample app to expose. The application itself will be deployed as 
-the service type of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the application will be exposed over HTTPS. 
+This blog post describes the process to expose applications that are deployed and run on Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise to the external world. 
+Three Nginx apps that serve as Web servers and each prints out a customized message will be used as sample applications to expose. The applications themselves will be deployed as 
+the service types of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the applications will be exposed over HTTPS. 
 
 ### Overview
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
 When application workloads get deployed to the K8s cluster, you can create services to expose the applications. By default, a service is created with the service type of *ClusterIP* that supports internal connectivity between different components of the application. In HPE GreenLake for Private Cloud Enterprise: Containers, you can create services with the type of NodePort for the application workloads deployed in K8s clusters using the label hpecp.hpe.com/hpecp-internal-gateway=true. The services will be automatically exposed to a container platform gateway host with assigned ports. The deployed workloads will become accessible externally using the gateway host name and the assigned ports as access URLs. For both service type, *ClusterIP* and NodePort , applications themselves run on HTTP. There is one common requirement to expose the applications to be accessed securely over HTTPS. This requires to get a valid SSL/TLS certificate in K8s and work with load balancers and Ingress.
+
+![](/img/tls-termination-s.png)
 
 This blog post, I 
 
@@ -37,10 +39,15 @@ This blog post, I
 Before starting, make sure you have the following:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The o﻿ptional openssl CLI tool, for validating the generated certificates 
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The Helm CLI tool, version 3.12.0 or later
+* A domain and a list of subdomain to generate the SSL certificate and host your applications in the cluster
 
-### Set up load balancer
+### Set up load balancer with MetalLB
+
+You can install and set up the load balancer by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+
+H﻿ere is the deployed MetalLB to the namespace *metallb-system* in the cluster:
 
 ```shell
 $ kubectl get all -n metallb-system
@@ -66,13 +73,13 @@ NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-57b4fdc957   1         1         1       22m
 ```
 
+H﻿ere is the range of virtual IP addresses, *"10.6.115.251-10.6.115.254"*, defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*:
+
 ```shell
 $ kubectl get ipaddresspools -n metallb-system
 NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
 cfe-pool   true          false             ["10.6.115.251-10.6.115.254"]
-```
 
-```shell
 $ kubectl get l2advertisements -n metallb-system
 NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
