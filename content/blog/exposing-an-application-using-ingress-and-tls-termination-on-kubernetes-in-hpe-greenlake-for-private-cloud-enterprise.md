@@ -240,6 +240,10 @@ cfe-tls-key-pair   kubernetes.io/tls   3      2m25s
 
 ### Install Nginx applications
 
+Three Nginx applicaitons from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo.git) will be deployed as sample applications to the cluster. 
+
+T﻿he repo's *apps* folder contains the Nginx applications' YAML manifest files:
+
 ```shell
 $ tree ingress-demo/
 ingress-demo/
@@ -251,6 +255,8 @@ ingress-demo/
 ├── ingress-path-based-selfsigned.yaml
 └── README.md
 ```
+
+T﻿ype the following commands to deploy those Nginx applications to the namespace *nginx-apps*:
 
 ```shell
 $ cd ingress-demo/
@@ -264,6 +270,8 @@ $ kubectl apply -f apps/nginx-blue.yaml -n nginx-apps
 service/nginx-blue created
 deployment.apps/nginx-blue created
 ```
+
+Check with below command to see that all the Nginx Pods are in Running state:  
 
 ```shell
 $ kubectl get all -n nginx-apps
@@ -288,7 +296,7 @@ replicaset.apps/nginx-green-8956bbd9f   1         1         1       24s
 replicaset.apps/nginx-main-64bfd77895   1         1         1       32s
 ```
 
-T﻿ype the following commend to check that all the service endpoints have been populated:
+T﻿ype the following commend to check that all the application service endpoints have been populated:
 
 ```shell
 $ kubectl get endpoints -n nginx-apps
@@ -298,7 +306,9 @@ nginx-green   10.192.4.45:80    1m
 nginx-main    10.192.4.44:80    1m
 ```
 
-### Deploy Ingress
+### Set up Ingress TLS
+
+The Ingress resource with TLS has to be created. Here is the sample Ingress TLS resource:
 
 ```shell
  $ cat ingress-host-based-selfsigned.yaml
@@ -349,9 +359,18 @@ spec:
               number: 80
 ```
 
+In the above sample YAML manifest file, there is the *tls block* that contains the hostname *'nginx.example.com'* and the tls secret *cfe-tls-key-pair* created in the certification steps. There is also the *rules block* in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
+
+T﻿ype the following command to deploy the Ingress resource to the namespace *nginx-apps*:
+
 ```shell
 $ kubectl apply -f ingress-host-based-selfsigned.yaml -n nginx-apps
 ingress.networking.k8s.io/ingress-host-based-selfsigned created
+```
+
+T﻿ype below command to check the details of the *TLS* and *Rules* settings:
+
+```shell
 $ kubectl get ingress -n nginx-apps
 NAME                            CLASS   HOSTS                                                              ADDRESS   PORTS     AGE
 ingress-host-based-selfsigned   nginx   nginx.example.com,blue.nginx.example.com,green.nginx.example.com             80, 443   9s
@@ -382,9 +401,9 @@ Events:
   Normal  CreateCertificate  20s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
 
-#﻿## Access deployed Nginx apps
+#﻿## Access deployed Nginx applications
 
-W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* assigned to the *Nginx ingress controller*. 
+W﻿ith all Nginx applications, together with the K8s Ingress resource, being deployed to the cluster, you need set up and make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* which is assigned to the *Nginx ingress controller*.  
 
 Type the following commands to check this is done correctly: 
 
@@ -399,13 +418,15 @@ $ host blue.nginx.example.com
 blue.nginx.example.com has address 10.6.115.251
 ```
 
+You can then validate the Ingres TLS configuration of the deployed Nginx applications to the cluster using the browser. 
+
 S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-main-warning.png)
 
 T﻿his is due to the fact the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
 
-C﻿lick *Not secure* and start Certificate Viewer to check the certificate:
+C﻿lick *Not secure* and start the Certificate Viewer to check the certificate:
 
 ![](/img/nginx-main-cert.png)
 
@@ -428,6 +449,8 @@ T﻿he same thing occurs when type the URL *blue.nginx.example.com* to the brows
 C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx *BLEU* page:  
 
 ![](/img/nginx-blue.png)
+
+You have successfully configured the Ingress with the generated TLS c﻿ertificate and exposed the deployed applications with TLS termination. 
 
 ### Conclusion
 
