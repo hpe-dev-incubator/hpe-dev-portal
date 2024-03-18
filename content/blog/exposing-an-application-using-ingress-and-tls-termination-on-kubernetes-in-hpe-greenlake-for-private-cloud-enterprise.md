@@ -20,9 +20,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes the process to expose applications that are deployed and run on Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise to the external world. 
-Three Nginx apps that serve as Web servers and each prints out a customized message will be used as sample applications to expose. The applications themselves will be deployed as 
-the service types of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the applications will be exposed over HTTPS. 
+This blog post describes the process to expose applications that are deployed and run on Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise to the external world. Three Nginx apps that serve as Web servers and each prints out a customized message will be used as sample applications to expose. The applications themselves will be deployed as the service types of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the applications will be exposed over HTTPS. 
 
 ### Overview
 
@@ -290,6 +288,16 @@ replicaset.apps/nginx-green-8956bbd9f   1         1         1       24s
 replicaset.apps/nginx-main-64bfd77895   1         1         1       32s
 ```
 
+T﻿ype the following commend to check that all the service endpoints have been populated:
+
+```shell
+$ kubectl get endpoints -n nginx-apps
+NAME          ENDPOINTS        AGE
+nginx-blue    10.192.3.78:80    1m
+nginx-green   10.192.4.45:80    1m
+nginx-main    10.192.4.44:80    1m
+```
+
 ### Deploy Ingress
 
 ```shell
@@ -374,7 +382,7 @@ Events:
   Normal  CreateCertificate  20s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
 
-\#﻿## Access deployed Nginx apps
+#﻿## Access deployed Nginx apps
 
 W﻿ith all Nginx apps, together with the K8s Ingress resource, being deployed to the cluster, all I have to do is to make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* assigned to the *Nginx ingress controller*. 
 
@@ -423,6 +431,8 @@ C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx 
 
 ### Conclusion
 
-This blog post described the steps to generate a self-signed certificate using cert-manager for K8s in HPE GreenLake for Private Cloud Enterprise. Self-signed certificates provide an easy way to prove your own identity for the applications deployed in K8s cluster. They are a good option for development and testing environments. However, self-signed certificates should not be used for production applications. For production use cases, you can try out cert-manager with [Lets Encrypt](https://letsencrypt.org/). Please refer to [cert-manager documentation](https://cert-manager.io/docs/)  on how to use it with the type of *Let’s Encrypt* challenges, as well as other sources than *Let’s Encrypt*.
+
+This blog post provided a comprehensive guide on how to expose applications deployed in a K8 cluster and make them accessible securely via HTTPS. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. Although the emphasis was on self-signed certificates, the procedure is applicable to any type of certificates. This 
+enables customers to follow up the steps using their own CA certificates for Ingress TLS termination.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
