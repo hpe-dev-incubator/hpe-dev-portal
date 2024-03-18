@@ -54,9 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
-        component: require.resolve(
-          './src/pages/hackshack/workshops/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/workshops/template.js'),
         context: {
           specialBadgeId: id,
           title,
