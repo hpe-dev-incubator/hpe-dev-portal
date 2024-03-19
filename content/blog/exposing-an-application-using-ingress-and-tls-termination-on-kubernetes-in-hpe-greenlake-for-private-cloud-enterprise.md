@@ -32,8 +32,8 @@ This blog post outlines the comprehensive steps for exposing applications via K8
 
 ![](/img/tls-termination-s.png)
 
-Despite the complexities, the exposure of applications in K8s over HTTPS is achievable with the appropriate tools and utilities within the HPE GreenLake for Private Cloud Enterprise.
-
+Despite the complexities, the exposure of applications in K8s over HTTPS is achievable using Ingress and TLS termination with a list of appropriate tools and utilities d﻿eployed in the HPE GreenLake for Private Cloud Enterprise. 
+ 
 ### Prerequisites
 
 Before starting, make sure you have the following:
