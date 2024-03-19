@@ -85,7 +85,7 @@ NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
 ```
 
-### Deploy Ngnix ingress controller
+### Deploy Ngnix Ingress controller
 
 ```shell
 $ helm upgrade --install ingress-nginx ingress-nginx \
@@ -365,6 +365,7 @@ spec:
             port:
               number: 80
 ```
+
 
 In the above sample YAML manifest file, there is the *tls block* that contains the hostname *'nginx.example.com'* and the tls secret *cfe-tls-key-pair* created in the certification steps. There is also the *rules block* in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
 
