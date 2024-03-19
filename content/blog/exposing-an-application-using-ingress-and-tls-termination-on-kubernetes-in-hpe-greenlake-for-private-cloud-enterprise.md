@@ -157,7 +157,7 @@ replicaset.apps/ingress-nginx-controller-548768956f   1         1         1     
 
 T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*.
 
-### Install cert-manager
+### Generate a self-signed certificate using cert-manager  
 
 ```shell
 $ kubectl get all -n cert-manager
@@ -238,11 +238,9 @@ NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      2m25s
 ```
 
-### Install Nginx applications
+### Deploy sample Nginx applications
 
-Three Nginx applicaitons from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo.git) will be deployed as sample applications to the cluster. 
-
-T﻿he repo's *apps* folder contains the Nginx applications' YAML manifest files:
+In order to validate the Ingress TLS termination, three sample Nginx applications will be deployed to the cluster using the YAML manifest files from GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
 
 ```shell
 $ tree ingress-demo/
@@ -255,6 +253,8 @@ ingress-demo/
 ├── ingress-path-based-selfsigned.yaml
 └── README.md
 ```
+
+Each YAML manifest file in the folder *apps* defines the *Deployment* and the *Service* resource.  
 
 T﻿ype the following commands to deploy those Nginx applications to the namespace *nginx-apps*:
 
@@ -271,7 +271,7 @@ service/nginx-blue created
 deployment.apps/nginx-blue created
 ```
 
-Check with below command to see that all the Nginx Pods are in Running state:  
+Type the command shown below to check the details of application deployment:  
 
 ```shell
 $ kubectl get all -n nginx-apps
@@ -295,6 +295,9 @@ replicaset.apps/nginx-blue-78647f4c4b   1         1         1       15s
 replicaset.apps/nginx-green-8956bbd9f   1         1         1       24s
 replicaset.apps/nginx-main-64bfd77895   1         1         1       32s
 ```
+
+Three Nginx applications, *nginx-main*, *nginx-blue* and *nginx-green*, are deployed as the service type of *ClusterIP*. They provide internal connectivity and can solely be accessed from within the cluster.
+
 
 T﻿ype the following commend to check that all the application service endpoints have been populated:
 
