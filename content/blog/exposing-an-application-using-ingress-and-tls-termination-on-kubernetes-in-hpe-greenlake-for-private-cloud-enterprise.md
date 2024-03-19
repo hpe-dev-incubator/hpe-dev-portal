@@ -85,7 +85,9 @@ NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
 ```
 
-### Deploy Ngnix Ingress controller
+### Deploy Nginx Ingress controller
+
+The Nginx Ingress controller can be installed using helm by typing the following command:
 
 ```shell
 $ helm upgrade --install ingress-nginx ingress-nginx \
@@ -141,6 +143,8 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
   type: kubernetes.io/tls
 ```
 
+T﻿he Nginx Ingress controller is deployed to the namespace *ingress-nginx* in the cluster. Type the following command to check the deployment details:
+
 ```shell
 $ kubectl get all -n ingress-nginx
 NAME                                            READY   STATUS    RESTARTS   AGE
@@ -157,11 +161,13 @@ NAME                                                  DESIRED   CURRENT   READY 
 replicaset.apps/ingress-nginx-controller-548768956f   1         1         1       15m
 ```
 
-T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*.
+T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*. 
 
 ### Generate a self-signed certificate using cert-manager  
 
 You can d﻿eploy cert-manager and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
+
+H﻿ere is the deployed cert-manager to the namespace *cert-manager* in the cluster:
 
 ```shell
 $ kubectl get all -n cert-manager
@@ -185,61 +191,121 @@ replicaset.apps/cert-manager-cainjector-69548575fb   1         1         1      
 replicaset.apps/cert-manager-webhook-57b78f476d      1         1         1       18s
 ```
 
+Here is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *nginx-apps*  in which you want to generate certificates:
+
 ```shell
-$ kubectl create ns nginx-apps
-namespace/nginx-apps created
-
-$ cat issuer-selfsigned.yaml
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
- name: cfe-selfsigned-issuer
-spec:
- selfSigned: {}
-
-$ kubectl apply -f issuer-selfsigned.yaml -n nginx-apps
-issuer.cert-manager.io/cfe-selfsigned-issuer created
-
 $ kubectl get issuer -n nginx-apps
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    115s
 ```
 
-```shell
-$ cat certificate.yaml
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
- name: cfe-selfsigned-tls
-spec:
- # name of the tls secret to store
- # the automatically generated certificate/key pair
- secretName: cfe-tls-key-pair
- isCA: true
- issuerRef:
-   name: cfe-selfsigned-issuer
-   kind: Issuer
- commonName: "example.com"
- dnsNames:
- # one or more fully-qualified domain name
- # can be defined here
- - green.nginx.example.com
- - blue.nginx.example.com
- - nginx.example.com
- - example.com
-```
+B﻿elow is the generated self-signed certificate in the namespace *nginx-apps*:
 
 ```shell
 $ kubectl apply -f certificate.yaml -n nginx-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
+```
 
-$ kubectl get certificate -n nginx-apps
-NAME                 READY   SECRET             AGE
-cfe-selfsigned-tls   True    cfe-tls-key-pair   17s
+T﻿he following K8s secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
 
+```shell
 $ kubectl get secrets -n nginx-apps cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      2m25s
+```
+
+T﻿ype the following command to check the *commonName* and the *dnsNames* that are used to generate the certificate:
+
+```shell
+$ k describe certificate cfe-selfsigned-tls -n nginx-apps
+Name:         cfe-selfsigned-tls
+Namespace:    nginx-apps
+Labels:       <none>
+Annotations:  <none>
+API Version:  cert-manager.io/v1
+Kind:         Certificate
+Metadata:
+  Creation Timestamp:  2024-03-06T17:58:51Z
+  Generation:          1
+  Managed Fields:
+    API Version:  cert-manager.io/v1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .:
+          f:kubectl.kubernetes.io/last-applied-configuration:
+      f:spec:
+        .:
+        f:commonName:
+        f:dnsNames:
+        f:isCA:
+        f:issuerRef:
+          .:
+          f:kind:
+          f:name:
+        f:secretName:
+    Manager:      kubectl-client-side-apply
+    Operation:    Update
+    Time:         2024-03-06T17:58:51Z
+    API Version:  cert-manager.io/v1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:revision:
+    Manager:      cert-manager-certificates-issuing
+    Operation:    Update
+    Subresource:  status
+    Time:         2024-03-06T17:58:52Z
+    API Version:  cert-manager.io/v1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        .:
+        f:conditions:
+          .:
+          k:{"type":"Ready"}:
+            .:
+            f:lastTransitionTime:
+            f:message:
+            f:observedGeneration:
+            f:reason:
+            f:status:
+            f:type:
+        f:notAfter:
+        f:notBefore:
+        f:renewalTime:
+    Manager:         cert-manager-certificates-readiness
+    Operation:       Update
+    Subresource:     status
+    Time:            2024-03-06T17:58:52Z
+  Resource Version:  2128063
+  UID:               977eaa8a-1612-489b-a34d-0e78ab113096
+Spec:
+  Common Name:  example.com
+  Dns Names:
+    green.nginx.example.com
+    blue.nginx.example.com
+    nginx.example.com
+    example.com
+  Is CA:  true
+  Issuer Ref:
+    Kind:       Issuer
+    Name:       cfe-selfsigned-issuer
+  Secret Name:  cfe-tls-key-pair
+Status:
+  Conditions:
+    Last Transition Time:  2024-03-06T17:58:52Z
+    Message:               Certificate is up to date and has not expired
+    Observed Generation:   1
+    Reason:                Ready
+    Status:                True
+    Type:                  Ready
+  Not After:               2024-06-04T17:58:52Z
+  Not Before:              2024-03-06T17:58:52Z
+  Renewal Time:            2024-05-05T17:58:52Z
+  Revision:                1
+Events:                    <none>
 ```
 
 ### Deploy sample Nginx applications
@@ -411,7 +477,7 @@ Events:
 
 #﻿## Access deployed Nginx applications
 
-W﻿ith all Nginx applications, together with the K8s Ingress resource, being deployed to the cluster, you need set up and make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* which is assigned to the *Nginx ingress controller*.  
+W﻿ith three Nginx applications and the K8s Ingress resource being deployed to the cluster, you need set up and make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* which is assigned to the *Nginx ingress controller*.  
 
 Type the following commands to check this is done correctly: 
 
@@ -463,7 +529,6 @@ You have successfully configured the Ingress with the generated TLS c﻿ertifica
 ### Conclusion
 
 
-This blog post provided a comprehensive guide on how to expose applications deployed in a K8 cluster and make them accessible securely via HTTPS. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. Although the emphasis was on self-signed certificates, the procedure is applicable to any type of certificates. This 
-enables customers to follow up the steps using their own CA certificates for Ingress TLS termination.
+This blog post provided a comprehensive guide on how to expose applications and make them accessible securely via HTTPS in a K8 cluster in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. Although the emphasis was on self-signed certificates, the procedure is applicable to any type of certificates. This enables customers to follow up the steps using their own CA certificates for Ingress TLS termination.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
