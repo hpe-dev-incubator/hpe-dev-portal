@@ -28,11 +28,11 @@ This blog post describes the process to expose applications that are deployed an
  
 O﻿nce applications are deployed in a cluster, you can start creating services to expose the applications. By default, services are created with the service types of *ClusterIP* that support internal connectivity between different components of the applications. However, they are not accessible from outside the cluster. Exposing applications and making them securely accessible over HTTPS can be challenging. Generating and managing SSL/TLS certificates for multiple application services deployed in the cluster can be complex. These certificates are necessary for secure service communication and they need to be correctly installed and managed to avoid any access problem and security risks. The K8s Ingress can be configured with TLS termination to support application access over HTTPS. However, setting up K8s Ingress can be intricate. It involves creating a K8s *Secret* to host the certificate and private key, and referencing the Secret in the Ingress resource. It may also require an additional load balancer configuration in the cluster. 
 
-This blog post outlines the comprehensive steps for exposing applications via K8s Ingress and implementing TLS termination on K8s within the HPE GreenLake for Private Cloud Enterprise. The load balancer in the cluster is set up using *MetalLB*. *Cert-manager* is utilized for the creation and management of SSL/TLS certificates, which are stored as a K8s *Secret* object and made accessible to the entire cluster upon creation. Among various Ingress controllers such as Traefik and HAProxy, the Nginx Ingress controller is deployed and configured in the cluster to access and manage the SSL certificate. Despite the complexities, the exposure of applications in K8s over HTTPS is achievable with the appropriate tools and utilities within the HPE GreenLake for Private Cloud Enterprise.
+This blog post outlines the comprehensive steps for exposing applications via K8s Ingress and implementing TLS termination on K8s within the HPE GreenLake for Private Cloud Enterprise. The load balancer in the cluster is set up using [MetalLB](https://metallb.universe.tf/). [Cert-manager]() is utilized for the creation and management of SSL/TLS certificates, which are stored as a K8s *Secret* object and made accessible to the entire cluster upon creation. Among various Ingress controllers such as [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) and [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme), the [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster to access and manage the SSL certificate. 
 
 ![](/img/tls-termination-s.png)
 
-This blog post, I 
+Despite the complexities, the exposure of applications in K8s over HTTPS is achievable with the appropriate tools and utilities within the HPE GreenLake for Private Cloud Enterprise.
 
 ### Prerequisites
 
@@ -43,9 +43,9 @@ Before starting, make sure you have the following:
 * The Helm CLI tool, version 3.12.0 or later
 * A domain and a list of subdomain to generate the SSL certificate and host your applications in the cluster
 
-### Set up load balancer with MetalLB
+### Set up the load balancer with MetalLB
 
-You can install and set up the load balancer by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+You can install MetalLB and set up the load balancer by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
 H﻿ere is the deployed MetalLB to the namespace *metallb-system* in the cluster:
 
@@ -160,6 +160,8 @@ replicaset.apps/ingress-nginx-controller-548768956f   1         1         1     
 T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*.
 
 ### Generate a self-signed certificate using cert-manager  
+
+You can d﻿eploy cert-manager and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
 
 ```shell
 $ kubectl get all -n cert-manager
