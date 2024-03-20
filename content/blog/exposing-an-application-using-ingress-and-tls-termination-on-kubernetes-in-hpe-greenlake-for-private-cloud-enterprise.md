@@ -202,8 +202,9 @@ cfe-selfsigned-issuer   True    115s
 Here is the generated self-signed certificate in the namespace *nginx-apps*:
 
 ```shell
-$ kubectl apply -f certificate.yaml -n nginx-apps
-certificate.cert-manager.io/cfe-selfsigned-tls created
+$ kubectl get certificate -n nginx-apps
+NAME                 READY   SECRET             AGE
+cfe-selfsigned-tls   True    cfe-tls-key-pair   2m23s
 ```
 
 T﻿he following K8s Secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
@@ -217,7 +218,7 @@ cfe-tls-key-pair   kubernetes.io/tls   3      2m25s
 T﻿ype the following command to check the *commonName* and the *dnsNames* that are used to generate the certificate:
 
 ```shell
-$ k describe certificate cfe-selfsigned-tls -n nginx-apps
+$ kubectl describe certificate cfe-selfsigned-tls -n nginx-apps
 Name:         cfe-selfsigned-tls
 Namespace:    nginx-apps
 Labels:       <none>
@@ -310,7 +311,7 @@ Events:                    <none>
 
 ### Deploy sample Nginx applications
 
-In order to validate the Ingress TLS termination, three sample Nginx applications will be deployed to the cluster using the YAML manifest files from GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
+In order to validate the Ingress TLS termination, three sample Nginx applications will be deployed to the cluster using the YAML manifest files from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
 
 ```shell
 $ tree ingress-demo/
@@ -381,10 +382,10 @@ nginx-main    10.192.4.44:80    1m
 
 ### Set up Ingress TLS
 
-The Ingress resource with TLS has to be created. Here is the sample Ingress TLS resource:
+The Ingress resource with TLS has to be created. Here is the sample Ingress TLS resource *ingress-host-based-selfsigned.yaml*, available from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
 
 ```shell
- $ cat ingress-host-based-selfsigned.yaml
+$ cat ingress-host-based-selfsigned.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -433,7 +434,7 @@ spec:
 ```
 
 
-In the above sample YAML manifest file, there is the *tls* block that contains the hostname *'nginx.example.com'* and the tls secret *cfe-tls-key-pair* created in the certification step. There is also the *rules* block in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
+In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'nginx.example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
 
 T﻿ype the following command to deploy the Ingress resource to the namespace *nginx-apps*:
 
@@ -476,7 +477,7 @@ Events:
 
 B﻿efore start accessing the deployed Nginx applications, you need set up the domain and the subdomain name resolution. For the sample domain name *nginx.example.com*, and its subdomains, *blue.nginx.example.com* and *green.nginx.example.com*, the workstation host file has been used for DNS resolution.  
 
-Type the following commands to check this is done correctly: 
+Type the following commands to check that this is done correctly: 
 
 ```shell
 $ host nginx.example.com
