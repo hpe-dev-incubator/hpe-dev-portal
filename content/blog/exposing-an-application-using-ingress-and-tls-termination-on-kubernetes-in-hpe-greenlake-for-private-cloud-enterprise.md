@@ -20,19 +20,17 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes the process to expose applications that are deployed and run on Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise to the external world. Three Nginx apps that serve as Web servers and each prints out a customized message will be used as sample applications to expose. The applications themselves will be deployed as the service types of *ClusterIP*, running on the port 80 over HTTP. Using cert-manager and TLS termination on configured MetalLB load balancer, the applications will be exposed over HTTPS. 
-
 ### Overview
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html) ("containers service"), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
  
-O﻿nce applications are deployed in a cluster, you can start creating services to expose the applications. By default, services are created with the service types of *ClusterIP* that support internal connectivity between different components of the applications. However, they are not accessible from outside the cluster. Exposing applications and making them securely accessible over HTTPS can be challenging. Generating and managing SSL/TLS certificates for multiple application services deployed in the cluster can be complex. These certificates are necessary for secure service communication and they need to be correctly installed and managed to avoid any access problem and security risks. The K8s Ingress can be configured with TLS termination to support application access over HTTPS. However, setting up K8s Ingress can be intricate. It involves creating a K8s *Secret* to host the certificate and private key, and referencing the Secret in the Ingress resource. It may also require an additional load balancer configuration in the cluster. 
+O﻿nce applications are deployed in a K8s cluster, the next step is to create services that expose these applications. By default, K8s services are created with the *ClusterIP* type, which supports internal connectivity among different components of the applications. However, these services are not directly accessible from outside the cluster. The challenge arises with a requirement to securely expose the applications over HTTPS. This involves generating and managing SSL/TLS certificates for multiple applications deployed in the cluster. These certificates are crucial for secure communication between services, and their correct installation and management are essential to avoid access issues and security risks. To address exposing applications over HTTPS, K8s provides the concept of *Ingress*. An Ingress acts as an entry point for external traffic into the cluster. It can be configured with TLS termination. However, setting up K8s Ingress is intricate. It involves creating a K8s Secret to host the certificate and referencing the Secret in the Ingress resource. It also requires an additional load balancer configuration in the cluster.
 
-This blog post outlines the comprehensive steps for exposing applications via K8s Ingress and implementing TLS termination on K8s within the HPE GreenLake for Private Cloud Enterprise. The load balancer in the cluster is set up using [MetalLB](https://metallb.universe.tf/). [Cert-manager]() is utilized for the creation and management of SSL/TLS certificates, which are stored as a K8s *Secret* object and made accessible to the entire cluster upon creation. Among various Ingress controllers such as [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) and [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme), the [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster to access and manage the SSL certificate. 
+This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. MetalLB is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. Cert-manager is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The Nginx Ingress controller is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
 
 ![](/img/tls-termination-s.png)
 
-Despite the complexities, the exposure of applications in K8s over HTTPS is achievable using Ingress and TLS termination with a list of appropriate tools and utilities d﻿eployed in the HPE GreenLake for Private Cloud Enterprise. 
+Despite the complexities, securely exposing applications in a K8s cluster over HTTPS is attainable. This can be achieved by leveraging Ingress and TLS termination, along with a suite of suitable tools and utilities deployed within the K8s cluster in HPE GreenLake for Private Cloud Enterprise.
  
 ### Prerequisites
 
@@ -40,8 +38,8 @@ Before starting, make sure you have the following:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The Helm CLI tool, version 3.12.0 or later
-* A domain and a list of subdomain to generate the SSL certificate and host your applications in the cluster
+* The *helm* CLI tool, version 3.12.0 or later
+* A domain and a list of subdomains to generate the SSL certificate and host the applications in the cluster
 
 ### Set up the load balancer with MetalLB
 
