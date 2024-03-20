@@ -1,7 +1,7 @@
 ---
 title: Exposing applications using Ingress and TLS termination on Kubernetes in
   HPE GreenLake for Private Cloud Enterprise
-date: 2024-03-14T13:35:56.941Z
+date: 2024-03-20T10:06:33.740Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -26,7 +26,7 @@ tags:
  
 O﻿nce applications are deployed in a K8s cluster, the next step is to create services that expose these applications. By default, K8s services are created with the *ClusterIP* type, which supports internal connectivity among different components of the applications. However, these services are not directly accessible from outside the cluster. The challenge arises with a requirement to securely expose the applications over HTTPS. This involves generating and managing SSL/TLS certificates for multiple applications deployed in the cluster. These certificates are crucial for secure communication between services, and their correct installation and management are essential to avoid access issues and security risks. To address exposing applications over HTTPS, K8s provides the concept of *Ingress*. An Ingress acts as an entry point for external traffic into the cluster. It can be configured with TLS termination. However, setting up K8s Ingress is intricate. It involves creating a K8s Secret to host the certificate and referencing the Secret in the Ingress resource. It also requires an additional load balancer configuration in the cluster.
 
-This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. MetalLB is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. Cert-manager is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The Nginx Ingress controller is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
+This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. [MetalLB](https://metallb.universe.tf/) is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. [Cert-manager](https://cert-manager.io/) is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
 
 ![](/img/tls-termination-s.png)
 
@@ -71,7 +71,7 @@ NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-57b4fdc957   1         1         1       22m
 ```
 
-H﻿ere is the range of virtual IP addresses, *"10.6.115.251-10.6.115.254"*, defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*:
+You can see the range of virtual IP addresses, *"10.6.115.251-10.6.115.254"*, defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*:
 
 ```shell
 $ kubectl get ipaddresspools -n metallb-system
@@ -159,7 +159,7 @@ NAME                                                  DESIRED   CURRENT   READY 
 replicaset.apps/ingress-nginx-controller-548768956f   1         1         1       15m
 ```
 
-T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*. 
+T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*. This IP address will be used for setting up domain and subdomain name resolution.
 
 ### Generate a self-signed certificate using cert-manager  
 
@@ -189,7 +189,7 @@ replicaset.apps/cert-manager-cainjector-69548575fb   1         1         1      
 replicaset.apps/cert-manager-webhook-57b78f476d      1         1         1       18s
 ```
 
-Here is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *nginx-apps*  in which you want to generate certificates:
+Below is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *nginx-apps*  in which you want to generate certificate:
 
 ```shell
 $ kubectl get issuer -n nginx-apps
@@ -197,14 +197,14 @@ NAME                    READY   AGE
 cfe-selfsigned-issuer   True    115s
 ```
 
-B﻿elow is the generated self-signed certificate in the namespace *nginx-apps*:
+Here is the generated self-signed certificate in the namespace *nginx-apps*:
 
 ```shell
 $ kubectl apply -f certificate.yaml -n nginx-apps
 certificate.cert-manager.io/cfe-selfsigned-tls created
 ```
 
-T﻿he following K8s secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
+T﻿he following K8s Secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
 
 ```shell
 $ kubectl get secrets -n nginx-apps cfe-tls-key-pair
@@ -431,7 +431,7 @@ spec:
 ```
 
 
-In the above sample YAML manifest file, there is the *tls block* that contains the hostname *'nginx.example.com'* and the tls secret *cfe-tls-key-pair* created in the certification steps. There is also the *rules block* in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
+In the above sample YAML manifest file, there is the *tls* block that contains the hostname *'nginx.example.com'* and the tls secret *cfe-tls-key-pair* created in the certification step. There is also the *rules* block in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
 
 T﻿ype the following command to deploy the Ingress resource to the namespace *nginx-apps*:
 
@@ -440,13 +440,10 @@ $ kubectl apply -f ingress-host-based-selfsigned.yaml -n nginx-apps
 ingress.networking.k8s.io/ingress-host-based-selfsigned created
 ```
 
-T﻿ype below command to check the details of the *TLS* and *Rules* settings:
+Check the details of the *TLS* and *Rules* settings by t﻿yping below command:
 
 ```shell
-$ kubectl get ingress -n nginx-apps
-NAME                            CLASS   HOSTS                                                              ADDRESS   PORTS     AGE
-ingress-host-based-selfsigned   nginx   nginx.example.com,blue.nginx.example.com,green.nginx.example.com             80, 443   9s
-$ kubectl describe ingress -n nginx-apps
+$ kubectl describe ingress ingress-host-based-selfsigned -n nginx-apps
 Name:             ingress-host-based-selfsigned
 Labels:           <none>
 Namespace:        nginx-apps
@@ -475,7 +472,7 @@ Events:
 
 #﻿## Access deployed Nginx applications
 
-W﻿ith three Nginx applications and the K8s Ingress resource being deployed to the cluster, you need set up and make sure the domain and the subdomain names, i.e., *example.com* & **.nginx.example.com*, point to the the external IP address *'10.6.115.251'* which is assigned to the *Nginx ingress controller*.  
+B﻿efore start accessing the deployed Nginx applications, you need set up the domain and the subdomain name resolution. For the sample domain name *nginx.example.com*, and its subdomains, *blue.nginx.example.com* and *green.nginx.example.com*, the workstation host file has been used for DNS resolution.  
 
 Type the following commands to check this is done correctly: 
 
@@ -490,13 +487,13 @@ $ host blue.nginx.example.com
 blue.nginx.example.com has address 10.6.115.251
 ```
 
-You can then validate the Ingres TLS configuration of the deployed Nginx applications to the cluster using the browser. 
+You can then validate the Ingres TLS configuration using the browser. 
 
 S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-main-warning.png)
 
-T﻿his is due to the fact the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
+T﻿his is due to the fact that the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
 
 C﻿lick *Not secure* and start the Certificate Viewer to check the certificate:
 
@@ -527,6 +524,6 @@ You have successfully configured the Ingress with the generated TLS c﻿ertifica
 ### Conclusion
 
 
-This blog post provided a comprehensive guide on how to expose applications and make them accessible securely via HTTPS in a K8 cluster in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. Although the emphasis was on self-signed certificates, the procedure is applicable to any type of certificates. This enables customers to follow up the steps using their own CA certificates for Ingress TLS termination.
+This blog post provided a comprehensive guide on how to expose applications and make them accessible securely via HTTPS in a K8 cluster in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. While the blog post emphasized on self-signed certificates, the outlined procedure is equally applicable to any type of certificates. This flexibility allows customers to follow the steps using their own CA certificates or any commercially issued certificates for Ingress TLS termination, ensuring secure exposure of their applications in the K8s cluster over HTTPS. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
