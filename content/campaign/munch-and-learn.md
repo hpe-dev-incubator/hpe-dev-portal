@@ -2,7 +2,7 @@
 title: Munch & Learn Technology Talks
 authorimage: /img/Munch_and_Learn_192_192.svg
 ---
- Join our free, one-hour webinars to hear from and engage with renowned technologists as they share thought-leadership insights on popular HPE and open source technologies. Get your questions answered while sharing a recipe or two.
+Join our free, one-hour webinars to hear from and engage with renowned technologists as they share thought-leadership insights on popular HPE and open source technologies. Get your questions answered while sharing a recipe or two.
 
 Hosted by the HPE Developer Community, these gatherings are held on a monthly basis at 5PM CET (8AM PST). You can read more about Munch & Learn Technology Talks [in this blog](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks) post.
 
