@@ -24,7 +24,7 @@ tags:
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html) ("containers service"), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
  
-O﻿nce applications are deployed in a K8s cluster, the next step is to create services that expose these applications. By default, K8s services are created with the *ClusterIP* type, which supports internal connectivity among different components of the applications. However, these services are not directly accessible from outside the cluster. The challenge arises with a requirement to securely expose the applications over HTTPS. This involves generating and managing SSL/TLS certificates for multiple applications deployed in the cluster. These certificates are crucial for secure communication between services, and their correct installation and management are essential to avoid access issues and security risks. To address exposing applications over HTTPS, K8s provides the concept of *Ingress*. An Ingress acts as an entry point for external traffic into the cluster. It can be configured with TLS termination. However, setting up K8s Ingress is intricate. It involves creating a K8s Secret to host the certificate and referencing the Secret in the Ingress resource. It also requires an additional load balancer configuration in the cluster.
+O﻿nce applications are deployed in a K8s cluster, the next step is to create services that expose these applications. By default, K8s services are created with the *ClusterIP* type, which supports internal connectivity among different components of the applications. However, these services are not directly accessible from outside the cluster. The challenge arises with a requirement to securely expose the deployed applications over HTTPS. This involves generating and managing SSL/TLS certificates for multiple applications deployed in the cluster. These certificates are crucial for secure communication between services, and their correct installation and management are essential to avoid access issues and security risks. To address exposing applications over HTTPS, K8s provides the concept of *Ingress*. An Ingress acts as an entry point for external traffic into the cluster. It can be configured with TLS termination. However, setting up K8s Ingress is intricate. It involves creating a K8s Secret to host the certificate and referencing the Secret in the Ingress resource. It also requires an additional load balancer configuration in the cluster.
 
 This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. [MetalLB](https://metallb.universe.tf/) is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. [Cert-manager](https://cert-manager.io/) is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
 
@@ -43,7 +43,7 @@ Before starting, make sure you have the following:
 
 ### Set up the load balancer with MetalLB
 
-You can install MetalLB and set up the load balancer by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+You can install MetalLB and set up the load balancer in the K8s cluster by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
 H﻿ere is the deployed MetalLB to the namespace *metallb-system* in the cluster:
 
@@ -85,7 +85,9 @@ cfe-l2advert   ["cfe-pool"]
 
 ### Deploy Nginx Ingress controller
 
-The Nginx Ingress controller can be installed using helm by typing the following command:
+In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and routing rules defined on the Ingress resource and makes them par of its configuration. 
+
+There is a list of Ingress controllers, such as [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme), [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/), you can deploy in the cluster. The following command shows to install the Nginx Ingress controller to the cluster using helm:
 
 ```shell
 $ helm upgrade --install ingress-nginx ingress-nginx \
@@ -163,7 +165,7 @@ T﻿he service *ingress-nginx-controller* gets deployed as the service type of *
 
 ### Generate a self-signed certificate using cert-manager  
 
-You can d﻿eploy cert-manager and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
+You can d﻿eploy cert-manager to the K8s cluster and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
 
 H﻿ere is the deployed cert-manager to the namespace *cert-manager* in the cluster:
 
@@ -470,7 +472,7 @@ Events:
   Normal  CreateCertificate  20s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
 
-#﻿## Access deployed Nginx applications
+### Access deployed Nginx applications
 
 B﻿efore start accessing the deployed Nginx applications, you need set up the domain and the subdomain name resolution. For the sample domain name *nginx.example.com*, and its subdomains, *blue.nginx.example.com* and *green.nginx.example.com*, the workstation host file has been used for DNS resolution.  
 
