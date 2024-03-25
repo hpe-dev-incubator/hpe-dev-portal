@@ -1,14 +1,15 @@
 ---
 title: "Using Postman with HPE SimpliVity "
 date: 2018-11-09T17:39:07.394Z
-author: Ron Dharma 
-tags: ["hpe-simplivity"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Ron Dharma
+authorimage: /img/blogs/Avatar1.svg
+thumbnailimage: null
+tags:
+  - hpe-simplivity
 ---
-# Using Postman with HPE SimpliVity# Summary
+# Summary
 
 This article is the first in a series that describes how to use the HPE SimpliVity API. The articles are targeted at developers and architects that want to understand the REST API’s capabilities and are interested in learning how to build automation and integration with HPE SimpliVity. 
 
@@ -17,6 +18,7 @@ This article uses Postman to place HPE SimpliVity REST API calls without writing
 At the end of this article, you should be able to use Postman to create variables to store the values that you need to use in other Postman exercises and to retrieve the set of virtual machines managed by an HPE SimpliVity federation. 
 
 This article assumes that you understand how to navigate and use the Postman interface. If you are totally new to Postman, I recommend that you watch a few videos on creating variables in Postman.
+
 # Let's get started!
 
 To begin, I need the credentials to access to the HPE SimpliVity virtual controller through TCP/IP.  You can use the vCenter local SSO administrator for the vCenter used in the HPE SimpliVity federation. I  use my domain username which has the `username@domainname` format.  
