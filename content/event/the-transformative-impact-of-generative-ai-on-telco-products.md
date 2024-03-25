@@ -4,7 +4,7 @@ dateStart: 2024-04-16T22:01:21.295Z
 dateEnd: 2024-04-17T21:59:21.335Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn
+link: https://hpe.zoom.us/webinar/register/2517108684308/WN_Cho_OlbFQ-CehwRJWsWuyg
 width: large
 ---
 ## The Transformative Impact of Generative AI on Telco Products
