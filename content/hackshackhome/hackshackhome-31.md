@@ -1,7 +1,7 @@
 ---
 title: Learn how AI hackers detect fragility and how to thwart them with AI
   model resilience
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3717085065585/WN_qg26mm3ZQn6Wq3DzwuSapw
 imageBackground: white
