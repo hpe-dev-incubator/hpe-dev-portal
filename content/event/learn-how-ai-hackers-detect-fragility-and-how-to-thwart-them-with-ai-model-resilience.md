@@ -5,7 +5,7 @@ dateStart: 2024-03-19T23:01:44.318Z
 dateEnd: 2024-03-20T22:59:44.363Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/1017085065469/WN_qg26mm3ZQn6Wq3DzwuSapw
+link: https://www.youtube.com/watch?v=CMASNlKuTao&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Learn how AI hackers detect fragility and how to thwart them with AI model resilience
