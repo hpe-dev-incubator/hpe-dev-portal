@@ -2,7 +2,7 @@
 title: The Transformative Impact of Generative AI on Telco Products
 active: true
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn
+path: https://hpe.zoom.us/webinar/register/2517108684308/WN_Cho_OlbFQ-CehwRJWsWuyg
 imageBackground: white
 description: "April 17, 2024: Explore an innovative app utilizing an LLM as a
   core Reasoning Engine and watch us demonstrate a bot capable of retrieving
