@@ -2,6 +2,8 @@
 title: "HPE Athonet LLM Platform: From personal assistant to collaborative
   corporate tool"
 date: 2024-03-13T08:17:11.602Z
+featuredBlog: true
+priority: 5
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
