@@ -1,6 +1,6 @@
 ---
 title: Configuring SSO for Aruba Central and HPE GreenLake using Okta
-date: 2023-02-14T20:11:58.846Z
+date: 2024-03-26T19:04:06.778Z
 externalLink: ""
 author: "Will Smith - Consulting Systems Engineer (ACEX #34)"
 authorimage: /img/willsmith-sm.jpg
