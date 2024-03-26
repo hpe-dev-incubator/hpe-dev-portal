@@ -59,9 +59,9 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
     **NameID = user.email**
 
-    **gl_first_name = user.FirstName**
+    **gl\_first\_name = user.FirstName**
 
-    **gl_last_name = user.LastName**
+    **gl\_last\_name = user.LastName**
 
     **hpe_ccs_attribute = (See Below)**
 
