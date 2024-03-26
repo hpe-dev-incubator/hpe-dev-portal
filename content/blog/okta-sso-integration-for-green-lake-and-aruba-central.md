@@ -63,7 +63,7 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
     **gl\_last\_name = user.LastName**
 
-    **hpe_ccs_attribute = (See Below)**
+    **hpe\_ccs\_attribute = (See Below)**
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
@@ -77,7 +77,7 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
 ![](/img/ws-image5.png)
 
-The **hpe_ccs_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL_SCOPES**.
+The **hpe\_ccs\_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL_SCOPES**.
 
 Example:
 
