@@ -92,7 +92,7 @@ A typical scenario to manage infrastructure resources from the HPE GreenLake pla
 
 ### Adding a device and subscription
 
-Here I am going to use the REST API calls from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step4-Devices and Subscriptions***.
+Here I am going to use the REST API calls from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step4-Service Catalog, Devices and Subscriptions***.
 
 The **POST** REST API call ***Add devices - Aruba Access Point with Tag*** from ***/devices/v1beta1/devices*** subfolder allows me to add an HPE Aruba Networking device to the inventory in the workspace by providing device details in the data payload (Body) of the request. The device information for HPE Aruba Networking equipment includes the *Serial Number* and the *MAC address*. 
 
@@ -116,7 +116,7 @@ Optionally I can assign a “**tag**” to the device while adding it to the inv
 }
 ```
 
-The “**Add devices**” API call is an asynchronous operation, and the response of the request indicates ***Status: 202 Accepted***. The response contains the transaction Id of the asynchronous operation that I can use as a Path variable in the subsequent **GET** API call ***Get progress or status of async operations in devices*** to verify whether the asynchronous operation is successful or not:
+The “**Add devices**” API call is an asynchronous operation. Asynchronous operations are API operations that cannot be completed immediately. The response of the request indicates ***Status: 202 Accepted*** and contains the _transaction Id_ of the asynchronous operation that I can use as a Path variable in the subsequent **GET** API call ***Get progress or status of async operations in devices*** to verify whether the asynchronous operation is successful or not:
 
 `GET {{baseUrl}}/devices/v1beta1/async-operations/:id`
 
