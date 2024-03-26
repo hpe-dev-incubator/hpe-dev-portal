@@ -67,7 +67,7 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe_ccs_attribute” which tells HPE GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
+   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe\_ccs\_attribute” which tells HPE GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
 ![](/img/ws-image2.png)
 
@@ -77,13 +77,13 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
 ![](/img/ws-image5.png)
 
-The **hpe\_ccs\_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL_SCOPES**.
+The **hpe\_ccs\_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL\_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL\_SCOPES**.
 
 Example:
 
-**version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:**
+**version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL\_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:**
 
-**Aruba Central Administrator:ALL_SCOPES**
+**Aruba Central Administrator:ALL\_SCOPES**
 
 If you want to add additional HPE GreenLake applications, or if you have multiple Aruba Central accounts, you can add them as well. Just follow the same syntax as before. Once you have the attribute defined, enter it into the SAML attribute statement in Okta as shown below.
 
