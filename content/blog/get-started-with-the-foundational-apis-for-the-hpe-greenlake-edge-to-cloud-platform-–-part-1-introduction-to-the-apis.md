@@ -54,7 +54,7 @@ The set of APIs for common platform services includes:
 
 * **Subscription management:** Subscription management service maintains the subscriptions and licenses for cloud management of devices for networking, compute and storage, and cloud software as-a-service.    
 
-* **Service catalog management:** Service Catalog service allows you to manage the workspace service managers that run on top of the HPE GreenLake platform.    
+* **Service catalog management:** Service Catalog service allows you to manage the workspace services and service managers that run on top of the HPE GreenLake platform.    
 
 * **Audit log management:** Audit log service records the occurrence of events emitted by any device or service. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
 
