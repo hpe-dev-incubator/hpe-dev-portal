@@ -26,7 +26,7 @@ tags:
 
 O﻿nce applications are deployed in a K8s cluster, the next step is to create services that expose these applications. By default, K8s services are created with the *ClusterIP* type, which supports internal connectivity among different components of the applications. However, these services are not directly accessible from outside the cluster. The challenge arises with a requirement to securely expose the deployed applications over HTTPS. This involves generating and managing SSL/TLS certificates for multiple applications deployed in the cluster. These certificates are crucial for secure communication between services, and their correct installation and management are essential to avoid access issues and security risks. To address exposing applications over HTTPS, K8s provides the concept of *Ingress*. An Ingress acts as an entry point for external traffic into the cluster. It can be configured with TLS termination. However, setting up K8s Ingress with TLS termination is intricate. It involves creating a K8s Secret to host the certificate and referencing the Secret in the Ingress resource. It also requires an additional load balancer configuration in the cluster.
 
-This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. [MetalLB](https://metallb.universe.tf/) is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. [Cert-manager](https://cert-manager.io/) is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
+This blog post outlines the comprehensive steps for exposing applications u﻿sing Ingress and TLS termination on K8s in HPE GreenLake for Private Cloud Enterprise. [MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/) is deployed to the cluster to set up the load balancer. It enables external access to services within the cluster. [Cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/) is utilized for creating and managing SSL/TLS certificates. The generated certificate is stored as a K8s *Secret* object. This Secret can be mounted by application Pods or used by an Ingress controller. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed and configured in the cluster. It handles SSL certificates and facilitates secure access to applications in the backend.
 
 ![](/img/tls-termination-s.png)
 
@@ -85,7 +85,7 @@ cfe-l2advert   ["cfe-pool"]
 
 ### Deploy Nginx Ingress controller
 
-In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and the routing rules defined on the Ingress resource and makes them par of its configuration. 
+In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and the routing rules defined on the Ingress resource and makes them part of its configuration. 
 
 A variety of Ingress controllers are available for deployment in the cluster, including [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme) and [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/). Execute the command below to install the Nginx Ingress controller to the cluster using helm:
 
@@ -391,7 +391,7 @@ metadata:
   name: ingress-host-based-selfsigned
   annotations:
     ingress.kubernetes.io/ssl-redirect: "true"
-    cert-manager.io/issuer: "nginx-selfsinged-issuer"
+    cert-manager.io/issuer: "nginx-selfsigned-issuer"
 spec:
   ingressClassName: nginx
   tls:
@@ -472,7 +472,7 @@ Events:
 
 ### Access deployed Nginx applications
 
-B﻿efore start accessing the deployed Nginx applications, you need set up the domain and the subdomain name resolution. For the sample domain name *nginx.example.com*, and its subdomains, *blue.nginx.example.com* and *green.nginx.example.com*, the workstation host file has been used for DNS resolution.  
+B﻿efore accessing the deployed Nginx applications, you need set up the domain and the subdomain name resolution. For the sample domain name *nginx.example.com*, and its subdomains, *blue.nginx.example.com* and *green.nginx.example.com*, the workstation host file has been used for DNS resolution.  
 
 Type the following commands to check that this is done correctly: 
 
@@ -489,7 +489,7 @@ blue.nginx.example.com has address 10.6.115.251
 
 You can then validate the Ingres TLS configuration of the deployed Nginx applications using the browser. 
 
-S﻿tart the browser and type the URL *nginx.example.com*, it will be rediected over HTTPS with the warning message *'Your connection is not private'*: 
+S﻿tart the browser and type the URL *nginx.example.com*, it will be redirected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/nginx-main-warning.png)
 
@@ -503,7 +503,7 @@ C﻿lick *Proceed to nginx.example.com (unsafe)*, you then go to the Nginx *MAIN
 
 ![](/img/nginx-main.png)
 
-Type the URL *green.nginx.example.com* to the browser, it will be rediected over HTTPS with the same warning message *'Your connection is not private'*:   
+Type the URL *green.nginx.example.com* to the browser, it will be redirected over HTTPS with the same warning message *'Your connection is not private'*:   
 
 ![](/img/nginx-green-warning.png)
 
@@ -511,11 +511,11 @@ C﻿lick *Proceed to green.nginx.example.com (unsafe)*, you then go to the Nginx
 
 ![](/img/nginx-green.png)
 
-T﻿he same thing occurs when type the URL *blue.nginx.example.com* to the browser. The access will be rediected over HTTPS with the same warning message *'Your connection is not private'*:  
+T﻿he same thing occurs when you type the URL *blue.nginx.example.com* to the browser. The access will be redirected over HTTPS with the same warning message *'Your connection is not private'*:  
 
 ![](/img/nginx-blue-warning.png)
 
-C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx *BLEU* page:  
+C﻿lick *Proceed to blue.nginx.example.com (unsafe)*, you then go to the Nginx *BLUE* page:  
 
 ![](/img/nginx-blue.png)
 
