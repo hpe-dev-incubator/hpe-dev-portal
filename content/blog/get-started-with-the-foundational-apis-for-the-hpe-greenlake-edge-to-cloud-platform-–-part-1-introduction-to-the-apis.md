@@ -54,6 +54,8 @@ The set of APIs for common platform services includes:
 
 * **Subscription management:** Subscription management service maintains the subscriptions and licenses for cloud management of devices for networking, compute and storage, and cloud software as-a-service.    
 
+* **Service catalog management:** Service Catalog service allows you to manage the workspace service managers that run on top of the HPE GreenLake platform.    
+
 * **Audit log management:** Audit log service records the occurrence of events emitted by any device or service. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
 
 * **Wellness event service:** Wellness service presents wellness events for several HPE services and products in the workspace. In a near future, it will also enable you to open a support ticket corresponding to a wellness event when appropriate.
@@ -82,7 +84,7 @@ As an IT administrator, before you can work with the APIs for common HPE GreenLa
 
 3. Gather the unique identifier of your organization workspace: Go to **Manage Workspace** in the [HPE GreenLake platform Graphical User Interface](https://common.cloud.hpe.com/) to get the identifier of your workspace. **Save** the *workspace identifier*.
 
-4. Obtain the unique ***identifier*** of your services deployed in your workspace. These services are typically HPE Aruba Networking Central, Data Services, and HPE GreenLake for Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. Using your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as *application\_id* in the *Response* tab) for each of your *PROVISIONED* services. You will need this information when making REST API calls to the foundational, common services for the HPE GreenLake platform. 
+4. Obtain the unique ***identifier*** of your services deployed in your workspace. These services are typically HPE Aruba Networking Central, Data Services, and HPE GreenLake for Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. One method is to use your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as *application\_id* in the *Response* tab) for each of your *PROVISIONED* services. Another method is to use the [Service catalog API](https://developer.greenlake.hpe.com/docs/greenlake/services/service-catalog/public/) to list the services that are ***provisioned*** in your workspace. You will need the information about the provisioned services when making REST API calls to the foundational, common services for the HPE GreenLake platform. 
 
 5. Get information (email address) for a user to invite to your workspace.
 
