@@ -59,25 +59,25 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
     **NameID = user.email**
 
-    **gl\_first\_name = user.FirstName**
+    **gl_first_name = user.FirstName**
 
-    **gl\_last\_name = user.LastName**
+    **gl_last_name = user.LastName**
 
-    **hpe\_ccs\_attribute = (See Below)**
+    **hpe_ccs_attribute = (See Below)**
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe\_ccs\_attribute” which tells HPE GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
+   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe_ccs_attribute” which tells HPE GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
 ![](/img/ws-image2.png)
 
 ![](/img/ws-image3.png)
 
-![](/img/ws-image4.png)
+![](/img/ws-image17.png)
 
 ![](/img/ws-image5.png)
 
-The **hpe\_ccs\_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL_SCOPES**.
+The **hpe_ccs_attribute** always starts with version_1#. You must first configure the attributes for HPE GreenLake CSS, and then Central. To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and **ALL_SCOPES**. Next, enter in the Aruba Central information. Start with the **app cid**, followed by the role name (i.e. Aruba Central Administrator), and then **ALL_SCOPES**.
 
 Example:
 
@@ -104,11 +104,8 @@ Click Next and Select “Internal App”, then Finish.
    Suggestion: Click **Identity Provider metadata** and save the XML data to a file.
 
    ![](/img/ws-image9.png)
-
 2. C﻿lick Next.       
-
 3. Select Internal app, and Click Finish.    
-
 
 **Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
 
@@ -117,25 +114,19 @@ Click Next and Select “Internal App”, then Finish.
    *Before you can add a new SAML configuration, you must have at least one user account with that domain already enabled in HPE GreenLake. Also, you must be logged into HPE GreenLake with an account from that domain in order to enable SSO for it.*
 
    ![](/img/ws-image10.png)
-     
 2. Type in the domain you want to enable SSO on:
 
    ![](/img/ws-image11.png)
-    
 3. Input the metadata from the step above.
 
    While HPE GreenLake does support entering this information manually, it's recommended that you simply upload the XML metadata that was downloaded in the previous step. To do so, Select Metadata File, selecting the XML file. Then, click Next.
 
    ![](/img/ws-image12.png)
-
 4. Enter the SAML attributes to match what was entered in Okta. Set the idle timeout value as well.
 
    ![](/img/ws-image13.png)
-    
 5. Then click Next.    
-
 6. Create a recover user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake portal.    
-
 
    ![](/img/ws-image14.png)
 
@@ -154,13 +145,7 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 **Additional notes:**
 
 * There must be at least **one** verified user belonging to the **Domain** prior to configuration.    
-
 * In order to configure SSO, you must be logged into HPE GreenLake with a user from the domain.    
-
 * SSO user access is determined by the “role_name” attribute included in the SAML hpe_ccs_attribute provided by the IdP.    
-
 * SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).     
-
-* For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>     
-
-
+* For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
