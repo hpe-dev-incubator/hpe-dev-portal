@@ -1,6 +1,6 @@
 ---
 title: " Enabling business automation using HPE GreenLake platform foundational APIs"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2817079285903/WN_IrXM7mIiQJi2tTgHNBBl4g
 imageBackground: white
