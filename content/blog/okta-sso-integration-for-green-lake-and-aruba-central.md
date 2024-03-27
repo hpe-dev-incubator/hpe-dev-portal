@@ -81,7 +81,7 @@ The **hpe\__ccs\__attribute** always starts with `version_1#`. You must first co
 
 Example:
 
-**version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL\__SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:**
+**version\_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL\__SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:**
 
 **Aruba Central Administrator:ALL\_SCOPES**
 
@@ -146,6 +146,6 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 
 * There must be at least **one** verified user belonging to the **Domain** prior to configuration.    
 * In order to configure SSO, you must be logged into HPE GreenLake with a user from the domain.    
-* SSO user access is determined by the “role_name” attribute included in the SAML hpe\_ccs\_attribute provided by the IdP.    
+* SSO user access is determined by the “role\_name” attribute included in the SAML "hpe\_ccs\_attribute" provided by the IdP.    
 * SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).     
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
