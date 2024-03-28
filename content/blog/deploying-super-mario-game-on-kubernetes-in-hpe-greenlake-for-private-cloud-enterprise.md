@@ -14,21 +14,98 @@ tags:
   - Super Mario
   - Tetris
   - hpe-greenlake-for-private-cloud-enterprise
+  - TLS termination
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 T﻿his blog post shows you the detailed process to deploy Super Mario game to the Kubernetes in HPE GreenLake for Private Cloud Enterprise.
+
+![](/img/game-deploy.png)
 
 ### Prerequisites
 
 Before starting, make sure you have the following:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The o﻿ptional openssl CLI tool, for validating the generated certificates 
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The *helm* CLI tool, version 3.12.0 or later
+* A domain and a list of subdomains to generate the SSL certificate and host the applications in the cluster
+* The o﻿ptional *openssl* CLI tool, for validating the generated certificates
+
+### Deploy Super Mario game
+
+*Super Mario*, together with *Tetris*, can be deployed to the cluster using the YAML manifest files from the GitHub repo [k8s-games](https://github.com/GuopingJia/k8s-games): 
 
 ```shell
-$ k get all -n metallb-system
+$ tree k8s-games/
+k8s-games/
+├── README.md
+├── super-mario
+│   ├── deployment.yaml
+│   └── service.yaml
+└── tetris
+    ├── deployment.yaml
+    └── service.yaml
+```
+
+T﻿ype the following commands to deploy the game *Super Mario* and *Tetris* to the namespace *cfe-games*:
+
+
+```shell
+$ kubectl create ns cfe-games
+namespace/cfe-games created
+
+$ kubectl apply -f super-mario/ -n cfe-games
+deployment.apps/mario-deployment created
+service/mario-service created
+
+$ kubectl apply -f tetris/ -n cfe-games
+deployment.apps/tetris-deployment created
+service/tetris-service created
+```
+
+Type the command shown below to check the details of game deployment:  
+
+```shell
+$ kubectl get all -n cfe-games
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/mario-deployment-96f79d8f-dw9hh      1/1     Running   0          19s
+pod/mario-deployment-96f79d8f-wsf7s      1/1     Running   0          13s
+pod/tetris-deployment-86d744fb47-7kmwl   1/1     Running   0          7s
+pod/tetris-deployment-86d744fb47-hqmgd   1/1     Running   0          10s
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/mario-service    ClusterIP   10.104.144.88   <none>        80/TCP    22s
+service/tetris-service   ClusterIP   10.111.218.14   <none>        80/TCP    10s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mario-deployment    2/2     2            2           24s
+deployment.apps/tetris-deployment   2/2     2            2           12s
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mario-deployment-96f79d8f      2         2         2       24s
+replicaset.apps/tetris-deployment-86d744fb47   2         2         2       12s
+```
+
+Two games, *mario* and *tetris*, are deployed as the *ClusterIP* type, each running with 2 Pod replicas. They provide internal connectivity and can solely be accessed from within the cluster. 
+
+T﻿ype the following commend to check that all the game service endpoints have been populated:
+
+```shell
+$ kubectl get endpoints -n cfe-games
+NAME             ENDPOINTS                            AGE
+mario-service    10.192.3.118:80,10.192.4.32:80       60s
+tetris-service   10.192.3.119:3000,10.192.4.33:3000   50s
+```
+### Set up the load balancer with MetalLB
+
+
+You can install MetalLB and set up the load balancer in the K8s cluster by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+
+H﻿ere is the deployed MetalLB to the namespace *metallb-system* in the cluster:
+
+```shell
+$ kubectl get all -n metallb-system
 NAME                              READY   STATUS    RESTARTS   AGE
 pod/controller-57b4fdc957-dr4h4   1/1     Running   0          18d
 pod/speaker-9kx9h                 1/1     Running   0          18d
@@ -50,8 +127,70 @@ NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-57b4fdc957   1         1         1       18d
 ```
 
+### Deploy Nginx Ingress controller
+
+In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and the routing rules defined on the Ingress resource and makes them part of its configuration. 
+
+A variety of Ingress controllers are available for deployment in the cluster, including [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme) and [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/). Execute the command below to install the Nginx Ingress controller to the cluster using helm:
+
 ```shell
-$ k get all -n ingress-nginx
+$ helm upgrade --install ingress-nginx ingress-nginx \
+>   --repo https://kubernetes.github.io/ingress-nginx \
+>   --namespace ingress-nginx --create-namespace
+Release "ingress-nginx" does not exist. Installing it now.
+NAME: ingress-nginx
+LAST DEPLOYED: Wed Mar  6 18:30:55 2024
+NAMESPACE: ingress-nginx
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The ingress-nginx controller has been installed.
+It may take a few minutes for the load balancer IP to be available.
+You can watch the status by running 'kubectl get service --namespace ingress-nginx ingress-nginx-controller --output wide --watch'
+
+An example Ingress that makes use of the controller:
+  apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    name: example
+    namespace: foo
+  spec:
+    ingressClassName: nginx
+    rules:
+      - host: www.example.com
+        http:
+          paths:
+            - pathType: Prefix
+              backend:
+                service:
+                  name: exampleService
+                  port:
+                    number: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    tls:
+      - hosts:
+        - www.example.com
+        secretName: example-tls
+
+If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: example-tls
+    namespace: foo
+  data:
+    tls.crt: <base64 encoded cert>
+    tls.key: <base64 encoded key>
+  type: kubernetes.io/tls
+```
+
+T﻿he Nginx Ingress controller is deployed to the namespace *ingress-nginx* in the cluster. Type the following command to check the deployment details:
+
+```shell
+$ kubectl get all -n ingress-nginx
 NAME                                            READY   STATUS    RESTARTS   AGE
 pod/ingress-nginx-controller-5957546d75-zjwjh   1/1     Running   0          15d
 
@@ -66,8 +205,15 @@ NAME                                                  DESIRED   CURRENT   READY 
 replicaset.apps/ingress-nginx-controller-5957546d75   1         1         1       15d
 ```
 
+### Generate a self-signed certificate using cert-manager
+
+
+You can d﻿eploy cert-manager to the K8s cluster and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
+
+H﻿ere is the deployed cert-manager to the namespace *cert-manager* in the cluster:
+
 ```shell
- $ k get all -n cert-manager
+$ kubectl get all -n cert-manager
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/cert-manager-6bcdd5f7c-f7lfw               1/1     Running   0          18d
 pod/cert-manager-cainjector-5d4577b4d9-jmpsp   1/1     Running   0          18d
@@ -97,10 +243,14 @@ metadata:
 spec:
  selfSigned: {}
 
-$ k apply -f issuer-selfsigned.yaml -n cfe-games
+$ kubectl apply -f issuer-selfsigned.yaml -n cfe-games
 issuer.cert-manager.io/cfe-selfsigned-issuer created
+```
 
-$ k get issuer -n cfe-games
+Below is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *nginx-apps* in which you want to generate certificate:
+
+```shell
+$ kubectl get issuer -n cfe-games
 NAME                    READY   AGE
 cfe-selfsigned-issuer   True    10s
 ```
@@ -127,17 +277,31 @@ spec:
  - tetris.example.com
  - example.com
 
-$ k apply -f certificate-game.yaml -n cfe-games
+$ kubectl apply -f certificate-game.yaml -n cfe-games
 certificate.cert-manager.io/cfe-selfsigned-tls created
 
-$ k get certificate -n cfe-games
+Here is the generated self-signed certificate in the namespace *cfe-games*:
+
+
+
+```shell
+$ kubectl get certificate -n cfe-games
 NAME                 READY   SECRET             AGE
 cfe-selfsigned-tls   True    cfe-tls-key-pair   8s
+```
 
-$ k get secrets  -n cfe-games cfe-tls-key-pair
+T﻿he K8s Secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
+
+
+
+```shell
+$ kubectl get secrets  -n cfe-games cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      35s
 ```
+
+T﻿ype the following openssl command to check the generated certificate:
+
 
 ```shell
 $ openssl x509 -in <(kubectl get secret -n cfe-games cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
@@ -201,48 +365,11 @@ Certificate:
          f3:c7:85:8a:46:ba:69:13:c7:a8:14:42:4b:ee:f9:2a:b4:3b:
          d9:8f:9c:50
 ```
+The line X509v3 Subject Alternative Name contains the *dnsNames*, *'super-mario.example.com'* & *'tetris.example.com'*, which host two games, *Super Mario* & *Tetris*, respectively in the cluster.
 
-```shell
-$ tree k8s-games/
-k8s-games/
-├── README.md
-├── super-mario
-│   ├── deployment.yaml
-│   └── service.yaml
-└── tetris
-    ├── deployment.yaml
-    └── service.yaml
-```
+### Set up Ingress TLS
 
-```shell
-$ k apply -f super-mario/ -n cfe-games
-deployment.apps/mario-deployment created
-service/mario-service created
-
-$ k apply -f tetris/ -n cfe-games
-deployment.apps/tetris-deployment created
-service/tetris-service created
-
-
-$ k get all -n cfe-games
-NAME                                     READY   STATUS    RESTARTS   AGE
-pod/mario-deployment-96f79d8f-dw9hh      1/1     Running   0          19s
-pod/mario-deployment-96f79d8f-wsf7s      1/1     Running   0          13s
-pod/tetris-deployment-86d744fb47-7kmwl   1/1     Running   0          7s
-pod/tetris-deployment-86d744fb47-hqmgd   1/1     Running   0          10s
-
-NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
-service/mario-service    ClusterIP   10.104.144.88   <none>        80/TCP    22s
-service/tetris-service   ClusterIP   10.111.218.14   <none>        80/TCP    10s
-
-NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/mario-deployment    2/2     2            2           24s
-deployment.apps/tetris-deployment   2/2     2            2           12s
-
-NAME                                           DESIRED   CURRENT   READY   AGE
-replicaset.apps/mario-deployment-96f79d8f      2         2         2       24s
-replicaset.apps/tetris-deployment-86d744fb47   2         2         2       12s
-```
+The Ingress resource with TLS has to be created. Here is the sample Ingress TLS resource *ingress-host-based-selfsigned.yaml*, available from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
 
 ```shell
 $ cat ingress-host-based-selfsigned-games.yaml
@@ -252,8 +379,7 @@ metadata:
   name: ingress-host-based-selfsigned
   annotations:
     ingress.kubernetes.io/ssl-redirect: "true"
-    #kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/issuer: "cfe-selfsinged-issuer"
+    cert-manager.io/issuer: "cfe-selfsigned-issuer"
 spec:
   ingressClassName: nginx
   tls:
@@ -283,8 +409,14 @@ spec:
               number: 80
 ```
 
+In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'nginx.example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
+
+
+
+T﻿ype the following command to deploy the Ingress resource to the namespace *nginx-apps*:
+
 ```shell
-$ k describe ingress ingress-host-based-selfsigned -n cfe-games
+$ kubectl describe ingress ingress-host-based-selfsigned -n cfe-games
 Name:             ingress-host-based-selfsigned
 Labels:           <none>
 Namespace:        cfe-games
