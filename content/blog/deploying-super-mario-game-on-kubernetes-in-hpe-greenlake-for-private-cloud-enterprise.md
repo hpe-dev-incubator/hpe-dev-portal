@@ -32,9 +32,9 @@ Before starting, make sure you have the following:
 * A domain and a list of subdomains to generate the SSL certificate and host the applications in the cluster
 * The o﻿ptional *openssl* CLI tool, for validating the generated certificates
 
-### Deploy Super Mario game
+### Deploy Super Mario 
 
-*Super Mario*, together with *Tetris*, can be deployed to the cluster using the YAML manifest files from the GitHub repo [k8s-games](https://github.com/GuopingJia/k8s-games): 
+The game *Super Mario*, together with *Tetris*, can be deployed to the cluster using the YAML manifest files from the GitHub repo [k8s-games](https://github.com/GuopingJia/k8s-games): 
 
 ```shell
 $ tree k8s-games/
@@ -50,7 +50,6 @@ k8s-games/
 
 T﻿ype the following commands to deploy the game *Super Mario* and *Tetris* to the namespace *cfe-games*:
 
-
 ```shell
 $ kubectl create ns cfe-games
 namespace/cfe-games created
@@ -64,7 +63,7 @@ deployment.apps/tetris-deployment created
 service/tetris-service created
 ```
 
-Type the command shown below to check the details of game deployment:  
+Type the command shown below to check the details of the game deployment:  
 
 ```shell
 $ kubectl get all -n cfe-games
@@ -87,7 +86,9 @@ replicaset.apps/mario-deployment-96f79d8f      2         2         2       24s
 replicaset.apps/tetris-deployment-86d744fb47   2         2         2       12s
 ```
 
-Two games, *mario* and *tetris*, are deployed as the *ClusterIP* type, each running with 2 Pod replicas. They provide internal connectivity and can solely be accessed from within the cluster. 
+Two games, *mario* and *tetris*, are deployed as the *ClusterIP* type, each running with 2 Pod replicas as default. They provide internal connectivity and can solely be accessed from within the cluster. 
+
+You can configure the Horizontal Pod Autoscaling (HPA) in the cluster by using the K8s *HorizontalPodAutoscaler* resource. It will automatically scale the workload by deploying more Pods in the cluster according to application memory or CPU usage.
 
 T﻿ype the following commend to check that all the game service endpoints have been populated:
 
@@ -127,11 +128,31 @@ NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-57b4fdc957   1         1         1       18d
 ```
 
+By running the following commands, you can see a range of virtual IP addresses, *"10.6.115.251-10.6.115.254"*, defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*:
+
+
+```shell
+$ kubectl get ipaddresspools -n metallb-system
+NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
+cfe-pool   true          false             ["10.6.115.251-10.6.115.254"]
+
+
+
+$ kubectl get l2advertisements -n metallb-system
+NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
+cfe-l2advert   ["cfe-pool"]
+```
+
 ### Deploy Nginx Ingress controller
+
 
 In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and the routing rules defined on the Ingress resource and makes them part of its configuration. 
 
+
+
 A variety of Ingress controllers are available for deployment in the cluster, including [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme) and [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/). Execute the command below to install the Nginx Ingress controller to the cluster using helm:
+
+
 
 ```shell
 $ helm upgrade --install ingress-nginx ingress-nginx \
@@ -205,10 +226,14 @@ NAME                                                  DESIRED   CURRENT   READY 
 replicaset.apps/ingress-nginx-controller-5957546d75   1         1         1       15d
 ```
 
+T﻿he service *ingress-nginx-controller* gets deployed as the service type of *LoadBalancer* with the *EXTERNAL-IP* assigned as *10.6.115.251*. This IP address will be used for setting up domain and subdomain name resolution.
+
 ### Generate a self-signed certificate using cert-manager
 
 
 You can d﻿eploy cert-manager to the K8s cluster and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
+
+
 
 H﻿ere is the deployed cert-manager to the namespace *cert-manager* in the cluster:
 
