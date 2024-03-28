@@ -272,7 +272,7 @@ $ kubectl apply -f issuer-selfsigned.yaml -n cfe-games
 issuer.cert-manager.io/cfe-selfsigned-issuer created
 ```
 
-Below is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *nginx-apps* in which you want to generate certificate:
+Below is the deployed self-signed custom resource definition (CRD) *Issuer* in the namespace *cfe-games* in which you want to generate certificate:
 
 ```shell
 $ kubectl get issuer -n cfe-games
@@ -394,7 +394,9 @@ The line X509v3 Subject Alternative Name contains the *dnsNames*, *'super-mario.
 
 ### Set up Ingress TLS
 
-The Ingress resource with TLS has to be created. Here is the sample Ingress TLS resource *ingress-host-based-selfsigned.yaml*, available from the GitHub repo [ingress-demo](https://github.com/GuopingJia/ingress-demo):
+
+
+The Ingress resource with TLS has to be created. Here is the Ingress TLS resource *ingress-host-based-selfsigned.yaml*:
 
 ```shell
 $ cat ingress-host-based-selfsigned-games.yaml
@@ -434,11 +436,20 @@ spec:
               number: 80
 ```
 
-In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'nginx.example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., host *nginx.example.com* will be routed to the application service *nginx-main* in the backend.  
+In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., host *super-mario.example.com* will be routed to the Super Mario game service *mario-service* in the backend.  
 
 
 
-T﻿ype the following command to deploy the Ingress resource to the namespace *nginx-apps*:
+T﻿ype the following command to deploy the Ingress resource to the namespace *cfe-games*:
+
+```shell
+$ kubectl apply -f ingress-host-based-selfsigned-games.yaml -n cfe-games
+ingress.networking.k8s.io/ingress-host-based-selfsigned created
+```
+
+Check the details of the *TLS* and *Rules* settings by t﻿yping below command:
+
+```shell
 
 ```shell
 $ kubectl describe ingress ingress-host-based-selfsigned -n cfe-games
@@ -466,23 +477,55 @@ Events:
   Normal  CreateCertificate  30s   cert-manager-ingress-shim  Successfully created Certificate "cfe-tls-key-pair"
 ```
 
+### Access deployed games
+
+
+
+B﻿efore accessing the deployed games, you need set up the subdomain name resolution. For the subdomains, *super-mario.example.com* and *tetris.example.com*, the workstation host file has been used for DNS resolution.   
+
+
+
+Type the following commands to check that this is done correctly: 
+
 ```shell
 $ host super-mario.example.com
 super-mario.example.com has address 10.6.115.251
 
-
 $ host tetris.example.com
 tetris.example.com has address 10.6.115.251
 ```
+You can then access the deployed games using the browser. S﻿tart the browser and type the URL *super-mario.example.com*, it will be redirected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/mario-private.png)
 
+T﻿his is due to the fact that the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
+
+
+
+C﻿lick *Not secure* and start the Certificate Viewer to check the certificate:
+
 ![](/img/mario-certificate.png)
+
+C﻿lick *Proceed to super-mario.example.com (unsafe)*, you then land to the *SUPER MARIO* game page: 
 
 ![](/img/super-mario.png)
 
+If you type the URL *tetris.example.com* to the browser, it will be redirected over HTTPS with the same warning message *'Your connection is not private'*:  
+
 ![](/img/tetris-private.png)
+
+C﻿lick *Proceed to green.nginx.example.com (unsafe)*, you then go to the Tetris *Start* page:
 
 ![](/img/tetris-start.png)
 
+C﻿lick *Start* button, you then land to the *Tetris * game page:
+
 ![](/img/tetris.png)
+
+E﻿njoy playing your games !
+
+### Conclusion
+
+This blog post provided a comprehensive guide on how to expose applications and make them accessible securely via HTTPS in a K8 cluster in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. While the blog post emphasized on self-signed certificates, the outlined procedure is equally applicable to any type of certificates. This flexibility allows customers to follow the steps using their own CA certificates or any commercially issued certificates for Ingress TLS termination, ensuring secure exposure of their applications in the K8s cluster over HTTPS. 
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
