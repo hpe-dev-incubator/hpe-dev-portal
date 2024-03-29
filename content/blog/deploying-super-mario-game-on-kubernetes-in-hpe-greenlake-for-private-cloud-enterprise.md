@@ -18,7 +18,19 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-T﻿his blog post shows you the detailed process to deploy Super Mario game to the Kubernetes in HPE GreenLake for Private Cloud Enterprise.
+This blog post guides you through the steps of deploying the legendary *Super Mario* game on Kubernetes (K8s) in the HPE GreenLake for Private Cloud Enterprise. By utilizing K8s Ingress, TLS termination, and a range of suitable tools, Super Mario, together with another deployed game, *Tetris*, is available and securely accessible via HTTPS. This setup strictly adheres to the rigorous security and compliance standards of the K8s production environment in HPE GreenLake for Private Cloud Enterprise.
+
+### Overview
+
+
+
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+
+
+Utilizing YAML manifest files or Helm charts along with Docker images, the installation of game applications on the K8s cluster is a straightforward process. Tools like *kubectl*, *Helm*, and [Kustomize]( https://kustomize.io/) are available for this purpose. The complexity arises when it comes to securely exposing the deployed games for external access over HTTPS, a common requirement for on-premises K8s clusters. This involves the generation and management of SSL/TLS certificates for the games within the cluster. These certificates are vital for secure inter-service communication, and their proper installation and management are key to preventing access issues and security threats. As game traffic increases, particularly during peak usage hours, it becomes crucial to set up game applications with load balancing access. Unlike various public cloud providers such as GCP, AWS, and Microsoft Azure, HPE GreenLake for Private Cloud Enterprise does not support network load balancers by default. This presents a significant challenge ensuring the availability of load balancing for game services running on K8s.
+
+
+This blog post describes the detailed steps for deploying *Super Mario* and *Tetris* to the cluster in HPE GreenLake for Private Cloud Enterprise, and exposing them using K8s Ingress and TLS termination. [MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/)  is employed to establish the load balancer in the cluster. [Cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/) is deployed for the generation and management of SSL/TLS certificates, which are stored as a K8s Secret object and made available to the entire cluster upon creation. Among various Ingress controllers, such as Traefik and HAProxy, the [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed within the cluster. The Ingress TLS configuration is used to decrypt encrypted traffic over HTTPS at the load balancer setup as a network endpoint and forward the decrypted traffic to the target game applications. This offloads the resource-intensive cryptographic operations to the dedicated load balancer, allowing the backend game applications to concentrate on efficiently processing client requests and responses. The game applications are deployed with the ClusterIP service type in the backend, providing internal connectivity and can solely be accessed from within the cluster. They do not directly handle SSL/TLS encryption and decryption.
 
 ![](/img/game-deploy.png)
 
@@ -526,6 +538,10 @@ E﻿njoy playing your games !
 
 ### Conclusion
 
-This blog post provided a comprehensive guide on how to expose applications and make them accessible securely via HTTPS in a K8 cluster in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. While the blog post emphasized on self-signed certificates, the outlined procedure is equally applicable to any type of certificates. This flexibility allows customers to follow the steps using their own CA certificates or any commercially issued certificates for Ingress TLS termination, ensuring secure exposure of their applications in the K8s cluster over HTTPS. 
+
+
+This blog post provided a comprehensive guide on how to d﻿eploy *Super Mario* and *Tetris* in a K8 cluster and e﻿xpose those games to be securely accessed via HTTPS in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. This guide fully aligns with the stringent security and compliance requirements of the K8s production environment in HPE GreenLake for Private Cloud Enterprise. 
+
+
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
