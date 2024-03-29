@@ -1,7 +1,7 @@
 ---
 title: Deploying Super Mario game on Kubernetes in HPE GreenLake for Private
   Cloud Enterprise
-date: 2024-02-20T14:54:51.767Z
+date: 2024-03-29T17:53:09.850Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
