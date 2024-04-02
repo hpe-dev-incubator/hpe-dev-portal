@@ -84,7 +84,7 @@ The corresponding task message from the GreenLake task’s UI is shown below.
 
 ### active-issues
 
-This API provides the list of the issues that require attention by the GreenLake users. The GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What is these data services resources?” in this blog) to access the issues from every service available in the GreenLake. To limit the display of the properties’ response returned by this API, user can use parameter **select** as part of the header of the API execution. However, there are minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
+This API provides the list of the issues that require attention by the GreenLake users. The GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What are these data services resources?” in this blog) to access the issues from every service available in the GreenLake. To limit the display of the properties’ response returned by this API, user can use parameter **select** as part of the header of the API execution. However, there are minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
 
 ```json
 https://<region-baseUrl>/data-services/v1beta1/issues?select=body
@@ -114,7 +114,7 @@ I executed the REST API **POST https://{baseUrl}/virtualization/v1beta1/virtual-
 
 ![](/img/location-output-contains-the-task-id.png)
 
-T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines
+T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines.
 
 From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. *https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0*) to obtain the status and progress of the previously executed REST API. 
 
