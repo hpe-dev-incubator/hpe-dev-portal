@@ -50,3 +50,19 @@ Figure 4 Documentation for Data Services REST API.
 
 You can start by obtaining an access token for the workspace where you have the permission. For  information on getting the access token, please see the following [guide](https://developer.greenlake.hpe.com/docs/greenlake/services), or  follow my other blog posts in this [link](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/ListAsyncOperations/). Once the access token is obtained, please copy it (Ctrl-C short cut in Microsoft Window) so that you can enter that token into the Security field of the API documentation page displaying the list of async-operations (as an example). 
 To start with this example, go to the documentation page for the async-operations on this [link](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/ListAsyncOperations/). Please click on the **Try It** button located at the top right side of the page, as shown below.
+
+![](/img/tryit-process.png)
+
+Once you are at the next page, select the endpoint of the region under **Target Server** menu where your workspace based on your access token is located, for this example: <https://us1.data.cloud.hpe.com>.  Afterward, expand the **Security> Bearer Token:** field to enter the access token (BEARER). 
+
+![](/img/enter-bearer-token-and-target-end-point.png)
+
+Paste the access token into the **Bearer Token** using the Ctrl-v (short cut in Microsoft Windows).
+
+![](/img/send-the-api-after-token-entered.png)
+
+Click the **send** button to send that API and you will see the response indicating a good status (Hex 0x200). Finish up by clicking on the **Body:Expand** All button to display the response in JSON.
+
+![](/img/response-from-the-tryit-test.png)
+
+Congratulations! You have executed the first data-services API using the documentation page in the GreenLake Developer website.
