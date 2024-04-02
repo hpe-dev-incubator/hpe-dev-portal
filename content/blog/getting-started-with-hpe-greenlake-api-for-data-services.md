@@ -17,13 +17,11 @@ The specification for these APIs is publicized as OpenAPI specification in JSON 
 
 ![Figure 1. HPE GreenLake API for Data Services List](/img/data-services-api-download-page.png "Figure 1. HPE GreenLake API for Data Services List")
 
-Figure 1. HPE GreenLake API for Data Services List
+Figure above shows HPE GreenLake API for Data Services List
 
 ![Figure 2. An example of the downloaded data-services.json contents.](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
 
-Figure 2. An example of the downloaded data-services.json contents.
-
-## API versioning
+Figure above shows an example of the downloaded data-services.json contents. 
 
 This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the API will be updated to its next revision, moving toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under this set of APIs.  For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal Versioning Guide at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/)
 
@@ -213,7 +211,7 @@ The above figure display the result from the first poll of the VM provisioning R
 
 ```
 
-F﻿igure above indicated that the second poll of the VM provisioning REST API **task Id** indicated that the creation of the virtual machines on-premises had completed successfully (**progressPercent: 100**). User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
+The above f﻿igure indicated that the second poll of the VM provisioning REST API **task Id** indicated that the creation of the virtual machines on-premises had completed successfully (**progressPercent: 100, state: SUCCEEDED**). User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
 
 # Summary
 
