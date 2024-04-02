@@ -18,19 +18,15 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post guides you through the steps of deploying the legendary *Super Mario* game on Kubernetes (K8s) in the HPE GreenLake for Private Cloud Enterprise. By utilizing K8s Ingress, TLS termination, and a range of suitable tools, Super Mario, together with another deployed game, *Tetris*, is available and securely accessible via HTTPS. This setup strictly adheres to the rigorous security and compliance standards of the K8s production environment in HPE GreenLake for Private Cloud Enterprise.
+This blog post guides you through the steps of deploying the legendary *Super Mario* game on Kubernetes (K8s) in the HPE GreenLake for Private Cloud Enterprise. By utilizing K8s Ingress, TLS termination, and a range of suitable tools, *Super Mario*, together with the game *Tetris*, is available and securely accessible via HTTPS. This setup strictly adheres to the rigorous security and compliance standards of the K8s production environment in HPE GreenLake for Private Cloud Enterprise.
 
 ### Overview
 
-
-
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
+Utilizing *YAML* manifest files or *Helm* charts along with Docker images, the installation of game applications on the K8s cluster is a straightforward process. Tools like *kubectl*, *helm*, and [Kustomize](https://kustomize.io/) are available for this purpose. The complexity arises when it comes to securely exposing the deployed games for external access over HTTPS, a common requirement for on-premises K8s clusters. This involves the generation and management of SSL/TLS certificates for the games within the cluster. These certificates are vital for secure inter-service communication. The proper installation and management are key to preventing access issues and security threats. As game traffic increases, particularly during peak usage hours, it becomes crucial to set up game applications with load balancing access. This presents a significant challenge ensuring the availability of load balancing for game applications running on K8s.
 
-Utilizing *YAML* manifest files or *Helm* charts along with Docker images, the installation of game applications on the K8s cluster is a straightforward process. Tools like *kubectl*, *helm*, and [Kustomize]( https://kustomize.io/) are available for this purpose. The complexity arises when it comes to securely exposing the deployed games for external access over HTTPS, a common requirement for on-premises K8s clusters. This involves the generation and management of SSL/TLS certificates for the games within the cluster. These certificates are vital for secure inter-service communication, and their proper installation and management are key to preventing access issues and security threats. As game traffic increases, particularly during peak usage hours, it becomes crucial to set up game applications with load balancing access. Unlike various public cloud providers such as *GCP*, *AWS*, and *Microsoft Azure*, HPE GreenLake for Private Cloud Enterprise does not support network load balancers by default. This presents a significant challenge ensuring the availability of load balancing for game services running on K8s.
-
-
-This blog post describes the detailed steps for deploying *Super Mario* g﻿ame, together with *Tetris*, to the cluster in HPE GreenLake for Private Cloud Enterprise, and exposing them using K8s Ingress and TLS termination. [MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/)  is employed to establish the load balancer in the cluster. [Cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/) is deployed for the generation and management of SSL/TLS certificates, which are stored as a K8s Secret object and made available to the entire cluster upon creation. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed within the cluster. The Ingress TLS configuration is used to decrypt encrypted traffic over HTTPS at the load balancer setup and forward the decrypted traffic to the target game applications. This configuration offloads the resource-intensive cryptographic operations to the dedicated load balancer, allowing the backend game applications to concentrate on efficiently processing client requests and responses. The game applications are deployed with the *ClusterIP* service type in the backend, providing internal connectivity and can solely be accessed from within the cluster. They do not directly handle SSL/TLS encryption and decryption.
+This blog post describes the detailed steps for deploying *Super Mario* g﻿ame, together with *Tetris*, to the cluster in HPE GreenLake for Private Cloud Enterprise, and exposing them using K8s Ingress and TLS termination. [MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/) is employed to establish the load balancer in the cluster. [Cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/) is deployed for the generation and management of SSL/TLS certificates, which are stored as K8s Secret objects and made available to the entire cluster upon creation. The [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/) is deployed within the cluster. The Ingress TLS configuration is used to decrypt encrypted traffic over HTTPS at the load balancer setup and forward the decrypted traffic to the target game applications. This configuration offloads the resource-intensive cryptographic operations to the dedicated load balancer, allowing the backend game applications to concentrate on efficiently processing client requests and responses. The game applications are deployed with the *ClusterIP* service type in the backend, providing internal connectivity and being solely accessible from within the cluster. They do not directly handle SSL/TLS encryption and decryption.
 
 ![](/img/game-deploy.png)
 
@@ -44,7 +40,7 @@ Before starting, make sure you have the following:
 * A domain and a list of subdomains to generate the SSL certificate and host the g﻿ame applications in the cluster
 * The o﻿ptional *openssl* CLI tool, for validating the generated certificates
 
-### Deploy Super Mario 
+### Deploy Super Mario
 
 The game *Super Mario*, together with *Tetris*, can be deployed to the cluster using the *YAML* manifest files from the GitHub repo [k8s-games](https://github.com/GuopingJia/k8s-games): 
 
@@ -60,7 +56,7 @@ k8s-games/
     └── service.yaml
 ```
 
-T﻿ype the following commands to deploy the game *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
+T﻿ype the following commands to deploy *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
 
 ```shell
 $ kubectl create ns cfe-games
@@ -98,7 +94,7 @@ replicaset.apps/mario-deployment-96f79d8f      2         2         2       24s
 replicaset.apps/tetris-deployment-86d744fb47   2         2         2       12s
 ```
 
-Two games, *mario-deployment* and *tetris-deployment*, are deployed in the cluster, each running with 2 Pod replicas as default. T﻿hey are exposed as the *ClusterIP* type o﻿f services, providing internal connectivity and solely being accessible from within the cluster.
+Two games, *mario-deployment* and *tetris-deployment*, are deployed in the cluster, each running with 2 Pod replicas by default. T﻿hey are exposed as the *ClusterIP* type o﻿f services, providing internal connectivity and solely being accessible from within the cluster.
 
 You can configure the [*Horizontal Pod Autoscaling* (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) in the cluster by using the K8s *HorizontalPodAutoscaler* resource. It will automatically scale the workload by deploying more Pods in the cluster according to game application memory or CPU usage.
 
@@ -110,12 +106,12 @@ NAME             ENDPOINTS                            AGE
 mario-service    10.192.3.118:80,10.192.4.32:80       60s
 tetris-service   10.192.3.119:3000,10.192.4.33:3000   50s
 ```
-### Set up the load balancer with MetalLB
 
+### Set up the load balancer with *MetalLB*
 
-You can install MetalLB and set up the load balancer in the K8s cluster by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+You can install *MetalLB* and set up the load balancer in the K8s cluster by following up the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
-H﻿ere is the deployed MetalLB to the namespace *metallb-system* in the cluster:
+H﻿ere is the deployed *MetalLB* to the namespace *metallb-system* in the cluster:
 
 ```shell
 $ kubectl get all -n metallb-system
@@ -142,7 +138,6 @@ replicaset.apps/controller-57b4fdc957   1         1         1       18d
 
 By running the following commands, you can see a range of virtual IP addresses, *"10.6.115.251-10.6.115.254"*, defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*:
 
-
 ```shell
 $ kubectl get ipaddresspools -n metallb-system
 NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
@@ -157,10 +152,7 @@ cfe-l2advert   ["cfe-pool"]
 
 ### Generate a self-signed certificate using cert-manager
 
-
 You can d﻿eploy cert-manager to the K8s cluster and generate a self-signed certificate by following up the blog post [Generating self-signed certificates using cert-manager](https://developer.hpe.com/blog/generating-self-signed-certificates-using-cert-manager-for-kubernetes-in-hpe-greenlake-for-private-cloud-entreprise/).
-
-
 
 H﻿ere is the deployed cert-manager to the namespace *cert-manager* in the cluster:
 
@@ -196,8 +188,6 @@ cfe-selfsigned-issuer   True    10s
 
 Here is the generated self-signed certificate in the namespace *cfe-games*:
 
-
-
 ```shell
 $ kubectl get certificate -n cfe-games
 NAME                 READY   SECRET             AGE
@@ -206,16 +196,13 @@ cfe-selfsigned-tls   True    cfe-tls-key-pair   8s
 
 T﻿he K8s Secret *cfe-tls-key-pair* is created automatically in the same namespace as part of certificate deployment:
 
-
-
 ```shell
 $ kubectl get secrets  -n cfe-games cfe-tls-key-pair
 NAME               TYPE                DATA   AGE
 cfe-tls-key-pair   kubernetes.io/tls   3      35s
 ```
 
-T﻿ype the following *openssl* command to check the generated certificate:
-
+T﻿ype the following *openssl* command to check the content of the generated certificate:
 
 ```shell
 $ openssl x509 -in <(kubectl get secret -n cfe-games cfe-tls-key-pair -o jsonpath='{.data.tls\.crt}' | base64 -d) -text -noout
@@ -279,18 +266,14 @@ Certificate:
          f3:c7:85:8a:46:ba:69:13:c7:a8:14:42:4b:ee:f9:2a:b4:3b:
          d9:8f:9c:50
 ```
+
 The line *X509v3 Subject Alternative Name* contains the *dnsNames*, *'super-mario.example.com'* & *'tetris.example.com'*, which host two games, *Super Mario* and *Tetris*, respectively in the cluster.
 
 ### Deploy Nginx Ingress controller
 
-
 In order for an Ingress to work in the cluster, there must be an Ingress controller being deployed and running. It's the Ingress controller that accesses the certificate and the routing rules defined on the Ingress resource and makes them part of its configuration. 
 
-
-
 A variety of Ingress controllers are available for deployment in the cluster, including [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/), [HAProxy](https://github.com/haproxytech/kubernetes-ingress#readme) and [Nginx Ingress controller](https://www.nginx.com/products/nginx-ingress-controller/). Execute the command below to install the Nginx Ingress controller to the cluster using *helm*:
-
-
 
 ```shell
 $ helm upgrade --install ingress-nginx ingress-nginx \
@@ -368,8 +351,6 @@ T﻿he service *ingress-nginx-controller* gets deployed as the service type of *
 
 ### Set up Ingress TLS
 
-
-
 The Ingress resource with TLS has to be created. Here is a sample Ingress TLS resource *ingress-host-based-selfsigned-games.yaml*:
 
 ```shell
@@ -410,9 +391,7 @@ spec:
               number: 80
 ```
 
-In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., host *super-mario.example.com* will be routed to the Super Mario game service *mario-service* in the backend.  
-
-
+In the above sample YAML manifest file, there is the *'tls'* block that contains the hostname *'example.com'* and the secret *cfe-tls-key-pair* created in the certification step. There is also the *'rules'* block in which a list of routing rules is defined per host, e.g., the host *'super-mario.example.com'* will be routed to the Super Mario game service *'mario-service'* in the backend.  
 
 T﻿ype the following command to deploy the Ingress resource to the namespace *cfe-games*:
 
@@ -422,7 +401,6 @@ ingress.networking.k8s.io/ingress-host-based-selfsigned created
 ```
 
 Check the details of the *TLS* and *Rules* settings by t﻿yping the following command:
-
 
 ```shell
 $ kubectl describe ingress ingress-host-based-selfsigned -n cfe-games
@@ -452,13 +430,9 @@ Events:
 
 ### Access deployed games
 
-
-
 B﻿efore accessing the deployed games, you need set up the subdomain name resolution. For the subdomains, *super-mario.example.com* and *tetris.example.com*, the workstation host file has been used for DNS resolution.   
 
-
-
-Type the following commands to check that this is done correctly: 
+Type the following commands to check that the domain/subdomain name resolution is set up correctly:  
 
 ```shell
 $ host super-mario.example.com
@@ -467,13 +441,12 @@ super-mario.example.com has address 10.6.115.251
 $ host tetris.example.com
 tetris.example.com has address 10.6.115.251
 ```
-You can then access the deployed games using the browser. S﻿tart the browser and type the URL *super-mario.example.com*, it will be redirected over HTTPS with the warning message *'Your connection is not private'*: 
+
+You can then access the deployed games using the browser. S﻿tart the browser and type the URL *super-mario.example.com*, it will be redirected over HTTPS with the warning message *'Your connection is not private'*: 
 
 ![](/img/mario-private.png)
 
 T﻿his is due to the fact that the self-signed certifcate is generated in cert-manager and configured in the K8s Ingress resource.
-
-
 
 C﻿lick *Not secure* and start the Certificate Viewer to check the certificate:
 
@@ -491,7 +464,7 @@ C﻿lick *Proceed to tetris.example.com (unsafe)*, you then go to the Tetris *St
 
 ![](/img/tetris-start.png)
 
-C﻿lick *Start* button, you then land to the *Tetris * game page:
+C﻿lick *Start* button, you then land to the *Tetris*  game page:
 
 ![](/img/tetris.png)
 
@@ -499,10 +472,6 @@ E﻿njoy playing your games !
 
 ### Conclusion
 
-
-
-This blog post provided a comprehensive guide on how to d﻿eploy *Super Mario* and *Tetris* in a K8 cluster and e﻿xpose those games to be securely accessed via HTTPS in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. This guide fully aligns with the stringent security and compliance requirements of the K8s production environment in HPE GreenLake for Private Cloud Enterprise. 
-
-
+This blog post provided a comprehensive guide on how to d﻿eploy *Super Mario* and *Tetris* in a K8 cluster and e﻿xpose those games to be securely accessed via HTTPS in HPE GreenLake for Private Cloud Enterprise. It detailed the process of configuring TLS termination on an Ingress controller at the load balancer setup, utilizing a K8s Ingress resource and a self-signed TLS certificate generated with cert-manager. This guide fully aligns with the stringent security and compliance requirements of the K8s production environment in HPE GreenLake for Private Cloud Enterprise. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
