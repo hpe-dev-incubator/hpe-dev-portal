@@ -18,7 +18,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post guides you through the steps of deploying the legendary *Super Mario* game on Kubernetes (K8s) in the HPE GreenLake for Private Cloud Enterprise. By utilizing K8s Ingress, TLS termination, and a range of suitable tools, *Super Mario*, together with the game *Tetris*, is available and securely accessible via HTTPS. This setup strictly adheres to the rigorous security and compliance standards of the K8s production environment in HPE GreenLake for Private Cloud Enterprise.
+Continuing on from the the blog post [Exposing applications using Ingress and TLS termination on Kubernetes in HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/), I will walk you through the steps of deploying real-world game applications such as the legendary *Super Mario* and *Tetris* on Kubernetes (K8s) in the HPE GreenLake for Private Cloud Enterprise. By utilizing K8s Ingress, TLS termination, and a range of suitable tools, *Super Mario*, together with the game *Tetris*, is available and securely accessible via HTTPS. This setup strictly adheres to the rigorous security and compliance standards of the K8s production environment in HPE GreenLake for Private Cloud Enterprise.
 
 ### Overview
 
