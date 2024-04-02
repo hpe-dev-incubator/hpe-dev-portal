@@ -160,4 +160,64 @@ The following snippet depicts the two different responses from the polling using
 
 ```
 
-The above figure display the result from the first poll of the VM provisioning REST API task Id.
+The above figure display the result from the first poll of the VM provisioning REST API task Id. 
+
+```json
+{
+    "displayName": "Provisioning virtual machine 0-RRD-API-Deploy-4",
+    "endedAt": "2024-03-24T00:15:49.906710665Z",
+    "error": null,
+    "healthStatus": "OK",
+    "id": "cad794d1-27ec-4050-bed4-45d13a8de9d0",
+    "logMessages": [
+        {
+            "message": "Task created",
+            "timestampAt": "2024-03-24T00:13:52.002673131Z"
+        },
+        {
+            "message": "Task is running",
+            "timestampAt": "2024-03-24T00:13:52.002675372Z"
+        },
+        {
+            "message": "Preparing parameters",
+            "timestampAt": "2024-03-24T00:13:53.368619324Z"
+        },
+        {
+            "message": "Starting virtual machine deployment",
+            "timestampAt": "2024-03-24T00:13:53.558043002Z"
+        },
+        {
+            "message": "Applying protection policy",
+            "timestampAt": "2024-03-24T00:15:49.598976645Z"
+        },
+        {
+            "message": "Virtual machine provisioning completed and initiated a task for applying backup policy.",
+            "timestampAt": "2024-03-24T00:15:49.906721852Z"
+        },
+        {
+            "message": "Task succeeded",
+            "timestampAt": "2024-03-24T00:15:49.906727488Z"
+        }
+    ],
+    "name": "Provisioning virtual machine 0-RRD-API-Deploy-4",
+    "progressPercent": 100,
+    "services": [
+        "private-cloud-business-edition"
+    ],
+    "startedAt": "2024-03-24T00:13:52.002663421Z",
+    "state": "SUCCEEDED",
+    "suggestedPollingIntervalSeconds": 30,
+    "type": "task",
+    "updatedAt": "2024-03-24T00:15:49.955699371Z"
+}
+
+```
+
+F﻿igure above indicated that the second poll of the VM provisioning REST API **task Id** indicated that the creation of the virtual machines on-premises had completed successfully (**progressPercent: 100**). User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
+
+# Summary
+
+This blog post introduces you to the new set of REST API for HPE Greenlake, named as Data-Services APIs, to support resources such as: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags.* This set of APIs will evolve throughout the future toward long term supported version of the APIs . This March 2024 announcement introduces V1Beta1 of the API; which is  documented at https://developer.greenlake.hpe.com using active documentation based on OpenAPI 3.1 standard. In this post, I also introduced methods to exercise the API directly from the API reference documentation page using the access token obtained from HPE GreenLake. Lastly, I provided a list of tips on using this Data Services REST API for specific use cases.
+
+
+Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. If you have any questions on HPE GreenLake Data Services API, or if you are interested to share your feed-back and use cases on this set of API;  please join the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [*\#hpe-greenlake-data-services* ](https://hpedev.slack.com/archives/C02D6H623JP)slack channel.
