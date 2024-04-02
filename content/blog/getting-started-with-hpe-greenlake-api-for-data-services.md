@@ -31,7 +31,6 @@ This set of APIs is identified as revision V1Beta1 at the time of its introducti
 
 The following pictures depict some of the resources that are related to Data-Services that can be discovered on the main page for the Data Services Cloud Console (UI). Other resources, such as software-releases, storage-locations and tags, are embedded inside data services storage objects, such as the software deployed for Backup and Recovery’s Data Orchestrator, the location of the storage repository for Backup and Recovery’s cloud protection store, and tags associated with the storage array.
 
-
 **Note:**  The resources that are presented as Tasks in this main page are identified as **async-operations**, which is the universal API used to monitor logs of all services under DSCC. Additionally, the async-operations API is also used to track any API operations that are running in background as covered later in this blog. Future iterations of the API release will also add more resources, e.g. email-notification, or add more capabilities, e.g.  POST/PATCH for tag (currently GET is the only available method for tag).
 
 ![](/img/data-services-resources-in-dscc-ui.png "Figure 3 Some of the resources that are managed by Data Services API.")
