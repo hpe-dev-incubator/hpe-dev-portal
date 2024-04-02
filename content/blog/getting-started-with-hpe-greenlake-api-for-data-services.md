@@ -77,3 +77,9 @@ The responses from this resource are critical for debugging and monitoring the a
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
 T﻿he response from the execution of GET /data-services/v1beta1/async-operations is provided below.
+
+![](/img/response-from-the-tryit-test.png)
+
+The corresponding task message from the GreenLake task’s UI is shown below.
+
+![](/img/corresponding-task-for-the-async-operations.png)
