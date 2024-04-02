@@ -17,11 +17,11 @@ The specification for these APIs is publicized as OpenAPI specification in JSON 
 
 ![Figure 1. HPE GreenLake API for Data Services List](/img/data-services-api-download-page.png "Figure 1. HPE GreenLake API for Data Services List")
 
-Figure above shows HPE GreenLake API for Data Services List
+The above figure shows HPE GreenLake API for Data Services List 
 
 ![Figure 2. An example of the downloaded data-services.json contents.](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
 
-Figure above shows an example of the downloaded data-services.json contents. 
+The above figure shows an example of the downloaded data-services.json contents. 
 
 This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the API will be updated to its next revision, moving toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under this set of APIs.  For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal Versioning Guide at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/)
 
@@ -33,7 +33,7 @@ The following pictures depict some of the resources that are related to Data-Ser
 
 ![](/img/data-services-resources-in-dscc-ui.png "Figure 3 Some of the resources that are managed by Data Services API.")
 
-Figure 3 Some of the resources that are managed by Data Services API.
+The above figure shows some of the resources that are managed by Data Services API. 
 
 ## Using the Data Services API
 
@@ -41,7 +41,7 @@ Documentation on getting started with this set of APIs is provided on the HPE Gr
 
 ![](/img/api-documentation-try-it-now.png "Figure 4 Documentation for Data Services REST API.")
 
-Figure 4 Documentation for Data Services REST API.
+The above figure shows documentation for Data Services REST API.
 
 ## An example of executing an API call from the API documentation
 
