@@ -83,3 +83,30 @@ T﻿he response from the execution of GET /data-services/v1beta1/async-operation
 The corresponding task message from the GreenLake task’s UI is shown below.
 
 ![](/img/corresponding-task-for-the-async-operations.png)
+
+### active-issues
+
+This API provides the list of the issues that require attention by the GreenLake users. The GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What is these data services resources?” in this blog) to access the issues from every service available in the GreenLake. To limit the display of the properties’ response returned by this API, user can use parameter **select** as part of the header of the API execution. However, there are minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
+
+```json
+https://<region-baseUrl>/data-services/v1beta1/issues?select=body
+{
+    "error": "Missing required field(s) - \"lastOccurredAt,customerId,createdAt,id,resourceUri,generation,type\"",
+    "errorCode": "422",
+    "traceId": "18e7b6adf90315de57f2b177652e3649"
+}
+```
+
+To alleviate this condition, the user can add the required properties to the **select** parameter in addition to any other property that is desired, as shown below.
+
+```json
+https://<region-baseUrl>/data-services/v1beta1/issues?select=body,lastOccuredAt,customerId,createdAt,id,resourceUri,generation,type
+```
+
+The completed execution of this API is shown as below.
+
+![](/img/execution-result-from-active-issues.png)
+
+The output from GET issues given the parameter: “select body, createdAt, customerId, generation, id, lastOccuredAt, resourceURI, type, updatedAt”.
+
+### Completing POST method for REST API using async-operations API with task id
