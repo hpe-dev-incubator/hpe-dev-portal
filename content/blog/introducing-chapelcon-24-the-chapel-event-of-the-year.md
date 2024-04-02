@@ -6,7 +6,6 @@ author: Engin Kayraklioglu
 authorimage: https://chapel-lang.org/blog/authors/engin-kayraklioglu/photo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - chapel
