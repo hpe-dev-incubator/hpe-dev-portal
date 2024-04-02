@@ -158,7 +158,7 @@ The following snippet depicts the two different responses from the polling using
 
 ```
 
-The above figure display the result from the first poll of the VM provisioning REST API task Id. 
+The above figure display the result from the first poll of the VM provisioning REST API task Id with **progressPercent:40** and **state: RUNNING**.
 
 ```json
 {
