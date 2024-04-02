@@ -15,6 +15,6 @@ This blog post will introduce some useful tips about using this HPE GreenLake AP
 
 The specification for these APIs is publicized as OpenAPI specification in JSON format, and the specification is available for download from this [section of the documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/overview/) as shown below. Anyone can download the JSON file that contain the specification for this set, by clicking on the **Download** button. The specification follows the OpenAI standard 3.1.X, and contains all the information required so that this JSON on spec-file can be consumed by any OpenApi tools to provide client library, server mock, or documentation as described in this [OpenAPI Initiative](https://tools.openapis.org/)
 
-![](/img/data-services-api-download-page.png "Figure 1. HPE GreenLake API for Data Services List")
+![Figure 1. HPE GreenLake API for Data Services List](/img/data-services-api-download-page.png "Figure 1. HPE GreenLake API for Data Services List")
 
-![](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
+![Figure 2. An example of the downloaded data-services.json contents.](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
