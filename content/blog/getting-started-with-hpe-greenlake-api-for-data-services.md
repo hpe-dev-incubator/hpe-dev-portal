@@ -101,7 +101,7 @@ To alleviate this condition, the user can add the required properties to the **s
 https://<region-baseUrl>/data-services/v1beta1/issues?select=body,lastOccuredAt,customerId,createdAt,id,resourceUri,generation,type
 ```
 
-The completed execution of this API is shown as below.
+The completed execution of this API is shown below.
 
 ![](/img/execution-result-from-active-issues.png)
 
