@@ -107,6 +107,57 @@ The completed execution of this API is shown as below.
 
 ![](/img/execution-result-from-active-issues.png)
 
-The output from GET issues given the parameter: “select body, createdAt, customerId, generation, id, lastOccuredAt, resourceURI, type, updatedAt”.
+The above figure shows the output from GET issues given the parameter: “select body, createdAt, customerId, generation, id, lastOccuredAt, resourceURI, type, updatedAt”.  
 
 ### Completing POST method for REST API using async-operations API with task id
+
+Any GreenLake REST API for data services with **POST** or **PATCH** methods (e.g. /virtualization/v1beta1/virtual-machines) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response = 0x202 status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion. To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id} to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.
+I executed the REST API **POST https://{baseUrl}/virtualization/v1beta1/virtual-machines** and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0**
+
+![](/img/location-output-contains-the-task-id.png)
+
+T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines
+
+From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. *https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0*) to obtain the status and progress of the previously executed REST API. 
+
+The following snippet depicts the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** (RUNNING), and the second one indicates the progress at **100%** (SUCCEEDED). The progress took about less than 2 minutes as shown by the following keys: **startedAt** and **endedAt**.
+
+```json
+{
+    “displayName”: “Provisioning virtual machine 0-RRD-API-Deploy-4”,
+    “endedAt”: “2024-03-24T00:13:53.558031307Z”,
+    “healthStatus”: “OK”,
+    “id”: “cad794d1-27ec-4050-bed4-45d13a8de9d0”,
+    “logMessages”: [
+        {
+            “message”: “Task created”,
+            “timestampAt”: “2024-03-24T00:13:52.002673131Z”
+        },
+        {
+            “message”: “Task is running”,
+            “timestampAt”: “2024-03-24T00:13:52.002675372Z”
+        },
+        {
+            “message”: “Preparing parameters”,
+            “timestampAt”: “2024-03-24T00:13:53.368619324Z”
+        },
+        {
+            “message”: “Starting virtual machine deployment”,
+            “timestampAt”: “2024-03-24T00:13:53.558043002Z”
+        }
+    ],
+    “name”: “Provisioning virtual machine 0-RRD-API-Deploy-4”,
+    “progressPercent”: 40,
+    “services”: [
+        “private-cloud-business-edition”
+    ],
+    “startedAt”: “2024-03-24T00:13:52.002663421Z”,
+    “state”: “RUNNING”,
+    “suggestedPollingIntervalSeconds”: 30,
+    “type”: “task”,
+    “updatedAt”: “2024-03-24T00:13:55.846052959Z”
+} 
+
+```
+
+The above figure display the result from the first poll of the VM provisioning REST API task Id.
