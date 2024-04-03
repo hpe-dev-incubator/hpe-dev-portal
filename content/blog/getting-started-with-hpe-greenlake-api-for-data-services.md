@@ -9,7 +9,7 @@ disable: false
 ---
 ## What’s New?
 
-Recently, a new set of REST APIs for GreenLake Edge to Cloud Platform was introduced on the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/) at https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/.  These APIs are grouped under the set which is called HPE GreenLake API for Data Services.
+Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud Platform was introduced on the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/).  These APIs are grouped under the set which is called HPE GreenLake API for Data Services. Several articles will be written and posted on [HPE Developer's forum blog site](https://developer.hpe.com/blog) to help you better understand and work with the suite of HPE GreenLake data services.
 
 This blog post will introduce some useful tips about using this HPE GreenLake API for Data Services given a specific use case. The introduction of these APIs arises from the necessity for manipulation of the common resources that are shared by the existing family of data services on HPE GreenLake (DataOps Manager, Block Storage, Backup and Recovery, Private Cloud Business Edition). This set of APIs provide users with the ability to perform any Create, Read, Update and Delete (CRUD) operations against these resources: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags*.
 
@@ -70,7 +70,7 @@ Even though there is documentation available in the HPE GreenLake Developer webs
 
 ### async-operations
 
-The responses from this resource are critical for debugging and monitoring the activities that happen from any operations from several services, such as backup-recovery, block-service, hci-manager (Private Cloud Business Edition). Here is a tip on how to filter out those tasks (async-operations) that belong to a particular service; Use the parameter: **filter: ‘\<service>’ in services,** like below. Note, from this API response field, **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '\<properties>'** as shown below. 
+The responses from this resource are critical for debugging and monitoring the activities that happen from any operations from several services, such as backup-recovery, block-service, hci-manager (Private Cloud Business Edition). Here is a tip on how to filter out those tasks (async-operations) that belong to a particular service; Use the parameter: **filter: ‘<service>’ in services,** like below. Note, from this API response field, **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '<properties>'** as shown below. 
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
@@ -155,7 +155,6 @@ The following snippet depicts the two different responses from the polling using
     “type”: “task”,
     “updatedAt”: “2024-03-24T00:13:55.846052959Z”
 } 
-
 ```
 
 The above figure display the result from the first poll of the VM provisioning REST API task Id with **progressPercent:40** and **state: RUNNING**.
@@ -208,7 +207,6 @@ The above figure display the result from the first poll of the VM provisioning R
     "type": "task",
     "updatedAt": "2024-03-24T00:15:49.955699371Z"
 }
-
 ```
 
 The above f﻿igure indicated that the second poll of the VM provisioning REST API **task Id** indicated that the creation of the virtual machines on-premises had completed successfully (**progressPercent: 100, state: SUCCEEDED**). User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
@@ -216,6 +214,5 @@ The above f﻿igure indicated that the second poll of the VM provisioning REST A
 # Summary
 
 This blog post introduces you to the new set of REST API for HPE Greenlake, named as Data-Services APIs, to support resources such as: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags.* This set of APIs will evolve throughout the future toward long term supported version of the APIs . This March 2024 announcement introduces V1Beta1 of the API; which is  documented at https://developer.greenlake.hpe.com using active documentation based on OpenAPI 3.1 standard. In this post, I also introduced methods to exercise the API directly from the API reference documentation page using the access token obtained from HPE GreenLake. Lastly, I provided a list of tips on using this Data Services REST API for specific use cases.
-
 
 Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. If you have any questions on HPE GreenLake Data Services API, or if you are interested to share your feed-back and use cases on this set of API;  please join the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [*\#hpe-greenlake-data-services* ](https://hpedev.slack.com/archives/C02D6H623JP)slack channel.
