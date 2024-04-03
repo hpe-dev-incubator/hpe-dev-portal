@@ -6,6 +6,8 @@ authorimage: /img/rondbust.jpg
 thumbnailimage: /img/alletra-element-small.png
 disable: false
 ---
+
+
 ## What’s New?
 
 Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud platform was introduced on the HPE GreenLake Developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/guide/).  These APIs are grouped under the set which is called HPE GreenLake API for Virtualization. Several articles will be written and posted on HPE Developer’s forum blog site to help you better understand and work with these APIs in conjunction with the family of data services on HPE GreenLake
@@ -36,3 +38,7 @@ The following pictures depict some of the resources that are related to the virt
 ![](/img/resources-correspond-to-virtualization-api-in-glbr.png "On-prem resources in GLBR")
 
 *T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Backup and Recovery.*
+
+![](/img/virtualization-api-in-pcbe.png "on-prem resources in PCBE")
+
+*T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Private Cloud Business Edition.*
