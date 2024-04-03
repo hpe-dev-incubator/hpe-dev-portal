@@ -51,3 +51,12 @@ This set of virtualization APIs uses the same authorization and permission as th
 ![](/img/get-all-registered-hypervisor-managers-download.png "Get all registered hypervisors managers")
 
 *T﻿he above figure shows three panel's interactive API reference documentation for one of HPE GreenLake API for virtualization request.*
+
+## Some tips and examples
+
+Even though there is documentation available in the HPE GreenLake Developer portal, here are some  recommendations and best practices for using the Virtualization API.
+### Discovery of services for a given hypervisor
+The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API GET {baseURL}/virtualization/v1beta1/hypervisor-managers to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of GET {baseURL}/virtualization/v1beta1/hypervisor-managers, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover those information, you can use the select parameter with the API to discover information such as dataOrchestratorInfo and services. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
+The recommended select parameters to discover the hypervisor and services related to hypervisor is shown below.
+{baseUrl}/virtualization/v1beta1/hypervisor-managers?select=name,id,state,status,dataOrchestratorInfo,services,hypervisorManagerType,releaseVersion
+The example of the response using the above recommended parameter is shown below. From this response information, I can derive that hypervisor with name “cds-tme-vcenter.rtplab.nimblestorage.com” contains only “backup-and-recovery” services. However, the second hypervisor with name “rtp-arra392-dhci.rtplab.nimblestorage.com” contains both the “hci-manager” and “backup-and-recovery”. These give me an idea that this workspace contains two VMware vCenters, both of which are protected by HPE GreenLake for Backup-and-Recovery; however, only the second one is part of HPE GreenLake for Private Cloud Business Edition, which is built from HPE hyper-converged setup.
