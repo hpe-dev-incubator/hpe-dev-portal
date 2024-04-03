@@ -118,7 +118,7 @@ T﻿he above figure display the response header from POST https://{baseUrl}/virt
 
 From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. *https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0*) to obtain the status and progress of the previously executed REST API. 
 
-The following snippet depicts the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 2 minutes as shown by the following keys: **startedAt** and **endedAt**.
+The following snippet depicts the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 3 minutes as shown by the following keys: **startedAt** and **endedAt**.
 
 ```json
 {
