@@ -21,3 +21,13 @@ The specification for this set of APIs is publicized as OpenAPI specification in
 ![](/img/virtualization-openapi-3.1-spec-file.png "HPE GreenLake OAS 3.1 specification for Virtualization download.")
 
 *The above figure shows a sample of the downloaded OpenAPI specification of the HPE GreenLake virtualization API.*
+
+## API versioning
+
+This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the APIs will be updated to it’s next revision as they evolves toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under the APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal Versioning Guide.
+
+## 
+What are these virtualization resources?
+
+The following pictures depict some of the resources that are related to the virtualization APIs that can be discovered inside the two cloud data services that are part of the HPE GreenLake. The two services which leverage the APIs are HPE GreenLake for Backup and Recovery (GLBR), and HPE GreenLake for Private Cloud Business Edition (PCBE). Both services leverage the APIs to discover assets that would need to be onboarded, protected, orchestrated, nurtured, or retired following the CRUD principle of the REST API. Each object presented in the pictures below are part of the User Interface that can be manipulated using the APIs.
+Note: Not all virtualization API resources at HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition available in the user interface are going to be available inside this set of APIs upon its first release. Due to sharing of the virtualization services between the two services, any virtualization resources that are added into one HPE GreenLake workspace used by both services can be manipulated GreenLake API for virtualization using the same instance Id.
