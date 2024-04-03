@@ -45,4 +45,4 @@ The following pictures depict some of the resources that are related to the virt
 
 ![](/img/cloud-resources-for-aws-in-backup-and-recovery.png)
 
-The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery
+*The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery*
