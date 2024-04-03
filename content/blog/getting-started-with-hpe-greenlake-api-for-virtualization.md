@@ -24,7 +24,7 @@ The specification for this set of APIs is publicized as OpenAPI specification in
 
 ## API versioning
 
-This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the APIs will be updated to it’s next revision as they evolves toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under the APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal Versioning Guide.
+This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the APIs will be updated to it’s next revision as they evolves toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under the APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal [Versioning Guide](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/).
 
 ## What are these virtualization resources?
 
@@ -32,3 +32,7 @@ The following pictures depict some of the resources that are related to the virt
 
 
 **Note:** Not all virtualization API resources at HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition available in the user interface are going to be available inside this set of APIs upon its first release. Due to sharing of the virtualization services between the two services, any virtualization resources that are added into one HPE GreenLake workspace used by both services can be manipulated GreenLake API for virtualization using the same instance Id.
+
+![](/img/resources-correspond-to-virtualization-api-in-glbr.png "On-prem resources in GLBR")
+
+*T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Backup and Recovery.*
