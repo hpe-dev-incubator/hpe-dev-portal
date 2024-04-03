@@ -42,3 +42,7 @@ The following pictures depict some of the resources that are related to the virt
 ![](/img/virtualization-api-in-pcbe.png "on-prem resources in PCBE")
 
 *T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Private Cloud Business Edition.*
+
+![](/img/cloud-resources-for-aws-in-backup-and-recovery.png)
+
+The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery
