@@ -53,7 +53,6 @@ This set of virtualization APIs uses the same authorization and permission as th
 *T﻿he above figure shows three panel's interactive API reference documentation for one of HPE GreenLake API for virtualization request.*
 
 ## Some tips and examples
-
 Even though there is documentation available in the HPE GreenLake Developer portal, here are some  recommendations and best practices for using the Virtualization API.
 ### Discovery of services for a given hypervisor
 The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API GET {baseURL}/virtualization/v1beta1/hypervisor-managers to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of GET {baseURL}/virtualization/v1beta1/hypervisor-managers, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover those information, you can use the select parameter with the API to discover information such as dataOrchestratorInfo and services. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
