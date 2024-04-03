@@ -53,9 +53,68 @@ This set of virtualization APIs uses the same authorization and permission as th
 *T﻿he above figure shows three panel's interactive API reference documentation for one of HPE GreenLake API for virtualization request.*
 
 ## Some tips and examples
+
 Even though there is documentation available in the HPE GreenLake Developer portal, here are some  recommendations and best practices for using the Virtualization API.
+
 ### Discovery of services for a given hypervisor
-The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API GET {baseURL}/virtualization/v1beta1/hypervisor-managers to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of GET {baseURL}/virtualization/v1beta1/hypervisor-managers, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover those information, you can use the select parameter with the API to discover information such as dataOrchestratorInfo and services. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
+
+The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API **GET {baseURL}/virtualization/v1beta1/hypervisor-managers** to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of **GET {baseURL}/virtualization/v1beta1/hypervisor-managers**, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover the information, you can use the **select** parameter with the API to discover information such as **dataOrchestratorInfo** and **services**. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
+
+
 The recommended select parameters to discover the hypervisor and services related to hypervisor is shown below.
+
+
+```shellsession
 {baseUrl}/virtualization/v1beta1/hypervisor-managers?select=name,id,state,status,dataOrchestratorInfo,services,hypervisorManagerType,releaseVersion
-The example of the response using the above recommended parameter is shown below. From this response information, I can derive that hypervisor with name “cds-tme-vcenter.rtplab.nimblestorage.com” contains only “backup-and-recovery” services. However, the second hypervisor with name “rtp-arra392-dhci.rtplab.nimblestorage.com” contains both the “hci-manager” and “backup-and-recovery”. These give me an idea that this workspace contains two VMware vCenters, both of which are protected by HPE GreenLake for Backup-and-Recovery; however, only the second one is part of HPE GreenLake for Private Cloud Business Edition, which is built from HPE hyper-converged setup.
+```
+
+
+The example of the response using the above recommended parameter is shown below. From this response information, I can derive that hypervisor with name “**cds-tme-vcenter.rtplab.nimblestorage.com**” contains only “**backup-and-recovery**” services. However, the second hypervisor with name “**rtp-arra392-dhci.rtplab.nimblestorage.com**” contains both the “**hci-manager**” and “**backup-and-recovery**”. These give me an idea that this workspace contains two VMware vCenters, both of which are protected by HPE GreenLake for Backup-and-Recovery; however, only the second one is part of HPE GreenLake for Private Cloud Business Edition, which is built from HPE hyper-converged setup
+
+```
+{
+    "items": [
+        {
+            "dataOrchestratorInfo": {
+                "id": "d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "type": "backup-recovery/data-orchestrator"
+            },
+            "hypervisorManagerType": "VMWARE_VCENTER",
+            "id": "0c9acaa0-fe6e-4037-bc43-eaa239798f6d",
+            "name": "cds-tme-vcenter.rtplab.nimblestorage.com",
+            "releaseVersion": "7.0.3",
+            "services": [
+                "backup-and-recovery”
+            ],
+            "state": "OK",
+            "status": "OK"
+        },
+        {
+            "dataOrchestratorInfo": {
+                "id": "d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "type": "backup-recovery/data-orchestrator"
+            },
+            "hypervisorManagerType": "VMWARE_VCENTER",
+            "id": "213a7f0d-1d97-4aac-9989-44e597c32121",
+            "name": "rtp-array392-dhci.rtplab.nimblestorage.com",
+            "releaseVersion": "7.0.3",
+            "services": [
+                "hci-manager",
+                "backup-and-recovery"
+            ],
+            "state": "OK",
+            "status": "OK"
+        }
+    ],
+    "count": 2,
+    "offset": 0,
+    "total": 2
+}
+```
+
+*T﻿he above code snippet display the response from hyper-managers API execution*.
+
+### Creation and management of a virtual machine in a cloud service provider (AWS)
+At the time of this release  (March 2024), the API resource to discover the Cloud Service Provider (CSP) account is not yet available as part of this released virtualization API set for HPE GreenLake. However, you can still obtain the information about the account Id at the CSP’s registration on HPE Private Cloud Business Enterprise’s Cloud account menu using the legacy CSP accounts list API GET {baseUrl}/api/v1/csp-accounts. Assuming that your AWS account had been onboarded into either HPE GreenLake Backup Recovery or HPE Private Cloud for Business Enterprise, this account Id will be used as one of the values for the body of this creation of virtual machine API as shown below.
