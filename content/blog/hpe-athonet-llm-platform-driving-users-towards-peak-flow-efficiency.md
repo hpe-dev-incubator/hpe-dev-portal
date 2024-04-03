@@ -25,7 +25,7 @@ While current chatbot solutions offer limited functionalities, HPE Athonet's goa
 
 This strategy reflects design concepts present in some eLearning platforms, focusing on user involvement and efficiency, as outlined in the provided [“Flow, a key concept for UX designers”](https://www.ux-republic.com/en/flow-a-key-concept-for-ux-designers/).
 
-![](/img/athon_ux.png)
+![](/img/athon_ux-copy.png)
 
 Major companies in the tech industry are incorporating generative AI assistants across their office tool suites. HPE Athonet’s approach significantly diverges; rather than amplifying a variety of general-purpose products for individual usage, the aim is to forge a specialized instrument geared towards **augmenting team collaboration** specifically within 5G project realms. This instrument consolidates all vital data and resources, facilitating each team member’s effective engagement and seamless contribution to unified project endeavors.
 
@@ -39,6 +39,6 @@ Technical instruments often demand specific input formats; thus, HPE Athonet is 
 
 ![](/img/athon_ux_tools.png)
 
-This blog highlights the second foundational pillar shaping HPE Athonet's forthcoming product: enhancing user experience to foster productivity and task concentration. It demonstrates how HPE Athonet intends to implement its strategy, which also encompasses transitioning to a framework centered around team collaboration and developing a secure, ethical, and adaptable infrastructure. These initiatives highlight HPE Athonet's dedication to innovation and digital transformation within network management. 
+This blog post highlights the second foundational pillar shaping HPE Athonet's forthcoming product: enhancing user experience to foster productivity and task concentration. It demonstrates how HPE Athonet intends to implement its strategy, which also encompasses transitioning to a framework centered around team collaboration and developing a secure, ethical, and adaptable infrastructure. These initiatives highlight HPE Athonet's dedication to innovation and digital transformation within network management. 
 
 Stay tuned for an upcoming post on the final pillar concerning the development of an LLM Data Platform.
