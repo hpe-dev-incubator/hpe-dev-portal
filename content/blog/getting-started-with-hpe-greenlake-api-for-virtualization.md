@@ -6,8 +6,6 @@ authorimage: /img/rondbust.jpg
 thumbnailimage: /img/alletra-element-small.png
 disable: false
 ---
-
-
 ## What’s New?
 
 Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud platform was introduced on the HPE GreenLake Developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/guide/).  These APIs are grouped under the set which is called HPE GreenLake API for Virtualization. Several articles will be written and posted on HPE Developer’s forum blog site to help you better understand and work with these APIs in conjunction with the family of data services on HPE GreenLake
@@ -32,7 +30,6 @@ This set of APIs is identified as revision V1Beta1 at the time of its introducti
 
 The following pictures depict some of the resources that are related to the virtualization APIs that can be discovered inside the two cloud data services that are part of the HPE GreenLake. The two services which leverage these APIs are HPE GreenLake for Backup and Recovery (GLBR), and HPE GreenLake for Private Cloud Business Edition (PCBE). Both services leverage the APIs to discover assets that would need to be onboarded, protected, orchestrated, nurtured, or retired following the CRUD principle of the REST API. Each object presented in the pictures below are part of the User Interface that can be manipulated using the APIs.
 
-
 **Note:** Not all virtualization API resources at HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition available in the user interface are going to be available inside this set of APIs upon its first release. Due to sharing of the virtualization services between the two services, any virtualization resources that are added into one HPE GreenLake workspace used by both services can be manipulated GreenLake API for virtualization using the same instance Id.
 
 ![](/img/resources-correspond-to-virtualization-api-in-glbr.png "On-prem resources in GLBR")
@@ -43,9 +40,10 @@ The following pictures depict some of the resources that are related to the virt
 
 *T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Private Cloud Business Edition.*
 
-![](/img/cloud-resources-for-aws-in-backup-and-recovery.png)
+![](/img/cloud-resources-for-aws-in-backup-and-recovery.png "Cloud resources in GLBR")
 
 *The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery*
 
 ## Using the Virtualization APIs
-This set of virtualization APIs uses the same authorization and permission as the rest of the family of HPE GreenLake API for data services. To ensure that all programmatic interaction with the HPE GreenLake platform services and resources is secure and authenticated, these APIs require an access token. The token is generated using the client ID and client Secret you obtained during the creation of the client API credentials. Documentation about getting started with the HPE GreenLake API is provided on the HPE Developer Community website, and on the HPE GreenLake Developer porta website. Nevertheless, there is also blog’s posts that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this link. Moreover, there will be blog posts available that provide guidance on how to convert this Open API  based on the OAS 3.1 to any scripting language library in the future.  Lastly, anyone can follow the examples provided by each API referenced in the documentation page, such as that which is shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog post (Getting started with HP GreenLake Data Services API).
+
+This set of virtualization APIs uses the same authorization and permission as the rest of the family of HPE GreenLake API for data services. To ensure that all programmatic interaction with the HPE GreenLake platform services and resources is secure and authenticated, these APIs require an access token. The token is generated using the client ID and client Secret you obtained during the creation of the client API credentials. Documentation about getting started with the HPE GreenLake API is provided on the HPE Developer Community [website](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/), and on the HPE GreenLake Developer portal [website](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Nevertheless, there is also blog’s [posts ](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/)that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this link. Moreover, there will be blog posts available that provide guidance on how to convert this Open API  based on the OAS 3.1 to any scripting language library in the future.  Lastly, anyone can follow the examples provided by each API referenced in the documentation page, such as that which is shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog post (Getting started with HP GreenLake Data Services API).
