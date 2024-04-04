@@ -214,7 +214,7 @@ To progress further, I needed to find the Id that corresponds to the newly creat
 
 To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}/power-off** to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API **DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}** to terminate that virtual machine and retire it (delete) from the inventory of EC2.  Just like any invocation of POST API, the invocation of DEL method was asynchronously executed. Hence the same strategy of using the async-operation API applies. Finally, the result of the execution will be returned as part of the response API from async-operation indicated that VM that I had created recently has already been terminated, as shown below.
 
-```
+```json
 {
     "associatedResources": [],
     "childTasks": [
