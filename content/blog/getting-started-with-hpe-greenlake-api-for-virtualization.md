@@ -134,3 +134,9 @@ The figure below shows of the documentation of HPE GreenLake Virtualization API 
 *T﻿he above figure shows the documentation on POST /virtualization/v1beta1/csp-machine-instances to deploy a VM inside the cloud service provider.*
 
 You can see in below figure, I performed the deployment of a virtual machine example using Postman, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above; I entered the values required by the key-pairs part of the body. The key of **keyPairName** is the name for the certificate key-pair required to login into the VM.
+
+![](/img/deployment-of-csp-machine-instance-using-post-and-payload.png "Deploy a machine instance based on the payload POST")
+
+*T﻿he above figure provides example of providing Payload (Body) to provision a VM inside the cloud service provider.*
+
+Using the API **GET async-operations** on the task Id provided from location value in the response header of the above API, I was able to track the completion of the execution of the create virtual-machine in the AWS account. For more information on using the asynchronous-operation API, please look at my [blog](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/)post (Getting Started with GreenLake Data-Services API).
