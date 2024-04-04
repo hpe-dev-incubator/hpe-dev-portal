@@ -5,6 +5,10 @@ author: Ron Dharma
 authorimage: /img/rondbust.jpg
 thumbnailimage: /img/alletra-element-small.png
 disable: false
+tags:
+  - api
+  - hpe-greenlake
+  - data-services-cloud-console
 ---
 ## What’s New?
 
