@@ -123,8 +123,14 @@ At the time of this release  (March 2024), the API resource to discover the Clou
 
 Another important information, the **imageId** value that is presented below, corresponds to the AWS Linux VM (free tier) that is going to be deployed at the AWS account. I used the following API **GET /virtualization/v1beta1/csp-machine-images** to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use **GET /virtualization/v1beta1/csp-machine-instances** to get the machine-id required to execute the below API. 
 
-![](/img/list-available-csp-account-response.png "return imageId from csp-machine-images")
+![](/img/obtain-machineid-from-a-machine-instance.png "return imageId from csp-machine-images")
 
 *T﻿he above figure shows the imageId value obtained from existing machine instance.*
 
-The figure below shows of the documentation of HPE GreenLake Virtualization API using a POST method to deploy a virtual machine in your CSP account: **POST /virtualization/v1beta1/csp-machine-instances**. Note that this API requires that you provide a **body** as part of the API invocation. The documentation for this virtualization API in the https://developer.greenlake.hpe.com uses another terminology which is called **Payload**.  It is presented as one of the tabs in the **Request samples** window, as shown below.  This **Payload** contains multiple key-pair values that is specified in the documentation for this API.
+The figure below shows of the documentation of HPE GreenLake Virtualization API using a POST method to deploy a virtual machine in your CSP account: **POST /virtualization/v1beta1/csp-machine-instances**. Note that this API requires that you provide a **body** as part of the API invocation. The documentation for this virtualization API in the https://developer.greenlake.hpe.com uses another terminology which is called **Payload**.  It is presented as one of the tabs in the **Request samples** window, as shown below.  This **Payload** contains multiple key-pair values that is specified in the documentation for this API. 
+
+![](/img/documentation-of-the-post-csp-machine-instance-with-required-payload.png "display csp-machine-instances with the required Payload to POST")
+
+*T﻿he above figure shows the documentation on POST /virtualization/v1beta1/csp-machine-instances to deploy a VM inside the cloud service provider.*
+
+You can see in below figure, I performed the deployment of a virtual machine example using Postman, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above; I entered the values required by the key-pairs part of the body. The key of **keyPairName** is the name for the certificate key-pair required to login into the VM.
