@@ -294,7 +294,7 @@ Here is another example of using the virtualization API to provision a datastore
 
 *T﻿he above figure display the required body (Payload) to deploy datastore into a hyper-converged instance with VMware.*
 
-This virtualization API incorporates the virtual machine provisioning policy that is part of the . Use the HPE GreenLake for Private Cloud Business Edition API **GET {baseUrl}/private-cloud-business/v1beta1/vm-provisioning-policies** to obtain the **provisioningPolicyId** and enter it into the body JSON key-pair values.
+This virtualization API incorporates the virtual machine provisioning policy that is part of the HPE GreenLake for Private Cloud Business Edition. Use the HPE GreenLake for Private Cloud Business Edition API **GET {baseUrl}/private-cloud-business/v1beta1/vm-provisioning-policies** to obtain the **provisioningPolicyId** and enter it into the body JSON key-pair values.
 
 ![](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using PCBE")
 
