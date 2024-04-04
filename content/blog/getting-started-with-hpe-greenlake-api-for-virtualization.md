@@ -68,7 +68,7 @@ The recommended select parameters to discover the hypervisor and services relate
 
 The example of the response using the above recommended parameter is shown below. From this response information, I can derive that hypervisor with name “**cds-tme-vcenter.rtplab.nimblestorage.com**” contains only “**backup-and-recovery**” services. However, the second hypervisor with name “**rtp-arra392-dhci.rtplab.nimblestorage.com**” contains both the “**hci-manager**” and “**backup-and-recovery**”. These give me an idea that this workspace contains two VMware vCenters, both of which are protected by HPE GreenLake for Backup-and-Recovery; however, only the second one is part of HPE GreenLake for Private Cloud Business Edition, which is built from HPE hyper-converged setup
 
-```
+```json
 {
     "items": [
         {
