@@ -139,4 +139,67 @@ You can see in below figure, I performed the deployment of a virtual machine exa
 
 *T﻿he above figure provides example of providing Payload (Body) to provision a VM inside the cloud service provider.*
 
-Using the API **GET async-operations** on the task Id provided from location value in the response header of the above API, I was able to track the completion of the execution of the create virtual-machine in the AWS account. For more information on using the asynchronous-operation API, please look at my [blog](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/)post (Getting Started with GreenLake Data-Services API).
+Using the API **GET async-operations** on the task Id provided from location value in the response header of the above API, I was able to track the completion of the execution of the create virtual-machine in the AWS account. For more information on using the asynchronous-operation API, please look at my [blog](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) post (Getting Started with GreenLake Data-Services API).
+
+```json
+{
+    “associatedResources”: [],
+    “childTasks”: [
+        {
+            “name”: “Create Instance”,
+            “resourceUri”: “/data-services/v1beta1/async-operations/286cc55c-8636-4a8a-8428-0a5694f42785”,
+            “type”: “task”
+        }
+    ],
+    “createdAt”: “2024-03-28T01:53:30.395518007Z”,
+    “customerId”: “eb988b5e2dcb11ec840712b3b5263ef4”,
+    “displayName”: “Create Instance: RonD-deploy-CSP-1”,
+    “endedAt”: “2024-03-28T01:54:04.245722969Z”,
+    “error”: null,
+    “estimatedRunningDurationMinutes”: 0,
+    “generation”: 3,
+    “groups”: [
+        {
+            “id”: “eb988b5e2dcb11ec840712b3b5263ef4”,
+            “name”: “Default Group”
+        }
+    ],
+    “healthStatus”: “OK”,
+    “id”: “5f54e591-a231-46ce-a2e2-bebadb977f93”,
+    “logMessages”: [
+        {
+            “message”: “Create Instance: RonD-deploy-CSP-1 task is created”,
+            “timestampAt”: “2024-03-28T01:53:30.395526907Z”
+        },
+        {
+            “message”: “Create Instance: RonD-deploy-CSP-1 task is running”,
+            “timestampAt”: “2024-03-28T01:53:30.395529707Z”
+        },
+        {
+            “message”: “Create Instance: RonD-deploy-CSP-1 task is succeeded”,
+            “timestampAt”: “2024-03-28T01:54:04.245712087Z”
+        }
+    ],
+    “name”: “Create Instance: RonD-deploy-CSP-1”,
+    “parentTask”: null,
+    “progressPercent”: 100,
+    “recommendations”: [],
+    “resourceUri”: “/data-services/v1beta1/async-operations/5f54e591-a231-46ce-a2e2-bebadb977f93”,
+    “rootTask”: {
+        “id”: “5f54e591-a231-46ce-a2e2-bebadb977f93”,
+        “name”: “”,
+        “resourceUri”: “/data-services/v1beta1/async-operations/5f54e591-a231-46ce-a2e2-bebadb977f93”,
+        “type”: “task”
+    },
+    “services”: [
+        “private-cloud-business-edition”
+    ],
+    “startedAt”: “2024-03-28T01:53:30.395520016Z”,
+    “state”: “SUCCEEDED”,
+    “subtreeTaskCount”: 1,
+    “suggestedPollingIntervalSeconds”: 30,
+    “type”: “task”,
+    “updatedAt”: “2024-03-28T01:54:04.324786754Z”,
+    “userId”: “ onald.dharma@hpe.com”
+}
+```
