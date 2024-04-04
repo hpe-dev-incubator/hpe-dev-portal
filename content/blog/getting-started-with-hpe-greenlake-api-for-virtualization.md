@@ -396,7 +396,7 @@ From the response of the API aync-operations for the task Id shown below, I conf
 }
 ```
 
-*T﻿he above figure shows the termination of machine-instance in AWS reached 100% progress and completed succesfully.*
+*T﻿he above figure shows the termination of machine-instance in AWS reached 100% progress and completed successfully.*
 
 ## Summary
 
