@@ -213,3 +213,75 @@ To progress further, I needed to find the Id that corresponds to the newly creat
 *T﻿he above figure display the name and the machine-instance id so that you can manipulate the machine's state.*
 
 To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}/power-off** to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API **DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}** to terminate that virtual machine and retire it (delete) from the inventory of EC2.  Just like any invocation of POST API, the invocation of DEL method was asynchronously executed. Hence the same strategy of using the async-operation API applies. Finally, the result of the execution will be returned as part of the response API from async-operation indicated that VM that I had created recently has already been terminated, as shown below.
+
+```
+{
+    "associatedResources": [],
+    "childTasks": [
+        {
+            "name": "Terminate: RonD-deploy-CSP-1",
+            "resourceUri": "/data-services/v1beta1/async-operations/f267be2d-5a04-4f41-a760-c803212840c8",
+            "type": "task"
+        }
+    ],
+    "createdAt": "2024-03-27T22:37:20.509665935Z",
+    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "displayName": "Terminate: RonD-deploy-CSP-1",
+    "endedAt": "2024-03-27T22:37:37.652544571Z",
+    "error": null,
+    "estimatedRunningDurationMinutes": 0,
+    "generation": 4,
+    "groups": [
+        {
+            "id": "eb988b5e2dcb11ec840712b3b5263ef4",
+            "name": "Default Group"
+        }
+    ],
+    "healthStatus": "OK",
+    "id": "de6d9725-7803-4ef5-9cce-f40ad05f879f",
+    "logMessages": [
+        {
+            "message": "Terminate: d4c46c6e-51ff-59c0-a24a-ef52d77f0b16 task is created",
+            "timestampAt": "2024-03-27T22:37:20.509674904Z"
+        },
+        {
+            "message": "Terminate: d4c46c6e-51ff-59c0-a24a-ef52d77f0b16 task is running",
+            "timestampAt": "2024-03-27T22:37:20.509678268Z"
+        },
+        {
+            "message": "Terminate: RonD-deploy-CSP-1 task is running",
+            "timestampAt": "2024-03-27T22:37:20.79512845Z"
+        },
+        {
+            "message": "Terminate: RonD-deploy-CSP-1 task is succeeded",
+            "timestampAt": "2024-03-27T22:37:37.652529902Z"
+        }
+    ],
+    "name": "Terminate: RonD-deploy-CSP-1",
+    "parentTask": null,
+    "progressPercent": 100,
+    "recommendations": [],
+    "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-7803-4ef5-9cce-f40ad05f879f",
+    "rootTask": {
+        "id": "de6d9725-7803-4ef5-9cce-f40ad05f879f",
+        "name": "",
+        "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-7803-4ef5-9cce-f40ad05f879f",
+        "type": "task"
+    },
+    "services": [
+        "private-cloud-business-edition"
+    ],
+    "sourceResource": {
+        "name": "RonD-deploy-CSP-1",
+        "resourceUri": "/api/v1/csp-machine-instances/d4c46c6e-51ff-59c0-a24a-ef52d77f0b16",
+        "type": "AWS Instance"
+    },
+    "startedAt": "2024-03-27T22:37:20.509668598Z",
+    "state": "SUCCEEDED",
+    "subtreeTaskCount": 1,
+    "suggestedPollingIntervalSeconds": 30,
+    "type": "task",
+    "updatedAt": "2024-03-27T22:37:37.688700579Z",
+    "userId": "ronald.dharma@hpe.com"
+}
+```
