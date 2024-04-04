@@ -295,3 +295,105 @@ Here is another example of using the virtualization API to provision a datastore
 *T﻿he above figure display the required body (Payload) to deploy datastore into a hyper-converged instance with VMware.*
 
 This virtualization API incorporates the virtual machine provisioning policy that is part of the . Use the HPE GreenLake for Private Cloud Business Edition API **GET {baseUrl}/private-cloud-business/v1beta1/vm-provisioning-policies** to obtain the **provisioningPolicyId** and enter it into the body JSON key-pair values.
+
+![](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using PCBE")
+
+Using another API from the virtualization API such as **GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters** to obtain the **HyperClusterId** is shown below.
+
+![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
+
+Finally, all the above values were entered into the JSON body below as part of the Virtualization API to create a datastore in the designated cluster using the attached storage system.
+
+![](/img/create-a-datastore-using-virtualization-api-post-datastores-with-all-required-body.png "Deploy POST to create the datastore in the DHCI using PCBE")
+
+From the response of the API aync-operations for the task Id shown below, I confirmed that creation of the datastore was completed. Note that the creation of datastore also applied the HPE GreenLake Backup Recovery data protection-policy to the newly created datastore. 
+
+```json
+{
+    "associatedResources": [],
+    "childTasks": [
+        {
+            "name": "Create datastore: VVOL-ds1",
+            "resourceUri": "/data-services/v1beta1/async-operations/ad25f64d-7bd1-439e-ac31-17728e6cdbc6",
+            "type": "task"
+        }
+    ],
+    "createdAt": "2024-03-29T00:56:16.981296528Z",
+    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "displayName": "Provisioning datastore VVOL-ds1",
+    "endedAt": "2024-03-29T00:59:22.975723884Z",
+    "error": null,
+    "estimatedRunningDurationMinutes": 0,
+    "generation": 8,
+    "groups": [
+        {
+            "id": "eb988b5e2dcb11ec840712b3b5263ef4",
+            "name": "Default Group"
+        }
+    ],
+    "healthStatus": "OK",
+    "id": "9825d5e8-5213-433b-8fbf-1945bb4496e1",
+    "logMessages": [
+        {
+            "message": "Task created",
+            "timestampAt": "2024-03-29T00:56:16.98131301Z"
+        },
+        {
+            "message": "Task is running",
+            "timestampAt": "2024-03-29T00:56:16.981315803Z"
+        },
+        {
+            "message": "Preparing parameters",
+            "timestampAt": "2024-03-29T00:56:18.622573215Z"
+        },
+        {
+            "message": "Creating datastore",
+            "timestampAt": "2024-03-29T00:56:19.797636611Z"
+        },
+        {
+            "message": "Validating datastore",
+            "timestampAt": "2024-03-29T00:56:36.120087916Z"
+        },
+        {
+            "message": "Applying protection policy",
+            "timestampAt": "2024-03-29T00:57:36.332756275Z"
+        },
+        {
+            "message": "Task succeeded",
+            "timestampAt": "2024-03-29T00:59:22.975739714Z"
+        }
+    ],
+    "name": "Provisioning datastore VVOL-ds1",
+    "parentTask": null,
+    "progressPercent": 100,
+    "recommendations": [],
+    "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-5213-433b-8fbf-1945bb4496e1",
+    "rootTask": {
+        "id": "9825d5e8-5213-433b-8fbf-1945bb4496e1",
+        "name": "",
+        "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-5213-433b-8fbf-1945bb4496e1",
+        "type": "task"
+    },
+    "services": [
+        "private-cloud-business-edition"
+    ],
+    "sourceResource": {
+        "name": "VVOL-ds2",
+        "resourceUri": "/api/v1/datastores/fdcc724f-3f22-5fa6-8477-81f0fd701512",
+        "type": "Datastore"
+    },
+    "startedAt": "2024-03-29T00:56:16.981298562Z",
+    "state": "SUCCEEDED",
+    "subtreeTaskCount": 2,
+    "suggestedPollingIntervalSeconds": 30,
+    "type": "task",
+    "updatedAt": "2024-03-29T00:59:23.013384523Z",
+    "userId": "ronald.dharma@hpe.com"
+}
+```
+
+## Summary
+
+This blog post introduces you to the new set of Cloud Data Services API on HPE Greenlake named virtualization to support resources such as: hypervisor includes VMware (6.7.X, 7.X and 8.X) for on-prem hypervisors, AWS EC2 and Azure for cloud public-provider. This API set will evolve throughout next release in the future. The March 2024 announcement introduces V1Beta1 of the API version. This set of APIs is documented at https://developer.greenlake.hpe.com and available for download as Open API 3.1.X specification in JSON file. 
+In this post, I introduced the HPE GreenLake virtualization API on the API documentation page. Moreover, I provided a couple of tips on using this Virtualization REST API such as discovery of the on-premises resources and determined the services that were applied against the VMware cluster. Afterward, I provided a complete guides to deploy a Virtual Machine inside the Cloud Service Provider (AWS). Lastly, I also introduced an example on how to invoke DEL method of the Virtual Machines at the Cloud to clean up the deployed Virtual Machines on the Cloud Service Provider. In future blogs, I will provide examples that incorporate HPE GreenLake APIs for virtualization with different sets of APIs from different data services on HPE GreenLake. 
+Please don’t hesitate to explore this new set of HPE GreenLake API for virtualization and see how you can improve your agility in managing your data. Any questions on HPE GreenLake API for virtualization? Or do you have any suggestions or cool ideas that you want share with the community? Please join the HPE Developer Slack Workspace and start a discussion in our #hpe-greenlak-data-services slack channel.
