@@ -285,3 +285,13 @@ To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-mach
     "userId": "ronald.dharma@hpe.com"
 }
 ```
+
+### Wow… that was so cool. What about provisioning  a VMware Datastores on-premises?
+
+Here is another example of using the virtualization API to provision a datastore out of an HPE DHCI system that is going to be deployed on-premises.  The API that is used for the datastore provisioning is **POST {baseUrl} /virtualization/v1beta1/datastores**, which also requires a definition of this JSON structure with values in the **body (Payload)**. The information about this JSON body is presented in the documentation below.
+
+![](/img/create-datastore-on-dhci.png)
+
+*T﻿he above figure display the required body (Payload) to deploy datastore into a hyper-converged instance with VMware.*
+
+This virtualization API incorporates the virtual machine provisioning policy that is part of the . Use the HPE GreenLake for Private Cloud Business Edition API **GET {baseUrl}/private-cloud-business/v1beta1/vm-provisioning-policies** to obtain the **provisioningPolicyId** and enter it into the body JSON key-pair values.
