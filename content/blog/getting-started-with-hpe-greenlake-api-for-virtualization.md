@@ -392,6 +392,8 @@ From the response of the API aync-operations for the task Id shown below, I conf
 }
 ```
 
+*T﻿he above figure shows the termination of machine-instance in AWS reached 100% progress and completed succesfully.*
+
 ## Summary
 
 This blog post introduces you to the new set of HPE Greenlake API for data services named virtualization to support resources such as: hypervisor includes VMware (6.7.X, 7.X and 8.X) for on-prem hypervisors, AWS EC2 and Azure for cloud public-provider. This API set will evolve throughout next release in the future. The March 2024 announcement introduces V1Beta1 of the API version. This set of APIs is documented at HPE GreenLake Developer [website ](https://developer.greenlake.hpe.com) and it is available for download as Open API 3.1.X specification in JSON file. 
