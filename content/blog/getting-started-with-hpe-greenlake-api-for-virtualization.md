@@ -302,6 +302,10 @@ Using another API from the virtualization API such as **GET {baseUrl}/virtualiza
 
 ![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
 
+And using the legacy API such as GET {baseUrl}/api/v1/storage-systems/device-type2 to obtain the Storage System Id is shown below.
+
+![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "legacy API to display the storage system Id")
+
 Finally, all the above values were entered into the JSON body below as part of the Virtualization API to create a datastore in the designated cluster using the attached storage system.
 
 ![](/img/create-a-datastore-using-virtualization-api-post-datastores-with-all-required-body.png "Deploy POST to create the datastore in the DHCI using PCBE")
