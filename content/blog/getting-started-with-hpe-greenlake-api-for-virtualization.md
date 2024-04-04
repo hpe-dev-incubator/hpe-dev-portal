@@ -200,6 +200,14 @@ Using the API **GET async-operations** on the task Id provided from location val
     “suggestedPollingIntervalSeconds”: 30,
     “type”: “task”,
     “updatedAt”: “2024-03-28T01:54:04.324786754Z”,
-    “userId”: “ onald.dharma@hpe.com”
+    “userId”: “ ronald.dharma@hpe.com”
 }
 ```
+
+*T﻿he above snippet of response code depicted that execution of POST /virtual/v1beta1/machine-instance had completed successfully.*
+
+To progress further, I needed to find the Id that corresponds to the newly created virtual-machine instance in the AWS account using the Create CSP machine instance API. To find the virtual machine Id of the deployed VM, I used a legacy HPE GreenLake Data Services Cloud Console API GET {baseUrl}/api/v1/csp-machine-instances to get the list of virtual-machine-instance that exist in that AWS account. From the response of that API, I obtained the VM instance Id of that Virtual Machine that was created in prior example.  
+
+![](/img/after-deployment-get-the-machine-instance-id.png "obtain the machine instance id")
+
+*T﻿he above figure display the name and the machine-instance id so that you can manipulate the machine's state.*
