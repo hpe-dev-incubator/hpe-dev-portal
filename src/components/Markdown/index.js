@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { deepMerge } from 'grommet/utils';
 import codestyle from './markdownTheme';
-import MarkdownToJSX from 'markdown-to-jsx';
+import { GrommetMarkdown } from './Markdown';
 
 class Image extends React.Component {
   render() {
@@ -158,13 +158,13 @@ export const titleComponents = deepMerge(cardComponents, {
 });
 
 export const Markdown = (props) => (
-  <MarkdownToJSX components={components} {...props} />
+  <GrommetMarkdown components={components} {...props} />
 );
 export const CardMarkdown = (props) => (
-  <MarkdownToJSX components={cardComponents} {...props} />
+  <GrommetMarkdown components={cardComponents} {...props} />
 );
 export const TitleMarkdown = (props) => (
-  <MarkdownToJSX components={titleComponents} {...props} />
+  <GrommetMarkdown components={titleComponents} {...props} />
 );
 
 export default Markdown;
