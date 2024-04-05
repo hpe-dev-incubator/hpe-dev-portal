@@ -8,14 +8,12 @@ import Feedback from '../Feedback/index';
 import AuthService from '../../services/auth.service';
 // import { AppContext } from '../../providers/AppProvider';
 
-const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-
 export const Footer = () => {
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(undefined);
   const sendEmail = (data) => {
     axios({
       method: 'POST',
-      url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/email/send-feedback`,
+      url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/email/send-feedback`,
       headers: {
         'x-access-token': AuthService.getCurrentUser().accessToken,
       },

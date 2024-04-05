@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from '@reach/router';
+import { navigate } from "gatsby"
 import { Box, Heading, Tabs, Tab, Text, TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
@@ -140,10 +140,9 @@ const getSearchResults = async (query) => {
 
 const SearchContainer = ({ location }) => {
   const { term } = useParams(location);
-  const initialSearch = getSearchResults(term);
   const [value, setValue] = useState(term);
-  const [results, setResults] = useState(initialSearch.searchResults);
-  const [categories, setCategories] = useState(initialSearch.searchCategories);
+  const [results, setResults] = useState();
+  const [categories, setCategories] = useState();
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
   useEffect(() => {
@@ -166,10 +165,6 @@ const SearchContainer = ({ location }) => {
     // update the URL
     const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
     navigate(`/search/${query}`, { replace: true });
-
-    const { searchResults, searchCategories } = getSearchResults(newValue);
-    setResults(searchResults);
-    setCategories(searchCategories);
     // todo update route term= param
   };
 

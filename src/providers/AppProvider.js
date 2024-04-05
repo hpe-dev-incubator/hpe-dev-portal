@@ -8,13 +8,12 @@ export const AppContext = React.createContext({
   setUser: () => null,
 });
 
-const { GATSBY_COCKPIT_HPE_USER } = process.env;
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const fetchUserDetail = () => {
-    fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
+    fetch(`${process.env.GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
       .then((response) => {
         return response.json();
       })
@@ -58,7 +57,7 @@ const AppProvider = ({ children }) => {
           }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {
@@ -82,7 +81,7 @@ const AppProvider = ({ children }) => {
           }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {
@@ -103,7 +102,7 @@ const AppProvider = ({ children }) => {
           fields: { sourceInstanceName: { eq: "opensource" } }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {

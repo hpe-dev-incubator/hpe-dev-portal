@@ -168,7 +168,7 @@ function Evangelist({ data }) {
       const postEvangelist = () => {
         axios({
           method: 'POST',
-          url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/evangelist`,
+          url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/evangelist`,
           headers: {
             'x-access-token': AuthService.getCurrentUser().accessToken,
           },

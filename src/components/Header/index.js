@@ -16,11 +16,6 @@ import { AppContext } from '../../providers/AppProvider';
 import { ButtonLink } from '..';
 import { UserMenu } from './UserMenu';
 
-const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
-
-// const { GATSBY_CLIENT_ID } = process.env;
-// const { GATSBY_CLIENT_OAUTH } = process.env;
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -145,9 +140,9 @@ function Header() {
 
     console.log(
       'Sign in URL+++',
-      `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`,
+      `${process.env.GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`,
     );
-    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`;
+    window.location.href = `${process.env.GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`;
   };
   // const hanldeGitHubSignIn = () => {
   //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
@@ -163,7 +158,7 @@ function Header() {
       window.history.pushState({}, null, newUrl[0]);
       axios
         .post(
-          `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/users/github-auth`,
+          `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/users/github-auth`,
           {
             code: newUrl[1],
           },

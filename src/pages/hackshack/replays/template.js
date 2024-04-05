@@ -30,8 +30,7 @@ const sortReplays = (replayData, current) => {
 };
 
 const ReplayTemplate = (props) => {
-  const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+  const getReplaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
 

@@ -33,8 +33,7 @@ const renderScheduleCard = (workshop, i) => (
 );
 
 const Challenge = (props) => {
-  const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  const getWorkshopsApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+  const getWorkshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
