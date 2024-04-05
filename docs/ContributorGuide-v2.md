@@ -717,7 +717,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
 
 >**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://developer.hpe.com/tags/) to look for existing tags in our HPE Developer site.
 
->**Note about HPE GreenLake edge-to-cloud platform**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag _hpe-greenlake-cloud-platform_ because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake edge-to-cloud platform.
+>**Note about HPE GreenLake edge-to-cloud platform**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag _hpe-greenlake-platform_ because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake edge-to-cloud platform.
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
@@ -730,7 +730,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
-  | **HPE Cray Programming environment** | hpe-cray-programming-environment |
+  | **HPE Cray Programming environment** | hpe-cray-programming-environment; or cray; or CPE |
   | **Determined AI**                  | determined-ai |
   | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |

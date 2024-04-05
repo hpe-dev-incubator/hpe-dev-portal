@@ -1,13 +1,13 @@
 ---
-author: HPE DEV
+author: Denis Choukroun
 priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: "Programming with Chapel: Making the Power of Parallelism and
-  Supercomputers More Accessible"
+title: "Get started with the foundational APIs for the HPE GreenLake
+  edge-to-cloud platform – Part 1: Introduction to the APIs"
 category: Feature Blog
-link: https://devm.io/programming/brad-chamberlain-chapel-programming-language-interview-001?_branch_match_id=1253386617516862791&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXTywo0EtJLcvVy8zXT8tJLTRx8jNzck0CAHq%2BldgfAAAA
-image: /img/Avatar1.svg
+link: https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/
+image: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 ---
-Chapel is one rich with potential in the world of parallel programming. We were very lucky to have the chance to speak with Brad Chamberlain, Distinguished Technologist at Hewlett Packard Enterprise, Chapel Founder & Technical Lead to talk all things Chapel.
+HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform, provides a set of common services that are used by cloud services that run on top of the platform. The platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services.

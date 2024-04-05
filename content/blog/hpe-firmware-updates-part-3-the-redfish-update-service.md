@@ -12,6 +12,8 @@ tags:
   - ilo-restful-api
   - update
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 ### Updated: July 25, 2023
 
 # Introduction
@@ -28,7 +30,7 @@ The Redfish update service contains software and firmware information as well as
 
 In this article, I will cover these five endpoints in the following order: `SoftwareInventory`, `FirmwareInventory`, `Actions`, `HttpPushUri` and finally the `Oem.Hpe` extension.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/1_RootUpdateService.png" alt="Root Update Service" />
+![Root Update Service](/img/1_RootUpdateService.png)
 
 # Software inventory
 
@@ -38,15 +40,15 @@ Since this list comes from the OS, it is mandatory to have the system booted. Mo
 
 The following screenshot shows the list of HPE software displayed by the iLO Graphical User Interface (GUI) of a Linux server. You can see three applications (`amsd`, `ilorest` and `sut`) and two deployed firmware packages (`firmware-iegen10` and `firmware-ilo5`).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/2_iLOGUI-SoftwareInventory.png" alt="iLO 5 GUI Software Inventory" />
+![iLO 5 GUI Software Inventory](/img/2_iLOGUI-SoftwareInventory.png)
 
 To retrieve the above collection using the `SoftwareInventory` endpoint of the Redfish update service, you have to perform a `GET` request toward `/redfish/v1/UpdateService/SoftwareInventory.` This gives you the collection of URIs pointing to the details of each HPE installed software. The next picture shows the five URIs that correspond to the same HPE software present in the above screenshot. Note that the list of running and installed software present in the iLO GUI is not returned by Redfish.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/3_SoftwareInventoryCollection.png" alt="Software Inventory Collection" />
+![Software Inventory Collection](/img/3_SoftwareInventoryCollection.png)
 
 To avoid issuing multiple GET requests for retrieving the details of each installed software, you can append the `$expand=.`[OData query](https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.7.0.pdf) as shown in the next screenshot (note that this screenshot has been truncated to display only the first item of the collection). The dot (“.”) sign of this OData query indicates that only the current level of the hierarchy has to be expanded, not the lower levels. Details concerning the support of OData queries can be found in the `ProtocolFeaturesSupported` property of the Redfish Service root endpoint (`/redfish/v1`).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/4_ExpandedSoftwareInventory.png" alt="Expanded Software Inventory" />
+![Expanded Software Inventory](/img/4_ExpandedSoftwareInventory.png)
 
 A Python example for fetching the software inventory of a server without hard coding its location can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
@@ -54,7 +56,7 @@ A Python example for fetching the software inventory of a server without hard co
 
 Similar to the `SoftwareInventory` resource, the `FirmwareInventory` endpoint contains the collection of all installed firmware in a server. The exact endpoint is `/redfish/v1/UpdateService/FirmwareUpdate` and, with a single `?$expand=.` OData query, you can retrieve all the details of installed firmware on your server.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/5_ExpandedFirmwareCollection.png" alt="Expanded Firmware Collection" />
+![Expanded Firmware Collection](/img/5_ExpandedFirmwareCollection.png)
 
 A Python example to retrieve the firmware inventory of a server (using Redfish) can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
@@ -66,12 +68,12 @@ The `SimpleUpdate` action is a “pull” update, which means that the Redfish s
 
 The implementation of the `SimpleUpdate` used for the writing of this article allows only HTTP and HTTPS transfer protocols. You can mention the appropriate transfer protocol either in the `ImageURI` resource (next image) or in the `TransferProtocol` parameter (the image following this one).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/6_SimpleUpdateAction.png" alt="Simple Update Action" />
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/7_SimpleUpdateActionWithTransferProtocol.png" alt="Simple Update Action With Transfer Protocol" />
+![Simple Update Action](/img/6_SimpleUpdateAction.png)
+![Simple Update Action With Transfer Protocol](/img/7_SimpleUpdateActionWithTransferProtocol.png)
 
 You can monitor the update process by polling the `State` and `FlashProgressPercent` properties part of the `Oem.Hpe` section as shown in the following screenshot.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/8_SimpleUpdateFlashPercent.png" alt="SimpleUpdateFlashPercent" />
+![SimpleUpdateFlashPercent](/img/8_SimpleUpdateFlashPercent.png)
 
 Refer to the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#oemhpestate) for the exhaustive list of possible states.
 
@@ -81,8 +83,8 @@ With iLO 5 firmware 2.30 and higher versions, a successful `SimpleUpdate` return
 
 The following two pictures show, respectively, the response of a successful `SimpleUpdate` and the task monitor details including a running task state. Note that the accomplished percentage of the task is not present in the Task Monitor location. It is only mentioned in the `Oem.Hpe` extension properties, as mentioned above.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/10_SuccessfulSimpleUpdate.png" alt="SuccessfulSimpleUpdate" />
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/11_TaskMonitorDetails.png" alt="TaskMonitorDetails" />
+![SuccessfulSimpleUpdate](/img/10_SuccessfulSimpleUpdate.png)
+![TaskMonitorDetails](/img/11_TaskMonitorDetails.png)
 
 The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#taskstate).
 
@@ -90,11 +92,11 @@ The list of all possible values of the `TaskState` key is found in the [HPE API 
 
 **Important note:** Only iLO binaries (`.bin`) and UEFI/Bios binaries (`.signed.flash`) can be processed with the `SimpleUpdate` action. If you supply a Smart Component or a firmware package (`.fwpkg`), the response to the POST request will contain a successful return code (`200 OK`). However, the flash operation will never occur and an error record will be posted in the iLO event log, as shown in the following image.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/13_aiLOEventLog.png" alt="iLOEventLog" />
+![iLOEventLog](/img/13_aiLOEventLog.png)
 
 The iLO log record can be retrieved from the `Oem.Hpe` extension of the update service, as shown below.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/14_SimpleUpdateInvalidFormat.png" alt="TheRedfishUpdateService" />
+![TheRedfishUpdateService](/img/14_SimpleUpdateInvalidFormat.png)
 
 ## Scripting a SimpleUpdate
 
@@ -102,7 +104,7 @@ There are several possibilities to script a `SimpleUpdate` action. Here are some
 
 The [HPE iLOrest](http://hpe.com/info/resttool) utility provides the `firmwareupdate` macro command. The command expects the URI of the binary firmware image to flash. The sources of this macro command is public and published on [GitHub](https://github.com/HewlettPackard/python-redfish-utility/tree/master/src/extensions/iLO%20COMMANDS).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/15_IlorestFirmwareUpdate.png" alt="IlorestFirmwareUpdate" />
+![IlorestFirmwareUpdate](/img/15_IlorestFirmwareUpdate.png)
 
 A simple Python script updating an iLO 5 firmware is published in the [HPE Python iLOrest Library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/update_ilo_firmware.py) on GitHub. This Python example has been transformed into an [Ansible module](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/library/update_ilo_firmware.py). The associated [Ansible Playbook](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/examples/update_firmware.yml) is also present on the same GitHub repository.
 
@@ -116,7 +118,7 @@ To overcome the loose definition of the `HttpPushURI`, Redfish introduced the `M
 
 The payload of a POST request to the `HttpPushURI` (see first picture below) is the concatenation of several parts, including session credentials, parameters, and component signature files (if any), in addition to the firmware file. Two examples showing the build of such a payload are published in the [HPE python-iLOrest-library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository.py) : [upload-firmware-ilo-repository.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository.py) and [upload-firmware-ilo_repository-with-compsig.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository_with_compsig.py). Part of the relevant code is shown in the following image. It is important to note the required `sessionKey` cookie in the headers of the request.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/16_HttpPushUriPayload.png" alt="HttpPushUriPayload" />
+![HttpPushUriPayload](/img/16_HttpPushUriPayload.png)
 
 # The update service Oem.Hpe extension
 
@@ -128,21 +130,21 @@ The update service `Oem.Hpe` extension is a pull update service like the `Simple
 
 The list of possible macro actions (i.e. delete *all* `InstallSets`) of this extension is presented below.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/17_OemHpeActions.png" alt="OemHpeActions" />
+![OemHpeActions](/img/17_OemHpeActions.png)
 
 Micro actions (i.e. delete a specific component in the iLO Repository) are also possible and can be easily identified by analyzing the `Allow` header of GET requests of a specific item. The GET request in the following screenshot retrieves the details of component `9456ccd7` stored in the iLO Repository. The `Allow` header of the response mentions the PATCH and DELETE requests as valid operations against this single component. Hence, if you want to delete this entry, just send a DELETE request to this URI.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/18_AllowHeader.png" alt="AllowHeader" />
+![AllowHeader](/img/18_AllowHeader.png)
 
 ## ILO Repository management
 
 The ilO Repository (also called Component Repository) end point is returned by the `Oem.Hpe.ComponentRepository` property of the update service. As of the writing of this document, it is located at: `/Redfish/v1/UpdateService/ComponentRepository`.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/19_ComponentRepoLocation.png" alt="ComponentRepoLocation" />
+![ComponentRepoLocation](/img/19_ComponentRepoLocation.png)
 
 You can use the `?$expand=.` OData query to retrieve the content of all the components with only one GET request. In the following screenshot, you can see that 23 components are already present in this repository as well as some information concerning the available and used sizes of the repository. For presentation reasons, only the first component is present here.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/20_iLORepoExpanded.png" alt="iLORepoExpanded" />
+![iLORepoExpanded](/img/20_iLORepoExpanded.png)
 
 ### Component upload
 
@@ -154,7 +156,7 @@ In addition to the `ImageURI` and `CompSigURI`, you must supply Boolean paramete
 
 The following screenshot shows the body of a POST request for components smaller than 32 MiB in size with one associated signature file.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/21_PostWebComponentAndCompsig.png" alt="PostWebComponentAndCompsig" />
+![PostWebComponentAndCompsig](/img/21_PostWebComponentAndCompsig.png)
 
 Components larger than 32 MiB (33554432 bytes) cannot be sent as such and must be split into 32 MiB chunks before being uploaded. More information on these large Smart Components can be found in the security paragraph of the [first part](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this blog series.
 
@@ -162,21 +164,21 @@ On Linux, you can use the `dd` command to perform this split operation. The firs
 
 The second `dd` command skips the first 32 MiB content of the input file and writes the remaining content to output file `cp040154.part2`.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/22_SplitBigComponent.png" alt="SplitBigComponent" />
+![SplitBigComponent](/img/22_SplitBigComponent.png)
 
 Once the component has been split, you need to perform a POST request for each component parts with the associated signature file as shown in the next screenshot. Note that those POST requests can only be performed sequentially.
 
 In addition to the image URI, component signature URI, and Boolean properties, you have to supply two more parameters for each chunk: the `ComponentFileName` to use for the reassembled file and the `Section` number indicating the chunk number being posted. The following picture shows the two POST requests needed to upload Smart Component `cp040154.exe` and associated signature files. Note that the `ComponentFileName` parameter is identical in the two POST requests.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/23_UploadPartsBigComp.png" alt="UploadPartsBigComp" />
+![UploadPartsBigComp](/img/23_UploadPartsBigComp.png)
 
 Similar to a `SimpleUpdate` POST, the response of POSTs to the `AddFromURI` target contains a variety of information, including a task monitor URI when the iLO 5 firmware is higher than 2.30. This URI is present in both the body and the headers section of the response.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/24_HeaderTaskMonitor.png" alt="HeaderTaskMonitor" />
+![HeaderTaskMonitor](/img/24_HeaderTaskMonitor.png)
 
 You can poll the `TaskState` property regularly to trigger the upload of the component chunks. The following picture shows a running upload state.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/25_TaskMonitor2.png" alt="TaskMonitor2" />
+![TaskMonitor2](/img/25_TaskMonitor2.png)
 
 Once the first part of the Smart Component has been successfully POSTed (`TaskState=Completed`), you can send the remaining parts one after the other.
 
@@ -194,7 +196,7 @@ The following screenshot shows the addition of component cp040154.exe in the Ins
 
 Smart Components embed all necessary [meta-data](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) information to process their installation. Hence, no other property is required in the request to better qualify the deployment process.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/26_AddScToQueue.png" alt="AddScToQueue" />
+![AddScToQueue](/img/26_AddScToQueue.png)
 
 The list of `Command` possible values can be found in the [HPE API RESTful Reference Document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_hpe_resourcedefns145/#command).
 
@@ -202,23 +204,23 @@ The list of `Command` possible values can be found in the [HPE API RESTful Refer
 
 The body response of a component addition in the Installation Queue contains the URI of this new item in the list, as well as many other details. This URI can be used later to review the details or to delete the component from the queue, as explained in the next paragraph.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/28_ResponseToAddScToQueue.png" alt="ResponseToAddScToQueue" />
+![ResponseToAddScToQueue](/img/28_ResponseToAddScToQueue.png)
 
 The following example adds a binary firmware file in the Installation queue. Since this component does not contain any meta-data describing how to process it, you can mention this information the `UpdatableBy` property. In this particular case, the component will be processed by the iLO update agent. Refer to the [Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this article series to learn more about update agents.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/29_AddBinaryToQueueAndFlash.png" alt="AddBinaryToQueueAndFlash" />
+![AddBinaryToQueueAndFlash](/img/29_AddBinaryToQueueAndFlash.png)
 
 ### Deletion of a component from Installation Queue
 
 To delete a single component from the Installation Queue, you just have to send a DELETE request toward the component URI in the Installation Queue.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/30_DeleteItemInQueue.png" alt="DeleteItemInQueue" />
+![DeleteItemInQueue](/img/30_DeleteItemInQueue.png)
 
 ### Removal of all items in the Installation Task Queue
 
 You can remove all items in the Installation Queue with a single POST query toward the `DeleteUpdateTaskQueueItems` target in the `Oem.Hpe` Actions of the Update Service. The body of this request is empty, as shown in the following image.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/31_DeleteAllItemsInQueue.png" alt="DeleteAllItemsInQueue" />
+![DeleteAllItemsInQueue](/img/31_DeleteAllItemsInQueue.png)
 
 ## Maintenance windows management
 
@@ -235,31 +237,31 @@ The minimum set of parameters required to create a maintenance window is present
 
 `StartAfter` and `Expire` properties have to follow the ISO 8601 Redfish-extended format detailed in the [DMTF specifications](https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.8.0.pdf).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/32_MaintenanceWindowCreationBody.png" alt="MaintenanceWindowCreationBody" />
+![MaintenanceWindowCreationBody](/img/32_MaintenanceWindowCreationBody.png)
 
 The response of a successful creation of a maintenance window contains various information including its URI and Id.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/33_MaintenanceWindowCreationResponse.png" alt="MaintenanceWindowCreationResponse" />
+![MaintenanceWindowCreationResponse](/img/33_MaintenanceWindowCreationResponse.png)
 
 The `Id` can be used when you want to create an update task and schedule it during a specific maintenance window. The following screenshot shows the payload of a request adding filename `cp040154.exe` present in the iLO Repository to the installation queue during maintenance window `7ada2ed8`.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/34_AddComponentInMaintenanceWindow.png" alt="AddComponentInMaintenanceWindow" />
+![AddComponentInMaintenanceWindow](/img/34_AddComponentInMaintenanceWindow.png)
 
 The response returns the URI of the task with a `Pending` state as well as other useful information.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/35_AddComponentResponse.png" alt="AddComponentResponse" />
+![AddComponentResponse](/img/35_AddComponentResponse.png)
 
 ### Deletion of a specific maintenance window
 
 The deletion of a specific maintenance window is pretty straightforward, as you just need to DELETE its URI. If components are scheduled in a deleted maintenance window, their execution is canceled and they appear as such in the Installation Queue (`State=Canceled`).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/36_DeleteMaintenanceWindow.png" alt="DeleteMaintenanceWindow" />
+![DeleteMaintenanceWindow](/img/36_DeleteMaintenanceWindow.png)
 
 ### Deletion of all maintenance windows
 
 You can delete all the maintenance windows with a single POST request toward the `DeleteMaintenanceWindows` target in the `Oem.Hpe` Actions resource.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/37_DeleteMaintenanceWindows.png" alt="DeleteMaintenanceWindows" />
+![DeleteMaintenanceWindows](/img/37_DeleteMaintenanceWindows.png)
 
 ## Install sets
 
@@ -267,13 +269,13 @@ An install set is a group of components that can be applied to supported servers
 
 From the `UpdateService/InstallSets` endpoint, you can create, view, patch, invoke (deploy) and delete install sets. The schema location describing in detail this resource is mentioned in the headers of GET responses toward this endpoint.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/38_InstallSetSchemaLocation.png" alt="InstallSetSchemaLocation" />
+![InstallSetSchemaLocation](/img/38_InstallSetSchemaLocation.png)
 
 ### Install set creation
 
 You can create an install Set with a POST request to the install set end point mentioned above and a body similar to the one of the following picture. A `Sequence` array must be present with at least one component referenced by its filename in the iLO Repository.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/39_InstallSetCreation.png" alt="InstallSetCreation" />
+![InstallSetCreation](/img/39_InstallSetCreation.png)
 
 In the response of a successful install set creation you will get its`Id,`which can be used to view its details, modify it or delete it.
 
@@ -281,21 +283,21 @@ In the response of a successful install set creation you will get its`Id,`which 
 
 You can modify an install set with a PATCH to its URI and a body similar to the one in the screenshot below.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/40_InstallSetModification.png" alt="InstallSetModification" />
+![InstallSetModification](/img/40_InstallSetModification.png)
 
 Note that, after its modification, the `Id` (and thus the URI) of the modified install set has changed. The new `Id` and URI are mentioned in the response body of the PATCH request shown below:
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/41_PatchedInstallSetNewId.png" alt="PatchedInstallSetNewId" />
+![PatchedInstallSetNewId](/img/41_PatchedInstallSetNewId.png)
 
 ### Install set invocation
 
 Existing install sets contain an `Actions` property with, at least, the Invoke action and associated Target URI.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/42_InvokeTargetInstallSet.png" alt="InvokeTargetInstallSet" />
+![InvokeTargetInstallSet](/img/42_InvokeTargetInstallSet.png)
 
 You can POST an invoke request to add all the components of the install set in the Installation Queue. The payload of such a request can contain the properties mentioned in the Install Schema mentioned earlier. In the following screenshot, the Installation Queue will be cleared before the addition of this install set (`ClearTaskQueue`). The effective update will occur during the specified maintenance window.
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/43_BodyOfInvokeInstallSet.png" alt="BodyOfInvokeInstallSet" />
+![BodyOfInvokeInstallSet](/img/43_BodyOfInvokeInstallSet.png)
 
 # Summary
 

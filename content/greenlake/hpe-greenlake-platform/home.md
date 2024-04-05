@@ -7,23 +7,84 @@ description: A managed cloud experience that accelerates your transformation by
 image: https://www.hpe.com/content/dam/hpe/shared-publishing/images-norend/generic-named/c-e/Data-slice-CO-02-16-9.jpg.hpetransform/bounded-resize:width=1200/image.webp
 width: large
 priority: 1
-active: false
+active: true
 tags:
   - hpe-greenlake-cloud-platform
   - hpe-greenlake-platform
   - hpe-greenlake
 ---
+<style>
+ul li{
+ font-size:27px;
+ margin-top: 10px;
+}
+ul li:first-child {
+    margin-top:0;
+}
+</style>
+
 The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 
 ## APIs and Documentation
 
-HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in our developer portal. Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
+HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com), covering both the HPE GreenLake platform and the HPE GreenLake cloud services that run on it.
+
+The HPE GreenLake APIs:
+
+* Conform to the OpenAPI 3.0 specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
+* Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
+* Use a single OAuth token to access all APIs.
+* Are built to be secure and highly available.
+* Are RESTful for flexible implementation.
+
+We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more.
+
+For the HPE GreenLake platform, the following APIs are currently available:
+
+### Workspace management
+
+Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
+
+>>[Visit Workspace management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)
+
+### Authorization
+
+Familiarize yourself with the details about a permissions role, or full CRUD on user assignments to roles.
+
+### Devices and subscriptions management
+
+Add and modify hardware devices in a workspace, initiate subscriptions, and assign to devices.
+
+>>[Visit device management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public)
+
+>>[Visit subscription management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)
+
+### Locations
+
+Create, read, and update physical locations used for shipping and support.
+
+>>[Visit locations management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)
+
+### Audit Log 
+
+Read details about user actions for accountability.
+
+>>[Visit Audit log API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)
+
+### Wellness
+
+Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
+
+>>[Visit Wellness API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)
+
+
+Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
 ## Demos and resources
 
-Get an overview of how you can manage workloads with the HPE GreenLake platform using our [quick demos](https://www.hpe.com/us/en/greenlake/demos.html).
+Get an overview of how you can manage workloads with the HPE GreenLake platform using our [interactive demos](https://hpe.com/greenlake/demos).
 
 ## Workshops-on-Demand
 
