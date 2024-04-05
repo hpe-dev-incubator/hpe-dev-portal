@@ -1,6 +1,6 @@
 ---
 title: Secure GenAI Adoption for all!
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/9117067980981/WN_0ABGS4bpSL2dXngwg4lMTA
 imageBackground: white

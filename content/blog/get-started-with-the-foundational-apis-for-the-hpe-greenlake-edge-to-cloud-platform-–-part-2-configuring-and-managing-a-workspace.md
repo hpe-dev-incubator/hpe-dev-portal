@@ -21,7 +21,7 @@ This is Part 2 of a blog series that showcases the capabilities of APIs for comm
 
 [In the previous blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/), I described the current set of APIs for the HPE GreenLake platform, and I covered the Postman collection aspect I built to get started with these APIs.   
 
-In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform Workspace Administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users, users’ permissions, and IT resources in the workspace.  
+In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform Workspace Administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users and IT resources in the workspace.  
 
 As I do so, I will show you how to use these foundational, common APIs to **programmatically** configure and manage workspace resources (users and infrastructure devices) like an administrator would do using the HPE GreenLake platform User Interface (UI). I will walk you through some of the most common REST API calls to the HPE GreenLake platform API services based on a typical customer scenario that will allow you to learn what you can do on the platform using this set of APIs:  
 
@@ -92,7 +92,7 @@ A typical scenario to manage infrastructure resources from the HPE GreenLake pla
 
 ### Adding a device and subscription
 
-Here I am going to use the REST API calls from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step4-Devices and Subscriptions***.
+Here I am going to use the REST API calls from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step4-Service Catalog, Devices and Subscriptions***.
 
 The **POST** REST API call ***Add devices - Aruba Access Point with Tag*** from ***/devices/v1beta1/devices*** subfolder allows me to add an HPE Aruba Networking device to the inventory in the workspace by providing device details in the data payload (Body) of the request. The device information for HPE Aruba Networking equipment includes the *Serial Number* and the *MAC address*. 
 
@@ -116,7 +116,7 @@ Optionally I can assign a “**tag**” to the device while adding it to the inv
 }
 ```
 
-The “**Add devices**” API call is an asynchronous operation, and the response of the request indicates ***Status: 202 Accepted***. The response contains the transaction Id of the asynchronous operation that I can use as a Path variable in the subsequent **GET** API call ***Get progress or status of async operations in devices*** to verify whether the asynchronous operation is successful or not:
+The “**Add devices**” API call is an asynchronous operation. Asynchronous operations are API operations that cannot be completed immediately. The response of the request indicates ***Status: 202 Accepted*** and contains the _transaction Id_ of the asynchronous operation that I can use as a Path variable in the subsequent **GET** API call ***Get progress or status of async operations in devices*** to verify whether the asynchronous operation is successful or not:
 
 `GET {{baseUrl}}/devices/v1beta1/async-operations/:id`
 
@@ -155,7 +155,7 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 ### Assigning the device to a regional instance of a service
 
-Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifier of the device is specified as a query parameter, the HPE Aruba Networking Central service _identifier_ and *region* are specified in the data payload (Body) as shown below: 
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifier of the device is specified as a query parameter, the HPE Aruba Networking Central service *identifier* and *region* are specified in the data payload (Body) as shown below: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
@@ -228,7 +228,7 @@ This blog post walks you through the APIs for common HPE GreenLake platform serv
 
 To learn more about all the REST API calls for the platform, I invite you to refer to the [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs. You can get the Postman collection from the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
 
-In the next part of this blog series, I will explore the set of APIs used for tracking activities and monitoring overall health of services and devices in the workspace.
+In [the next part](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/) of this blog series, I will explore the set of APIs used for tracking activities and monitoring overall health of services and devices in the workspace.
 
 If you’re interested in trying out what I just discussed, you might want to check out one of our hands-on Workshops-on-Demand that lets you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested in and go! It’s as simple as that. 
 

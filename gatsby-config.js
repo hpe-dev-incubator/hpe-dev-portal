@@ -253,6 +253,18 @@ module.exports = {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [
+          '357693145', // Google Analytics / GA
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-adobe-launch-hpe',
+      options: {
+        trackingIds: [
         'G-45LYYFDK5J', // Google Analytics / GA
         ],
         pluginConfig: {

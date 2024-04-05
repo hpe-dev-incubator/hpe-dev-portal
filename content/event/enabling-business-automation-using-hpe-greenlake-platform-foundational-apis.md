@@ -4,7 +4,7 @@ dateStart: 2024-03-26T23:01:32.086Z
 dateEnd: 2024-03-27T22:59:32.121Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/2717079285771/WN_IrXM7mIiQJi2tTgHNBBl4g
+link: https://www.youtube.com/watch?v=Uv0kKyVfjgg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Enabling business automation using HPE GreenLake platform foundational APIs
