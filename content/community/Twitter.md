@@ -7,4 +7,4 @@ active: true
 priority: 2
 image: /img/logo-black.png
 ---
-Text
+.
