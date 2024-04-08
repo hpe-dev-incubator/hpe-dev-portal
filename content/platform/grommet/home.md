@@ -14,7 +14,7 @@ tags:
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.
 
-Grommet is used by developers and designers alike to build both enterprise-class and consumer-grade applications that can be used in web, desktop, and mobile-friendly formats. It underpins many of HPE’s products such as HPE GreenLake edge-to-cloud platform.
+Grommet is used by developers and designers alike to build both enterprise-class and consumer-grade applications that can be used in web, desktop, and mobile-friendly formats. It underpins many of HPE’s products such as [HPE GreenLake edge-to-cloud platform](https://developer.hpe.com/greenlake/hpe-greenlake-platform/home/).
 
 * [View Grommet Components](https://v2.grommet.io/components)
 * [Join the conversation on Slack](https://grommet.slack.com/)
