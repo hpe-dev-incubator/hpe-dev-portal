@@ -14,7 +14,7 @@ tags:
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.
 
-Grommet is used by developers and designers alike to build both enterprise-class and consumer-grade applications that can be used in web, desktop, and mobile-friendly formats. It underpins many of HPE’s software-defined platforms, like [HPE OneView](https://www.hpe.com/us/en/integrated-systems/software.html), [HPE Nimble storage](https://developer.hpe.com/platform/nimble-storage/home), [HPE SimpliVity](https://www.hpe.com/us/en/integrated-systems/simplivity.html), and [HPE Composable Fabric](https://www.hpe.com/us/en/integrated-systems/composable-fabric.html).
+Grommet is used by developers and designers alike to build both enterprise-class and consumer-grade applications that can be used in web, desktop, and mobile-friendly formats. It underpins many of HPE’s products such as [HPE GreenLake edge-to-cloud platform](https://developer.hpe.com/greenlake/hpe-greenlake-platform/home/).
 
 * [View Grommet Components](https://v2.grommet.io/components)
 * [Join the conversation on Slack](https://grommet.slack.com/)
@@ -55,8 +55,10 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
+
 - - -
 
 ## Any questions on Grommet?
 
 Join the [Grommet Slack Workspace](https://grommet.slack.com/) and start a discussion.
+
