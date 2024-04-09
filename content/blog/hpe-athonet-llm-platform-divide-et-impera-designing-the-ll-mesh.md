@@ -2,7 +2,7 @@
 title: "HPE Athonet LLM Platform: Divide et impera, designing the LL-Mesh"
 date: 2024-04-09T09:11:29.400Z
 featuredBlog: false
-priority: 6
+priority: 7
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
