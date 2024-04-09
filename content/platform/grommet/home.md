@@ -55,6 +55,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
+
 - - -
 
 ## Any questions on Grommet?
