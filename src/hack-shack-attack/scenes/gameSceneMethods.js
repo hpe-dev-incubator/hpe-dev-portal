@@ -408,8 +408,7 @@ function gameSceneMethods(GameScene, Phaser) {
   };
 
   GameScene.getLeaderboard = function getLeaderboard() {
-    const { GATSBY_NETLIFY_ENDPOINT } = process.env;
-    return fetch(`${GATSBY_NETLIFY_ENDPOINT}/getLeaderboard`, {
+    return fetch(`${process.env.GATSBY_NETLIFY_ENDPOINT}/getLeaderboard`, {
       method: 'GET',
     })
       .then((res) => res.json())

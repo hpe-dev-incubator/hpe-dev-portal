@@ -93,7 +93,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "community" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: { fields: [frontmatter___priority] }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {

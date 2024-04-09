@@ -29,8 +29,6 @@ import AuthService from '../../../services/auth.service';
 import { AppContext } from '../../../providers/AppProvider';
 import Share from '../Share';
 
-const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-
 export const UnregisterLayer = ({
   formData,
   setFormData,
@@ -65,7 +63,7 @@ export const UnregisterLayer = ({
       axios({
         method: 'GET',
         // eslint-disable-next-line max-len
-        url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
+        url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
         headers: {
           'x-access-token': AuthService.getCurrentUser().accessToken,
         },
@@ -74,7 +72,7 @@ export const UnregisterLayer = ({
           axios({
             method: 'GET',
             // eslint-disable-next-line max-len
-            url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
+            url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
             headers: {
               'x-access-token': AuthService.getCurrentUser().accessToken,
             },
@@ -88,7 +86,7 @@ export const UnregisterLayer = ({
               axios({
                 method: 'PUT',
                 // eslint-disable-next-line max-len
-                url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+                url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
                 headers: {
                   'x-access-token': AuthService.getCurrentUser().accessToken,
                 },
@@ -268,7 +266,7 @@ export const SignupLayer = ({
       const postCustomer = () => {
         axios({
           method: 'POST',
-          url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
+          url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
           headers: {
             'x-access-token': AuthService.getCurrentUser().accessToken,
           },
@@ -611,11 +609,11 @@ const ScheduleCard = ({
   switch (sessionType) {
     case 'Workshops-on-Demand':
       backgroundColor = '#263040';
-      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
+      uri = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     case 'Coding Challenge':
       backgroundColor = 'rgba(155, 99, 16, 0.8)';
-      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
+      uri = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     default:
       backgroundColor = 'background';

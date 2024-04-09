@@ -7,7 +7,6 @@ import {
   Button,
   Heading,
   Image as GrommetImage,
-  Markdown as GrommetMarkdown,
   Paragraph,
 } from 'grommet';
 import { Download, Github } from 'grommet-icons';
@@ -15,6 +14,7 @@ import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { deepMerge } from 'grommet/utils';
 import codestyle from './markdownTheme';
+import { GrommetMarkdown } from './Markdown';
 
 class Image extends React.Component {
   render() {
