@@ -12,6 +12,6 @@ description: "April 24, 2024: A team of product managers and architects presents
   them, and their relation to the Storage APIs published earlier."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 5
+priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
