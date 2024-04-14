@@ -117,16 +117,20 @@ The above figure shows the output from GET issues given the parameter: “select
 
 ### Completing POST method for REST API using async-operations API with task id
 
-Almost any HPE GreenLake REST API for data services with **POST, DELETE** or **PATCH** methods (e.g. /virtualization/v1beta1/virtual-machines) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response = **0x202** status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion. To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id} to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.\
+Almost any HPE GreenLake REST API for data services with **POST, DELETE** or **PATCH** methods (e.g. POST /virtualization/v1beta1/virtual-machines) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response =**0x202** status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion. To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id} to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.\
 I executed the REST API **POST https://{baseUrl}/virtualization/v1beta1/virtual-machines** and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0.**  
 
-![](/img/location-output-contains-the-task-id.png)
+![The task Id from response location field](/img/location-output-contains-the-task-id.png)
 
-T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines.
+*T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines.*
 
 From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. *https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0*) to obtain the status and progress of the previously executed REST API. 
 
+![Request async-response for a particular id](/img/api-request-async-operations-request-of-particular-id.png)
+
 The following snippet depicts the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 3 minutes as shown by the following keys: **startedAt** and **endedAt**.
+
+* *Below is the f﻿irst poll of the VM provisioning REST API task id:*
 
 ```json
 {
