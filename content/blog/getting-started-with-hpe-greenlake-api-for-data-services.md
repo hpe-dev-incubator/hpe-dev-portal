@@ -13,9 +13,9 @@ tags:
 ---
 ## What’s New?
 
-Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud Platform was introduced on the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/).  These APIs are grouped under the set which is called HPE GreenLake API for Data Services. Several articles will be written and posted on [HPE Developer's forum blog site](https://developer.hpe.com/blog) to help you better understand and work with the suite of HPE GreenLake data services.
+Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud Platform was introduced on the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/).  These APIs are grouped under the set which is called HPE GreenLake APIs for Data Services. Several articles will be written and posted on [HPE Developer's forum blog site](https://developer.hpe.com/blog) to help you better understand and work with the suite of HPE GreenLake data services.
 
-This is the third blog post from the series of blog postings ([Data-Services](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-data-services), [Virtualization](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-virtualization), [Backup and Recovery](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-backup-and-recovery), and Private Cloud Business Edition) that introduce some useful tips and best practices about using this new set of APIs given a specific use case. The introduction of these APIs arises from the necessity for manipulation of the common resources that are shared by the existing family of data services on HPE GreenLake (DataOps Manager, Block Storage, Backup and Recovery, Private Cloud Business Edition). This set of APIs provide users with the ability to perform any Create, Read, Update and Delete (CRUD) operations against these resources: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags*. 
+This is the first blog post from the series of blog postings ([Data-Services](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-data-services), [Virtualization](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-virtualization), [Backup and Recovery](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-backup-and-recovery), and Private Cloud Business Edition) that introduce some useful tips and best practices about using this new set of APIs given a specific use case. The introduction of these APIs arises from the necessity for manipulation of the common resources that are shared by the existing family of data services on HPE GreenLake (DataOps Manager, Block Storage, Backup and Recovery, Private Cloud Business Edition). This set of APIs provide users with the ability to perform any Create, Read, Update and Delete (CRUD) operations against these resources: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags*. 
 
 The specification for these APIs is publicized as OpenAPI specification in JSON format, and the specification is available for download from this [section](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/overview/) of the documentation as shown below. Anyone can download the JSON file that contain the specification for this set, by clicking on the **Download** button. The specification follows the OpenAPI standard 3.1, and contains all the information required so that this JSON OpenAPI spec-file can be consumed by any OpenAPI tools to provide client library, server mock, or documentation as described in this OpenAPI [Initiative](https://tools.openapis.org/).
 
@@ -111,9 +111,9 @@ Following the above recommendation, the following request body shows where I ent
 
 The completed execution of this API is shown below.
 
-![](/img/execution-result-from-active-issues.png)
+![Response from issues with the correct select](/img/execution-result-from-active-issues.png)
 
-The above figure shows the output from GET issues given the parameter: “select body, createdAt, customerId, generation, id, lastOccuredAt, resourceURI, type, updatedAt”.  
+*The above figure shows the output from GET issues given the parameter: “select body, createdAt, customerId, generation, id, lastOccuredAt, resourceURI, type, updatedAt”.*  
 
 ### Completing POST method for REST API using async-operations API with task id
 
