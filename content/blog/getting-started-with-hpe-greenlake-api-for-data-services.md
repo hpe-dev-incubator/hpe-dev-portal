@@ -80,7 +80,7 @@ The responses from this resource are critical for debugging and monitoring the a
 
 T﻿he response from the execution of GET /data-services/v1beta1/async-operations is provided below.
 
-![](/img/response-from-the-tryit-test.png)
+![](/img/api-response-from-filtered-and-selected-async-response.png)
 
 The corresponding task message from the GreenLake task’s UI is shown below.
 
@@ -104,6 +104,10 @@ To alleviate this condition, the user can add the required properties to the **s
 ```json
 https://<region-baseUrl>/data-services/v1beta1/issues?select=body,lastOccuredAt,customerId,createdAt,id,resourceUri,generation,type
 ```
+
+Following the above recommendation, the following request body shows where I entered the select parameters as required above.
+
+![](/img/api-request-issue-required-select-parameters.png)
 
 The completed execution of this API is shown below.
 
