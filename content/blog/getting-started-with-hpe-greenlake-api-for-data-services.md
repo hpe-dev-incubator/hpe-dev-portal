@@ -171,6 +171,8 @@ The following snippet depicts the two different responses from the polling using
 
 The above figure display the result from the first poll of the VM provisioning REST API task Id with **progressPercent:40** and **state: RUNNING**.
 
+* *B﻿elow is the last poll of the VM provisioning REST API task id:*
+
 ```json
 {
     "displayName": "Provisioning virtual machine 0-RRD-API-Deploy-4",
