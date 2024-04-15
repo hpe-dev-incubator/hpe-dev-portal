@@ -1,5 +1,5 @@
 ---
-title: "HPE firmware updates: Part 3 - The Redfish® update service"
+title: "HPE firmware updates: Part 3 - The Redfish update service"
 date: 2020-10-19T13:25:05.597Z
 featuredBlog: false
 priority: null
@@ -30,7 +30,7 @@ The Redfish update service contains software and firmware information as well as
 
 In this article, I will cover these five endpoints in the following order: `SoftwareInventory`, `FirmwareInventory`, `Actions`, `HttpPushUri` and finally the `Oem.Hpe` extension.
 
-![Root Update Service](/img/1_RootUpdateService.png)
+![Root Update Service](/img/1_rootupdateservice.png "Root Update Service")
 
 # Software inventory
 
@@ -40,15 +40,15 @@ Since this list comes from the OS, it is mandatory to have the system booted. Mo
 
 The following screenshot shows the list of HPE software displayed by the iLO Graphical User Interface (GUI) of a Linux server. You can see three applications (`amsd`, `ilorest` and `sut`) and two deployed firmware packages (`firmware-iegen10` and `firmware-ilo5`).
 
-![iLO 5 GUI Software Inventory](/img/2_iLOGUI-SoftwareInventory.png)
+![iLO 5 GUI Software Inventory](/img/2_ilogui-softwareinventory.png "iLO 5 GUI Software Inventory")
 
 To retrieve the above collection using the `SoftwareInventory` endpoint of the Redfish update service, you have to perform a `GET` request toward `/redfish/v1/UpdateService/SoftwareInventory.` This gives you the collection of URIs pointing to the details of each HPE installed software. The next picture shows the five URIs that correspond to the same HPE software present in the above screenshot. Note that the list of running and installed software present in the iLO GUI is not returned by Redfish.
 
-![Software Inventory Collection](/img/3_SoftwareInventoryCollection.png)
+![Software Inventory Collection](/img/3_softwareinventorycollection.png "Software Inventory Collection")
 
 To avoid issuing multiple GET requests for retrieving the details of each installed software, you can append the `$expand=.`[OData query](https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.7.0.pdf) as shown in the next screenshot (note that this screenshot has been truncated to display only the first item of the collection). The dot (“.”) sign of this OData query indicates that only the current level of the hierarchy has to be expanded, not the lower levels. Details concerning the support of OData queries can be found in the `ProtocolFeaturesSupported` property of the Redfish Service root endpoint (`/redfish/v1`).
 
-![Expanded Software Inventory](/img/4_ExpandedSoftwareInventory.png)
+![Expanded Software Inventory](/img/4_expandedsoftwareinventory.png "Expanded Software Inventory")
 
 A Python example for fetching the software inventory of a server without hard coding its location can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
@@ -56,7 +56,7 @@ A Python example for fetching the software inventory of a server without hard co
 
 Similar to the `SoftwareInventory` resource, the `FirmwareInventory` endpoint contains the collection of all installed firmware in a server. The exact endpoint is `/redfish/v1/UpdateService/FirmwareUpdate` and, with a single `?$expand=.` OData query, you can retrieve all the details of installed firmware on your server.
 
-![Expanded Firmware Collection](/img/5_ExpandedFirmwareCollection.png)
+![Expanded Firmware Collection](/img/5_expandedfirmwarecollection.png "Expanded Firmware Collection")
 
 A Python example to retrieve the firmware inventory of a server (using Redfish) can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
@@ -73,11 +73,11 @@ The implementation of the `SimpleUpdate` used for the writing of this article al
 
 You can monitor the update process by polling the `State` and `FlashProgressPercent` properties part of the `Oem.Hpe` section as shown in the following screenshot.
 
-![SimpleUpdateFlashPercent](/img/8_SimpleUpdateFlashPercent.png)
+![SimpleUpdateFlashPercent](/img/8_simpleupdateflashpercent.png "SimpleUpdateFlashPercent")
 
 Refer to the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#oemhpestate) for the exhaustive list of possible states.
 
-![OemHpeStates](/img/9_oemhpestates.png)
+![OemHpeStates](/img/9_oemhpestates.png "OemHpeStates")
 
 With iLO 5 firmware 2.30 and higher versions, a successful `SimpleUpdate` returns two pointers in the Task Service: a task location and a task monitor location. The task location `(/redfish/v1/TaskService/Tasks/22` in the next picture) contains the details of the update and the task monitor location (`/redfish/v1/TaskService/TaskMonitors/22`) contains the status of the task at the time of the query.
 
@@ -88,15 +88,15 @@ The following two pictures show, respectively, the response of a successful `Sim
 
 The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#taskstate).
 
-![TaskStates](/img/12_taskstates.png)
+![TaskStates](/img/12_taskstates.png "TaskStates")
 
 **Important note:** Only iLO binaries (`.bin`) and UEFI/Bios binaries (`.signed.flash`) can be processed with the `SimpleUpdate` action. If you supply a Smart Component or a firmware package (`.fwpkg`), the response to the POST request will contain a successful return code (`200 OK`). However, the flash operation will never occur and an error record will be posted in the iLO event log, as shown in the following image.
 
-![iLOEventLog](/img/13_aiLOEventLog.png)
+![iLOEventLog](/img/13_ailoeventlog.png "iLOEventLog")
 
 The iLO log record can be retrieved from the `Oem.Hpe` extension of the update service, as shown below.
 
-![TheRedfishUpdateService](/img/14_SimpleUpdateInvalidFormat.png)
+![The Redfish Update Service](/img/14_simpleupdateinvalidformat.png "The Redfish Update Service")
 
 ## Scripting a SimpleUpdate
 
@@ -104,7 +104,7 @@ There are several possibilities to script a `SimpleUpdate` action. Here are some
 
 The [HPE iLOrest](http://hpe.com/info/resttool) utility provides the `firmwareupdate` macro command. The command expects the URI of the binary firmware image to flash. The sources of this macro command is public and published on [GitHub](https://github.com/HewlettPackard/python-redfish-utility/tree/master/src/extensions/iLO%20COMMANDS).
 
-![IlorestFirmwareUpdate](/img/15_IlorestFirmwareUpdate.png)
+![IlorestFirmwareUpdate](/img/15_ilorestfirmwareupdate.png "IlorestFirmwareUpdate")
 
 A simple Python script updating an iLO 5 firmware is published in the [HPE Python iLOrest Library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/update_ilo_firmware.py) on GitHub. This Python example has been transformed into an [Ansible module](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/library/update_ilo_firmware.py). The associated [Ansible Playbook](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/examples/update_firmware.yml) is also present on the same GitHub repository.
 
@@ -118,7 +118,7 @@ To overcome the loose definition of the `HttpPushURI`, Redfish introduced the `M
 
 The payload of a POST request to the `HttpPushURI` (see first picture below) is the concatenation of several parts, including session credentials, parameters, and component signature files (if any), in addition to the firmware file. Two examples showing the build of such a payload are published in the [HPE python-iLOrest-library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository.py) : [upload-firmware-ilo-repository.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository.py) and [upload-firmware-ilo_repository-with-compsig.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/upload_firmware_ilo_repository_with_compsig.py). Part of the relevant code is shown in the following image. It is important to note the required `sessionKey` cookie in the headers of the request.
 
-![HttpPushUriPayload](/img/16_HttpPushUriPayload.png)
+![HttpPushUriPayload](/img/16_httppushuripayload.png "HttpPushUriPayload")
 
 # The update service Oem.Hpe extension
 
@@ -130,21 +130,21 @@ The update service `Oem.Hpe` extension is a pull update service like the `Simple
 
 The list of possible macro actions (i.e. delete *all* `InstallSets`) of this extension is presented below.
 
-![OemHpeActions](/img/17_OemHpeActions.png)
+![OemHpeActions](/img/17_oemhpeactions.png "OemHpeActions")
 
 Micro actions (i.e. delete a specific component in the iLO Repository) are also possible and can be easily identified by analyzing the `Allow` header of GET requests of a specific item. The GET request in the following screenshot retrieves the details of component `9456ccd7` stored in the iLO Repository. The `Allow` header of the response mentions the PATCH and DELETE requests as valid operations against this single component. Hence, if you want to delete this entry, just send a DELETE request to this URI.
 
-![AllowHeader](/img/18_AllowHeader.png)
+![AllowHeader](/img/18_allowheader.png "AllowHeader")
 
 ## ILO Repository management
 
 The ilO Repository (also called Component Repository) end point is returned by the `Oem.Hpe.ComponentRepository` property of the update service. As of the writing of this document, it is located at: `/Redfish/v1/UpdateService/ComponentRepository`.
 
-![ComponentRepoLocation](/img/19_ComponentRepoLocation.png)
+![ComponentRepoLocation](/img/19_componentrepolocation.png "ComponentRepoLocation")
 
 You can use the `?$expand=.` OData query to retrieve the content of all the components with only one GET request. In the following screenshot, you can see that 23 components are already present in this repository as well as some information concerning the available and used sizes of the repository. For presentation reasons, only the first component is present here.
 
-![iLORepoExpanded](/img/20_iLORepoExpanded.png)
+![iLORepoExpanded](/img/20_ilorepoexpanded.png "iLORepoExpanded")
 
 ### Component upload
 
@@ -156,7 +156,7 @@ In addition to the `ImageURI` and `CompSigURI`, you must supply Boolean paramete
 
 The following screenshot shows the body of a POST request for components smaller than 32 MiB in size with one associated signature file.
 
-![PostWebComponentAndCompsig](/img/21_PostWebComponentAndCompsig.png)
+![PostWebComponentAndCompsig](/img/21_postwebcomponentandcompsig.png "PostWebComponentAndCompsig")
 
 Components larger than 32 MiB (33554432 bytes) cannot be sent as such and must be split into 32 MiB chunks before being uploaded. More information on these large Smart Components can be found in the security paragraph of the [first part](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this blog series.
 
@@ -164,21 +164,21 @@ On Linux, you can use the `dd` command to perform this split operation. The firs
 
 The second `dd` command skips the first 32 MiB content of the input file and writes the remaining content to output file `cp040154.part2`.
 
-![SplitBigComponent](/img/22_SplitBigComponent.png)
+![SplitBigComponent](/img/22_splitbigcomponent.png "SplitBigComponent")
 
 Once the component has been split, you need to perform a POST request for each component parts with the associated signature file as shown in the next screenshot. Note that those POST requests can only be performed sequentially.
 
 In addition to the image URI, component signature URI, and Boolean properties, you have to supply two more parameters for each chunk: the `ComponentFileName` to use for the reassembled file and the `Section` number indicating the chunk number being posted. The following picture shows the two POST requests needed to upload Smart Component `cp040154.exe` and associated signature files. Note that the `ComponentFileName` parameter is identical in the two POST requests.
 
-![UploadPartsBigComp](/img/23_UploadPartsBigComp.png)
+![UploadPartsBigComp](/img/23_uploadpartsbigcomp.png "UploadPartsBigComp")
 
 Similar to a `SimpleUpdate` POST, the response of POSTs to the `AddFromURI` target contains a variety of information, including a task monitor URI when the iLO 5 firmware is higher than 2.30. This URI is present in both the body and the headers section of the response.
 
-![HeaderTaskMonitor](/img/24_HeaderTaskMonitor.png)
+![HeaderTaskMonitor](/img/24_headertaskmonitor.png "HeaderTaskMonitor")
 
 You can poll the `TaskState` property regularly to trigger the upload of the component chunks. The following picture shows a running upload state.
 
-![TaskMonitor2](/img/25_TaskMonitor2.png)
+![TaskMonitor2](/img/25_taskmonitor2.png "TaskMonitor2")
 
 Once the first part of the Smart Component has been successfully POSTed (`TaskState=Completed`), you can send the remaining parts one after the other.
 
@@ -196,31 +196,31 @@ The following screenshot shows the addition of component cp040154.exe in the Ins
 
 Smart Components embed all necessary [meta-data](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) information to process their installation. Hence, no other property is required in the request to better qualify the deployment process.
 
-![AddScToQueue](/img/26_AddScToQueue.png)
+![AddScToQueue](/img/26_addsctoqueue.png "AddScToQueue")
 
 The list of `Command` possible values can be found in the [HPE API RESTful Reference Document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_hpe_resourcedefns145/#command).
 
-![CommandValues](/img/27_commandvalues.png)
+![CommandValues](/img/27_commandvalues.png "CommandValues")
 
 The body response of a component addition in the Installation Queue contains the URI of this new item in the list, as well as many other details. This URI can be used later to review the details or to delete the component from the queue, as explained in the next paragraph.
 
-![ResponseToAddScToQueue](/img/28_ResponseToAddScToQueue.png)
+![ResponseToAddScToQueue](/img/28_responsetoaddsctoqueue.png "ResponseToAddScToQueue")
 
 The following example adds a binary firmware file in the Installation queue. Since this component does not contain any meta-data describing how to process it, you can mention this information the `UpdatableBy` property. In this particular case, the component will be processed by the iLO update agent. Refer to the [Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this article series to learn more about update agents.
 
-![AddBinaryToQueueAndFlash](/img/29_AddBinaryToQueueAndFlash.png)
+![AddBinaryToQueueAndFlash](/img/29_addbinarytoqueueandflash.png "AddBinaryToQueueAndFlash")
 
 ### Deletion of a component from Installation Queue
 
 To delete a single component from the Installation Queue, you just have to send a DELETE request toward the component URI in the Installation Queue.
 
-![DeleteItemInQueue](/img/30_DeleteItemInQueue.png)
+![DeleteItemInQueue](/img/30_deleteiteminqueue.png "DeleteItemInQueue")
 
 ### Removal of all items in the Installation Task Queue
 
 You can remove all items in the Installation Queue with a single POST query toward the `DeleteUpdateTaskQueueItems` target in the `Oem.Hpe` Actions of the Update Service. The body of this request is empty, as shown in the following image.
 
-![DeleteAllItemsInQueue](/img/31_DeleteAllItemsInQueue.png)
+![DeleteAllItemsInQueue](/img/31_deleteallitemsinqueue.png "DeleteAllItemsInQueue")
 
 ## Maintenance windows management
 
@@ -237,31 +237,31 @@ The minimum set of parameters required to create a maintenance window is present
 
 `StartAfter` and `Expire` properties have to follow the ISO 8601 Redfish-extended format detailed in the [DMTF specifications](https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.8.0.pdf).
 
-![MaintenanceWindowCreationBody](/img/32_MaintenanceWindowCreationBody.png)
+![MaintenanceWindowCreationBody](/img/32_maintenancewindowcreationbody.png "MaintenanceWindowCreationBody")
 
 The response of a successful creation of a maintenance window contains various information including its URI and Id.
 
-![MaintenanceWindowCreationResponse](/img/33_MaintenanceWindowCreationResponse.png)
+![MaintenanceWindowCreationResponse](/img/33_maintenancewindowcreationresponse.png "MaintenanceWindowCreationResponse")
 
 The `Id` can be used when you want to create an update task and schedule it during a specific maintenance window. The following screenshot shows the payload of a request adding filename `cp040154.exe` present in the iLO Repository to the installation queue during maintenance window `7ada2ed8`.
 
-![AddComponentInMaintenanceWindow](/img/34_AddComponentInMaintenanceWindow.png)
+![AddComponentInMaintenanceWindow](/img/34_addcomponentinmaintenancewindow.png "AddComponentInMaintenanceWindow")
 
 The response returns the URI of the task with a `Pending` state as well as other useful information.
 
-![AddComponentResponse](/img/35_AddComponentResponse.png)
+![AddComponentResponse](/img/35_addcomponentresponse.png "AddComponentResponse")
 
 ### Deletion of a specific maintenance window
 
 The deletion of a specific maintenance window is pretty straightforward, as you just need to DELETE its URI. If components are scheduled in a deleted maintenance window, their execution is canceled and they appear as such in the Installation Queue (`State=Canceled`).
 
-![DeleteMaintenanceWindow](/img/36_DeleteMaintenanceWindow.png)
+![DeleteMaintenanceWindow](/img/36_deletemaintenancewindow.png "DeleteMaintenanceWindow")
 
 ### Deletion of all maintenance windows
 
 You can delete all the maintenance windows with a single POST request toward the `DeleteMaintenanceWindows` target in the `Oem.Hpe` Actions resource.
 
-![DeleteMaintenanceWindows](/img/37_DeleteMaintenanceWindows.png)
+![DeleteMaintenanceWindows](/img/37_deletemaintenancewindows.png "DeleteMaintenanceWindows")
 
 ## Install sets
 
@@ -269,13 +269,13 @@ An install set is a group of components that can be applied to supported servers
 
 From the `UpdateService/InstallSets` endpoint, you can create, view, patch, invoke (deploy) and delete install sets. The schema location describing in detail this resource is mentioned in the headers of GET responses toward this endpoint.
 
-![InstallSetSchemaLocation](/img/38_InstallSetSchemaLocation.png)
+![InstallSetSchemaLocation](/img/38_installsetschemalocation.png "InstallSetSchemaLocation")
 
 ### Install set creation
 
 You can create an install Set with a POST request to the install set end point mentioned above and a body similar to the one of the following picture. A `Sequence` array must be present with at least one component referenced by its filename in the iLO Repository.
 
-![InstallSetCreation](/img/39_InstallSetCreation.png)
+![InstallSetCreation](/img/39_installsetcreation.png "InstallSetCreation")
 
 In the response of a successful install set creation you will get its`Id,`which can be used to view its details, modify it or delete it.
 
@@ -283,21 +283,21 @@ In the response of a successful install set creation you will get its`Id,`which 
 
 You can modify an install set with a PATCH to its URI and a body similar to the one in the screenshot below.
 
-![InstallSetModification](/img/40_InstallSetModification.png)
+![InstallSetModification](/img/40_installsetmodification.png "InstallSetModification")
 
 Note that, after its modification, the `Id` (and thus the URI) of the modified install set has changed. The new `Id` and URI are mentioned in the response body of the PATCH request shown below:
 
-![PatchedInstallSetNewId](/img/41_PatchedInstallSetNewId.png)
+![PatchedInstallSetNewId](/img/41_patchedinstallsetnewid.png "PatchedInstallSetNewId")
 
 ### Install set invocation
 
 Existing install sets contain an `Actions` property with, at least, the Invoke action and associated Target URI.
 
-![InvokeTargetInstallSet](/img/42_InvokeTargetInstallSet.png)
+![InvokeTargetInstallSet](/img/42_invoketargetinstallset.png "InvokeTargetInstallSet")
 
 You can POST an invoke request to add all the components of the install set in the Installation Queue. The payload of such a request can contain the properties mentioned in the Install Schema mentioned earlier. In the following screenshot, the Installation Queue will be cleared before the addition of this install set (`ClearTaskQueue`). The effective update will occur during the specified maintenance window.
 
-![BodyOfInvokeInstallSet](/img/43_BodyOfInvokeInstallSet.png)
+![BodyOfInvokeInstallSet](/img/43_bodyofinvokeinstallset.png "BodyOfInvokeInstallSet")
 
 # Summary
 
