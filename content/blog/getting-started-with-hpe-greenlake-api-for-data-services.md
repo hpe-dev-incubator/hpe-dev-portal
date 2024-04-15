@@ -66,7 +66,7 @@ Click the **send** button to send that API and you will see the response indicat
 
 ![](/img/response-from-the-tryit-test.png)
 
-Congratulations! You have executed the first data-services API using the documentation page in the GreenLake Developer website.
+Congratulations! You have executed your first HPE GreenLake API for data services using the API reference documentation page in the GreenLake Developer website.  
 
 ## Some tips and examples
 
