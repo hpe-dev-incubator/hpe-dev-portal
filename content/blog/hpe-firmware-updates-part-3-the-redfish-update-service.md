@@ -68,31 +68,33 @@ The `SimpleUpdate` action is a “pull” update, which means that the Redfish s
 
 The implementation of the `SimpleUpdate` used for the writing of this article allows only HTTP and HTTPS transfer protocols. You can mention the appropriate transfer protocol either in the `ImageURI` resource (next image) or in the `TransferProtocol` parameter (the image following this one).
 
-![Simple Update Action](/img/6_SimpleUpdateAction.png)
-![Simple Update Action With Transfer Protocol](/img/7_SimpleUpdateActionWithTransferProtocol.png)
+![Simple Update Action](/img/6_SimpleUpdateAction.png "Simple Update Action")
+
+![Simple Update Action With Transfer Protocol](/img/7_SimpleUpdateActionWithTransferProtocol.png "Simple Update Action with Transfer Protocol")
 
 You can monitor the update process by polling the `State` and `FlashProgressPercent` properties part of the `Oem.Hpe` section as shown in the following screenshot.
 
-![SimpleUpdateFlashPercent](/img/8_simpleupdateflashpercent.png "SimpleUpdateFlashPercent")
+![Simple Update Flash Percent](/img/8_simpleupdateflashpercent.png " Simple Update Flash Percent")
 
 Refer to the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#oemhpestate) for the exhaustive list of possible states.
 
-![OemHpeStates](/img/9_oemhpestates.png "OemHpeStates")
+![Oem Hpe States](/img/9_oemhpestates.png "Oem Hpe States")
 
 With iLO 5 firmware 2.30 and higher versions, a successful `SimpleUpdate` returns two pointers in the Task Service: a task location and a task monitor location. The task location `(/redfish/v1/TaskService/Tasks/22` in the next picture) contains the details of the update and the task monitor location (`/redfish/v1/TaskService/TaskMonitors/22`) contains the status of the task at the time of the query.
 
 The following two pictures show, respectively, the response of a successful `SimpleUpdate` and the task monitor details including a running task state. Note that the accomplished percentage of the task is not present in the Task Monitor location. It is only mentioned in the `Oem.Hpe` extension properties, as mentioned above.
 
-![SuccessfulSimpleUpdate](/img/10_SuccessfulSimpleUpdate.png)
-![TaskMonitorDetails](/img/11_TaskMonitorDetails.png)
+![Successful Simple Update](/img/10_SuccessfulSimpleUpdate.png "Successful Simple Update")
+
+![Task Monitor Details](/img/11_TaskMonitorDetails.png "Task Monitor Details")
 
 The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#taskstate).
 
-![TaskStates](/img/12_taskstates.png "TaskStates")
+![Task States](/img/12_taskstates.png "Task States")
 
 **Important note:** Only iLO binaries (`.bin`) and UEFI/Bios binaries (`.signed.flash`) can be processed with the `SimpleUpdate` action. If you supply a Smart Component or a firmware package (`.fwpkg`), the response to the POST request will contain a successful return code (`200 OK`). However, the flash operation will never occur and an error record will be posted in the iLO event log, as shown in the following image.
 
-![iLOEventLog](/img/13_ailoeventlog.png "iLOEventLog")
+![iLO Event Log](/img/13_ailoeventlog.png "iLO Event Log")
 
 The iLO log record can be retrieved from the `Oem.Hpe` extension of the update service, as shown below.
 
@@ -104,7 +106,7 @@ There are several possibilities to script a `SimpleUpdate` action. Here are some
 
 The [HPE iLOrest](http://hpe.com/info/resttool) utility provides the `firmwareupdate` macro command. The command expects the URI of the binary firmware image to flash. The sources of this macro command is public and published on [GitHub](https://github.com/HewlettPackard/python-redfish-utility/tree/master/src/extensions/iLO%20COMMANDS).
 
-![IlorestFirmwareUpdate](/img/15_ilorestfirmwareupdate.png "IlorestFirmwareUpdate")
+![iLOrest Firmware Update](/img/15_ilorestfirmwareupdate.png "iLOrest Firmware Update")
 
 A simple Python script updating an iLO 5 firmware is published in the [HPE Python iLOrest Library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/update_ilo_firmware.py) on GitHub. This Python example has been transformed into an [Ansible module](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/library/update_ilo_firmware.py). The associated [Ansible Playbook](https://github.com/HewlettPackard/ansible-ilorest-role/blob/master/examples/update_firmware.yml) is also present on the same GitHub repository.
 
