@@ -1,5 +1,5 @@
 ---
-title: "HPE firmware updates: Part 3 - The Redfish® update service"
+title: "HPE firmware updates: Part 3 - The Redfish update service"
 date: 2020-10-19T13:25:05.597Z
 featuredBlog: false
 priority: null
