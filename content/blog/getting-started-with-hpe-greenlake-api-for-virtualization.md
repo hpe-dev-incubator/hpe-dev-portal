@@ -169,7 +169,7 @@ Using the API **GET async-operations** on the task Id provided from location val
         }
     ],
     “healthStatus”: “OK”,
-    “id”: “5f54e591-a231-46ce-a2e2-bebadb977f93”,
+    “id”: “5f54e591-xxxx-xxx-xxxx-bebadb977f93”,
     “logMessages”: [
         {
             “message”: “Create Instance: RonD-deploy-CSP-1 task is created”,
@@ -204,7 +204,7 @@ Using the API **GET async-operations** on the task Id provided from location val
     “suggestedPollingIntervalSeconds”: 30,
     “type”: “task”,
     “updatedAt”: “2024-03-28T01:54:04.324786754Z”,
-    “userId”: “ ronald.dharma@hpe.com”
+    “userId”: “xxxx.yyyy@abc.com"
 }
 ```
 
