@@ -28,7 +28,7 @@ The specification for this set of APIs is publicized as OpenAPI specification in
 
 ## API versioning
 
-This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the APIs will be updated to it’s next revision as they evolves toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under the APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal [Versioning Guide](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/).
+This set of APIs is identified as revision V1Beta1 at the time of its introduction in March 2024. Moving forward, the APIs will be updated to it’s next revision as they evolves toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under the APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about update stages, and deprecation, please follow the HPE GreenLake Developer Portal Versioning [Guide](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/).
 
 ## What are these virtualization resources?
 
@@ -48,7 +48,7 @@ The following pictures depict some of the resources that are related to the virt
 
 *The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery*
 
-## Using the Virtualization APIs
+## Using the HPE GreenLake APIs for Virtualization
 
 This set of virtualization APIs uses the same authorization and permission as the rest of the family of HPE GreenLake API for data services. To ensure that all programmatic interaction with the HPE GreenLake platform services and resources is secure and authenticated, these APIs require an access token. The token is generated using the client ID and client Secret you obtained during the creation of the client API credentials. Documentation about getting started with the HPE GreenLake API is provided on the HPE Developer Community [website](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/), and on the HPE GreenLake Developer portal [website](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Nevertheless, there is also blog’s [posts ](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/)that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this link. Moreover, there will be blog posts available that provide guidance on how to convert this Open API  based on the OAS 3.1 to any scripting language library in the future.  Lastly, anyone can follow the examples provided by each API referenced in the documentation page, such as that which is shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous [blog post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake Data Services API).
 
@@ -62,7 +62,7 @@ Even though there is documentation available in the HPE GreenLake Developer port
 
 ### Discovery of services for a given hypervisor
 
-The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API **GET {baseURL}/virtualization/v1beta1/hypervisor-managers** to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of **GET {baseURL}/virtualization/v1beta1/hypervisor-managers**, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover the information, you can use the **select** parameter with the API to discover information such as **dataOrchestratorInfo** and **services**. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
+The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and apply it to the virtualization API `GET {baseURL}/virtualization/v1beta1/hypervisor-managers` to discover the hypervisors that are already onboarded into the your workspace. Along with the information about the hypervisor, the response of `GET {baseURL}/virtualization/v1beta1/hypervisor-managers`, provides additional information such as which HPE GreenLake services associated with the discovered hypervisor. To discover the information, you can use the **select** parameter with the API to discover information such as **dataOrchestratorInfo** and **services**. The values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
 
 The recommended select parameters to discover the hypervisor and services related to hypervisor is shown below.
 
@@ -77,12 +77,12 @@ The example of the response using the above recommended parameter is shown below
     "items": [
         {
             "dataOrchestratorInfo": {
-                "id": "d36122b2-ab2d-4474-ba97-15d2521926f0",
-                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "id": "d36122b2-xxxx-xxxx-xxxx-15d2521926f0",
+                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-xxxx-xxxx-xxxx-15d2521926f0",
                 "type": "backup-recovery/data-orchestrator"
             },
             "hypervisorManagerType": "VMWARE_VCENTER",
-            "id": "0c9acaa0-fe6e-4037-bc43-eaa239798f6d",
+            "id": "0c9acaa0-xxxx-xxxx-xxxx-eaa239798f6d",
             "name": "cds-tme-vcenter.rtplab.nimblestorage.com",
             "releaseVersion": "7.0.3",
             "services": [
@@ -93,12 +93,12 @@ The example of the response using the above recommended parameter is shown below
         },
         {
             "dataOrchestratorInfo": {
-                "id": "d36122b2-ab2d-4474-ba97-15d2521926f0",
-                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-ab2d-4474-ba97-15d2521926f0",
+                "id": "d36122b2-xxxx-xxxx-xxxx-15d2521926f0",
+                "resourceUri": "/backup-recovery/v1beta1/data-orchestrators/d36122b2-xxxx-xxxx-xxxx-15d2521926f0",
                 "type": "backup-recovery/data-orchestrator"
             },
             "hypervisorManagerType": "VMWARE_VCENTER",
-            "id": "213a7f0d-1d97-4aac-9989-44e597c32121",
+            "id": "213a7f0d-xxxx-xxxx-xxxx-44e597c32121",
             "name": "rtp-array392-dhci.rtplab.nimblestorage.com",
             "releaseVersion": "7.0.3",
             "services": [
@@ -119,13 +119,13 @@ The example of the response using the above recommended parameter is shown below
 
 ### Creation and management of a virtual machine in a cloud service provider (AWS)
 
-At the time of this release  (March 2024), the API resource to discover the Cloud Service Provider (CSP) account is not yet available as part of this released virtualization API set for HPE GreenLake. However, you can still obtain the information about the account Id at the CSP’s registration on HPE Private Cloud Business Enterprise’s Cloud account menu using the legacy CSP accounts list API **GET {baseUrl}/api/v1/csp-accounts**. Assuming that your AWS account had been onboarded into either HPE GreenLake Backup Recovery or HPE Private Cloud for Business Enterprise, this account Id will be used as one of the values for the body of this creation of virtual machine API as shown below.
+At the time of this release  (March 2024), the API resource to discover the Cloud Service Provider (CSP) account is not yet available as part of this released HPE GreenLake API for virtualization. However, you can still obtain the information about the account Id at the CSP’s registration on HPE Private Cloud Business Enterprise’s Cloud account menu using the legacy CSP accounts list API `GET {baseUrl}/api/v1/csp-accounts`. Assuming that your AWS account had been onboarded into either HPE GreenLake Backup Recovery or HPE Private Cloud for Business Enterprise, this account Id will be used as one of the values for the body of this creation of virtual machine API as shown below.
 
 ![](/img/list-available-csp-account-response.png "List available CSP accounts (DSCC API v1.4)")
 
 *T﻿he above figure shows the CSP id account that was onboarded into this workspace.*
 
-Another important information, the **imageId** value that is presented below, corresponds to the AWS Linux VM (free tier) that is going to be deployed at the AWS account. I used the following API **GET /virtualization/v1beta1/csp-machine-images** to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use **GET /virtualization/v1beta1/csp-machine-instances** to get the machine-id required to execute the below API. 
+Another important information, the **imageId** value that is presented below, corresponds to the AWS Linux VM (free tier) that is going to be deployed at the AWS account. I used the following API `GET /virtualization/v1beta1/csp-machine-images` to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use `GET /virtualization/v1beta1/csp-machine-instances` to get the machine-id required to execute the below API. 
 
 ![](/img/obtain-machineid-from-a-machine-instance.png "return imageId from csp-machine-images")
 
