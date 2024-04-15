@@ -80,17 +80,19 @@ The responses from this resource are critical for debugging and monitoring the a
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
-T﻿he response from the execution of GET /data-services/v1beta1/async-operations is provided below.
+T﻿he response from the execution of `GET /data-services/v1beta1/async-operations` is provided below.
 
 ![](/img/api-response-from-filtered-and-selected-async-response.png)
 
-The corresponding task message from the GreenLake task’s UI is shown below.
+The corresponding task message from the HPE GreenLake task’s UI is shown below.
 
 ![](/img/corresponding-task-for-the-async-operations.png)
 
 ### active-issues
 
-This API provides the list of the issues that require attention by the GreenLake users. The GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What are these data services resources?” in this blog) to access the issues from every service available in the GreenLake. To limit the display of the properties’ response returned by this API, user can use parameter **select** as part of the header of the API execution. However, there are minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
+This API provides the list of the issues that require attention by the HPE GreenLake users. The HPE GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What are these data services resources?” in this blog) to access the issues from every service available in the GreenLake. 
+
+To limit the display of the properties’ responses returned by this API, user can use parameter **select** as part of the header of the API execution. However, there is minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
 
 ```json
 https://<region-baseUrl>/data-services/v1beta1/issues?select=body
@@ -119,8 +121,11 @@ The completed execution of this API is shown below.
 
 ### Completing POST method for REST API using async-operations API with task id
 
-Almost any HPE GreenLake REST API for data services with **POST, DELETE** or **PATCH** methods (e.g. POST /virtualization/v1beta1/virtual-machines) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response =**0x202** status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion. To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id} to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.\
-I executed the REST API **POST https://{baseUrl}/virtualization/v1beta1/virtual-machines** and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0.**  
+Almost any HPE GreenLake REST API for data services with **POST, DELETE** or **PATCH** methods (e.g. `POST /virtualization/v1beta1/virtual-machines`) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response =**0x202** status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion.
+
+To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the `GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.\
+
+I executed the REST API `**POST https://{baseUrl}/virtualization/v1beta1/virtual-machines**` and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0.**  
 
 ![The task Id from response location field](/img/location-output-contains-the-task-id.png)
 
