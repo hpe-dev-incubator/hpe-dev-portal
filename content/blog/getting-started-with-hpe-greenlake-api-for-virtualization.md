@@ -143,7 +143,7 @@ You can see in below figure, I performed the deployment of a virtual machine exa
 
 *T﻿he above figure provides example of providing Payload (Body) to provision a VM inside the cloud service provider.*
 
-Using the API **GET async-operations** on the task Id provided from location value in the response header of the above API, I was able to track the completion of the execution of the create virtual-machine in the AWS account. For more information on using the asynchronous-operation API, please look at my blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) post (Getting Started with GreenLake Data-Services API).
+Using the API **GET async-operations** on the task Id provided from location value in the response header of the above API, I was able to track the completion of the execution of the create virtual-machine in the AWS account. For more information on using the asynchronous-operation API, please look at my blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/)  (Getting Started with GreenLake Data-Services API).
 
 ```json
 {
