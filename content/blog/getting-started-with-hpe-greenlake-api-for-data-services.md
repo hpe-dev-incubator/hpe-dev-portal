@@ -49,7 +49,7 @@ The above figure shows the three-panel interactive API reference guide for HPE G
 
 ## An Example of Executing an API Call from the API Reference Documentation
 
-You can start by obtaining an access token for the workspace where you have the permission. For  information on getting the access token, please see the following [guide](https://developer.greenlake.hpe.com/docs/greenlake/services), or  follow my other blog posts in this [link](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). Once the access token is obtained, please copy it (Ctrl-C short cut in Microsoft Window) so that you can enter that token into the Security field of the API documentation page displaying the list of async-operations (as an example). 
+You can start by obtaining an access token for the workspace where you have the permission. For  information on getting the access token, please see the following [guide](https://developer.greenlake.hpe.com/docs/greenlake/services), or  follow my other blog posts in this [link](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). Once the access token is obtained, please copy it (Ctrl-C short cut in Microsoft Window) so that you can enter that token into the Security field of the API reference documentation page displaying the list of async-operations (as an example). 
 To start with this example, go to the documentation page for the async-operations on this [link](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/ListAsyncOperations/). Please click on the **Try It** button located at the top right side of the page, as shown below.
 
 ![](/img/tryit-process.png)
