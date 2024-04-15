@@ -68,13 +68,15 @@ Click the **send** button to send that API and you will see the response indicat
 
 Congratulations! You have executed your first HPE GreenLake API for data services using the API reference documentation page in the GreenLake Developer website.  
 
-## Some tips and examples
+## Some Tips and Examples
 
 Even though there is documentation available in the HPE GreenLake Developer website, here are some of the recommendations and best practices on how to use the API.
 
 ### async-operations
 
-The responses from this resource are critical for debugging and monitoring the activities that happen from any operations from several services, such as backup-recovery, block-service, hci-manager (Private Cloud Business Edition). Here is a tip on how to filter out those tasks (async-operations) that belong to a particular service; Use the parameter: **filter: ‘<service>’ in services,** like below. Note, from this API response field, **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '<properties>'** as shown below. 
+The responses from this resource are critical for debugging and monitoring the activities that happen from any operations from several services, such as backup-recovery, block-service, hci-manager (Private Cloud Business Edition). Here is a tip on how to filter out those tasks (async-operations) that belong to a particular service; Use the parameter: **filter: ‘<service>’ in services,** like below. 
+
+> **Note**: from this API response field **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '<properties>'** as shown below.
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
