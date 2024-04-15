@@ -76,7 +76,7 @@ Even though there is documentation available in the HPE GreenLake Developer webs
 
 The responses from this resource are critical for debugging and monitoring the activities that happen from any operations from several services, such as backup-recovery, block-service, hci-manager (Private Cloud Business Edition). Here is a tip on how to filter out those tasks (async-operations) that belong to a particular service; Use the parameter: **filter: ‘<service>’ in services,** like below. 
 
-> **Note**: from this API response field **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '\<properties\>'** as shown below.
+> **Note**: from this API response field **associatedResources** points to the particular asset that encounters the operation. To simplify the response returned by this API, use the parameter:  **select: '<properties>'** as shown below.
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
@@ -123,21 +123,21 @@ The completed execution of this API is shown below.
 
 Almost any HPE GreenLake REST API for data services with **POST, DELETE** or **PATCH** methods (e.g. `POST /virtualization/v1beta1/virtual-machines`) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with response =**0x202** status. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion.
 
-To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the `GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.\
+To accomplish that monitoring, the user will receive a task id in the header of the response, under location field, that had been successfully executed. The user will poll that task id using the `GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines at the on-premises hypervisor.
 
-I executed the REST API `**POST https://{baseUrl}/virtualization/v1beta1/virtual-machines**` and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0.**  
+I executed the REST API `POST https://{baseUrl}/virtualization/v1beta1/virtual-machines` and the response is completed with response status **0x202 (Accepted)** and, at location field, you can discover the task Id: **0xcad794d1-27ec-4050-bed4-45d13a8de9d0.**  
 
 ![The task Id from response location field](/img/location-output-contains-the-task-id.png)
 
-*T﻿he above figure display the response header from POST https://{baseUrl}/virtualization/v1beta1/virtual-machines.*
+*T﻿he above figure display the response header from `POST https://{baseUrl}/virtualization/v1beta1/virtual-machines`.*
 
-From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. *https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0*) to obtain the status and progress of the previously executed REST API. 
+From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. `https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0`) to obtain the status and progress of the previously executed REST API. 
 
 ![Request async-response for a particular id](/img/api-request-async-operations-request-of-particular-id.png)
 
-The following snippet depicts the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 3 minutes as shown by the following keys: **startedAt** and **endedAt**.
+The following response snippets depict the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 3 minutes as shown by the following keys: **startedAt** and **endedAt**. 
 
-* *Below is the f﻿irst poll of the VM provisioning REST API task id:*
+* Below is the f﻿irst poll of the VM provisioning REST API task id:
 
 ```json
 {
@@ -234,6 +234,8 @@ The above f﻿igure indicated that the second poll of the VM provisioning REST A
 
 # Summary
 
-This blog post introduces you to the new set of REST API for HPE Greenlake, named as Data-Services APIs, to support resources such as: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags.* This set of APIs will evolve throughout the future toward long term supported version of the APIs . This March 2024 announcement introduces V1Beta1 of the API; which is  documented at HPE GreenLake Developer [website](https://developer.greenlake.hpe.com) using the interactive documentation based on OpenAPI 3.1 standard. In this post, I also introduced methods to exercise the API directly from the API reference documentation page using the access token obtained from HPE GreenLake. Lastly, I provided a list of tips on using this Data Services REST API for specific use cases.
+This blog post introduces you to the new set of HPE Greenlake REST APIs for data services, to support resources such as: *async-operations, dual-auth-operations, issues, secrets, software-releases, storage locations, and tags.* This set of APIs will evolve throughout the future toward long term supported version of the APIs. 
 
-Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. If you have any questions on any HPE GreenLake Data Services API, or if you are interested to share your feed-back and use cases on this set of API;  please join the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [*\#hpe-greenlake-data-services* ](https://hpedev.slack.com/archives/C02D6H623JP)slack channel.
+This March 2024 announcement introduces revision v1beta1 of the API; which is documented at HPE GreenLake Developer [website](https://developer.greenlake.hpe.com) using the interactive reference documentation based on OpenAPI 3.1 standard. In this post, I also introduced methods to exercise the API directly from the API reference documentation page using the access token obtained from HPE GreenLake. Lastly, I provided a list of tips on using these HPE GreenLake REST API for specific use cases. 
+
+Please don’t hesitate to explore this new set of HPE GreenLake APIs for data services and see how you can improve your agility in managing your data. If you have any questions on any HPE GreenLake Data Services API, or if you are interested to share your feed-back and use cases on this set of API;  please join the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [*\#hpe-greenlake-data-services* ](https://hpedev.slack.com/archives/C02D6H623JP)slack channel.
