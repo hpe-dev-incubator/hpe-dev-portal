@@ -156,7 +156,7 @@ Using the API **GET async-operations** on the task Id provided from location val
         }
     ],
     “createdAt”: “2024-03-28T01:53:30.395518007Z”,
-    “customerId”: “eb988b5e2dcb11ec840712b3b5263ef4”,
+    “customerId”: “xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx”
     “displayName”: “Create Instance: RonD-deploy-CSP-1”,
     “endedAt”: “2024-03-28T01:54:04.245722969Z”,
     “error”: null,
