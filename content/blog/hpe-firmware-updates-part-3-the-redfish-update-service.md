@@ -68,9 +68,15 @@ The `SimpleUpdate` action is a “pull” update, which means that the Redfish s
 
 The implementation of the `SimpleUpdate` used for the writing of this article allows only HTTP and HTTPS transfer protocols. You can mention the appropriate transfer protocol either in the `ImageURI` resource (next image) or in the `TransferProtocol` parameter (the image following this one).
 
-![Simple Update Action](/img/6_SimpleUpdateAction.png "Simple Update Action")
+![Simple Update Action](/img/6_simpleupdateaction.png "Simple Update Action")
 
-![Simple Update Action With Transfer Protocol](/img/7_SimpleUpdateActionWithTransferProtocol.png "Simple Update Action with Transfer Protocol")
+
+
+ .
+
+
+
+![Simple Update Action With Transfer Protocol](/img/7_simpleupdateactionwithtransferprotocol.png "Simple Update Action with Transfer Protocol")
 
 You can monitor the update process by polling the `State` and `FlashProgressPercent` properties part of the `Oem.Hpe` section as shown in the following screenshot.
 
