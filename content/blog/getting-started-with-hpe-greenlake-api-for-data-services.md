@@ -11,6 +11,7 @@ tags:
   - hpe-greenlake
   - data-services-cloud-console
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 ## What’s New?
 
 Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud Platform was introduced on the HPE GreenLake Developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/).  These APIs are grouped under the set which is called HPE GreenLake APIs for Data Services. Several articles will be written and posted on [HPE Developer's forum blog site](https://developer.hpe.com/blog) to help you better understand and work with the suite of HPE GreenLake data services.
