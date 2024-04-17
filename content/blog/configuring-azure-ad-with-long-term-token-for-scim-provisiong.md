@@ -25,7 +25,7 @@ I﻿n this blog post, I'll explain the process for configuring Azure AD to use a
 
 A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that will create the long-term token
 
-* L﻿og in to the HPE GreenLake Cental.
+* L﻿og in to the HPE GreenLake Flex Solutions.
 * C﻿lick the "User Management" icon on the top-right corner.
 * S﻿elect the user/user group that will generate the SCIM proxy token.
 * S﻿elect "Actions" and then "Create Assignment".
@@ -38,9 +38,9 @@ A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that wil
 
 ## S﻿tep 2: G﻿et a personal access token
 
-An API token issued by the HPE GreenLake Central platform must be used as the Bearer token in the Authorization header of HPE GreenLake Central REST API requests. Perform the following steps to get API access token from HPE GreenLake Central portal:
+An API token issued by the HPE GreenLake Flex Solutions platform must be used as the Bearer token in the Authorization header of HPE GreenLake Flex Solutions REST API requests. Perform the following steps to get API access token from HPE GreenLake Flex Solutions portal:
 
-* Log into HPE GreenLake Central.
+* Log into HPE GreenLake Flex Solutions.
 * Click the profile icon on the top-right corner.
 * Select API Access.
 * Copy the API access token.
