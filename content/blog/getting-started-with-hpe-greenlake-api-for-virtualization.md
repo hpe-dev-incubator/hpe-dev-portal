@@ -293,7 +293,7 @@ To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machi
 
 ### Wow… that was so cool. What about provisioning  a VMware Datastore on-premises?
 
-Here is another example of using the virtualization API to provision a datastore out of an HPE dHCI system that is going to be deployed on-premises.  The API that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also requires a definition of this JSON structure with values in the **body (Payload)**. The information about this JSON body is presented in the documentation below.
+Here is another example of using the virtualization API to provision a datastore out of an HPE dHCI system that is going to be deployed on-premises.  The API that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also requires a definition of this JSON structure with values in the **body (Payload)**. The information about this request JSON body is presented in the figure below.
 
 ![](/img/create-datastore-on-dhci.png)
 
