@@ -230,7 +230,7 @@ To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-mach
         }
     ],
     "createdAt": "2024-03-27T22:37:20.509665935Z",
-    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "customerId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "displayName": "Terminate: RonD-deploy-CSP-1",
     "endedAt": "2024-03-27T22:37:37.652544571Z",
     "error": null,
@@ -266,11 +266,11 @@ To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-mach
     "parentTask": null,
     "progressPercent": 100,
     "recommendations": [],
-    "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-7803-4ef5-9cce-f40ad05f879f",
+    "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-xxxx-xxxx-xxxx-f40ad05f879f",
     "rootTask": {
         "id": "de6d9725-7803-4ef5-9cce-f40ad05f879f",
         "name": "",
-        "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-7803-4ef5-9cce-f40ad05f879f",
+        "resourceUri": "/data-services/v1beta1/async-operations/de6d9725-xxxx-xxxx-xxxx-f40ad05f879f",
         "type": "task"
     },
     "services": [
@@ -278,7 +278,7 @@ To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-mach
     ],
     "sourceResource": {
         "name": "RonD-deploy-CSP-1",
-        "resourceUri": "/api/v1/csp-machine-instances/d4c46c6e-51ff-59c0-a24a-ef52d77f0b16",
+        "resourceUri": "/api/v1/csp-machine-instances/d4c46c6e-xxxx-xxxx-xxxx-ef52d77f0b16",
         "type": "AWS Instance"
     },
     "startedAt": "2024-03-27T22:37:20.509668598Z",
@@ -328,7 +328,7 @@ From the response of the API aync-operations for the task Id shown below, I conf
         }
     ],
     "createdAt": "2024-03-29T00:56:16.981296528Z",
-    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "customerId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "displayName": "Provisioning datastore VVOL-ds1",
     "endedAt": "2024-03-29T00:59:22.975723884Z",
     "error": null,
@@ -336,7 +336,7 @@ From the response of the API aync-operations for the task Id shown below, I conf
     "generation": 8,
     "groups": [
         {
-            "id": "eb988b5e2dcb11ec840712b3b5263ef4",
+            "id": "eb988b5exxx11ec8407xxxb5263ef4",
             "name": "Default Group"
         }
     ],
@@ -376,11 +376,11 @@ From the response of the API aync-operations for the task Id shown below, I conf
     "parentTask": null,
     "progressPercent": 100,
     "recommendations": [],
-    "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-5213-433b-8fbf-1945bb4496e1",
+    "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-xxx-xxx-xxx-1945bb4496e1",
     "rootTask": {
         "id": "9825d5e8-5213-433b-8fbf-1945bb4496e1",
         "name": "",
-        "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-5213-433b-8fbf-1945bb4496e1",
+        "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-xxx-xxx-xxx-1945bb4496e1",
         "type": "task"
     },
     "services": [
@@ -388,7 +388,7 @@ From the response of the API aync-operations for the task Id shown below, I conf
     ],
     "sourceResource": {
         "name": "VVOL-ds2",
-        "resourceUri": "/api/v1/datastores/fdcc724f-3f22-5fa6-8477-81f0fd701512",
+        "resourceUri": "/api/v1/datastores/fdcc724f-xxxx-xxx-xxx-81f0fd701512",
         "type": "Datastore"
     },
     "startedAt": "2024-03-29T00:56:16.981298562Z",
