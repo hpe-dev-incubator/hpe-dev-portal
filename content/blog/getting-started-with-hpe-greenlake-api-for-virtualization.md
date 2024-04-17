@@ -209,9 +209,9 @@ Using the API **GET async-operations** on the task Id provided from location val
 }
 ```
 
-*T﻿he above snippet of response code depicted that execution of POST /virtual/v1beta1/machine-instance had completed successfully.*
+*T﻿he above snippet of response code depicted that execution of `POST /virtual/v1beta1/machine-instance had completed successfully`.*
 
-To progress further, I needed to find the Id that corresponds to the newly created virtual-machine instance in the AWS account using the Create CSP machine instance API. To find the virtual machine Id of the deployed VM, I used a legacy HPE GreenLake Data Services Cloud Console API GET {baseUrl}/api/v1/csp-machine-instances to get the list of virtual-machine-instance that exist in that AWS account. From the response of that API, I obtained the VM instance Id of that Virtual Machine that was created in prior example.  
+To progress further, I needed to find the Id that corresponds to the newly created virtual-machine instance in the AWS account using the Create CSP machine instance API. To find the virtual machine Id of the deployed VM, I used a legacy HPE GreenLake Data Services Cloud Console API `GET {baseUrl}/api/v1/csp-machine-instances` to get the list of virtual-machine-instance that exist in that AWS account. From the response of that API, I obtained the VM instance Id of that Virtual Machine that was created in prior example.  
 
 ![](/img/after-deployment-get-the-machine-instance-id.png "obtain the machine instance id")
 
@@ -293,13 +293,13 @@ To control cost, I used the API **POST {baseUrl}/virtualization/v1beta1/csp-mach
 
 ### Wow… that was so cool. What about provisioning  a VMware Datastore on-premises?
 
-Here is another example of using the virtualization API to provision a datastore out of an HPE dHCI system that is going to be deployed on-premises.  The API that is used for the datastore provisioning is **POST {baseUrl} /virtualization/v1beta1/datastores**, which also requires a definition of this JSON structure with values in the **body (Payload)**. The information about this JSON body is presented in the documentation below.
+Here is another example of using the virtualization API to provision a datastore out of an HPE dHCI system that is going to be deployed on-premises.  The API that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also requires a definition of this JSON structure with values in the **body (Payload)**. The information about this JSON body is presented in the documentation below.
 
 ![](/img/create-datastore-on-dhci.png)
 
 *T﻿he above figure display the required body (Payload) to deploy datastore into a hyper-converged instance with VMware.*
 
-This virtualization API incorporates the virtual machine provisioning policy that is part of the HPE GreenLake for Private Cloud Business Edition. Use the HPE GreenLake for Private Cloud Business Edition API **GET {baseUrl}/private-cloud-business/v1beta1/vm-provisioning-policies** to obtain the **provisioningPolicyId** and enter it into the Body JSON key-pair values.
+This virtualization API incorporates the virtual machine provisioning policy that is part of the HPE GreenLake for Private Cloud Business Edition. Use the HPE GreenLake for Private Cloud Business Edition API `GET /private-cloud-business/v1beta1/vm-provisioning-policies` to obtain the **provisioningPolicyId** and enter it into the Body JSON key-pair values.
 
 ![](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using PCBE")
 
@@ -307,7 +307,7 @@ Using another API from the virtualization API such as **GET {baseUrl}/virtualiza
 
 ![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
 
-And using the legacy API such as **GET {baseUrl}/api/v1/storage-systems/device-type2** to obtain the **Storage System Id** is shown below.
+And using the legacy API such as `GET /api/v1/storage-systems/device-type2` to obtain the **Storage System Id** is shown below.
 
 ![](/img/obtain-the-storage-system-id-using-the-legacy-api.png "legacy API to display the storage system Id")
 
