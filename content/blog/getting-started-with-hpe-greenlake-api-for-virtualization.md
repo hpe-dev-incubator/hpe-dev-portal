@@ -10,6 +10,7 @@ tags:
   - hpe-greenlake
   - data-services-cloud-console
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 ## What’s New?
 
 Recently, a new set of REST APIs for HPE GreenLake edge-to-cloud platform was introduced on the HPE GreenLake Developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/guide/).  These APIs are grouped under the set which is called HPE GreenLake API for Virtualization. Several articles will be written and posted on HPE Developer’s forum blog site to help you better understand and work with these APIs in conjunction with the family of data services on HPE GreenLake
