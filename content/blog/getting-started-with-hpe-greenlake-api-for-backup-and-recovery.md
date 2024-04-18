@@ -123,7 +123,13 @@ The list of the steps to perform this use case using HPE GreenLake API:
 
 4. After roughly about 5 minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the below figure. 
 
-> ***Note:*** that I used a set of selection parameters in below figure to summarize the information from this task information: `GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state`.  I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called {{taskId}}, and incorporated {{taskId}} variable to the async-operations API execution. 
+> ***Note:*** that I used a set of selection parameters in below figure to summarize the information from this task information:
+>
+> ```shellsession
+> GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
+> ```
+>
+>    I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called {{taskId}}, and incorporated {{taskId}} variable to the async-operations API execution. 
 
 ![Task completion on POST protection-stores](/img/api-async-on-post-protection-stores.png)
 
