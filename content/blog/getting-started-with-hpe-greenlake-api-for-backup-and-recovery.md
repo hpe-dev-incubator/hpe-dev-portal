@@ -281,7 +281,7 @@ The list of the steps to create this protection policy:
 
 > *The above figure shows JSON structure for request body of `POST /backup-recovery/v1beta1/protection-policies` for the creation of protection-policy as shown by the example in this section.*
 
-6. Finally, I created of the protection policies using the GreenLake API for Backup and Recovery `POST /backup-recovery/v1beta1/protection-policies`, and I used the above JSON structure in the request body. This is a special POST API execution where the response is returned immediately. The response of this API contained the body of JSON structure that will be useful to identify the protection-jobs such as the `“<protection-policies-id>”`.
+6. Finally, I created the protection policies using the GreenLake API for Backup and Recovery `POST /backup-recovery/v1beta1/protection-policies`, and I used the above JSON structure in the request body. This is a special POST API execution where the response is returned immediately. The response of this API contained the body of JSON structure that will be useful to identify the protection-jobs such as the `“<protection-policies-id>”`.
 
 ![API to create protection policy](/img/api-to-create-protection-policy.png)
 
