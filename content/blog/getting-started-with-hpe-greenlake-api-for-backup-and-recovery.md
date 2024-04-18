@@ -556,7 +556,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to get hypervisorId](/img/api-obtain-hypervisor-id.png)
 
-5. To set the virtual machine network to the correct network port group, I glanced into the existing virtual machine `"0-Linux-Demo-V02"`, discovered the network port group `“Mgmt-DPortGroup”`. From the list of the network port group, I selected the associated port group of the virtual machine by filtering the name of the port group. Afterward, we copied the `<hypervisor-network-id>` using this from the response body of this [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/HypervisorNetwork/) to be used for subsequent execution. The API used for this:  
+5. To set the virtual machine network to the correct network port group, I glanced into the existing virtual machine `"0-Linux-Demo-V02"`,and discovered the network port group `“Mgmt-DPortGroup”`. From the list of the network port group, I selected the associated port group of the virtual machine by filtering the name of the port group. Afterward, we copied the `<hypervisor-network-id>` from the response body of this [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/HypervisorNetwork/) to be used for subsequent execution. The API used for this:
 
    ```shellsession
    GET /virtualization/v1beta1/hypervisor-managers/{{hyperVisorId}}/networks?select=id,displayName&filter=displayName eq 'Mgmt-DPortGroup'
