@@ -532,7 +532,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to discover backup for recovery of VM](/img/api-to-discover-vm-for-recovery.png)
 
-2. Let's obtain the Cloud Recovery Protection id from the for the cloud protection recovery from the virtual machine id from the step #1 using the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) `GET /backup-recovery/v1beta1/virtual-machines/:id/backups` given the virtual machine id `{{vmId}}`. Copy the `“{{backupId}}”` from the response body from the below figure so that it can be used in the subsequent API execution. The API used for this: 
+2. Let's obtain the Cloud Recovery Point id for the cloud protection recovery from the virtual machine id from the step #1 using the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) `GET /backup-recovery/v1beta1/virtual-machines/:id/backups` given the virtual machine id `{{vmId}}`. Copy the `“{{backupId}}”` from the response body from the below figure so that it can be used in the subsequent API execution. The API used for this: 
 
    ```shellsession
    GET /backup-recovery/v1beta1/virtual-machines/{{vmId}}/backups?select=name,description,backupType,id
@@ -540,7 +540,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to obtain the backup Id of a cloud recovery point](/img/api-to-obtain-backup-id-for-recovery.png)
 
-3. Let's obtain the `datastore id` and the `cluster id` from the existing VMFS datastore that can accommodate the datastore type that this VM can be restored. In this hypervisor, I am using the datastore with the name `“0-BRS-VMFS-Test3”` and enter that as the filter into HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/DatastoresList) `GET /virtualization/v1beta1/datastores`. The API used for this: 
+3. Let's obtain the `datastore id` and the `cluster id` from the existing VMFS datastore that can accommodate the datastore type that this VM can be restored. In this hypervisor, I am using the datastore with the name `“0-BRS-VMFS-Test3”` and enter that as part of the filter into HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/DatastoresList) `GET /virtualization/v1beta1/datastores`. The API used for this: 
 
    ```shellsession
    GET /virtualization/v1beta1/datastores?filter=displayName eq '0-BRS-VMFS-Test3'&select=clusterInfo,datastoreType,name,id
