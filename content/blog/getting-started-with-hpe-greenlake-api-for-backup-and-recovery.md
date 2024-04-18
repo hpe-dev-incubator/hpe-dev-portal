@@ -532,7 +532,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to discover backup for recovery of VM](/img/api-to-discover-vm-for-recovery.png)
 
-2. Obtain the Cloud Recovery Protection id from the for the cloud protection recovery from the virtual machine id from the step #1 using the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) `GET /backup-recovery/v1beta1/virtual-machines/:id/backups` given the virtual machine id. Copy the `“{{backupId}}”` from the response body from the below figure so that it can be used in the subsequent API execution. The API used for this: 
+2. Obtain the Cloud Recovery Protection id from the for the cloud protection recovery from the virtual machine id from the step #1 using the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) `GET /backup-recovery/v1beta1/virtual-machines/:id/backups` given the virtual machine id `{{vmId}}`. Copy the `“{{backupId}}”` from the response body from the below figure so that it can be used in the subsequent API execution. The API used for this: 
 
    ```shellsession
    GET /backup-recovery/v1beta1/virtual-machines/{{vmId}}/backups?select=name,description,backupType,id
