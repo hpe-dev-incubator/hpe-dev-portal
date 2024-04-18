@@ -87,7 +87,7 @@ Lastly, anyone can follow the examples provided by each API reference in the doc
 
 ![HPE GLBR API documentation ](/img/reference-document-for-hpe-glbr.png)
 
-*The above figure shows the three-pane of the interactive API reference documentation for one of HPE GreenLake API for Backup and Recovery.*
+*The above figure shows the three-panel of the interactive API reference documentation for one of HPE GreenLake API for Backup and Recovery.*
 
 ## Some Tips and Examples
 
@@ -103,7 +103,7 @@ A protection store is the critical resource that is required to store the recove
 > **NOTE:** 
 > You will see in this blog post that I used combination of HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the examples below.
 
-This example below displays the creation of the cloud protection store at HPE GreenLake protection store in Azure cloud storage.
+This example below displays the creation of the cloud protection store at HPE GreenLake protection store in Microsoft Azure cloud storage.
 
 ![UI to create cloud protection in Azure](/img/ui-to-create-cloud-protection.png)
 
