@@ -107,7 +107,7 @@ This example below displays the creation of the cloud protection store at HPE Gr
 
 ![UI to create cloud protection in Azure](/img/ui-to-create-cloud-protection.png)
 
-*T﻿he figure above shows the user interface used to create a cloud store protection at Azure in eastus2 storage location using the user interface.*
+*T﻿he figure above shows the user interface used to create a cloud store protection at Microsoft Azure in eastus2 storage location using the user interface.* 
 
 The list of the steps to perform this use case using HPE GreenLake API:
 
