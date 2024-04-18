@@ -572,7 +572,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to recover a cloud protection copy from a VM](/img/api-restoring-a-cloud-protection-recovery-point.png)
 
-7. To validate that the recovery was completed, and I tracked the progress from the response using the `async-operations` API as shown below. The API used for this: 
+7. To validate that the recovery was completed, and I tracked the progress from the response using the `async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown below. The API used for this: 
 
    ```shellsession
    GET /data-services/v1beta1/async-operations/:id?select=associatedResources,createdAt,endedAt,error,displayName,healthStatus,id,customerId,progressPercent,name,type,state
