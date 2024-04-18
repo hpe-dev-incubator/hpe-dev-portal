@@ -55,17 +55,17 @@ The second part of the HPE GreenLake API for Backup and Recovery resources is th
 *The above figure displays resources that are parts of the hypervisor and on-premises components that can be protected.*
 
 > **NOTE:**
-> In the current HPE Developer website, there is a single resource categorized as v1alpha1 that will be used to register, unregister, and update the hypervisor-manager to an instance of HPE Backup and Recovery. The current supported on-premises hypervisor-manager is VMware vCenter version 7.0 or later. The HPE GreenLake API to discover hypervisor-manager, that is already onboarded, is available from the virtualization API [set](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/tag/hypervisor-managers/).
+> In the current HPE GreenLake Developer website, there is a single resource categorized as v1alpha1 that will be used to register, unregister, and update the hypervisor-manager to an instance of HPE GreenLake Backup and Recovery. The current supported on-premises hypervisor-manager is VMware vCenter version 7.0 or later. The HPE GreenLake API to discover hypervisor-manager, that is already onboarded, is available from the virtualization API [set](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/tag/hypervisor-managers/). 
 
 ### What about the components in HPE GreenLake Backup and Recovery that are not mentioned above?
 
-There are other resources exist in the HPE GreenLake for Backup and Recovery that are not mentioned above; however, they are available in the user-interface for HPE GreenLake for Backup and Recovery. A couple of those resources are protection policy, and protection group. The protection group is used to consolidate multiple number of assets with a particular protection policy. On the other hand, the protection-policy is a resource to consolidate the schedule of protection-jobs and the flow of the recovery points at different tiers of protection-store. Together, both protection policy and protection group deliver the management of the Recovery Point Objective for data protection using HPE GreenLake for Backup and Recovery.
+There are other resources that exist in the HPE GreenLake for Backup and Recovery that are not mentioned above; however, they are available in the user-interface for HPE GreenLake for Backup and Recovery. A couple of those resources are protection policy, and protection group. The protection group is used to consolidate multiple number of assets with a particular protection policy. On the other hand, the protection-policy is a resource to consolidate the schedule of protection-jobs and the flow of the recovery points at different tiers of protection-store. Together, both protection policy and protection group deliver the management of the Recovery Point Objective for data protection using HPE GreenLake for Backup and Recovery.
 
 ![Protection policy for vmware schedule](/img/protection-policy-ui-for-vmware-scheduling.png)
 
 *The above figure display resources for schedule and the flow of the recovery-points part of the protection policy.*
 
-Additionally, there is also a resource called a protection job that is not shown in the user-interface; however, it is required to perform the operation of data protection. You will need to manipulate protection jobs to create a protection or to recover an existing recovery point. Additionally, the protection-job is the resource that can be manipulated to suspend or to resume a protection schedule. 
+Additionally, there is also a resource known as protection job that is obscurely shown in the user-interface; however, it is required to perform the operation of data protection. You will need to manipulate protection jobs to create a protection or to recover an existing recovery point. Additionally, the protection-job is the resource that can be manipulated to suspend or to resume a protection schedule.
 
 ![Protection jobs for scheduling and protection tiers](/img/protection-jobs-ui.png)
 
