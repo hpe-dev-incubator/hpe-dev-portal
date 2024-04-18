@@ -134,8 +134,8 @@ The list of the steps to perform this use case using HPE GreenLake API:
 > ```shellsession
 > GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
 > ```
-
->I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated `{{taskId}}` variable to the `async-operations` API execution.
+>
+> I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated `{{taskId}}` variable to the `async-operations` API execution.
 
 ![Task completion on POST protection-stores](/img/api-async-on-post-protection-stores.png)
 
@@ -176,7 +176,7 @@ The list of the steps to create this protection policy:
 3. From the figure below, I used `GET /backup-recovery/v1beta1/protection-stores` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreList/) to obtain the protection-store ids for both the on-premises protection store and the cloud protection store. To display protection-stores related to the protection store gateway, I used the parameter filter to display the exact the protection-store associated with protection storage gateway of `“<onprem-protection-store-id>”`. The filter parameter that I used are `protectionStoreType eq 'ON_PREMISES'` and `storageSystemInfo/id eq 'protection-store-gateway-id'`. Additionally, I used the following `select` parameter `name,displayName,id,status,state,protectionStoreType` to provide shorter response that simplify the discovery of the protection-store on-premises. The API used for this: 
 
    ```shellsession
-   GET /backup-recovery/v1beta1/protection-stores?select=name,displayName,id,status,state,protectionStoreType&filter=protectionStoreType eq ‘ON_PREMISES’ and storageSystemInfo/id eq “\<protection-store-gateway-id\>”.
+   GET /backup-recovery/v1beta1/protection-stores?select=name,displayName,id,status,state,protectionStoreType&filter=protectionStoreType eq ‘ON_PREMISES’ and storageSystemInfo/id eq “\<protection-store-gateway-id\>”
    ```
 
 ![API to obtain the onpremises protection store id](/img/api-to-get-onpremises-protection-store-id.png)
@@ -532,7 +532,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to discover backup for recovery of VM](/img/api-to-discover-vm-for-recovery.png)
 
-2. Obtain the Cloud Recovery Protection Id from the for the cloud protection recovery from the virtual machine using the HPE GreenLake [API]H(https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) 'GET /backup-recovery/v1beta1/virtual-machines/:id/backups` given the virtual machine id. Copy the `“{{backupId}}”` from the response body from the below figure. The API used for this:
+2. Obtain the Cloud Recovery Protection Id from the for the cloud protection recovery from the virtual machine using the HPE GreenLake \[API]H(https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineBackupList/) 'GET /backup-recovery/v1beta1/virtual-machines/:id/backups`given the virtual machine id. Copy the`“{{backupId}}”` from the response body from the below figure. The API used for this:
 
    ```shellsession
    GET /backup-recovery/v1beta1/virtual-machines/{{vmId}}/backups?select=name,description,backupType,id
