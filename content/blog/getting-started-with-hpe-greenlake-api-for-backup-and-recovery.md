@@ -564,7 +564,7 @@ Each of the recovery points regardless of the location of store (array snapshot,
 
 ![API to get network ID for VM](/img/api-to-get-the-network-id.png)
 
-6. After I obtained the parameters that were required to build the request body to recover a cloud recovery point from `“0-Linux-Demo-VM02"`, I constructed the JSON request body as shown in the below figure. To restore the recovery points into a new virtual machine, the `restoreType` key of the request body JSON structure was set to `“ALTERNATE”` as shown in the below figure. I also provided the new virtual machine name after the recovery, `“0-Linux-Demo-VN02-2-05-04-2024_05:48_PM”`. The [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineRestore/) used for this:
+6. After I obtained the parameters that were required to build the request body to recover a cloud recovery point from `“0-Linux-Demo-VM02"`, I constructed the JSON request body as shown in the below figure. To restore the recovery point into a new virtual machine, the `restoreType` key of the request body JSON structure was set to `“ALTERNATE”` as shown in the below figure. I also provided the new virtual machine name after the recovery `“0-Linux-Demo-VN02-2-05-04-2024_05:48_PM”`. The [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/VirtualMachineRestore/) used for this:
 
    ```shellsession
    POST /backup-recovery/v1beta1/virtual-machines/{{vmId}}/restore
