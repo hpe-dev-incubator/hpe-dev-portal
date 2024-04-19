@@ -27,9 +27,9 @@ The specification for these APIs is publicized as OpenAPI specification in JSON 
 
 ![Figure 2. An example of the downloaded data-services.json contents.](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
 
-The above figure shows an example of the downloaded data-services.json contents. 
+*The above figure shows an example of the downloaded data-services.json contents.* 
 
-This set of APIs is identified as revision V1neta1 at the time of its introduction in March 2024. Moving forward, the API will be updated to its next revision, moving toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under this set of APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about management of versioning, please follow the HPE GreenLake Developer Portal Versioning Guide at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/).
+This set of APIs is identified as revision v1beta1 at the time of its introduction in March 2024. Moving forward, the API will be updated to its next revision, moving toward the long-term release version. As each individual API is updated, there will also be more capabilities added to any of the resources identified under this set of APIs. Furthermore, there will be more resources that are not currently available for this API, added in the future. For information about management of versioning, please follow the HPE GreenLake Developer Portal Versioning Guide at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/).
 
 ## What are these data services resources?
 
@@ -47,7 +47,7 @@ Documentation on getting started with this set of APIs is provided on the HPE Gr
 
 ![](/img/api-documentation-try-it-now.png "Figure 4 Documentation for Data Services REST API.")
 
-The above figure shows the three-panel interactive API reference guide for HPE GreenLake APIs for data services.
+*The above figure shows the three-panel interactive API reference guide for HPE GreenLake APIs for data services.*
 
 ## An Example of Executing an API Call from the API Reference Documentation
 
