@@ -9,9 +9,9 @@ description: "April 24, 2024: A team of product managers and architects presents
   accelerate your consumption of the newly announced data services APIs for HPE
   GreenLake platform for use cases such as automation and monitoring. They’ll
   help you understand the benefits of these API modules, how to interact with
-  them, and their relation to the Storage APIs published earlier."
+  them, and their relation to the Storage APIs published earlier ."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 5
+priority: 1
 image: /img/event-meetups-newlogo-400x400.png
 ---
