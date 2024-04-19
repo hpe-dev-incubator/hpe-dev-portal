@@ -52,7 +52,7 @@ A self-service infrastructure platform is provided with the tool, enabling teams
 
 ![](/img/athon_ssp_1.png)
 
-At MWC (Mobile World Congress) 2024, a proof of concept demonstrated the robustness of this architecture by showcasing a chatbot capable of supporting multiple tools through the self-service capabilities of the LLM platform. This facilitates the development and integration of both individual tools and comprehensive chatbot solutions. 
+At MWC 2024 (Mobile World Congress), a proof of concept demonstrated the robustness of this architecture by showcasing a chatbot capable of supporting multiple tools through the self-service capabilities of the LLM platform. This facilitates the development and integration of both individual tools and comprehensive chatbot solutions. 
 
 ![](/img/athon_ssp_2.png)
 
