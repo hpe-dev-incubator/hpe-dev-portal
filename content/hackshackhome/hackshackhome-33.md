@@ -1,6 +1,6 @@
 ---
 title: The Transformative Impact of Generative AI on Telco Products
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2517108684308/WN_Cho_OlbFQ-CehwRJWsWuyg
 imageBackground: white
