@@ -23,7 +23,7 @@ The specification for these APIs is publicized as OpenAPI specification in JSON 
 
 ![Figure 1. HPE GreenLake API for Data Services List](/img/data-services-api-download-page.png "Figure 1. HPE GreenLake API for Data Services List")
 
-The above figure shows the list of HPE GreenLake APIs for Data Services 
+*The above figure shows the list of HPE GreenLake APIs for Data Services* 
 
 ![Figure 2. An example of the downloaded data-services.json contents.](/img/data-services-api-json-file.png "Figure 2. An example of the downloaded data-services.json contents.")
 
