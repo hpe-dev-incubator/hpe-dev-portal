@@ -34,19 +34,19 @@ However, there are some challenges, including the need to master new generative 
 
 Expecting every team tasked with developing a tool to start from scratch is impractical. Instead, it's crucial to offer a supportive platform that delivers the essential services needed for creation, complemented by a federated governance structure that lays out clear rules and guidelines. In the sections that follow, these principles are explored more in detail, alongside additional insights to guide the development process.
 
-### **Domain-specific LLM tool ownership and decentralization.** 
+### **Domain-specific LLM tool ownership and decentralization**
 
 In the LL-Mesh framework, ownership of LLM tools is strategically distributed across various teams or departments, with each group taking full responsibility for their respective tool's development, maintenance, and quality assurance. This organizational structure aligns with modern enterprise setups, which are typically divided into specific business domains. By applying LL-Mesh principles along these natural divisions, tools are finely tuned to meet the unique requirements of each domain, such as customer service or research and development.
 
 Central to LL-Mesh are data and prompts, metadata, and models, all supported by the necessary computational power to process and deliver results efficiently. This architecture not only facilitates streamlined data management but also significantly enhances the model’s capability to learn and adapt. By aligning the decomposition of tools with the business domains, LL-Mesh ensures that each tool operates within well-defined operational parameters, optimizing both performance and adaptability.
 
-### **LLM tool as product.** 
+### **LLM tool as product**
 
 Each LLM tool is crafted as a specialized product, meticulously designed with the end-user in mind to ensure user-centricity, efficiency, and effectiveness. This philosophy treats each tool as a comprehensive solution that spans from data generation to consumption, emphasizing a seamless and integrated experience. It is crucial that a dedicated team, including a product owner, is responsible for managing the tool end-to-end, ensuring that all stages—from using documents for information analysis with LLMs to presenting results—are harmoniously interconnected. This holistic approach not only enhances the functionality of each phase but also significantly boosts the overall quality of the tool.
 
 The principle of viewing an LLM tool as a product also tackles the persistent issue of data silos. Like data products, there should be a system in place that enables the use of multiple LLM tools in concert. It is essential for these tools to provide clear interfaces and capabilities, including discoverability, security, understandability, and trustworthiness. This ensures that tools not only function independently but also work cohesively within a larger ecosystem, enhancing interoperability and user trust.
 
-### **LLM platform infrastructure.** 
+### **LLM platform infrastructure**
 
 A self-service infrastructure platform is provided with the tool, enabling teams to autonomously develop, deploy, and manage their LLM tools. This platform supports the necessary frameworks to promote autonomy and innovation. Envisioned as LL-Mesh, it extends capabilities beyond enhancing user experience for chatbot users to include interfaces for various stakeholders, including document owners, tool developers, and deployment teams. This requires the development of diverse user interfaces tailored to different interactions within the ecosystem.
 
@@ -67,7 +67,7 @@ Designed to be both extendable and modular, each component of the platform emplo
 
 ![](/img/athon_ssp_4.png)
 
-### **Federated governance and standards.** 
+### **Federated governance and standards**
 
 While the management of LLM tools is decentralized, a unified framework of governance policies and standards is crucial to ensure consistency, ethical integrity, and overall quality across the platform. Federated governance effectively balances the drive for innovation with rigorous standards for security, privacy, and compliance, which are vital to the operation of the LL-Mesh. This approach encompasses several key elements:
 
