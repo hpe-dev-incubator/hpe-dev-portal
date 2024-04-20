@@ -139,7 +139,7 @@ At the time of this release  (March 2024), the API resource to discover the clou
 
 *T﻿he above figure shows the CSP id account that was onboarded into this workspace.*
 
-Another important information, the `imageId` value that is presented below, corresponds to the `AWS Linux VM (free tier)` that is going to be deployed at the AWS account. I used the following API `GET /virtualization/v1beta1/csp-machine-images` to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use `GET /virtualization/v1beta1/csp-machine-instances` to get the machine Id required to execute the below API.
+Another important information to deploy a virtual machine into the CSP is the `imageId` value that is presented below. That imageId corresponds to the `AWS Linux VM (free tier)` machine image that is going to be deployed at the AWS account. I used the following API `GET /virtualization/v1beta1/csp-machine-images` to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use `GET /virtualization/v1beta1/csp-machine-instances` to get the machine Id required to execute the below API.  
 
 ![](/img/obtain-machineid-from-a-machine-instance.png "return imageId from csp-machine-images")
 
