@@ -127,17 +127,17 @@ Almost any HPE GreenLake REST API for data services with `POST, DELETE or PATCH`
 
 To accomplish that monitoring, the user will receive a `task id` value as part of `location` response property as shown in the figure below. The user ould then poll that task id using the `GET /data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines in the on-premises hypervisor (VMware vCenter)
 
-I executed the REST API `POST https://{baseURL}virtualization/v1beta1/virtual-machines` and the response was completed with response status code of `0x202 (Accepted)`. Moreover,  you can discover the task Id value: `0xcad794d1-27ec-4050-bed4-45d13a8de9d0` from the location property. 
+I executed the REST API `POST https://{baseURL}/virtualization/v1beta1/virtual-machines` and the response was completed with response status code of `0x202 (Accepted)`. Moreover, you can discover the task Id value: `0xcad794d1-27ec-4050-bed4-45d13a8de9d0` from the location property. 
 
 ![The task Id from response location field](/img/location-output-contains-the-task-id.png)
 
-*T﻿he above figure display the response header from `POST https://{baseUrl}/virtualization/v1beta1/virtual-machines`.*
+*T﻿he above figure displays the response header from `POST https://{baseUrl}/virtualization/v1beta1/virtual-machines`.*
 
-From the task Id that was obtained from the response header, use **GET async-operations** with the **specific task ID** (e.g. `https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0`) to obtain the status and progress of the previously executed REST API. 
+From the task Id that was obtained from the response header, I used `GET async-operations` with the `specific task ID` (e.g. `https://{baseUrl}/data-services/v1beta1/async-operations/cad794d1-27ec-4050-bed4-45d13a8de9d0`) to obtain the status and progress of the previously executed REST API. 
 
 ![Request async-response for a particular id](/img/api-request-async-operations-request-of-particular-id.png)
 
-The following response snippets depict the two different responses from the polling using the async-operations API, where the first response indicates the progress at **40%** **(RUNNING)**, and the second one indicates the progress at **100%** **(SUCCEEDED).** The progress took about less than 3 minutes as shown by the following keys: **startedAt** and **endedAt**. 
+The following response snippets depict two different responses from the polling using the `async-operations` API. The first response indicated the progress of the associated API execution at `40% (RUNNING)`, and the second response indicated the progress at `100%(SUCCEEDED)`. The progress between the two point of executions was about less than 3 minutes as shown by the difference from the following properties: `startedAt` and `endedAt`. 
 
 * Below is the f﻿irst poll of the VM provisioning REST API task id:
 
