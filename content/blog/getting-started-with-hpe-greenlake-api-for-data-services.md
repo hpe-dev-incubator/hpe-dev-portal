@@ -56,11 +56,11 @@ To start with this example, go to the documentation page for the `async-operatio
 
 ![](/img/tryit-process.png)
 
-Once you are at the next page, select the endpoint of the region under **Target Server** menu where your workspace based on your access token is located. For this example, it would be: `<https://us1.data.cloud.hpe.com>`.  Afterward, expand the **Security> Bearer Token:** field to enter the access token (BEARER).  
+Once you are at the next page, select the endpoint of the region under **Target Server** menu where your workspace based on your access token is located. For this example, it would be: `<https://us1.data.cloud.hpe.com>`.  Afterward, please expand the **Security> Bearer Token:** field to enter the access token (Bearer Token).
 
 ![](/img/enter-bearer-token-and-target-end-point.png)
 
-Paste the access token into the **Bearer Token** using the Ctrl-v (short cut in Microsoft Windows).
+Paste the access token into the **Bearer Token** using Ctrl-v (short cut in Microsoft Windows).
 
 ![](/img/send-the-api-after-token-entered.png)
 
