@@ -125,9 +125,9 @@ The completed execution of this API is shown below.
 
 Almost any HPE GreenLake REST API for data services with `POST, DELETE or PATCH` methods (e.g. `POST /virtualization/v1beta1/virtual-machines`) will be executed asynchronously. The asynchronous execution means that execution of the API will complete and return with `response status= 0x202`. The POST REST API process will run in the background; nonetheless, this operation must be monitored until it comes to completion.
 
-To accomplish that monitoring, the user will receive a `task id` value as part of `location` response property as shown in the figure below. The user ould then poll that task id using the `GET {{baseUrl}}/data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines in the on-premises hypervisor (VMware vCenter)
+To accomplish that monitoring, the user will receive a `task id` value as part of `location` response property as shown in the figure below. The user ould then poll that task id using the `GET /data-services/v1beta1/async-operations/{Task Id}` to retrieve the progress and status of the completion. Below is an example of this use case, where I executed the creation of virtual machines in the on-premises hypervisor (VMware vCenter)
 
-I executed the REST API `POST https://{baseUrl}/virtualization/v1beta1/virtual-machines` and the response was completed with response status code of `0x202 (Accepted)`. Moreover,  you can discover the task Id value: `0xcad794d1-27ec-4050-bed4-45d13a8de9d0` from the location property. 
+I executed the REST API `POST https://{baseURL}virtualization/v1beta1/virtual-machines` and the response was completed with response status code of `0x202 (Accepted)`. Moreover,  you can discover the task Id value: `0xcad794d1-27ec-4050-bed4-45d13a8de9d0` from the location property. 
 
 ![The task Id from response location field](/img/location-output-contains-the-task-id.png)
 
