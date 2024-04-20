@@ -64,7 +64,7 @@ Paste the access token into the **Bearer Token** using Ctrl-v (short cut in Micr
 
 ![](/img/send-the-api-after-token-entered.png)
 
-Click the **send** button to send that API and you will see the response indicating a good status (Hex 0x200). Finish up by clicking on the **Body: Expand** **All** button to display the response body in JSON.
+Click the **Send** button to execute that API and you will see the response page indicating a good status (**Status: 0x200**). Finish up by clicking on the **Body: Expand All** button to display the completed response body in JSON.
 
 ![](/img/response-from-the-tryit-test.png)
 
