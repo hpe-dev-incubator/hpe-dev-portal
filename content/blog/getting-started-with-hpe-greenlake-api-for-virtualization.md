@@ -133,13 +133,13 @@ The example of the response using the above recommended parameter is shown below
 
 ### Creation and management of a virtual machine in a cloud service provider (AWS)
 
-At the time of this release  (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) account id is not yet available as part of this released HPE GreenLake API for virtualization. To display that id, I used an existing legacy GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`.
+At the time of this release  (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) account id is not yet available as part of this released HPE GreenLake API for virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`. 
 
 ![](/img/list-available-csp-account-response.png "List available CSP accounts (DSCC API v1.4)")
 
 *T﻿he above figure shows the CSP id account that was onboarded into this workspace.*
 
-Another important information to deploy a virtual machine into the CSP is the `imageId` value that is presented below. That imageId corresponds to the `AWS Linux VM (free tier)` machine image that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to discover that AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS). You can use `GET /virtualization/v1beta1/csp-machine-instances` to get the machine Id required to execute the below API.  
+Another important information to deploy a virtual machine into my CSP account is the `imageId` value that is presented below. That `imageId` corresponds to the `AWS Linux VM (free tier)` that corresponds to the machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS) service. You can use `GET /virtualization/v1beta1/csp-machine-instances` to get the machine Id required to execute the below API.  
 
 ![](/img/obtain-machineid-from-a-machine-instance.png "return imageId from csp-machine-images")
 
