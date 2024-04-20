@@ -92,7 +92,7 @@ The corresponding task message from the HPE GreenLake task’s UI is shown below
 
 ### active-issues
 
-This API provides the list of the issues that require attention by the HPE GreenLake users. The HPE GreenLake UI provides a bell icon on the top right of every window (please see the previous paragraph under “What are these data services resources?” in this blog) to access the issues from every service available in the GreenLake. 
+This API provides the list of the issues that require attention by your HPE GreenLake users. The HPE GreenLake UI provides a bell icon on the top right of every HPE GreenLake's window (please see the previous UI image under “What are these data services resources?” paragraph in this blog post) to access issues from every available services under the HPE GreenLake.
 
 To limit the display of the properties’ responses returned by this API, user can use parameter **select** as part of the header of the API execution. However, there is minimal set of properties required by **active-issues** API to be entered into the **select** parameter as shown in below response from active-issues API.
 
