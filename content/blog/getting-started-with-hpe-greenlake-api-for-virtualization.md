@@ -133,7 +133,7 @@ The example of the response using the above recommended parameter is shown below
 
 ### Creation and management of a virtual machine in a cloud service provider (AWS)
 
-At the time of this release  (March 2024), the API resource to discover the Cloud Service Provider (CSP) account is not yet available as part of this released HPE GreenLake API for virtualization. However, you can still obtain the information about the account Id at the CSP’s registration on HPE Private Cloud Business Enterprise’s Cloud account menu using the legacy CSP accounts list API `GET {baseUrl}/api/v1/csp-accounts`. Assuming that your AWS account had been onboarded into either HPE GreenLake Backup Recovery or HPE Private Cloud for Business Enterprise, this account Id will be used as one of the values for the body of this creation of virtual machine API as shown below.
+At the time of this release  (March 2024), the API resource to discover the cloud service provider (CSP) account is not yet available as part of this released HPE GreenLake API for virtualization. However, you can still obtain the information about the account Id at the CSP’s registration on HPE GreenLake Private Cloud Business Enterprise’s cloud account menu using the legacy CSP accounts list API `GET https://{baseUrl}/api/v1/csp-accounts`. Assuming that your AWS account had been onboarded into either HPE GreenLake Backup Recovery or HPE Private Cloud for Business Enterprise, this `account Id` will be used as one of the values for the JSON request body for the virtualization API to deploy virtual machine into cloud service provider as shown below. 
 
 ![](/img/list-available-csp-account-response.png "List available CSP accounts (DSCC API v1.4)")
 
