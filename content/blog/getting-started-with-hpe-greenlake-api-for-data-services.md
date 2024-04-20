@@ -78,11 +78,11 @@ Even though there is documentation available in the HPE GreenLake Developer webs
 
 The responses from this resource are critical for debugging and monitoring the activities that happen from any API executions. Those APIs can be from Virtualization, Backup and Recovery, Block services, or Private Cloud Business Edition. Here is a tip on how to filter out those tasks (`async-operations`) that belong to a particular service. Use the parameter: `filter: <service> in services` like below.
 
-> **Note**: from this API response field `associatedResources` points to the particular asset that encounters the execution. To simplify the response returned by this API, use the parameter: `select: <properties>` as shown below.
+> **Note**:  To simplify the response returned by this API, use the parameter: `select: associatedResources,displayName,services,createdAt` as shown below. 
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
-T﻿he response from the execution of `GET /data-services/v1beta1/async-operations` is provided below.
+T﻿he response from the execution of `GET /data-services/v1beta1/async-operations` is provided below. From this response page, the property `associatedResources` pointed to the particular asset that encountered the execution. Additionally, the property `services` indicated which set of service that this API execution applicable to.
 
 ![](/img/api-response-from-filtered-and-selected-async-response.png)
 
