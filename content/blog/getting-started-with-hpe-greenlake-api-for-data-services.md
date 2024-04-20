@@ -41,7 +41,7 @@ The following pictures depict some of the resources that are related to Data Ser
 
 *The above figure shows some of the resources that are managed by HPE GreenLake APIs for data services*
 
-## Using the HPE GreenLake APIs for Data Services
+## Using the HPE GreenLake APIs for data services
 
 Documentation on getting started with this set of APIs is provided on the HPE GreenLake Developer Portal at this [link](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/).  There is also blog post that describes how to use publicly available tool, such as Postman, to manipulate this set of API without using any programming languages at this [link](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Additional blog posts that describe using Postman for this API is also available at this [link](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/). Moreover, there will be blog posts available that provide guidance on how to convert this data services OpenAPI spec that is based on OpenAPI spec 3.1.X to the scripting language library in future.  Anyone can follow the examples provided by each API reference in the documentation [page](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/) such as what’s shown below. The documentation provides details on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly from the API reference documentation, as explained in the following paragraph.
 
