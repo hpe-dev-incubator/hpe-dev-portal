@@ -51,7 +51,7 @@ Documentation on using this set of APIs is provided on the HPE GreenLake Develop
 
 ## An example of executing an API Call from the API reference documentation
 
->﻿**Note:** All of the below examples assume that you have access to HPE GreenLake workspace. For more information on acquiring an HPE GreenLake workspace, please follow this [guide](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=a00120892en_us)
+>﻿**Note:** All of the below examples assume that you have access to HPE GreenLake workspace. For more information on acquiring an HPE GreenLake workspace, please follow this [guide](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=a00120892en_us).
 
 You can start by obtaining an access token for the workspace where you have the permission. For  information on getting the access token, please see the following [guide](https://developer.greenlake.hpe.com/docs/greenlake/services), or  follow my other blog posts in this [link](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). Once the access token is obtained, please copy it (Ctrl-c short cut in Microsoft Window) so that you can enter that token into the **Security>Bearer Token:** field of the API reference documentation page displaying the list of `async-operations` (as an example). 
 
