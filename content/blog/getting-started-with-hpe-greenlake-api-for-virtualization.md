@@ -151,7 +151,7 @@ The figure below shows the documentation of HPE GreenLake API for virtualization
 
 *T﻿he above figure shows the documentation on `POST /virtualization/v1beta1/csp-machine-instances` to deploy a VM inside the cloud service provider.*
 
-You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above; I entered the values required by the key-pairs part of the body. The key of **keyPairName** is the name for the certificate key-pair required to login into the VM. 
+You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above; I entered the values required by the key-pairs part of the body. The key of `keyPairName` is the name for the certificate key-pair required to login into the VM. 
 
 ![](/img/deployment-of-csp-machine-instance-using-post-and-payload.png "Deploy a machine instance based on the payload POST")
 
@@ -230,7 +230,7 @@ To progress further, I needed to find the Id that corresponds to the newly creat
 
 *T﻿he above figure display the name and the machine-instance id so that you can manipulate the machine's state.*
 
-To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}/power-off` to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API `DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}` to terminate that virtual machine and retire it (delete) from the inventory of EC2.  Just like any invocation of POST API, the invocation of DEL method was asynchronously executed. Hence the same strategy of using the async-operation API applies. Finally, the result of the execution will be returned as part of the response API from async-operation indicated that VM that I had created recently has already been terminated, as shown below.
+To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}/power-off` to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API `DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/{vmId}` to terminate that virtual machine and retire it (delete) from the inventory of EC2.  Just like any invocation of POST API, the invocation of DEL method was asynchronously executed. Hence the same strategy of using the `GET async-operations` API applies. Finally, the result of the execution will be returned as part of the response API from async-operation indicated that VM that I had created recently has already been terminated, as shown below. 
 
 ```json
 {
