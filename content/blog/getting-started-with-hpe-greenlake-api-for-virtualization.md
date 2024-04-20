@@ -60,11 +60,11 @@ To ensure that all programmatic interaction with the HPE GreenLake platform serv
 
 Nevertheless, there is also blog [post](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/) that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this [link](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console). Moreover, there will be blog posts available that provide guidance on how to convert this Open API  based on the OAS 3.1 to any scripting language library in the future.
 
-Lastly, anyone can follow the examples provided by each virtualization API referenced in the HPE GreenLake Developer's documentation page, such as shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake Data Services API).
+Lastly, anyone can follow the examples provided by each virtualization API referenced in the HPE GreenLake Developer's documentation page, such as shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake APIs for data services ).
 
 ![](/img/get-all-registered-hypervisor-managers-download.png "Get all registered hypervisors managers")
 
-*T﻿he above figure shows three panel's interactive API reference documentation for one of HPE GreenLake API for virtualization request.*
+*T﻿he above figure shows three-panel interactive API reference documentation for one of HPE GreenLake API for virtualization.*
 
 ## Some tips and examples
 
