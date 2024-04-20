@@ -139,7 +139,7 @@ From the task Id that was obtained from the response header, I used `GET async-o
 
 The following response snippets depict two different responses from the polling using the `async-operations` API. The first response indicated the progress of the associated API execution at `40% (RUNNING)`, and the second response indicated the progress at `100%(SUCCEEDED)`. The progress between the two point of executions was about less than 3 minutes as shown by the difference from the following properties: `startedAt` and `endedAt`. 
 
-* Below is the f﻿irst poll of the VM provisioning REST API task id:
+Below is the f﻿irst poll of the VM provisioning REST API task id:
 
 ```json
 {
@@ -178,9 +178,9 @@ The following response snippets depict two different responses from the polling 
 } 
 ```
 
-The above figure display the result from the first poll of the VM provisioning REST API task Id with **progressPercent:40** and **state: RUNNING**.
+*The above response displays the result from the first poll of the VM provisioning REST API task Id with `progressPercent:40` and `state: RUNNING`*.
 
-* *B﻿elow is the last poll of the VM provisioning REST API task id:*
+B﻿elow is the last poll of the VM provisioning REST API task id:
 
 ```json
 {
@@ -232,7 +232,9 @@ The above figure display the result from the first poll of the VM provisioning R
 }
 ```
 
-The above f﻿igure indicated that the second poll of the VM provisioning REST API **task Id** indicated that the creation of the virtual machines on-premises had completed successfully (**progressPercent: 100, state: SUCCEEDED**). User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
+*The above response displays from the second poll of the VM provisioning REST API `task Id` that the creation of the virtual machines on-premises had completed successfully (`progressPercent: 100, state: SUCCEEDED`).* 
+
+User then can discover a VM that is named “0-RRD-API-Deploy-4” available at the VMware cluster where this provisioning was executed. 
 
 # Summary
 
