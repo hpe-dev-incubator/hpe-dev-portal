@@ -82,7 +82,7 @@ The responses from this resource are critical for debugging and monitoring the a
 
 ![](/img/async-operations-invocation-parameters.png "Execution of async-services using filter, sort, and select parameters")
 
-T﻿he response from the execution of `GET /data-services/v1beta1/async-operations` is provided below. From this response page, the property `associatedResources` pointed to the particular asset that encountered the execution. Additionally, the property `services` indicated which set of service that this API execution applicable to.
+T﻿he response from the execution of `GET /data-services/v1beta1/async-operations` is provided below. From this response page, the property `associatedResources` pointed to the particular asset that encountered the execution. Additionally, the property `services` indicated which set of service that this `associatedResources` API execution applicable to. 
 
 ![](/img/api-response-from-filtered-and-selected-async-response.png)
 
