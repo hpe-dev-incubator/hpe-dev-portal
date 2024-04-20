@@ -81,7 +81,7 @@ Along with the information about the hypervisor, the response of `GET {baseURL}/
 The recommended select parameters to discover the hypervisor and services related to hypervisor is shown below.
 
 ```shellsession
-https://{baseUrl}/virtualization/v1beta1/hypervisor-managers?select=name,id,state,status,dataOrchestratorInfo,services,hypervisorManagerType,releaseVersion
+GET https://{baseUrl}/virtualization/v1beta1/hypervisor-managers?select=name,id,state,status,dataOrchestratorInfo,services,hypervisorManagerType,releaseVersion
 ```
 
 The example of the response using the above recommended parameter is shown below. From this response information, I can derive that hypervisor with name `cds-tme-vcenter.rtplab.nimblestorage.com` contains only `backup-and-recovery` services. However, the second hypervisor with name `rtp-arra392-dhci.rtplab.nimblestorage.com` contains both the `hci-manager` and `backup-and-recovery`. These values gave me an idea that this workspace contains two VMware vCenters, both of which were protected by HPE GreenLake for Backup and Recovery; however, only the second one was part of HPE GreenLake for Private Cloud Business Edition.
@@ -129,7 +129,7 @@ The example of the response using the above recommended parameter is shown below
 }
 ```
 
-*T﻿he above code snippet display the response from hyper-managers API execution*.
+*T﻿he above code snippet display the response from GET hyper-managers API execution*.
 
 ### Creation and management of a virtual machine in a cloud service provider (AWS)
 
