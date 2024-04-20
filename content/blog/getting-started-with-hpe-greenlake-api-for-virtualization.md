@@ -24,7 +24,7 @@ The specification for this set of APIs is publicized as OpenAPI specification in
 
 ![](/img/virtualization-api-guide-website-and-download.png "HPE GreenLake API for Virtualization documentation.")
 
-*The above figure shows HPE GreenLake APIs for virtualization's drop down list, and the link to download the OpenAPI specification in JSON format.
+\*The above figure shows HPE GreenLake APIs for virtualization's drop down list, and the link to download the OpenAPI specification in JSON format.
 
 ![](/img/virtualization-openapi-3.1-spec-file.png "HPE GreenLake OAS 3.1 specification for Virtualization download.")
 
@@ -38,19 +38,19 @@ This set of APIs is identified as revision v1beta1 at the time of its introducti
 
 The following pictures depict some of the resources that are related to the virtualization APIs that can be discovered inside the two cloud data services that are part of the HPE GreenLake. The two services which leverage these APIs are HPE GreenLake for Backup and Recovery (GLBR), and HPE GreenLake for Private Cloud Business Edition (PCBE). Both services leverage the virtualization APIs to discover assets that would need to be onboarded, protected, orchestrated, nurtured, or retired following the CRUD (create, revise, update, delete) principles of REST API. Each object presented in the pictures below are part of the User Interface that can be manipulated using this virtualization APIs.
 
->**Note:** Not all virtualization API resources seen at HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition user interfaces are going to be available inside this set of APIs upon its first release. Due to sharing of the virtualization services between the two services, any virtualization resources that are added into one HPE GreenLake workspace and used by both services can be manipulated by HPE GreenLake APIs for virtualization using the same instance Id.
+> **Note:** Not all virtualization API resources seen at HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition user interfaces are going to be available inside this set of APIs upon its first release. Due to sharing of the virtualization services between the two services, any virtualization resources that are added into one HPE GreenLake workspace and used by both services can be manipulated by HPE GreenLake APIs for virtualization using the same instance Id.
 
-![](/img/resources-correspond-to-virtualization-api-in-glbr.png "On-prem resources in GLBR")
+![](/img/onprem-resources-virtualization-api-glbr.png "On-prem resources in GLBR")
 
-*T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Backup and Recovery.*
+*T﻿he above figure shows virtualization APIs resources related to VMware in HPE GreenLake for Backup and Recovery.* 
 
-![](/img/virtualization-api-in-pcbe.png "on-prem resources in PCBE")
+![](/img/onprem-resources-virtualization-api-pcbe.png "on-prem resources in PCBE")
 
-*T﻿he above figure shows virtualization resources related to VMware in HPE GreenLake for Private Cloud Business Edition.*
+*T﻿he above figure shows virtualization APIs resources related to VMware in HPE GreenLake for Private Cloud Business Edition.* 
 
-![](/img/cloud-resources-for-aws-in-backup-and-recovery.png "Cloud resources in GLBR")
+![](/img/cloud-public-resources-inside-the-glbr.png "Cloud resources in GLBR")
 
-*The above figure shows virtualization resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery*
+*The above figure shows virtualization  APIs resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery.*
 
 ## Using the HPE GreenLake APIs for Virtualization
 
