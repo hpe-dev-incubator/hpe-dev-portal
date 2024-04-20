@@ -61,7 +61,7 @@ Once you are at the next page, select the end-point of the region under **Target
 
 ![](/img/enter-bearer-token-and-target-end-point.png)
 
-Paste the access token into the **Bearer Token** using Ctrl-v (short cut in Microsoft Windows).
+Paste the valid access token into the **Bearer Token** using Ctrl-v (short cut in Microsoft Windows). Keep in mind that the access token will expire after 2 hours past from the time of creation. If the access token has expired, please obtain a new access token using your existing client-credentials.
 
 ![](/img/send-the-api-after-token-entered.png)
 
