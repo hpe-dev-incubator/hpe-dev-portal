@@ -70,7 +70,7 @@ Lastly, anyone can follow the examples provided by each virtualization API refer
 
 Even though there is documentation available in the HPE GreenLake Developer portal, here are some  recommendations and best practices for using the HPE GreenLake API for virtualization.
 
->﻿**Note:** 
+> ﻿**Note:** All of the below examples assume that you have access to HPE GreenLake workspace. For more information on acquiring an HPE GreenLake workspace, please follow this [guide](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=a00120892en_us).
 
 ### Discovery of services for a given hypervisor
 
