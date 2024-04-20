@@ -230,7 +230,7 @@ To progress further, I needed to find the id that corresponds to the newly creat
 
 *T﻿he above figure display the name and the csp-machine-instance id so that I could manipulate the machine's state.* 
 
-To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/:id/power-off` to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API `DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/:id` to terminate that virtual machine and retire it (delete) from the inventory of my AWS CSP account.  Just like any invocation of `POST API`, the invocation of DEL method was asynchronously executed. Hence the same strategy of using the `GET async-operations` API applies. Finally, the result of the execution will be returned as part of the response API from `async-operation` indicated that VM that I had created recently has already been terminated, as shown below. 
+To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machine-instances/:id/power-off` to power off the virtual-machine instance in the AWS account. Lastly, I invoked another API `DEL {baseUrl}/virtualization/v1beta1/csp-machine-instances/:id` to terminate that virtual machine and retire it (delete) from the inventory of my AWS CSP account.  Just like any invocation of `POST API`, the invocation of DEL method was asynchronously executed. Hence, the same strategy of using the `GET async-operations` API would apply. Finally, the result of the execution will be returned as part of the response API from `async-operation` indicated that VM that I had created recently has already been terminated, as shown below. 
 
 ```json
 {
