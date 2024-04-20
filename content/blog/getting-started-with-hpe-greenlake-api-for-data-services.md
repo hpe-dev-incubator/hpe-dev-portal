@@ -234,7 +234,7 @@ B﻿elow is the last poll of the VM provisioning REST API task id:
 
 *The above response displays that at the moment of the second poll of the VM provisioning REST API `task Id`, the creation of the virtual machines on-premises had completed successfully (`progressPercent: 100, state: SUCCEEDED`).* 
 
-At that moment, I could then discovered a VM with the name `0-RRD-API-Deploy-4` available at the VMware cluster where this provisioning was executed.
+At that moment, I also discovered a virtual machine with the name `0-RRD-API-Deploy-4` available at the VMware cluster where this provisioning was executed. 
 
 # Summary
 
