@@ -67,7 +67,7 @@ Paste the valid access token into the **Bearer Token** using Ctrl-v (short cut i
 
 ![](/img/send-the-api-after-token-entered.png)
 
-Click the **Send** button to execute that API and you will see the response page indicating a good status (**Status: 0x200**). Finish up by clicking on the **Body: Expand All** button to display the completed response body in JSON.
+Click the **Send** button to execute that API and you will see the response page indicating a good status (`Status: 0x200`). Finish up by clicking on the **Body: Expand All** button to display the completed response body in JSON.
 
 ![](/img/response-from-the-tryit-test.png)
 
@@ -120,7 +120,7 @@ Following the above recommendation, the following request body shows where I ent
 
 The completed execution of this API is shown below.
 
-![Response from issues with the correct select](/img/execution-result-from-active-issues.png)
+![Response from issues with the correct select](/img/api-response-with-select-for-active-issues.png)
 
 *The above figure shows the output from GET issues given the parameter: `select=body,createdAt,customerId,generation,id,lastOccuredAt,resourceURI,type,updatedAt`.*
 
