@@ -320,7 +320,7 @@ Here is another example of using the HPE GreenLake API for virtualization to pro
 
 This virtualization API incorporated the virtual machine provisioning policy that is part of the HPE GreenLake for Private Cloud Business Edition. I used the HPE GreenLake for Private Cloud Business Edition API `GET /private-cloud-business/v1beta1/vm-provisioning-policies` to obtain the `provisioningPolicyId` and entered it into the Body JSON structure as required.
 
-![obtain the provisioning policy for deploying datastores using HPE PCBE](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using HPE PCBE")
+![obtain the provisioning policy for deploying datastores using HPE PCBE](/img/get-virtualization-api-to-obtain-vm-provisioning-policy.png "get the provisioning policy for deploying datastores in a dHCI using HPE PCBE")
 
 I used another API from the virtualization API such as `GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters` to obtain the `HyperClusterId` (shown below). 
 
