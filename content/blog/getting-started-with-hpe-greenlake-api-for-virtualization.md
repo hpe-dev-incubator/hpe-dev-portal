@@ -308,6 +308,10 @@ To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machi
 }
 ```
 
+*T﻿he above figure shows the termination of machine-instance in AWS reached 100% progress and completed successfully.*
+
+
+
 ### Wow… that was so cool. What about provisioning  a VMware Datastore on-premises?
 
 Here is another example of using the HPE GreenLake API for virtualization to provision a datastore out of an HPE disaggregated Hyperconverged Infrastructure (dHCI) system for on-premise deployment. The HPE dHCI instance had already been onboarded into the HPE GreenLake for Private Cloud Business Edition service (PCBE).  The [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateDS/) that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also required a definition of this JSON structure with values in the **body (Payload)**. The information about this request JSON body is presented in the figure below. 
