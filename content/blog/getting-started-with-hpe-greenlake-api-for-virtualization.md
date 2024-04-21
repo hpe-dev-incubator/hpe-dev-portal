@@ -22,9 +22,9 @@ At time of release, this set of APIs' supports for on-premises hypervisor includ
 
 The specification for this set of APIs is published as an OpenAPI specification in JSON format. The specification of this set of APIs is available for download from this [section](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/overview/) of the documentation (shown below). The specification follows the OpenAPI standard 3.1, which contains all the information required so that this JSON spec-file can be consumed by any OpenAP﻿I tools to generate client library, SDK, server mock, or documentation as described in this OpenAPI [Initiative](https://tools.openapis.org/).  
 
-![](/img/virtualization-api-guide-website-and-download.png "HPE GreenLake API for Virtualization documentation.")
+![](/img/virtualization-api-guide-website-and-download.png "The HPE GreenLake API for Virtualization documentation.")
 
-\*The above figure shows HPE GreenLake APIs for virtualization's drop down list, and the link to download the OpenAPI specification in JSON format.
+\*The above figure shows the HPE GreenLake APIs for virtualization's drop down list, and the link to download the OpenAPI specification in JSON format.
 
 ![](/img/virtualization-openapi-3.1-spec-file.png "HPE GreenLake OAS 3.1 specification for Virtualization download.")
 
