@@ -50,7 +50,7 @@ The following pictures depict some of the resources that are related to the virt
 
 ![](/img/cloud-public-resources-inside-the-glbr.png "Cloud resources in GLBR")
 
-*The above figure shows virtualization  APIs resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery.*
+*The above figure shows virtualization APIs resources related to Public Cloud Provider in HPE GreenLake for Backup and Recovery.*
 
 ## Using the HPE GreenLake APIs for Virtualization
 
@@ -58,9 +58,9 @@ This set of virtualization APIs uses the same authorization and permission as th
 
 To ensure that all programmatic interaction with the HPE GreenLake platform services and resources is secure and authenticated, these APIs require an access token. The token is generated using the client ID and client Secret you obtained during the creation of the client API credentials. Documentation about getting started with the HPE GreenLake API is provided on the HPE Developer Community [website](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/), and on the HPE GreenLake Developer portal [website](https://developer.greenlake.hpe.com/docs/greenlake/services/). 
 
-Nevertheless, there is also blog [post](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/) that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this [link](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console). Moreover, there will be blog posts available that provide guidance on how to convert this Open API JSON file based on the OpenAPI 3.1 to any scripting language library.
+Nevertheless, there is also blog [post](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/) that describes how to use publicly available tools to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available at this [link](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console). Moreover, there will be blog posts available that provide guidance on how to convert this Open API JSON file based on the OpenAPI 3.1 to any scripting language library.
 
-Lastly, anyone can follow the examples provided by each virtualization API referenced in the HPE GreenLake Developer's documentation page, such as shown on below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake APIs for data services ).
+Lastly, anyone can follow the examples provided by each virtualization API referenced in the HPE GreenLake Developer's documentation page, such as shown in the below figure. The documentation provides detail on the API syntax for a particular method, arguments used for the API, successful and failed responses, and several examples using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake APIs for data services ). 
 
 ![](/img/get-all-registered-hypervisor-managers-download.png "Get all registered hypervisors managers")
 
