@@ -76,7 +76,7 @@ Even though there is documentation available in the HPE GreenLake Developer port
 
 The discovery of the on-premises assets in a HPE GreenLake workspace is started by obtaining the access token, and applying it to the virtualization API `GET {baseURL}/virtualization/v1beta1/hypervisor-managers` to discover the hypervisors that are already onboarded into the your workspace.  
 
-Along with the information about the hypervisor, the response of `GET {baseURL}/virtualization/v1beta1/hypervisor-managers` provides additional information such as which HPE GreenLake services are associated with the discovered hypervisor. To discover the information, you can use the `select` parameter with the API to discover p﻿roperties such as `dataOrchestratorInfo` and `services`. The response values that are returned from this API execution provide the information on what service is associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor. 
+Along with the information about the hypervisor, the response of `GET {baseURL}/virtualization/v1beta1/hypervisor-managers` provides additional information such as which HPE GreenLake services are associated with the discovered hypervisor. To discover the information, you can use the `select` parameter with the API to discover properties such as `dataOrchestratorInfo` and `services`. The response values that are returned from this API execution provide the information on what services are associated with the hypervisor and the instance of Data Orchestrator VM that is providing protection against that hypervisor.  
 
 The recommended select parameters to discover the hypervisor and services related to hypervisor is shown below.
 
