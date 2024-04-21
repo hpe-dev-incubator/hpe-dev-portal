@@ -131,7 +131,17 @@ The example of the response using the above recommended parameter is shown below
 
 *T﻿he above code snippet display the response from GET hyper-managers API execution*.
 
-### Creation and management of a virtual machine in a cloud service provider (AWS)
+### Creation and management of a virtual machine in a cloud service provider (CSP)
+
+The figure below shows the documentation of HPE GreenLake API for virtualization to deploy a virtual machine in your CSP account: `POST /virtualization/v1beta1/csp-machine-instances`. Note that this API requires that user to provide a `request body` as part of the API execution. The [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateCSPMachineInstance/) for this API at HPE GreenLake Developer website used another terminology which is called `Payload`. It is presented as one of the tabs in the `Request samples` window, as shown in the figure below.  This `Payload` tab provided details of the JSON structure required for the execution of the API `POST /virtualization/v1beta1/csp-machine-instance`. Inside the JSON body structures, I recognized that I need to provide multiple key-pair values such as 
+
+```
+accountId, imageId, instanceType,region, cspType, keyPairName, name
+```
+
+![](/img/documentation-of-the-post-csp-machine-instance-with-required-payload.png "display csp-machine-instances with the required Payload to POST")
+
+*T﻿he above figure shows the documentation on `POST /virtualization/v1beta1/csp-machine-instances` to deploy a VM inside the cloud service provider.*
 
 At the time of this release  (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) account id is not yet available as part of this released HPE GreenLake API for virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`. 
 
