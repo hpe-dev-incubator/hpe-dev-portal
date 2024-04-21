@@ -20,8 +20,6 @@ This the second in a series of blog posts ([data services](https://developer.hpe
 
 At time of release, this set of APIs' supports for on-premises hypervisor includes VMware (7.X and 8.X) and cloud public provider such as AWS Elastic Cloud Compute and Microsoft Azure virtual machine. The resources that are supported on-premises are *virtual machines, virtual machine images, datastores, VMware clusters (hosts, folders, networks, tags, networks, resource-pool)*. Conversely, the resources that are supported on cloud providers include *virtual machine instance, virtual machine images, and virtual machine instance types*. 
 
-
-
 ![](/img/virtualization-api-guide-website-and-download.png "The HPE GreenLake API for Virtualization documentation.")
 
 *The above figure shows the HPE GreenLake APIs for Virtualization drop down list, and the link to download the OpenAPI specification in JSON format.*
@@ -322,7 +320,7 @@ Here is another example of using the HPE GreenLake API for virtualization to pro
 
 This virtualization API incorporated the virtual machine provisioning policy that is part of the HPE GreenLake for Private Cloud Business Edition. I used the HPE GreenLake for Private Cloud Business Edition API `GET /private-cloud-business/v1beta1/vm-provisioning-policies` to obtain the `provisioningPolicyId` and entered it into the Body JSON structure as required.
 
-![](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using PCBE")
+![obtain the provisioning policy for deploying datastores using HPE PCBE](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using HPE PCBE")
 
 I used another API from the virtualization API such as `GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters` to obtain the `HyperClusterId` (shown below). 
 ![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
