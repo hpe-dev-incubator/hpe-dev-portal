@@ -149,11 +149,11 @@ At the time of this release (March 2024), the API resource to discover the HPE G
 
 *T﻿he above figure shows the accountId and the cspType required for the deployment of the virtual machine on the CSP account.*
 
-Another important information to deploy a virtual machine into my CSP account is the `imageId` value. That `imageId` (shown below) corresponds to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing  virtual machine that had been deployed inside my CSP account. 
+Another important information to deploy a virtual machine into my CSP account is the `imageId` value. That `imageId` (shown below) corresponded to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing  virtual machine that had been deployed inside my CSP account. 
 
 ![](/img/api-of-csp-machine-image-based-on-known-aws-machine-id-in-us-east-1.png "return imageId from csp-machine-images")
 
-*T﻿he above figure shows the imageId value obtained from existing machine instance.*
+*T﻿he above figure shows the imageId value obtained from the existing machine instance.*
 
 You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON structure as shown below. Combining the information that I gathered above, I entered the values required by JSON structure part of the request body. The key of `keyPairName` is the name for the certificate key-pair created in my CSP account. I chose `RonD-deploy-CSP-1` for the name of the deployed virtual machine. Additionally, I used instanceType of `t2.micro` as the instance that is appropriate for this demo.
 
