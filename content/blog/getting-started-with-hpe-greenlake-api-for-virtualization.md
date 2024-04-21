@@ -155,7 +155,7 @@ Another important information to deploy a virtual machine into my CSP account is
 
 *T﻿he above figure shows the imageId value obtained from the existing machine instance.*
 
-You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON structure as shown below. Combining the information that I gathered above, I entered the values required by JSON structure part of the request body. The key of `keyPairName` is the name for the certificate key-pair created in my CSP account. I chose `RonD-deploy-CSP-1` for the name of the deployed virtual machine. Additionally, I used instanceType of `t2.micro` as the instance that is appropriate for this demo.
+You can see in the below figure, I performed the deployment of a virtual machine using Postman tool. This tool provided the special field for me to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON structure as shown below. Combining the information that I gathered above, I entered the values required by JSON structure part of the request body. The key of `keyPairName` is the name for the certificate key-pair created in my CSP account. I chose `RonD-deploy-CSP-1` for the name of the deployed virtual machine. Additionally, I used instanceType of `t2.micro` as the instance that is appropriate for this demo. 
 
 ![](/img/post-creation-of-a-virtual-machine-inside-the-csp-account.png "Deploy a machine instance based on the payload POST")
 
