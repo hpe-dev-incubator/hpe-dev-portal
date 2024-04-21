@@ -323,6 +323,7 @@ This virtualization API incorporated the virtual machine provisioning policy tha
 ![obtain the provisioning policy for deploying datastores using HPE PCBE](/img/get-provisioning-policy-for-pcbe-in-dhci.png "get the provisioning policy for deploying datastores in a dHCI using HPE PCBE")
 
 I used another API from the virtualization API such as `GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters` to obtain the `HyperClusterId` (shown below). 
+
 ![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
 
 Furthermore, I used the legacy API such as `GET /api/v1/storage-systems/device-type2` to obtain the `Storage System Id` (shown below).
