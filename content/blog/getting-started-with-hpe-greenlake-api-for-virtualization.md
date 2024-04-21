@@ -334,88 +334,88 @@ Finally, I entered all the above values into the JSON body below as part of the 
 
 ![](/img/post-virtualization-api-with-taskid-succesful.png "Deploy POST to create the datastore in the DHCI using PCBE")
 
-From the response of the API `GET aync-operations` for the task Id shown below, I confirmed that creation of the datastore was completed. Note that the creation of the datastore also applied the HPE GreenLake Backup Recovery data protection-policy to the newly created datastore. 
+From the response of the API `GET aync-operations` for the `{task Id}` shown below, I confirmed that creation of the datastore was completed. Note that the creation of the datastore also applied the HPE GreenLake Backup Recovery data protection-policy to the newly created datastore. 
 
 ```json
 {
     "associatedResources": [],
     "childTasks": [
         {
-            "name": "Create datastore: VVOL-ds1",
-            "resourceUri": "/data-services/v1beta1/async-operations/ad25f64d-7bd1-439e-ac31-17728e6cdbc6",
+            "name": "Create datastore: VMFS-ds2",
+            "resourceUri": "/data-services/v1beta1/async-operations/58955ba4-59ba-4f78-a4e8-5116aaba9e7d",
             "type": "task"
         }
     ],
-    "createdAt": "2024-03-29T00:56:16.981296528Z",
-    "customerId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "displayName": "Provisioning datastore VVOL-ds1",
-    "endedAt": "2024-03-29T00:59:22.975723884Z",
+    "createdAt": "2024-04-21T22:08:25.439053461Z",
+    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "displayName": "Provisioning datastore VMFS-ds2",
+    "endedAt": "2024-04-21T22:12:00.738144472Z",
     "error": null,
     "estimatedRunningDurationMinutes": 0,
     "generation": 8,
     "groups": [
         {
-            "id": "eb988b5exxx11ec8407xxxb5263ef4",
+            "id": "eb988b5e2dcb11ec840712b3b5263ef4",
             "name": "Default Group"
         }
     ],
     "healthStatus": "OK",
-    "id": "9825d5e8-5213-433b-8fbf-1945bb4496e1",
+    "id": "8de5e0a2-af09-4de3-8334-75638c147735",
     "logMessages": [
         {
             "message": "Task created",
-            "timestampAt": "2024-03-29T00:56:16.98131301Z"
+            "timestampAt": "2024-04-21T22:08:25.439071294Z"
         },
         {
             "message": "Task is running",
-            "timestampAt": "2024-03-29T00:56:16.981315803Z"
+            "timestampAt": "2024-04-21T22:08:25.439074148Z"
         },
         {
             "message": "Preparing parameters",
-            "timestampAt": "2024-03-29T00:56:18.622573215Z"
+            "timestampAt": "2024-04-21T22:08:29.779163168Z"
         },
         {
             "message": "Creating datastore",
-            "timestampAt": "2024-03-29T00:56:19.797636611Z"
+            "timestampAt": "2024-04-21T22:08:31.200651622Z"
         },
         {
             "message": "Validating datastore",
-            "timestampAt": "2024-03-29T00:56:36.120087916Z"
+            "timestampAt": "2024-04-21T22:09:44.256999998Z"
         },
         {
             "message": "Applying protection policy",
-            "timestampAt": "2024-03-29T00:57:36.332756275Z"
+            "timestampAt": "2024-04-21T22:10:14.382076894Z"
         },
         {
             "message": "Task succeeded",
-            "timestampAt": "2024-03-29T00:59:22.975739714Z"
+            "timestampAt": "2024-04-21T22:12:00.738160833Z"
         }
     ],
-    "name": "Provisioning datastore VVOL-ds1",
+    "name": "Provisioning datastore VMFS-ds2",
     "parentTask": null,
     "progressPercent": 100,
     "recommendations": [],
-    "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-xxx-xxx-xxx-1945bb4496e1",
+    "resourceUri": "/data-services/v1beta1/async-operations/8de5e0a2-af09-4de3-8334-75638c147735",
     "rootTask": {
-        "id": "9825d5e8-5213-433b-8fbf-1945bb4496e1",
+        "id": "8de5e0a2-af09-4de3-8334-75638c147735",
         "name": "",
-        "resourceUri": "/data-services/v1beta1/async-operations/9825d5e8-xxx-xxx-xxx-1945bb4496e1",
+        "resourceUri": "/data-services/v1beta1/async-operations/8de5e0a2-af09-4de3-8334-75638c147735",
         "type": "task"
     },
     "services": [
         "private-cloud-business-edition"
     ],
     "sourceResource": {
-        "name": "VVOL-ds2",
-        "resourceUri": "/api/v1/datastores/fdcc724f-xxxx-xxx-xxx-81f0fd701512",
+        "name": "VMFS-ds2",
+        "resourceUri": "/api/v1/datastores/ff5a8bf8-ddc9-5bca-9f9f-c4cf3f099364",
         "type": "Datastore"
     },
-    "startedAt": "2024-03-29T00:56:16.981298562Z",
+    "startedAt": "2024-04-21T22:08:25.439056085Z",
     "state": "SUCCEEDED",
     "subtreeTaskCount": 2,
     "suggestedPollingIntervalSeconds": 30,
     "type": "task",
-    "updatedAt": "2024-03-29T00:59:23.013384523Z",
+    "updatedAt": "2024-04-21T22:12:00.793422464Z",
     "userId": "ronald.dharma@hpe.com"
 }
 ```
