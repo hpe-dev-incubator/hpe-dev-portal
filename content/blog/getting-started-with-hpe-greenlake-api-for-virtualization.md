@@ -28,7 +28,7 @@ The specification for this set of APIs is published as an OpenAPI specification 
 
 ![](/img/virtualization-openapi-3.1-spec-file.png "HPE GreenLake OAS 3.1 specification for Virtualization download.")
 
-*The above figure shows a sample of the downloaded OpenAPI specification of the HPE GreenLake virtualization API.*
+*The above figure shows a sample of the downloaded OpenAPI specification of the HPE GreenLake API for virtualization.*
 
 ## API versioning
 
