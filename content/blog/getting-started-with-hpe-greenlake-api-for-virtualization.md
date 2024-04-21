@@ -347,7 +347,7 @@ From the response of the API `GET aync-operations` for the `{task Id}` shown bel
         }
     ],
     "createdAt": "2024-04-21T22:08:25.439053461Z",
-    "customerId": "eb988b5e2dcb11ec840712b3b5263ef4",
+    "customerId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "displayName": "Provisioning datastore VMFS-ds2",
     "endedAt": "2024-04-21T22:12:00.738144472Z",
     "error": null,
