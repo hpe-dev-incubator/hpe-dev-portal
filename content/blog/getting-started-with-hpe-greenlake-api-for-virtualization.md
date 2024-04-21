@@ -226,7 +226,7 @@ Using the API `GET async-operations` on the `task Id` provided from location val
 }
 ```
 
-*T﻿he above snippet of the response body depicted that execution of `POST /virtual/v1beta1/machine-instance` had completed successfully.* 
+*T﻿he above snippet of the response body depicts that execution of `POST /virtual/v1beta1/machine-instance` that was completed successfully.*
 
 To progress further, I needed to find the id that corresponds to the newly created virtual-machine instance in the AWS CSP account (`csp-machine-instance id`). To find the virtual machine Id of the deployed VM, I used the legacy HPE GreenLake API `GET {baseUrl}/api/v1/csp-machine-instances` to get the list of virtual-machine-instance that exist in that AWS account. From the response of that API, I obtained the VM instance Id of that Virtual Machine that was created in prior example using `filter:` parameter as shown in the below.
 
