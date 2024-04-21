@@ -135,8 +135,8 @@ The example of the response using the above recommended parameter is shown below
 
 The figure below shows the documentation of HPE GreenLake API for virtualization to deploy a virtual machine in your CSP account: `POST /virtualization/v1beta1/csp-machine-instances`. Note that this API requires that user to provide a `request body` as part of the API execution. The [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateCSPMachineInstance/) for this API at HPE GreenLake Developer website used another terminology which is called `Payload`. It is presented as one of the tabs in the `Request samples` window, as shown in the figure below.  This `Payload` tab provided details of the JSON structure required for the execution of the API `POST /virtualization/v1beta1/csp-machine-instance`. Inside the JSON body structures, I recognized that I need to provide multiple key-pair values such as 
 
-```
-accountId, imageId, instanceType,region, cspType, keyPairName, name
+```shellsession
+accountId, imageId, instanceType, region, cspType, keyPairName, name
 ```
 
 ![](/img/documentation-of-the-post-csp-machine-instance-with-required-payload.png "display csp-machine-instances with the required Payload to POST")
@@ -145,25 +145,19 @@ accountId, imageId, instanceType,region, cspType, keyPairName, name
 
 At the time of this release  (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) account id is not yet available as part of this released HPE GreenLake API for virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`. 
 
-![](/img/list-available-csp-account-response.png "List available CSP accounts (DSCC API v1.4)")
+![](/img/api-of-csp-account-to-obtain-accountid-csptype.png "List available CSP accounts (DSCC API v1.4)")
 
-*T﻿he above figure shows the CSP id account that was onboarded into this workspace.*
+*T﻿he above figure shows the accountId and the cspType required for the deployment of the virtual machine on the CSP account.*
 
-Another important information to deploy a virtual machine into my CSP account is the `imageId` value that is presented below. That `imageId` corresponds to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing VM that had already been deployed inside the AWS Elastic Cloud Compute (ECS) service.
+Another important information to deploy a virtual machine into my CSP account is the `imageId` value that is presented below. That `imageId` corresponds to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing  virtual machine that had been deployed inside my CSP account.
 
-![](/img/obtain-machineid-from-a-machine-instance.png "return imageId from csp-machine-images")
+![](/img/api-of-csp-machine-image-based-on-known-aws-machine-id-in-us-east-1.png "return imageId from csp-machine-images")
 
 *T﻿he above figure shows the imageId value obtained from existing machine instance.*
 
-The figure below shows the documentation of HPE GreenLake API for virtualization to deploy a virtual machine in your CSP account: `POST /virtualization/v1beta1/csp-machine-instances`. Note that this API requires that you provide a `request body` as part of the API execution. The [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateCSPMachineInstance/) for this virtualization API at HPE GreenLake Developer website used another terminology which is called `Payload`. It is presented as one of the tabs in the `Request samples` window, as shown below.  This `Payload` tab provided details of the JSON structure required for the execution of the API `POST /virtualization/v1beta1/csp-machine-instance`.
+You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above, I entered the values required by JSON structure part of the request body. The key of `keyPairName` is the name for the certificate key-pair created in my CSP account. I choose `RonD-deploy-CSP-1` for the name of the deployed virtual machine. Additionally, I use instanceType of `t2.micro` as the instance that is appropriate for this demo.
 
-![](/img/documentation-of-the-post-csp-machine-instance-with-required-payload.png "display csp-machine-instances with the required Payload to POST")
-
-*T﻿he above figure shows the documentation on `POST /virtualization/v1beta1/csp-machine-instances` to deploy a VM inside the cloud service provider.*
-
-You can see in the below figure, I performed the deployment of a virtual machine example using Postman tool, which provides the special field for you to enter the JSON body according to the definition of payload in the developer’s API guide. Please note that I used the raw form of the body with JSON definition as shown below. Combining the information that I gathered above; I entered the values required by JSON structure part of the request body. The key of `keyPairName` is the name for the certificate key-pair required to login into the VM. 
-
-![](/img/deployment-of-csp-machine-instance-using-post-and-payload.png "Deploy a machine instance based on the payload POST")
+![](/img/post-creation-of-a-virtual-machine-inside-the-csp-account.png "Deploy a machine instance based on the payload POST")
 
 *T﻿he above figure provides example of providing Payload (Body) to provision a VM inside the cloud service provider.*
 
