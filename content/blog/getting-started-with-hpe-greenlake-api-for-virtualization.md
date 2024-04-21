@@ -143,13 +143,13 @@ accountId, imageId, instanceType, region, cspType, keyPairName, name
 
 *T﻿he above figure shows the documentation on `POST /virtualization/v1beta1/csp-machine-instances` to deploy a VM inside the cloud service provider.*
 
-At the time of this release (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) `account id` is not yet available in this released set of HPE GreenLake APIs for Virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`.
+At the time of this release (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) `account id` is not yet available in this released set of HPE GreenLake APIs for Virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `accountId` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`.
 
 ![](/img/api-of-csp-account-to-obtain-accountid-csptype.png "List available CSP accounts (DSCC API v1.4)")
 
 *T﻿he above figure shows the accountId and the cspType required for the deployment of the virtual machine on the CSP account.*
 
-Another important information to deploy a virtual machine into my CSP account is the `imageId` value that is presented below. That `imageId` corresponds to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing  virtual machine that had been deployed inside my CSP account.
+Another important information to deploy a virtual machine into my CSP account is the `imageId` value. That `imageId` (shown below) corresponds to the `AWS Linux VM (free tier)` which was a machine-image (template of the virtual machine) that is going to be deployed at the AWS account. I used the following virtualization API `GET /virtualization/v1beta1/csp-machine-images` to validate AWS machine image (AMI) from existing  virtual machine that had been deployed inside my CSP account. 
 
 ![](/img/api-of-csp-machine-image-based-on-known-aws-machine-id-in-us-east-1.png "return imageId from csp-machine-images")
 
