@@ -143,7 +143,7 @@ accountId, imageId, instanceType, region, cspType, keyPairName, name
 
 *T﻿he above figure shows the documentation on `POST /virtualization/v1beta1/csp-machine-instances` to deploy a VM inside the cloud service provider.*
 
-At the time of this release  (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) account id is not yet available as part of this released HPE GreenLake API for virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`. 
+At the time of this release (March 2024), the API resource to discover the HPE GreenLake cloud service provider (CSP) `account id` is not yet available in this released set of HPE GreenLake APIs for Virtualization. To display that id, I used an existing legacy HPE GreenLake API `GET https://{baseUrl}/api/v1/csp-accounts`. My AWS CSP account was already onboarded into HPE GreenLake Private Cloud Business Edition, hence the prior API returned the `account Id` that I need to provide as one of the key-pair object in the JSON request body for the virtualization API `POST /virtualization/v1beta1/csp-machine-instances`.
 
 ![](/img/api-of-csp-account-to-obtain-accountid-csptype.png "List available CSP accounts (DSCC API v1.4)")
 
