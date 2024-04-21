@@ -129,7 +129,7 @@ The example of the response using the above recommended parameter is shown below
 }
 ```
 
-*T﻿he above code snippet display the response from GET hyper-managers API execution*.
+*T﻿he above code snippet displays the response from `GET the hyper-managers` API execution*.
 
 ### Creation and management of a virtual machine in a cloud service provider (CSP)
 
