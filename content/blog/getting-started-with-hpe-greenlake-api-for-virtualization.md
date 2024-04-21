@@ -312,7 +312,7 @@ To control cost, I used the API `POST {baseUrl}/virtualization/v1beta1/csp-machi
 
 ### Wow… that was so cool. What about provisioning  a VMware datastore on-premises?
 
-Here is another example of using the HPE GreenLake API for virtualization to provision a datastore out of an HPE disaggregated Hyperconverged Infrastructure (dHCI) system for on-premises deployment. The HPE dHCI instance had already been onboarded into the HPE GreenLake for Private Cloud Business Edition service (PCBE).  The [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateDS/) that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also required a definition of this JSON structure with values in the `body (Payload)`. The information about this request JSON body is presented in the figure below.
+Here is another example of using the HPE GreenLake API for virtualization to provision a datastore out of an HPE disaggregated Hyperconverged Infrastructure (dHCI) system for on-premises deployment. The HPE dHCI instance had already been onboarded into the HPE GreenLake for Private Cloud Business Edition service (PCBE). The [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/CreateDS/) that is used for the datastore provisioning is `POST {baseUrl} /virtualization/v1beta1/datastores`, which also required a definition of this JSON structure with values in the `body (Payload)`. The information about this request JSON body is presented in the figure below.
 
 ![](/img/create-datastore-on-dhci.png)
 
@@ -322,7 +322,7 @@ This virtualization API incorporated the virtual machine provisioning policy tha
 
 ![obtain the provisioning policy for deploying datastores using HPE PCBE](/img/get-virtualization-api-to-obtain-vm-provisioning-policy.png "get the provisioning policy for deploying datastores in a dHCI using HPE PCBE")
 
-I used another API from the virtualization API such as `GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters` to obtain the `HyperClusterId` (shown below). 
+I used another API from the virtualization API such as `GET {baseUrl}/virtualization/v1beta1/hypervisors-clusters` to obtain the `targetHypervisorClusterId` (shown below). 
 
 ![](/img/obtain-the-cluster-id-for-deployment-at-dhci-using-pcbe.png "Obtain the cluster id which is required to deploy a datastore in a dHCI using PCBE")
 
@@ -330,9 +330,9 @@ Furthermore, I used the legacy API such as `GET /api/v1/storage-systems/device-t
 
 ![](/img/obtain-the-storage-system-id-using-the-legacy-api.png "legacy API to display the storage system Id")
 
-Finally, I entered all the above values into the JSON body below as part of the virtualization API to create a datastore in the designated VMware cluster using the attached storage system.
+Finally, I entered all the above values into the JSON body below as part of the virtualization API to create a datastore in the designated VMware cluster using the attached storage system. The Integer value key `sizeInBytes` was equivalent to 10 TB. Other String values were obtained from the previous HPE GreenLake API responses as I demonstrated above.
 
-![](/img/create-a-datastore-using-virtualization-api-post-datastores-with-all-required-body.png "Deploy POST to create the datastore in the DHCI using PCBE")
+![](/img/post-virtualization-api-with-taskid-succesful.png "Deploy POST to create the datastore in the DHCI using PCBE")
 
 From the response of the API `GET aync-operations` for the task Id shown below, I confirmed that creation of the datastore was completed. Note that the creation of the datastore also applied the HPE GreenLake Backup Recovery data protection-policy to the newly created datastore. 
 
