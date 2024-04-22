@@ -522,9 +522,9 @@ The activities above were validated from the HPE GreenLake Backup and Recovery l
 
 ## Wow.. those were so cool! Can I recover a new virtual machine from that recovery point that I just created?
 
-Each of the recovery points regardless of the location of store (array snapshot, On-Premises Protection-Store, or HPE Cloud Protection-Store) can be recovered using the HPE GreenLake APIs for Backup and Recovery.
+Each of the recovery points regardless of the location of store (array snapshot, On-Premises Protection-Store, or HPE Cloud Protection-Store) can be recovered using the HPE GreenLake APIs for Backup and Recovery. 
 
-1. This API requires a request body of JSON structure as documented in the HPE GreenLake developer website. In this blog post, I planned a demo of the steps to recover the virtual machine from a copy that had existed in the HPE Cloud Protection Store into the VMware cluster where the Protection Storage Gateway is hosted (recover as a new virtual machine). Copy the `{{vmId}}` from the response JSON body to be used on subsequent API execution. The API used for this: 
+1. To restore the backup from a virtual machine, this API requires a request body of JSON structure as documented in the HPE GreenLake developer website. In this blog post, I planned a demo of the steps to recover the virtual machine from a copy that had existed in the HPE Cloud Protection Store into the VMware cluster where the Protection Storage Gateway is hosted (recover as a new virtual machine). Copy the `{{vmId}}` from the response JSON body to be used on subsequent API execution. The API used for this:
 
    ```shellsession
    GET /virtualization/v1beta1/virtual-machines?sort=name desc&filter=name eq’0-Linux-Demo-VM02’&select=appType,id,name,type,guestinfo,protectionJobInfo
