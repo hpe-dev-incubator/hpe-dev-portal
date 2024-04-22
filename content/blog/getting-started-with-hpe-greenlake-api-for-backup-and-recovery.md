@@ -184,7 +184,7 @@ The list of the steps to create this protection policy:
 4. I repeat the same execution of the `GET /backup-recovery/v1beta1/protection-stores` to obtain the **“<cloud-protection-store-id>”**. To accomplish that, I used the following `filter: protectionStoreType eq 'CLOUD' and storageSystemInfo/id eq “<protection-store-gateway-id>”`.  Additionally, I also used the  parameter `select: name,displayName,id,status,state,protectionStoreType` to provide shorter response for simpler discovery of the protection-store-id in the cloud. The API used for this: 
 
    ```shellsession
-   GET /backup-recovery/v1beta1/protection-stores?select=name,displayName,id,status,state,protectionStoreType&filter=protectionStoreType eq ‘CLOUD’ and storageSystemInfo/id eq “<protection-store-gateway-id\.”
+   GET /backup-recovery/v1beta1/protection-stores?select=name,displayName,id,status,state,protectionStoreType&filter=protectionStoreType eq ‘CLOUD’ and storageSystemInfo/id eq “<protection-store-gateway-id>”
    ```
 
 ![API to obtain cloud protection store id](/img/api-discover-cloud-protection-store-id.png)
