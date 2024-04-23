@@ -79,6 +79,9 @@
     "prettier": "^3.1.0",
     "react-test-renderer": "^18.2.0"
   },
+  "resolutions": {
+    "trim": "0.0.3"
+  },
   "homepage": "https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/README.md",
   "keywords": [
     "gatsby"
