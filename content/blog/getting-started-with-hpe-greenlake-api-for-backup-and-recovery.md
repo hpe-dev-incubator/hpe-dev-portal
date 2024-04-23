@@ -16,7 +16,7 @@ tags:
 
 Recently, a new set of REST APIs for HPE GreenLake for Backup and Recovery Service was introduced in the HPE GreenLake Developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/). This is the third blog post from the series of blog postings ([Data-Services](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-data-services), [Virtualization](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-virtualization), [Backup and Recovery](https://developer.hpe.com/blogs/getting-started-with-hpe-greenlake-api-for-backup-and-recovery)) that introduce some useful tips and best practices about using this new set of APIs given a specific use case. 
 
-This set of APIs provides the capability for manipulation of resources made available by HPE GreenLake for Backup and Recovery services. Consequently, any customer can use these APIs to protect their data in a hybrid cloud in the same manner as using the user interface for HPE GreenLake for Backup and Recovery in the HPE GreenLake console.  This set of APIs provides user capabilities to perform any of Create, Read, Update and Delete (CRUD) operations against HPE GreenLake Backup and Recovery resources such as: *data-orchestrator, protection store gateway, StoreOnce, protection-stores, protection-policies, snapshots, backups, on-premises assets (VM, DataStore, MSSQL, Storage Volumes).* 
+This set of APIs provides the capability for manipulating resources made available by HPE GreenLake for Backup and Recovery services. Consequently, any customer can use these APIs to protect their data in a hybrid cloud in the same manner as using the user interface for HPE GreenLake for Backup and Recovery in the HPE GreenLake console.  This set of APIs provides user capabilities to perform any of Create, Read, Update and Delete (CRUD) operations against HPE GreenLake Backup and Recovery resources such as: *data-orchestrator, protection store gateway, StoreOnce, protection-stores, protection-policies, snapshots, backups, on-premises assets (VM, DataStore, MSSQL, Storage Volumes).* 
 
 There will be more resources added into this set of APIs in the future releases that will cover *cloud service providers, and cloud assets*. For more information on how to use this HPE GreenLake for Backup and Recovery service, please visit the [website ](https://www.hpe.com/us/en/hpe-greenlake-backup-recovery.html)and the getting started [guide](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=sd00003454en_us).
 
@@ -27,7 +27,7 @@ The specification of this API is publicized as an OpenAPI specification in JSON 
 
 ![GLBR API documentation website](/img/backup-and-recovery-api-front-download-page.jpg "Front page for Backup & Recovery front page")
 
-The Backup and Recovery API specification files contain information that describe the set of REST APIs for HPE GreenLake for Backup and Recovery such as the endpoints, authentication, syntax of parameters, expected response, and many other objects.
+The Backup and Recovery API specification files contain information that describes the set of REST APIs for HPE GreenLake for Backup and Recovery, such as the endpoints, authentication, syntax of parameters, expected response, and many other objects.
 
 ![GLBR openapi spec](/img/backup-and-recovery-json-information.png "JSON open API spec example")
 
