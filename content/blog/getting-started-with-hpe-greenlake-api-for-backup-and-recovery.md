@@ -111,9 +111,9 @@ A protection store is the critical resource that is required to store the recove
 > **NOTE:** 
 > You will see in this blog post that I used a combination of HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the examples below.
 
-The example below displays the creation of the cloud protection store in t﻿he HPE GreenLake protection store a﻿t Microsoft Azure cloud storage.
+The example below displays the creation of the cloud protection store in the HPE GreenLake protection store at Microsoft Azure cloud storage.
 
-![UI to create cloud protection in Azure](/img/ui-to-create-cloud-protection.png)
+![UI to create a cloud protection a﻿t Microsoft Azure](/img/ui-to-create-cloud-protection.png)
 
 *T﻿he figure above shows the user interface used to create a cloud store protection at Microsoft Azure in eastus2 storage location using the user interface.* 
 
