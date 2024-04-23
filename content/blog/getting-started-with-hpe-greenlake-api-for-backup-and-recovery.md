@@ -518,7 +518,7 @@ The steps required to trigger the protection are listed below:
    }
    ```
 
-> **Note:** There i﻿s a key called `“fullBackup”` inside the JSON request body to enable the creation of full protection where a backup will be created independently from the existing copies in the protection store. I also entered number 3 into `ScheduleIds` JSON array, to represent the cloud backup schedule. The below figure shows an example of the execution of `"run now"` without full backup protection of the third schedule which is cloud protection of this virtual machine. The value `<protection-jobs-id>` will be entered from the parameter of this API in this manner: `POST /backup-recovery/v1beta1/protection-jobs/"<protection-jobs-id>"/run`.
+> **Note:** There i﻿s a key called `“fullBackup”` inside the JSON request body to enable the creation of full protection where a backup will be created independently from the existing copies in the protection store. I also entered number 3 into `ScheduleIds` JSON array, to represent the cloud backup schedule. The below figure shows an example of the execution of `"run now"` without full backup protection of the third schedule, which is cloud protection of this virtual machine. The value `<protection-jobs-id>` will be entered from the parameter of this API in this manner: `POST /backup-recovery/v1beta1/protection-jobs/"<protection-jobs-id>"/run`.
 
 ![API to execute a protection run](/img/api-to-execute-a-protection.png)
 
