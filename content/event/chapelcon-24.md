@@ -9,4 +9,6 @@ width: large
 ---
 ## ChapelCon '24
 
+The Chapel Event of the Year
+
 June 5-7, 2024
