@@ -65,7 +65,7 @@ There are other resources that exist in the HPE GreenLake for Backup and Recover
 
 ![Protection policy for vmware schedule](/img/protection-policy-ui-for-vmware-scheduling.png)
 
-*The above figure display resources for schedule and the flow of the recovery-points part of the protection policy.*
+*The above figure displayd resources for schedule and the flow of the recovery-points part of the protection policy.*
 
 Additionally, there is also a resource known as protection job that is obscurely shown in the user-interface; however, it is required to perform the operation of data protection. You will need to manipulate protection jobs to create a protection or to recover an existing recovery point. Additionally, the protection-job is the resource that can be manipulated to suspend or to resume a protection schedule.
 
