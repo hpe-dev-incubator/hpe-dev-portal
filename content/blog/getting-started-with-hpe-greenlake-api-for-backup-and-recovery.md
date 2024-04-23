@@ -117,7 +117,7 @@ The example below displays the creation of the cloud protection store in the HPE
 
 *T﻿he figure above shows the user interface used to create a cloud store protection at Microsoft Azure in eastus2 storage location using the user interface.* 
 
-The list of the steps to perform this use case using HPE GreenLake API:
+H﻿ere is the list of the steps required to perform this use case using HPE GreenLake API:
 
 1. Use the [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/StoreOncesList/) to discover the StoreOnce instance that can connect to the cloud protection store and copy the id which will be used as the value for storageSystemId as shown in below JSON request body. The API used for this: `GET /backup-recovery/v1beta1/storonces?limit=20&offset=0`
 
