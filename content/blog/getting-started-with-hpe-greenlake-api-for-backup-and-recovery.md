@@ -189,7 +189,7 @@ T﻿his is the list of the steps u﻿sed to create this protection policy:
 
 ![API to obtain the onpremises protection store id](/img/api-to-get-onpremises-protection-store-id.png)
 
-4. I repeated the same execution of the `GET /backup-recovery/v1beta1/protection-stores` to obtain the **“<cloud-protection-store-id>”**. To accomplish that, I used the following `filter: protectionStoreType eq 'CLOUD' and storageSystemInfo/id eq “<protection-store-gateway-id>”`.  Additionally, I also used the  parameter `select: name,displayName,id,status,state,protectionStoreType` to provide a shorter response for simpler discovery of the protection-store-id in the cloud. The API used for this: 
+4. I repeated the same execution of the `GET /backup-recovery/v1beta1/protection-stores` to obtain the `"<cloud-protection-store-id>"`. To accomplish that, I used the following `filter: protectionStoreType eq 'CLOUD' and storageSystemInfo/id eq “<protection-store-gateway-id>”`.  Additionally, I also used the  parameter `select: name,displayName,id,status,state,protectionStoreType` to provide a shorter response for simpler discovery of the protection-store-id in the cloud. The API used for this: 
 
    ```shellsession
    GET /backup-recovery/v1beta1/protection-stores?select=name,displayName,id,status,state,protectionStoreType&filter=protectionStoreType eq ‘CLOUD’ and storageSystemInfo/id eq “<protection-store-gateway-id>”
