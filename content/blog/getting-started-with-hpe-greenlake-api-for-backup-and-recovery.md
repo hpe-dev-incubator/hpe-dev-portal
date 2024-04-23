@@ -1,5 +1,5 @@
 ---
-title: Getting Started with HPE GreenLake API for Backup and Recovery
+title: Getting started with HPE GreenLake API for Backup and Recovery
 date: 2024-04-08T00:16:50.813Z
 author: Ron Dharma
 authorimage: /img/face-portraitlarge.jpg
