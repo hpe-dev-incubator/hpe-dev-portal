@@ -596,9 +596,11 @@ Each of the recovery points, regardless of the location of store (array snapshot
 
 ## Summary
 
-This blog post introduces the new set of REST API from the family of the APIs for data services on HPE Greenlake, namely **HPE GreenLake API for Backup and Recovery**. This set of APIs is documented at the HPE GreenLake for developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/) using interactive documentation based on OpenAPI version 3.1. Early in this blog post, I laid down the relationship of the resources in this set of HPE GreenLake APIs with the objects in the HPE GreenLake Backup and Recovery user interface. In this blog post, I also introduced the examples from several use cases associated with utilizing HPE GreenLake for Backup and Recovery to provide virtual machine protection from day one.
+This blog post introduces the new set of REST API from the family of the APIs for data services on HPE Greenlake, namely **HPE GreenLake API for Backup and Recovery**. This set of APIs is documented at the HPE GreenLake for developer [website](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/) using interactive documentation based on OpenAPI version 3.1. 
 
-The examples presented in this blog post provide some guides on using combination of the REST APIs that were announced in March 2024 to achieve the goal for protecting a virtual machine.
+Early in this blog post, I laid down the relationship of the resources in this set of HPE GreenLake APIs with the objects in the HPE GreenLake Backup and Recovery user interface. In this blog post, I also introduced the examples from several use cases associated with utilizing HPE GreenLake for Backup and Recovery to provide virtual machine protection from day one.
+
+The examples presented in this blog post provided some guides on using combination of the REST APIs that were announced in March 2024 to achieve the goal for protecting a virtual machine.
 
 All the execution for the examples were done using Postman API tool without any scripting language to encourage anyone to experiment with the family of REST APIs for data services on HPE GreenLake. 
 
