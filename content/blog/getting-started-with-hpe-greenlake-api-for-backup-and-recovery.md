@@ -424,7 +424,7 @@ Next in the list of use cases for this blog post, I followed the progression for
 
 T﻿hese are th﻿e steps required to apply the protection policy against a virtual machine:
 
-1. I obtained the values from `virtual machine id, name, and type` keys which were going to be used as the key-pair values required for the key `assetInfo` as shown in below figures. To obtain those, I used the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/VirtualMachinesList/) for virtualization to discover the detail information of a virtual machine `“0-Linux-Demo-VM02”`. The API used for this: 
+1. I obtained the values from `virtual machine id, name, and type` keys t﻿hat were going to be used as the key-pair values required for the key `assetInfo` as shown in below figures. To obtain those, I used the HPE GreenLake [API](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/operation/VirtualMachinesList/) for Virtualization to discover the detail information of a virtual machine `“0-Linux-Demo-VM02”`. The API used for this: 
 
    ```shellsession
    GET /virtualization/v1beta1/virtual-machines?sort=name desc& select=appType,id,name,type,guestInfo,protectionJobInfo& filter=name eq '0-Linux-Demo-VM02'
