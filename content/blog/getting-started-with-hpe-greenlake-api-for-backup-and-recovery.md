@@ -48,7 +48,7 @@ The below diagram displays components in the first part of the HPE GreenLake API
 
 ![GLBR architecture 1](/img/glbr-architecture-overview-1.png)
 
-*The above figure shows the resources that are part of the infrastructure to accommodate the data protection for HPE GreenLake for Backup and Recovery.*
+*The above figure shows the resources that are part of the infrastructure u﻿sed to accommodate the data protection for HPE GreenLake for Backup and Recovery.*
 
 The second part of the HPE GreenLake API for Backup and Recovery resources is the resources from which HPE GreenLake for Backup and Recovery provides protection from data loss. In below diagram, you will see those assets which contains the components that need to be protected and the components which the assets are allocated at. Those components, such as virtual machine, datastore, or SQL database application, storage volumes, or physical hosts, are the assets that need to be protected. Nevertheless, other assets in this category include the components for the hypervisor, compute servers, storage array, networking, and the VMware vCenter that manage the hypervisor components. This HPE GreenLake API must maintain the inventory of all the assets that are protected by querying the vCenter.
 
