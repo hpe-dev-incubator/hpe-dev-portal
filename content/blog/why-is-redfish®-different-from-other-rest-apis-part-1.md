@@ -141,7 +141,7 @@ After verification, the client code can change (PATCH) the properties marked as 
 
 ### Link to schema
 
-To help client programmers to verify programmatically if properties can be modified, request responses must contain a header `Link` pointing to the schema file describing the response as shown in Figure 9. With such a link, programmers don't have to browse the schema and the registry stores mentioned above.
+To help client programmers to verify programmatically property descriptions, the protocol imposes a header `Link` in responses, pointing to the concerned schema file, as shown in Figure 9. With such a link, clients don't have to browse the schema and the registry stores mentioned above; they just have to follow the provided link.
 
 ![Figure 9: Possible operations on the URI and link to schema](/img/fig9-allowheader.png "Figure 9: Possible operations on the URI and link to schema")
 
