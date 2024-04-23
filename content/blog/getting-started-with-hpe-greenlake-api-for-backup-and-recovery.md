@@ -137,7 +137,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the figure below.
 
-> ***Note:*** that I used a set of selection parameters in below figure to summarize the information from this task information:
+> ***Note:*** that I used a set of selection parameters in t﻿he below figure to summarize the information from this task:
 >
 > ```shellsession
 > GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
