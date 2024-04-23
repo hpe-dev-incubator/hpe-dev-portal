@@ -106,12 +106,10 @@ The interactive API reference documentation guide provides information about the
 
 ## Creating a cloud protection store
 
-A protection store is the critical resource that is required to store the recovery points on-premises and in the cloud. The cloud protection stores are created on top of either the Protection Store Gateway or HPE StoreOnce, because either one is required for connections to cloud protection-stores. To perform this use case, we will need to discover the StoreOnce and the storage location of the cloud protection store. As you can see now, we will be using the HPE GreenLake API for the data-services to discover the storage location of the cloud protection store. 
+A protection store is the critical resource that is required to store the recovery points on-premises and in the cloud. The cloud protection stores are created on top of either the Protection Store Gateway or HPE StoreOnce, because either one is required for connections to cloud protection-stores. To perform this use case in the below example, we will need to discover the StoreOnce and the storage location of the cloud protection store.
 
 > **NOTE:** 
-> You will see in this blog post that I used a combination of HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the examples below.
-
-The example below displays the creation of the cloud protection store in the HPE GreenLake protection store at Microsoft Azure cloud storage.
+> You will see in this blog post that I used a combination of b﻿oth HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the below examples.
 
 ![UI to create a cloud protection s﻿ite o﻿n Microsoft Azurea﻿t the eastus2 storage location](/img/ui-to-create-cloud-protection.png)
 
@@ -137,7 +135,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the figure below.
 
-> ***Note:*** that I used a set of selection parameters in t﻿he below figure to summarize the information from this task:
+> ***Note:*** that I used a set of selection parameters in the below figure to summarize the information from this task:
 >
 > ```shellsession
 > GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
