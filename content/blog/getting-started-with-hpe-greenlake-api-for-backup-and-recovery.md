@@ -155,7 +155,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 A common use-case that every user of HPE GreenLake Backup and Recovery will deploy is the creation of a protection-policy. This resource is important because it sets up the schedule for creation of recovery point. Additionally, it sets up the flow of a recovery point from a primary storage to a storage snapshot, to on-premises protection-store and eventually to the cloud protection-store. 
 
-A protection policy contain several JSON objects that are displayed in the below figure.
+A protection policy contains several JSON objects that are displayed in the figure b﻿elow.
 
 1. A Schedule that contains the frequency for creation of the copy and time to retain the copies.
 2. Protection store where the copies are stored: snapshot (in the primary array), on-premises store, and cloud store.
