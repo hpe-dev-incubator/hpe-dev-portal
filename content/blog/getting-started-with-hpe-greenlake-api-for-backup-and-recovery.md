@@ -95,7 +95,7 @@ Lastly, anyone can follow the examples provided by each API reference in the doc
 
 ![HPE GLBR API documentation ](/img/reference-document-for-hpe-glbr.png)
 
-*The above figure shows the three-panel of the interactive API reference documentation for one of HPE GreenLake API for Backup and Recovery.*
+*The above figure shows the three-panel of the interactive API reference documentation for one of HPE GreenLake APIs for Backup and Recovery.*
 
 ## Some tips and examples
 
