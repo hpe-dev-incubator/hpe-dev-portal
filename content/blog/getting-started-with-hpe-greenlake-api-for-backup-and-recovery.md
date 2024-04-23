@@ -135,7 +135,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 ![API Request body JSON to compose protection Store](/img/api-to-create-protection-stores-request-json-body.png)
 
-4. After roughly about 5 minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the below figure. 
+4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the figure below.
 
 > ***Note:*** that I used a set of selection parameters in below figure to summarize the information from this task information:
 >
