@@ -125,8 +125,6 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 2. Next, I discovered the cloud storage at the correct location from the list of the available storage location and copy the `storageLocationId` as shown in below JSON response body. The discovery was done by using t﻿he HPE GreenLake API f﻿or D﻿ata Services [set o﻿f APIs](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/). Note from the below figure that I used filter `“backup-and-recovery”` in capabilities to capture selected storage locations with the correct capability. The below figure shows information about the location (region) where the data will be stored; conversely, it’s located at `“Richmond”`, cloud service provide was `“AZURE”`, and cloud services provider identification is `“eastus2”`. W﻿e will use the value `﻿"azure:eastus2"` from the key `id` of this API's response body as the `storageLocationID` value. The API used for this: `GET /data-services/v1beta1/storage-locations?filter=”backup-and-recovery” in capabilities`.
 
-
-
 ![API to figure out the Azure storage location](/img/figure-out-storage-location.png)
 
 3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
