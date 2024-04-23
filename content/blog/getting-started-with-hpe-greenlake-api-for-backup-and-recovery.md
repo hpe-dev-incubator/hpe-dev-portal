@@ -157,7 +157,7 @@ A common use-case that every user of HPE GreenLake Backup and Recovery will depl
 
 A protection policy contains several JSON objects that are displayed in the figure b﻿elow.
 
-1. A Schedule that contains the frequency for creation of the copy and time to retain the copies.
+1. A schedule that contains the frequency for creation of the copy and time to retain the copies.
 2. Protection store where the copies are stored: snapshot (in the primary array), on-premises store, and cloud store.
 3. Length of time when the copy is being locked to satisfy immutability.
 4. The pre-script information contains the link to the scripts to be executed prior to the creation of the copy.
