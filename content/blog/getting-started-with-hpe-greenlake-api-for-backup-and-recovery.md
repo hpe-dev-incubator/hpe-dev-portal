@@ -487,7 +487,7 @@ T﻿hese are th﻿e steps required to apply the protection policy against a virt
 
 4. The API execution was executed successfully. I validated this completion using the task id that I obtained from the response headers as shown above. The API used for this: `GET /data-services/v1beta1/async-operations/{{taskId}}`
 
-> **Note**: that that the execution of this API will trigger a protection execution right after the execution of this API completed.
+> **Note**: The execution of this API will trigger a protection execution right after the execution of this API completed.
 
 ![Task list to display completion of the application of protection policy against a VM producing protection jobs](/img/api-task-list-for-protection-policy-application.png)
 
