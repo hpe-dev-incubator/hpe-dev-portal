@@ -33,7 +33,7 @@ The Redfish service is included in the server management controller firmware and
 
 ![Figure1: Client/service model](/img/fig-1-modelserviceclient.png "Figure1: Service-Client model")
 
-_<figcaption>Figure 1: Service-Client model</figcaption>_
+*<figcaption>Figure 1: Service-Client model</figcaption>*
 
 Redfish clients are numerous and varied. For development and troubleshooting, the <a href="https://www.postman.com/" target="_blank">Postman API platform</a> is very popular. For one-off actions or “quick and dirty” scripts, <a href="https://curl.se/" target="_blank">cURL</a>, PowerShell, Python or even <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="blank">HPE iLOrest</a> do the trick. For more sophisticated client programs, you can use an <a href="https://galaxy.ansible.com/ui/repo/published/hpe/ilo/" target="_blank">Ansible playbook library</a>, Chef or Go and its <a href="https://pkg.go.dev/github.com/stmcginnis/gofish/redfish" target="_blank">Go-Redfish library</a>.
 
@@ -56,19 +56,19 @@ The Redfish protocol specification is published in DMTF document <a href="https:
 
 ![Figure 2: The error contains a success message !](/img/fig2-successerror.png "Figure 2: The error contains a success message !")
 
-_<figcaption>Figure2: The error contains a success message !</figcaption>_
+*<figcaption>Figure2: The error contains a success message !</figcaption>*
 
 #### Data model
 
 Responses to Redfish requests consist of JSON packets containing key/value properties defined by the DMTF in a schema file. The name of the schema file describing responses is contained in the `@odata.type` property that must be present in each response.
 
-For example, the schema defining the root of the Redfish tree is `#ServiceRoot`. Its full name returned by `curl -sk https://bmc-ip/redfish/v1 | jq '."@odata.type"'` is: `#ServiceRoot.v1_13_0.ServiceRoot`. Appended to the `#ServiceRoot` fragment, a version number (`1_13_0`) and then a subtype that, in this specific case, is identical to the main schema. All schemas are publicly available on the <a href="at https://redfish.dmtf.org/schemas" target="_blank">DMTF website</a> and, are sometimes included in the service itself (see the [Self Describing Model](#self-describing-model) paragraph below). Note that schema versions can evolve independently of each other.
+For example, the schema defining the root of the Redfish tree is `#ServiceRoot`. Its full name returned by `curl -sk https://bmc-ip/redfish/v1 | jq '."@odata.type"'` is: `#ServiceRoot.v1_13_0.ServiceRoot`. Appended to the `#ServiceRoot` fragment, a version number (`1_13_0`) and then a subtype that, in this specific case, is identical to the main schema. All schemas are publicly available on the <a href="at https://redfish.dmtf.org/schemas" target="_blank">DMTF website</a> and, are sometimes included in the service itself (refer to the [Self Describing Model](#self-describing-model) paragraph below). Note that schema versions can evolve independently of each other.
 
 With a close look to the Redfish root diagram in (Figure 3), you will notice the presence of endpoints allowing access to the modeling of the server subsystems. For example, the `Chassis{}` object points to `/redfish/v1/Chassis`, which contains the exhaustive collection of URIs (`./{ChassisId}`) modeling the different chassis constituting the server (racks, blades, enclosures, storage enclosures, etc.).
 
 ![Figure 3: source dmtf.org/education](/img/fig3-resourcemap.png "Figure 3: source dmtf.org/education")
 
-_<figcaption>Figure 3: Source dmtf.org/education</figcaption>_
+*<figcaption>Figure 3: Source dmtf.org/education</figcaption>*
 
 ### OEM extensions
 
@@ -76,7 +76,7 @@ Computer makers are able to model proprietary properties (not standardized), whi
 
 ![Figure 4: OEM extension](/img/fig4-oemextensions.png "Figure 4: OEM extension")
 
-_<figcaption>Figure 4: OEM extension</figcaption>_
+*<figcaption>Figure 4: OEM extension</figcaption>*
 
 OEM extensions can also be used by a manufacturer while awaiting the standardization of a functionality unanimously recognized by DMTF members.
 
@@ -86,7 +86,7 @@ As shown in figure 3 above, links contained in the Redfish root tree, do not pro
 
 ![Figure 5: HPE Superdome chassis collection](/img/fig5-sdfchassis.png "Figure 5: HPE Superdome chassis collection")
 
-_<figcaption>Figure 5: HPE Superdome chassis collection</figcaption>_
+*<figcaption>Figure 5: HPE Superdome chassis collection</figcaption>*
 
 Another example: An HPE ProLiant server containing a storage enclosure connected to a (“modern”) storage controller is represented by two members in the chassis collection; a member pointing to the chassis containing the motherboard of the server (`/redfish/v1/Chassis/1`) and a member pointing to the backplane of the storage enclosure (`/redfish/v1/Chassis/DE040000`).
 
@@ -94,7 +94,7 @@ Each member of the collection is an endpoint for accessing the member properties
 
 ![Figure 6: Universal backplane model](/img/fig6-storagechassis.png "Figure 6: Universal backplane model")
 
-_<figcaption>Figure 6: Universal backplane model</figcaption>_
+*<figcaption>Figure 6: Universal backplane model</figcaption>*
 
 ### Naming convention of collection members
 
@@ -110,13 +110,13 @@ Figure 7 is extracted from a BIOS registry that has the effect of prohibiting th
 
 ![Figure 7: Example of inter-dependency in BIOS registry](/img/fig7-registrebios.png "Figure 7: Example of inter-dependency in BIOS registry")
 
-_<figcaption>Figure 7: Example of inter-dependency in BIOS registry</figcaption>_
+*<figcaption>Figure 7: Example of inter-dependency in BIOS registry</figcaption>*
 
 Figure 8 is taken from the base message registry. It shows the modeling of the “Access prohibited” message with the name of the prohibited resource as an argument (%1).
 
 ![Figure 8: Modeling an error message with an argument](/img/fig8-registredesmessagesdebase.png "Figure 8: Modeling an error message with an argument")
 
-_<figcaption>Figure 8: Modeling an error message with an argument</figcaption>_
+*<figcaption>Figure 8: Modeling an error message with an argument</figcaption>*
 
 ## Self-describing model
 
@@ -137,11 +137,15 @@ These URIs contain links to all schemas and registries used by the service. They
 
 The Redfish protocol requires GET request responses to contain the `Allow` header indicating the possible operations on the URI. Figure 9 shows that the URI `/redfish/v1/Chassis/{ChassisId}` allows GET, HEAD, and PATCH operations against this URI.
 
-![Figure 9: Possible operations on the URI](/img/fig9-allowheader.png "Figure 9: Possible operations on the URI")
-
-_<figcaption>Figure 9: Possible operations on the URI</figcaption>_
-
 After verification, the client code can change (PATCH) the properties marked as `ReadOnly=False` in the schema. The main server chassis in Figure 9 shows the PATCH method and the `IndicatorLED` property can be modified (Figure 10), so one should be able to turn on the small blue LED on this chassis to better identify it in the data center. A good programmer will perform all of these checks before sending their changes. The bad programmer will not perform any checks and will leave the end user to deal with the error(s) returned by the service!
+
+### Link to schema
+
+To help client programmers to verify programmatically property descriptions, the protocol imposes a header `Link` in responses, pointing to the concerned schema file, as shown in Figure 9. With such a link, clients don't have to browse the schema and the registry stores mentioned above; they just have to follow the provided link.
+
+![Figure 9: Possible operations on the URI and link to schema](/img/fig9-allowheader.png "Figure 9: Possible operations on the URI and link to schema")
+
+*<figcaption>Figure 9: Possible operations on the URI and link to schema</figcaption>*
 
 ### Deprecated resources
 
@@ -149,7 +153,7 @@ Over time, certain properties are deprecated. This information is mentioned in t
 
 ![Figure 10: Deprecated property](/img/fig10-propertydeprecated.png "Figure 10: Deprecated property")
 
-_<figcaption>Figure 10: Deprecated property</figcaption>_
+*<figcaption>Figure 10: Deprecated property</figcaption>*
 
 ## What else?
 
