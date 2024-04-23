@@ -61,7 +61,7 @@ The second part of the HPE GreenLake API for Backup and Recovery resources is th
 
 ### What about the components in HPE GreenLake Backup and Recovery that are not mentioned above?
 
-There are other resources that exist in the HPE GreenLake for Backup and Recovery that are not mentioned above; however, they are available in the user-interface for HPE GreenLake for Backup and Recovery. A couple of those resources are protection policy, and protection group. The protection group is used to consolidate multiple number of assets with a particular protection policy. On the other hand, the protection-policy is a resource to consolidate the schedule of protection-jobs and the flow of the recovery points at different tiers of protection-store. Together, both protection policy and protection group deliver the management of the Recovery Point Objective for data protection using HPE GreenLake for Backup and Recovery.
+There are other resources that exist in the HPE GreenLake for Backup and Recovery that are not mentioned above; however, they are available in the user-interface for HPE GreenLake for Backup and Recovery. A couple of those resources are protection policy and protection group. The protection group is used to consolidate a multiple number of assets with a particular protection policy. On the other hand, the protection-policy is a resource to consolidate the schedule of protection-jobs and the flow of the recovery points at different tiers of protection-store. Together, both protection policy and protection group deliver the management of the Recovery Point Objective for data protection using HPE GreenLake for Backup and Recovery.
 
 ![Protection policy for vmware schedule](/img/protection-policy-ui-for-vmware-scheduling.png)
 
