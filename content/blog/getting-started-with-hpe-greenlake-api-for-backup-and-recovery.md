@@ -147,7 +147,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 ![Task completion on POST protection-stores](/img/api-async-on-post-protection-stores.png)
 
-5. For reference, I went into the Protection Stores menu as shown in the below figure to show that HPE GreenLake Backup and Recovery, and confirmed that the desired protection store was available.
+5. For reference, I went into the Protection Stores menu as shown in the figure below to show the available HPE GreenLake Backup and Recovery p﻿rotection-stores, and confirmed that the desired protection store was available.
 
 ![Validating cloud protection store has been created](/img/ui-validated-cloud-protection-store-completed.png)
 
