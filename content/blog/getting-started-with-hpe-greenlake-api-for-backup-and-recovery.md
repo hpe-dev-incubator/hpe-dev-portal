@@ -102,7 +102,7 @@ Lastly, anyone can follow the examples provided by each API reference in the doc
 The interactive API reference documentation guide provides information about the parameters and request payload (body) key-pair values required for every available HPE GreenLake API for Backup and Recovery. Additionally, I am presenting some use cases with detailed information on providing the correct parameters or building the correct request payload (body) key-pairs JSON structure required to achieve the use case.
 
 > **NOTE:** 
-> The below examples assumed that HPE GreenLake Backup and Recovery had been deployed, it was connected to an HPE array onboarded to HPE GreenLake, a VMware vCenter had been discovered, some virtual machines had been deployed and onboarded into HPE GreenLake Backup and Recovery. For more information on getting started with HPE GreenLake Backup and Recovery, please visit Getting Started guide on HPE support [website](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=sd00003454en_us&page=GUID-F25ABD00-C36B-42D8-A443-82584EE8E35A.html).
+> The below examples assume that HPE GreenLake Backup and Recovery had been deployed, it was connected to an HPE array onboarded to HPE GreenLake, a VMware vCenter had been discovered, a﻿nd some virtual machines had been discovered by HPE GreenLake Backup and Recovery. For more information on getting started with HPE GreenLake Backup and Recovery, please visit Getting Started guide on HPE support [website](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=sd00003454en_us&page=GUID-F25ABD00-C36B-42D8-A443-82584EE8E35A.html).
 
 ## Creating a Cloud Protection Store
 
