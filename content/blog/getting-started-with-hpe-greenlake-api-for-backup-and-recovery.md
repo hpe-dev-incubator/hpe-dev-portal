@@ -111,6 +111,8 @@ A protection store is the critical resource that is required to store the recove
 > **NOTE:** 
 > You will see in this blog post that I used a combination of b﻿oth HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the below examples.
 
+The example below displays the creation of the cloud protection store in the HPE GreenLake protection store at Microsoft Azure cloud storage.
+
 ![UI to create a cloud protection s﻿ite o﻿n Microsoft Azurea﻿t the eastus2 storage location](/img/ui-to-create-cloud-protection.png)
 
 *T﻿he figure above shows the user interface used to create a cloud store protection at Microsoft Azure in eastus2 storage location using the user interface.* 
@@ -119,7 +121,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 1. I used the [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/StoreOncesList/) to discover the StoreOnce instance that can connect to the cloud protection store and copi﻿ed the id which will be used as the value for storageSystemId as shown in below JSON request body. The API used for this is: `GET /backup-recovery/v1beta1/storonces?limit=20&offset=0`.
 
-The example below displays the creation of the cloud protection store in the HPE GreenLake protection store at Microsoft Azure cloud storage.
+
 
 ![Discover deployed StoreOnce to create cloud protection store](/img/api-discover-storeonce.png)
 
