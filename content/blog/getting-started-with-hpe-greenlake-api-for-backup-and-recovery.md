@@ -57,7 +57,7 @@ The second part of the HPE GreenLake API for Backup and Recovery resources is th
 *The above figure displays resources that are parts of the hypervisor and on-premises components that can be protected.*
 
 > **NOTE:**
-> In the current HPE GreenLake Developer website, there is a single resource categorized as V1 Alpha 1 that will be used to register, unregister, and update the hypervisor-manager to an instance of HPE GreenLake Backup and Recovery. The current supported on-premises hypervisor-manager is VMware vCenter version 7.0 or later. The HPE GreenLake API to discover hypervisor-manager, that is already onboarded, is available from the virtualization API [set](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/tag/hypervisor-managers/). 
+> In the current HPE GreenLake Developer website, there is a single resource categorized as V1 Alpha 1 that will be used to register, unregister, and update the hypervisor-manager to an instance of HPE GreenLake Backup and Recovery. The current supported on-premises hypervisor-manager is VMware vCenter version 7.0 or later. The HPE GreenLake API to discover t﻿he already onboarded hypervisor-manager is available from the virtualization API [set](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/openapi/virtualization-public-v1beta1/tag/hypervisor-managers/). 
 
 ### What about the components in HPE GreenLake Backup and Recovery that are not mentioned above?
 
