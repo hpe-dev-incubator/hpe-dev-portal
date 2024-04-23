@@ -71,7 +71,8 @@ Additionally, there is also a resource known as protection job that is obscurely
 
 ![Protection jobs for scheduling and protection tiers](/img/protection-jobs-ui.png)
 
-*The above figure displays the representation of protection jobs which are the resources available after a protection policy applied to a protection group of many assets or a single asset.*
+
+*T﻿he above figure displays the representation of protection jobs for the protected assets. The protection jobs are available after a protection policy applied to an asset or a protection groups for multiple assets. *
 
 Beyond protection-jobs, there are recovery points (also known as copies). These are resources that are used to represent a copy that is inside the protection store, and they are used to perform the recovery. Note that even though there are three different categories of recovery-points that are available in the protection policy, there are only two different resources. The first resource is called snapshots to represent copies that exist inside the storage array. The second resource is called backups to represent copies that exist inside the on-premises protection store such as Protection Store Gateway, and copies that exist inside the cloud protection store. The cloud protection store is repository that sits in the cloud public providers that are managed by HPE, and these can exist either in AWS or Microsoft Azure. All of these recovery points exist in relation to the assets, where the recovery can be initiated using the HPE GreenLake API. 
 
