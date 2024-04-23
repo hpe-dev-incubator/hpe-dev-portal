@@ -160,8 +160,8 @@ A protection policy contains several JSON objects that are displayed in the figu
 1. A schedule that contains the frequency for creation of the copy and time to retain the copies.
 2. Protection store where the copies are stored: snapshot (in the primary array), on-premises store, and cloud store.
 3. Length of time when the copy is being locked to satisfy immutability.
-4. The pre-script information contains the link to the scripts to be executed prior to the creation of the copy.
-5. The post-script information contains the link to the scripts to be executed after the creation of the copy.
+4. The pre-script information that contains the link to the scripts to be executed prior to the creation of the copy.
+5. The post-script information that contains the link to the scripts to be executed after the creation of the copy.
 
 ![API request body JSON for protection policy creation](/img/api-body-json-request-for-protection-policies.png)
 
