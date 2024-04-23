@@ -130,8 +130,8 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
-
-> The complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures is provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
+ 
+> T﻿he figure below shows the complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures is provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
 
 ![API Request body JSON to compose protection Store](/img/api-to-create-protection-stores-request-json-body.png)
 
