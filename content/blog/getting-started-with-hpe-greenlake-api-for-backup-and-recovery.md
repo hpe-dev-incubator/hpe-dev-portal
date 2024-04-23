@@ -97,7 +97,7 @@ Lastly, anyone can follow the examples provided by each API reference in the doc
 
 *The above figure shows the three-panel of the interactive API reference documentation for one of HPE GreenLake API for Backup and Recovery.*
 
-## Some Tips and Examples
+## Some tips and examples
 
 The interactive API reference documentation guide provides information about the parameters and request payload (body) key-pair values required for every available HPE GreenLake API for Backup and Recovery. Additionally, I am presenting some use cases with detail information on providing the correct parameters or building the correct request payload (body) key-pairs JSON structure required to achieve the use case.
 
