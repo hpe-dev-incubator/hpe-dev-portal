@@ -109,9 +109,9 @@ The interactive API reference documentation guide provides information about the
 A protection store is the critical resource that is required to store the recovery points on-premises and in the cloud. The cloud protection stores are created on top of either the Protection Store Gateway or HPE StoreOnce, because either one is required for connections to cloud protection-stores. To perform this use case, we will need to discover the StoreOnce and the storage location of the cloud protection store. As you can see now, we will be using the HPE GreenLake API for the data-services to discover the storage location of the cloud protection store. 
 
 > **NOTE:** 
-> You will see in this blog post that I used combination of HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the examples below.
+> You will see in this blog post that I used a combination of HPE GreenLake APIs from [data services](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/guide/) and [virtualization](https://developer.greenlake.hpe.com/docs/greenlake/services/virtualization/public/) to accomplish the examples below.
 
-This example below displays the creation of the cloud protection store at HPE GreenLake protection store in Microsoft Azure cloud storage.
+The example below displays the creation of the cloud protection store at HPE GreenLake protection store in Microsoft Azure cloud storage.
 
 ![UI to create cloud protection in Azure](/img/ui-to-create-cloud-protection.png)
 
