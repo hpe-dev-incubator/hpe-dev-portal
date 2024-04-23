@@ -131,7 +131,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
  
-> T﻿he figure below shows the complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures is provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
+> T﻿he figure below shows the complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
 
 ![API Request body JSON to compose protection Store](/img/api-to-create-protection-stores-request-json-body.png)
 
