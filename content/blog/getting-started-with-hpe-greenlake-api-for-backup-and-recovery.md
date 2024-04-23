@@ -509,7 +509,7 @@ The steps required to trigger the protection are listed below:
 
 ![UI for run now protection jobs](/img/gui-run-now-cloud-protection.png)
 
-3. The HPE GreenLake API u﻿sed to accomplish the use case s﻿hown above was `POST /backup-recovery/v1beta1/protection-jobs/:id/run`, and the documentation of this [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/DataManagementJobRun) also list the required JSON structure for the request body. I created a JSON request body structure for this example as the following:
+3. The HPE GreenLake API u﻿sed to accomplish the use case s﻿hown above was `POST /backup-recovery/v1beta1/protection-jobs/:id/run`, and the documentation of this [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/DataManagementJobRun) also lists the required JSON structure for the request body. I created a JSON request body structure for this example as follows:
 
    ```jsonc
    {
