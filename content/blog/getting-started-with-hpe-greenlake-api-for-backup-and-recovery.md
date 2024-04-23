@@ -505,7 +505,7 @@ The steps required to trigger the protection are listed below:
 
 ![API to figure out protection-jobs](/img/api-to-figure-out-protection-jobs.png)
 
-2. This use case is equivalent to run now button at the schedule of the `“0-Linux-Demo-V02”` on the selected cloud protection as shown in below figure. After clicking `“Run Now”` button, a cloud protection will commence against the virtual machine, a recovery point is going to be created at the cloud protection store. On next step, I will invoke `"Run Now"` on the `HPE Cloud Protection Store` using HPE GreenLake API for Backup and Recovery.
+2. This use case is equivalent to run now button at the schedule of the `“0-Linux-Demo-V02”` on the selected cloud protection as shown in below figure. After clicking `“Run Now”` button, a cloud protection will commence against the virtual machine, a recovery point is going to be created at the cloud protection store. In next step, I will invoke `"Run Now"` on the `HPE Cloud Protection Store` using HPE GreenLake API for Backup and Recovery.
 
 ![UI for run now protection jobs](/img/gui-run-now-cloud-protection.png)
 
