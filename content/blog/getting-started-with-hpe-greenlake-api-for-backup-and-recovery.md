@@ -590,7 +590,7 @@ Each of the recovery points, regardless of the location of store (array snapshot
 
 ![Task Id confirming the completion of the recovery](/img/task-display-recovery-is-completed.png)
 
-8. At the end, I went to the vCenter console to validate that the virtual machine 0-Linux-Demo-VN02-2-05-04-2024_05:48_PM was indeed part of the virtual machines inventory.
+8. At the end, I went to the V﻿Mware vCenter console u﻿sed in this example to validate that the virtual machine 0-Linux-Demo-VN02-2-05-04-2024_05:48_PM was indeed part of the virtual machines inventory.
 
 ![vCenter display the VM recovery completed](/img/the-vcenter-display-the-recovered-vm.png)
 
