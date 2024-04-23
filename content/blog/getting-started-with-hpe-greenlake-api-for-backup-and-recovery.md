@@ -165,13 +165,13 @@ A protection policy contains several JSON objects that are displayed in the figu
 
 ![API request body JSON for protection policy creation](/img/api-body-json-request-for-protection-policies.png)
 
-﻿*The above figure shows the guide for protection-policies request body JSON structure*
+﻿*The above figure shows the guide for protection-policies request body JSON structure.*
 
 To simplify this example, I created a three-tier protection-policy for VMware as depicted by this snippet from the protection policy’s menu.
 
 ![3 Tiers protection policy ](/img/backup-protection-policy-with-3-tiers.png)
 
-The list of the steps to create this protection policy:
+T﻿his is the list of the steps u﻿sed to create this protection policy:
 
 1. From the figure below, inside the protection store gateways menu, I discovered the serial number of the protection-store gateway and used it as the filtering parameter to obtain the protection store gateway instance.  
 
