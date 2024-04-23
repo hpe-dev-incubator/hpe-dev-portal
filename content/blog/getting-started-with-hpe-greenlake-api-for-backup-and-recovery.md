@@ -113,7 +113,7 @@ A protection store is the critical resource that is required to store the recove
 
 The example below displays the creation of the cloud protection store in the HPE GreenLake protection store at Microsoft Azure cloud storage.
 
-![UI to create a cloud protection a﻿t Microsoft Azure](/img/ui-to-create-cloud-protection.png)
+![UI to create a cloud protection s﻿ite o﻿n Microsoft Azurea﻿t the eastus2 storage location](/img/ui-to-create-cloud-protection.png)
 
 *T﻿he figure above shows the user interface used to create a cloud store protection at Microsoft Azure in eastus2 storage location using the user interface.* 
 
