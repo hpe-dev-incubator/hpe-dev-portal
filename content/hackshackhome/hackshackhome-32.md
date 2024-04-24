@@ -1,6 +1,6 @@
 ---
 title: The data services family of APIs for HPE GreenLake – Putting it all together
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3817089634772/WN_YJ3l4-XIQ8mWluh8vul7lg
 imageBackground: white
