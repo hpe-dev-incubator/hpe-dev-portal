@@ -604,4 +604,4 @@ The examples presented in this blog post provided some guides on using combinati
 
 All the execution for the examples were done using Postman API tool without any scripting language to encourage anyone to experiment with the family of REST APIs for data services on HPE GreenLake. 
 
-Please don’t hesitate to explore this new set of API for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please [join](https://developer.hpe.com/slack-signup) the **HPE Developer Slack Workspace**, and start a discussion in our [\#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) channel.
+Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join [the HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
