@@ -39,29 +39,28 @@ So, my Excel file contains the following 2 sheets:
 
 ![Workspaces tab in Excel](/img/bulkimport-blog-picture-2.png "Workspaces tab in Excel")
 
-
-
-## High-level algorithm 
-
+## High-level algorithm
 
 Let’s look at the steps necessary to invite users from my spreadsheets:
 
 1. Read command parameters to get the Excel filename
 2. Open spreadsheet to retrieve data
 3. For each workspace in Workspaces sheet
-   - Prompt for Client Secret that matches the Client Id
-   - Retrieve a session token using those credentials
+
+   * Prompt for Client Secret that matches the Client Id
+   * Retrieve a session token using those credentials
 4. For each user in Users sheet
-   - Lookup Client Id using workspace name
-   - Call POST /identity/v1/users for user using email 
-   - Increase counter of invited users
+
+   * Lookup Client Id using workspace name
+   * Call POST /identity/v1/users for user using email 
+   * Increase counter of invited users
 5. Display list of users invited in each workspace
 
 ## Putting things together in PowerShell
 
 I decided to use PowerShell to write this script because it provides easy native access to Excel spreadsheets.
 
-### Step 1 – Reading the parameter from the command line.    
+### Step 1 – Reading the parameter from the command line.
 
 ```powershell
 Param($XLFile)
@@ -73,7 +72,6 @@ if ($Null -eq $XLFile)
         $XLFile = read-host "Enter name of the Excel file" 
     }
 }
-
 ```
 
 ### Step 2 – Importing data from the 2 sheets of my spreadsheet.
@@ -86,10 +84,9 @@ if ($XLFile)
 {
     $users_excel  =   import-excel -path $XLFile -dataonly -worksheetname Users
     $workspaces_excel = Import-Excel -path $XLFile -dataonly -worksheetname Workspaces  
-
 ```
 
-*Note that I initialized 2 hash tables, one called $tokens that will store the token for a given Client Id (i.e Workspace) and another called $invited for storing the number of invited users for a given Client Id.*
+Note that I initialized 2 hash tables, one called $tokens that will store the token for a given Client Id (i.e Workspace) and another called $invited for storing the number of invited users for a given Client Id.
 
 ### Step 3 – Iterating over the Workspaces sheet to collect client secrets, and retrieve access tokens.
 
@@ -124,7 +121,6 @@ if ($XLFile)
             }
         }
     }
-
 ```
 
 Note that, at the end of this loop, I have a hash table of tokens indexed by Client Id, which I will use to call the API in the next section
@@ -175,7 +171,6 @@ Note that, at the end of this loop, I have a hash table of tokens indexed by Cli
         sleep 15
     }
 }
-
 ```
 
 Note that before the loop, I initialized to zero the count of invited users for a given workspace. Also note the sleep 15 (seconds) at the end of the loop to avoid issues with rate limiting constraints  which might raise a status code 429.
@@ -233,14 +228,13 @@ foreach ($workspace in $workspaces_excel ) {
     $_users_list | select Username, Status | ft -AutoSize
     
 }
-
 ```
 
 ## Try it!
 
 Let’s run this script, making sure to reference the right Excel spreadsheet: 
 
-```powershell
+```markdown
 PS /Volumes/Dev/GreenLake/GLP-API-Tooling/Scripts> ./bulk_invite.ps1 -XLfile userlist.xlsx                                                 
 Enter HPE GreenLake Client Secret for Workspace HPEDEV -GLCP- Hackshack: ********************************
 Enter HPE GreenLake Client Secret for Workspace Super Awesome Company: ********************************                 
@@ -257,27 +251,26 @@ List of users in workspace: HPEDEV -GLCP- Hackshack
 
 Username                     Status
 --------                     ------
-<email>      VERIFIED
+<email>                     VERIFIED
 …
-yyy@lalli.fr	VERIFIED
+yyy@lalli.fr	            VERIFIED
 …
-xxx@gmail.com       UNVERIFIED
+xxx@gmail.com               UNVERIFIED
 …
-<email>      VERIFIED
+<email>                     VERIFIED
 
 1 user(s) invited to workspace Super Awesome Company                                                                    
 List of users in workspace: Super Awesome Company
 
 Username                          Status
 --------                          ------
-<email>      VERIFIED
+<email>                          VERIFIED
 …
-www@gmail.com 	VERIFIED
+www@gmail.com 	                 VERIFIED
 …
-xxx@lalli.fr       UNVERIFIED
+xxx@lalli.fr                     UNVERIFIED
 …
-<email>      VERIFIED
-
+<email>                          VERIFIED
 ```
 
 As you can see, the script has invited 1 user in each workspace, the second email being already a member of the workspace (thus no action is necessary). 
