@@ -28,13 +28,11 @@ governed by role-based access controls (RBACs) similar to the regular users usin
 
 ### Configuring API client credentials
 
-To get started with the API we'll need to create a client_id/client_secret pair, this pair is linked to the user creating it and every interaction using this token will be registered in the audit log.
+To get started with the API we'll need to create a client_id/client_secret pair, this pair is linked to the user creating it and every interaction using this token will be registered in the audit log. The token generated using this key pair has the same permissions as the user who created it.
 
 1. Sign in to HPE GreenLake, select your Workspace, Select Manage Workspace.
-2. ![Seletinh the API card](/img/workspace-small.png "Select the API card")
-
-   Click the API card.
-3. Click Create Credentials .
+2. Click the API card.
+3. Click Create Credentials. 
 4. Select the Service Manager you want to access.
 5. Enter the Credential Name .
 6. Click the Create Credentials button to continue. The Credentials Created screen displays showing your credentials were successfully created.
