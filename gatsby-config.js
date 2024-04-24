@@ -16,9 +16,7 @@ const stripMarkdown = async (markdown) => {
   //   });
   // });
   // return text;
-  const markedup = await (await remark).remark()
-    .use(strip)
-    .process(markdown);
+  const markedup = await (await remark).remark().use(strip).process(markdown);
   return markedup.contents;
 };
 
@@ -236,7 +234,6 @@ module.exports = {
           },
           'gatsby-plugin-catch-links',
           'gatsby-remark-copy-linked-files',
-       
         ],
       },
     },
@@ -261,18 +258,18 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-adobe-launch-hpe',
-      options: {
-        trackingIds: [
-        'G-45LYYFDK5J', // Google Analytics / GA
-        ],
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
-        },
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-adobe-launch-hpe',
+    //   options: {
+    //     trackingIds: [
+    //     'G-45LYYFDK5J', // Google Analytics / GA
+    //     ],
+    //     pluginConfig: {
+    //       // Puts tracking script in the head instead of the body
+    //       head: true,
+    //     },
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-plugin-adobe-launch-hpe',
     //   options: {
@@ -293,19 +290,19 @@ module.exports = {
     // },
     {
       resolve: 'gatsby-plugin-feed',
-      options:{
+      options: {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
+              return allMarkdownRemark.nodes.map((node) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                  custom_elements: [{ 'content:encoded': node.html }],
+                });
+              });
             },
             query: `
               {
@@ -326,11 +323,11 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
+            output: '/rss.xml',
             title: "Your Site's RSS Feed",
           },
         ],
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
