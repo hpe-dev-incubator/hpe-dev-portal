@@ -33,7 +33,7 @@ In this series of blogs we will show how we can connect to the APIs and how the 
 
 ### Configuring API client credentials
 
-To get started with the API we'll need to create a client_id/client_secret pair, this pair is linked to the user creating it and every interaction using this token will be registered in the audit log. The token generated using this key pair has the same permissions as the user who created it. The token is valid for two hours and expires automatically.
+To get started with the API we'll need to create a client_id/client_secret pair to authenticate each API request, this key pair is linked to the user creating it and every interaction using this token will be registered in the audit log. The token generated using this key pair has the same permissions as the user who created it. The token is valid for two hours and expires automatically.
 
 1. Sign in to HPE GreenLake, select your Workspace, then select Manage Workspace.
 2. Click the API card.
