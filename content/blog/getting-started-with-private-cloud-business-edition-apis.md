@@ -4,6 +4,10 @@ date: 2024-05-24T13:19:00.923Z
 author: Mark van Silfhout
 authorimage: /img/mark-genevax150.jpg
 disable: false
+tags:
+  - HPE GreenLake for Private Cloud Business Edition
+  - Private Cloud Business Edition
+  - PCBE
 ---
 # HPE GreenLake for Private Cloud Business Edition
 
@@ -30,7 +34,7 @@ governed by role-based access controls (RBACs) similar to the regular users usin
 
 To get started with the API we'll need to create a client_id/client_secret pair, this pair is linked to the user creating it and every interaction using this token will be registered in the audit log. The token generated using this key pair has the same permissions as the user who created it. The token is valid for two hours and expires automatically.
 
-1. Sign in to HPE GreenLake, select your Workspace, Select Manage Workspace.
+1. Sign in to HPE GreenLake, select your Workspace, then select Manage Workspace.
 2. Click the API card.
 3. Click Create Credentials. 
 4. Select the Service Manager you want to access.
