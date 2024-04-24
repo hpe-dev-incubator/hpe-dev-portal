@@ -63,7 +63,7 @@ I decided to use PowerShell to write this script because it provides easy native
 
 ### Step 1 – Reading the parameter from the command line.    
 
-```
+```powershell
 Param($XLFile)
 
 if ($Null -eq $XLFile)
@@ -78,7 +78,7 @@ if ($Null -eq $XLFile)
 
 ### Step 2 – Importing data from the 2 sheets of my spreadsheet.
 
-```
+```powershell
 $tokens =@{}
 $invited=@{}
 
@@ -93,7 +93,7 @@ if ($XLFile)
 
 ### Step 3 – Iterating over the Workspaces sheet to collect client secrets, and retrieve access tokens.
 
-```
+```powershell
 # Ask for client_Secret of each workspace in Excel file
     foreach ($workspace in $workspaces_excel ) {   
         $client_id = $workspace.'Client Id'    
@@ -131,7 +131,7 @@ Note that, at the end of this loop, I have a hash table of tokens indexed by Cli
 
 ### Step 4 – Iterating over Users sheet to invite each of them.
 
-```
+```powershell
 # Now walk the list of users to add
     $invited.Add($client_id,0)
     foreach ($user in $users_excel ) {
@@ -184,7 +184,7 @@ Note that before the loop, I initialized to zero the count of invited users for 
 
 ### Step 5: Displaying list of users invited in each workspace.
 
-```
+```powershell
 else 
 {
     write-host 'Mailing list file not provided nor found....'
@@ -240,7 +240,7 @@ foreach ($workspace in $workspaces_excel ) {
 
 Let’s run this script, making sure to reference the right Excel spreadsheet: 
 
-```
+```powershell
 PS /Volumes/Dev/GreenLake/GLP-API-Tooling/Scripts> ./bulk_invite.ps1 -XLfile userlist.xlsx                                                 
 Enter HPE GreenLake Client Secret for Workspace HPEDEV -GLCP- Hackshack: ********************************
 Enter HPE GreenLake Client Secret for Workspace Super Awesome Company: ********************************                 
