@@ -4,7 +4,7 @@ dateStart: 2024-04-23T22:01:23.098Z
 dateEnd: 2024-04-24T21:59:23.131Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://www.youtube.com/watch?v=-ffzhc6TzoA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## The data services family of APIs for HPE GreenLake – Putting it all together
