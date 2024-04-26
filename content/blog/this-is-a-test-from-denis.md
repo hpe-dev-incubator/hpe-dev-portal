@@ -4,6 +4,14 @@ date: 2021-06-15T13:12:06.175Z
 author: Denis Choukroun
 authorimage: /img/Avatar1.svg
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 This is a test from Denis to check the View Preview after submission.
 Update for the blog post.
 Second update of the blog.
