@@ -15,4 +15,19 @@ Third update.
 "category": ["machine-learning"],
 ```
 
-[get\_ilo\_py.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py)
+[get_ilo_py.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py)
+
+1. Numbered item 1
+
+   ![Test image 1](/img/1-gunna.png "Test image 1")
+
+2. Numbered item 2
+
+   ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
+
+3. Numbered item 3
+4. Numbered Item 4
+
+
+
+![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
