@@ -1105,19 +1105,19 @@ The following steps describe how to implement this scenario in Make:
 
       In Make, monitor the scenario. Ensure that the webhook is received and that it triggers the corresponding actions. Check logs for any issues. All modules should turn green, indicating success, with no errors displayed:
 
-      [![]( /img/COM-webhooks-60.png)]( /img/COM-webhooks-60.png) 
+      ![]( /img/COM-webhooks-60.png)
     
       You should receive the following message template in Slack:
 
-      [![]( /img/COM-webhooks-61.png)]( /img/COM-webhooks-61.png) 
+      ![]( /img/COM-webhooks-61.png)
       
       You should receive the following message template in your mailbox:
 
-      [![]( /img/COM-webhooks-62.png)]( /img/COM-webhooks-62.png) 
+      ![]( /img/COM-webhooks-62.png)
 
       You should have a new record in your Notion database:
 
-      [![]( /img/COM-webhooks-63.png)]( /img/COM-webhooks-63.png) 
+      ![]( /img/COM-webhooks-63.png)
   <br>  
 
   <a name="Step11"></a>
@@ -1138,11 +1138,11 @@ To learn more, see [Using the On-premise agent](https://www.make.com/en/help/con
 
 An enhanced scenario could incorporate more sophisticated actions, such as sending HTTP requests to Compute Ops Management to execute tasks informed by data received from a webhook. For example, expanding on the initial scenario, we could introduce an additional action to automatically restart a server. This enhancement would necessitate the integration of several modules:
 
-[![]( /img/COM-webhooks-64.png)]( /img/COM-webhooks-64.png) 
+![]( /img/COM-webhooks-64.png)
 
 Moreover, using filters, offers another layer of automation. Consider a webhook that activates upon the integration of new servers into the HPE GreenLake platform. In this case, it's feasible to automate diverse operations within Make. For instance, servers can be automatically added to specific groups utilizing filters based on their tag values — such as location or application type — to apply particular configurations and firmware levels:
 
-[![]( /img/COM-webhooks-65.png)]( /img/COM-webhooks-65.png) 
+![]( /img/COM-webhooks-65.png)
 
 
 
@@ -1150,29 +1150,29 @@ Details about the different modules to use in Make to interact with COM:
 
 - To create a COM session, you can use the HTTP: `Make a request` module with the following configuration:
 
-  [![]( /img/COM-webhooks-68.png)]( /img/COM-webhooks-68.png) 
+  ![]( /img/COM-webhooks-68.png)
 
 - To capture the COM access token, use:
 
-  [![]( /img/COM-webhooks-69.png)]( /img/COM-webhooks-69.png) 
+  ![]( /img/COM-webhooks-69.png)
 
 - To create a `GET` request, use:  
 
-  [![]( /img/COM-webhooks-70.png)]( /img/COM-webhooks-70.png) 
+  ![]( /img/COM-webhooks-70.png)
 
 - To capture the `GET` response into a variable: 
 
-  [![]( /img/COM-webhooks-71.png)]( /img/COM-webhooks-71.png) 
+  ![]( /img/COM-webhooks-71.png)
 
 - To create a POST request with a particular payload, use:
 
-  [![]( /img/COM-webhooks-72.png)]( /img/COM-webhooks-72.png) 
+  ![]( /img/COM-webhooks-72.png)
 
   > Note that, for some obscure reason, I had to remove all spaces in my JSON payload for the COM API to accept my request!
 
  - [Filters](https://www.make.com/en/help/scenarios/filtering) used to detect the application name in the Tag values, must be configured with the `text` variable where the server tags have been stored from module `6` and must use the `Contains()` operator with the string value that you want to filter:  
 
-   [![]( /img/COM-webhooks-67.png)]( /img/COM-webhooks-67.png) 
+   ![]( /img/COM-webhooks-67.png)
 
 
 To wrap things up, I'm genuinely excited about the opportunities here! The combo of COM webhooks with some nifty tools opens up a world of possibilities for automating all sorts of things in HPE GreenLake spaces. Imagine having complicated tasks just flow smoothly on their own—less grunt work for us humans, and we get a server management system that's agile and super responsive. By tapping into the magic of webhooks through Compute Ops Management, we're looking at a real game-changer for boosting how we handle IT operations and making everything run like a well-oiled machine. It's pretty awesome what we can achieve with this tech! 🚀
