@@ -39,33 +39,33 @@ disable: false
 </style>
 
 **Contents**   
-[What are webhooks?](#Step1)  
-[The magic of automation](#Step2)  
-[Available resources in Compute Ops Management](#Step3)  
-[Filtering options](#Step4)   
-&nbsp;&nbsp;&nbsp;[New and Old](#Step5)   
-&nbsp;&nbsp;&nbsp;[OData style filters](#Step6)   
-&nbsp;&nbsp;&nbsp;[Filter examples](#Step7)   
-[Secure handshake mechanism](#Step8)   
-[Integrating COM webhooks with automation tools](#Step9)   
-&nbsp;&nbsp;&nbsp;[Integrating COM Webhooks with Make: A Step-by-Step Workflow Creation Guide](#Step10)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1-Setup your Make account](#Step10-1)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2-Create a new scenario](#Step10-2)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3-Search and add the webhooks module](#Step10-3)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4-Configure the webhook trigger](#Step10-4)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5-Run the webhooks module once](#Step10-5)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6-Create the webhook using the COM API](#Step10-6)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7-Create a variable to capture the verification challenge sent by COM](#Step10-7)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[8-Renegociate the webhook handshake to set the variable](#Step10-8)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9-Use the verification challenge in the webhook response](#Step10-9)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10-Renegociate the webhook handshake to generate the response](#Step10-10)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[11-Check the webhook status in COM (optional)](#Step10-11)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[12-Configure a variable to store the server tags](#Step10-12)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[13-Configure the event handlers](#Step10-13)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[14-Scheduling and Activation](#Step10-14)      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[15-Trigger a webhook to test the full flow](#Step10-15)      
-[Using the Make On-premise agent](#Step11)   
-[Taking automation a step further?](#Step12)   
+- [What are webhooks?](#Step1)  
+- [The magic of automation](#Step2)  
+- [Available resources in Compute Ops Management](#Step3)  
+- [Filtering options](#Step4)   
+  - [New and Old](#Step5)   
+  - [OData style filters](#Step6)   
+  - [Filter examples](#Step7)   
+- [Secure handshake mechanism](#Step8)   
+- [Integrating COM webhooks with automation tools](#Step9)   
+  - [Integrating COM Webhooks with Make: A Step-by-Step Workflow Creation Guide](#Step10)   
+  - [1-Setup your Make account](#Step10-1)   
+  - [2-Create a new scenario](#Step10-2)   
+  - [3-Search and add the webhooks module](#Step10-3)      
+  - [4-Configure the webhook trigger](#Step10-4)      
+  - [5-Run the webhooks module once](#Step10-5)      
+  - [6-Create the webhook using the COM API](#Step10-6)      
+  - [7-Create a variable to capture the verification challenge sent by COM](#Step10-7)      
+  - [8-Renegociate the webhook handshake to set the variable](#Step10-8)      
+  - [9-Use the verification challenge in the webhook response](#Step10-9)      
+  - [10-Renegociate the webhook handshake to generate the response](#Step10-10)      
+  - [11-Check the webhook status in COM (optional)](#Step10-11)      
+  - [12-Configure a variable to store the server tags](#Step10-12)      
+  - [13-Configure the event handlers](#Step10-13)      
+  - [14-Scheduling and Activation](#Step10-14)      
+  - [15-Trigger a webhook to test the full flow](#Step10-15)      
+- [Using the Make On-premise agent](#Step11)   
+- [Taking automation a step further?](#Step12)   
 
 <br>
 
@@ -76,13 +76,9 @@ Imagine having a high-powered alert system not just sounding alarms but also tri
 
 Now, let's peel back the layers to discover how this impacts organizations like yours.
 
-<a name="Step1"></a>
-
 ## What are webhooks?
 
 At their core, webhooks are automated messages sent from apps when something happens. They're a way for apps to communicate and pass information along instantly, setting off a chain reaction of tasks without the need for manual intervention.
-
-<a name="Step2"></a>
 
 ## The magic of automation
 
