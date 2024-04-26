@@ -2,10 +2,6 @@ import axios from 'axios';
 
 // eslint-disable-next-line max-len
 const API_URL = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/login`;
-const data = {
-  username: '',
-  password: '',
-};
 const options = {
   headers: {
     'Content-Type': 'application/json',
@@ -17,7 +13,6 @@ class AuthService {
     return axios({
       method: 'POST',
       url: API_URL,
-      data,
       headers: options,
     }).then((response) => {
       if (response.data.accessToken) {
