@@ -38,34 +38,39 @@ disable: false
 
 </style>
 
-**Contents**   
-- [What are webhooks?](#Step1)  
-- [The magic of automation](#Step2)  
-- [Available resources in Compute Ops Management](#Step3)  
-- [Filtering options](#Step4)   
-  - [New and Old](#Step5)   
-  - [OData style filters](#Step6)   
-  - [Filter examples](#Step7)   
-- [Secure handshake mechanism](#Step8)   
-- [Integrating COM webhooks with automation tools](#Step9)   
-  - [Integrating COM Webhooks with Make: A Step-by-Step Workflow Creation Guide](#Step10)   
-  - [1-Setup your Make account](#Step10-1)   
-  - [2-Create a new scenario](#Step10-2)   
-  - [3-Search and add the webhooks module](#Step10-3)      
-  - [4-Configure the webhook trigger](#Step10-4)      
-  - [5-Run the webhooks module once](#Step10-5)      
-  - [6-Create the webhook using the COM API](#Step10-6)      
-  - [7-Create a variable to capture the verification challenge sent by COM](#Step10-7)      
-  - [8-Renegociate the webhook handshake to set the variable](#Step10-8)      
-  - [9-Use the verification challenge in the webhook response](#Step10-9)      
-  - [10-Renegociate the webhook handshake to generate the response](#Step10-10)      
-  - [11-Check the webhook status in COM (optional)](#Step10-11)      
-  - [12-Configure a variable to store the server tags](#Step10-12)      
-  - [13-Configure the event handlers](#Step10-13)      
-  - [14-Scheduling and Activation](#Step10-14)      
-  - [15-Trigger a webhook to test the full flow](#Step10-15)      
-- [Using the Make On-premise agent](#Step11)   
-- [Taking automation a step further?](#Step12)   
+### Table of Contents
+<details>
+<summary>Click to expand</summary>
+
+- [What are webhooks?](#what-are-webhooks)
+- [The magic of automation](#the-magic-of-automation)
+- [Available resources in Compute Ops Management](#available-resources-in-compute-ops-management)
+- [Filtering options](#filtering-options)
+  * [New and Old](#new-and-old)
+  * [OData style filters](#odata-style-filters)
+  * [Filter examples](#filter-examples)
+- [Secure handshake mechanism](#secure-handshake-mechanism)
+- [Integrating COM webhooks with automation tools](#integrating-com-webhooks-with-automation-tools)
+  * [Integrating COM Webhooks with Make: A Step-by-Step Workflow Creation Guide](#integrating-com-webhooks-with-make-a-step-by-step-workflow-creation-guide)
+    - [1-Setup your Make account](#Step10-1)   
+    - [2-Create a new scenario](#Step10-2)   
+    - [3-Search and add the webhooks module](#Step10-3)      
+    - [4-Configure the webhook trigger](#Step10-4)      
+    - [5-Run the webhooks module once](#Step10-5)      
+    - [6-Create the webhook using the COM API](#Step10-6)      
+    - [7-Create a variable to capture the verification challenge sent by COM](#Step10-7)      
+    - [8-Renegociate the webhook handshake to set the variable](#Step10-8)      
+    - [9-Use the verification challenge in the webhook response](#Step10-9)      
+    - [10-Renegociate the webhook handshake to generate the response](#Step10-10)      
+    - [11-Check the webhook status in COM (optional)](#Step10-11)      
+    - [12-Configure a variable to store the server tags](#Step10-12)      
+    - [13-Configure the event handlers](#Step10-13)      
+    - [14-Scheduling and Activation](#Step10-14)      
+    - [15-Trigger a webhook to test the full flow](#Step10-15)      
+- [Using the Make On-premise agent](#using-the-make-on-premise-agent)
+- [Taking automation a step further?](#taking-automation-a-step-further)
+
+</details>
 
 <br>
 
