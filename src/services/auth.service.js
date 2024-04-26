@@ -3,8 +3,8 @@ import axios from 'axios';
 // eslint-disable-next-line max-len
 const API_URL = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/login`;
 const data = {
-  username: process.env.GATSBY_USERNAME,
-  password: process.env.GATSBY_PASSWORD,
+  username: '',
+  password: '',
 };
 const options = {
   headers: {
