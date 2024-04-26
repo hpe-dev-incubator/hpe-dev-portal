@@ -321,7 +321,7 @@ Filtering with OData allows for both simple and complex querying possibilities, 
 
   **Note**: The `connected` property of the servers API is a Boolean as indicated in the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/operation/get_v1beta2_server_by_id/#tag/servers-v1beta2/operation/get_v1beta2_server_by_id!c=200&path=state/connected&t=response), therefore ensure you use the Boolean value `True` without enclosing it in quotation marks as they represent Boolean literals for both expressions because quotation marks would indicate a string type rather than a Boolean type:
 
-  [![]( /img/COM-webhooks-1.png)]( /img/COM-webhooks-1.png)
+  ![]( /img/COM-webhooks-1.png)
   
 
 - **To receive webhooks for all jobs that run a server firmware update**:
@@ -552,7 +552,7 @@ To illustrate this, let's explore how to create a typical workflow using Make (f
 
 Make is a powerful no-code/low-code automation tool that greatly enhances Compute Ops Management's webhook capabilities to streamline and automate workflows without requiring extensive coding knowledge. With its intuitive visual interface, complex integrations between various online services become much simpler, significantly reducing the time spent on otherwise manual tasks.
 
-[![]( /img/COM-webhooks-5.png)]( /img/COM-webhooks-5.png) 
+![]( /img/COM-webhooks-5.png)
 
 
 > Despite being no-code friendly, Make doesn't compromise on complexity. It supports multi-step integrations, enabling users to craft detailed processes that perform several actions across different platforms seamlessly.
@@ -586,7 +586,7 @@ The following steps describe how to implement this scenario in Make:
    
    - Search for the Webhooks module then select `Custom webhook` and add it to the scenario.
       
-     [![]( /img/COM-webhooks-3.png)]( /img/COM-webhooks-3.png) 
+     ![]( /img/COM-webhooks-3.png)
  <br> 
 <a name="Step10-4"></a>
 
@@ -594,15 +594,15 @@ The following steps describe how to implement this scenario in Make:
 
    - Click on `Create a webhook` in the Webhooks module.
 
-     [![]( /img/COM-webhooks-4.png)]( /img/COM-webhooks-4.png) 
+     ![]( /img/COM-webhooks-4.png) 
 
    - Set up the webhook by giving it a name and click on `Show advanced settings` and turn the `Get request headers` to `Yes`.
     
-     [![]( /img/COM-webhooks-6.png)]( /img/COM-webhooks-6.png) 
+     ![]( /img/COM-webhooks-6.png)
 
    - Save it to get the unique URL then copy the webhook URL by clicking on `Copy address to clipboard` then click `OK`.
     
-     [![]( /img/COM-webhooks-7.png)]( /img/COM-webhooks-7.png) 
+     ![]( /img/COM-webhooks-7.png)
    <br>
 <a name="Step10-5"></a>
 
@@ -610,7 +610,7 @@ The following steps describe how to implement this scenario in Make:
 
     - Click on the `Run once button`. This action is necessary to capture the data structure that will be transmitted by COM when you create the webhook in the following step.  
       
-      [![]( /img/COM-webhooks-12.png)]( /img/COM-webhooks-12.png) 
+      ![]( /img/COM-webhooks-12.png)
   <br>
 <a name="Step10-6"></a>
 
@@ -644,26 +644,26 @@ The following steps describe how to implement this scenario in Make:
     
         > For this step, you can refer to my Postman public collection for Compute Ops Managment. In the [Webhooks](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/folder/991177-71b32a6f-361a-4ac5-88fc-27975cad01f9) folder, you'll find several examples of webhook creation requests including the webhook for server shutdown events.
 
-        >   [![]( /img/COM-webhooks-11.png)]( /img/COM-webhooks-11.png) 
+        >   ![]( /img/COM-webhooks-11.png) 
 
         > These examples should assist you in creating your own webhooks successfully.
 
     - Send the request to create the webhook. Verify that the COM API responds with a `201 Created` status code, indicating successful creation. The response body should indicate a status of `PENDING`.
       
-      [![]( /img/COM-webhooks-8.png)]( /img/COM-webhooks-8.png)  
+      ![]( /img/COM-webhooks-8.png)  
 
     - Ensure you record the Webhook ID returned by the webhook creation request. You will need this ID later to update the webhook in order to renegotiate the handshake.
     
-        [![]( /img/COM-webhooks-20.png)]( /img/COM-webhooks-20.png) 
+        ![]( /img/COM-webhooks-20.png)
       
         > **Note**: If you run a `GET /compute-ops-mgmt/v1beta1/webhooks/<webhook-id>`, you should notice that the webhook status is set to `WARNING` with the reason being an `Incorrect handshake response`. This behavior is expected because Make has not responded with the verification challenge as COM anticipates. Steps 7 and 8 are designed to address this issue.
 
-        >  [![]( /img/COM-webhooks-21.png)]( /img/COM-webhooks-21.png) 
+        >  ![]( /img/COM-webhooks-21.png) 
 
 
     - In Make, check that the Run once task has stopped and that the webhooks module has turned green, indicating that data has been received.
 
-      [![]( /img/COM-webhooks-14.png)]( /img/COM-webhooks-14.png) 
+      ![]( /img/COM-webhooks-14.png) 
   <br>
 <a name="Step10-7"></a>
 
@@ -671,11 +671,11 @@ The following steps describe how to implement this scenario in Make:
 
     - Click on `+` to add another module 
 
-      [![]( /img/COM-webhooks-9.png)]( /img/COM-webhooks-9.png) 
+      ![]( /img/COM-webhooks-9.png)
 
     - Search for the Tools module then select `Set variable`
     
-      [![]( /img/COM-webhooks-10.png)]( /img/COM-webhooks-10.png) 
+      ![]( /img/COM-webhooks-10.png)
 
     - Enter `verification` as the variable name and for the variable value, enter:
       
@@ -683,16 +683,16 @@ The following steps describe how to implement this scenario in Make:
 
       > The `toCollection()` function is being called with arguments. This function converts the HTTP header object into a collection for easier access. The `get()` is used to retrieve the value of `x-compute-ops-mgmt-verification-challenge` available in the header collection.
       
-        [![]( /img/COM-webhooks-15.png)]( /img/COM-webhooks-15.png) 
+        ![]( /img/COM-webhooks-15.png)
     
     - Then click just after `toCollection(`:
   
-      [![]( /img/COM-webhooks-24.png)]( /img/COM-webhooks-24.png)
+      ![]( /img/COM-webhooks-24.png)
           
 
     - Then click on the `Headers[]` item from the Make mapping pane:
 
-      [![]( /img/COM-webhooks-25.png)]( /img/COM-webhooks-25.png)
+      ![]( /img/COM-webhooks-25.png)]
 
       > The Make mapping pane allows users to connect data outputs from one module to inputs in another. It enables drag-and-drop functionality for easy mapping, and supports the use of functions and formulas to manipulate data as it moves between modules. This feature is central to creating workflows that automate tasks by integrating various apps and services within Make scenarios.
 
@@ -700,11 +700,11 @@ The following steps describe how to implement this scenario in Make:
 
     - Then click on `OK`:
 
-      [![]( /img/COM-webhooks-26.png)]( /img/COM-webhooks-26.png)
+      ![]( /img/COM-webhooks-26.png)
 
     - Then click on `Run once` 
 
-      [![]( /img/COM-webhooks-27.png)]( /img/COM-webhooks-27.png)
+      ![]( /img/COM-webhooks-27.png)
   <br>
 <a name="Step10-8"></a>
 <br>
@@ -728,15 +728,15 @@ The following steps describe how to implement this scenario in Make:
             }
         ```
     
-      [![]( /img/COM-webhooks-31.png)]( /img/COM-webhooks-31.png)
+      ![]( /img/COM-webhooks-31.png)
 
     - Once the request has been sent, return to the Make interface and verify that the execution stopped and the the status of all modules is green:
   
-      [![]( /img/COM-webhooks-28.png)]( /img/COM-webhooks-28.png)
+      ![]( /img/COM-webhooks-28.png)
 
     - You can click on the output details and verify that the `verification` variable value is now populated:
 
-      [![]( /img/COM-webhooks-29.png)]( /img/COM-webhooks-29.png) 
+      ![]( /img/COM-webhooks-29.png)
   <br>
 <a name="Step10-9"></a>
 
@@ -744,27 +744,27 @@ The following steps describe how to implement this scenario in Make:
 
     - In the next step, you need to add aother module that will generate the response expected by COM. From the Tools module, click on `+` and add the `Webhook response` module.
 
-      [![]( /img/COM-webhooks-16.png)]( /img/COM-webhooks-16.png)
+      ![]( /img/COM-webhooks-16.png)
 
     - Leave the status as `200`. Click on the body field, and enter:
     
         {&quot;verification&quot;: &quot;&quot;}
     
-      [![]( /img/COM-webhooks-17.png)]( /img/COM-webhooks-17.png)
+      ![]( /img/COM-webhooks-17.png)
 
     - Then drag and drop `verification` from the Make mapping pane between the last two quotes:
 
-      [![]( /img/COM-webhooks-30.png)]( /img/COM-webhooks-30.png)
+      ![]( /img/COM-webhooks-30.png)
 
     - Click on `Show advanced settings` then `Add item` then enter the following header: 
       - Key: `content-type` 
       - Value: `application/json`   
       <br>
-      [![]( /img/COM-webhooks-18.png)]( /img/COM-webhooks-18.png)
+      ![]( /img/COM-webhooks-18.png)
     <br>
     - Click on `OK` then click on `Run once` 
 
-      [![]( /img/COM-webhooks-22.png)]( /img/COM-webhooks-22.png)
+      ![]( /img/COM-webhooks-22.png)
  <br>
 <a name="Step10-10"></a>
 <br>
@@ -773,11 +773,11 @@ The following steps describe how to implement this scenario in Make:
 
       - The Make scenario is now ready to return the verification challenge key to COM in order to enable the handshake mechanism. To force renegotiation, you can run again the PATCH request using again the same payload content targeting the same webhook ID.
 
-        [![]( /img/COM-webhooks-32.png)]( /img/COM-webhooks-32.png)
+        ![]( /img/COM-webhooks-32.png)
 
       - Once the `PATCH` request has been executed, return to Make and verify that all modules are displaying a green status and that the response body now includes the verification token:
 
-        [![]( /img/COM-webhooks-33.png)]( /img/COM-webhooks-33.png)
+        ![]( /img/COM-webhooks-33.png)
  <br>
 <a name="Step10-11"></a>
 <br>
@@ -791,7 +791,7 @@ The following steps describe how to implement this scenario in Make:
           GET /compute-ops-mgmt/v1beta1/webhooks/<webhook-id>
         ```
 
-        [![]( /img/COM-webhooks-35.png)]( /img/COM-webhooks-35.png)
+        ![]( /img/COM-webhooks-35.png)
  <br>
 <a name="Step10-12"></a>
 <br>
@@ -825,41 +825,41 @@ The following steps describe how to implement this scenario in Make:
       
           - Add the module **Tools**: `Set variable`.
 
-              [![]( /img/COM-webhooks-46.png)]( /img/COM-webhooks-46.png)
+              ![]( /img/COM-webhooks-46.png)
           
           - For the variable name, enter `tagsArray` and for the value `{% raw %}{{toArray(1.tags)}}{% endraw %}`.
 
-              [![]( /img/COM-webhooks-47.png)]( /img/COM-webhooks-47.png)
+              ![]( /img/COM-webhooks-47.png)
 
       2. Split the array into individual elements: 
       
           - Add the module `Iterator`.
 
-              [![]( /img/COM-webhooks-48.png)]( /img/COM-webhooks-48.png)
+              ![]( /img/COM-webhooks-48.png)
           
           - In the Array field, drag and drop the `tagsArray` variable from module `4`:
 
-              [![]( /img/COM-webhooks-49.png)]( /img/COM-webhooks-49.png)
+              ![]( /img/COM-webhooks-49.png)
 
       3. Combine multiple tag items into a single text block: 
       
           - Add the module **Tools**: `Text aggregator`.
 
-              [![]( /img/COM-webhooks-50.png)]( /img/COM-webhooks-50.png)
+              ![]( /img/COM-webhooks-50.png)
           
           - For the source module, select `Iterator [5]` and for the text, enter: 
             
             `{% raw %}Tag:{{5.value}}/{{5.key}}{% endraw %}`  
 
-              [![]( /img/COM-webhooks-51.png)]( /img/COM-webhooks-51.png)
+              ![]( /img/COM-webhooks-51.png)
 
           - Then drag and drop the `Bundle order position` variable from module `5` between `Tag` and `:` 
           
-              [![]( /img/COM-webhooks-52.png)]( /img/COM-webhooks-52.png)
+              ![]( /img/COM-webhooks-52.png)
 
           - Click on `Show advanced settings`, then select `New row` for the `Row separator` option: 
           
-              [![]( /img/COM-webhooks-53.png)]( /img/COM-webhooks-53.png)
+              ![]( /img/COM-webhooks-53.png)
 
             This aggregator module will generate text in the format of `Tag1:Owner/James` when there is one tag. When there are two or more tags, the row separator option ensures that additional tags are displayed on new lines such as:
             ```
@@ -869,7 +869,7 @@ The following steps describe how to implement this scenario in Make:
 
        The initialization process has been successfully completed. 
         
-       [![]( /img/COM-webhooks-54.png)]( /img/COM-webhooks-54.png)
+       ![]( /img/COM-webhooks-54.png)
                 
        You may now proceed to configure the event handlers, which will enable the triggering of specific actions.
  <br>
@@ -882,12 +882,12 @@ The following steps describe how to implement this scenario in Make:
 
       - From the Webhooks response module, click on `+` and add the `Router` module:
 
-          [![]( /img/COM-webhooks-36.png)]( /img/COM-webhooks-36.png)
+          ![]( /img/COM-webhooks-36.png)
         
 
       - Let's begin with the action to post a message on a Slack channel, click on the first `+` sign to add a new module, then select the **Slack**: `Create a message` module:
 
-          [![]( /img/COM-webhooks-37.png)]( /img/COM-webhooks-37.png)
+          ![]( /img/COM-webhooks-37.png)
         
       - Once you select the `Create a message` action, you will need to configure it with the necessary details: 
 
@@ -944,11 +944,11 @@ The following steps describe how to implement this scenario in Make:
 
           - Once the block is set, click `OK`.
 
-            [![]( /img/COM-webhooks-39.png)]( /img/COM-webhooks-39.png)
+            ![]( /img/COM-webhooks-39.png)]
           
           - Let's continue; this time, with the action to send a message to an email recipient, click on the second `+` sign to add another module, then select the **Email**: `Send an Email` module:
 
-            [![]( /img/COM-webhooks-40.png)]( /img/COM-webhooks-40.png)
+            ![]( /img/COM-webhooks-40.png)
 
           - Once you select the `Send an Email` action, you will need to configure it with the necessary details:
 
@@ -980,12 +980,12 @@ The following steps describe how to implement this scenario in Make:
 
             - Configure any additional options then click `OK`.
 
-              [![]( /img/COM-webhooks-41.png)]( /img/COM-webhooks-41.png)
+              ![]( /img/COM-webhooks-41.png)
 
 
       - For the final action in this scenario, we aim to create a record in a Notion database to capture historical activity. Click on the router module to add another module, and then select the **Notion**: `Create a Database Item` module:
 
-          [![]( /img/COM-webhooks-42.png)]( /img/COM-webhooks-42.png)
+          ![]( /img/COM-webhooks-42.png)
 
           - Connect to your Notion account if not already connected. Refer to the Make online help for more information.
 
@@ -993,11 +993,11 @@ The following steps describe how to implement this scenario in Make:
 
           - Select the database where the record will be created. Use the `Select from the list` option, then click on the `Search` button. You can press the `OK` button directly afterward, even without providing any query parameters:
 
-            [![]( /img/COM-webhooks-44.png)]( /img/COM-webhooks-44.png)
+            ![]( /img/COM-webhooks-44.png)
 
           - Then select the database to record the shutdown events:
 
-            [![]( /img/COM-webhooks-45.png)]( /img/COM-webhooks-45.png)
+            ![]( /img/COM-webhooks-45.png)
         
             > To learn about Notion database and how to create one, see [Intro to databases](https://www.notion.so/help/intro-to-databases) and [Creating a database](https://www.notion.so/help/guides/creating-a-database). 
 
@@ -1015,7 +1015,7 @@ The following steps describe how to implement this scenario in Make:
 
             > The `Fixed?` property is used as a Boolean flag to indicate the resolution status of a server shutdown problem.
             
-            [![]( /img/COM-webhooks-43.png)]( /img/COM-webhooks-43.png) 
+            ![]( /img/COM-webhooks-43.png)
               
               
           - For the Notion module in Make, configure the following options:
@@ -1029,7 +1029,7 @@ The following steps describe how to implement this scenario in Make:
             - **Model**: `{% raw %}{{1.hardware.model}}{% endraw %}`  
             <br>
 
-            [![]( /img/COM-webhooks-55.png)]( /img/COM-webhooks-55.png) 
+            ![]( /img/COM-webhooks-55.png)
 <br>
 <a name="Step10-14"></a>
 
@@ -1037,11 +1037,11 @@ The following steps describe how to implement this scenario in Make:
 
       - To ensure the scenario runs automatically every time webhook data is received from COM, click on the `Scheduling` button and make sure the `Immediately as data arrives` option is selected:
 
-        [![]( /img/COM-webhooks-57.png)]( /img/COM-webhooks-57.png) 
+        ![]( /img/COM-webhooks-57.png)
 
       - Finally, save your scenario by clicking on the `Save` button:
 
-        [![]( /img/COM-webhooks-56.png)]( /img/COM-webhooks-56.png) 
+        ![]( /img/COM-webhooks-56.png)
   <br>  
 
       This completes the configuration of the scenario. You are ready to test the full flow. 
@@ -1052,7 +1052,7 @@ The following steps describe how to implement this scenario in Make:
 
       The last step will be the testing phase where you'll verify that everything operates as expected. Exit the editor to monitor the scenario and check logs for any issues:
 
-      [![]( /img/COM-webhooks-59.png)]( /img/COM-webhooks-59.png) 
+      ![]( /img/COM-webhooks-59.png)
 
       To trigger a webhook, you can choose from two options:
 
@@ -1062,7 +1062,7 @@ The following steps describe how to implement this scenario in Make:
           - Locate the server that needs to be shut down.
           - Use the server options to initiate a shut down.
 
-            [![]( /img/COM-webhooks-58.png)]( /img/COM-webhooks-58.png) 
+            ![]( /img/COM-webhooks-58.png)
             <br>
       2. Simulate a webhook using a POST request:
 
@@ -1100,7 +1100,7 @@ The following steps describe how to implement this scenario in Make:
             
             > The advantage of this method is that you can easily send numerous webhook tests without relying on COM. This significantly streamlines the troubleshooting process and is particularly useful for populating the module variable mappings of your scenario. However, it's critical to understand that this approach will not test or validate your webhook configurations and filter operations within COM.
 
-            [![]( /img/COM-webhooks-66.png)]( /img/COM-webhooks-66.png) 
+            ![]( /img/COM-webhooks-66.png)
 
 
       In Make, monitor the scenario. Ensure that the webhook is received and that it triggers the corresponding actions. Check logs for any issues. All modules should turn green, indicating success, with no errors displayed:
