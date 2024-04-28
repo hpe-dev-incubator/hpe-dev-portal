@@ -6,6 +6,10 @@ priority: ""
 author: Rajeevalochana Kallur
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - REST
+  - iLORest
+  - Pypi
 ---
 <!--StartFragment-->
 
@@ -17,25 +21,29 @@ Here are the steps to install ILORest from pypi.org:
 2. Check if pip3 is installed. If not, on Ubuntu/Debian, you can run:
 
    ```shell
-   sudo apt install python3-pip
+   $ sudo apt install python3-pip 
    ```
 
       On Linux, you can use:
 
    ```shell
-   wget  https://bootstrap.pypa.io/get-pip.py
+   $ wget  https://bootstrap.pypa.io/get-pip.py
    ```
 3. In most cases, pip3 will already be available on MAC and Windows.
 4. Once pip3 is available, execute the following command:
 
    ```shell
-   pip3 install ilorest
+   $ pip3 install ilorest
    ```
 5. With the Pypi package installation, ilorest_chif.dll or ilorest_chif.so will also be installed in site-packages.
-6. Verify local login by running 'ilorest login'. You can check the location of ilorest using the command:
+6. Verify local login by running
 
    ```shell
-   ilorest -v login
+   $ ilorest -v login
+   ```
+You can check the location of ilorest using the command:
+   ```shell 
+   $ find / -name ilorest
    ```
 7. Note that pypi can also be used for ARM-based operating systems if Python 3 is present.
 8. Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
