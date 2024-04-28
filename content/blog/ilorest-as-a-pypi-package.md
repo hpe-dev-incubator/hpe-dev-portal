@@ -4,7 +4,7 @@ date: 2024-04-28T07:52:27.643Z
 featuredBlog: true
 priority: ""
 author: Rajeevalochana Kallur
-authorimage: /img/Avatar1.svg
+authorimage: /img/rajeev_new.jpg
 disable: false
 tags:
   - REST
