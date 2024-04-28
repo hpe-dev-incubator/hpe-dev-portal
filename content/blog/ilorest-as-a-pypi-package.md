@@ -1,5 +1,5 @@
 ---
-title: ILORest as a Pypi package
+title: iLORest as a Pypi package
 date: 2024-04-28T07:52:27.643Z
 featuredBlog: true
 priority: ""
