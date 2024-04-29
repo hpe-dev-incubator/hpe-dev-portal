@@ -17,7 +17,7 @@ Update for the blog post.
 Second update of the blog.
 Third update.
 
-```
+```shell
 "authorDisplayName": ["Prasad Singathi","Maikel Pereira"],
 "publish": "2019-06-18T07:00:00.000Z",
 "category": ["machine-learning"],
@@ -40,10 +40,10 @@ Third update.
 
 ![Image inserted inside bullet list item](/img/Avatar1.svg "Image inserted inside bullet list item")
 
-
-
 * Bullet list item 2
 
 ![Image 2 inserted inside bullet list item](/img/1-gunna.png "Image 2 inserted inside bullet list item")
 
 * Bullet list item 3
+
+![Test image 3 in bullet item list](/img/seats-hackshack.png "Test image 3 in bullet item list")
