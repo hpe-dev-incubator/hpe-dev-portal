@@ -46,4 +46,4 @@ Third update.
 
 * Bullet list item 3
 
-![Test image 3 in bullet item list](/img/seats-hackshack.png "Test image 3 in bullet item list")
+![Test image 3 in bullet item list](/img/aaa-seats-hackshack.png "Test image 3 in bullet item list")
