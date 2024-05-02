@@ -1,7 +1,7 @@
 ---
 title: Automating IT Operations with Compute Ops Management Webhooks
 date: 2024-04-25T17:13:00.008Z
-externalLink: https://jullienl.github.io/compute/ops/management/2024/04/10/Implementing-webhooks-with-COM.html
+externalLink: ""
 author: Lionel Jullien
 authorimage: /img/lionel-jullien-522.jpg
 disable: false
