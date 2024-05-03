@@ -1,15 +1,9 @@
 <style>
-
 li {
-
-   font-size: 27px;
-
-   line-height: 33px;
-
-   max-width: none;
-
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
 }
-
 </style>
 ---
 title: iLORest as a Pypi package
