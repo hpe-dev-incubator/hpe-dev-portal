@@ -9,7 +9,7 @@ disable: false
 tags:
   - REST
   - iLOrest
-  - Pypi
+  - PyPi
   - ilo-restful-api
 ---
 <style>
@@ -20,9 +20,9 @@ li {
 }
 </style>
 
-The HPE iLOrest tool has been repackaged into both source and binary distributions and is now available on pypi.org. This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the pypi package to replace the existing builds for macOS, Debian and Ubuntu distributions of HPE iLOrest.
+The HPE iLOrest tool has been repackaged into both source and binary distributions and is now available on [pypi.org](https://pypi.org/project/ilorest/). This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the pypi package to replace the existing builds for macOS, Debian and Ubuntu distributions of HPE iLOrest.
 
-Here are the steps to install HPE iLOrest from [pypi.org](http://www.pypi.org):
+Here are the steps to install HPE iLOrest from [pypi.org](https://pypi.org/project/ilorest/):
 
 1. Ensure that Python 3 is installed on your operating system.
 2. Check if pip3 is installed. If not, on Ubuntu or Debian, you can run:
@@ -42,7 +42,7 @@ Here are the steps to install HPE iLOrest from [pypi.org](http://www.pypi.org):
    ```shell
    $ pip3 install ilorest
    ```
-5. With the Pypi package installation, ilorest_chif.dll or ilorest_chif.so will also be installed in site-packages.
+5. With the PyPi package installation, [ilorest_chif.dll/.so](https://developer.hpe.com/blog/chif-driver-not-found/) will also be installed in site-packages.
 6. Verify local login by running
 
    ```shell
@@ -58,8 +58,16 @@ NOTES:
 - PyPi package can also be used for ARM-based operating systems if Python 3 is present.
 
 - Additionally, the HPE iLOrest PyPi package can be utilized on RHEL, SLES and Microsoft Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+   
 
-- In a air-gapped environment, the PyPi package can be downloaded from [pypi.org](http://www.pypi.org) and installed using the following command. Dependencies will need to be installed separately.
+- DMTF's [redfish](https://pypi.org/project/redfish/) library can not coexist with HPE [python ilorest library](https://pypi.org/project/python-ilorest-library/) which is a dependency for the HPE iLOrest PyPi package. 
+So, please remove redfish library before installing HPE iLOrest PyPi package using the below command:
+
+   ```shell
+   $ pip3 uninstall redfish
+   ```
+
+- In a air-gapped environment, the PyPi package can be downloaded from [pypi.org](https://pypi.org/project/ilorest/) and installed using the following command. Dependencies will need to be installed separately.
 
    ```shell
    $ pip3 install <path to the downloaded pypi package>
