@@ -16,6 +16,7 @@ li {
    max-width: none;
 }
 </style>
+
 ## HPE GreenLake for Private Cloud Business Edition
 
 Deploy an agile, self-service private cloud wherever you need it. Simplify VM management across on-prem and public clouds as you leverage HPE’s modern hyperconverged infrastructure to build a workload-optimized private cloud.
@@ -36,7 +37,7 @@ model, and shift from managing infrastructure to managing VMs and data, thereby 
 Besides the browser-based Data Services Cloud Console, HPE GreenLake for Private Cloud Business Edition offers a set of Application Programming Interfaces (API's) to automate management of HPE GreenLake for Private Cloud Enterprise or even integrate this with the customer's own management tools. These API's are
 governed by role-based access controls (RBACs) similar to the regular users using the browser-based console. 
 
-In this series of blogs we will demonstrate how we can connect to the APIs and how the APIs can be used in scripting or integrated into management software.
+In this series of blogs we will demonstrate how we can connect to the APIs and how the APIs can be used in scripting or integrated into management software. For this series Python will be used in the examples, however any other programming language supporting the http protocol can be used.
 
 ### Configuring API client credentials
 
