@@ -106,20 +106,14 @@ Description of the different steps:
 
 1. **Initiating the Process**   
 A user starts interacting with Compute Ops Management or a specific state change occurs within the application, this is the point at which a webhook journey starts.
-
 2. **The Trigger Event**   
 As soon as a user performs an action or a specific state change occurs within the application, an event is triggered within Compute Ops Management. This event could be any number of activities pre-defined by the administrator as noteworthy—ranging from the deletion of a server group to the completion of a server firmware update, the addition of a new server, or the occurrence of unplanned events such as a server failure or an alert.
-
 3. **Sending the Notification**   
 The next step is crucial. Once an event occurs, Compute Ops Management—the source application—formulates an HTTP POST request. This request contains information about the event, essentially providing the most recent representation of the resource associated with that event. This POST request is directed towards a specific URL—the webhook URL—which is pre-configured to listen for such calls.
-
 4. **Processing the Event**   
 Upon receiving the POST request, the destination application at the webhook URL kicks into action. An event handler takes over, which is essentially a piece of code designed to process the incoming data. This handler might update a database, send out notification emails, or trigger other workflows as required.
-
 5. **Completing the Loop**   
 After the event has been processed according to the instructions laid out in the event handler, the loop comes to a close. The workflow ends until a new event is triggered, and the process starts all over again.
-
-
 
 <a name="Step3"></a>
 
@@ -189,6 +183,7 @@ For each resource, certain specific properties are capable of initiating the dis
 When setting up webhooks in Compute Ops Management, it is mandatory to specify filters using the `eventFilter` property. These filters determine which event payloads the webhook will transmit to its designated endpoint. The webhook operates on an opt-in basis, meaning that only events that align with the criteria defined in the `eventFilter` are dispatched to the receiving URL.
 
 The following example illustrates a typical `POST` request payload that includes five mandatory attributes required to define a webhook via the COM API:
+   
 ```json
 {
   "name": "Webhook for any server events whose health summary transitions out of an OK state",
@@ -199,7 +194,7 @@ The following example illustrates a typical `POST` request payload that includes
   }
 }
 ```
-
+   
 Filters defined by the `eventFilter` property can be based on various attributes such as:
 
 - **Event types**: Using expressions like `type eq` to match on the resource type.
