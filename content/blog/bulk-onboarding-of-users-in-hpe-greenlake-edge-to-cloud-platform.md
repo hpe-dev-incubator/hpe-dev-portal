@@ -27,7 +27,7 @@ The following blog posts are an excellent way to learn more about the APIs using
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 2: Configuring and managing a workspace](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/)
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 3: Tracking activities and monitoring health](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/)
 
-In this blog post, I will focus on one specific API call, part of Identity Management. The call is a `POST /identity/v1/users`, which invites users to an HPE GreenLake workspace. Full documentation on this API call can be found in the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/workspaces/public/openapi/workspaces-v1/operation/invite_user_to_account_identity_v1_users_post/).
+In this blog post, I will focus on one specific API call, part of Identity Management. The call is `POST /identity/v1/users`, which invites users to an HPE GreenLake workspace. Full documentation on this API call can be found in the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/workspaces/public/openapi/workspaces-v1/operation/invite_user_to_account_identity_v1_users_post/).
 
 ## Providing the right data to the script
 
