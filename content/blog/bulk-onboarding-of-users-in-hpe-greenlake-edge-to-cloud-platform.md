@@ -232,7 +232,7 @@ foreach ($workspace in $workspaces_excel ) {
 
 ## Try it!
 
-Let’s run this script, making sure to reference the right Excel spreadsheet: 
+Let’s run this script, making sure to reference the correct Excel spreadsheet: 
 
 ```markdown
 PS /Volumes/Dev/GreenLake/GLP-API-Tooling/Scripts> ./bulk_invite.ps1 -XLfile userlist.xlsx                                                 
