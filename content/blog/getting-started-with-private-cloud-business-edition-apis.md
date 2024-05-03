@@ -29,7 +29,7 @@ model, and shift from managing infrastructure to managing VMs and data, thereby 
 Besides the browser-based Data Services Cloud Console, HPE GreenLake for Private Cloud Business Edition offers a set of Application Programming Interfaces (API's) to automate management of HPE GreenLake for Private Cloud Enterprise or even integrate this with the customer's own management tools. These API's are
 governed by role-based access controls (RBACs) similar to the regular users using the browser-based console. 
 
-In this series of blogs we will show how we can connect to the APIs and how the APIs can be used in scripting or integrated into management software.
+In this series of blogs we will demonstrate how we can connect to the APIs and how the APIs can be used in scripting or integrated into management software.
 
 ### Configuring API client credentials
 
@@ -81,3 +81,33 @@ When running the example code JSON formatted data will be returned, like this:
 ```
 
 the JSON data holds the access_token itself and also the expiration time, which is 2 hours (7200 seconds).
+
+Note: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
+
+## Calling an API
+
+A list of available APIs for HPE GreenLake for Private Cloud Business Edition can be found at <https://developer.greenlake.hpe.com/docs/greenlake/services/private-cloud-business/public/>
+
+In this example we will collect an overview of all System Software Catalogs.
+
+
+
+```python
+import json
+
+from oauthlib.oauth2 import BackendApplicationClient
+from requests.auth import HTTPBasicAuth
+from requests_oauthlib import OAuth2Session
+
+client = BackendApplicationClient('e21f3028-8097-4a4f-b491-a49b1d102d4a')
+oauth = OAuth2Session(client=client)
+auth = HTTPBasicAuth('e21f3028-8097-4a4f-b491-a49b1d102d4a', '05656940014f11ef9946a2408e898685')
+token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.oauth2', auth=auth)
+access_token= token["access_token"]
+
+url = "https://us1.data.cloud.hpe.com/private-cloud-business/v1beta1/system-software-catalogs"
+headers = {"Authorization": f"Bearer {token}"}
+response = requests.get(url, headers=headers)
+print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+```
