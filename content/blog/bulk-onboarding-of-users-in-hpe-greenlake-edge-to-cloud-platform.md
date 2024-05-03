@@ -49,11 +49,13 @@ Let’s look at the steps necessary to invite users from my spreadsheets:
 
    * Prompt for Client Secret that matches the Client Id
    * Retrieve a session token using those credentials
+
 4. For each user in Users sheet
 
    * Lookup Client Id using workspace name
    * Call POST /identity/v1/users for user using email 
    * Increase counter of invited users
+
 5. Display list of users invited in each workspace
 
 ## Putting things together in PowerShell
