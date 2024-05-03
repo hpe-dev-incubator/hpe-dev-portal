@@ -1,3 +1,16 @@
+<style>
+
+li {
+
+   font-size: 27px;
+
+   line-height: 33px;
+
+   max-width: none;
+
+}
+
+</style>
 ---
 title: iLORest as a Pypi package
 date: 2024-04-28T07:52:27.643Z
@@ -10,6 +23,7 @@ tags:
   - REST
   - iLORest
   - Pypi
+  - ilo-restful-api
 ---
 
 The ILORest tool has been repackaged into both source and binary distributions and is now available on pypi.org. This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the pypi package to replace the existing builds for MAC, DEB, and Ubuntu distributions of ILORest.
@@ -45,15 +59,16 @@ Here are the steps to install ILORest from pypi.org:
    $ find / -name ilorest
    ```
    
-NOTES: 
-1. Pypi package can also be used for ARM-based operating systems if Python 3 is present.
+NOTES:
 
-2. Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+- Pypi package can also be used for ARM-based operating systems if Python 3 is present.
 
-3. In a air-gapped environment, the pypi package can be downloaded from pypi.org and installed using the following command. Dependencies will need to be installed separately.
+- Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+
+- In a air-gapped environment, the pypi package can be downloaded from pypi.org and installed using the following command. Dependencies will need to be installed separately.
 
    ```shell
-   $ pip3 install <path to the downloaded package>
+   $ pip3 install <path to the downloaded pypi package>
    ```
 
 
