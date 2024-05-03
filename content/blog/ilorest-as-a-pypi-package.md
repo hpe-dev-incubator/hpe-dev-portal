@@ -1,10 +1,3 @@
-<style>
-li {
-   font-size: 15px;
-   line-height: 33px;
-   max-width: none;
-}
-</style>
 ---
 title: iLORest as a Pypi package
 date: 2024-04-28T07:52:27.643Z
@@ -19,6 +12,13 @@ tags:
   - Pypi
   - ilo-restful-api
 ---
+<style>
+li {
+   font-size: 15px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
 
 The ILORest tool has been repackaged into both source and binary distributions and is now available on pypi.org. This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the pypi package to replace the existing builds for MAC, DEB, and Ubuntu distributions of ILORest.
 
