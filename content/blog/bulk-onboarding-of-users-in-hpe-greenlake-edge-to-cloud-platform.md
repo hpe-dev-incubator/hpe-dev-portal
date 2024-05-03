@@ -9,6 +9,20 @@ tags:
   - hpe-greenlake
   - hpe-greenlake-platform
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+
+ol li{
+ font-size:27px;
+}
+</style>
+
+
+
 ## HPE GreenLake API to the rescue
 
 The use case covered in this document is part of what we call the Day 0 activities; tasks that must be done to onboard users to HPE GreenLake platform. When a customer decides to use HPE GreenLake, it is critical that all customer collaborators who require access to HPE GreenLake platform are invited to join. Using the HPE GreenLake console to invite hundreds of collaborators can be tedious and error prone - this is when an API comes to the rescue. The API allows you to write a script that reads a list of users from an Excel spreadsheet and automatically invites these users to access the HPE GreenLake platform.
