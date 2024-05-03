@@ -273,7 +273,7 @@ xxx@lalli.fr                     UNVERIFIED
 <email>                          VERIFIED
 ```
 
-As you can see, the script has invited 1 user in each workspace, the second email being already a member of the workspace (thus no action is necessary). 
+As you can see, the script has invited 1 user in each workspace. The second email address is already a member of the workspace, so no action is necessary. 
 
 ## What’s next?
 
