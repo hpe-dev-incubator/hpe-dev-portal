@@ -44,10 +44,12 @@ In this series of blogs we will demonstrate how we can connect to the APIs and h
 To get started with the API we'll need to create a client_id/client_secret pair to authenticate each API request, this key pair is linked to the user creating it and every interaction using this token will be registered in the audit log. The token generated using this key pair has the same permissions as the user who created it. The token is valid for two hours and expires automatically.
 
 1. Sign in to HPE GreenLake, select your Workspace, then select Manage Workspace.
+2. Click the API card.
 
    ![](/img/workspace-small.png "Manage workspace")
-2. Click the API card.
 3. Click Create Credentials. 
+
+   ![](/img/create_credentials.png "Click create credentials")
 4. Select the Service Manager you want to access.
 5. Enter the Credential Name .
 6. Click the Create Credentials button to continue. The Credentials Created screen displays showing your credentials were successfully created.
@@ -71,9 +73,9 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-*Note*: Makes sure the modules oauthlib, requests and requests_oauthlib are installed in your environment, if not just install these using:
+> *Note*: Makes sure the modules oauthlib, requests and requests_oauthlib are installed in your environment, if not just install these using:
 
-```python
+```powershell
 pip install oauthlib
 pip install requests
 pip install requests_oauthlib
@@ -92,7 +94,7 @@ When running the example code JSON formatted data will be returned, like this:
 
 the JSON data holds the access_token itself and also the expiration time, which is 2 hours (7200 seconds).
 
-> Note: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
+> *Note*: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
 
 ## Calling an API
 
