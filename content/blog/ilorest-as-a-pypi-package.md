@@ -1,8 +1,8 @@
 ---
 title: iLORest as a Pypi package
 date: 2024-04-28T07:52:27.643Z
-featuredBlog: true
-priority: ""
+featuredBlog: false
+priority: 8
 author: Rajeevalochana Kallur
 authorimage: /img/rajeev_new.jpg
 disable: false
@@ -11,7 +11,6 @@ tags:
   - iLORest
   - Pypi
 ---
-<!--StartFragment-->
 
 The ILORest tool has been repackaged into both source and binary distributions and is now available on pypi.org. This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the pypi package to replace the existing builds for MAC, DEB, and Ubuntu distributions of ILORest.
 
@@ -41,11 +40,12 @@ Here are the steps to install ILORest from pypi.org:
    ```shell
    $ ilorest -v login
    ```
-You can check the location of ilorest using the command:
+7. You can check the location of ilorest using the command:
    ```shell 
    $ find / -name ilorest
    ```
-7. Note that pypi can also be used for ARM-based operating systems if Python 3 is present.
-8. Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+   
+Note that pypi can also be used for ARM-based operating systems if Python 3 is present.
 
-<!--EndFragment-->
+Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+
