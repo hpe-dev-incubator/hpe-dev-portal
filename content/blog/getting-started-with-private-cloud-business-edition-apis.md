@@ -35,7 +35,7 @@ model, and shift from managing infrastructure to managing VMs and data, thereby 
 ## Automating management
 
 Besides the browser-based Data Services Cloud Console, HPE GreenLake for Private Cloud Business Edition offers a set of Application Programming Interfaces (API's) to automate management of HPE GreenLake for Private Cloud Enterprise or even integrate this with the customer's own management tools. These API's are
-governed by role-based access controls (RBACs) similar to the regular users using the browser-based console. 
+governed by role-based access controls (RBACs) similar to the regular users using the browser-based console. The API's will authenticate using a token, which is created from the client_id and client_secret key pair, and will have the same permissions as the user that created the client_id and client_secret key pair. Each API call will be audited and logged by the HPE GreenLake platform and will be listed under the users id (usually the email address of the user).
 
 In this series of blogs we will demonstrate how we can connect to the APIs and how the APIs can be used in scripting or integrated into management software. For this series Python will be used in the examples, however any other programming language supporting the http protocol can be used.
 
