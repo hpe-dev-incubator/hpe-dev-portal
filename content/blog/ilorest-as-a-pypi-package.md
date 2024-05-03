@@ -24,7 +24,7 @@ The HPE iLOrest tool has been repackaged into both source and binary distributio
 
 Here are the steps to install HPE iLOrest from [pypi.org](https://pypi.org/project/ilorest/):
 
-1. Ensure that Python 3 is installed on your operating system.
+1. Ensure that [Python 3](https://www.python.org/downloads/) is installed on your operating system.
 2. Check if pip3 is installed. If not, on Ubuntu or Debian, you can run:
 
    ```shell
@@ -36,7 +36,7 @@ Here are the steps to install HPE iLOrest from [pypi.org](https://pypi.org/proje
    ```shell
    $ wget  https://bootstrap.pypa.io/get-pip.py
    ```
-3. In most cases, pip3 will already be available on MAC and Windows.
+3. In most cases, pip3 will already be available on macOS and Microsoft Windows.
 4. Once pip3 is available, execute the following command:
 
    ```shell
@@ -55,13 +55,12 @@ Here are the steps to install HPE iLOrest from [pypi.org](https://pypi.org/proje
    
 NOTES:
 
-- PyPi package can also be used for ARM-based operating systems if Python 3 is present.
+- PyPi package can also be used for ARM-based operating systems if [Python 3](https://www.python.org/downloads/) is present.
 
-- Additionally, the HPE iLOrest PyPi package can be utilized on RHEL, SLES and Microsoft Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+- Additionally, the HPE iLOrest PyPi package can be utilized on RHEL, SLES and Microsoft Windows platforms as long as [Python 3](https://www.python.org/downloads/) is installed (preferably version > 3.8).
    
 
-- DMTF's [redfish](https://pypi.org/project/redfish/) library can not coexist with HPE [python ilorest library](https://pypi.org/project/python-ilorest-library/) which is a dependency for the HPE iLOrest PyPi package. 
-So, please remove redfish library before installing HPE iLOrest PyPi package using the below command:
+- DMTF's [redfish](https://pypi.org/project/redfish/) library can not coexist with HPE [python ilorest library](https://pypi.org/project/python-ilorest-library/) which is a dependency for the HPE iLOrest PyPi package. So, make sure to remove the [redfish](https://pypi.org/project/redfish/) library using the command below:
 
    ```shell
    $ pip3 uninstall redfish
