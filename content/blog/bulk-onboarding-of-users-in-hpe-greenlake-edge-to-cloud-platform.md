@@ -11,7 +11,7 @@ tags:
 ---
 ## HPE GreenLake API to the rescue
 
-The use case covered in this document is part of what we call the Day 0 task list, i.e. things that must be done to onboard users in the HPE GreenLake platform. When a customer decides to use HPE GreenLake, it is critical that all customer collaborators who require access the HPE GreenLake platform are invited to join. When there are hundreds of collaborators to invite, using the HPE GreenLake console is too tedious, and error prone to be the appropriate solution. This is when an API comes to the rescue, as it allows you to write a script that reads a list of users from an Excel spreadsheet and automatically invites these users to access the HPE GreenLake platform.
+The use case covered in this document is part of what we call the Day 0 activities; tasks that must be done to onboard users to HPE GreenLake platform. When a customer decides to use HPE GreenLake, it is critical that all customer collaborators who require access to HPE GreenLake platform are invited to join. Using the HPE GreenLake console to invite hundreds of collaborators can be tedious and error prone - this is when an API comes to the rescue. The API allows you to write a script that reads a list of users from an Excel spreadsheet and automatically invites these users to access the HPE GreenLake platform.
 
 ## What are the HPE GreenLake edge-to-cloud platform APIs
 
