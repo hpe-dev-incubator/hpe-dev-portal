@@ -1,6 +1,6 @@
 <style>
 li {
-   font-size: 27px;
+   font-size: 15px;
    line-height: 33px;
    max-width: none;
 }
