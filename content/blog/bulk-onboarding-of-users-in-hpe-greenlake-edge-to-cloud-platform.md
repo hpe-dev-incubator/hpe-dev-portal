@@ -123,7 +123,7 @@ Note that I initialized 2 hash tables, one called $tokens that will store the to
     }
 ```
 
-Note that, at the end of this loop, I have a hash table of tokens indexed by Client Id, which I will use to call the API in the next section
+Note that, at the end of this loop, I have a hash table of tokens indexed by Client Id, which I will use to call the API in the next section.
 
 ### Step 4 – Iterating over Users sheet to invite each of them.
 
