@@ -45,7 +45,16 @@ Here are the steps to install ILORest from pypi.org:
    $ find / -name ilorest
    ```
    
-Note that pypi can also be used for ARM-based operating systems if Python 3 is present.
+NOTES: 
+1. Pypi package can also be used for ARM-based operating systems if Python 3 is present.
 
-Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+2. Additionally, the ILORest pypi package can be utilized on RHEL, SLES, and Windows platforms as long as Python 3 is installed (preferably version > 3.8).
+
+3. In a air-gapped environment, the pypi package can be downloaded from pypi.org and installed using the following command. Dependencies will need to be installed separately.
+
+   ```shell
+   $ pip3 install <path to the downloaded package>
+   ```
+
+
 
