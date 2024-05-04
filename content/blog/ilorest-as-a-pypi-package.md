@@ -67,7 +67,7 @@ NOTES:
    $ pip3 uninstall redfish
    ```
 
-- In a air-gapped environment, the PyPi package can be downloaded from [pypi.org](https://pypi.org/project/ilorest/) and installed using the following command. Dependencies will need to be installed separately.
+- in an air-gapped environment, the HPE iLOrest PyPI package can be downloaded from the <a href="https://pypi.org/project/ilorest/" target="_blank">PyPI repository</a> and installed using the following command. Dependencies may need to be installed separately.
 
    ```shell
    $ pip3 install <path to the downloaded PyPi package>  
