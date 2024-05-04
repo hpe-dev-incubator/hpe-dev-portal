@@ -25,25 +25,26 @@ The HPE iLOrest tool has been repackaged into both source and binary distributio
 Here are the steps to install HPE iLOrest from [pypi.org](https://pypi.org/project/ilorest/):
 
 1. Ensure that [Python 3](https://www.python.org/downloads/) is installed on your operating system.
-2. Check if pip3 is installed. If not, on Ubuntu or Debian, you can run:
+2. Check if pip3 is installed. If not, on Ubuntu or Debian, you can run the following command:
 
    ```shell
    $ sudo apt install python3-pip 
    ```
 
-      On Linux, you can use:
+   On Linux, you can use:
 
    ```shell
    $ wget  https://bootstrap.pypa.io/get-pip.py
    ```
 3. In most cases, pip3 will already be available on macOS and Microsoft Windows.
-4. Once pip3 is available, execute the following command:
+4. Once `pip3` is installed, and before installing HPE iLOrest, make sure the DMTF Redfish Library is not installed, as mentioned in the <a href="(https://servermanagementportal.ext.hpe.com/docs/redfishclients/python-redfish-library/installationguide/#pip-install" target="_blank">HPE iLOrest user guide</a> and then install the HPE iLOrest PyPi package using the following commands:
 
-   ```shell
-   $ pip3 install ilorest
-   ```
+      ```shell
+      $ pip3 uninstall redfish
+      $ pip3 install ilorest
+      ```
 5. With the PyPi package installation, [ilorest_chif.dll/.so](https://developer.hpe.com/blog/chif-driver-not-found/) will also be installed in site-packages.
-6. Verify local login by running
+6. If you installed the HPE iLOrest PyPI package on an iLO based server you can verify the local (in-band) login by running:
 
    ```shell
    $ iLOrest -v login
@@ -69,7 +70,13 @@ NOTES:
 - In a air-gapped environment, the PyPi package can be downloaded from [pypi.org](https://pypi.org/project/ilorest/) and installed using the following command. Dependencies will need to be installed separately.
 
    ```shell
-   $ pip3 install <path to the downloaded pypi package>
+   $ pip3 install <path to the downloaded PyPi package>  
+   ```
+  
+- To perform a clean removal of the HPE iLOrest PyPI package, don't forget to uninstall the associated Python library as mentioned in the following command:
+
+   ```shell
+   $ pip3 uninstall --yes python-ilorest-library ilorest
    ```
 
 
