@@ -118,13 +118,13 @@ When running the example code JSON formatted data will be returned, like this:
 
 The JSON data holds the access_token itself and also the expiration time, which is 2 hours (7200 seconds).
 
-> *Note*: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
+> Note: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
 
 ## Calling an API
 
 A list of available APIs for HPE GreenLake for Private Cloud Business Edition can be found at <https://developer.greenlake.hpe.com/docs/greenlake/services/private-cloud-business/public/> When publishing this blog post the APIs were still in beta, however the GA release is planned shortly after.
 
-In this example we will collect an overview of all System Software Catalogs.
+In this example you will collect an overview of all System Software Catalogs.
 
 ```python
 import json
