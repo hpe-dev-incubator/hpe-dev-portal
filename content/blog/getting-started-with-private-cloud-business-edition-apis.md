@@ -98,7 +98,7 @@ the JSON data holds the access_token itself and also the expiration time, which 
 
 ## Calling an API
 
-A list of available APIs for HPE GreenLake for Private Cloud Business Edition can be found at <https://developer.greenlake.hpe.com/docs/greenlake/services/private-cloud-business/public/> When publishing this blog the APIs were still in beta, however the GA release is planned shortly after.
+A list of available APIs for HPE GreenLake for Private Cloud Business Edition can be found at <https://developer.greenlake.hpe.com/docs/greenlake/services/private-cloud-business/public/> When publishing this blog post the APIs were still in beta, however the GA release is planned shortly after.
 
 In this example we will collect an overview of all System Software Catalogs.
 
@@ -362,4 +362,4 @@ This will generate a JSON formatted data stream like:
 }
 ```
 
-In the next blog in this series we will have a look at a more secure implementation of the client_secret, using a key chain manager to read the client_secret.
+In the next blog post of this series we will have a look at a more secure implementation of the client_secret, using a key chain manager to read the client_secret.
