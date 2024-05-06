@@ -11,8 +11,8 @@ tags:
 ---
 <style>
 li {
-   font-size: 16px;
-  line-height: 20px;
+   font-size: 27px;
+  line-height: 33px;
    max-width: none;
 }
 </style>
