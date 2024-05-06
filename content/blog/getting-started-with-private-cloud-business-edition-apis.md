@@ -50,15 +50,36 @@ To get started with the API you'll need to create a client_id/client_secret pair
 1. Click the API card.
 
    ![](/img/workspace-small.png "Manage workspace")
-2. Click Create Credentials. 
+
+
+
+1. Click Create Credentials. 
 
    ![](/img/create_credentials.png "Click create credentials")
-3. Select the Service Manager you want to access.
-4. Enter the Credential Name .
-5. Click the Create Credentials button to continue. The Credentials Created screen displays showing your credentials were successfully created.
-6. Copy the Client ID and the Client Secret to a safe and secure location. HPE GreenLake platform does not store your Client Secret.
-7. Select the Copy icon to save your information to your desktop.
-8. Click the Close button to continue. You are returned to the main API page, where you can now generate the access token using a sample code provided.
+
+
+
+1. Select the Service Manager you want to access.
+
+
+
+1. Enter the Credential Name.
+
+
+
+1. Click the Create Credentials button to continue. The Credentials Created screen displays showing your credentials were successfully created.
+
+
+
+1. Copy the Client ID and the Client Secret to a safe and secure location. HPE GreenLake platform does not store your Client Secret.
+
+
+
+1. Select the Copy icon to save your information to your desktop.
+
+
+
+1. Click the Close button to continue. You are returned to the main API page, where you can now generate the access token using a sample code provided.
 
 Example code:
 
