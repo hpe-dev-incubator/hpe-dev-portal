@@ -116,7 +116,7 @@ When running the example code JSON formatted data will be returned, like this:
 }
 ```
 
-the JSON data holds the access_token itself and also the expiration time, which is 2 hours (7200 seconds).
+The JSON data holds the access_token itself and also the expiration time, which is 2 hours (7200 seconds).
 
 > *Note*: For simplicity and demo reasons we store the client_id and client_secret in the code, obviously that should never be done in production! How to implement a more secure method will be explained in the next episode of this series.
 
