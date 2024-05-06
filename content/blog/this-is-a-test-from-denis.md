@@ -28,10 +28,13 @@ Third update.
 1. Numbered item 1
 
    ![Test image 1](/img/1-gunna.png "Test image 1")
+
 2. Numbered item 2
 
    ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
-3. Numbered item 3
+
+3. Numbered item 3    
+
 4. Numbered Item 4
 
 ![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
