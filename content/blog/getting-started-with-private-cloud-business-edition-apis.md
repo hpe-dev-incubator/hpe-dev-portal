@@ -8,6 +8,8 @@ tags:
   - HPE GreenLake for Private Cloud Business Edition
   - Private Cloud Business Edition
   - PCBE
+  - hpe-greenlake
+  - hpe-greenlake-platform
 ---
 <style>
 li {
