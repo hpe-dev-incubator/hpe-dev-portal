@@ -364,4 +364,4 @@ This will generate a JSON formatted data stream like:
 }
 ```
 
-In the next blog post of this series we will have a look at a more secure implementation of the client_secret, using a key chain manager to read the client_secret.
+In the next blog post in this series we will have a look at a more secure implementation of the client_secret, using a key chain manager to read the client_secret.
