@@ -633,7 +633,7 @@ Example with **no line break** between list items:
     
   >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet and numbered list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet and numbered list items using the HTML style below: 
 
-   Insert the following Style statement **(this is the recommended style statement)** in your markdown at the beginning of your post. The standard text size is 27px. 
+   Insert the following Style statement **(this is the recommended style statement)** in your markdown at the beginning of your post. **The standard text size is 27px**. 
    You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet and numbered lists in your article. 
  
  ```html
