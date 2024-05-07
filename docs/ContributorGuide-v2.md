@@ -629,12 +629,12 @@ Example with **no line break** between list items:
     
   You can use the tips below to format tables and bullet list items throughout your blog post. These styles apply **globally** to your post.
 
-***Formatting the bullet list to standard text size***
+***Formatting the bullet and numbered list to standard text size***
     
-  >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
+  >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet and numbered list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet and numbered list items using the HTML style below: 
 
-   Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 27px. 
-   You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet lists in your article. 
+   Insert the following Style statement **(this is the recommended style statement)** in your markdown at the beginning of your post. The standard text size is 27px. 
+   You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet and numbered lists in your article. 
  
  ```html
 <style>
@@ -645,6 +645,9 @@ li {
 }
 </style>
 ```
+
+>**IMPORTANT NOTE:** The fonts may appear bigger than the standard text in the right panel of the CMS editor. This is expected. However, the Netlify process will render the text correctly (as standard text size) when creating the “Preview” of the post and when publishing the post to the HPE Developer Community portal. 
+
 or you can use the following style font:
 
 ```html
