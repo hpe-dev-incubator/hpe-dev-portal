@@ -35,7 +35,7 @@ There are two major categories of services from Data Services on the HPE GreenLa
 
 ![HPE GreenLake Data Services Catalogue](/img/data-services-catalogues.png)
 
-*The above figure displays the list of the services that are part of the Data Services on [HPE GreenLake platform](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html)*
+*The above figure displays the list of the services that are part of the Data Services on the [HPE GreenLake Cloud to Edge platform](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html)*
 
 ## Data Services REST APIs
 
