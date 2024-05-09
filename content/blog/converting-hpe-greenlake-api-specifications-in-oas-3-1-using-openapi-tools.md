@@ -208,6 +208,7 @@ C:> Import-Module -Name '.\src\GLdataservices' -Verbose
 ```
 
 7.	Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called Invoke-ListAsyncOperations and to use that API to display a list of the tasks that was completed. 
+```shell
 $fileName = "..\myCredential-rrd1.json"
 $secretFile = Get-Content -Path $fileName | ConvertFrom-Json
 
@@ -236,14 +237,19 @@ try {
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 $Result.items | ConvertTo-Json
-Note that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well as
+```
+> *Note that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well as
+```JSON
 {
   "myWorkspace": "xxxxxxxxxx-yyyy-yyyy-yyyy-zzzzzzzzzzzz", 
   "myId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", 
   "mySecret": "06cffff699deeeee9f1d92f7gggggggg"
 }
 
-	As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
+```	
+> As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
+
+```JSON
 [
   {
     "associatedResources": [],
@@ -293,3 +299,4 @@ Note that the above script was reading my client-credentials file so that I coul
       "@{message=Job execution completed.; timestamp=04/30/2024 02:01:18}"
     ]
   },
+```
