@@ -198,7 +198,8 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 ![HPE GL Data Services list async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
 6. To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the README.md file.
-```shell   
+
+```shell
 To install from the source, run the following command to build and install the PowerShell module locally:
 C:> Build.ps1
 C:> Import-Module -Name '.\src\GLdataservices' -Verbose
@@ -237,7 +238,7 @@ try {
 $Result.items | ConvertTo-Json
 ```
 
-> **Note** that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well.
+> **Note** that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called \`myCredentials-rrd1.json\` which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well.
 
 ```JSON
 {
