@@ -69,7 +69,7 @@ I found that a lot of tools, that we are going to be using as part of this blog 
 
 ![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
-5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the \`openapi-down-convert\` in the Microsoft Windows command line interface shown below.
+5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
 
 ```shell
 C:\>npm I -g @apiture/openapi-down-convert
