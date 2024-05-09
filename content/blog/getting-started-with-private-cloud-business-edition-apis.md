@@ -30,7 +30,7 @@ They are looking for a cloud-native control plane that scales with infrastructur
 ## Simplify infrastructure operations
 
 With cloud agility Hewlett Packard Enterprise provides HPE GreenLake for Private Cloud
-Business Edition delivering VMs across hybrid cloud, on demand. With this offering, customers can build their self-service cloud on demand when they need it and where they need it in data centers, at the edge, and beyond. HPE GreenLake for Private Cloud Business Edition changes the way customers procure and manage VMs with a cloud operational experience. HPE GreenLake for Private Cloud Business Edition helps eliminate complexity with a unified cloud service for VM to infrastructure management, including public cloud VMs.
+Business Edition delivering VMs on-demand across hybrid cloud. With this offering, customers can build their self-service cloud on demand when they need it and where they need it in data centers, at the edge, and beyond. HPE GreenLake for Private Cloud Business Edition changes the way customers procure and manage VMs with a cloud operational experience. HPE GreenLake for Private Cloud Business Edition helps eliminate complexity with a unified cloud service for VM to infrastructure management, including public cloud VMs.
 The solution, delivered through Data Services Cloud Console, enables global unified management and monitoring of VMs and infrastructure deployed at any location, It also supports one-click, multisite upgrades. This enables IT to reduce operating costs while helping optimize resource utilization, move to a generalist
 model, and shift from managing infrastructure to managing VMs and data, thereby refocusing resources and skills on higher-value strategic initiatives.
 
