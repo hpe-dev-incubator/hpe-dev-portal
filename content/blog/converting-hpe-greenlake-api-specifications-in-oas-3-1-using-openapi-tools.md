@@ -28,7 +28,7 @@ As of this publication of this blog post (May 2024), these are the list of those
 6. HPE GreenLake for Disaster Recovery
 7. HPE GreenLake Private Cloud Business Edition
 
-The REST APIs to support the services listed above, are documented in [this ](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html)HPE GreenLake documentation for REST API as shown in figure below.
+The REST APIs to support the services listed above, are documented in [this](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) HPE GreenLake documentation for REST API as shown in figure below.
 
 ![Menu that lists the GL OpenAPI documentation location](/img/openapi-top-documentation-available-at-hpe-support.png)
 
