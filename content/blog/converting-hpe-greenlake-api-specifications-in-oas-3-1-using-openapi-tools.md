@@ -17,6 +17,7 @@ li {
    max-width: none;
 }
 </style>
+
 ## What is HPE GreenLake APIs for data services?
 
 The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake. The data services on HPE GreenLake can be discovered under the Services’ [catalogue](https://common.cloud.hpe.com/services/service-catalog) that is named as the Storage as shown in below figure. Additionally, there is also HPE GreenLake Private Cloud  Business Edition service under the Services’ catalogue named as Private Cloud as shown in figure below.
@@ -49,9 +50,7 @@ These APIs’ resources as of this blog post are ongoing development cycle where
 
 The OpenAPI initiative provides a framework to describe any APIs so that these APIs can be consumed by different organizations for documentation, client side, server-side mocks, and many other opportunities. This framework has evolved from standard version 3.0 to version 3.1 with all the benefits as described in this [video](https://www.youtube.com/live/Sflpzh_cAcA?si=zkAKqGNYQz-5C6oe).  As described in this blog post, the top advantages of using the OpenAPI is to provide a way for a community to widely adopt the HPE GreenLake API by efficiently creating client libraries while in same time as the updates to HPE GreenLake API specs are happening. 
 
-
 To accommodate the conversion, there are a couple of blog posts that have been created to explain the process for conversion of any HPE GreenLake spec file to [Python](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/) client library and conversion from any HPE GreenLake spec file to [PowerShell ](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/)client library. However, the challenge is that the open source [tool](https://openapi-generator.tech/) that is used to generate this client library can only facilitate the OpenAPI Standard version 3.0 spec file as the input; however, majority of the HPE GreenLake API sets that are written using the OpenAPI Standard version 3.1.
-
 
 In this blog post, let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli.](https://www.npmjs.com/package/@openapitools/openapi-generator-cli)  Let me introduce you to this open source tool named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson which is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert) and shown in figure below.
 
