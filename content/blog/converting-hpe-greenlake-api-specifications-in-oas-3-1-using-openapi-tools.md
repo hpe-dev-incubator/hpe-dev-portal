@@ -47,3 +47,7 @@ To accommodate the conversion, there are a couple of blog posts that have been c
 
 
 In this blog post, I like to introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli.](https://www.npmjs.com/package/@openapitools/openapi-generator-cli)  Let me introduce you to this open source tool named apiture/openapi-down-convert by David Biesack and Mike Ralphson which is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert) and shown in figure below.
+
+![openapi-down-convert Github website](/img/github-to-openapi-down-convert.png)
+
+*The above figure shows the Github website for the documentation of the openapi-down-convert.*
