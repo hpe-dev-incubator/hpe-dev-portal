@@ -197,7 +197,7 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 ![HPE GL Data Services list async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
-6. To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the README.md file.
+6. To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the \`README.md\` file.
 
 ```shell
 To install from the source, run the following command to build and install the PowerShell module locally:
