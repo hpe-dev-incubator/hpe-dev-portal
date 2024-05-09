@@ -70,7 +70,7 @@ This is the pivoting point for the HPE GreenLake APIs for Data Services on the H
 
 ### The future for Data Services APIs
 
-In the future, there will be more sets of HPE GreenLake APIs related to the additional Data Services published at the HPE GreenLake Developer Website that conform with Open API 3.1 specification. Furthermore, the DSCC API will eventually be published to conform to the Open API 3.1 specifications with the rest of the Open API specs in the future. To accommodate powerful and comprehensive DataOps use cases such as presented in this blog post and another blog post, the combination of multiple HPE GreenLake APIs from different sets of Data Services on HPE GreenLake platform has been used. 
+In the future, there will be more sets of HPE GreenLake APIs related to the additional Data Services published at the HPE GreenLake Developer Website that conform with Open API 3.1 specification. Furthermore, the DSCC API will eventually be published to conform to the Open API 3.1 specifications with the rest of the Open API specs in the future. To accommodate powerful and comprehensive DataOps use cases such as presented in this blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/) and another blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/), the combination of multiple HPE GreenLake APIs from different sets of Data Services on HPE GreenLake platform has been used. 
 
 ### Learn more about the Data Services APIs
 
@@ -80,10 +80,11 @@ For getting started with the Data Services APIs and improve your agility in mana
 2. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/): Getting Started with HPE GreenLake APIs for Virtualization.
 3. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/): Getting Started with HPE GreenLake APIs for HPE GreenLake for Backup and Recovery
 4. Future blog post: Getting Started with HPE GreenLake APIs for HPE GreenLake Private Cloud Business Edition.
-5. The [link ](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html)to the documentation of the HPE GreenLake APIs at HPE GreenLake help menu.
-6. The link to the YouTube video of the Munch and Learn webinar “The data services family of APIs for HPE GreenLake – Putting it all together” 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-ffzhc6TzoA?si=55l52RM8--XSMIww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+5. The [link](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) to the documentation of the HPE GreenLake APIs at HPE GreenLake help menu.
+6. The [link](https://youtu.be/-ffzhc6TzoA?si=0qO3bovZBZnOo6NS) to the YouTube video of the Munch and Learn webinar “The data services family of APIs for HPE GreenLake – Putting it all together” 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-ffzhc6TzoA?si=0qO3bovZBZnOo6NS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Any questions on HPE GreenLake APIs for Data Services on HPE GreenLake platform?
 
-Join the HPE Developer Community Slack Workspace, and start a discussion in our #hpe-greenlake-data-services Slack channel.
+Join the HPE Developer Community Slack [Workspace](https://developer.hpe.com/slack-signup/), and start a discussion in our [\#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
