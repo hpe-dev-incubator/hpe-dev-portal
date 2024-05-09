@@ -170,9 +170,6 @@ PS C:\Users\Administrator\Scripting>
 ```shell
    PS C:\Users\Administrator\Scripting> cd .\Posh-GL-dataservices\
    PS C:\Users\Administrator\Scripting\Posh-GL-dataservices> dir
-```
-
-```
 Mode                LastWriteTime         Length Name
 
 - - -
