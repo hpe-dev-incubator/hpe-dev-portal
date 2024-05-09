@@ -63,13 +63,13 @@ To install this tool, you can follow the instructions at the Github [README](htt
 I found that a lot of tools, that we are going to be using as part of this blog post, are easier to use if we are using the npm (JavaScript) software deployment method. Below are the steps that I recommend so that you can deploy the npm for JavaScript package management into a Microsoft Windows desktop environment so that you can deploy the openapi-down-convert tool.
 
 1. I made sure that my Microsoft Windows desktop had access to the internet and can connect to the websites that I provided in below steps. In some cases, you may need to define the internet proxy so that you can connect to these websites.
-2. First, I deployed the Java SDK library into my Microsoft Windows desktop. My recommendation is to deploy the Microsoft Build version of the OpenJDK that is available in the Microsoft website using the instruction provided from the website.  By the way, prior to deploying this OpenJDK, I removed any older version of the Java SDK or JRE from my Microsoft Windows environment so I could ensure the correct Java version used for all the steps below.
+2. First, I deployed the Java SDK library into my Microsoft Windows desktop. My recommendation is to deploy the Microsoft Build version of the OpenJDK that is available in the Microsoft [website](https://learn.microsoft.com/en-us/java/openjdk/download) using the instruction provided from the website.  By the way, prior to deploying this OpenJDK, I removed any older version of the Java SDK or JRE from my Microsoft Windows environment so I could ensure the correct Java version used for all the steps below.
 3. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following instruction. This step ensured that any applications which require Java would use the OpenJDK by default. 
-4. Following the step above, I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the npm package manager option as shown in one of the step from the NodeJS installation wizard as shown in figure below.
+4. Following the step above, I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the **npm package manager** option as shown in one of the steps from the NodeJS installation wizard as shown in figure below.
 
 ![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
-5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the openapi-down-convert in the Microsoft Windows command line interface shown below.
+5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the \`openapi-down-convert\` in the Microsoft Windows command line interface shown below.
 
 ```shell
 C:\>npm I -g @apiture/openapi-down-convert
@@ -83,3 +83,48 @@ C:\>
 ```
 
 6. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
+
+## Second tool of the day: deploying the openapi-generator-cli using the npm JavaScript
+
+This time, I also wanted to introduce a version of the openapi-generator that can be executed just like any other command line interface, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool as I have shared above, I can then proceed to deploy this tool very quickly. Below are the steps that I took to deploy openapi-generator-cli:
+
+1. I opened a Microsoft Windows command line interface and issued the following npm CLI command:
+```shell
+   C:\Users\Administrator>npm install -g @openapitools/openapi-generator-cli
+
+added 116 packages in 36s
+
+23 packages are looking for funding
+  run `npm fund` for details
+
+C:\Users\Administrator>
+```
+2. Afterward, I tested the deployed openapi-generator-cli to validate the version of the generator that was used. I believed that it was automatically defaulted to the latest published version which was 7.5.0 as shown below:
+```shell
+   C:>openapi-generator-cli
+   Download 7.5.0 ...
+   Downloaded 7.5.0
+   Did set selected version to 7.5.0
+   Usage: openapi-generator-cli <command> [<args>]
+
+Options:
+  --openapitools <openapitools.json>  Use the specified openapi-generator-cli configuration file
+  --custom-generator <generator>      Custom generator jar
+
+Commands:
+  version-manager                     Manage used / installed generator version
+  author                              Utilities for authoring generators or customizing templates.
+  batch                               Generate code in batch via external configs.
+  config-help                         Config help for chosen lang
+  generate \[options]                  Generate code with the specified generator.
+  help                                Display help information about openapi-generator
+  list                                Lists the available generators
+  meta                                MetaGenerator. Generator for creating a new template set and configuration for
+                                      Codegen.  The output will be based on the language you specify, and includes
+                                      default templates to include.
+  validate                            Validate specification
+  version                             Show version information used in tooling
+
+C:>
+```
+3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the website.
