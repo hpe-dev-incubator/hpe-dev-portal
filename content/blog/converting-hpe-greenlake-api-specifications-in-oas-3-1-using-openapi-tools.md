@@ -196,6 +196,100 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 ![HPE GL Data Services POSH README.md](/img/hpe-gl-dataservices-posh-readme-md.png)
 
-\> I could then click on the link on the README.md to display the information on how to use the API such as the \`Invoke-ListAsyncOperations\` shown below:
+> I could then click on the link on the README.md to display the information on how to use the API such as the `Invoke-ListAsyncOperations` shown below:
 
 ![HPE GL Data Services list async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
+
+6.	To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the README.md file.
+To install from the source, run the following command to build and install the PowerShell module locally:
+```shell
+C:> Build.ps1
+C:> Import-Module -Name '.\src\GLdataservices' -Verbose
+```
+
+7.	Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called Invoke-ListAsyncOperations and to use that API to display a list of the tasks that was completed. 
+$fileName = "..\myCredential-rrd1.json"
+$secretFile = Get-Content -Path $fileName | ConvertFrom-Json
+
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+$Configuration.BaseUrl = "https://us1.data.cloud.hpe.com"
+$Configuration.Username = $secretFile | select-object -ExpandProperty myId
+$Configuration.Password = $secretFile | select-object -ExpandProperty mySecret
+$token_url = "https://sso.common.cloud.hpe.com/as/token.oauth2"
+$AuthenticationResult = Invoke-WebRequest $token_url -Method Post -Body @{
+    grant_type = "client_credentials"
+    client_id = $Configuration.Username
+    client_secret = $Configuration.Password
+}
+$Configuration.AccessToken = $AuthenticationResult.Content | ConvertFrom-Json | select-object -ExpandProperty access_token
+
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Filter = "'backup-and-recovery' in services" # String | The UUID of the object
+$Select = 'associatedResources,services,displayName,logMessages' # String | A list of properties to include in the response. (optional)
+
+# Returns details of a specific async-operation
+try {
+    $Result = Invoke-ListAsyncOperations -Offset 0 -Limit 10 -Filter $Filter -Select $Select
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-ListAsyncOperations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+$Result.items | ConvertTo-Json
+Note that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well as
+{
+  "myWorkspace": "xxxxxxxxxx-yyyy-yyyy-yyyy-zzzzzzzzzzzz", 
+  "myId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", 
+  "mySecret": "06cffff699deeeee9f1d92f7gggggggg"
+}
+
+	As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
+[
+  {
+    "associatedResources": [],
+    "services": [
+      "backup-and-recovery"
+    ],
+    "displayName": "Create_individual_file_backup",
+    "logMessages": [
+      "@{message=Performing incremental copy.; timestamp=04/27/2024 09:01:22}",
+      "@{message=Resources acquired, volume copy preparation done.; timestamp=04/27/2024 09:01:23}",
+      "@{message=Submitted all copy jobs to data mover.; timestamp=04/27/2024 09:02:31}",
+      "@{message=Initiated Vmdk copy operation.; timestamp=04/27/2024 09:02:33}",
+      "@{message=Failed with retryable error code: -3403. Retrying after 1 minutes.; timestamp=04/27/2024 09:07:17}",
+      "@{message=Performing optimized copy since Invalid parent backup: Parent backup with id 61c86d49-2b7c-4e0a-9619-dc9bda08586d is in Reading state.; timestamp=04/27/2024 09:08:18}",
+      "@{message=Resetting retries as data movement successfully progressed after previous failure.; timestamp=04/27/2024 09:21:55}",
+      "@{message=Failed with retryable error code: -3403. Retrying after 15 minutes.; timestamp=04/27/2024 09:30:26}",
+      "@{message=Allocation map collection took 0.002743 seconds with 1 threads.; timestamp=04/27/2024 10:58:21}",
+      "@{message=Successfully completed copy operation; timestamp=04/27/2024 10:58:22}",
+      "@{message=Backup operation completed.; timestamp=04/27/2024 10:58:23}"
+    ]
+  },
+  {
+    "associatedResources": [
+      "@{name=0-VM-01-VVOL-DS; resourceUri=/hybrid-cloud/v1beta1/virtual-machines/1d1438c2-3ae2-52e0-b5a1-fa643903f526; type=hybrid-cloud/virtual-machine}"
+    ],
+    "services": [
+      "backup-and-recovery"
+    ],
+    "displayName": "Delete backup [0-VM-01-VVOL-DS - 13/04/2024 03:48:59]",
+    "logMessages": [
+      "@{message=Job execution started.; timestamp=04/16/2024 08:03:26}",
+      "@{message=Deleting local backup.; timestamp=04/16/2024 08:03:28}",
+      "@{message=Deleting backup successful.; timestamp=04/16/2024 08:03:30}",
+      "@{message=Job execution completed.; timestamp=04/16/2024 08:03:31}"
+    ]
+  },
+  {
+    "associatedResources": [],
+    "services": [
+      "backup-and-recovery"
+    ],
+    "displayName": "Delete MSSQL snapshot [Array_Snapshot_2024-04-27-21:35:19-K1cqhLAg - 2024-04-28T01:36:25.000Z]",
+    "logMessages": [
+      "@{message=Updating snapshot state; timestamp=04/30/2024 02:01:05}",
+      "@{message=Deleting volume(s) snapshot.; timestamp=04/30/2024 02:01:06}",
+      "@{message=Deleting snapshot; timestamp=04/30/2024 02:01:18}",
+      "@{message=Job execution completed.; timestamp=04/30/2024 02:01:18}"
+    ]
+  },
