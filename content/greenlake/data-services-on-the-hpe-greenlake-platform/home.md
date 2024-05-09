@@ -35,4 +35,27 @@ There are two major categories of services from Data Services on the HPE GreenLa
 
 ![HPE GreenLake Data Services Catalogue](/img/data-services-catalogues.png)
 
-*The above figure displays the list of the services that are part of the Data Services on HPE GreenLake platform*
+*The above figure displays the list of the services that are part of the Data Services on [HPE GreenLake platform](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html)*
+
+## Data Services REST APIs
+
+### The history
+
+In **November 2021**, after the release of the HPE GreenLake Cloud platform, Data Services introduce the first set of APIs to manipulate resources made available under HPE GreenLake Data Ops Manager. Today, this set of API was expanded to include Block Storage, File Storage services, and current storage Family of HPE Primera, Nimble Gen5, and Alletra (6K,9K,MP). This set of APIs, was associated with **Infrastructure Platform suites**, also known as the **Data Services Cloud Console API v1.5 (March 2024)**. This existing API conforms to the **OpenAPI Standard 3.0** specifications, and the spec file can be downloaded in **either YAML or JSON OpenAPI Specification** from the following [website](https://console-us1.data.cloud.hpe.com/doc/api/v1/). The blog posts about getting started with this set of existing APIs is available in this [HPE Developer Forum](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/). There are also additional blog posts that contains information such as [authentication using OAuth 2.0](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/) to generate the required [access token](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/), [using openapi-generator-cli](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/) to convert the DSCC API OpenAPI Specifications to [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) and [Python client Library](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/), a [PowerShell toolkit](https://developer.hpe.com/blog/new-powershell-toolkit-available-for-managing-hpe-data-services-cloud-console/) and [an example of ansible playbooks](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) to manage this storage sources.
+
+### 
+The current family of the APIs 
+
+With the announcements of additional API support for the Data Services suites on the HPE GreenLake platform in **March 2024**, Cloud Data Services introduce a family of API sets to expand the support of Data Services such as HPE GreenLake for Backup and Recovery and HPE GreenLake for Private Cloud Business Edition. These sets of API conforms to the **OpenAPI Standard 3.1** specification, and it can be downloaded in **JSON OpenAPI Specification** file from the [HPE GreenLake developer website](https://developer.greenlake.hpe.com/docs/greenlake/services/). These later API sets use the same authentication as the existing API (OAuth 2.0 Client Credential) and the same access token for all services inside a HPE GreenLake region. There are blog posts that introduce of the new API sets, and tips to use additional OpenAPI tool to convert the OpenAPI spec 3.1 to 3.0 so that the spec can be converted using the openapi-generator into client-Libraries of multiple scripting languages.
+
+### 
+The new set of Data Services APIs
+
+This set of APIs family are broken down into different groups:
+
+1. Data Services : Group of APIs to accommodate common resources used for both Data Services and Infrastructure Platform suites such as Task List (Asynchronous Operations), Dual Authorization, Issues, Settings, Storage Locations, and displaying DSCC Tags
+2. Virtualization : Group of APIs to accommodate common interaction with both on-premises and public cloud Hyper-Visors such as registration of VMware vCenter or AWS account, discovering of Virtual Machines or EC2 instance, migration of Virtual Machines and many others use cases.
+3. Backup and Recovery : Group of APIs designed to deploy and register Data Orchestrator, Protection Store Gateway, to create protection policy for VM, DataStores, Volumes, Microsoft SQL Server, AWS EC2, EBS, and many other use cases in HPE GreenLake for Backup and Recovery.
+4. Private Cloud Business Edition : Group of APIs designed to view inventory of a DHCI 2.0, SimpliVity, or Azure cloud account, to perform upgrades for Storage software, hyper-Visor software, to add, update delete provisioning policies and many other use cases in HPE GreenLake for Private Cloud Business Edition.
+   The new documentation about the family of Data Services APIs
+   This is the pivoting point for the HPE GreenLake APIs for Data Services on HPE GreenLake platform where HPE GreenLake user’s clients for API can perform more complex automation that involves all categories of services made available in the Data Services on HPE GreenLake platform. To accommodate the documentation for the combination of multiple sets of APIs, the GreenLake documentation about the APIs had been updated to provide directions on how to access the family of the HPE GreenLake API for Data Services on HPE GreenLake platform shown in this link. The help menu inside the HPE GreenLake for those data services as of March 2024 was also updated as shown below.
