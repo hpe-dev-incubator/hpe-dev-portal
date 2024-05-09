@@ -91,7 +91,7 @@ This time, I also wanted to introduce a version of the openapi-generator that ca
 1. I opened a Microsoft Windows command line interface and issued the following npm CLI command:
 
 ```shell
-   C:\Users\Administrator>npm install -g @openapitools/openapi-generator-cli
+C:\Users\Administrator>npm install -g @openapitools/openapi-generator-cli
 
 added 116 packages in 36s
 
