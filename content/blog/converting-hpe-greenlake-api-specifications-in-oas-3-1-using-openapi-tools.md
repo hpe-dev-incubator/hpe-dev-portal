@@ -59,3 +59,27 @@ In this blog post, let me introduce a tool to convert the spec file in OpenAPI s
 *The above figure shows the Github website for the documentation of the openapi-down-convert.*
 
 To install this tool, you can follow the instructions at the Github [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
+
+I found that a lot of tools, that we are going to be using as part of this blog post, are easier to use if we are using the npm (JavaScript) software deployment method. Below are the steps that I recommend so that you can deploy the npm for JavaScript package management into a Microsoft Windows desktop environment so that you can deploy the openapi-down-convert tool.
+
+1. I made sure that my Microsoft Windows desktop had access to the internet and can connect to the websites that I provided in below steps. In some cases, you may need to define the internet proxy so that you can connect to these websites.
+2. First, I deployed the Java SDK library into my Microsoft Windows desktop. My recommendation is to deploy the Microsoft Build version of the OpenJDK that is available in the Microsoft website using the instruction provided from the website.  By the way, prior to deploying this OpenJDK, I removed any older version of the Java SDK or JRE from my Microsoft Windows environment so I could ensure the correct Java version used for all the steps below.
+3. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following instruction. This step ensured that any applications which require Java would use the OpenJDK by default. 
+4. Following the step above, I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the npm package manager option as shown in one of the step from the NodeJS installation wizard as shown in figure below.
+
+![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
+
+5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the openapi-down-convert in the Microsoft Windows command line interface shown below.
+
+```shell
+C:\>npm I -g @apiture/openapi-down-convert
+added 5 packages in 4s
+npm notice
+npm notice New minor version of npm available! 10.5.0 -> 10.7.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.7.0
+npm notice Run npm install -g npm@10.7.0 to update!
+npm notice
+C:\>
+```
+
+6. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
