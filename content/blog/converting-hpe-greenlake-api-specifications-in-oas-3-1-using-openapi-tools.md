@@ -12,4 +12,4 @@ tags:
 ---
 ## What is HPE GreenLake APIs for data services?
 
-The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake. The data services on HPE GreenLake can be discovered under the Services’ catalogue that is named as the Storage as shown in below figure. Additionally, there is also HPE GreenLake Private Cloud  Business Edition service under the Services’ catalogue named as Private Cloud as shown in below figure.
+The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake. The data services on HPE GreenLake can be discovered under the Services’ [catalogue](https://common.cloud.hpe.com/services/service-catalog) that is named as the Storage as shown in below figure. Additionally, there is also HPE GreenLake Private Cloud  Business Edition service under the Services’ catalogue named as Private Cloud as shown in figure below.
