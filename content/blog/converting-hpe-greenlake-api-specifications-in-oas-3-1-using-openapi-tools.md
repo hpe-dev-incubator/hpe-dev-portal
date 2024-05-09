@@ -200,14 +200,16 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 ![HPE GL Data Services list async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
-6.	To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the README.md file.
-To install from the source, run the following command to build and install the PowerShell module locally:
+6. To exercise this PowerShell module, I followed the instructions to install module into a PowerShell workstation as described in the README.md file.
+   To install from the source, run the following command to build and install the PowerShell module locally:
+
 ```shell
 C:> Build.ps1
 C:> Import-Module -Name '.\src\GLdataservices' -Verbose
 ```
 
-7.	Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called Invoke-ListAsyncOperations and to use that API to display a list of the tasks that was completed. 
+7. Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called Invoke-ListAsyncOperations and to use that API to display a list of the tasks that was completed. 
+
 ```shell
 $fileName = "..\myCredential-rrd1.json"
 $secretFile = Get-Content -Path $fileName | ConvertFrom-Json
@@ -238,15 +240,17 @@ try {
 }
 $Result.items | ConvertTo-Json
 ```
-> *Note that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well as
+
+> **Note** that the above script was reading my client-credentials file so that I could gain authorization to my HPE GreenLake workspace. This file called myCredentials-rrd1.json which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog post in HPE Developer Forum website that discuss the process as well.
+
 ```JSON
 {
   "myWorkspace": "xxxxxxxxxx-yyyy-yyyy-yyyy-zzzzzzzzzzzz", 
   "myId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", 
   "mySecret": "06cffff699deeeee9f1d92f7gggggggg"
 }
+```
 
-```	
 > As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
 
 ```JSON
