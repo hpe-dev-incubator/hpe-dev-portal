@@ -75,7 +75,7 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-> *Note*: Make sure the modules oauthlib, requests and requests_oauthlib are installed in your environment, if not just install these using:
+> *Note*: Make sure the modules oauthlib, requests and requests_oauthlib are installed in your environment, if not you can install these using:
 
 ```powershell
 pip install oauthlib
