@@ -89,6 +89,7 @@ C:\>
 This time, I also wanted to introduce a version of the openapi-generator that can be executed just like any other command line interface, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool as I have shared above, I can then proceed to deploy this tool very quickly. Below are the steps that I took to deploy openapi-generator-cli:
 
 1. I opened a Microsoft Windows command line interface and issued the following npm CLI command:
+
 ```shell
    C:\Users\Administrator>npm install -g @openapitools/openapi-generator-cli
 
@@ -99,7 +100,9 @@ added 116 packages in 36s
 
 C:\Users\Administrator>
 ```
+
 2. Afterward, I tested the deployed openapi-generator-cli to validate the version of the generator that was used. I believed that it was automatically defaulted to the latest published version which was 7.5.0 as shown below:
+
 ```shell
    C:>openapi-generator-cli
    Download 7.5.0 ...
@@ -127,4 +130,64 @@ Commands:
 
 C:>
 ```
-3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the website.
+
+3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the [website](https://openapi-generator.tech/docs/generators).
+
+## But wait! What about converting those OpenAPI Standard 3.1 spec files to a client library?
+
+Nope, I am not going to leave you guys stranded. 😊 
+
+Now, we have the required tools to create the pipeline for the conversion from the OpenAPI Standard 3.1 spec files to the client library for my choice of scripting languages. The process will be in a sequence from downloading the OpenAPI spec file from the HPE GreenLake developer website, convert that spec file to OpenAPI Standard 3.0 spec file, and then convert that 3.0 spec file to the client library. Let me give you an example for converting the HPE GreenLake API for Data Services file spec to a PowerShell client library.
+
+1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI shown below:
+
+![Downloading HPE GreenLake API Data Services API (1.0.0)](/img/donwload-the-api-file-from-data-services.png)
+
+2. Afterward, I changed the name of the downloaded file from swagger.json to GL-dataservices-31.json so that I could recognize this OpenAPI Standard 3.1 spec file from HPE GreenLake APIs for Data Services. Eventually, I followed by using the openapi-down-convert tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command shown below.
+```shell
+   PS C:\Users\Administrator\Downloads> move .\swagger.json ..\Scripting\GL-dataservices-31.json
+   PS C:\Users\Administrator\Downloads> cd ..\Scripting\
+   PS C:\Users\Administrator\Scripting> dir
+
+   ```
+
+   ```
+
+Mode                LastWriteTime         Length Name
+
+- - -
+
+\-a----         5/2/2024   2:46 PM         171264 GL-dataservices-31.json
+
+PS C:\Users\Administrator\Scripting> openapi-down-convert -i .\GL-dataservices-31.json -o .\GL-dataservices-30.json
+PS C:\Users\Administrator\Scripting>
+```
+3. Now it’s the time to convert this OpenAPI Standard 3.0 spec file to the PowerShell client library using the openapi-generator tool. Additionally, I also changed the name of the generated package from standard naming OpenAPITools to specific name GLdataservices using the special arguments such as shown below.
+```shell
+   PS C:\Users\Administrator\Scripting> openapi-generator-cli generate -g powershell --additional-properties="packageName"="GLdataservices" -i .\GL-dataservices-30.json -o Posh-GL-dataservices
+```
+4. As the result from this conversation, I found a new folder named Posh-GL-dataservices with some files inside this folder as shown below. It looks like that I have a mark-down file called README.md. I would now use my favourite development editor Microsoft Visual Studio Code to investigate this generated PowerShell module. The information on how to install Microsoft Visual Studio Code is available at the Visual Studio Code website.
+```shell
+   PS C:\Users\Administrator\Scripting> cd .\Posh-GL-dataservices\
+   PS C:\Users\Administrator\Scripting\Posh-GL-dataservices> dir
+
+   ```
+
+   ```
+
+Mode                LastWriteTime         Length Name
+
+- - -
+
+d-----         5/2/2024   5:00 PM                .openapi-generator
+d-----         5/2/2024   5:00 PM                docs
+d-----         5/2/2024   5:40 PM                src
+d-----         5/2/2024   5:00 PM                tests
+-a----         5/2/2024   5:00 PM           1040 .openapi-generator-ignore
+-a----         5/2/2024   5:40 PM           1224 appveyor.yml
+-a----         5/2/2024   5:40 PM           2100 Build.ps1
+-a----         5/2/2024   5:40 PM          12794 README.md
+
+PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
+```
+5. Using the Microsoft Visual Studio Code, I opened the folder where the modules were located, and I could see the list of the files that were generated by the openapi-generator.  The first file that I opened is the README.md and using the combination key of “CTRL + Left Shift + v”, I was able to convert the README.md into the clear readable format. That was a great step because I found out the instructions on installation, uninstallation, and detail information on how to use this PowerShell module.
