@@ -141,7 +141,7 @@ Now, we have the required tools to create the pipeline for the conversion from t
 
 1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI shown below:
 
-<img src="/img/donwload-the-api-file-from-data-services.png" width="1480" alt="Downloading HPE GreenLake API Data Services API (1.0.0)" title="Downloading HPE GreenLake API Data Services">
+<img src="/img/download-the-api-file-from-data-services.png" width="1480" alt="Downloading HPE GreenLake API Data Services API (1.0.0)" title="Downloading HPE GreenLake API Data Services">
 
 2. Afterward, I changed the name of the downloaded file from swagger.json to GL-dataservices-31.json so that I could recognize this OpenAPI Standard 3.1 spec file from HPE GreenLake APIs for Data Services. Eventually, I followed by using the openapi-down-convert tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command shown below.
 ```shell
