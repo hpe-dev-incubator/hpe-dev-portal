@@ -128,7 +128,7 @@ Commands:
   validate                            Validate specification
   version                             Show version information used in tooling
 
-C:>
+  C:>
 ```
 
 3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the [website](https://openapi-generator.tech/docs/generators).
