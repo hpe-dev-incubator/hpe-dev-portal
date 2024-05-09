@@ -153,7 +153,7 @@ Mode                LastWriteTime         Length Name
 
 - - -
 
-\-a----         5/2/2024   2:46 PM         171264 GL-dataservices-31.json
+-a----         5/2/2024   2:46 PM         171264 GL-dataservices-31.json
 
 PS C:\Users\Administrator\Scripting> openapi-down-convert -i .\GL-dataservices-31.json -o .\GL-dataservices-30.json
 PS C:\Users\Administrator\Scripting>
