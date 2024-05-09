@@ -301,3 +301,12 @@ $Result.items | ConvertTo-Json
     ]
   },
 ```
+
+## Conclusion
+
+With the introduction of new HPE GreenLake APIs on March 2024, HPE GreenLake APIs embraces OpenAPI Standard 3.1 for the specification files. Those HPE GreenLake APIs spec file for the API set such as Data Services, Virtualization, Backup and Recovery, and Private Cloud Business Edition were released based on OpenAPI Standard 3.1. 
+
+This blog post introduces the tools to enable any adopter to use the open-source software openapi-generator to convert these spec files after the conversion from the OpenAPI Standard 3.1 to OpenAPI Standard 3.0. In this blog post, I provided an example on how to convert the HPE GreenLake API for Data Services into a PowerShell client library. Furthermore, I also provided an example on how to use this client library to display the list of the tasks from HPE GreenLake for Backup and Recovery from my workspace.
+
+
+Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join the HPE Developer Community Slack [Workspace](https://developer.hpe.com/slack-signup/), and start a discussion in our [\#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
