@@ -166,6 +166,7 @@ PS C:\Users\Administrator\Scripting>
 ```
 
 4. After the conversion was completed, I found a new folder named `Posh-GL-dataservices` with some files in the folder as shown below. It looks like that I have a mark-down file called `README.md`. I would then use my favorite development editor Microsoft Visual Studio Code to investigate this generated PowerShell module. 
+
 > **Note:** The information on how to install Microsoft Visual Studio Code is available at the Visual Studio Code [website](https://code.visualstudio.com/).
 
 ```shell
