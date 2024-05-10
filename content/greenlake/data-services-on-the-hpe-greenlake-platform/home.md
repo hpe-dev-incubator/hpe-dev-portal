@@ -6,7 +6,7 @@ description: The landing page for all Storage BU related SaaS and cloud services
 image: /img/greenlake/dscc-icon-transparent.png
 width: large
 priority: 1
-active: "true"
+active: false
 tags:
   - hpe-greenlake
   - api
