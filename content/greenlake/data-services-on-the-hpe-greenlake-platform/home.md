@@ -52,8 +52,8 @@ With the announcements of additional API support for the Data Services suites on
 This set of APIs family are broken down into different groups:
 
 1. **Data Services :** Group of APIs to accommodate common resources used for both Data Services and Infrastructure Platform suites such as Task List (Asynchronous Operations), Dual Authorization, Issues, Settings, Storage Locations, and displaying DSCC Tags
-2. **Virtualization :** Group of APIs to accommodate common interaction with both on-premises and public cloud Hyper-Visors such as registration of VMware vCenter or AWS account, discovering of Virtual Machines or EC2 instance, migration of Virtual Machines and many others use cases.
-3. **Backup and Recovery :** Group of APIs designed to deploy and register Data Orchestrator, Protection Store Gateway, to create protection policy for VM, DataStores, Volumes, Microsoft SQL Server, AWS EC2, EBS, and many other use cases in HPE GreenLake for Backup and Recovery.
+2. **Virtualization :** Group of APIs to accommodate common interaction with both on-premises and public cloud Hyper-Visors such as registration of VMware vCenter or AWS account, discovery of virtual machines or AWS EC2 instance, migration of virtual machines and many others use cases.
+3. **Backup and Recovery :** Group of APIs designed to deploy and register the Data Orchestrator, the Protection Store Gateway, to create protection policy for VM, DataStores, Volumes, Microsoft SQL Server, AWS EC2, AWS EBS, and many other use cases in HPE GreenLake for Backup and Recovery.
 4. **Private Cloud Business Edition :** Group of APIs designed to view inventory of a DHCI 2.0, SimpliVity, or Azure cloud account, to perform upgrades for Storage software, hyper-Visor software, to add, update delete provisioning policies and many other use cases in HPE GreenLake for Private Cloud Business Edition.
 
 ### The new documentation about the family of Data Services APIs
