@@ -165,7 +165,7 @@ PS C:\Users\Administrator\Scripting>
    PS C:\Users\Administrator\Scripting> openapi-generator-cli generate -g powershell --additional-properties="packageName"="GLdataservices" -i .\GL-dataservices-30.json -o Posh-GL-dataservices
 ```
 
-4. As the result from this conversation, I found a new folder named `Posh-GL-dataservices` with some files inside this folder as shown below. It looks like that I have a mark-down file called `README.md`. I would now use my favorite development editor Microsoft Visual Studio Code to investigate this generated PowerShell module. The information on how to install Microsoft Visual Studio Code is available at the Visual Studio Code [website](https://code.visualstudio.com/).
+4. After the conversion was completed, I found a new folder named `Posh-GL-dataservices` with some files in the folder as shown below. It looks like that I have a mark-down file called `README.md`. I would now use my favorite development editor Microsoft Visual Studio Code to investigate this generated PowerShell module. The information on how to install Microsoft Visual Studio Code is available at the Visual Studio Code [website](https://code.visualstudio.com/).
 
 ```shell
    PS C:\Users\Administrator\Scripting> cd .\Posh-GL-dataservices\
