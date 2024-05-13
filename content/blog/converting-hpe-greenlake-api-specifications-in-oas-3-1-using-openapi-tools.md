@@ -22,7 +22,7 @@ The HPE GreenLake APIs are the family of the set of APIs to enable client users 
 
 ![List of data services in the HPE GreenLake's Service-Catalog](/img/data-services-for-hpe-greenlake-list.png)
 
-*The above figure shows the list of HPE GreenLake services part of the data services on HPE GreenLake family (snippets of the HPE GreenLake Service-catalogues)*
+*The above figure shows the list of HPE GreenLake services part of the data services on HPE GreenLake cloud-to-edge platform (snippets of the HPE GreenLake Service-catalogues)*
 
 As of this publication of this blog post (May 2024), these are the list of those data services:
 
