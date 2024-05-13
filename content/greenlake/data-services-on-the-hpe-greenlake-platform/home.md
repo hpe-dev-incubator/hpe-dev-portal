@@ -64,7 +64,7 @@ This is the pivoting point for the HPE GreenLake APIs for Data Services on the H
 
 ### The future for Data Services APIs
 
-In the future, there will be more sets of HPE GreenLake APIs related to the additional Data Services published at the HPE GreenLake Developer Website that conform with OpenAPI 3.1 specification. Furthermore, the Data Services Cloud Console API will eventually be published to conform to the OpenAPI 3.1 specifications just as the rest of the sets of OpenAPI specs. To accommodate powerful and comprehensive DataOps use cases such as presented in this blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/) and another blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/), the combination of multiple HPE GreenLake APIs from different sets of Data Services on HPE GreenLake platform has been used. 
+In the future, there will be some more sets of HPE GreenLake APIs related to the additional Data Services published at the HPE GreenLake Developer Website that conform with OpenAPI 3.1 specification. Furthermore, the Data Services Cloud Console API will eventually be published to conform to the OpenAPI 3.1 specifications just as the rest of the sets of OpenAPI specs. To accommodate powerful and comprehensive DataOps use cases such as presented in this blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/) and another blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/), the combination of multiple HPE GreenLake APIs from different sets of Data Services on HPE GreenLake platform has been used. 
 
 ### Learn more about the Data Services APIs
 
