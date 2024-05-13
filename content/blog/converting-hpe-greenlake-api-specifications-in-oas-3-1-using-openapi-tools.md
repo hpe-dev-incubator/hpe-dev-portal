@@ -10,13 +10,11 @@ tags:
   - api
   - data-services-cloud-console
 ---
-<style>
-li {
-   font-size: 27px;
-   line-height: 33px;
-   max-width: none;
-}
-</style>
+<!--StartFragment-->
+
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
+<!--EndFragment-->
 
 ## What is HPE GreenLake APIs for data services?
 
