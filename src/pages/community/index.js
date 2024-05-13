@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Heading, Paragraph } from 'grommet';
@@ -12,6 +12,7 @@ import {
   ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { AppContext } from '../../providers/AppProvider';
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
