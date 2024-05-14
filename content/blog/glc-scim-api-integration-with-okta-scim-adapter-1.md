@@ -17,8 +17,6 @@ tags:
 
 The Okta System for Cross-domain Identity Management (SCIM) adapter is an Okta application that can be installed from the Okta Integration Network (OIN) into the customer’s Okta to allow for integration with a SCIM Compliant API. This is used to synchronize users and groups. Any user that needs to be pushed to GLC must be assigned to that Application in the customer’s Okta. Groups whose memberships should be synced to GLC must be added as a “Push Group” in that Application on the customer’s Okta. Users can be assigned to the Application using the same groups that are “pushed” to GLC.
 
-
-
 # Configure SCIM applications in Okta:
 
 * Step 1: Deploy an application from the app catalog. **Applications** > **Browse App Catalog** in search type **SCIM 2.0** find the app called:
@@ -31,11 +29,7 @@ The Okta System for Cross-domain Identity Management (SCIM) adapter is an Okta a
 
 ![](/img/scimgeneral.png)
 
-
-
 Click **Next** the following page nothing needs to change so click **Done**.
-
-
 
 * Step 3: After the application is created click on **Provisioning** tab > **Configure API Integration**, click on **Enable API Integration** box.
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy                                
@@ -46,19 +40,13 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
 ![](/img/scimtest.png)
 
-
-
 * Step 4 a:  Under the **Provisioning** tab > **To App** section enable two settings
 
-1)**Create Users**                   2)**Deactivate Users**
+  1)**Create Users**                   2)**Deactivate Users**
 
 ![](/img/scim2app.png)
 
-
-
 * Step 4 b: Here is a list of 6 attributes to keep and rest can be discarded
-
-
 
 ![](/img/attributes.png)
 
@@ -67,6 +55,5 @@ The group will need to be assigned to the SCIM application under the application
 **Please note:**\
 ***Adding group everyone to the SCIM application could have unintended side effects to all user(s).***
 
-Conclusion, we covered all the steps required to configure SCIM 2.0 application. 
-User will need to be part of a group that is assinged to the SCIM application and be part of push groups. 
-With all that configured groups can be pushed to HPE GreenLake Flex Solutions via the Okta SCIM Adapter.
+These are all of the steps required to configure SCIM 2.0 application.  A reminder that users will need to be part of a group that is assigned to the SCIM application and (that group) needs to be apart of push group. 
+Now all configured groups can be pushed into HPE GreenLake Flex Solutions via the Okta SCIM Adapter.
