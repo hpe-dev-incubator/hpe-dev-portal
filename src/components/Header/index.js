@@ -13,9 +13,9 @@ import {
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink } from '..';
+import { ButtonLink,ExternalButtonLink } from '..';
 import { UserMenu } from './UserMenu';
-
+import { validateHpeEmail } from '../../pages/community';
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -294,6 +294,55 @@ function Header() {
       />,
     );
   }
+
+  if (validateHpeEmail(userDetail?.email))
+    {
+      navLinks.push(
+        <DropButton
+        label='HPE Only'
+        align="start"
+        dropAlign={{ top: 'bottom', left: 'left' }}
+        icon={<FormDown />}
+        reverse
+        dropContent={
+          <TextAlignLeft>
+            <ExternalButtonLink
+              key="hpeonly1"
+              label="HPE Innovation Central"
+              to="https://hpe.sharepoint.com/teams/InnovationCentral/SitePages/index.aspx"
+              state={{ state: { isPlatformHeaderClicked: true } }}
+              alignSelf="start"
+              fill="horizontal"
+            />
+             <ExternalButtonLink
+              key="hpeonly2"
+              label="Technical Career Path"
+              to="https://hpe.sharepoint.com/sites/F5/CTO/Office/tcp/Pages/index.aspx"
+              state={{ state: { isPlatformHeaderClicked: true } }}
+              alignSelf="start"
+              fill="horizontal"
+            />
+             <ExternalButtonLink
+              key="hpeonly3"
+              label="HPE GreenLake Developer Standards"
+              to=" https://developer.greenlake.hpe.com/docs/greenlake/standards/"
+              state={{ state: { isPlatformHeaderClicked: true } }}
+              alignSelf="start"
+              fill="horizontal"
+            />
+             <ExternalButtonLink
+              key="hpeonly4"
+              label="Application integration with HPE GreenLake platform"
+              to="https://developer.greenlake.hpe.com/docs/greenlake/guides/internal/platform/app_onboarding/onboarding/"
+              state={{ state: { isPlatformHeaderClicked: true } }}
+              alignSelf="start"
+              fill="horizontal"
+            />
+          </TextAlignLeft>
+        }
+        />,
+      );
+    }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink

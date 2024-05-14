@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Heading, Paragraph } from 'grommet';
@@ -12,6 +12,7 @@ import {
   ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { AppContext } from '../../providers/AppProvider';
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
@@ -30,10 +31,29 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
+
+export const validateHpeEmail = (user) => {
+  const hpeEmailPattern = /@hpe\.com$/;
+  console.log('validateEmail : ',user);
+  if (hpeEmailPattern.test(user))
+  { 
+    console.log('Email is from HPE user');
+    return true;
+  }
+  console.log('Email is from outsider');
+  return false;
+};
+
 function Community({ data }) {
   const communities = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+  const { user }= useContext(AppContext);
+  const [email,setEmail]=useState(user?.email || ';');
+  useEffect(()=>{
+setEmail(user?.email);
+  },[user]);
+  console.log('Community : ',email);
   return (
     <Layout title={siteTitle}>
       <SEO title="Community" />
@@ -49,9 +69,15 @@ function Community({ data }) {
       </PageDescription>
       <SectionHeader>
         <ResponsiveGrid rows={rows} columns={columns}>
-          {communities.map((community) => (
+        { validateHpeEmail(email) 
+          ? communities.map((community) => (
             <CommunityCard key={community.node.id} node={community.node} />
-          ))}
+          ))
+          : communities.filter((community)=>
+          community.node.frontmatter.title!=='HPE Innovation Central') 
+          .map((community)=>
+          <CommunityCard key={community.node.id} node={community.node}/>)
+          }
         </ResponsiveGrid>
       </SectionHeader>
     </Layout>
