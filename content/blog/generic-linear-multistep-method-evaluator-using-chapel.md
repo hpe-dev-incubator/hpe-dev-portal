@@ -6,7 +6,6 @@ author: Daniel Fedorin
 authorimage: /img/chapel-logo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - chapel
