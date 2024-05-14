@@ -1,6 +1,6 @@
 ---
 title: Getting started with Private Cloud Business Edition APIs
-date: 2024-05-24T13:19:00.923Z
+date: 2024-05-13T13:19:00.923Z
 author: Mark van Silfhout
 authorimage: /img/mark-genevax150.jpg
 disable: false
