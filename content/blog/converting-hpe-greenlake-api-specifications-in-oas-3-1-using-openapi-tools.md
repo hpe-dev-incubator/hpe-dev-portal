@@ -24,7 +24,7 @@ The HPE GreenLake APIs are the family of the set of APIs to enable client users 
 
 *The above figure shows the list of HPE GreenLake services part of the data services on HPE GreenLake cloud-to-edge platform (snippets of the HPE GreenLake Service-catalogues)*
 
-As of this publication of this blog post (May 2024), these are the list of those data services:
+As of this publication of this blog post (May 2024), these are the list of data services:
 
 1. HPE DataOps Manager
 2. HPE Block Storage service
