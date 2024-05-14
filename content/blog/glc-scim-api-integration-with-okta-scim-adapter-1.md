@@ -68,5 +68,5 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
 The group will need to be assigned to the SCIM application under the application > **Assignments** tab and added to be part of the **Push Groups** tab.
 
-**Please note:**\
+**Please note:**
 ***Adding group everyone to the SCIM application could have unintended side effects to all user(s).***
