@@ -33,7 +33,7 @@ Click **Next** the following page nothing needs to change so click **Done**.
 
 * Step 3: After the application is created click on **Provisioning** tab > **Configure API Integration**, click on **Enable API Integration** box.
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy                                
-* Token: [link to create long-lived tokens for user provisioning](https://deploy-preview-2376--hpe-dev-portal.netlify.app/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/)
+* Token: [link to create long-lived tokens for user provisioning](https://developer.hpe.com/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/)
 * **Uncheck** the box for Import Groups
 
 After URL and Token are added test to make sure they are valid by clicking > **Test API** **Credentials** and **Save** if everything is correct should return the following message:
