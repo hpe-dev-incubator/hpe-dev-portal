@@ -6,7 +6,7 @@ description: Easy to read guides, tips and documentation to rapidly help any
 image: /img/platforms/image-1-dscc.svg
 width: large
 priority: 7
-active: true
+active: false
 tags:
   - data-services-cloud-console
   - greenlake-cloud-console
