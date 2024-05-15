@@ -12,6 +12,7 @@ tags:
   - hpe-greenlake-cloud-platform
   - cloud-architect
   - hpe-greenlake
+  - data-services-on-the-hpe-greenlake-platform
 ---
 ## Secured, Yet Agile
 
