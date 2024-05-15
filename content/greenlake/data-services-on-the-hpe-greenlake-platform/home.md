@@ -1,12 +1,12 @@
 ---
 title: Data Services on the HPE GreenLake platform
-version: 0.1.1
+version: 1.0.0
 description: The landing page for all Storage BU related SaaS and cloud services
   with future unified API in the plan
 image: /img/greenlake/dscc-icon-transparent.png
 width: large
 priority: 1
-active: false
+active: true
 tags:
   - hpe-greenlake
   - api
