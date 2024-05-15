@@ -64,7 +64,7 @@ The group will need to be assigned to the SCIM application under the application
 
 ![](/img/scim-push.png "Push Groups tab:")
 
-**Please note:**\
+**Please note:**
 ***Adding group everyone to the SCIM application could have unintended side effects to all user(s).***
 
 These are all of the steps required to configure SCIM 2.0 application.  A reminder that users will need to be part of a group that is assigned to the SCIM application and (that group) needs to be apart of push group. 
