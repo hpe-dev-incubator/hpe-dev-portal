@@ -46,13 +46,25 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
 ![](/img/scim2app.png)
 
-* Step 4 b: Here is a list of 6 attributes to keep and rest can be discarded
+* Step 4 b: Here is a list of 6 attributes to keep and the rest can be discarded
 
 ![](/img/attributes.png)
 
 The group will need to be assigned to the SCIM application under the application > **Assignments** tab and added to be part of the **Push Groups** tab.
 
-**Please note:**
+
+
+**Assignments** tab:
+
+![](/img/scim-group.png "Assignments tab")
+
+
+
+**Push Groups** tab:
+
+![](/img/scim-push.png "Push Groups tab:")
+
+**Please note:**\
 ***Adding group everyone to the SCIM application could have unintended side effects to all user(s).***
 
 These are all of the steps required to configure SCIM 2.0 application.  A reminder that users will need to be part of a group that is assigned to the SCIM application and (that group) needs to be apart of push group. 
