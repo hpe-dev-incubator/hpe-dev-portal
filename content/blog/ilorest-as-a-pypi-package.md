@@ -61,24 +61,24 @@ Here are the steps to install HPE iLOrest from [PyPI](https://pypi.org/project/i
    
 ## Notes:
 
-* PyPI package can also be used for ARM-based operating systems if [Python 3](https://www.python.org/downloads/) is present.
+- PyPI package can also be used for ARM-based operating systems if [Python 3](https://www.python.org/downloads/) is present.
 
-* Additionally, the HPE iLOrest PyPI package can be utilized on RHEL, SLES and Microsoft Windows platforms as long as [Python 3](https://www.python.org/downloads/) is installed (preferably version > 3.8).
+- Additionally, the HPE iLOrest PyPI package can be utilized on RHEL, SLES and Microsoft Windows platforms as long as [Python 3](https://www.python.org/downloads/) is installed (preferably version > 3.8).
 
-* DMTF's [Redfish](https://pypi.org/project/redfish/) library can not coexist with HPE [Python ilorest library](https://pypi.org/project/python-ilorest-library/) which is a dependency for the HPE iLOrest PyPI package. So, make sure to remove any [Redfish](https://pypi.org/project/redfish/) library you may have installed prior to installing the HPE Python iLOrest library using the command shown below:
+- DMTF's [Redfish](https://pypi.org/project/redfish/) library can not coexist with HPE [Python ilorest library](https://pypi.org/project/python-ilorest-library/) which is a dependency for the HPE iLOrest PyPI package. So, make sure to remove any [Redfish](https://pypi.org/project/redfish/) library you may have installed prior to installing the HPE Python iLOrest library using the command shown below:
 
 
    ```shell
    $ pip3 uninstall redfish
    ```
 
-* In an air-gapped environment, the HPE iLOrest PyPI package can be downloaded from the <a href="https://pypi.org/project/ilorest/" target="_blank">PyPI repository</a> and installed using the following command. Dependencies may need to be installed separately.
+- In an air-gapped environment, the HPE iLOrest PyPI package can be downloaded from the <a href="https://pypi.org/project/ilorest/" target="_blank">PyPI repository</a> and installed using the following command. Dependencies may need to be installed separately.
 
    ```shell
    $ pip3 install <path to the downloaded PyPI package>  
    ```
   
-* To perform a clean removal of the HPE iLOrest PyPI package, don't forget to uninstall the associated Python library as mentioned in the following command:
+- To perform a clean removal of the HPE iLOrest PyPI package, don't forget to uninstall the associated Python library as mentioned in the following command:
 
    ```shell
    $ pip3 uninstall --yes python-ilorest-library ilorest  
