@@ -13,6 +13,7 @@ tags:
   - Storage
   - hpe-alletra
   - SDK
+  - data-services-on-the-hpe-greenlake-platform
 ---
 HPE provides the Data Services Cloud Console (DSCC), a SaaS-based cloud console, to eliminate silos and to reduce complexity by delivering a unified management of HPE storage arrays.  It's UI may be sufficient for many customers to manage their HPE storage assets, but lately I was approached from multiple customers that were looking for an efficient way to manage their HPE storage assets with PowerShell scripts. When I started looking into the available options to access the DSCC API with PowerShell, I first found the [PowerShell toolkit for managing the HPE Data Services Cloud Console](https://developer.hpe.com/blog/new-powershell-toolkit-available-for-managing-hpe-data-services-cloud-console/) on the [HPE Developer Community Portal](https://developer.hpe.com/). Working with this PowerShell toolkit, I realized that it is, on one hand, an honorable first approach by my colleagues to write such a toolkit, but it is not complete and not yet fully tested.
 H﻿ence, a different solution needed to be found.
