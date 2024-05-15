@@ -8,8 +8,6 @@ width: large
 priority: 1
 active: true
 tags:
-  - hpe-greenlake
-  - api
   - data-services-on-the-hpe-greenlake-platform
   - data-services-cloud-console
 ---
