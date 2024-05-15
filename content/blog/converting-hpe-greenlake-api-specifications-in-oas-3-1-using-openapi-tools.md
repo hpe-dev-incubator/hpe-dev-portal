@@ -28,11 +28,11 @@ Each set of the HPE GreenLake APIs provided examples for the code snippet from d
 
 *The above figure displays the request and the response samples panes that is presented on every API documentation in the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com). The pane contains the examples of the particular API using the code in CuRL, JavaScript, Python, or GO.*
 
-## Do I have alternative to use these REST APIs for my development?
+## Do I have an alternative to use these REST APIs for my development?
 
 From the documentation for each set of the HPE GreenLake APIs, you will recognize that these APIs were documented using OpenAPI specification files in either JSON or YAML format. Furthermore, you also notice that a single set of the HPE GreenLake API called Data Services Cloud Console is based on the OpenAPI Standard 3.0; however, the rest of the HPE GreenLake API set are based on the OpenAPI Standard 3.1. 
 
-If you decide to use a tool to perform the conversion of these OpenAPI spec files into a client Library for particular programming language or scripting, there are a couple of blog posts that discuss how to convert these files into Python or PowerShell client libraries.
+If you decide to use a tool to perform the conversion of these OpenAPI spec files into a client Library for particular programming language or scripting, there are a couple of blog posts that discuss how to convert these files into [Python](https://developer.hpe.com/blog/introducing-python-sdk-for-dscc/) or [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) client libraries.
 
 These APIs’ resources as of this blog post are ongoing development cycle where each of the existing APIs will be updated, deprecated, or new resources will be introduced. The information about the versioning for the APIs based on the OpenAPI Standard 3.1 is available at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). For more information on the family of HPE GreenLake APIs, please see the following blog posts in HPE Developer forum: [Data Services Cloud Console](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api), [Data Services](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/), [Virtualization](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/), and [Backup and Recovery.](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/)
 
