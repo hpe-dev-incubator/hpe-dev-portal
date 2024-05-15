@@ -34,7 +34,7 @@ From the documentation for each set of the HPE GreenLake APIs, you will recogniz
 
 If you decide to use a tool to perform the conversion of these OpenAPI spec files into a client Library for particular programming language or scripting, there are a couple of blog posts that discuss how to convert these files into [Python](https://developer.hpe.com/blog/introducing-python-sdk-for-dscc/) or [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) client libraries. 
 
-This method enable an agile adoption of the HPE GreenLake APIs because many of these HPE GreenLake APIs, as of this blog post, are ongoing development cycle. So there is expectation that the existing APIs will be updated, deprecated, or new resources will be introduced. This method open the opportunity to deploy code development automation by pushing the generated client Library into the GitHub as the new spec is made available.
+This method enables an agile adoption of the HPE GreenLake APIs because many of these HPE GreenLake APIs, as of this blog post, are ongoing development cycle. So there is expectation that the existing APIs will be updated, deprecated, or new resources will be introduced. This method opens the opportunity to deploy code development automation by pushing the generated client Library into the GitHub as the new spec is made available.
 
 For more information about the versioning for the APIs based on the OpenAPI Standard 3.1, see this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). 
 
