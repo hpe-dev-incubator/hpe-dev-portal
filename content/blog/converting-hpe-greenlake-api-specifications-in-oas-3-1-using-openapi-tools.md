@@ -20,7 +20,7 @@ tags:
 
 These HPE GreenLake APIs are a family the sets of the APIs to enable client application to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake edge-to-cloud platform. For more information about the family of data services on HPE GreenLake platform please see this [landing page](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/) in the HPE Developer Forum. The landing page also details the [information](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) on accessing the documentation for each set of HPE GreenLake APIs related to the data services on the HPE GreenLake platform.
 
-## How can I use this documented API for my automation projects?
+## How can I use the HPE GreenLake APIs documentation for my automation projects?
 
 Each set of the HPE GreenLake APIs provided examples for the code snippet from different programming or scripting languages in the interactive websites. Any adopters can make use the provided the snippet of the codes to create any client application or to create any client library for their development purposes. This method is the quickest and the easiest method for early adopter to get started with their automation script. As the time goes, you will also see more blog [posts](https://developer.hpe.com/blog/) in HPE Developer forum that provide comprehensive code sample to address the common use cases using HPE GreenLake edge-to-cloud platform.
 
