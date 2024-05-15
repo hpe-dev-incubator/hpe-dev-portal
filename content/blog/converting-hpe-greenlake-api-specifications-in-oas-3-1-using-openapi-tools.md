@@ -18,27 +18,9 @@ tags:
 
 ## What is HPE GreenLake APIs for data services?
 
-The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake edge-to-cloud platform. The data services on HPE GreenLake can be discovered under the Services’ [catalogue](https://common.cloud.hpe.com/services/service-catalog) that is named as the Storage as shown in below figure. Additionally, there is also HPE GreenLake Private Cloud  Business Edition service under the Services’ catalogue named as Private Cloud as shown in figure below.
+The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake edge-to-cloud platform. For more information about the family of data services on HPE GreenLake platform please see this [landing page](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/) in the HPE Developer Forum. The same landing page also details the [information on accessing the documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) for each set of HPE GreenLake APIs related to the data services on the HPE GreenLake platform.
 
-![List of data services in the HPE GreenLake's Service-Catalog](/img/data-services-for-hpe-greenlake-list.png)
-
-*The above figure shows the list of HPE GreenLake services part of the data services on HPE GreenLake cloud-to-edge platform (snippets of the HPE GreenLake Service-catalogues)*
-
-As of this publication of this blog post (May 2024), these are the list of data services:
-
-1. HPE DataOps Manager
-2. HPE Block Storage service
-3. HPE GreenLake for File Storage
-4. HPE GreenLake for Storage Fabric Management
-5. HPE GreenLake for Backup and Recovery
-6. HPE GreenLake for Disaster Recovery
-7. HPE GreenLake Private Cloud Business Edition
-
-The REST APIs to support the services listed above, are documented in [this](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) HPE GreenLake documentation for REST API as shown in figure below.
-
-![Menu that lists the GL OpenAPI documentation location](/img/openapi-top-documentation-available-at-hpe-support.png)
-
-*The above figure shows the API documentation and the links to each set of HPE GreenLake APIs family for data services on HPE GreenLake.*
+Each set of the HPE GreenLake APIs provided examples for the code snippet from different programming or scripting languages in the interactive website.
 
 From the documentation above, you can recognize that all these services APIs were provided as OpenAPI specification files in either JSON or YAML format. Furthermore, you also notice that a single set of the HPE GreenLake API called Data Services Cloud Console is based on the OpenAPI Standard 3.0; however, the rest of the HPE GreenLake API set are based on the OpenAPI Standard 3.1. 
 
