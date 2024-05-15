@@ -127,7 +127,7 @@ Commands:
 
 ## But wait! What about converting those OpenAPI Standard 3.1 spec files to a client library?
 
-Nope, I am not going to leave you guys stranded. 😊 
+Don't worry because I am not going to leave you guys stranded! 😊 
 
 Now, we have the required tools to create the pipeline for the conversion from the OpenAPI Standard 3.1 spec files to the client library for my choice of scripting languages. The process will be in a sequence from downloading the OpenAPI spec file from the HPE GreenLake developer website, convert that spec file to OpenAPI Standard 3.0 spec file, and then convert that 3.0 spec file to the client library. Let me give you an example for converting the HPE GreenLake API for Data Services file spec to a PowerShell client library.
 
