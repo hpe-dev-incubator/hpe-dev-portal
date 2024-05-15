@@ -10,6 +10,7 @@ tags:
   - developer
   - hpe-greenlake-cloud-platform
   - hpe-greenlake
+  - data-services-on-the-hpe-greenlake-platform
 ---
 ## HPE GreenLake API Security
 
