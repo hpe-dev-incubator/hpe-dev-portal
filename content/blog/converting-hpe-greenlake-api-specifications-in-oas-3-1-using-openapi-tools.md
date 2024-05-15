@@ -20,9 +20,19 @@ tags:
 
 The HPE GreenLake APIs are the family of the set of APIs to enable client users to perform manipulation of the REST API resources that are available as part of data services on HPE GreenLake edge-to-cloud platform. For more information about the family of data services on HPE GreenLake platform please see this [landing page](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/) in the HPE Developer Forum. The same landing page also details the [information on accessing the documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) for each set of HPE GreenLake APIs related to the data services on the HPE GreenLake platform.
 
-Each set of the HPE GreenLake APIs provided examples for the code snippet from different programming or scripting languages in the interactive website.
+## How can I use this documented API for my automation projects? Can you give me an example?
+
+Each set of the HPE GreenLake APIs provided examples for the code snippet from different programming or scripting languages in the interactive websites. Any adopters can make use the provided the snippet of the codes to create any client application or to create any client library for their development purposes. This method is the quickest and the easiest method for early adopter to get started with their automation script. We would also like to have others to
+
+![Snippet of Codes in multiple language in JavaScript, Python, GO, and CuRL](/img/examples-provided-in-the-documentation.png)
+
+*The above figure displays the request and the response samples panes that is presented on every API documentation in the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com). The pane contains the examples of the particular API using the code in CuRL, JavaScript, Python, or GO.*
+
+## Do I have alternative to use these REST APIs for my development?
 
 From the documentation above, you can recognize that all these services APIs were provided as OpenAPI specification files in either JSON or YAML format. Furthermore, you also notice that a single set of the HPE GreenLake API called Data Services Cloud Console is based on the OpenAPI Standard 3.0; however, the rest of the HPE GreenLake API set are based on the OpenAPI Standard 3.1. 
+
+If you decide to use a tool to perform the conversion of these OAS spec files into a client Library, there are some blog posts that discuss how to use the open-source tools widely used by many 
 
 These APIs’ resources as of this blog post are ongoing development cycle where each of the existing APIs will be updated, deprecated, or new resources will be introduced. The information about the versioning for the APIs based on the OpenAPI Standard 3.1 is available at this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). For more information on the family of HPE GreenLake APIs, please see the following blog posts in HPE Developer forum: [Data Services Cloud Console](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api), [Data Services](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/), [Virtualization](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/), and [Backup and Recovery.](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/)
 
