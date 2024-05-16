@@ -195,14 +195,23 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 14. Leave the editor using the **Changes Saved** option.
 
-15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.
+15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing. You can visualize the Pull Request ID using the link **https://github.com/hpe-dev-incubator/hpe-dev-portal/pulls**.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
+16. The HPE Developer Community team will receive a notification. This will trigger the technical and editorial review process. The reviewers will provide you will comments and suggestions for edits directly in the GitHub Pull Request. You will receive e-mail from GitHub with the reviewer's comments and suggestions for changes.
 
-16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
+    Here are some tips to assist you with the review of the suggestions and how to acknowledge them in GitHub:
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
+    * When you receive an e-mail notification from GitHub about the reviewer's comments and suggestions, you can scroll down to the bottom of the e-mail and click on **View it on GitHub** to connect to the Pull Request.
+  
+    * Navigate to **File Changed** area to visualize the comments from start to the end (You may see “Load Diff” for large blog post entry, in this case just click “Load Diff”), or navigate to **Conversation** area to visualize the comments per reviewer.
+
+    * As you incorporate the suggestions for edit in your blog post entry using the CMS editor (**Workflow** tab), please click on button **Resolve Conversation** in GitHub for each suggestion you incorporated.
+
+      >**IMPORTANT Note:** In the CMS Workflow tab, *moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
+
+17. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE Developer portal and the blog entry will disappear from your Editorial Workflow.*
 
