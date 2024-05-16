@@ -133,12 +133,12 @@ You can create a new blog directly from the **Contents** tab or by navigating to
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
-5. Tag your blog post.
+5. **Tag** your blog post.
 
 You can tag your post to tie it to one of the HPE Developer "products or HPE GreenLake or Open Source" pages on the HPE Developer portal. 
 Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer web site.
 
->Note: For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+>**Note:** Make sure to add **individual** tag using the **Add Tags +** button at the bottom of the left panel of your CMS entry. For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
 6.  As you are adding content to the **BODY** area, you can preview your blog on the right pane.
