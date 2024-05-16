@@ -120,7 +120,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
     - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
     
-    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
+    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option TOGGLED OFF**.
     
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
