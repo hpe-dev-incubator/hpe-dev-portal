@@ -411,7 +411,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
    As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.    
    The Pull Request is indicating that your submission is ready for review by the HPE Developer team.
    
-10. Upon review of you rentry by the HPE Developer team, the Pull Request will be merged to push your entry to the HPE Developer Community portal. 
+10. Upon review of your entry by the HPE Developer team, the Pull Request will be merged to push your entry to the HPE Developer Community portal. 
  
 
 ## Tips and trick using the CMS Editor
