@@ -31,8 +31,8 @@ Users can also access DragonHPC at any level of its architecture. This allows us
 
 ## Online resources for getting up and running with DragonHPC
 
-[Public open source code repository with example use cases ![](GitHub)](https://github.com/DragonHPC/dragon)
+[Public open source code repository with example use cases ![](Github)](https://github.com/DragonHPC/dragon)
 
-[Public open source code repository ![](GitHub)](https://dragonhpc.github.io/dragon/doc/_build/html/index.html)
+[Public open source code repository ![](Github)](https://dragonhpc.github.io/dragon/doc/_build/html/index.html)
 
 
