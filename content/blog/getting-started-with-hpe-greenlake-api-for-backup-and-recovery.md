@@ -128,7 +128,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that the creation of protection stores using the JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
 
-> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Header's location field part of the response body, I copy the task Id and stored that into variable `{{TaskId}}` so that I can track the completion of this REST API.
+> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Header's location field part of the response body, I copied the task Id and stored that id into variable `{{TaskId}}` so that I could track the completion of this REST API.
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
 
