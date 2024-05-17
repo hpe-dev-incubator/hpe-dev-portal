@@ -128,7 +128,9 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 ![API to figure out the Azure storage location](/img/figure-out-storage-location.png)
 
-3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
+3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that the creation of protection stores using the JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
+
+> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Headers' location field part of the response body, I copy the task Id and stored that into variable {{TaskId}} so that I can track the completion of this REST API.
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
 
@@ -605,4 +607,4 @@ The examples presented in this blog post provided some guides on using combinati
 
 All the execution for the examples were done using Postman API tool without any scripting language to encourage anyone to experiment with the family of REST APIs for data services on HPE GreenLake. 
 
-Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join [the HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
+Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join [the HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [\#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
