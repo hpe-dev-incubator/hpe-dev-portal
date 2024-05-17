@@ -130,15 +130,15 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that the creation of protection stores using the JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
 
-> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Headers' location field part of the response body, I copy the task Id and stored that into variable {{TaskId}} so that I can track the completion of this REST API.
+> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Headers' location field part of the response body, I copy the task Id and stored that into variable `{{TaskId}}` so that I can track the completion of this REST API.
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
 
-> T﻿he figure below shows the complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
+> **Note:** T﻿he figure below shows all the fields about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
 
 ![API Request body JSON to compose protection Store](/img/api-to-create-protection-stores-request-json-body.png)
 
-4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the figure below.
+4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations/{Id}` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) where `{{TaskId}}` came from previously executed API response.
 
 > ***Note:*** I used a set of selection parameters in the figure below to provide a summary of this task information:
 >
