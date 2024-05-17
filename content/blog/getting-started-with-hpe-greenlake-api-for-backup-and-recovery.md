@@ -144,7 +144,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 > GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
 > ```
 >
-> I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated t﻿he `{{taskId}}` variable to the `async-operations` API execution.
+> I copied the task’s Id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated t﻿he variable to the `async-operations` API execution as shown below.
 
 ![Task completion on POST protection-stores](/img/api-async-on-post-protection-stores.png)
 
@@ -166,7 +166,7 @@ A protection policy contains several JSON objects that are displayed in the figu
 
 ![API request body JSON for protection policy creation](/img/api-body-json-request-for-protection-policies.png)
 
-﻿*The above figure shows the guide for protection-policies request body JSON structure.*
+﻿*The above figure shows the guide to create a protection-policy request body JSON structure.*
 
 To simplify this example, I created a three-tier protection-policy for VMware as depicted by this snippet from the protection policy’s menu.
 
