@@ -1,5 +1,5 @@
 ---
-title: do not miss The Innovation Campus at Discover 2024
+title: Do not miss The Innovation Campus at Discover 2024!
 date: 2024-05-21T14:09:57.221Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
