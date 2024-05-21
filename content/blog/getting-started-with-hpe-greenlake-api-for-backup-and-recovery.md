@@ -90,8 +90,6 @@ This set of Backup and Recovery APIs use the same authorization and permission a
 
 Documentation concerning getting started with the HPE GreenLake API is provided on the HPE Developer Community [website](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/) and on the HPE GreenLake Developer portal [website](https://developer.greenlake.hpe.com/docs/greenlake/services/). There is also blog [post](https://developer.hpe.com/blog/learn-what-you-can-do-with-hpe-data-services-cloud-console-api-in-just-3-minutes/) that describes how to use publicly available tool to manipulate this API without a programming language, such as Postman. An additional blog post that describes using Postman for this API is also available in this [link](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). 
 
-Moreover, there will be additional blog posts available that provide guidance on how to convert t﻿he OpenAPI specifications based on the OpenAPI Standard (OAS) v3.1 to any scripting language library in the future.  
-
 Lastly, anyone can follow the examples provided by each API reference in the documentation page, such as the `GET /backup-recovery/v1beta1/protection-jobs`, which is shown i﻿n the figure b﻿elow. The documentation provides detail on the API syntax for a particular method, arguments used for the API, expected successful and failed responses, and several examples of creating the automation script using cURL, JavaScript, Python, and Go. The documentation page also provides the ability to execute the API directly on the documentation page as explained in the previous blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/) (Getting started with HP GreenLake Data Services API).
 
 ![HPE GLBR API documentation ](/img/reference-document-for-hpe-glbr.png)
@@ -128,15 +126,17 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 
 ![API to figure out the Azure storage location](/img/figure-out-storage-location.png)
 
-3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
+3. Moving forward, I composed the cloud protection store at the storage location using values from the previous both API responses. For this API execution, I created a request JSON body structure for `POST /backup-recovery/v1beta1/protection-stores` that contains some of the key-pair values from the previous API response. The below figure shows that the creation of protection stores using the JSON body structure to compose the cloud protection store that was connected to the HPE StoreOnce. 
+
+> The below REST API will be executed asynchronously, and I recognized from the Response status that this API was properly executed as shown by the `Status 0x202 Accepted`. From the Header's location field part of the response body, I copied the task Id and stored that id into variable `{{TaskId}}` so that I could track the completion of this REST API.
 
 ![API composing the protection store](/img/api-compose-protection-store.png)
 
-> T﻿he figure below shows the complete information about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
+> **Note:** T﻿he figure below shows all the fields about [this](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreCreate/) JSON body structures provided on the interactive documentation of `POST /backup-recovery/v1beta1/protection-stores` under Payload tab.
 
 ![API Request body JSON to compose protection Store](/img/api-to-create-protection-stores-request-json-body.png)
 
-4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) as shown in the figure below.
+4. After roughly five minutes, the cloud protection store was completely created based on response of the following `GET /data-services/async-operations/{Id}` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/data-services/public/openapi/data-services-public-v1beta1/operation/GetAsyncOperation/) where `{{TaskId}}` came from previously executed API response.
 
 > ***Note:*** I used a set of selection parameters in the figure below to provide a summary of this task information:
 >
@@ -144,7 +144,7 @@ H﻿ere is the list of the steps required to perform this use case using HPE Gre
 > GET /data-services/v1beta1/async-operations/{{taskId}}/select=associatedResources,createdAt,displayName,customerId,logMessages,progressPercent,state
 > ```
 >
-> I copied the task’s id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated t﻿he `{{taskId}}` variable to the `async-operations` API execution.
+> I copied the task’s Id from the response header’s location value of the prior API execution into a Postman’s variable called `{{taskId}}`, and incorporated t﻿he variable to the `async-operations` API execution as shown below.
 
 ![Task completion on POST protection-stores](/img/api-async-on-post-protection-stores.png)
 
@@ -166,7 +166,7 @@ A protection policy contains several JSON objects that are displayed in the figu
 
 ![API request body JSON for protection policy creation](/img/api-body-json-request-for-protection-policies.png)
 
-﻿*The above figure shows the guide for protection-policies request body JSON structure.*
+﻿*The above figure shows the guide to create a protection-policy request body JSON structure.*
 
 To simplify this example, I created a three-tier protection-policy for VMware as depicted by this snippet from the protection policy’s menu.
 
@@ -176,9 +176,9 @@ T﻿his is the list of the steps u﻿sed to create this protection policy:
 
 1. From the figure below, inside the protection store gateways menu, I discovered the serial number of the protection-store gateway and used it as the filtering parameter to obtain the protection store gateway instance.  
 
-![PSG UI](/img/psg-ui-to-show-the-serial-no.png)
+![PSG UI to obtain the serial no](/img/psg-ui-to-show-the-serial-no.png)
 
-2. Afterward, I used `GET /backup-recovery/v1beta1/protection-store-gateways` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreGatewaysList) to figure out the `"<protection-store-gateway-id>"` that was associated with the protection-stores that would be incorporated into the protection-policy.
+2. Afterward, I used `GET /backup-recovery/v1beta1/protection-store-gateways` [API](https://developer.greenlake.hpe.com/docs/greenlake/services/backup-recovery/public/openapi/backup-recovery-public-v1beta1/operation/ProtectionStoreGatewaysList) and the `filter=serialNumber eq <StoreOnce SerialNo>` to figure out the `"<protection-store-gateway-id>"` that was associated with the protection-stores that would be incorporated into the protection-policy.
 
 ![API show registered PSG](/img/api-display-registered-psg.png)
 
@@ -605,4 +605,4 @@ The examples presented in this blog post provided some guides on using combinati
 
 All the execution for the examples were done using Postman API tool without any scripting language to encourage anyone to experiment with the family of REST APIs for data services on HPE GreenLake. 
 
-Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join [the HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
+Please don’t hesitate to explore this new set of APIs for Cloud Data Services on HPE GreenLake and see how you can improve your agility in managing your data. Any questions on HPE GreenLake Data Services Cloud Console API? Please join [the HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup), and start a discussion in our [\#hpe-greenlake-data-services](https://hpedev.slack.com/archives/C02D6H623JP) Slack channel.
