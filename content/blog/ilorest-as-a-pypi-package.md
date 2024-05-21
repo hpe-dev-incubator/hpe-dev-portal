@@ -20,7 +20,7 @@ li {
 }
 </style>
 
-Good news!!! The HPE iLOrest tool has been repackaged into both source and binary distributions and is now available on [PyPI](https://pypi.org/project/ilorest/). This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the PyPI package to replace the existing builds for macOS, Debian and Ubuntu distributions of HPE iLOrest.
+Good news!!! The <a href="https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide/"  target="_blank">HPE iLOrest tool</a> has been repackaged into both source and binary distributions and is now available on [PyPI](https://pypi.org/project/ilorest/). This means it can be easily utilized on any operating system that has Python 3 installed. The intention is for the PyPI package to replace the existing builds for macOS, Debian and Ubuntu distributions of HPE iLOrest.
 
 Here are the steps to install HPE iLOrest from [PyPI](https://pypi.org/project/ilorest/):
 
