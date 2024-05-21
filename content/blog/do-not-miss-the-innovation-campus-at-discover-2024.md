@@ -8,7 +8,7 @@ tags:
   - innovation
   - Discover
 ---
-![](https://www.hpe.com/content/dam/hpe/shared-publishing/images-norend/discover/2024/backgrounds/Discover-2024-Sphere-Customer-Story-2-9-6-1.jpg.hpetransform/bounded-resize:width=3840/image.webp)
+![](https://www.hpe.com/content/dam/hpe/shared-publishing/images-norend/discover/2024/backgrounds/Discover-2024-Sphere-Customer-Story-2-9-6-1.jpg.hpetransform/bounded-resize:width=800/image.webp)
 
 We all recognize in today’s tech world; things are moving faster than ever. And in this uber-accelerated tech landscape, innovation cannot be just a buzzword – it must be the driving force behind growth, competitiveness, and relevance.   
 
