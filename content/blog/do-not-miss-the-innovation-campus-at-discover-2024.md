@@ -12,7 +12,7 @@ tags:
 
 We all recognize in today’s tech world; things are moving faster than ever. And in this uber-accelerated tech landscape, innovation cannot be just a buzzword – it must be the driving force behind growth, competitiveness, and relevance.   
 
-At HPE, innovation is in our DNA.  We understand that staying ahead means embracing change, pushing boundaries and continually evolving, iterating and refining. Innovation permeates throughout HPE and that’s why the HPE Developer Community is excited to announce our evolved presence at [Discover Las Vegas 2024](https://www.hpe.com/us/en/discover.html); a space that is dedicated to highlighting our company-wide focus and commitment to innovation – The Innovation Campus.  
+At HPE, innovation is in our DNA.  We understand that staying ahead means embracing change, pushing boundaries and continually evolving, iterating and refining. Innovation permeates throughout HPE and that’s why the HPE Developer Community is excited to announce our evolved presence at [HPE Discover Las Vegas 2024](https://www.hpe.com/us/en/discover.html); a space that is dedicated to highlighting our company-wide focus and commitment to innovation – The Innovation Campus.  
 
 Differing from our traditional Hack Shack, the Innovation Campus will span a new neighbourhood on the event floor, providing an immersive experience that is designed to demonstrate our focus on innovation. The Campus will walk attendees through the various stages of the innovation process, inviting them to embark on their own journeys of discovery, advancement and transformation alongside us. 
 
@@ -62,4 +62,4 @@ Our Transformation Advisors will be available at the Innovation Campus to assist
 
 Through these interactive experiences, we hope to inspire, educate and empower attendees to embrace innovation and to either start, or continue their journey as innovators themselves.  We will be inviting all visitors to the Innovation Campus to become part of our Innovator Community, by booking into dedicated online Innovation Group sessions and in-person workshops at our HPE Customer Innovation Centers.  These workshops are dedicated to actively listening to our customers and collaboratively exploring the realm of possibilities.  They’ll be devoted to undertaking a journey of evolution alongside HPE, characterized by exploration, advancement and solution-driven progress. 
 
-For anyone attending Discover Las Vegas 2024, we invite you to stop by the Innovation Campus and embark on this journey of discovery and transformation with us!
+For anyone attending [HPE Discover Las Vegas 2024](https://www.hpe.com/us/en/discover.html), we invite you to stop by the Innovation Campus and embark on this journey of discovery and transformation with us!
