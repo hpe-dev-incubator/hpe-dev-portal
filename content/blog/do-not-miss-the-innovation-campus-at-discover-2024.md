@@ -22,7 +22,7 @@ While the format is different, the focus on collaboration and moving your busine
 
 #### Investing in Technology Futures – Hewlett Packard Labs 
 
-While innovation happens across HPE, this is the epicenter that leads how we innovate and ensures we are making an impact. Our approach includes technology and industry horizon scanning, technology invention and customer co-creation.  At this booth, attendees can explore technologies beyond the horizon to ignite their technology future. 
+While innovation happens across HPE, this is the epicenter that leads how we innovate and ensures we are making an impact. Our approach includes technology and industry horizon scanning, technology invention and customer co-creation. At this booth, attendees can explore technologies beyond the horizon to ignite their technology future. 
 
 ## Engage
 
@@ -60,7 +60,7 @@ In the Innovation Studio, attendees can try out some of HPE innovation methodolo
 
 Our Transformation Advisors will be available at the Innovation Campus to assist attendees in advancing their digital transformation journey. How can you assess the impact of innovation to demonstrate its value to your organization? The key is to manage your innovation efforts as a portfolio of investments. Just like any well-managed portfolio, the decisions your company makes about what not to invest in are as crucial as those it does. Our advisors are here to help you consider and make those strategic innovation-led decisions. 
 
-Through these interactive experiences, we hope to inspire, educate and empower attendees to embrace innovation and to either start, or continue their journey as innovators themselves.  We will be inviting all visitors to the Innovation Campus to become part of our Innovator Community, by booking into dedicated online Innovation Group sessions and in-person workshops at our HPE Customer Innovation Centers.  These workshops are dedicated to actively listening to our customers and collaboratively exploring the realm of possibilities.  They’ll be devoted to undertaking a journey of evolution alongside HPE, characterized by exploration, advancement and solution-driven progress. 
+Through these interactive experiences, we hope to inspire, educate and empower attendees to embrace innovation and to either start, or continue their journey as innovators themselves.  We will be inviting all visitors to the Innovation Campus to become part of our Innovator Community, by booking into dedicated online Innovation Group sessions and in-person workshops at our HPE Customer Innovation Centers.  These workshops are dedicated to actively listening to our customers and collaboratively exploring the realm of possibilities. They’ll be devoted to undertaking a journey of evolution alongside HPE, characterized by exploration, advancement and solution-driven progress. 
 
 For anyone attending [HPE Discover Las Vegas 2024](https://www.hpe.com/us/en/discover.html), we invite you to stop by the Innovation Campus and embark on this journey of discovery and transformation with us!
 
