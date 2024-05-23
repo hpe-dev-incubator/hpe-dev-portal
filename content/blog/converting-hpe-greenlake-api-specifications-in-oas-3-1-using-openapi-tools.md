@@ -36,7 +36,7 @@ If you decide to use a tool to convert these OpenAPI spec files into a client li
 
 This method enables an agile adoption of the HPE GreenLake APIs. Many of these HPE GreenLake APIs, as of this blog post, are in an ongoing development cycle. So there is an expectation that the existing APIs will be updated, deprecated, or new resources introduced. This method opens the opportunity to deploy code development automation by pushing the generated client library into the GitHub as the new spec is made available.
 
-For more information about the versioning for the APIs based on the OpenAPI Standard 3.1, see this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). 
+For more information about the versioning for the APIs based on the OpenAPI Standard 3.1, see [HPE GreenLake API Versioning Basics](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). 
 
 ## First tool of the day: a converter from OpenAPI Standard 3.1 to the OpenAPI Standard 3.0
 
