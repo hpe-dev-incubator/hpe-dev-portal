@@ -22,7 +22,7 @@ These HPE GreenLake APIs are a set of APIs that enable client applications to ma
 
 ## How can I use the HPE GreenLake APIs documentation for my automation projects?
 
-Each set of the HPE GreenLake APIs provided examples in the form of code snippets from different programming or scripting languages in the interactive websites. Any adopters can make use the provided the snippet of the codes to create any client application or to create any client library for their development purposes. This method is the quickest and the easiest method for early adopter to get started with their automation script. As the time goes, you will also see more blog [posts](https://developer.hpe.com/blog/) in HPE Developer forum that provide comprehensive code sample to address the common use cases using HPE GreenLake edge-to-cloud platform.
+All HPE GreenLake APIs provide example code snippets from different programming or scripting languages in the interactive website. All adopters can make use of the code snippets to create any client application or to create any client library for their development purposes. For early adopters, this method is the quickest and the easiest way to get started with their automation script. As the time goes on, you will see more [blog posts](https://developer.hpe.com/blog/) in HPE Developer forum that provide comprehensive code samples to address common use.
 
 ![Snippet of Codes in multiple language in JavaScript, Python, GO, and CuRL](/img/examples-provided-in-the-documentation.png)
 
