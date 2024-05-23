@@ -30,7 +30,7 @@ All HPE GreenLake APIs provide example code snippets from different programming 
 
 ## Do I have an alternative to use these REST APIs for my development?
 
-From the documentation for each set of the HPE GreenLake APIs, you will recognize that these APIs were documented using OpenAPI specification files in either JSON or YAML format. Furthermore, you also notice that a single set of the HPE GreenLake API called Data Services Cloud Console is based on the OpenAPI Standard 3.0; however, the rest of the HPE GreenLake API set are based on the OpenAPI Standard 3.1. 
+From the documentation for each set of HPE GreenLake APIs, you will recognize that these APIs were documented using OpenAPI specification files in either JSON or YAML format. However, you will also notice that a single set of the HPE GreenLake APIs, called Data Services Cloud Console, is based on the OpenAPI Standard 3.0. However, the rest of the HPE GreenLake APIs are based on the OpenAPI Standard 3.1. 
 
 If you decide to use a tool to perform the conversion of these OpenAPI spec files into a client Library for particular programming language or scripting, there are a couple of blog posts that discuss how to convert these files into [Python](https://developer.hpe.com/blog/introducing-python-sdk-for-dscc/) or [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) client libraries. 
 
