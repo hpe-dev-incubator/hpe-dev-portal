@@ -188,7 +188,7 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 ![HPE GreenLake Data Services POSH README.md](/img/hpe-gl-dataservices-posh-readme-md.png)
 
-> Following the guides in README.md, I could then click on the link to the `documentation for API Endpoints` to display the information on how to use the API such as the `Invoke-ListAsyncOperations` shown below. I decided to use the `Invoke-ListAsyncOperations` for demo in this blog post.
+> By following the guides in README.md, I knew to click `documentation for API Endpoints` to display the information on how to use the API. For example, the `Invoke-ListAsyncOperations` that I decided to use for this blog post.
 
 ![HPE GreenLake Data Services list of async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
