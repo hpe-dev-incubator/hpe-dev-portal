@@ -26,7 +26,7 @@ All HPE GreenLake APIs provide example code snippets from different programming 
 
 ![Code snippets in multiple languages including JavaScript, Python, GO, and cURL](/img/examples-provided-in-the-documentation.png)
 
-*The previous figure displays the request and response samples pane that is present on every API documentation page in the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com). The pane contains the examples of the particular API using the code in CuRL, JavaScript, Python, or GO.*
+*The previous figure displays the request and response samples pane that is present on every API documentation page in the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com). The pane contains the examples of the particular API using the code in cURL, JavaScript, Python, or GO.*
 
 ## Do I have an alternative to use these REST APIs for my development?
 
