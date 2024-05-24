@@ -138,7 +138,8 @@ At this point, we have the required tools to create the pipeline for the convers
 
 ![Download OpenAPI 3.1 JSON spec file from HP GL Data Services](/img/download-the-openapi-3.1-spec-data-services-from-developer-website.png)
 
-2. Afterward, I changed the name of the downloaded file from `swagger.json` to `GL-dataservices-31.json` so that I could recognize this OpenAPI Standard 3.1 spec file from HPE GreenLake APIs for Data Services. Eventually, I followed by using the `openapi-down-convert` tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command shown below.
+2. Afterward, I changed the name of the downloaded file from `swagger.json` to `GL-dataservices-31.json` so that I could recognize this OpenAPI Standard 3.1 spec file from HPE GreenLake APIs for Data Services. 
+3. After I renamed the JSON file, I followed by using the `openapi-down-convert` tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command shown below. I named the converted file as `GL-dataservices-30.json`.
 
 ```shell
    PS C:\Users\Administrator\Downloads> move .\swagger.json ..\Scripting\GL-dataservices-31.json
