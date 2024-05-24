@@ -32,27 +32,27 @@ All HPE GreenLake APIs provide example code snippets from different programming 
 
 From the documentation for each set of HPE GreenLake APIs, you will recognize that these APIs were documented using OpenAPI specification files in either JSON or YAML format. However, you will also notice that a single set of the HPE GreenLake APIs, called Data Services Cloud Console, is based on the OpenAPI Standard 3.0. However, the rest of the HPE GreenLake APIs are based on the OpenAPI Standard 3.1. 
 
-If you decide to use a tool to convert these OpenAPI spec files into a client library for a particular programming language or scripting, there are blog posts that help. For example, see blog posts that convert these files into [Python](https://developer.hpe.com/blog/introducing-python-sdk-for-dscc/) or [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) client libraries. 
+If you decide to use a tool to perform the conversion of these OpenAPI spec files into a client Library for particular programming language or scripting, there are a couple of blog posts that discuss how to convert these files into [Python](https://developer.hpe.com/blog/introducing-python-sdk-for-dscc/) or [PowerShell](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-powershell-sdk/) client libraries. 
 
-This method enables an agile adoption of the HPE GreenLake APIs. Many of these HPE GreenLake APIs, as of this blog post, are in an ongoing development cycle. So there is an expectation that the existing APIs will be updated, deprecated, or new resources introduced. This method opens the opportunity to deploy code development automation by pushing the generated client library into the GitHub as the new spec is made available.
+This method enables an agile adoption of the HPE GreenLake APIs because many of these HPE GreenLake APIs, as of this blog post, are ongoing development cycle. So there is expectation that the existing APIs will be updated, deprecated, or new resources will be introduced. This method opens the opportunity to deploy code development automation by pushing the generated client Library into the GitHub as the new spec is made available.
 
-For more information about the versioning for the APIs based on the OpenAPI Standard 3.1, see [HPE GreenLake API Versioning Basics](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). 
+For more information about the versioning for the APIs based on the OpenAPI Standard 3.1, see this [link](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/standards/versioning_basics/). 
 
 ## First tool of the day: a converter from OpenAPI Standard 3.1 to the OpenAPI Standard 3.0
 
-The OpenAPI initiative provides a framework to describe any API so they can be consumed by different organizations for documentation, client-side, server-side mocks, and many other opportunities. This framework has evolved from the standard version 3.0 to version 3.1 with all the benefits as described in this [video](https://www.youtube.com/live/Sflpzh_cAcA?si=zkAKqGNYQz-5C6oe).
+The OpenAPI initiative provides a framework to describe any APIs so that these APIs can be consumed by different organizations for documentation, client side, server-side mocks, and many other opportunities. This framework has evolved from standard version 3.0 to version 3.1 with all the benefits as described in this [video](https://www.youtube.com/live/Sflpzh_cAcA?si=zkAKqGNYQz-5C6oe).
 
-As of this blog post, the HPE Developer forum uses [an open source tool](https://openapi-generator.tech/) to generate client libraries for blog posts. However, the challenge of using this tool is that it only allows the Open API standard version 3.0 specification as the input.
+However, the challenge of using the open source [tool](https://openapi-generator.tech/) that is used to generate the client library in the blog posts in HPE Developer forum (as of this blog posting) that it can only facilitate the OpenAPI Standard version 3.0 spec as the input. However, the majority of the HPE GreenLake APIs were documented using the OpenAPI Standard version 3.1.
 
-Let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli). The open-source tool is named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson. It is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert), and shown in the following figure.
+In this blog post, let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli.](https://www.npmjs.com/package/@openapitools/openapi-generator-cli)  Let me introduce you to this open source tool named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson which is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert) and shown in figure below.
 
-![openapi-down-convert GitHub website](/img/github-to-openapi-down-convert.png)
+![openapi-down-convert Github website](/img/github-to-openapi-down-convert.png)
 
-*The figure shows the GitHub website for the documentation of the openapi-down-convert.*
+*The above figure shows the Github website for the documentation of the openapi-down-convert.*
 
-To install this tool, follow the instructions on the GitHub [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
+To install this tool, you can follow the instructions at the Github [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
 
-I found that a lot of tools, that we are going to be using as part of this blog post, are easier to use if we are using the npm (JavaScript) software deployment method. Below are the steps that I recommend so that you can deploy the npm for JavaScript package management into a Microsoft Windows desktop environment so that you can deploy the openapi-down-convert tool.
+A lot of the tools used in this part of the blog post are easier to use with the npm (JavaScript) software deployment method. I used the following steps to deploy the npm for JavaScript package management into a Microsoft Windows desktop environment. After these steps, you can deploy the openapi-down-convert tool.
 
 1. I made sure that my Microsoft Windows desktop had access to the internet and can connect to the websites that I provided in below steps. In some cases, you may need to define the internet proxy so that you can connect to these websites.
 2. First, I deployed the Java SDK library into my Microsoft Windows desktop. My recommendation is to deploy the Microsoft Build version of the OpenJDK that is available in the Microsoft [website](https://learn.microsoft.com/en-us/java/openjdk/download) using the instruction provided from the website.  By the way, prior to deploying this OpenJDK, I removed any older version of the Java SDK or JRE from my Microsoft Windows environment so I could ensure the correct Java version used for all the steps below.
@@ -196,7 +196,7 @@ C:> Build.ps1
 C:> Import-Module -Name '.\src\GLdataservices' -Verbose
 ```
 
-7. Once this module was loaded, I created a short script based on PowerShell to call `Invoke-ListAsyncOperations` and used that API to display a list of completed tasks. 
+7. Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called `Invoke-ListAsyncOperations` and to use that API to display a list of the tasks that was completed. 
 
 ```shell
 $fileName = "..\myCredential-rrd1.json"
