@@ -62,9 +62,9 @@ Additionally, prior to deploying this OpenJDK, I removed any older version of th
 2. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following [instruction](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html). This step ensured that any applications that require Java would use the OpenJDK by default. 
 3. Following the steps on the NodeJS [website](https://nodejs.org/en), I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the **npm package manager** option as shown in one of the steps from the NodeJS installation wizard as shown in figure below.
 
-![The wizard section to deploy the npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
+![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
-5. After the deployment of NodeJS completed, I was able to use the npm CLI to install the `openapi-down-convert` in the Microsoft Windows CLI as follows.
+5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
 
 ```shell
 C:\>npm I -g @apiture/openapi-down-convert
@@ -77,11 +77,11 @@ npm notice
 C:\>
 ```
 
-6. After the preceding steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
+6. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
 
 ## Second tool of the day: deploying the openapi-generator-cli using the npm JavaScript
 
-This time, I want to introduce a version of the openapi-generator that can be executed like any other CLI, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool, as described previously, I can proceed to deploy this tool quickly. These are steps that I took to deploy openapi-generator-cli:
+This time, I also wanted to introduce a version of the openapi-generator that can be executed just like any other command line interface, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool as I have shared above, I can then proceed to deploy this tool very quickly. Below are the steps that I took to deploy openapi-generator-cli:
 
 1. I opened a Microsoft Windows command line interface and issued the following npm CLI command:
 
@@ -96,7 +96,7 @@ added 116 packages in 36s
 C:\Users\Administrator>
 ```
 
-2. Afterward, I tested the deployed openapi-generator-cli to validate the version of the generator that was used. I believed that it was automatically defaulted to the latest published version which was 7.5.0 as shown below:
+2. Afterward, I tested the deployed openapi-generator-cli to validate the version of the generator that was used. The openapi-generator-cli would use the latest published version of the openapi-generator-cli engine as default. At the time of the publication of this blog post, the latest published version which was 7.5.0 as shown below:
 
 ```shell
    C:>openapi-generator-cli
