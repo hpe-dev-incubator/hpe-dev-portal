@@ -23,7 +23,8 @@ Step 1: In the Okta Admin Console, deploy an application from the app catalog.
 a. Go to Applications > Browse App Catalog.
 b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token)
 c.   Select the app and then click Add Integration.
-* Step 2:  You can change the application label name to what you like and make sure Automatically log in when user lands on login page is checked.
+Step 2:  In the Add Scim2.0 Test App page, do the following:
+a. Change the application label name if you want and make sure Automatically log in when user lands on login page is checked.
 
 ![](/img/scimgeneral.png)
 
