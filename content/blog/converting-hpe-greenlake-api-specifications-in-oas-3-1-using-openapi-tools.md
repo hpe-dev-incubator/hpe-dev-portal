@@ -44,7 +44,7 @@ The OpenAPI initiative provides a framework to describe any API so they can be c
 
 As of this blog post, the HPE Developer forum uses [an open source tool](https://openapi-generator.tech/) to generate client libraries for blog posts. However, the challenge of using this tool is that it only allows the Open API standard version 3.0 specification as the input.
 
-In this blog post, let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli.](https://www.npmjs.com/package/@openapitools/openapi-generator-cli)  Let me introduce you to this open source tool named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson which is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert) and shown in figure below.
+Let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli). The open-source tool is named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson. It is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert), and shown in the following figure.
 
 ![openapi-down-convert Github website](/img/github-to-openapi-down-convert.png)
 
