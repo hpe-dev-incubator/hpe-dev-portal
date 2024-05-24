@@ -50,7 +50,7 @@ a:  Under the **Provisioning** tab > **To App** section, enable these settings:
 
 ![](/img/scim2app.png)
 
-* Step 4 b: Here is a list of 6 attributes to keep and the rest can be discarded
+* Step 4 b: Select the six attributes shown in the following screenshot and discard the rest.
 
 ![](/img/attributes.png)
 
