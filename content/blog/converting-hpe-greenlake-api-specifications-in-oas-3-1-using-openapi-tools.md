@@ -233,7 +233,7 @@ try {
 $Result.items | ConvertTo-Json
 ```
 
-> **Note:** The preceeding script read a separate `client-credentials` file so that I could gain authorization to my HPE GreenLake workspace. That way, I didn't have to include my client-secrets and client-id into this script file to ensure proper secure coding. This file called `myCredentials-rrd1.json` which contains the JSON structure shown below. For more information on providing this client-credentials information, please see the HPE GreenLake Developer website. There is also a blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) in HPE Developer Forum website that describes the process as well.
+> **Note:** The preceding script read a separate `client-credentials` file so that I could gain authorization to my HPE GreenLake workspace. That way, I didn't have to include my client-secrets and client-id into this script file to ensure proper secure coding. This file called `myCredentials-rrd1.json` which contains the JSON structure shown below. For more information on providing this client-credentials information, please see the HPE GreenLake Developer website. There is also a blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) in HPE Developer Forum website that describes the process as well.
 
 ```JSON
 {
