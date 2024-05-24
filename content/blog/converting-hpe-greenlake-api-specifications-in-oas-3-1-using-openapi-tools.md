@@ -126,7 +126,7 @@ Commands:
   C:>
 ```
 
-3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the [website](https://openapi-generator.tech/docs/generators).
+3. With that, I had the tool to convert any of the HPE GreenLake APIs in OpenAPI Standard 3.0 to a client library for the popular scripting or programming languages listed in the [website](https://openapi-generator.tech/docs/generators).
 
 ## But wait! What about converting those OpenAPI Standard 3.1 spec files to a client library?
 
