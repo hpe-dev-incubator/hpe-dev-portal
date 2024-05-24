@@ -24,7 +24,7 @@ These HPE GreenLake APIs are multiple sets of APIs that enable client applicatio
 
 All HPE GreenLake APIs provide example code snippets from different programming or scripting languages in the interactive website. All adopters can make use of the code snippets to create any client application or to create any client library for their development purposes. For early adopters, this method is the quickest and the easiest way to get started with their automation script. As the time goes on, you will see more [blog posts](https://developer.hpe.com/blog/) in HPE Developer forum that provide comprehensive code samples to address common use.
 
-![Code snippets in multiple languages including JavaScript, Python, GO, and CuRL](/img/examples-provided-in-the-documentation.png)
+![Code snippets in multiple languages including JavaScript, Python, GO, and cURL](/img/examples-provided-in-the-documentation.png)
 
 *The previous figure displays the request and response samples pane that is present on every API documentation page in the [HPE GreenLake Developer website](https://developer.greenlake.hpe.com). The pane contains the examples of the particular API using the code in CuRL, JavaScript, Python, or GO.*
 
