@@ -19,13 +19,10 @@ You can synchronize users and groups from your Okta identity management service 
 The Okta SCIM adapter application can be installed from the Okta Integration Network (OIN) into your Okta implementation to allow for integration with a SCIM-compliant API. Any user that needs to be synchronized to HPE GreenLake Flex Solutions must be assigned to the Okta SCIM adapter application in your Okta implementation. Groups whose memberships need to be synced to HPE GreenLake Flex Solutions must be added as a Push Group in the application. Users can be assigned to the application using the same groups that are synchronized to HPE GreenLake Flex Solutions.
 
 # Configuring a SCIM application in Okta.
-
-* Step 1: Deploy an application from the app catalog. **Applications** > **Browse App Catalog** in search type **SCIM 2.0** find the app called:
-
-**SCIM 2.0 Test App (OAuth Bearer Token)**
-
-            Select it and then click **Add Integration**
-
+Step 1: In the Okta Admin Console, deploy an application from the app catalog. 
+a. Go to Applications > Browse App Catalog.
+b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token)
+c.   Select the app and then click Add Integration.
 * Step 2:  You can change the application label name to what you like and make sure Automatically log in when user lands on login page is checked.
 
 ![](/img/scimgeneral.png)
