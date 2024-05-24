@@ -62,7 +62,7 @@ Additionally, prior to deploying this OpenJDK, I removed any older version of th
 2. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following [instruction](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html). This step ensured that any applications that require Java would use the OpenJDK by default. 
 3. Following the steps on the NodeJS [website](https://nodejs.org/en), I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the **npm package manager** option as shown in one of the steps from the NodeJS installation wizard as shown in figure below.
 
-![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
+![The wizard section to deploy the npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
 4. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
 
