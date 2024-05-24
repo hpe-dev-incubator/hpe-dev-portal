@@ -64,7 +64,7 @@ Additionally, prior to deploying this OpenJDK, I removed any older version of th
 
 ![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
-5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
+4. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
 
 ```shell
 C:\>npm I -g @apiture/openapi-down-convert
@@ -77,7 +77,7 @@ npm notice
 C:\>
 ```
 
-6. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
+5. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
 
 ## Second tool of the day: deploying the openapi-generator-cli using the npm JavaScript
 
@@ -126,19 +126,13 @@ Commands:
   C:>
 ```
 
-3. With that, I had the tool to convert any of the HPE GreenLake APIs in OpenAPI Standard 3.0 to a client library for the popular scripting or programming languages listed in the [website](https://openapi-generator.tech/docs/generators).
+3. After the above steps, I had the tool to convert any HPE GreenLake APIs in OpenAPI Standard 3.0 to a client libraries for any popular scripting or programming languages as listed in the [website](https://openapi-generator.tech/docs/generators).
 
 ## But wait! What about converting those OpenAPI Standard 3.1 spec files to a client library?
 
-Don't worry, I'm not going to leave you stranded! 😊 
+Don't worry because I am not going to leave you guys stranded! 😊 
 
-Now we have the required tools to create a pipeline to convert from the OpenAPI Standard 3.1 spec files to the client library for the scripting language of choice. An overview of the process:
-
-1. Download the OpenAPI spec file from the HPE GreenLake developer website.
-2. Convert the spec file to OpenAPI Standard 3.0 spec file.
-3. Convert the 3.0 spec file to the client library.
-
-Let me give you an example of converting the HPE GreenLake API for Data Services spec file to a PowerShell client library.
+At this point, we have the required tools to create the pipeline for the conversion from the OpenAPI Standard 3.1 spec files to the client library for my choice of scripting languages. The process will be in a sequence from downloading the OpenAPI spec file from the HPE GreenLake developer website, convert that spec file to OpenAPI Standard 3.0 spec file, and then convert that 3.0 spec file to the client library. Let me give you an example for converting the HPE GreenLake API for Data Services file spec to a PowerShell client library.
 
 1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI shown below:
 
