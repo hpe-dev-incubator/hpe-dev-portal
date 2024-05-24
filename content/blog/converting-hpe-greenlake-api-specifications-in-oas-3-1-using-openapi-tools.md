@@ -48,7 +48,7 @@ Let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a sp
 
 ![The openapi-down-convert GitHub website](/img/github-to-openapi-down-convert.png)
 
-*The above figure shows the Github website for the documentation of the openapi-down-convert.*
+*The above figure shows the GitHub website for the documentation of the openapi-down-convert.*
 
 To install this tool, you can follow the instructions at the Github [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
 
