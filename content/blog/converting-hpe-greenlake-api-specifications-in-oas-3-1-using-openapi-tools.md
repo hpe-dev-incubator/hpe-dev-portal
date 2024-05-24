@@ -134,11 +134,11 @@ Don't worry because I am not going to leave you guys stranded! 😊
 
 At this point, we have the required tools to create the pipeline for the conversion from the OpenAPI Standard 3.1 spec files to the client library for my choice of scripting languages. The process will be in a sequence from downloading the OpenAPI spec file from the HPE GreenLake developer website, convert that spec file to OpenAPI Standard 3.0 spec file, and then convert that 3.0 spec file to the client library. Let me give you an example for converting the HPE GreenLake API for Data Services file spec to a PowerShell client library.
 
-1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI:
+1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI shown below:
 
-![Download OpenAPI 3.1 JSON spec file from HPE GreenLake Data Services](/img/download-the-openapi-3.1-spec-data-services-from-developer-website.png)
+![Download OpenAPI 3.1 JSON spec file from HP GL Data Services](/img/download-the-openapi-3.1-spec-data-services-from-developer-website.png)
 
-1. Afterward, I changed the name of the downloaded file from `swagger.json` to `GL-dataservices-31.json` so that I could recognize the file. Eventually, I followed by using the `openapi-down-convert` tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command.
+2. Afterward, I changed the name of the downloaded file from `swagger.json` to `GL-dataservices-31.json` so that I could recognize this OpenAPI Standard 3.1 spec file from HPE GreenLake APIs for Data Services. Eventually, I followed by using the `openapi-down-convert` tool to convert the OpenAPI Standard 3.1 to OpenAPI Standard 3.0 using the following command shown below.
 
 ```shell
    PS C:\Users\Administrator\Downloads> move .\swagger.json ..\Scripting\GL-dataservices-31.json
