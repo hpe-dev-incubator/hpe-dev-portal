@@ -15,7 +15,8 @@ tags:
 
 ## Okta (SCIM) Adapter
 
-The Okta System for Cross-domain Identity Management (SCIM) adapter is an Okta application that can be installed from the Okta Integration Network (OIN) into the customer’s Okta to allow for integration with a SCIM Compliant API. This is used to synchronize users and groups. Any user that needs to be pushed to GLC must be assigned to that Application in the customer’s Okta. Groups whose memberships should be synced to GLC must be added as a “Push Group” in that Application on the customer’s Okta. Users can be assigned to the Application using the same groups that are “pushed” to GLC.
+You can synchronize users and groups from your Okta identity management service to HPE GreenLake Flex Solutions using the Okta System for Cross-domain Identity Management (SCIM) adapter. 
+The Okta SCIM adapter application can be installed from the Okta Integration Network (OIN) into your Okta implementation to allow for integration with a SCIM-compliant API. Any user that needs to be synchronized to HPE GreenLake Flex Solutions must be assigned to the Okta SCIM adapter application in your Okta implementation. Groups whose memberships need to be synced to HPE GreenLake Flex Solutions must be added as a Push Group in the application. Users can be assigned to the application using the same groups that are synchronized to HPE GreenLake Flex Solutions.
 
 # Configure SCIM applications in Okta:
 
