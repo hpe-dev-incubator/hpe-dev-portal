@@ -140,7 +140,7 @@ Now we have the required tools to create a pipeline to convert from the OpenAPI 
 
 Let me give you an example of converting the HPE GreenLake API for Data Services spec file to a PowerShell client library.
 
-1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI shown below:
+1. I downloaded the HPE GreenLake API for Data Services OpenAPI Standard 3.1 spec file from the HPE GreenLake Developer website using the UI:
 
 ![Download OpenAPI 3.1 JSON spec file from HP GL Data Services](/img/download-the-openapi-3.1-spec-data-services-from-developer-website.png)
 
