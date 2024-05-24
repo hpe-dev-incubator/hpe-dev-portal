@@ -42,7 +42,7 @@ For more information about the versioning for the APIs based on the OpenAPI Stan
 
 The OpenAPI initiative provides a framework to describe any APIs so that these APIs can be consumed by different organizations for documentation, client side, server-side mocks, and many other opportunities. This framework has evolved from standard version 3.0 to version 3.1 with all the benefits as described in this [video](https://www.youtube.com/live/Sflpzh_cAcA?si=zkAKqGNYQz-5C6oe).
 
-However, the challenge of using the open source [tool](https://openapi-generator.tech/) that is used to generate the client library in the blog posts in HPE Developer forum (as of this blog posting) that it can only facilitate the OpenAPI Standard version 3.0 spec as the input. However, the majority of the HPE GreenLake APIs were documented using the OpenAPI Standard version 3.1.
+As of this blog post, the HPE Developer forum uses [an open source tool](https://openapi-generator.tech/) to generate client libraries for blog posts. However, the challenge of using this tool is that it only allows the Open API standard version 3.0 specification as the input. However, the majority of the HPE GreenLake APIs were documented using the OpenAPI Standard version 3.1.
 
 In this blog post, let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli.](https://www.npmjs.com/package/@openapitools/openapi-generator-cli)  Let me introduce you to this open source tool named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson which is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert) and shown in figure below.
 
