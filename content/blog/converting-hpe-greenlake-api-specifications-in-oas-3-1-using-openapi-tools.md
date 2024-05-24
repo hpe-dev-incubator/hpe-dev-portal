@@ -81,7 +81,7 @@ C:\>
 
 ## Second tool of the day: deploying the openapi-generator-cli using the npm JavaScript
 
-This time, I also wanted to introduce a version of the openapi-generator that can be executed just like any other command line interface, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool as I have shared above, I can then proceed to deploy this tool very quickly. Below are the steps that I took to deploy openapi-generator-cli:
+This time, I want to introduce a version of the openapi-generator that can be executed like any other CLI, [@openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) shared by the OpenAPI Initiative team. Because we have already deployed the npm package deployment tool, as described previously, I can proceed to deploy this tool quickly. These are steps that I took to deploy openapi-generator-cli:
 
 1. I opened a Microsoft Windows command line interface and issued the following npm CLI command:
 
