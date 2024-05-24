@@ -190,7 +190,7 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 > Following the guides in README.md, I could then click on the link to the `documentation for API Endpoints` to display the information on how to use the API such as the `Invoke-ListAsyncOperations` shown below. I decided to use the `Invoke-ListAsyncOperations` for demo in this blog post.
 
-![HPE GL Data Services list async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
+![HPE GreenLake Data Services list of async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
 7. To use this PowerShell client library so that I can invoke `Invoke-ListAsyncOperations`, I followed the instructions to install module into a PowerShell workstation as described in the `README.md` file.
 
