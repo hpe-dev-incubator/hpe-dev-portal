@@ -57,7 +57,7 @@ A lot of the tools used in this part of the blog post are easier to use with the
 Before I started this, I made sure that my Microsoft Windows desktop had access to the internet and can connect to the websites that I provided in below steps. In some cases, you may need to define the internet proxy so that you can connect to these websites.
 
 1. First, I deployed the Java SDK library into my Microsoft Windows desktop. My recommendation is to deploy the Microsoft Build version of the OpenJDK available from the Microsoft [website](https://learn.microsoft.com/en-us/java/openjdk/download) using the instructions provided. Prior to deploying this OpenJDK, I removed any older version of the Java SDK or JRE from my Microsoft Windows environment. This ensures that the correct Java version was used for all the following steps.
-2. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following instruction. This step ensured that any applications which require Java would use the OpenJDK by default. 
+2. Afterward, I set the `JAVA_HOME` system variable to `C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot` using the following instruction. This step ensured that any applications that require Java would use the OpenJDK by default. 
 3. Following the step above, I deployed the NodeJS package into my Microsoft Windows environment downloaded from the nodejs.org website. I also ensured that I included the **npm package manager** option as shown in one of the steps from the NodeJS installation wizard as shown in figure below.
 
 ![The wizard section to deploy npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
