@@ -46,7 +46,7 @@ As of this blog post, the HPE Developer forum uses [an open source tool](https:/
 
 Let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a spec file in OpenAPI standard 3.0 to enable conversion using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli). The open-source tool is named **apiture/openapi-down-convert** by David Biesack and Mike Ralphson. It is documented in this GitHub [site](https://github.com/apiture/openapi-down-convert), and shown in the following figure.
 
-![openapi-down-convert Github website](/img/github-to-openapi-down-convert.png)
+![openapi-down-convert GitHub website](/img/github-to-openapi-down-convert.png)
 
 *The above figure shows the Github website for the documentation of the openapi-down-convert.*
 
