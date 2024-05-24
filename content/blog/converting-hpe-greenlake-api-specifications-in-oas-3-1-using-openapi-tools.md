@@ -192,7 +192,7 @@ PS C:\Users\Administrator\Scripting\Posh-GL-dataservices>
 
 ![HPE GreenLake Data Services list of async operations](/img/hp-gl-data-services-help-for-async-events-list.png)
 
-7. To use this PowerShell client library so that I can invoke `Invoke-ListAsyncOperations`, I followed the instructions to install module into a PowerShell workstation as described in the `README.md` file.
+7. To use this PowerShell client library so that I can call `Invoke-ListAsyncOperations`, I followed the instructions to install the module into a PowerShell workstation as described in the `README.md` file.
 
 ```shell
 To install from the source, run the following command to build and install the PowerShell module locally:
@@ -233,7 +233,7 @@ try {
 $Result.items | ConvertTo-Json
 ```
 
-> **Note:** The preceding script read a separate `client-credentials` file so that I could gain authorization to my HPE GreenLake workspace. That way, I didn't have to include my client-secrets and client-id into this script file to ensure proper secure coding. This file called `myCredentials-rrd1.json` contains the JSON structure. For more information on providing this client-credentials information, see the HPE GreenLake Developer website. There is also a blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) in HPE Developer Forum that describes the process as well.
+> **Note** that the above script was reading a separate `client-credentials` file so that I could gain authorization to my HPE GreenLake workspace. That way, I didn't have to include my client-secrets and client-id into this script file to ensure proper secure coding. This file called `myCredentials-rrd1.json` which contains the JSON structure shown below. For more information on providing this client-credentials information please see the HPE GreenLake Developer website. There is also a blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) in HPE Developer Forum website that discuss the process as well.
 
 ```JSON
 {
