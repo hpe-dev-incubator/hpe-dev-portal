@@ -50,7 +50,7 @@ Let me introduce a tool to convert the spec file in OpenAPI standard 3.1 to a sp
 
 *The figure shows the GitHub website for the documentation of the openapi-down-convert.*
 
-To install this tool, you can follow the instructions at the Github [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
+To install this tool, follow the instructions on the GitHub [README](https://github.com/apiture/openapi-down-convert) using the JavaScript package manager called the **npm**.
 
 I found that a lot of tools, that we are going to be using as part of this blog post, are easier to use if we are using the npm (JavaScript) software deployment method. Below are the steps that I recommend so that you can deploy the npm for JavaScript package management into a Microsoft Windows desktop environment so that you can deploy the openapi-down-convert tool.
 
