@@ -155,7 +155,7 @@ PS C:\Users\Administrator\Scripting> openapi-down-convert -i .\GL-dataservices-3
 PS C:\Users\Administrator\Scripting>
 ```
 
-4. Now it’s the time to convert this OpenAPI Standard 3.0 spec file to the PowerShell client library using the \`openapi-generator tool\`. Additionally, I also changed the name of the generated package from standard naming \`OpenAPITools\` to specific \`name GLdataservices\` using the special arguments such as shown below.
+4. Now it’s the time to convert this OpenAPI Standard 3.0 spec file to the PowerShell client library using the `openapi-generator tool`. Additionally, I also changed the name of the generated package from the standard name `OpenAPITools` to the specific name `GLdataservices` using the special arguments.
 
 ```shell
    PS C:\Users\Administrator\Scripting> openapi-generator-cli generate -g powershell --additional-properties="packageName"="GLdataservices" -i .\GL-dataservices-30.json -o Posh-GL-dataservices
