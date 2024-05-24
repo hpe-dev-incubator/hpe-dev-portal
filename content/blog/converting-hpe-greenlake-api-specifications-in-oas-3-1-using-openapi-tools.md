@@ -64,7 +64,7 @@ Additionally, prior to deploying this OpenJDK, I removed any older version of th
 
 ![The wizard section to deploy the npm package manager](/img/nodejs-deployment-ensure-npm-is-available.png)
 
-5. Once the deployment of NodeJS completed, I was able to issue the npm CLI to perform the installation of the `openapi-down-convert` in the Microsoft Windows command line interface shown below.
+5. After the deployment of NodeJS completed, I was able to use the npm CLI to install the `openapi-down-convert` in the Microsoft Windows CLI as follows.
 
 ```shell
 C:\>npm I -g @apiture/openapi-down-convert
