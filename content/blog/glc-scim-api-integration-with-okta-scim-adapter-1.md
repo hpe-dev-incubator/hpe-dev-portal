@@ -39,7 +39,12 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
 ![](/img/scimtest.png)
 
-* Step 4 a:  Under the **Provisioning** tab > **To App** section enable two settings
+* Step 4. Configure the synchronization settings. 
+a:  Under the **Provisioning** tab > **To App** section, enable these settings:
+
+- Create Users
+- Deactivate Users
+
 
   1)**Create Users**                   2)**Deactivate Users**
 
