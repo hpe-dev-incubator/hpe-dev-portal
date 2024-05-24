@@ -196,7 +196,7 @@ C:> Build.ps1
 C:> Import-Module -Name '.\src\GLdataservices' -Verbose
 ```
 
-7. Once this module was loaded, I was able to create a short script based on PowerShell to exercise an API called `Invoke-ListAsyncOperations` and to use that API to display a list of the tasks that was completed. 
+7. Once this module was loaded, I created a short script based on PowerShell to call `Invoke-ListAsyncOperations` and used that API to display a list of completed tasks. 
 
 ```shell
 $fileName = "..\myCredential-rrd1.json"
