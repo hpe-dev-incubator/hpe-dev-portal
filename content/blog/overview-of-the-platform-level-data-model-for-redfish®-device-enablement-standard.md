@@ -8,7 +8,7 @@ tags:
   - Redfish
   - ilo-restful-api
 ---
-Update July 26, 2023
+Updated July 26, 2023
 
 ## Introduction
 
