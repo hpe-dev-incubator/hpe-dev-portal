@@ -77,7 +77,7 @@ npm notice
 C:\>
 ```
 
-6. After the above steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
+6. After the preceding steps, I had the tool to convert any HPE GreenLake API spec files from OpenAPI Standard 3.1 to OpenAPI Standard 3.0.
 
 ## Second tool of the day: deploying the openapi-generator-cli using the npm JavaScript
 
