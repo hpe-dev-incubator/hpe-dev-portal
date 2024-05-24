@@ -54,7 +54,7 @@ a:  Under the **Provisioning** tab > **To App** section, enable these settings:
 
 ![](/img/attributes.png)
 
-The group will need to be assigned to the SCIM application under the application > **Assignments** tab and added to be part of the **Push Groups** tab.
+**4c** Assign the group you want to synchronize to HPE GreenLake Flex Solutions to the SCIM application under the Application > Assignments tab and add it as a push group in  the Push Groups tab.
 
 
 
