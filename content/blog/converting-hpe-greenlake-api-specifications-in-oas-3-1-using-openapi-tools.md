@@ -243,7 +243,7 @@ $Result.items | ConvertTo-Json
 }
 ```
 
-> As expected, the execution of the above script completed successfully. The API response returned the list of tasks based on the filtering and selection properties from the example.  These were task lists from my workspace created by the backup-and-recovery services in my workspace.
+> As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
 
 ```JSON
 [
@@ -299,7 +299,11 @@ $Result.items | ConvertTo-Json
 
 ## Conclusion
 
-With the introduction of new HPE GreenLake APIs on March 2024, HPE GreenLake APIs embraces OpenAPI Standard 3.1 for the specification files. Those HPE GreenLake APIs spec file for the API set such as Data Services, Virtualization, Backup and Recovery, and Private Cloud Business Edition were released based on OpenAPI Standard 3.1. 
+With the introduction of new HPE GreenLake APIs on March 2024, HPE GreenLake APIs embraces OpenAPI Standard 3.1 for the specification files. Examples of the APIs released based on the OpenAPI Standard 3.1 include:  
+* Data Services
+* Virtualization 
+* Backup and Recovery
+* Private Cloud Business Edition
 
 This blog post introduces the tools to enable any adopter to use the open-source software based openapi-generator to convert these spec files after the conversion from the OpenAPI Standard 3.1 to OpenAPI Standard 3.0. In this blog post, I provided an example on how to convert the HPE GreenLake API for Data Services into a PowerShell client library. Furthermore, I also provided an example on how to use this client library to display the list of the tasks from HPE GreenLake for Backup and Recovery from my workspace. 
 
