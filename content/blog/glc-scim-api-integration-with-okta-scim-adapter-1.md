@@ -71,5 +71,5 @@ a:  Under the **Provisioning** tab > **To App** section, enable these settings:
 **Please note:**
 Adding the Group Everyone group to the SCIM application could have unintended effects on all users. 
 
-These are all of the steps required to configure SCIM 2.0 application.  A reminder that users will need to be part of a group that is assigned to the SCIM application and (that group) needs to be apart of push group. 
+These are all the steps required to configure a SCIM 2.0 application.  Remember that users must be members of a group that is assigned to the SCIM application and that group must be included in a push group. 
 Now all configured groups can be pushed into HPE GreenLake Flex Solutions via the Okta SCIM Adapter.
