@@ -28,7 +28,7 @@ a. Change the application label name if you want and make sure Automatically log
 
 ![](/img/scimgeneral.png)
 
-Click **Next** the following page nothing needs to change so click **Done**.
+b. Click **Next.** On the following page, click **Done**.
 
 * Step 3: After the application is created click on **Provisioning** tab > **Configure API Integration**, click on **Enable API Integration** box.
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
