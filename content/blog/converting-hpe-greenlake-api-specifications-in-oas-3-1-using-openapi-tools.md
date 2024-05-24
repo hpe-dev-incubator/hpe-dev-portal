@@ -249,7 +249,7 @@ $Result.items | ConvertTo-Json
 }
 ```
 
-> As expected, the execution of the above script completed successfully, and the API response returned the list of tasks based on the filtering and selection of the properties from the example above.  These were task lists from my workspace that were created by the backup-and-recovery services in my workspace.
+> As expected, the execution of the above script completed successfully. The API response returned the list of tasks based on the filtering and selection properties from the example.  These were task lists from my workspace created by the backup-and-recovery services in my workspace.
 
 ```JSON
 [
