@@ -30,7 +30,9 @@ The Okta SCIM adapter application can be installed from the Okta Integration Net
 
 ![](/img/scimgeneral.png)
 
-    b. Click **Next.** On the following page, click **Done**.    
+<br />
+
+    b. Click **Next**. On the following page, click **Done**.    
 
 
 Step 3: After the application is created, configure the integration:    
@@ -53,8 +55,9 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 * Step 4. Configure the synchronization settings:    
     a. Under the **Provisioning** tab > **To App** section, enable these settings:
 
-       - Create Users    
-       - Deactivate Users    
+     - Create Users    
+
+     - Deactivate Users    
 
 
   1)**Create Users**                   2)**Deactivate Users**
