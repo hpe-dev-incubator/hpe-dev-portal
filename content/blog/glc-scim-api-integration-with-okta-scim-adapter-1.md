@@ -21,11 +21,11 @@ The Okta SCIM adapter application can be installed from the Okta Integration Net
 
 # Configuring a SCIM application in Okta.
 
-* Step 1: In the Okta Admin Console, deploy an application from the app catalog:\
-    a. Go to **Applications** > **Browse App Catalog**.\
-    b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token).\
+* Step 1: In the Okta Admin Console, deploy an application from the app catalog:    
+    a. Go to **Applications** > **Browse App Catalog**.    
+    b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token).    
     c. Select the application and then click **Add Integration**.    
-* Step 2:  In the Add Scim2.0 Test App page, do the following:\
+* Step 2:  In the Add Scim2.0 Test App page, do the following:    
     a. Change the application label name if you want and make sure **Automatically log in when user lands on login page** is checked.
 
 ![](/img/scimgeneral.png)
@@ -34,12 +34,12 @@ The Okta SCIM adapter application can be installed from the Okta Integration Net
 
    b. Click **Next**. On the following page, click **Done**.    
 
-Step 3: After the application is created, configure the integration:\
-    a. Click the **Provisioning** tab, then select **Configure API Integration**.\
-    b. Select the **Enable API Integration** check box.\
-    c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.\
-    d. In the OAuth Bearer Token field: \[link to create long-lived tokens for user provisioning] Step 2 & 3\
-    e. Uncheck the box for the Import Groups option.\
+Step 3: After the application is created, configure the integration:    
+    a. Click the **Provisioning** tab, then select **Configure API Integration**.    
+    b. Select the **Enable API Integration** check box.    
+    c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.    
+    d. In the OAuth Bearer Token field:[link to create long-lived tokens for user provisioning] Step 2 & 3    
+    e. Uncheck the box for the Import Groups option.    
     f. Test that the URL and token are valid by clicking **Test API Credentials**, then click **Save**. If everything is correct, the following message is shown:
 
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
@@ -51,7 +51,7 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
 ![](/img/scimtest.png)
 
-* Step 4. Configure the synchronization settings:\
+* Step 4. Configure the synchronization settings:    
     a. Under the **Provisioning** tab > **To App** section, enable these settings:
 
   * Create Users    
