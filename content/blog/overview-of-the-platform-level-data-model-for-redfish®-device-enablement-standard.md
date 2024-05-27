@@ -163,6 +163,7 @@ When this firmware is deployed, its Redfish URI endpoint looks like `/redfish/v1
 >**NOTE**: Modifications of DCi capable devices are performed in the dedicated `Settings` area. During the next reboot, the content of this area will be analyzed and potentially transferred to the device if valid.
 >
 > RDE capable devices do not contain any settings area because modifications are transferred to the device and analyzed in real time by the device. A server reboot may be required to take those modification into account.
+>
 > Refer to this <a ref="https://developer.hpe.com/blog/setting-bios-and-storage-controller-properties-with-redfish/" target="_blank">blog post</a> for more information on the `Settings` area and the `@Redfish.Settings` object.
 
 ![Retrieving RDE capable network adapter properties with iLOrest](/img/networkadapters.png "Retrieving RDE capable network adapter properties with iLOrest")
