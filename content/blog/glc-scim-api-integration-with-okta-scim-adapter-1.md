@@ -30,7 +30,13 @@ a.    Change the application label name if you want and make sure Automatically 
 
 b.    Click **Next.** On the following page, click **Done**.
 
-* Step 3: After the application is created click on **Provisioning** tab > **Configure API Integration**, click on **Enable API Integration** box.
+Step 3: After the application is created, configure the integration.
+a. Click the Provisioning tab, then select Configure API Integration. 
+b.Select the Enable API Integration check box.
+c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.       
+d. In the OAuth Bearer Token field: [link to create long-lived tokens for user provisioning]Step 2 & 3 **Is reader supposed to perform steps 2 and 3 in the procedure linked to - unclear??**
+e. Uncheck the box for the Import Groups option.
+f. Test that the URL and token are valid by clicking Test API Credentials, then click Save. If everything is correct, the following message is shown:
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
 * Token: [link to create long-lived tokens for user provisioning](https://developer.hpe.com/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/) **Step 2 & 3**
 * **Uncheck** the box for Import Groups
