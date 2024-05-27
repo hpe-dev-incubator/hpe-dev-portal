@@ -34,7 +34,7 @@ Step 3: After the application is created, configure the integration.
 a. Click the Provisioning tab, then select Configure API Integration. 
 b.Select the Enable API Integration check box.
 c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.       
-d. In the OAuth Bearer Token field: [link to create long-lived tokens for user provisioning]Step 2 & 3 **Is reader supposed to perform steps 2 and 3 in the procedure linked to - unclear??**
+d. In the OAuth Bearer Token field: [link to create long-lived tokens for user provisioning]Step 2 & 3
 e. Uncheck the box for the Import Groups option.
 f. Test that the URL and token are valid by clicking Test API Credentials, then click Save. If everything is correct, the following message is shown:
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
