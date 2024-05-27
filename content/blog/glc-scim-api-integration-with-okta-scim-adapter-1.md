@@ -19,16 +19,16 @@ You can synchronize users and groups from your Okta identity management service 
 The Okta SCIM adapter application can be installed from the Okta Integration Network (OIN) into your Okta implementation to allow for integration with a SCIM-compliant API. Any user that needs to be synchronized to HPE GreenLake Flex Solutions must be assigned to the Okta SCIM adapter application in your Okta implementation. Groups whose memberships need to be synced to HPE GreenLake Flex Solutions must be added as a Push Group in the application. Users can be assigned to the application using the same groups that are synchronized to HPE GreenLake Flex Solutions.
 
 # Configuring a SCIM application in Okta.
-Step 1: In the Okta Admin Console, deploy an application from the app catalog. 
-a. Go to Applications > Browse App Catalog.
-b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token)
-c.   Select the app and then click Add Integration.
-Step 2:  In the Add Scim2.0 Test App page, do the following:
-a. Change the application label name if you want and make sure Automatically log in when user lands on login page is checked.
+* Step 1: In the Okta Admin Console, deploy an application from the app catalog. 
+a.    Go to Applications > Browse App Catalog.
+b.    In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token)
+c.    Select the app and then click Add Integration.
+* Step 2:  In the Add Scim2.0 Test App page, do the following:
+a.    Change the application label name if you want and make sure Automatically log in when user lands on login page is checked.
 
 ![](/img/scimgeneral.png)
 
-b. Click **Next.** On the following page, click **Done**.
+b.    Click **Next.** On the following page, click **Done**.
 
 * Step 3: After the application is created click on **Provisioning** tab > **Configure API Integration**, click on **Enable API Integration** box.
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
