@@ -163,10 +163,11 @@ When this firmware is deployed, its Redfish URI endpoint looks like `/redfish/v1
 >**NOTE**: Modifications of DCi capable devices are performed in the dedicated `Settings` area. During the next reboot, the content of this area will be analyzed and potentially transferred to the device if valid.
 >
 > RDE capable devices do not contain any settings area because modifications are transferred to the device and analyzed in real time by the device. A server reboot may be required to take those modification into account.
+> Refer to this <a ref="https://developer.hpe.com/blog/setting-bios-and-storage-controller-properties-with-redfish/" target="_blank">blog post</a> for more information on the `Settings` area and the `@Redfish.Settings` object.
 
 ![Retrieving RDE capable network adapter properties with iLOrest](/img/networkadapters.png "Retrieving RDE capable network adapter properties with iLOrest")
 
-_<figcaption>Figure 6: </figcaption>_
+_<figcaption>Figure 6: Retrieving RDE capable network adapter properties with iLOrest</figcaption>_
 
 The following figure shows a real-time property modification on port 0 of an RDE capable Intel E810 network adapter, using <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a> version 3.5.0.0.
 
@@ -190,7 +191,7 @@ If you want to perform the same configuration using another Redfish client, you 
 }
 ```
 
->**NOTE**: HPE Gen11 servers (iLO 6) implement only the standard `NetworkAdapter` schema. The proprietary `HpeBaseNetworkAdapter` schema is deprecated. The mapping table between those two schemas is available in the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#basenetworkadapters-deprecated" target="_blank">server management portal</a>.
+>**NOTE**: HPE Gen11 servers (iLO 6) only implement the standard `NetworkAdapter` schema. The proprietary `HpeBaseNetworkAdapter` schema is deprecated. The mapping table between those two schemas is available in the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#basenetworkadapters-deprecated" target="_blank">server management portal</a>.
 
 ### Consequences of intra-server multi protocol coexistence
 
