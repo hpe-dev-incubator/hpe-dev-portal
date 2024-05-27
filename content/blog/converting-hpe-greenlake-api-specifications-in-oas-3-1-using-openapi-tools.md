@@ -1,6 +1,6 @@
 ---
 title: Converting HPE GreenLake API specifications in OAS 3.1 using OpenAPI tools
-date: 2024-05-09T12:05:06.187Z
+date: 2024-05-27T09:42:19.706Z
 author: Ron Dharma
 authorimage: /img/face-portraitlarge.jpg
 thumbnailimage: /img/alletra-element-small.png
@@ -9,12 +9,9 @@ tags:
   - hpe-greenlake
   - api
   - data-services-cloud-console
+  - data-services-on-the-hpe-greenlake-platform
 ---
-<!--StartFragment-->
-
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
-
-<!--EndFragment-->
 
 ## What are the HPE GreenLake APIs for Data Services on the HPE GreenLake Platform?
 
