@@ -20,47 +20,44 @@ You can synchronize users and groups from your Okta identity management service 
 The Okta SCIM adapter application can be installed from the Okta Integration Network (OIN) into your Okta implementation to allow for integration with a SCIM-compliant API. Any user that needs to be synchronized to HPE GreenLake Flex Solutions must be assigned to the Okta SCIM adapter application in your Okta implementation. Groups whose memberships need to be synced to HPE GreenLake Flex Solutions must be added as a Push Group in the application. Users can be assigned to the application using the same groups that are synchronized to HPE GreenLake Flex Solutions.
 
 # Configuring a SCIM application in Okta.
-* Step 1: In the Okta Admin Console, deploy an application from the app catalog:   
-    a. Go to **Applications** > **Browse App Catalog**.    
-    b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token).    
-    c. Select the application and then click **Add Integration**.    
 
-* Step 2:  In the Add Scim2.0 Test App page, do the following:    
+* Step 1: In the Okta Admin Console, deploy an application from the app catalog:\
+    a. Go to **Applications** > **Browse App Catalog**.\
+    b. In the search bar type SCIM 2.0, and find the app called: SCIM 2.0 Test App (OAuth Bearer Token).\
+    c. Select the application and then click **Add Integration**.    
+* Step 2:  In the Add Scim2.0 Test App page, do the following:\
     a. Change the application label name if you want and make sure **Automatically log in when user lands on login page** is checked.
 
 ![](/img/scimgeneral.png)
 
-<br />
+  <br />
 
-    b. Click **Next**. On the following page, click **Done**.    
+   b. Click **Next**. On the following page, click **Done**.    
 
-
-Step 3: After the application is created, configure the integration:    
-    a. Click the **Provisioning** tab, then select **Configure API Integration**.     
-    b. Select the **Enable API Integration** check box.    
-    c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.    
-    d. In the OAuth Bearer Token field: [link to create long-lived tokens for user provisioning] Step 2 & 3    
-    e. Uncheck the box for the Import Groups option.    
+Step 3: After the application is created, configure the integration:\
+    a. Click the **Provisioning** tab, then select **Configure API Integration**.\
+    b. Select the **Enable API Integration** check box.\
+    c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.\
+    d. In the OAuth Bearer Token field: \[link to create long-lived tokens for user provisioning] Step 2 & 3\
+    e. Uncheck the box for the Import Groups option.\
     f. Test that the URL and token are valid by clicking **Test API Credentials**, then click **Save**. If everything is correct, the following message is shown:
 
 * SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
 * Token: [link to create long-lived tokens for user provisioning](https://developer.hpe.com/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/) 
-**Step 2 & 3**
+  **Step 2 & 3**
 * **Uncheck** the box for Import Groups
 
 After URL and Token are added test to make sure they are valid by clicking > **Test API** **Credentials** and **Save** if everything is correct should return the following message:
 
 ![](/img/scimtest.png)
 
-* Step 4. Configure the synchronization settings:    
+* Step 4. Configure the synchronization settings:\
     a. Under the **Provisioning** tab > **To App** section, enable these settings:
 
-     - Create Users    
+  * Create Users    
+  * Deactivate Users    
 
-     - Deactivate Users    
-
-
-  1)**Create Users**                   2)**Deactivate Users**
+    1)**Create Users**                   2)**Deactivate Users**
 
 ![](/img/scim2app.png)
 
@@ -70,12 +67,9 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
    c. Assign the group you want to synchronize to HPE GreenLake Flex Solutions to the SCIM application under the **Application** > **Assignments** tab and add it as a push group in  the **Push Groups** tab.
 
-
 **Assignments** tab:
 
 ![](/img/scim-group.png "Assignments tab")
-
-
 
 **Push Groups** tab:
 
