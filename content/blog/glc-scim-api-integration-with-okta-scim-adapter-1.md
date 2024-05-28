@@ -39,16 +39,9 @@ The Okta SCIM adapter application can be installed from the Okta Integration Net
     a. Click the **Provisioning** tab, then select **Configure API Integration**.    
     b. Select the **Enable API Integration** check box.    
     c. In the SCIM 2.0 Base Url field, enter: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy.    
-    d. In the OAuth Bearer Token field:[link to create long-lived tokens for user provisioning] Step 2 & 3    
+    d. In the OAuth Bearer Token field: to create long-lived tokens for user provisioning, see step 2 and step 3 of the blog post [Configuring Azure Active Directory with long-lived tokens for user provisioning](https://developer.hpe.com/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/).    
     e. Uncheck the box for the Import Groups option.    
     f. Test that the URL and token are valid by clicking **Test API Credentials**, then click **Save**. If everything is correct, the following message is shown:
-
-* SCIM 2.0 Base Url: https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy         
-* Token: [link to create long-lived tokens for user provisioning](https://developer.hpe.com/blog/configuring-azure-ad-with-long-term-token-for-scim-provisiong/) 
-  **Step 2 & 3**
-* **Uncheck** the box for Import Groups
-
-After URL and Token are added test to make sure they are valid by clicking > **Test API** **Credentials** and **Save** if everything is correct should return the following message:
 
 ![](/img/scimtest.png)
 
@@ -57,8 +50,6 @@ After URL and Token are added test to make sure they are valid by clicking > **T
 
   * Create Users    
   * Deactivate Users    
-
-    1)**Create Users**                   2)**Deactivate Users**
 
 ![](/img/scim2app.png)
 
