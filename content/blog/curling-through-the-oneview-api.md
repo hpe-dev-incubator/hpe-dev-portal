@@ -1,12 +1,15 @@
 ---
-title: "Curling through the OneView API"
+title: Curling through the OneView API
 date: 2017-09-07T17:33:30.771Z
-author: Didier Lalli 
-tags: ["HPE-OneView","OneView","RESTAPI"]
-authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Didier Lalli
+authorimage: /img/blogs/Avatar2.svg
+thumbnailimage: null
+tags:
+  - HPE-OneView
+  - OneView
+  - RESTAPI
 ---
 In previous articles, we used a REST client plug-in to Firefox or Chrome
 to exercise the HPE Composable Infrastructure API. This is nice, for
@@ -98,7 +101,7 @@ curl -k -H "accept: application/json" \\
 So let us pretend would like to capture the currentVersion in a variable
 within a shell script, we could do the following:
 
-\#Retrieve API version
+# Retrieve API version
 
 
 ```postscript
