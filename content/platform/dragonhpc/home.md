@@ -5,7 +5,7 @@ description: DragonHPC is a programmable distributed runtime for HPC & AI workfl
 image: /img/platforms/dragon_deployment.jpg
 width: large
 priority: 4
-active: false
+active: true
 tags:
   - dragonhpc
 ---
@@ -34,5 +34,3 @@ Users can also access DragonHPC at any level of its architecture. This allows us
 [Public open source code repository with example use cases ![](Github)](https://github.com/DragonHPC/dragon)
 
 [Public open source code repository ![](Github)](https://dragonhpc.github.io/dragon/doc/_build/html/index.html)
-
-

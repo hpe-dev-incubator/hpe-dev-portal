@@ -116,6 +116,10 @@ function BlogTabs({ data, columns }) {
       label: 'HPE Swarm Learning',
       count: data?.swarmBlogsCount?.totalCount || 0,
     },
+    dragonhpcBlogs: {
+      label: 'DragonHPC',
+      count: data?.dragonhpcCount?.totalCount || 0,
+    },
     hpeNonstopBlogs: {
       label: 'HPE NonStop',
       count: data?.hpeNonstopBlogsCount?.totalCount || 0,
@@ -146,6 +150,10 @@ function BlogTabs({ data, columns }) {
     smartSimBlogs: {
       label: 'SmartSim',
       count: data.smartSimBlogsCount?.totalCount || 0,
+    },
+    dragonhpcBlogs: {
+      label: 'Dragonhpc',
+      count: data.dragonhpcBlogsCount?.totalCount || 0,
     },
   };
 
@@ -416,6 +424,7 @@ BlogTabs.propTypes = {
     dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     crayBlogsCount: PropTypes.objectOf(PropTypes.number),
     swarmBlogsCount: PropTypes.objectOf(PropTypes.number),
+    dragonhpcBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
