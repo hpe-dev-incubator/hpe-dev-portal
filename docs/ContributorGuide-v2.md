@@ -733,6 +733,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
+  | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
@@ -745,9 +746,9 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment; or cray; or CPE |
   | **Determined AI**                  | determined-ai |
+  | **Dragon HPC project**             | dragonhpc |
   | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
-  | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
   | **HPE NonStop**                    | hpe-nonstop |
