@@ -5,7 +5,7 @@ description: DragonHPC is a programmable distributed runtime for HPC & AI workfl
 image: /img/platforms/dragon_deployment.jpg
 width: large
 priority: 4
-active: true
+active: false
 tags:
   - dragonhpc
 ---
