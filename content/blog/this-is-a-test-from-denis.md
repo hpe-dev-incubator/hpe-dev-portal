@@ -47,6 +47,6 @@ Third update.
 
 ![Image 2 inserted inside bullet list item](/img/1-gunna.png "Image 2 inserted inside bullet list item")
 
-* Bullet list item 3
+* Bullet list item 3 - test of suggestion to change bulet list item 3
 
 ![Test image 3 in bullet item list](/img/aaa-seats-hackshack.png "Test image 3 in bullet item list")
