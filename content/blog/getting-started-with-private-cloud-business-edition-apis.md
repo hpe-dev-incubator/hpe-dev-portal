@@ -10,6 +10,9 @@ tags:
   - PCBE
   - hpe-greenlake
   - hpe-greenlake-platform
+  - api
+  - greenlake-api
+  - data-services-on-the-hpe-greenlake-platform
 ---
 <style>
 li {
