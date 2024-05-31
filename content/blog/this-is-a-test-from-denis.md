@@ -33,7 +33,7 @@ Third update.
 
    ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
 
-3. Numbered item 3    
+3. Numbered item 3   - test change item 3
 
 4. Numbered Item 4 - test change item 4
 
