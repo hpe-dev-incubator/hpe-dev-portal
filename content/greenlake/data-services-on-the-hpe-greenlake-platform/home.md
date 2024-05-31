@@ -13,7 +13,6 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-
 Data Services on the HPE GreenLake edge-to-cloud platform is a group of services which are part of the service catalogues in the HPE GreenLake edge-to-cloud Platform. These services bring the cloud experiences to HPE GreenLake customers, wherever the data lives, across on-premises or public cloud throughout its lifecycle. With the streamlined ordering, provisioning, management, protection, analysis, and archiving, customers can achieve higher agility to innovate using latest trend in I.T. such as artificial intelligence. For more information on how to leverage these Data Services on the HPE GreenLake edge-to-cloud platform, please visit HPE Data Management [website](https://www.hpe.com/us/en/storage/data-services-cloud-console.html).
 
 ## Introduction to Data Services on the HPE GreenLake edge-to-cloud platform
@@ -69,7 +68,7 @@ For getting started with the Data Services APIs and improve your agility in mana
 1. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-data-services/): Getting Started with HPE GreenLake APIs for Data Services.
 2. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/): Getting Started with HPE GreenLake APIs for Virtualization.
 3. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-backup-and-recovery/): Getting Started with HPE GreenLake APIs for HPE GreenLake for Backup and Recovery
-4. Future blog post: Getting Started with HPE GreenLake APIs for HPE GreenLake Private Cloud Business Edition.
+4. Blog [post](https://developer.hpe.com/blog/getting-started-with-private-cloud-business-edition-apis/): Getting Started with HPE GreenLake APIs for HPE GreenLake Private Cloud Business Edition.
 5. The [link](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) to the documentation of the HPE GreenLake APIs at HPE GreenLake help menu.
 6. The [link](https://www.youtube.com/watch?v=-ffzhc6TzoA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) to the YouTube video of the Meetup webinar “The data services family of APIs for HPE GreenLake – Putting it all together” 
 
