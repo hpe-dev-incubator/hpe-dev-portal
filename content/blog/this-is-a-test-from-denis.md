@@ -29,7 +29,7 @@ Third update.
 
    ![Test image 1](/img/1-gunna.png "Test image 1")
 
-2. Numbered item 2
+2. Numbered item 2 - test change item 2
 
    ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
 
