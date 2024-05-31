@@ -35,7 +35,7 @@ Third update.
 
 3. Numbered item 3    
 
-4. Numbered Item 4
+4. Numbered Item 4 - test change item 4
 
 ![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
 
