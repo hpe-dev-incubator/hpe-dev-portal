@@ -29,13 +29,10 @@ Third update.
 1. Numbered item 1 - suggestion for change of numbered item 1
 
    ![Test image 1](/img/1-gunna.png "Test image 1")
-
 2. Numbered item 2 - suggestion for change of numbered item 2
 
    ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
-
 3. Numbered item 3
-
 4. Numbered Item 4
 
 ![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
@@ -50,4 +47,4 @@ Third update.
 
 * Bullet list item 3 - suggestion to change bullet item 3
 
-![Test image 3 in bullet item list](/img/aaa-seats-hackshack.png "Test image 3 in bullet item list")
+![Test image 3 in bullet item list](/img/hpedev.png "Test image 3 in bullet item list")
