@@ -25,7 +25,7 @@ Third update.
 
 [get_ilo_py.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py)
 
-1. Numbered item 1
+1. Numbered item 1 - test change
 
    ![Test image 1](/img/1-gunna.png "Test image 1")
 
