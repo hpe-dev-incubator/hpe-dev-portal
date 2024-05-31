@@ -40,7 +40,7 @@ Third update.
 
 ![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
 
-* Bullet list item 1
+* Bullet list item 1 - suggestion to change bullet item 1
 
 ![Image inserted inside bullet list item](/img/Avatar1.svg "Image inserted inside bullet list item")
 
