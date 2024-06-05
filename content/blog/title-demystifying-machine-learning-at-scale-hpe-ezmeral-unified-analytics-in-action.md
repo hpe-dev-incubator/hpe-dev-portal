@@ -23,13 +23,13 @@ Enter HPE Ezmeral Unified Analytics – a single-touch, scalable deployment of t
 
 In this blog post I'll take you on a journey using a smart retail experience that showcases the capabilities of HPE Ezmeral Unified Analytics to gather, process, and interpret retail data from stores across several European countries. This journey will show you how easy it is to work with data and models using HPE Ezmeral Unified Analytics and how you can leverage these tools to create cutting-edge customer experiences.
 
-![This screenshot shows the built-in ecosystem of open source tools segmented by data engineering, analytics, and data science personas. ](/img/uanalytics-ui.png "HPE managed ecosystem of open source tools built into HPE Ezmeral Unified Analytics.")
+![This screenshot shows the built-in ecosystem of open source tools segmented by data engineering, analytics, and data science personas. ](/img/demystifying-ml-unifiedanalytics-img1.png "HPE managed ecosystem of open source tools built into HPE Ezmeral Unified Analytics.")
 
 **Embarking on the journey: Harnessing Apache Spark for customer insights**
 
 The journey commences with a fundamental need: understanding diverse customer shopping experiences across European regions utilizing Apache Spark on HPE Ezmeral Unified Analytics. The objective is clear yet ambitious: to analyze extensive sales data and derive actionable insights. **Apache Spark**, renowned for its agility and scalability in handling voluminous datasets, emerges as the natural choice. Seamlessly integrated within HPE Ezmeral Unified Analytics, it furnishes a scalable ecosystem for data processing, eliminating the complexities of manual setups.
 
-![This screenshot show the ability to create a spark session from the Unified Analytics user interface. ](/img/managespark.png "Simplified Apache Spark management from HPE Ezmeral Unified Analytics. ")
+![This screenshot show the ability to create a spark session from the Unified Analytics user interface. ](/img/demystifying-ml-spark-img2.png "Simplified Apache Spark management from HPE Ezmeral Unified Analytics. ")
 
 In the Smart Retail Experience, a Spark Interactive session powered by **Apache Livy** generates synthetic sales data reflecting diverse currencies, store locations and stores in delta tables for enhanced data reliability and managed version control.
 
