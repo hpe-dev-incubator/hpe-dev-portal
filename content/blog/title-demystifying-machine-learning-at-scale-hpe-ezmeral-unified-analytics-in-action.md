@@ -39,7 +39,7 @@ This initial phase of data prep-work lays the foundation for informed decision-m
 
 The journey progresses with **Apache Presto**, an integral component of HPE Ezmeral Software that amplifies Presto's capabilities, enabling the connection to and querying of various data sources seamlessly within a unified environment. With Presto, data from different stores can be amalgamated into a single view that you can easily manipulate and analyze. This seamless integration empowers real-time access to insights from data lakes, allowing for federated queries on data without worrying about the underlying complexity of tying each application to each data source individually.
 
-![This screenshot how HPE Ezmeral Software amplifies Presto's capabilities by connecting to and querying of various data sources within a unified environment. ](/img/queryeditor.png "From a unified interface, quickly connect to and query multiple data sources then manipulate and analyze. ")
+![This screenshot how HPE Ezmeral Software amplifies Presto's capabilities by connecting to and querying of various data sources within a unified environment. ](/img/demystifying-ml-presto-img3.png "From a unified interface, quickly connect to and query multiple data sources then manipulate and analyze. ")
 
 What's really impressive about Presto is its integration within the HPE Ezmeral Unified Analytics ecosystem, allowing not just for querying but directly connecting processed outputs for further analysis or visualization in tools like Apache Superset. The convenience of managing data sources, running queries, and directly utilizing this data across various stages of the MLOps pipeline underlines the unified approach of HPE Ezmeral Unified Analytics, streamlining workflows and eliminating the need for disjointed tool management.
 
@@ -47,7 +47,7 @@ What's really impressive about Presto is its integration within the HPE Ezmeral 
 
 Next, visualization with **Apache Superset** illustrates the ease of creating engaging, insightful dashboards that outline pivotal business metrics, like the top-selling fruits, variation in sales over different years, or customer purchasing behavior. Clear visual storytelling delivers powerful insights, informing both store operations and strategic decision-making.
 
-![This shows a sample of visualization capabilities within HPE Ezmeral Unified Analytics. ](/img/superset.png "Quick generate visualizations within HPE Ezmeral Unified Analytics to reduce redundant data preparation steps. ")
+![This shows a sample of visualization capabilities within HPE Ezmeral Unified Analytics. ](/img/demystifying-ml-superset-img4.png "Quick generate visualizations within HPE Ezmeral Unified Analytics to reduce redundant data preparation steps. ")
 
 The ability to generate these visualizations from Cached Assets within the HPE Ezmeral Unified Analytics platform adds layers of efficiency—data that is queried and transformed through Presto can directly feed into Superset without redundant steps of data preparation.
 
@@ -55,7 +55,7 @@ The ability to generate these visualizations from Cached Assets within the HPE E
 
 Armed with substantial insights, attention turns to enhancing the customer checkout experience through machine learning. A MobileNetV2 object recognition model is trained using **TensorFlow** to recognize fresh produce via vision-based machine learning, presenting a transformative solution for streamlining checkout processes, particularly in self-service scenarios.
 
-![This screenshot highlights integration between MLflow and HPE Ezmeral Unified Analytics for managing model training, tracking, and version control. ](/img/mlflow.png "Effortless integration between MLflow and HPE Ezmeral Unified analytics reduces the complexity of managing the machine learning lifecycle. ")
+![This screenshot highlights integration between MLflow and HPE Ezmeral Unified Analytics for managing model training, tracking, and version control. ](/img/demystifying-ml-mlflow-img5.png "Effortless integration between MLflow and HPE Ezmeral Unified analytics reduces the complexity of managing the machine learning lifecycle. ")
 
 In the subsequent exercises, we delve into the model-building phase using TensorFlow, followed by MLflow for managing the machine learning lifecycle, including model training, tracking, and version control.
 
@@ -65,7 +65,7 @@ HPE Ezmeral Unified Analytics seamless integration with **MLflow** via internall
 
 With the model primed for deployment, the focus shifts to deployment logistics. KServe, a model serving framework on HPE Ezmeral, emerges as the solution, enabling efficient deployment and management of machine learning models. Noteworthy is its capability to auto-scale based on demand and seamlessly integrate with existing Kubernetes infrastructure, all under the umbrella of HPE Ezmeral Unified Analytics.
 
-![This screenshot depicts KServe and HPE Ezmeral work together to efficiently deploy and manage machine learning models. ](/img/endpoint.png "Flawless integration between KServe and HPE Ezmeral Software simplifies ML model deployment, management, and auto-scaling with existing Kubernetes infrastructure. ")
+![This screenshot depicts KServe and HPE Ezmeral work together to efficiently deploy and manage machine learning models. ](/img/demystifying-ml-kserve-img6.png "Flawless integration between KServe and HPE Ezmeral Software simplifies ML model deployment, management, and auto-scaling with existing Kubernetes infrastructure. ")
 
 **Bringing it all together**
 
