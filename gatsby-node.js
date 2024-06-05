@@ -201,12 +201,13 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('smartsim-posts'),
   );
 
-  const crayQueryResult = await graphql(
-    paginatedCollectionQuery('cray-posts'),
-  );
+  const crayQueryResult = await graphql(paginatedCollectionQuery('cray-posts'));
 
   const swarmQueryResult = await graphql(
     paginatedCollectionQuery('swarm-posts'),
+  );
+  const dragonhpcQueryResult = await graphql(
+    paginatedCollectionQuery('dragonhpc-posts'),
   );
 
   const hpeNonStopQueryResult = await graphql(
@@ -242,41 +243,42 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(smartsimQueryResult);
   setPagination(crayQueryResult);
   setPagination(swarmQueryResult);
+  setPagination(dragonhpcQueryResult);
   setPagination(hpeNonStopQueryResult);
   setPagination(othersQueryResult);
 
-  return graphql(
-    `
-      {
-        allMarkdownRemark(
-          filter: { frontmatter: { disable: { ne: true } } }
-          sort: {frontmatter: {date: DESC}}
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-                sourceInstanceName
-              }
-              frontmatter {
-                title
-                disable
-                tags
-                isAside
-              }
+  return graphql(`
+    {
+      allMarkdownRemark(
+        filter: { frontmatter: { disable: { ne: true } } }
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+              sourceInstanceName
+            }
+            frontmatter {
+              title
+              disable
+              tags
+              isAside
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000,
-          filter:{frontmatter:{disable:{ne:true}}}) {
-          group(field: {frontmatter: {tags: SELECT}}) {
-            fieldValue
-          }
+      }
+      tagsGroup: allMarkdownRemark(
+        limit: 2000
+        filter: { frontmatter: { disable: { ne: true } } }
+      ) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
         }
       }
-    `,
-  ).then((result) => {
+    }
+  `).then((result) => {
     if (result.errors) {
       throw result.errors;
     }

@@ -9,6 +9,7 @@ tags:
   - hpe-greenlake
   - hpe-greenlake-cloud-platform
   - data-services-cloud-console
+  - data-services-on-the-hpe-greenlake-platform
 ---
 [HPE Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/), available through the [HPE GreenLake edge-to-cloud platform](https://developer.hpe.com/greenlake/hpe-greenlake-cloud-platform/home/), is a Software-as-a-service (SaaS) based cloud console application that delivers a suite of cloud data services that enable a unified data operations as a service for storage infrastructure, simplify storage and data management, and bring the cloud experience to wherever data lives. Data Services Cloud Console also offers a unified and fully programmable API that enables developers to automate data infrastructure management. 
 

@@ -429,6 +429,7 @@ module.exports = {
           "determined-ai",
           "cray",
           "swarm-learning",
+          "dragonhpc",
           "hpe-nonstop"
           ]}}}, sort: {frontmatter: {date: DESC}}) {
             nodes {
@@ -493,6 +494,7 @@ module.exports = {
     paginatedCollection('determined-ai-posts', 'determined-ai'),
     paginatedCollection('cray-posts', 'cray'),
     paginatedCollection('swarm-posts', 'swarm-learning'),
+    paginatedCollection('dragonhpc-posts', 'dragonhpc'),
     paginatedCollection('hpe-nonstop-posts', 'hpe-nonstop'),
     paginatedCollection('dscc-posts', 'data-services-cloud-console'),
     {

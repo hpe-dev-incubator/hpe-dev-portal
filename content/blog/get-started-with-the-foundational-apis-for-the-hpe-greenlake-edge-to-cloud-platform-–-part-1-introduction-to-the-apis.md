@@ -121,7 +121,11 @@ Define the **current value** of the collection variables to match your HPE Green
 
 * **GLP\_Application\_Id:** This variable is the _identifier_ of the HPE GreenLake platform. This is always set to value “00000000-0000-0000-0000-000000000000”.
 
-**Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman ***Test scripts***.
+* **ServiceManagerName:** This variable should be set with the name of a cloud service manager used to manage your infrastructure equipment for compute, storage and networking. For example "_Aruba Central_", "_Compute Ops Management_", or "_Data Services_".
+
+* **RegionId:** This variable should be set with the name of the region where your service managers are installed. For example "_eu-central_".
+
+**Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman ***Scripts***.
 
 ## Acquire an OAuth access token as your session bearer token
 
@@ -131,7 +135,7 @@ The APIs for common HPE GreenLake platform services use a bearer token as an aut
 
 * Verify you get a status code of 200 for a successful response with token value in the response body.
 
-The *Generate AccessToken* API call has defined a script in the **Tests** tab to programmatically set the collection variable *BearerToken* as shown in the picture below. The programmatically defined token is then used to authenticate any subsequent REST API calls.
+The *Generate AccessToken* API call has defined a Post-response script in the **Scripts** tab (formerly known as Postman Tests script) to programmatically set the collection variable *BearerToken* as shown in the picture below. The programmatically defined token is then used to authenticate any subsequent REST API calls.
 
 ![Figure 2: Defining collection variables programmatically in script](/img/blog-part1-bearertoken-testscript-image2.png "Figure 2: Defining collection variables programmatically in script")
 

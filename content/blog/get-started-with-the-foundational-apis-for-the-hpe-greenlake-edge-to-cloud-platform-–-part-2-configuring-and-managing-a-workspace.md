@@ -79,7 +79,7 @@ In this example, I use ***filter*** as the query parameter to limit the scope of
 
 I now hit the **Send** button. The request indicates success (***Status: 200 OK***). In the response, a *userStatus* of *VERIFIED* means that the user has activated the HPE account and joined the workspace. A user who has already activated their HPE account will automatically be added to the workspace upon invitation. A *userStatus* of *UNVERIFIED* would mean that the user has not created and activated the HPE account yet.  
 
-> **Note:** Thanks to the *Test script* associated with this request, the unique identifier of the invited user is automatically saved as collection variable. The identifier of the user is needed should an administrator want to disassociate (delete) a user from the workspace using the REST API call ***DELETE Disassociate a user***.
+> **Note:** Thanks to the Postman *Post-response Script* associated with this request, the unique identifier of the invited user is automatically saved as collection variable. The identifier of the user is needed should an administrator want to disassociate (delete) a user from the workspace using the REST API call ***DELETE Disassociate a user***.
 
 ## Managing IT resources (devices and subscriptions) into the workspace
 

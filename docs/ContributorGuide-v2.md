@@ -120,7 +120,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
     - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
     
-    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
+    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option TOGGLED OFF**.
     
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
@@ -133,12 +133,12 @@ You can create a new blog directly from the **Contents** tab or by navigating to
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
-5. Tag your blog post.
+5. **Tag** your blog post.
 
 You can tag your post to tie it to one of the HPE Developer "products or HPE GreenLake or Open Source" pages on the HPE Developer portal. 
 Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer web site.
 
->Note: For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+>**Note:** Make sure to add **individual** tag using the **Add Tags +** button at the bottom of the left panel of your CMS entry. For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
 6.  As you are adding content to the **BODY** area, you can preview your blog on the right pane.
@@ -195,14 +195,23 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 14. Leave the editor using the **Changes Saved** option.
 
-15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.
+15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing. You can visualize the Pull Request ID using the link **https://github.com/hpe-dev-incubator/hpe-dev-portal/pulls**.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
+16. The HPE Developer Community team will receive a notification. This will trigger the technical and editorial review process. The reviewers will provide you will comments and suggestions for edits directly in the GitHub Pull Request. You will receive e-mail from GitHub with the reviewer's comments and suggestions for changes.
 
-16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
+    Here are some tips to assist you with the review of the suggestions and how to acknowledge them in GitHub:
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
+    * When you receive an e-mail notification from GitHub about the reviewer's comments and suggestions, you can scroll down to the bottom of the e-mail and click on **View it on GitHub** to connect to the Pull Request.
+  
+    * Navigate to **File Changed** area to visualize the comments from start to the end (You may see “Load Diff” for large blog post entry, in this case just click “Load Diff”), or navigate to **Conversation** area to visualize the comments per reviewer.
+
+    * As you incorporate the suggestions for edit in your blog post entry using the CMS editor (**Workflow** tab), please click on button **Resolve Conversation** in GitHub for each suggestion you incorporated.
+
+      >**IMPORTANT Note:** In the CMS Workflow tab, *moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
+
+17. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE Developer portal and the blog entry will disappear from your Editorial Workflow.*
 
@@ -411,7 +420,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
    As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.    
    The Pull Request is indicating that your submission is ready for review by the HPE Developer team.
    
-10. Upon review of you rentry by the HPE Developer team, the Pull Request will be merged to push your entry to the HPE Developer Community portal. 
+10. Upon review of your entry by the HPE Developer team, the Pull Request will be merged to push your entry to the HPE Developer Community portal. 
  
 
 ## Tips and trick using the CMS Editor
@@ -629,12 +638,12 @@ Example with **no line break** between list items:
     
   You can use the tips below to format tables and bullet list items throughout your blog post. These styles apply **globally** to your post.
 
-***Formatting the bullet list to standard text size***
+***Formatting the bullet and numbered list to standard text size***
     
-  >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
+  >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet and numbered list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet and numbered list items using the HTML style below: 
 
-   Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 27px. 
-   You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet lists in your article. 
+   Insert the following Style statement **(this is the recommended style statement)** in your markdown at the beginning of your post. **The standard text size is 27px**. 
+   You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet and numbered lists in your article. 
  
  ```html
 <style>
@@ -645,6 +654,9 @@ li {
 }
 </style>
 ```
+
+>**IMPORTANT NOTE:** The fonts may appear bigger than the standard text in the right panel of the CMS editor. This is expected. However, the Netlify process will render the text correctly (as standard text size) when creating the “Preview” of the post and when publishing the post to the HPE Developer Community portal. 
+
 or you can use the following style font:
 
 ```html
@@ -721,6 +733,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
+  | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
@@ -728,13 +741,14 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
+  | **Data Services on the HPE GreenLake platform** | data-services-on-the-hpe-greenlake-platform |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment; or cray; or CPE |
   | **Determined AI**                  | determined-ai |
+  | **Dragon HPC project**             | dragonhpc |
   | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
-  | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
   | **HPE NonStop**                    | hpe-nonstop |

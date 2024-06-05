@@ -10,6 +10,7 @@ tags:
   - developer
   - hpe-greenlake-cloud-platform
   - hpe-greenlake
+  - data-services-on-the-hpe-greenlake-platform
 ---
 <center><img src="/img/dscc-idp-core-architect.png" width="500" height="501" alt="Unified DataOps"></center>
 

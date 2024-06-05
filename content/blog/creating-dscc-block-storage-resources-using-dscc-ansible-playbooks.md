@@ -8,6 +8,7 @@ disable: false
 tags:
   - data-services-cloud-console
   - Ansible
+  - data-services-on-the-hpe-greenlake-platform
 ---
 <style>
 li {

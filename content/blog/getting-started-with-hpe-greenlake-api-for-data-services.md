@@ -10,6 +10,7 @@ tags:
   - API
   - hpe-greenlake
   - data-services-cloud-console
+  - data-services-on-the-hpe-greenlake-platform
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
