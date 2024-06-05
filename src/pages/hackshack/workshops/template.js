@@ -98,97 +98,104 @@ const Workshop = (props) => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
       <SEO title={title} description={description} image={badgeImg} />
-      <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
-          Workshops-on-Demand
-        </Heading>
-      </MainTitle>
-      {workshops.length > 0 ? (
-        <Tabs activeIndex={index} onActive={onActive} justify="start">
-          <Tab title="All">
-            <CardGrid pad={{ top: 'medium' }} key="all">
-              {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
-            </CardGrid>
-          </Tab>
-          <Tab title="Latest">
-            <CardGrid pad={{ top: 'medium' }} key="ltst">
-              {latestWorkshops.map((workshop, i) =>
-                renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="Popular">
-            <CardGrid pad={{ top: 'medium' }} key="pop">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.popular && renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="Open Source">
-            <CardGrid pad={{ top: 'medium' }} key="os">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('open source') &&
+      <Box style={{ minHeight: 'calc(100vh - 345px)' }}>
+        <MainTitle>
+          <Heading
+            color="text-strong"
+            margin={{ top: 'none', bottom: 'small' }}
+          >
+            Workshops-on-Demand
+          </Heading>
+        </MainTitle>
+        {workshops.length > 0 ? (
+          <Tabs activeIndex={index} onActive={onActive} justify="start">
+            <Tab title="All">
+              <CardGrid pad={{ top: 'medium' }} key="all">
+                {workshops.map((workshop, i) =>
                   renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="HPE GreenLake">
-            <CardGrid pad={{ top: 'medium' }} key="hpee">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('hpe greenlake') &&
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Latest">
+              <CardGrid pad={{ top: 'medium' }} key="ltst">
+                {latestWorkshops.map((workshop, i) =>
                   renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="HPE Ezmeral">
-            <CardGrid pad={{ top: 'medium' }} key="hpee">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('hpe ezmeral') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="Infrastructure">
-            <CardGrid pad={{ top: 'medium' }} key="ifa">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('infrastructure') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-        </Tabs>
-      ) : (
-        <Box
-          pad="small"
-          justify="center"
-          margin={{ top: 'medium' }}
-          direction="column"
-          // background="status-critical"
-        >
-          {error ? (
-            <>
-              <Text size="large" color="status-critical" alignSelf="center">
-                {error}
-              </Text>
-              <Image
-                alt="gremlin rockin"
-                src="/img/hackshack/gremlin-rockin.svg"
-              />
-            </>
-          ) : (
-            <Box height="medium" />
-          )}
-        </Box>
-      )}
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Popular">
+              <CardGrid pad={{ top: 'medium' }} key="pop">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.popular && renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Open Source">
+              <CardGrid pad={{ top: 'medium' }} key="os">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('open source') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="HPE GreenLake">
+              <CardGrid pad={{ top: 'medium' }} key="hpee">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('hpe greenlake') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="HPE Ezmeral">
+              <CardGrid pad={{ top: 'medium' }} key="hpee">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('hpe ezmeral') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Infrastructure">
+              <CardGrid pad={{ top: 'medium' }} key="ifa">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('infrastructure') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+          </Tabs>
+        ) : (
+          <Box
+            pad="small"
+            justify="center"
+            margin={{ top: 'medium' }}
+            direction="column"
+            // background="status-critical"
+          >
+            {error ? (
+              <>
+                <Text size="large" color="status-critical" alignSelf="center">
+                  {error}
+                </Text>
+                <Image
+                  alt="gremlin rockin"
+                  src="/img/hackshack/gremlin-rockin.svg"
+                />
+              </>
+            ) : (
+              <Box height="medium" />
+            )}
+          </Box>
+        )}
+      </Box>
     </Layout>
   );
 };
