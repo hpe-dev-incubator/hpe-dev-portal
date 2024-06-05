@@ -13,6 +13,11 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
+I am excited to announce that HPE have developed and promoted a way to bring users and groups from Okta to HPE GreenLake Flex Solutions. Enterprises will be now able to sync and bring all users and groups from Okta into HPE GreenLake Flex Solutions.
+
+In this blog post, I will walk you through the process of configuring Okta SCIM adapter to sync users and groups over to HPE GreenLake Flex Solutions.
+
+
 ## Okta (SCIM) Adapter
 
 You can synchronize users and groups from your Okta identity management service to HPE GreenLake Flex Solutions using the Okta System for Cross-domain Identity Management (SCIM) adapter. 
@@ -70,5 +75,7 @@ The Okta SCIM adapter application can be installed from the Okta Integration Net
 **Please note:**
 Adding the Group Everyone group to the SCIM application could have unintended effects on all users. 
 
-These are all the steps required to configure a SCIM 2.0 application.  Remember that users must be members of a group that is assigned to the SCIM application and that group must be included in a push group. 
+These are all the steps required to configure a SCIM 2.0 application. Remember that users must be members of a group that is assigned to the SCIM application and that group must be included in a push group. 
 Now all configured groups can be pushed into HPE GreenLake Flex Solutions via the Okta SCIM Adapter.
+
+Please return to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more tips and tricks on working with the HPE GreenLake platform.
