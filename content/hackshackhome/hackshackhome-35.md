@@ -11,6 +11,6 @@ description: "June 12, 2024: As virtual replicas of physical systems, digital
   the datacenters and workloads."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
