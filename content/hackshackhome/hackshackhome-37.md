@@ -1,7 +1,8 @@
 ---
 title: Vendor-Neutral GPU Programming in Chapel
+active: true
 fit: contain
-path: https://developer.hpe.com/campaign/meetups/
+path: https://hpe.zoom.us/webinar/register/5117177053996/WN_ojVy9LR_QHSCGxeg21rj7A
 imageBackground: white
 description: "July 31, 2024: Writing programs on modern computers requires
   parallelism to achieve maximum performance. Chapel is an open-source parallel
