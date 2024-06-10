@@ -16,7 +16,6 @@ import { AppContext } from '../../providers/AppProvider';
 import { ButtonLink } from '..';
 import { UserMenu } from './UserMenu';
 
-
 const TextAlignLeft = styled(Box)`
   & > a {
     text-align: left;

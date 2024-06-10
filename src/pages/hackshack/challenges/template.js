@@ -97,12 +97,16 @@ const Challenge = (props) => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
       <SEO title={title} description={description} image={badgeImg} />
-      <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
-          Challenges
-        </Heading>
-      </MainTitle>
-      {/* <Text
+      <Box style={{ minHeight: 'calc(100vh - 345px)' }}>
+        <MainTitle>
+          <Heading
+            color="text-strong"
+            margin={{ top: 'none', bottom: 'small' }}
+          >
+            Challenges
+          </Heading>
+        </MainTitle>
+        {/* <Text
         color="text-strong"
         weight="bold"
         margin={{ top: 'none', bottom: 'small' }}
@@ -129,45 +133,47 @@ const Challenge = (props) => {
         </Anchor>
         .
       </Text> */}
-      {/* {console.log('replays in tabs ', workshops)} */}
-      {workshops.length > 0 ? (
-        <Tabs activeIndex={index} onActive={onActive} justify="start">
-          <Tab title="All">
-            <CardGrid pad={{ top: 'medium' }} key="all">
-              {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
-            </CardGrid>
-          </Tab>
-          <Tab title="Open Source Advocate">
-            <CardGrid pad={{ top: 'medium' }} key="os">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('open source') &&
+        {/* {console.log('replays in tabs ', workshops)} */}
+        {workshops.length > 0 ? (
+          <Tabs activeIndex={index} onActive={onActive} justify="start">
+            <Tab title="All">
+              <CardGrid pad={{ top: 'medium' }} key="all">
+                {workshops.map((workshop, i) =>
                   renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="ML Engineer">
-            <CardGrid pad={{ top: 'medium' }} key="ifa">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('ml engineer') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="Cloud Architect">
-            <CardGrid pad={{ top: 'medium' }} key="hpee">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('cloud architect') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          {/* <Tab title="Data-Driven Developer">
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Open Source Advocate">
+              <CardGrid pad={{ top: 'medium' }} key="os">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('open source') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="ML Engineer">
+              <CardGrid pad={{ top: 'medium' }} key="ifa">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('ml engineer') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Cloud Architect">
+              <CardGrid pad={{ top: 'medium' }} key="hpee">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('cloud architect') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            {/* <Tab title="Data-Driven Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
                 (workshop, i) =>
@@ -177,50 +183,51 @@ const Challenge = (props) => {
               )}
             </CardGrid>
           </Tab> */}
-          <Tab title="Developer">
-            <CardGrid pad={{ top: 'medium' }} key="os">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('developer') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-          <Tab title="Data Scientist">
-            <CardGrid pad={{ top: 'medium' }} key="os">
-              {workshops.map(
-                (workshop, i) =>
-                  workshop.category &&
-                  workshop.category.includes('data scientist') &&
-                  renderScheduleCard(workshop, i),
-              )}
-            </CardGrid>
-          </Tab>
-        </Tabs>
-      ) : (
-        <Box
-          pad="small"
-          justify="center"
-          margin={{ top: 'medium' }}
-          direction="column"
-          // background="status-critical"
-        >
-          {error ? (
-            <>
-              <Text size="large" color="status-critical" alignSelf="center">
-                {error}
-              </Text>
-              <Image
-                alt="gremlin rockin"
-                src="/img/hackshack/gremlin-rockin.svg"
-              />
-            </>
-          ) : (
-            <Box height="medium" />
-          )}
-        </Box>
-      )}
+            <Tab title="Developer">
+              <CardGrid pad={{ top: 'medium' }} key="os">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('developer') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+            <Tab title="Data Scientist">
+              <CardGrid pad={{ top: 'medium' }} key="os">
+                {workshops.map(
+                  (workshop, i) =>
+                    workshop.category &&
+                    workshop.category.includes('data scientist') &&
+                    renderScheduleCard(workshop, i),
+                )}
+              </CardGrid>
+            </Tab>
+          </Tabs>
+        ) : (
+          <Box
+            pad="small"
+            justify="center"
+            margin={{ top: 'medium' }}
+            direction="column"
+            // background="status-critical"
+          >
+            {error ? (
+              <>
+                <Text size="large" color="status-critical" alignSelf="center">
+                  {error}
+                </Text>
+                <Image
+                  alt="gremlin rockin"
+                  src="/img/hackshack/gremlin-rockin.svg"
+                />
+              </>
+            ) : (
+              <Box height="medium" />
+            )}
+          </Box>
+        )}
+      </Box>
     </Layout>
   );
 };

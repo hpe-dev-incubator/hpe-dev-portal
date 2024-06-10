@@ -1,7 +1,7 @@
 ---
 title: Using HPE GreenLake for Red Hat OpenShift to migrate, modernize and run
   your applications smoothly
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/9117138785383/WN_YLEOMTL_S_27I6pqgAdVxg
 imageBackground: white

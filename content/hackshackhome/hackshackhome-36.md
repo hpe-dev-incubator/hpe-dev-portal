@@ -13,6 +13,7 @@ description: "June 26, 2024: Organizations and governments worldwide are
   GreenLake."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 5
+priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
+
