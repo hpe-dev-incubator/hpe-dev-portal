@@ -43,14 +43,18 @@ const Student = (props) => {
       })
         .then((response) => {
           if (response.data.length) {
-            response.data.forEach((item) => {
-              if (
+            const filteredData = response.data.filter(
+              (item) =>
                 item.lastEmailSent === 'credentials' ||
-                item.lastEmailSent === 'expiring'
-              ) {
+                item.lastEmailSent === 'expiring',
+            );
+            if (filteredData.length) {
+              filteredData.forEach((item) => {
                 getStudents(token, item.studentId);
-              }
-            });
+              });
+            } else {
+              setError('There no active participants. Please try again later!');
+            }
           }
         })
         .catch((err) => {
