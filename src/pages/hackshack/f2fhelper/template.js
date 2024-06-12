@@ -76,7 +76,7 @@ const Student = (props) => {
       })
         .then((response) => {
           arr.push({ ...response.data });
-          const data = [students, { ...response.data }];
+          const data = [...arr];
           console.log('response.data =>', response.data);
           console.log('data =>', data);
           setStudents(data);
