@@ -10,7 +10,8 @@ import { SEO } from '../../../components';
 
 const Student = (props) => {
   const getStudentsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students`;
-  const [students, setstudents] = useState([]);
+  const getCustomerApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers`;
+  const [students, setStudents] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
   const [index, setIndex] = useState(0);
@@ -20,7 +21,7 @@ const Student = (props) => {
     const getToken = () => {
       AuthService.login().then(
         () => {
-          getStudents(AuthService.getCurrentUser().accessToken);
+          getCustomers(AuthService.getCurrentUser().accessToken);
         },
         (err) => {
           console.log('Error: ', err);
@@ -31,27 +32,60 @@ const Student = (props) => {
       );
     };
 
-    const getStudents = (token) => {
+    // get the details from customers table where lastEmailSent = 'credentials' or 'expiring'
+    // this customer data will have a studentId
+    // Make getStudents API call by studentId and display the username and password.
+    const getCustomers = (token) => {
       axios({
         method: 'GET',
-        url: getStudentsApi,
+        url: getCustomerApi,
         headers: { 'x-access-token': token },
       })
         .then((response) => {
-          // Map created
-          response.data.forEach((student) => {
-            // Check is student is assigned
-            if (student.assigned) arr.push({ ...student });
-          });
-          if (arr.length <= 0)
-            setError('There are currently no active students. Stay tuned!');
-          setstudents(arr);
+          if (response.data.length) {
+            const filteredData = response.data.filter(
+              (item) =>
+                item.lastEmailSent === 'credentials' ||
+                item.lastEmailSent === 'expiring',
+            );
+            if (filteredData.length) {
+              filteredData.forEach((item) => {
+                getStudents(token, item.studentId);
+              });
+            } else {
+              setError('There are currently no active students. Stay tuned!');
+            }
+          }
         })
         .catch((err) => {
           if (err.response.status === 401) {
             AuthService.login().then(() => getToken());
           } else {
-            console.log('catch error', err);
+            setError(
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+            );
+          }
+        });
+    };
+
+    const getStudents = (token, studentId) => {
+      axios({
+        method: 'GET',
+        url: `${getStudentsApi}/${studentId}`,
+        headers: { 'x-access-token': token },
+      })
+        .then((response) => {
+          arr.push({ ...response.data });
+          const data = [...arr];
+          setStudents(data);
+
+          if (arr.length <= 0)
+            setError('There are currently no active students. Stay tuned!');
+        })
+        .catch((err) => {
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getToken());
+          } else {
             setError(
               'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
             );
