@@ -4,7 +4,7 @@ dateStart: 2024-06-11T22:01:28.648Z
 dateEnd: 2024-06-12T21:59:28.717Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/6417138789512/WN_1RmdjuUxQQqEBKV6AiUNjA
+link: https://developer.hpe.com/campaign/munch-and-learn/
 width: large
 ---
 ## How digital twins help companies reach their sustainability goals
