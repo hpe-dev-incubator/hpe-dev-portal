@@ -76,9 +76,13 @@ const Student = (props) => {
       })
         .then((response) => {
           arr.push({ ...response.data });
+          const data = [...students, ...response.data];
+          console.log('response.data =>', response.data);
+          console.log('data =>', data);
+          setStudents(data);
+
           if (arr.length <= 0)
             setError('There are currently no active students. Stay tuned!');
-          setStudents([...students, ...response.data]);
         })
         .catch((err) => {
           if (err.response.status === 401) {
