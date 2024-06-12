@@ -11,7 +11,7 @@ import { SEO } from '../../../components';
 const Student = (props) => {
   const getStudentsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students`;
   const getCustomerApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers`;
-  const [students, setstudents] = useState([]);
+  const [students, setStudents] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
   const [index, setIndex] = useState(0);
@@ -78,7 +78,7 @@ const Student = (props) => {
           arr.push({ ...response.data });
           if (arr.length <= 0)
             setError('There are currently no active students. Stay tuned!');
-          setstudents(arr);
+          setStudents([...students, ...response.data]);
         })
         .catch((err) => {
           if (err.response.status === 401) {
