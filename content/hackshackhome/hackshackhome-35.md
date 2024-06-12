@@ -1,6 +1,6 @@
 ---
 title: How digital twins help companies reach their sustainability goals
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/6417138789512/WN_1RmdjuUxQQqEBKV6AiUNjA
 imageBackground: white
