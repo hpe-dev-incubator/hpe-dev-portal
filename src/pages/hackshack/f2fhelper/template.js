@@ -53,7 +53,7 @@ const Student = (props) => {
                 getStudents(token, item.studentId);
               });
             } else {
-              setError('There no active participants. Please try again later!');
+              setError('There are currently no active students. Stay tuned!');
             }
           }
         })
