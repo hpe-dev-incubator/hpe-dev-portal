@@ -9,6 +9,8 @@ disable: false
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 
+This blog post describes the detailed process to integrate K8sGPT using a local AI backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions to fix the issues. 
+ 
 ### Overview
 
 
@@ -72,7 +74,6 @@ Type the following command to verify the K8sGPT installation:
 $ k8sgpt version
 k8sgpt: 0.3.24 (eac9f07), built at: unknown
 
-
 $ k8sgpt -h
 Kubernetes debugging powered by AI
 
@@ -99,8 +100,6 @@ Flags:
 
 Use "k8sgpt [command] --help" for more information about a command.
 ```
-
-K8sGPT brings you chatgpt for your K8s platform. It enables the user to analyze issues in the K8s cluster and reports it back with suggestions to fix the issue.
 
 
 
@@ -132,7 +131,7 @@ Unused:
 > HTTPRoute
 ```
 
-You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy* as the supported filter by typing the command *k8sgpt filter add*.
+You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy*, as the supported filter by typing the command *k8sgpt filter add*.
 
 
 ```shell
@@ -151,11 +150,12 @@ You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPol
 ```
 ### Local AI
 
+K8sGPT supports various AI providers, including *OpenAI*, *Amazon Bedrock*, *Azure OpenAI GPT* and *Google Gemini*. This blog post describes the process to deploy K8sGPT using [Local AI](https://github.com/mudler/LocalAI) as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
 
 
-[Local AI](https://github.com/mudler/LocalAI) is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data soverighty and privcy. 
+*Local AI* is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer-grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data soverighty and privcy. 
 
-### Set up LLM 
+#### Download LLM model locally
 
 
 
@@ -194,7 +194,7 @@ Llama-2-13b-chat-hf/
 0 directories, 18 files
 ```
 
-### Set up the local LLM
+#### Set up the local LLM
 
 
 
