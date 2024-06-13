@@ -254,11 +254,56 @@ You can start the browser by typing the local URL * http://0.0.0.0:7860*. You wi
 ![](/img/local-llm.png)
 
 
-### Set up the load balancer with *MetalLB*
+### Configure K8sGPT to use the local API endpoint
 
-You can install *MetalLB* and set up the load balancer in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
-Type the following commands to deploy *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
+
+Type the following command to configure K8sGPT to use the API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
+
+
+
+```shell
+$ k8sgpt auth add --backend openai --model Llama-2-13b-chat-hf --baseurl http://localhost:5000/v1
+Enter openai Key: 
+openai added to the AI backend provider list
+```
+
+In case K8sGPT has already an OpenAI API endpoint added, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpint.
+
+```shell
+$ k8sgpt auth  remove openai
+```
+
+
+
+### Try the K8sGPT with the local LLM
+
+
+
+
+#### Deploy an application
+
+```shell
+$ kubectl create ns cfe-apps
+
+$ kubectl get all -n cfe-apps
+NAME                                     READY   STATUS             RESTARTS   AGE
+pod/app-with-no-image-7ff65f5484-9bt4z   0/1     ImagePullBackOff   0           2m
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/app-with-no-image   0/1     1            0            2m
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/app-with-no-image-7ff65f5484   1         1         0        2m
+```
+
+#### Run *k8sgpt analyze*
+
+
+
+
+
+Type the following command to detect issues in the deployed application in the namespace *cfe-apps*:
 
 
 
@@ -280,6 +325,8 @@ Solution:
 3. If the image is a public image, try using a different image name or tag.
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
+
+Above command executes the K8sGPT analyze with the option *--explain* and the filter *Pod* in the namespace. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the issue. 
 
 
 
@@ -305,26 +352,6 @@ Solution:
 2. Si l'image n'existe pas, créez-la manuellement en utilisant le commandes `docker pull` ou `docker build`.
 3. Essayez à nouveau de tirer l'image en utilisant la commande `kubectl apply`.
 ```
-
-### Configure K8sGPT to use the API endpoint
-
-
-
-Type the following command to configure K8sGPT to use the API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
-
-
-
-```shell
-$ k8sgpt auth add --backend openai --model Llama-2-13b-chat-hf --baseurl http://localhost:5000/v1
-Enter openai Key: 
-openai added to the AI backend provider list
-```
-
-### Try the K8sGPT with the local LLM
-
-
-
-
 
 
 
