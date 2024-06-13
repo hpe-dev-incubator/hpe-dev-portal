@@ -5,6 +5,10 @@ date: 2024-06-13T17:36:32.179Z
 author: Sudhendra Seshachala
 authorimage: /img/sudhi-1.jpeg
 disable: false
+tags:
+  - HPE GreenLake for Private Cloud Enterprise
+  - Migration
+  - Private Cloud
 ---
 **Introduction:**
 
