@@ -13,9 +13,22 @@ disable: false
 
 
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+
+K8s is celebrated for its scalability, self-healing capabilities and compatibility, which make it a preferred choice for developers and organizations. Despite those benefits, operating K8s clusters and managing the deployed applications can present challenges. 
 
 
+
+
+Its ability to automate deployment, scaling, and management of containerized workloads has revolutionized the way organizations build, deploy and manage their applications. K8s has emerged as a cornerstone technology for managing containerized applications at scale. Advancements in artificial intelligence (AI) have opened new horizons for automation, optimization and intelligent decision-making across various domains, including K8s.
+
+
+
+K8sGPT is a tool for scanning the K8s clusters, diagnosing and triaging issues in simple English using AI. It detects issues in the K8s cluster and uses supported AI backends to recommend solutions for the issues detected.
+
+
+
+This blog post explores the convergence of K8s and AI through K8sGPT. It describes the detailed process to integrate K8sGPT with local LLM to empower K8s in HPE GreenLake for Private Cloud Enterperise.
 
 ### Prerequisites
 
@@ -36,6 +49,106 @@ Before starting, make sure you have the following:
 
 K8sGPT is  an open source project designed to address common and complex issues within K8s clusters using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve cluster management. K8sGPT supports various AI providers, including OpenAI, Amazon Bedrock, Azure OpenAI GPT and Google Gemini. This blog post describes the process to deploy K8sGPT using Local AI as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
 
+#### Install K8sGPT
+
+There are two options to install K8sGPT, as a CLI or as a K8s Operator in the K8s cluster. This blog post takes the CLI option to install K8sGPT to the workstation. K8sGPT will be independent of any specific K8s cluster and it can be used for working on any existing K8s clusters. This is helpful, especially when multiple K8s clusters are created in your environment. They can all work with the same K8sGPT installation.
+
+
+
+Follow the following instructions to install K8sGPT as a CLI tool on the workstation:
+
+```shell
+$ curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_386.deb
+$ sudo dpkg -i k8sgpt_386.deb
+```
+
+
+
+Type the following command to verify the K8sGPT installation:
+
+
+
+```shell
+$ k8sgpt version
+k8sgpt: 0.3.24 (eac9f07), built at: unknown
+
+
+$ k8sgpt -h
+Kubernetes debugging powered by AI
+
+Usage:
+  k8sgpt [command]
+
+Available Commands:
+  analyze     This command will find problems within your Kubernetes cluster
+  auth        Authenticate with your chosen backend
+  cache       For working with the cache the results of an analysis
+  completion  Generate the autocompletion script for the specified shell
+  filters     Manage filters for analyzing Kubernetes resources
+  generate    Generate Key for your chosen backend (opens browser)
+  help        Help about any command
+  integration Integrate another tool into K8sGPT
+  serve       Runs k8sgpt as a server
+  version     Print the version number of k8sgpt
+
+Flags:
+      --config string        Default config file (/home/guoping/.config/k8sgpt/k8sgpt.yaml)
+  -h, --help                 help for k8sgpt
+      --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
+      --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
+
+Use "k8sgpt [command] --help" for more information about a command.
+```
+
+K8sGPT brings you chatgpt for your K8s platform. It enables the user to analyze issues in the K8s cluster and reports it back with suggestions to fix the issue.
+
+
+
+K8sGPT comes with a list of built-in analyzers that can be used to find issues in various K8s API objects, such as *Pod*, Service, ReplicaSet, etc. 
+
+Here is a list of supported K8s API objects that can be used in K8sGPT analyzer as the filter to find issue. They are showing under *Active* from the output of the command * k8sgpt filter list*:
+
+```shell
+$ k8sgpt filters list
+Active:
+> Node
+> Pod
+> Deployment
+> ReplicaSet
+> PersistentVolumeClaim
+> Service
+> Ingress
+> StatefulSet
+> ValidatingWebhookConfiguration
+> MutatingWebhookConfiguration
+> CronJob
+Unused:
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+```
+
+You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy* as the supported filter by typing the command *k8sgpt filter add*.
+
+
+```shell
+
+
+```
+
+```shell
+
+
+```
+
+```shell
+
+
+```
 ### Local AI
 
 
@@ -46,7 +159,13 @@ K8sGPT is  an open source project designed to address common and complex issues 
 
 
 
-After you create an account to [Hugging Face]( https://huggingface.co/), log in to the site and share your contact information, you will be granted access to this model. Then typing the following command to clone the LLM mode. Make sure you have [*git-lfs*](https://git-lfs.github.com) installed. 
+After you create an account to [Hugging Face]( https://huggingface.co/), log in to the site and share your contact information, you will be granted access to this model. 
+
+![](/img/hf-llama.png)
+
+Then typing the following command to clone the LLM mode. Make sure you have [*git-lfs*](https://git-lfs.github.com) installed. 
+
+
 
 ```shell
 $ git-lfs clone https://huggingface.co/meta-llama/Llama-2-13b-chat-hf
@@ -81,7 +200,11 @@ Llama-2-13b-chat-hf/
 
 There are many LLM serving framework and tools that run various LLMs and provide a way to interact with those models to generate text. The [Text Generation Web UI (TGW)]( https://github.com/oobabooga/text-generation-webui) is one such tool based on [Gradio]( https://github.com/gradio-app/gradio/) that builds a web UI and supports many large language model format with OpenAI compatible APIs.
 
+
+
 Typing the following commands to install TGW:
+
+
 
 ```shell
 git clone https://github.com/oobabooga/text-generation-webui
@@ -89,7 +212,11 @@ cd text-generation-webui
 pip install -r requirements.txt
 ```
 
+
+
 Typing the following command to start serving the LLM downloaded in your local environment. The option *--extensions openai * specifies to use the OpenAI extension to provide OpenAI format API. The options *--cpu* & *--load-in-4bit* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially helpful in case you don’t have GPU installed in your environment.
+
+
 
 ```shell
 $ python3 server.py --listen-host 0.0.0.0 --listen --model Llama-2-13b-chat-hf --model-dir /home/guoping/CFE/AI/models --extensions openai --cpu --load-in-4bit
@@ -124,7 +251,7 @@ You can start the browser by typing the local URL * http://0.0.0.0:7860*. You wi
 
 
 
-![](/img/mario-private.png)
+![](/img/local-llm.png)
 
 
 ### Set up the load balancer with *MetalLB*
@@ -132,6 +259,8 @@ You can start the browser by typing the local URL * http://0.0.0.0:7860*. You wi
 You can install *MetalLB* and set up the load balancer in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
 Type the following commands to deploy *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
+
+
 
 ```shell
 $ k8sgpt analyze --filter=Pod --namespace=cfe-apps --explain --no-cache
@@ -152,12 +281,38 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-![](/img/mario-private.png)
 
+
+
+
+
+Apart from the default English, K8sGPT supports get the response in other languages. Here is an example of getting response in K8sGPT in French:
+
+```shell
+$ k8sgpt analyze --filter=Pod --namespace=cfe-apps --language french --explain --no-cache
+ 100% |██████████████████████████████████████████████████████████████████████████████████████████████████| (1/1, 31 it/hr)
+AI Provider: openai
+
+0 cfe-apps/app-with-no-image-7ff65f5484-9bt4z(Deployment/app-with-no-image)
+- Error: Back-off pulling image "cfe-image-not-exist"
+Sure! Here's the simplified error message and solution in French, within the 280 character limit:
+
+Error: Impossible de tirer l'image "cfe-image-not-exist".
+
+Solution:
+
+1. Vérifiez si l'image est disponible dans le registre de conteneurs.
+2. Si l'image n'existe pas, créez-la manuellement en utilisant le commandes `docker pull` ou `docker build`.
+3. Essayez à nouveau de tirer l'image en utilisant la commande `kubectl apply`.
+```
 
 ### Configure K8sGPT to use the API endpoint
 
+
+
 Type the following command to configure K8sGPT to use the API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
+
+
 
 ```shell
 $ k8sgpt auth add --backend openai --model Llama-2-13b-chat-hf --baseurl http://localhost:5000/v1
@@ -169,10 +324,13 @@ openai added to the AI backend provider list
 
 
 
-Conclusion
+
+
+
 
 ### Conclusion
 
+K8sGPT is a handy tool which helps in initial trobuleshooting in K8s clusters. It help to improve the Ops experience and make the SRE a lot easier.
 This blog post offers you a comprehensive guide on 
 
 Utilizing K8sGPT for enhanced troubleshooting
