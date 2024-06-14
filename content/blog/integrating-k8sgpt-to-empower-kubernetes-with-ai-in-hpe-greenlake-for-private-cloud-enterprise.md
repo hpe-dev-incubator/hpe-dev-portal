@@ -276,16 +276,26 @@ $ k8sgpt auth  remove openai
 
 
 
-### Try the K8sGPT with the local LLM
+### Try K8sGPT with the local LLM
 
 
 
 
 #### Deploy an application
 
+Type the following commands to deploy a sample application using *kubectl* CLI to the namespace *cfe-apps*:
+
 ```shell
 $ kubectl create ns cfe-apps
+namespace/cfe-apps created
 
+$ kubectl create deployment app-with-no-image --image=cfe-image-not-exist -n cfe-apps
+deployment.apps/app-with-no-image created
+```
+
+Check the deployed application using below command:
+
+```shell
 $ kubectl get all -n cfe-apps
 NAME                                     READY   STATUS             RESTARTS   AGE
 pod/app-with-no-image-7ff65f5484-9bt4z   0/1     ImagePullBackOff   0           2m
@@ -296,6 +306,8 @@ deployment.apps/app-with-no-image   0/1     1            0            2m
 NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/app-with-no-image-7ff65f5484   1         1         0        2m
 ```
+
+The output shows some issue in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4z'*. Therefore the application deployment keeps showing as *'0/1 READY'*.
 
 #### Run *k8sgpt analyze*
 
@@ -326,7 +338,7 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-Above command executes the K8sGPT analyze with the option *--explain* and the filter *Pod* in the namespace. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the issue. 
+Above command executes the K8sGPT analyze with the option *--explain* and the filter *Pod* in the namespace *cfe-apps*. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the issue. 
 
 
 
