@@ -9,7 +9,7 @@ disable: false
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 
-This blog post describes the detailed process to integrate K8sGPT using a local AI backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions to fix the issues. 
+This blog post describes the detailed process to integrate K8sGPT serving a local LLM model as an AI backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions to fix the issues. 
  
 ### Overview
 
@@ -30,13 +30,17 @@ K8sGPT is a tool for scanning the K8s clusters, diagnosing and triaging issues i
 
 
 
-This blog post explores the convergence of K8s and AI through K8sGPT. It describes the detailed process to integrate K8sGPT with local LLM to empower K8s in HPE GreenLake for Private Cloud Enterperise.
+This blog post explores the convergence of K8s and AI through K8sGPT. It describes the detailed process to integrate K8sGPT with local LLM model to empower K8s in HPE GreenLake for Private Cloud Enterperise.
+
+This blog post describes the process to deploy K8sGPT using [Local AI](https://github.com/mudler/LocalAI) as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
 
 ### Prerequisites
 
 
 
 Before starting, make sure you have the following:
+
+
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
@@ -50,6 +54,7 @@ Before starting, make sure you have the following:
 
 
 K8sGPT is  an open source project designed to address common and complex issues within K8s clusters using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve cluster management. K8sGPT supports various AI providers, including OpenAI, Amazon Bedrock, Azure OpenAI GPT and Google Gemini. This blog post describes the process to deploy K8sGPT using Local AI as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
+
 
 #### Install K8sGPT
 
@@ -148,18 +153,22 @@ You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPol
 
 
 ```
-### Local AI
+### Local AI setup
 
-K8sGPT supports various AI providers, including *OpenAI*, *Amazon Bedrock*, *Azure OpenAI GPT* and *Google Gemini*. This blog post describes the process to deploy K8sGPT using [Local AI](https://github.com/mudler/LocalAI) as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
+K8sGPT supports various AI providers, including *OpenAI*, *Amazon Bedrock*, *Azure OpenAI GPT*, *Google Gemini* as well as [Local AI](https://github.com/mudler/LocalAI). Local AI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
 
-
-*Local AI* is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer-grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data soverighty and privcy. 
-
-#### Download LLM model locally
+This section will focus on setting up and utilizing Local AI with a supported LLM model in the local workstation environment. This Local AI setup in the workstation will be integrated with K8sGPT.
 
 
 
-After you create an account to [Hugging Face]( https://huggingface.co/), log in to the site and share your contact information, you will be granted access to this model. 
+
+#### Download a LLM model
+
+Local AI supports a list of LLM models, such as *LLaMA*, *GPT4ALL*, *Alpaca* and *koala*, etc. The LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded locally and used as AI backend for K8sGPT.
+
+
+
+After you create an account to *Hugging Face*, log in to the site and share your contact information, you will be granted access to this model. 
 
 ![](/img/hf-llama.png)
 
@@ -194,15 +203,17 @@ Llama-2-13b-chat-hf/
 0 directories, 18 files
 ```
 
-#### Set up the local LLM
+#### Set up the local LLM model
 
 
 
-There are many LLM serving framework and tools that run various LLMs and provide a way to interact with those models to generate text. The [Text Generation Web UI (TGW)]( https://github.com/oobabooga/text-generation-webui) is one such tool based on [Gradio]( https://github.com/gradio-app/gradio/) that builds a web UI and supports many large language model format with OpenAI compatible APIs.
+The [Local AI GitHub repo](https://github.com/mudler/LocalAI) can be cloned and the code can be built in the workstation. The built Local AI binary can be used as a tool to serve the downloaded LLM model with OpenAI  compatible API endpoint. There are also many other LLM serving framework and tools that run various LLM models and provide a way to interact with those models to generate text. 
 
 
 
-Typing the following commands to install TGW:
+This section introduces the [Text Generation Web UI (TGW)]( https://github.com/oobabooga/text-generation-webui) tool and shows how to set up this tool to support the locally downloaded LLM model as AI backend. The TGW is a [Gradio]( https://github.com/gradio-app/gradio/) based tool that builds a web UI and supports many large language model format with OpenAI compatible APIs.
+
+Typing the following commands to clone the TGW repo and install it:
 
 
 
@@ -214,7 +225,8 @@ pip install -r requirements.txt
 
 
 
-Typing the following command to start serving the LLM downloaded in your local environment. The option *--extensions openai * specifies to use the OpenAI extension to provide OpenAI format API. The options *--cpu* & *--load-in-4bit* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially helpful in case you don’t have GPU installed in your environment.
+
+Typing the following command to start serving the locally downloaded LLM model in your local environment. The option *--extensions openai * specifies to use the OpenAI extension to provide OpenAI format API. The options *--cpu* & *--load-in-4bit* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially it’s helpful in case you don’t have GPU installed in your environment.
 
 
 
@@ -247,7 +259,10 @@ Running on local URL:  http://0.0.0.0:7860
 
 The OpenAI compatible API is hosted on *http://0.0.0.0.5000*. 
 
-You can start the browser by typing the local URL * http://0.0.0.0:7860*. You will land to the TGW *Chat* page. Try to ask some question in the Chat page by typing some text and clicking *Generate* button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
+Apart from above API server URL, the TGW starts running another local web URL, e.g., at *http://0.0.0.0:7860*, providing 3 interface modes, *chat*, *default* & *notebook*, for text generation with the local LLM model backend. You can start the browser by typing this local URL *http://0.0.0.0:7860*. You will land to the *Chat* page. Try to ask some question in the Chat page by typing some text and clicking *Generate* button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
+
+
+
 
 
 
@@ -276,7 +291,7 @@ $ k8sgpt auth  remove openai
 
 
 
-### Try K8sGPT with the local LLM
+### Try K8sGPT with the local LLM model
 
 
 
