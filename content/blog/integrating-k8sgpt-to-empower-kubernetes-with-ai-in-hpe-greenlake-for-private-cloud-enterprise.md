@@ -287,7 +287,7 @@ NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/app-with-no-image-7ff65f5484   1         1         0        2m
 ```
 
-The output shows some issue in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4z'*. Therefore the application deployment keeps showing as *'0/1 READY'*.
+The output shows some issues in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4z'*. The K8s deployment keeps showing as *'0/1 READY'*.
 
 #### Run *k8sgpt analyze*
 
