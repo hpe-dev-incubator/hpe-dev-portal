@@ -114,51 +114,7 @@ Use "k8sgpt [command] --help" for more information about a command.
 
 
 
-K8sGPT comes with a list of built-in analyzers that can be used to find issues in various K8s API objects, such as *Pod*, Service, ReplicaSet, etc. 
 
-Here is a list of supported K8s API objects that can be used in K8sGPT analyzer as the filter to find issue. They are showing under *Active* from the output of the command * k8sgpt filter list*:
-
-```shell
-$ k8sgpt filters list
-Active:
-> Node
-> Pod
-> Deployment
-> ReplicaSet
-> PersistentVolumeClaim
-> Service
-> Ingress
-> StatefulSet
-> ValidatingWebhookConfiguration
-> MutatingWebhookConfiguration
-> CronJob
-Unused:
-> HorizontalPodAutoScaler
-> PodDisruptionBudget
-> NetworkPolicy
-> Log
-> GatewayClass
-> Gateway
-> HTTPRoute
-```
-
-You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy*, as the supported filter by typing the command *k8sgpt filter add*.
-
-
-```shell
-
-
-```
-
-```shell
-
-
-```
-
-```shell
-
-
-```
 ### Set up Local AI
 
 
@@ -335,11 +291,64 @@ The output shows some issue in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4
 
 #### Run *k8sgpt analyze*
 
+K8sGPT comes with a list of built-in analyzers that can be used to find issues in various K8s API objects, such as *Pod*, Service, ReplicaSet, etc. 
+
+Here is a list of supported K8s API objects that can be used in K8sGPT analyzer as the filter to find issue. They are showing under *Active* from the output of the command * k8sgpt filter list*:
+
+```shell
+$ k8sgpt filters list
+Active:
+> Node
+> Pod
+> Deployment
+> ReplicaSet
+> PersistentVolumeClaim
+> Service
+> Ingress
+> StatefulSet
+> ValidatingWebhookConfiguration
+> MutatingWebhookConfiguration
+> CronJob
+Unused:
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+```
+
+You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy*, as the supported filter by typing the command *k8sgpt filter add*.
+
+
+```shell
+
+
+```
+
+```shell
+
+
+```
+
+
+
+Running the following command should detect the Pod issues in the namespace *cfe-apps*:
+
+```shell
+$ k8sgpt analyze --filter=Pod --namespace cfe-apps --no-cache
+AI Provider: openai
+
+0 cfe-apps/app-with-no-image-7ff65f5484-9bt4z(Deployment/app-with-no-image)
+- Error: Back-off pulling image "cfe-image-not-exist"
+```
 
 
 
 
-Type the following command to detect issues in the deployed application in the namespace *cfe-apps*:
+
+Executing again the K8sGPT analyze with the option *'--explain'* will enable the AI backend. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the Pod issue:
 
 
 
@@ -362,7 +371,7 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-Above command executes the K8sGPT analyze with the option *--explain* and the filter *Pod* in the namespace *cfe-apps*. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the issue. 
+The solutions provided by K8sGPT can be used as actionable insights to fix the above *ImagePullBackOff* errors in the K8s Pod. It can be further integrated with other external tools in the organization, such as *Slack*, to send out alerts along with suggested solutions as the remediation steps.
 
 
 
