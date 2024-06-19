@@ -411,6 +411,8 @@ Utilizing K8sGPT for enhanced troubleshooting
 
 K8sGPT can aid in triaging issues within K8s clusters using AI. Using its versatility and integration capabilities, K8sGPT can be served as a diagnostic asset, interfacing with a variety of AI platforms and services such as OpenAI, Amazon Bedrock, Azure OpenAI and Google Gemini, etc. This flexibility ensures that K8sGPT can be adapted to the specific tools and systems already in use by any organization, leveraging AI to tackle common and complex problems in K8s environments. Integrating K8sGPT with Local AI solutions allows organization to do the cost savings and avoids transmitting data to public cloud provides or relying on external AI services.  
 
+
+
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
 
 
