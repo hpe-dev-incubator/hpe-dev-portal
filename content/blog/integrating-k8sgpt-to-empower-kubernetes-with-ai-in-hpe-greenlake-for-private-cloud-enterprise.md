@@ -18,7 +18,7 @@ tags:
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 
-This blog post describes the detailed process to integrate [K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) serving a local LLM model as an AI backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions from AI backend to fix the issues. 
+This blog post describes the detailed process to integrate [K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) serving a local LLM model as an artificial intelligence (AI) backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions from AI backend to fix the K8s issues. 
  
 ### Overview
 
@@ -26,12 +26,12 @@ This blog post describes the detailed process to integrate [K8sGPT]( https://git
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-K8s is celebrated for its scalability, self-healing capabilities and compatibility, which make it a preferred choice for developers and organizations. Despite those benefits, operating K8s clusters and managing the deployed applications can present challenges. 
+K8s is celebrated for its scalability, self-healing capabilities and compatibility, which make it a preferred choice for developers and organizations. Though K8s dramatically simplifies application deployment in containers, it adds a new set of complexities for managing, securing and troubleshooting applications. Operating K8s clusters and managing the deployed applications can present challenges. 
 
 
 
 
-Its ability to automate deployment, scaling, and management of containerized workloads has revolutionized the way organizations build, deploy and manage their applications. K8s has emerged as a cornerstone technology for managing containerized applications at scale. Advancements in artificial intelligence (AI) have opened new horizons for automation, optimization and intelligent decision-making across various domains, including K8s.
+Artificial Intelligence is a technology that enables computers and machines to simulate human intelligence and problem-solving capabilities. AI systems are trained on huge amounts of information and learn to identify the patterns in it to carry out tasks such as having human-like conversion and solve problems like a person. Advancements in AI, with a list of large language models, have opened new horizons for automation, optimization and intelligent decision-making across various domains, including K8s.
 
 
 
