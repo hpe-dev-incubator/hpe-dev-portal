@@ -18,20 +18,20 @@ tags:
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 
-This blog post describes the detailed process to integrate [K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) serving a local LLM model as an artificial intelligence (AI) backend to Kubernetes (K8s) clusters in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions from AI backend to fix the K8s issues. 
+This blog post describes the detailed process to integrate [K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) serving a local LLM model as an artificial intelligence (AI) backend to Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It explores the convergence of K8s and AI for diagnosing and triaging issues in K8s clusters and reporting back with suggestions from AI backend to fix the K8s issues. 
  
 ### Overview
 
 
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
 K8s is celebrated for its scalability, self-healing capabilities and compatibility, which make it a preferred choice for developers and organizations. Though K8s dramatically simplifies application deployment in containers, it adds a new set of complexities for managing, securing and troubleshooting applications. Operating K8s clusters and managing the deployed applications can present challenges. 
 
 
 
 
-Artificial Intelligence is a technology that enables computers and machines to simulate human intelligence and problem-solving capabilities. AI systems are trained on huge amounts of information and learn to identify the patterns in it to carry out tasks such as having human-like conversion and solve problems like a person. Advancements in AI, with a list of large language models, have opened new horizons for automation, optimization and intelligent decision-making across various domains, including K8s.
+AI is a technological innovation that equips computers and machines with the ability to mimic human intelligence and problem-solving skills. These AI systems are trained on vast volumes of data, enabling them to recognize patterns and perform tasks such as solving problems in a human-like manner. The evolution of AI, especially the development of extensive large language models (LLMs), has expanded possibilities in many sectors, including Kubernetes (K8s). The application of AI in enhancing diagnostics and troubleshooting workflows in K8s clusters has grown considerably. 
 
 
 
@@ -39,9 +39,7 @@ K8sGPT is a tool for scanning the K8s clusters, diagnosing and triaging issues i
 
 
 
-This blog post explores the convergence of K8s and AI through K8sGPT. It describes the detailed process to integrate K8sGPT with local LLM model to empower K8s in HPE GreenLake for Private Cloud Enterperise.
-
-This blog post describes the process to deploy K8sGPT using [Local AI](https://github.com/mudler/LocalAI) as its backend to empower K8s clusters with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
+This blog post explores the convergence of K8s and AI through K8sGPT, a tool for scanning the K8s clusters, diagnosing and triaging issues using AI. It describes the detailed process to integrate K8sGPT with local LLM model to empower K8s in HPE GreenLake for Private Cloud Enterperise.
 
 ### Prerequisites
 
