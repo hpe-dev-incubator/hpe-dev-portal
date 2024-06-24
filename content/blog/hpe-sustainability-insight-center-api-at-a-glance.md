@@ -7,9 +7,17 @@ disable: false
 tags:
   - hpe-greenlake-api
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 HPE GreenLake provides a new service called HPE Sustainability Insight Center that can assist you in obtaining detailed information about carbon emissions, energy consumption and the cost of the infrastructure that is managed by HPE GreenLake. In this blog post, I will explain how to extract data from this service in a programmatic way using cURL and the HPE Sustainability Insight Center API.
 
-What is HPE Sustainability Insight Center?
+## What is HPE Sustainability Insight Center?
 
 HPE Sustainability Insight Center is a service that runs on HPE GreenLake. I can add it into my workspace from the HPE GreenLake catalogue under the Management & Governance category.
 
@@ -37,7 +45,7 @@ The [API specifications](https://developer.greenlake.hpe.com/docs/greenlake/serv
 * **usageTotals**: Returns the total aggregated power cost, power consumption, and carbon emissions over a defined time frame and supports filtering by entities.
 * **usageSeries**: Retrieves aggregated energy usage statistics grouped by time bucket over a defined time frame and supports filtering by entities.
 
-Note: You can download the [OpenAPI specs](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/overview/) from the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/), if you want to use the API from a tool such as Postman.
+>Note: You can download the [OpenAPI specs](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/overview/) from the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/), if you want to use the API from a tool such as Postman.
 
 ## Be careful with tokens!
 
@@ -49,11 +57,11 @@ A little word of advice about tokens. Because the HPE Sustainability Insight Cen
 
 Let's start with the first of the 3 calls, **usageByEntity**. From the [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageByEntity), note that only 2 parameters are mandatory, *start-time* and *end-time*.
 
-Note: the format of the date used by the API, which is ISO 8601 of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)
+>Note: the format of the date used by the API, which is ISO 8601 of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)
 
 So, you could use the following command in Bash:
 
-```
+```bash
 $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insight-ctr/v1beta1/usage-by-entity?end-time=2024-06-11T08%3A00%3A00Z&start-time=2024-06-11T08%3A00%3A00Z'-H 'Authorization: Bearer <my-token>' -H "Accept:application/json" | jq
 {
   "items": [
@@ -104,7 +112,7 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 }
 ```
 
-Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
+>Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
 
 ![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
 
@@ -112,7 +120,7 @@ Here, you can see from the JSON response obtained for energy cost, CO2 emission 
 
 The next call to try out is **usage-totals**, which is documented [here](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageTotals). The parameters of the call are the same as in the previous call, so let's give it a try:
 
-```
+```bash
 $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insight-ctr/v1beta1/usage-totals?end-time=2024-06-11T08%3A00%3A00Z&start-time=2024-06-01T00%3A00%3A00Z' -H 'Authorization: Bearer <my-token>' -H "Accept:application/json" | jq
 {
   "items": [
@@ -134,7 +142,7 @@ This call returns the totals Cost, CO2, and kWh for the complete environment. Yo
 
 Let’s try these two:
 
-```
+```bash
 $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insight-ctr/v1beta1/usage-totals?end-time=2024-06-11T08%3A00%3A00Z&start-time=2024-06-01T00%3A00%3A00Z&filter=locationCountry%20eq%20%27France%27' -H 'Authorization: Bearer <my-token>' -H "Accept:application/json"  | jq
 {
   "items": [
@@ -167,7 +175,7 @@ Finally, give the last call, **usageSeries**, a try. You can see from the [docum
 
 Let's give this a try:
 
-```
+```bash
 $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insight-ctr/v1beta1/usage-series?end-time=2024-06-11T08%3A00%3A00Z&start-time=2024-06-01T00%3A00%3A00Z&interval=1%20day' -H 'Authorization: Bearer <my-token>' -H "Accept:application/json" | jq
 {
   "items": [
