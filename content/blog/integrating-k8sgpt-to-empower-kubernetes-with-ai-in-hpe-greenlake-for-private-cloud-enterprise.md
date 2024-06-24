@@ -58,7 +58,7 @@ Before starting, make sure you have the following:
 
 
 
-K8sGPT is an open source project designed to address common and complex issues within K8s clusters using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve cluster management. K8sGPT supports various AI providers, including [OpenAI] (https://openai.com/), [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service), Google Gemini](https://ai.google.dev/docs/gemini_api_overview) as well as [Local AI](https://github.com/mudler/LocalAI). 
+[K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) is an open source project designed to address common and complex issues within K8s clusters using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve cluster management. K8sGPT supports various AI providers, including [OpenAI] (https://openai.com/), [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service), Google Gemini](https://ai.google.dev/docs/gemini_api_overview) as well as [Local AI](https://github.com/mudler/LocalAI). 
 
 The Local AI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
 
@@ -117,6 +117,35 @@ Flags:
 Use "k8sgpt [command] --help" for more information about a command.
 ```
 
+K8sGPT comes with a list of [built-in analyzers](https://github.com/k8sgpt-ai/k8sgpt), which is essentially a series of rules/checks that can be used to diagnose issues in various K8s API resources, such as *Pod* crashes, *Service* failures, etc. 
+
+K8sGPT provides a list of *filters* that can be used together with K8sGPT analyzer to scan issues for any specific K8s API resources: 
+
+```shell
+$ k8sgpt filters list
+Active:
+> Node
+> Pod
+> Deployment
+> ReplicaSet
+> PersistentVolumeClaim
+> Service
+> Ingress
+> StatefulSet
+> ValidatingWebhookConfiguration
+> MutatingWebhookConfiguration
+> CronJob
+Unused:
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+```
+
+You can add any other *Unused* filters, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy*, by typing the command *'k8sgpt filter add [filter(s)]'*.
 
 
 
@@ -124,14 +153,14 @@ Use "k8sgpt [command] --help" for more information about a command.
 
 
 
-This section will focus on setting up and utilizing Local AI with a supported LLM model in the local workstation environment. This Local AI setup in the workstation will be integrated with K8sGPT.
+This section will focus on setting up and utilizing Local AI with a supported LLM model in the local environment. This Local AI setup in the workstation will be integrated with K8sGPT.
 
 
 
 
 #### Download a LLM model
 
-Local AI supports a list of LLM models, such as *LLaMA*, *GPT4ALL*, *Alpaca* and *koala*, etc. The LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded locally and used as AI backend for K8sGPT.
+The Local AI supports a list of LLM models, such as *LLaMA*, *GPT4ALL*, *Alpaca* and *koala*, etc. The LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded locally and used as AI backend for K8sGPT.
 
 
 
@@ -268,7 +297,7 @@ $ k8sgpt auth  remove openai
 
 #### Deploy an application
 
-Type the following commands to deploy a sample application using *kubectl* CLI to the namespace *cfe-apps*:
+Type the following commands to deploy a sample application using *kubectl* CLI to the namespace *'cfe-apps'*:
 
 ```shell
 $ kubectl create ns cfe-apps
@@ -296,50 +325,7 @@ The output shows some issues in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt
 
 #### Run *k8sgpt analyze*
 
-K8sGPT comes with a list of built-in analyzers that can be used to find issues in various K8s API objects, such as *Pod*, Service, ReplicaSet, etc. 
-
-Here is a list of supported K8s API objects that can be used in K8sGPT analyzer as the filter to find issue. They are showing under *Active* from the output of the command * k8sgpt filter list*:
-
-```shell
-$ k8sgpt filters list
-Active:
-> Node
-> Pod
-> Deployment
-> ReplicaSet
-> PersistentVolumeClaim
-> Service
-> Ingress
-> StatefulSet
-> ValidatingWebhookConfiguration
-> MutatingWebhookConfiguration
-> CronJob
-Unused:
-> HorizontalPodAutoScaler
-> PodDisruptionBudget
-> NetworkPolicy
-> Log
-> GatewayClass
-> Gateway
-> HTTPRoute
-```
-
-You can add other K8s API object, e.g., *HorizontalPodAutoScaler* or *NetworkPolicy*, as the supported filter by typing the command *k8sgpt filter add*.
-
-
-```shell
-
-
-```
-
-```shell
-
-
-```
-
-
-
-Running the following command should detect the Pod issues in the namespace *cfe-apps*:
+To start K8s issue detection, type the following *k8sgpt analyze* command:
 
 ```shell
 $ k8sgpt analyze --filter=Pod --namespace cfe-apps --no-cache
@@ -349,11 +335,13 @@ AI Provider: openai
 - Error: Back-off pulling image "cfe-image-not-exist"
 ```
 
+Instead of running a scan with the default analyzers, the above command uses the filter *Pod* to detect K8s Pod issue in the namespace *'cfe-apps'*. It detects the error of back-off pulling image "cfe-image-not-exist" in the Pod.
 
 
 
 
-Executing again the K8sGPT analyze with the option *'--explain'* will enable the AI backend. In addition to the error messages it identified, the analyze also provides the step-by-step solutions to fix the Pod issue:
+
+Execute again the K8sGPT analyze with the option *'--explain'* this time:  
 
 
 
@@ -376,7 +364,7 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-The solutions provided by K8sGPT can be used as actionable insights to fix the above *ImagePullBackOff* errors in the K8s Pod. It can be further integrated with other external tools in the organization, such as *Slack*, to send out alerts along with suggested solutions as the remediation steps.
+The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When this option is used with the command, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issue. 
 
 
 
