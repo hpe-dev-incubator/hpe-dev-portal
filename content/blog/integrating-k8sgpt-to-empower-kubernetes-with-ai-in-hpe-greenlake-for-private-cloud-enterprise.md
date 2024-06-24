@@ -60,7 +60,7 @@ Before starting, make sure you have the following:
 
 [K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) is an open source project designed to address common and complex issues within K8s cluster using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve K8s management. K8sGPT supports various AI providers, including [OpenAI] (https://openai.com/), [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service), [Google Gemini](https://ai.google.dev/docs/gemini_api_overview) as well as [Local AI](https://github.com/mudler/LocalAI). 
 
-The Local AI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
+The Local AI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer-grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
 
 The following sections describe the process to deploy K8sGPT using Local AI as its backend to empower K8s cluster with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
 
@@ -69,7 +69,7 @@ The following sections describe the process to deploy K8sGPT using Local AI as i
 
 
 
-There are two options to install K8sGPT, as a CLI tool or as a K8s Operator in the K8s cluster. This section takes the CLI option to install K8sGPT to the workstation. K8sGPT will be independent of any specific K8s cluster and it can be used for working on any existing K8s clusters. This is helpful, especially when multiple K8s clusters are created in your environment. They can all work with the same K8sGPT installation.
+There are two options to install K8sGPT, as a CLI tool or as a K8s Operator in the K8s cluster. This section takes the CLI option to install K8sGPT to the workstation. K8sGPT setup will be independent of any specific K8s cluster and it can be used for working on any existing K8s clusters. This is helpful, especially when multiple K8s clusters are created in your environment. They can all work with the same K8sGPT installation.
 
 
 
@@ -160,11 +160,11 @@ This section will focus on setting up and utilizing Local AI with a supported LL
 
 #### Download a LLM model
 
-The Local AI supports a list of LLM models, such as *LLaMA*, *GPT4ALL*, *Alpaca* and *koala*, etc. The LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded locally and used as AI backend for K8sGPT.
+The Local AI supports a list of LLM models, such as *LLama*, *GPT4ALL*, *Alpaca* and *koala*, etc. In this blog post, the LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded and used as the local AI backend for K8sGPT.
 
 
 
-After you create an account to *Hugging Face*, log in to the site and share your contact information, you will then be granted access to this model. 
+After you create an account in *Hugging Face*, log in to the site and share your contact information. You will then be granted access to this model. 
 
 ![](/img/hf-llama.png)
 
@@ -205,7 +205,7 @@ There are many LLM serving framework and tools that support various LLM models a
 
 
 
-This section introduces the [Text Generation Web UI (TGW)]( https://github.com/oobabooga/text-generation-webui) tool and shows how to set up this tool to support the locally downloaded LLM model as AI backend. The TGW is a [Gradio]( https://github.com/gradio-app/gradio/) based tool that builds a web UI and supports many large language model format with OpenAI compatible APIs.
+This section introduces the [Text Generation Web UI (TGW)]( https://github.com/oobabooga/text-generation-webui) tool and shows how to set up this tool to support the locally downloaded LLM model as the AI backend. The TGW is a [Gradio]( https://github.com/gradio-app/gradio/) based tool that builds a web UI and supports many large language model formats with OpenAI compatible APIs.
 
 
 
@@ -223,7 +223,7 @@ pip install -r requirements.txt
 
 
 
-Type the following command to start serving the downloaded LLM model in your local workstation. The option *'--extensions openai'* specifies to use the OpenAI extension to provide OpenAI format API. The options *'--cpu'* & *'--load-in-4bit'* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially it’s helpful in case you don’t have GPU installed in your environment.
+Type the following command to start serving the downloaded LLM model in your workstation. The option *'--extensions openai'* specifies to use the OpenAI extension to provide OpenAI format API. The options *'--cpu'* & *'--load-in-4bit'* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially it’s helpful in case you don’t have GPU installed in your environment.
 
 
 
@@ -254,11 +254,11 @@ Loading checkpoint shards: 100%|████████████████
 Running on local URL:  http://0.0.0.0:7860
 ```
 
-The OpenAI compatible API is hosted on *'http://0.0.0.0.5000'*. 
+The OpenAI compatible API endpoint is hosted on *'http://0.0.0.0.5000'*. 
 
-Apart from this API server URL, the TGW starts running another local web URL, e.g., at *'http://0.0.0.0:7860'*, providing 3 interface modes, *chat*, *default* & *notebook*, for text generation with the local LLM model backend. 
+Apart from this API endpoint URL, the TGW starts running another local web URL, i.e., at *'http://0.0.0.0:7860'*, providing 3 interface modes, *chat*, *default* & *notebook*, for text generation with the local LLM model backend. 
 
-You can start the browser and type the local URL *'http://0.0.0.0:7860'*. You then land to the *Chat* page. Try to ask some question in the *Chat* page by typing some text and clicking **Generate** button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
+You can start the browser and type this local URL *'http://0.0.0.0:7860'*. You then land to the *Chat* page. Try to ask some question in the *Chat* page by typing some text and clicking **Generate** button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
 
 
 
@@ -285,7 +285,7 @@ openai added to the AI backend provider list
 In case K8sGPT has been already added an OpenAI API endpoint, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpint.
 
 ```shell
-$ k8sgpt auth  remove openai
+$ k8sgpt auth remove openai
 ```
 
 
@@ -297,7 +297,7 @@ $ k8sgpt auth  remove openai
 
 With all components being installed and configured, it's time to detect K8s issues in the K8s cluster. 
 
-#### Deploy an application
+#### Deploy a sample application
 
 This section will deploy a sample application using *kubectl* CLI.
 
@@ -325,7 +325,7 @@ NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/app-with-no-image-7ff65f5484   1         1         0        2m
 ```
 
-The output shows some issues in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4z'*. The K8s deployment keeps showing as *'0/1 READY'*.
+The output shows some issues in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt4z'*. The K8s Deployment keeps showing as *'0/1 READY'*.
 
 #### Run *k8sgpt analyze*
 
@@ -339,7 +339,7 @@ AI Provider: openai
 - Error: Back-off pulling image "cfe-image-not-exist"
 ```
 
-Instead of running a scan with the default analyzers, the above command uses the filter *Pod* to detect K8s Pod issue in the namespace *'cfe-apps'*. It detects the error of back-off pulling image "cfe-image-not-exist" in the Pod.
+Instead of running a scan with all the default analyzers, the above command uses the filter *Pod* to detect K8s Pod issue in the namespace *'cfe-apps'*. It detects the error of back-off pulling image "cfe-image-not-exist" in the Pod.
 
 
 
@@ -368,7 +368,7 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When the option *'--explain'* is used, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issue. 
+The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When the option *'--explain'* is used, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issues. 
 
 
 
