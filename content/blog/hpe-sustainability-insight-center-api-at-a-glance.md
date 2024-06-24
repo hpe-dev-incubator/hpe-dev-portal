@@ -273,19 +273,19 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 }
 ```
 
-You can see that I get measurements from June 1 at 00:00 and then measurements every hour until 00:00 on the 12th of June. At the time I ran the call, it was 5:30PM on the 11th of June, so all values in the future were set to null.
+You can see that I get one measure per day from June 1 at 00:00 until June 11th. 
 
 ## Using this data externally
 
-You can use this data within a tool such as Excel:
+You can use another set of data collected every hour, over a period of two days, within a tool such as Excel:
 
 ![Data imported in Excel](/img/sic-blog-5.jpg "Data imported in Excel")
 
-And start providing monthly graphs according to your needs:
+And start providing graphs according to your needs:
 
 ![Excel graphs](/img/sic-blog-graphs.jpg "Excel graphs")
 
-You could go a step further and feed this time-series data into [Elasticsearch](https://www.elastic.co/elasticsearch) or [influxdb](https://www.influxdata.com/) to build more advanced dashboards with [Kibana](https://www.elastic.co/kibana) or [Grafana](https://grafana.com/). The capture below shows an example of influxdb dashboard showing kWh, CO2 and cost over time.
+You could even go a step further and feed this time-series data into [Elasticsearch](https://www.elastic.co/elasticsearch) or [influxdb](https://www.influxdata.com/) to build more advanced dashboards with [Kibana](https://www.elastic.co/kibana) or [Grafana](https://grafana.com/). The capture below shows an example of influxdb dashboard showing kWh, CO2 and cost over time.
 
 ![](/img/sic-blog-9.jpg)
 
