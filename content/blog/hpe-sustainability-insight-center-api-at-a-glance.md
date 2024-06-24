@@ -45,7 +45,7 @@ The [API specifications](https://developer.greenlake.hpe.com/docs/greenlake/serv
 * **usageTotals**: Returns the total aggregated power cost, power consumption, and carbon emissions over a defined time frame and supports filtering by entities.
 * **usageSeries**: Retrieves aggregated energy usage statistics grouped by time bucket over a defined time frame and supports filtering by entities.
 
->Note: You can download the [OpenAPI specs](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/overview/) from the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/), if you want to use the API from a tool such as Postman.
+> Note: You can download the [OpenAPI specs](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/overview/) from the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/), if you want to use the API from a tool such as Postman.
 
 ## Be careful with tokens!
 
@@ -57,7 +57,7 @@ A little word of advice about tokens. Because the HPE Sustainability Insight Cen
 
 Let's start with the first of the 3 calls, **usageByEntity**. From the [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageByEntity), note that only 2 parameters are mandatory, *start-time* and *end-time*.
 
->Note: the format of the date used by the API, which is ISO 8601 of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)
+> Note: the format of the date used by the API, which is ISO 8601 of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)
 
 So, you could use the following command in Bash:
 
@@ -112,7 +112,7 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 }
 ```
 
->Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
+> Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
 
 ![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
 
@@ -171,7 +171,7 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 }
 ```
 
-Finally, give the last call, **usageSeries**, a try. You can see from the [documentation](<Finally, give the last call, usageSeries, a try. You can see from the documentation that, in addition to start-time and end-time, there is an additional required parameter called interval. interval should be formatted as an integer value followed by a unit string. Units can be one of: day, hour, week, month, or year.  Let's give this a try:>) that, in addition to *start-time* and *end-time*, there is an additional required parameter called *interval*. *interval* should be formatted as an integer value followed by a unit string. Units can be one of: day, hour, week, month, or year.
+Finally, give the last call, **usageSeries**, a try. You can see from the [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageBySeries) that, in addition to *start-time* and *end-time*, there is an additional required parameter called *interval*. *interval* should be formatted as an integer value followed by a unit string. Units can be one of: day, hour, week, month, or year.  
 
 Let's give this a try:
 
@@ -275,6 +275,8 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 
 You can see that I get measurements from June 1 at 00:00 and then measurements every hour until 00:00 on the 12th of June. At the time I ran the call, it was 5:30PM on the 11th of June, so all values in the future were set to null.
 
+## Using this data externally
+
 You can use this data within a tool such as Excel:
 
 ![Data imported in Excel](/img/sic-blog-5.jpg "Data imported in Excel")
@@ -286,7 +288,6 @@ And start providing monthly graphs according to your needs:
 You could go a step further and feed this time-series data into [Elasticsearch](https://www.elastic.co/elasticsearch) or [influxdb](https://www.influxdata.com/) to build more advanced dashboards with [Kibana](https://www.elastic.co/kibana) or [Grafana](https://grafana.com/). The capture below shows an example of influxdb dashboard showing kWh, CO2 and cost over time.
 
 ![](/img/sic-blog-9.jpg)
-
 
 ## Next step
 
