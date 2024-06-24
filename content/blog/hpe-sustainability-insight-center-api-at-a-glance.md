@@ -13,11 +13,11 @@ What is HPE Sustainability Insight Center?
 
 HPE Sustainability Insight Center is a service that runs on HPE GreenLake. I can add it into my workspace from the HPE GreenLake catalogue under the Management & Governance category.
 
-Fig1
+![HPE GreenLake catalogue](/img/sic-blog-1.jpg "HPE GreenLake catalogue")
 
 Once deployed, the service provides a dashboard, which I can use to monitor carbon emissions, energy consumption, and energy cost. You can get more details about HPE Sustainability Insight Center from the [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-64E2035A-138E-44E8-8A04-7968A272A97E.html).
 
-Fig2
+![HPE Sustainability Insight Center Console](/img/sic-blog-2.jpg "HPE Sustainability Insight Center Console")
 
 In addition to the dashboard, HPE Sustainability Insight Center provides an API, to enable programmatically accessing this same data.
 
@@ -43,7 +43,7 @@ Note: You can download the [OpenAPI specs](https://developer.greenlake.hpe.com/d
 
 A little word of advice about tokens. Because the HPE Sustainability Insight Center is a service, you will need to create a dedicated API client credentials for it in your workspace (under Manage Workspace/API). You cannot use HPE GreenLake platform API client credentials, as it will result in a 403-error code. Also, you’ll need to be careful, as API client credentials are region specific. When creating an API client credentials, say for Europe (EU Central), make sure to use it to call the API endpoint for that region, as shown below (Connectivity Endpoint).
 
-Fig3
+![HPE GreenLake platform API client credentials](/img/sic-blog-3.jpg "HPE GreenLake platform API client credentials")
 
 ## Let's give it a try!
 
@@ -106,7 +106,7 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 
 Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
 
-Fig4
+![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
 
 Here, you can see from the JSON response obtained for energy cost, CO2 emission and kWh consumption for an HPE ProLiant DL360 and a group of Aruba access points over the selected period.
 
@@ -128,7 +128,6 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 ```
 
 This call returns the totals Cost, CO2, and kWh for the complete environment. You can apply filters, such as:
-
 
 * `filter=locationCountry eq 'France'` to reduce scope to only devices located in France
 * `filter=entityType eq 'COMPUTE'` to reduce scope to only COMPUTE devices
@@ -162,7 +161,6 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
   ],
   "count": 1
 }
-
 ```
 
 Finally, give the last call, **usageSeries**, a try. You can see from the [documentation](<Finally, give the last call, usageSeries, a try. You can see from the documentation that, in addition to start-time and end-time, there is an additional required parameter called interval. interval should be formatted as an integer value followed by a unit string. Units can be one of: day, hour, week, month, or year.  Let's give this a try:>) that, in addition to *start-time* and *end-time*, there is an additional required parameter called *interval*. *interval* should be formatted as an integer value followed by a unit string. Units can be one of: day, hour, week, month, or year.
@@ -271,15 +269,17 @@ You can see that I get measurements from June 1 at 00:00 and then measurements e
 
 You can use this data within a tool such as Excel:
 
-Fig5
+![Data imported in Excel](/img/sic-blog-5.jpg "Data imported in Excel")
 
 And start providing monthly graphs according to your needs:
 
-Fig 6, 7 and 8
+![Excel graphs](/img/sic-blog-graphs.jpg "Excel graphs")
 
 You could go a step further and feed this time-series data into [Elasticsearch](https://www.elastic.co/elasticsearch) or [influxdb](https://www.influxdata.com/) to build more advanced dashboards with [Kibana](https://www.elastic.co/kibana) or [Grafana](https://grafana.com/). The capture below shows an example of influxdb dashboard showing kWh, CO2 and cost over time.
 
-Fig 9
+![](/img/sic-blog-9.jpg)
+
+![]()
 
 ## Next step
 
@@ -288,8 +288,6 @@ In this article, I described how to retrieve carbon emission, energy consumption
 * [HPE GreenLake edge-to-cloud platform scripting fundamentals](https://developer.hpe.com/blog/hpe-greenlake-edge-to-cloud-platform-scripting-fundamentals/)
 * [Bulk onboarding of users in HPE GreenLake edge-to-cloud platform](https://developer.hpe.com/blog/bulk-onboarding-of-users-in-hpe-greenlake-edge-to-cloud-platform/)
 
-
 If you’re interested in trying out the HPE GreenLake API, you might first want to check out one of our hands-on Workshops-on-Demand. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested in and go! It’s as simple as that.
-
 
 If you still have any questions regarding the HPE GreenLake APIs, join the [HPE Developer Community Slack](https://developer.hpe.com/slack-signup/)  and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
