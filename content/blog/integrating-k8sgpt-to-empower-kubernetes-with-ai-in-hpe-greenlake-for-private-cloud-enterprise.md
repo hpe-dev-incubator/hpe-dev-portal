@@ -201,9 +201,7 @@ Llama-2-13b-chat-hf/
 
 #### Install *Text Generation Web UI*
 
-
-
-The [Local AI GitHub repo](https://github.com/mudler/LocalAI) can be cloned and the code can be built in the workstation. The built Local AI binary can be used as a tool to serve the downloaded LLM model with OpenAI  compatible API endpoint. There are also many other LLM serving framework and tools that run various LLM models and provide a way to interact with those models to generate text. 
+There are many LLM serving framework and tools that support various LLM models and provide a way to interact with those models with OpenAI compatible API endpoints. 
 
 
 
@@ -211,7 +209,7 @@ This section introduces the [Text Generation Web UI (TGW)]( https://github.com/o
 
 
 
-Typing the following commands to clone the TGW repo and install it:
+Type the following commands to clone the TGW repo and install it in the workstation:
 
 
 
@@ -225,7 +223,7 @@ pip install -r requirements.txt
 
 
 
-Typing the following command to start serving the downloaded LLM model in your local environment. The option *--extensions openai * specifies to use the OpenAI extension to provide OpenAI format API. The options *--cpu* & *--load-in-4bit* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially it’s helpful in case you don’t have GPU installed in your environment.
+Type the following command to start serving the downloaded LLM model in your local workstation. The option *'--extensions openai'* specifies to use the OpenAI extension to provide OpenAI format API. The options *'--cpu'* & *'--load-in-4bit'* to load model in 4-bit precision and use the model performed on a CPU to make predictions. This is more cost-effective for inference, and especially it’s helpful in case you don’t have GPU installed in your environment.
 
 
 
@@ -256,9 +254,11 @@ Loading checkpoint shards: 100%|████████████████
 Running on local URL:  http://0.0.0.0:7860
 ```
 
-The OpenAI compatible API is hosted on *http://0.0.0.0.5000*. 
+The OpenAI compatible API is hosted on *'http://0.0.0.0.5000'*. 
 
-Apart from above API server URL, the TGW starts running another local web URL, e.g., at *http://0.0.0.0:7860*, providing 3 interface modes, *chat*, *default* & *notebook*, for text generation with the local LLM model backend. You can start the browser by typing this local URL *http://0.0.0.0:7860*. You will land to the *Chat* page. Try to ask some question in the Chat page by typing some text and clicking *Generate* button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
+Apart from this API server URL, the TGW starts running another local web URL, e.g., at *'http://0.0.0.0:7860'*, providing 3 interface modes, *chat*, *default* & *notebook*, for text generation with the local LLM model backend. 
+
+You can start the browser and type the local URL *'http://0.0.0.0:7860'*. You then land to the *Chat* page. Try to ask some question in the *Chat* page by typing some text and clicking **Generate** button. You may notice it’s a bit slower if you serve the model using CPU inference. But everything should work and you will get the response to your question by *AI*.
 
 
 
@@ -272,7 +272,7 @@ Apart from above API server URL, the TGW starts running another local web URL, e
 
 
 
-Type the following command to configure K8sGPT to use the API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
+Type the following command to configure K8sGPT to use the local API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
 
 
 
@@ -282,7 +282,7 @@ Enter openai Key:
 openai added to the AI backend provider list
 ```
 
-In case K8sGPT has already added an OpenAI API endpoint, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpint.
+In case K8sGPT has been already added an OpenAI API endpoint, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpint.
 
 ```shell
 $ k8sgpt auth  remove openai
@@ -295,9 +295,13 @@ $ k8sgpt auth  remove openai
 
 
 
+With all components being installed and configured, it's time to detect K8s issues in the K8s cluster. 
+
 #### Deploy an application
 
-Type the following commands to deploy a sample application using *kubectl* CLI to the namespace *'cfe-apps'*:
+This section will deploy a sample application using *kubectl* CLI.
+
+Type below commands to deploy such a sample application to the namespace *'cfe-apps'*:
 
 ```shell
 $ kubectl create ns cfe-apps
@@ -307,7 +311,7 @@ $ kubectl create deployment app-with-no-image --image=cfe-image-not-exist -n cfe
 deployment.apps/app-with-no-image created
 ```
 
-Check the deployed application using below command:
+Check the deployed application using the following command:
 
 ```shell
 $ kubectl get all -n cfe-apps
@@ -364,7 +368,7 @@ Solution:
 4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
 ```
 
-The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When this option is used with the command, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issue. 
+The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When the option *'--explain'* is used, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issue. 
 
 
 
@@ -401,7 +405,7 @@ This blog post explores the integration of K8s with AI to address the complexiti
 
 
 
-K8sGPT proves to be a valuable asset in diagnosing issues in K8s cluster and enhancing operational efficiency. This tool can be further integrated with other organizational tools like *Slack* and *Microsoft Teams* to dispatch notifications and alerts, accompanied by suggedted solutions as remediation steps. This futher amplifies the practical value of K8sGPT within the organization.
+K8sGPT proves to be a valuable asset in diagnosing issues in K8s cluster and enhancing operational efficiency. This tool can be further integrated with other organizational tools like *Slack* and *Microsoft Teams* to dispatch notifications and alerts, accompanied by suggested solutions as remediation steps. This futher amplifies the practical value of K8sGPT within the organization.
   
 
 
