@@ -279,7 +279,6 @@ You could go a step further and feed this time-series data into [Elasticsearch](
 
 ![](/img/sic-blog-9.jpg)
 
-![]()
 
 ## Next step
 
