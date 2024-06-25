@@ -45,4 +45,4 @@ HPE also announced that a significant effort being made to address the needs of 
 
 ## Summary
 
-HPE Discover 2024 was truly an event unlike any other. Whether it was being in one of the 17,000 seats at the Sphere to take in Antonio’s keynote, walking the floor through HPE’s Innovation neighborhood, or interacting with an AI avatar of Antonio Neri himself, the experience was indeed memorable. To catch any of the replays of keynote sessions or interviews with the Cube, be sure to check out the [YouTube video library](https://www.youtube.com/watch?v=-FEzi51gs9g).
+HPE Discover 2024 was truly an event unlike any other. Whether it was being in one of the 17,000 seats at the Sphere to take in Antonio’s keynote, walking the floor through HPE’s Innovation neighborhood, or interacting with an [AI avatar of Antonio Neri](https://x.com/hpe/status/1803965843707170980?s=46) himself, the experience was indeed memorable. To catch any of the replays of keynote sessions or interviews with the Cube, be sure to check out the [YouTube video library](https://www.youtube.com/watch?v=-FEzi51gs9g).
