@@ -19,7 +19,7 @@ HPE GreenLake provides a new service called HPE Sustainability Insight Center th
 
 ## What is HPE Sustainability Insight Center?
 
-HPE Sustainability Insight Center is a service that runs on HPE GreenLake. You can add it into my workspace from the HPE GreenLake catalogue under the Management & Governance category.
+HPE Sustainability Insight Center is a service that runs on HPE GreenLake. You can add it into my workspace from the HPE GreenLake catalog under the Management & Governance category.
 
 ![HPE GreenLake catalogue](/img/sic-blog-1.jpg "HPE GreenLake catalogue")
 
@@ -39,7 +39,7 @@ Important use cases covered by the HPE Sustainability Insight Center API include
 
 ## Where is the HPE Sustainability Insight Center API documented?
 
-The [API specifications](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/) are found on the [HPE GreenLake developer portal](https://developer.greenlake.hpe.com/) along with other HPE GreenLake APIs. For HPE Sustainability Insight Center, there are 3 API calls available:
+The [API specifications](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/) are found on the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/) along with other HPE GreenLake APIs. For HPE Sustainability Insight Center, there are 3 API calls available:
 
 * **usageByEntity**: Retrieves an aggregated energy usage list grouped by individual entities over a defined time frame.
 * **usageTotals**: Returns the total aggregated power cost, power consumption, and carbon emissions over a defined time frame and supports filtering by entities.
