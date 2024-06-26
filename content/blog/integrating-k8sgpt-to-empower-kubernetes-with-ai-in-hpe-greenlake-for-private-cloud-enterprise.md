@@ -6,7 +6,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - HPE GreenLake for Private Cloud Enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
   - Kubernetes
   - Artificial intelligence
   - Local AI
@@ -37,7 +37,7 @@ AI is a technological innovation that equips computers and machines with the abi
 
 
 
-This blog post explores the convergence of K8s and AI through K8sGPT, a tool for scanning the K8s cluster, diagnosing and triaging K8s issues using AI. It describes the detailed process to integrate K8sGPT with local LLM model to empower K8s in HPE GreenLake for Private Cloud Enterperise.
+This blog post explores the convergence of K8s and AI through K8sGPT, a tool for scanning the K8s cluster, diagnosing and triaging K8s issues using AI. It describes the detailed process to integrate K8sGPT with local LLM model to empower K8s in HPE GreenLake for Private Cloud Enterprise.
 
 ### Prerequisites
 
@@ -47,7 +47,7 @@ Before starting, make sure you have the following:
 
 
 
-* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* A K8s cluster, being provisioned, e.g., using [HPE GreenLake Terraform provider](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/), in HPE GreenLake for Private Cloud Enterprise 
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
 
 * The [Python 3.8 or higher](https://www.python.org/downloads/), and *pip* that’s included by default in Python
@@ -58,22 +58,22 @@ Before starting, make sure you have the following:
 
 
 
-[K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) is an open source project designed to address common and complex issues within K8s cluster using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve K8s management. K8sGPT supports various AI providers, including [OpenAI] (https://openai.com/), [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service), [Google Gemini](https://ai.google.dev/docs/gemini_api_overview) as well as [Local AI](https://github.com/mudler/LocalAI). 
+[K8sGPT]( https://github.com/k8sgpt-ai/k8sgpt) is an open source project designed to address common and complex issues within K8s cluster using AI. It leverages large language models (LLMs) to enhance troubleshooting, streamline processes, and improve K8s management. K8sGPT supports various [AI backends](https://docs.k8sgpt.ai/reference/providers/backend/) (also called providers), including [OpenAI](https://openai.com/), [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service), [Google Gemini](https://ai.google.dev/docs/gemini_api_overview) as well as [LocalAI](https://github.com/mudler/LocalAI). 
 
-The Local AI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer-grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
+The LocalAI is an open source project that provides an alternative to OpenAI’s offerings for local inferencing. It does not require a GPU and can run on consumer-grade hardware without high-end computing resources. By deploying AI solutions within the local infrastructure and keeping all processes in-house, it avoids the costs associated with external AI services and ensures better data sovereignty and privacy. 
 
-The following sections describe the process to deploy K8sGPT using Local AI as its backend to empower K8s cluster with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
+The following sections describe the process to deploy K8sGPT using LocalAI as its backend to empower K8s cluster with AI capabilities in HPE GreenLake for Private Cloud Enterprise. 
 
 
 ### Install K8sGPT
 
 
 
-There are two options to install K8sGPT, as a CLI tool or as a K8s Operator in the K8s cluster. This section takes the CLI option to install K8sGPT to the workstation. K8sGPT setup will be independent of any specific K8s cluster and it can be used for working on any existing K8s clusters. This is helpful, especially when multiple K8s clusters are created in your environment. They can all work with the same K8sGPT installation.
+There are two options to install K8sGPT, as a CLI tool or as a K8s Operator in the K8s cluster. This section takes the CLI option to install K8sGPT to the Linux workstation in my local environment that's used to manage the K8s clusters. You can refer to the [K8sGPT Github](https://github.com/k8sgpt-ai/k8sgpt) for additional information to install the K8sGPT as a K8s Operator or as a CLI tool on *Windows* or *Mac*. With the CLI option, the K8sGPT setup will be independent of any specific K8s cluster and it can be used for working on any existing K8s clusters. This is helpful, especially when multiple K8s clusters are created and managed in your environment. They can all work with the same K8sGPT installation.
 
 
 
-Follow below instructions to install K8sGPT as a CLI tool on the workstation:
+Follow below instructions to install K8sGPT as a CLI tool on the Linux workstation:
 
 ```shell
 $ curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_386.deb
@@ -117,7 +117,7 @@ Flags:
 Use "k8sgpt [command] --help" for more information about a command.
 ```
 
-K8sGPT comes with a list of [built-in analyzers](https://github.com/k8sgpt-ai/k8sgpt), which is essentially a series of rules/checks that can be used to diagnose issues in various K8s API resources, such as *Pod* crashes, *Service* failures, etc. 
+K8sGPT comes with a list of [built-in analyzers](https://github.com/k8sgpt-ai/k8sgpt?tab=readme-ov-file#analyzers), which is essentially a series of rules/checks that can be used to diagnose issues in various K8s API resources, such as *Pod* crashes, *Service* failures, etc. 
 
 K8sGPT provides a list of *filters* that can be used together with K8sGPT analyzer to scan issues for any specific K8s API resources: 
 
@@ -149,7 +149,7 @@ You can add any other *unused* filters, e.g., *HorizontalPodAutoScaler* or *Netw
 
 
 
-### Set up Local AI
+### Set up LocalAI backend
 
 
 
@@ -268,24 +268,37 @@ You can start the browser and type this local URL *'http://0.0.0.0:7860'*. You t
 ![](/img/local-llm.png)
 
 
-### Integrate K8sGPT with Local AI
+### Integrate K8sGPT with LocalAI
 
 
 
-Type the following command to configure K8sGPT to use the local API endpoint. Don’t forget to add the *“/v1”* to the API URL. Hit *Enter* when asking for entering OpenAI key.
+Type the following command to configure K8sGPT to use the local API endpoint. Don’t forget to add the *“/v1”* to the API URL. 
 
 
 
 ```shell
-$ k8sgpt auth add --backend openai --model Llama-2-13b-chat-hf --baseurl http://localhost:5000/v1
-Enter openai Key: 
-openai added to the AI backend provider list
+$ k8sgpt auth add --backend localai --model Llama-2-13b-chat-hf --baseurl http://localhost:5000/v1
+localai added to the AI backend provider list
+
+
+$ k8sgpt auth list
+Default:
+> openai
+Active:
+> localai
+Unused:
+> openai
+> azureopenai
+> noopai
+> cohere
+> amazonbedrock
+> amazonsagemaker
 ```
 
-In case K8sGPT has been already added an OpenAI API endpoint, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpint.
+In case K8sGPT has been already added the LocalAI API endpoint, type below command to remove it. Then re-run the *k8sgpt auth add* to add the new API endpoint.
 
 ```shell
-$ k8sgpt auth remove openai
+$ k8sgpt auth remove --backends localai
 ```
 
 
@@ -332,8 +345,8 @@ The output shows some issues in the K8s *Pod* *'app-with-no-image-7ff65f5484-9bt
 To start K8s issue detection, type the following *k8sgpt analyze* command:
 
 ```shell
-$ k8sgpt analyze --filter=Pod --namespace cfe-apps --no-cache
-AI Provider: openai
+$ k8sgpt analyze --backend localai --filter=Pod --namespace cfe-apps --no-cache
+AI Provider: localai
 
 0 cfe-apps/app-with-no-image-7ff65f5484-9bt4z(Deployment/app-with-no-image)
 - Error: Back-off pulling image "cfe-image-not-exist"
@@ -350,22 +363,20 @@ Execute again the K8sGPT analyze with the option *'--explain'* this time:
 
 
 ```shell
-$ k8sgpt analyze --filter=Pod --namespace=cfe-apps --explain --no-cache
- 100% |██████████████████████████████████████████████████████████████████████████████████████████████████████████| (1/1, 12 it/hr)
-AI Provider: openai
+$ k8sgpt analyze --backend localai --filter=Pod --namespace cfe-apps --explain --no-cache
+ 100% |█████████████████████████████████████████████████████████████████████████████████████████████████| (1/1, 25 it/hr)
+AI Provider: localai
 
 0 cfe-apps/app-with-no-image-7ff65f5484-9bt4z(Deployment/app-with-no-image)
 - Error: Back-off pulling image "cfe-image-not-exist"
-Sure! Here's the simplified error message and solution in no more than 280 characters:
-
 Error: Back-off pulling image "cfe-image-not-exist"
-
 Solution:
 
-1. Check if the image exists in a different registry.
-2. If the image is a private image, make sure the registry is correctly configured and the image is properly uploaded.
-3. If the image is a public image, try using a different image name or tag.
-4. If none of the above solutions work, try deleting the image cache and pulling the image again. 
+1. Check the image name and ensure it exists in the registry.
+2. Verify the image tag and ensure it matches the expected tag.
+3. Try pulling the image again using the correct name and tag.
+4. If the image still does not exist, check the spelling and ensure the name is correct.
+5. If all else fails, try using the "docker pull" command to download the image locally and then push it to the registry. 
 ```
 
 The option *'--explain'* in the above command enables the AI backend. The analyze establishes a connection to the AI backend and provides it with the error message it detected in K8s. When the option *'--explain'* is used, K8sGPT not only executes the requested action to detect the K8s issue but also provides the step-by-step solutions. The solutions provided by K8sGPT can be used as actionable insights to fix the K8s issues. 
@@ -378,12 +389,13 @@ The option *'--explain'* in the above command enables the AI backend. The analyz
 Apart from the default English, K8sGPT supports get the response in other languages. Here is an example of getting response in K8sGPT in French:
 
 ```shell
-$ k8sgpt analyze --filter=Pod --namespace=cfe-apps --language french --explain --no-cache
- 100% |██████████████████████████████████████████████████████████████████████████████████████████████████| (1/1, 31 it/hr)
-AI Provider: openai
+$ k8sgpt analyze --backend localai --filter=Pod --namespace cfe-apps --language french --explain --no-cache
+ 100% |█████████████████████████████████████████████████████████████████████████████████████████████████| (1/1, 16 it/hr)
+AI Provider: localai
 
 0 cfe-apps/app-with-no-image-7ff65f5484-9bt4z(Deployment/app-with-no-image)
 - Error: Back-off pulling image "cfe-image-not-exist"
+
 Sure! Here's the simplified error message and solution in French, within the 280 character limit:
 
 Error: Impossible de tirer l'image "cfe-image-not-exist".
