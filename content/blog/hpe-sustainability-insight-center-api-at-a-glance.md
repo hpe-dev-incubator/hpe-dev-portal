@@ -112,11 +112,11 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 }
 ```
 
-> Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
+Here, you can see from the JSON response obtained for energy cost, CO2 emission and kWh consumption for an HPE ProLiant DL360 and a group of Aruba access points over the selected period.
+
+>Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
 
 ![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
-
-Here, you can see from the JSON response obtained for energy cost, CO2 emission and kWh consumption for an HPE ProLiant DL360 and a group of Aruba access points over the selected period.
 
 The next call to try out is **usage-totals**, which is documented [here](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageTotals). The parameters of the call are the same as in the previous call, so let's give it a try:
 
