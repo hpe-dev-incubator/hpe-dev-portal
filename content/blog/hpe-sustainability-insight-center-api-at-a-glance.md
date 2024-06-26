@@ -19,11 +19,11 @@ HPE GreenLake provides a new service called HPE Sustainability Insight Center th
 
 ## What is HPE Sustainability Insight Center?
 
-HPE Sustainability Insight Center is a service that runs on HPE GreenLake. I can add it into my workspace from the HPE GreenLake catalogue under the Management & Governance category.
+HPE Sustainability Insight Center is a service that runs on HPE GreenLake. You can add it into my workspace from the HPE GreenLake catalogue under the Management & Governance category.
 
 ![HPE GreenLake catalogue](/img/sic-blog-1.jpg "HPE GreenLake catalogue")
 
-Once deployed, the service provides a dashboard, which I can use to monitor carbon emissions, energy consumption, and energy cost. You can get more details about HPE Sustainability Insight Center from the [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-64E2035A-138E-44E8-8A04-7968A272A97E.html).
+Once deployed, the service provides a dashboard, which can be used to monitor carbon emissions, energy consumption, and energy cost. You can get more details about HPE Sustainability Insight Center from the [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-64E2035A-138E-44E8-8A04-7968A272A97E.html).
 
 ![HPE Sustainability Insight Center Console](/img/sic-blog-2.jpg "HPE Sustainability Insight Center Console")
 
@@ -114,7 +114,7 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 
 Here, you can see from the JSON response obtained for energy cost, CO2 emission and kWh consumption for an HPE ProLiant DL360 and a group of Aruba access points over the selected period.
 
->Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
+> Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
 
 ![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
 
