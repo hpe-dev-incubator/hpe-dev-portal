@@ -9,7 +9,7 @@ tags:
   - hpe-greenlake-for-private-cloud-enterprise
   - Kubernetes
   - Artificial intelligence
-  - Local AI
+  - LocalAI
   - OpenAI
   - K8sGPT
   - Large Language Model
@@ -53,7 +53,7 @@ Before starting, make sure you have the following:
 * The [Python 3.8 or higher](https://www.python.org/downloads/), and *pip* that’s included by default in Python
 
 
-### K8sGPT and Local AI
+### K8sGPT and LocalAI
 
 
 
@@ -153,14 +153,14 @@ You can add any other *unused* filters, e.g., *HorizontalPodAutoScaler* or *Netw
 
 
 
-This section will focus on setting up and utilizing Local AI with a supported LLM model in the local environment. This Local AI setup in the workstation will be integrated with K8sGPT.
+This section will focus on setting up and utilizing LocalAI with a supported LLM model in the local environment. This LocalAI setup in the workstation will be integrated with K8sGPT.
 
 
 
 
 #### Download a LLM model
 
-The Local AI supports a list of LLM models, such as *LLama*, *GPT4ALL*, *Alpaca* and *koala*, etc. In this blog post, the LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded and used as the local AI backend for K8sGPT.
+The LocalAI supports a list of LLM models, such as *LLama*, *GPT4ALL*, *Alpaca* and *koala*, etc. In this blog post, the LLM model *`Llama-2–13b-chat-hf`* from [Hugging Face]( https://huggingface.co/) will be downloaded and used as the local AI backend for K8sGPT.
 
 
 
@@ -413,7 +413,7 @@ Solution:
 
 
 
-This blog post explores the integration of K8s with AI to address the complexities for managing, securing and troubleshooting K8s cluster and its applications. By integrating K8sGPT with Local AI to K8s in HPE GreenLake for Private Cloud Enterprise, it eliminates the need for external AI services, leading to cost reductions and enhanced data sovereignty and privacy by preventing data transmission to external AI providers. 
+This blog post explores the integration of K8s with AI to address the complexities for managing, securing and troubleshooting K8s cluster and its applications. By integrating K8sGPT with LocalAI to K8s in HPE GreenLake for Private Cloud Enterprise, it eliminates the need for external AI services, leading to cost reductions and enhanced data sovereignty and privacy by preventing data transmission to external AI providers. 
 
 
 
