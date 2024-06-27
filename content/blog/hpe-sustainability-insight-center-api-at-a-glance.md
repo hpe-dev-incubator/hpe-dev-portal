@@ -49,7 +49,7 @@ The [API specifications](https://developer.greenlake.hpe.com/docs/greenlake/serv
 
 ## Be careful with tokens!
 
-A little word of advice about tokens. Because the HPE Sustainability Insight Center is a service, you will need to create a dedicated API client credentials for it in your workspace (under Manage Workspace/API). You cannot use HPE GreenLake platform API client credentials, as it will result in a 403-error code. Also, you’ll need to be careful, as API client credentials are region specific. When creating an API client credentials, say for Europe (EU Central), make sure to use it to call the API endpoint for that region, as shown below (Connectivity Endpoint).
+A little word of advice about tokens. Because the HPE Sustainability Insight Center is a service, you will need to create a dedicated API client credentials for it in your workspace (under Manage Workspace/API). You cannot use API client credentials created for the platform, as it will result in a 403-error code. Also, you’ll need to be careful, as API client credentials are region specific. When creating an API client credentials, say for Europe (EU Central), make sure to use it to call the API endpoint for that region, as shown below (Connectivity Endpoint).
 
 ![HPE GreenLake platform API client credentials](/img/sic-blog-3.jpg "HPE GreenLake platform API client credentials")
 
@@ -114,9 +114,9 @@ $ curl -s -X GET 'https://eu-central.api.greenlake.hpe.com/sustainability-insigh
 
 Here, you can see from the JSON response obtained for energy cost, CO2 emission and kWh consumption for an HPE ProLiant DL360 and a group of Aruba access points over the selected period.
 
-> Note: You can also try this from the HPE GreenLake developer portal by using the **Try it** function:
+> Note: You can also try this from the HPE GreenLake Developer Portal by using the **Try it** function:
 
-![HPE GreenLake developer portal](/img/sic-blog-4.jpg "HPE GreenLake developer portal")
+![HPE GreenLake Developer Portal](/img/sic-blog-4.jpg "HPE GreenLake Developer Portal")
 
 The next call to try out is **usage-totals**, which is documented [here](https://developer.greenlake.hpe.com/docs/greenlake/services/sustainability/public/openapi/sustainability-insight-ctr-latest/operation/getUsageTotals). The parameters of the call are the same as in the previous call, so let's give it a try:
 
