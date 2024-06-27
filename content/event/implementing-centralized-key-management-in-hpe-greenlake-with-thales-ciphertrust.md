@@ -5,7 +5,7 @@ dateStart: 2024-06-25T22:01:22.765Z
 dateEnd: 2024-06-26T21:59:22.829Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/1417138793298/WN_7xmqIRnXTSyAWsnvPoU1cg
+link: https://developer.hpe.com/campaign/meetups/
 width: large
 ---
 ## Implementing Centralized Key Management in HPE GreenLake with Thales CipherTrust
