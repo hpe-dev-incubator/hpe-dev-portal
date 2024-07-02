@@ -6,7 +6,6 @@ author: Engin Kayraklioglu
 authorimage: /img/engin.png
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - ChapelCon
