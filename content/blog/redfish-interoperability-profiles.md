@@ -15,7 +15,7 @@ tags:
 ## Introduction
 
 When I explain to an audience that the <a href="https://redfish.dmtf.org" target="_blank">Redfish® standard</a> 
-requires the implementation of only a subset of the properties mentioned in the entire <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/#data-model" target="_blank">data model</a>, I can see people looking at me with big eyes and this question in mind:
+requires the implementation of only a subset of the properties mentioned in the entire <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/#data-model" target="_blank">data model</a>, I can see people looking at me puzzled and asking themselves:
 
 "*What ? potentially, some BMCs in my data center do not implement the `FirmwareVersion` property and they are considered as compliant to the standard?*".
 
@@ -45,15 +45,15 @@ Requiring the implementation of only a small number properties *provide\[s] sign
 
 ### Who cares?
 
-Flexibility is great, but too much flexibility can be a problem for standard organizations, sofware projects or end users willing to move from the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to Redfish for hardware management.
+Flexibility is great, but too much flexibility can become an issue for standard organizations, software projects or end users willing to move away from the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to Redfish for hardware management.
 
-Concerning standard organizations and software projects, the <a href="https://www.opencompute.org/about" target="_blank">Open Compute Project®</a> (OCP) and the <a href="https://wiki.openstack.org/wiki/Main_Page" target="_blank">OpenStack</a> projects can only adopt Redfish as their preferred management technique if they can easily define some sort of "baseline" containing which property must, should or could be implemented in their managed nodes.
+Concerning standard organizations and software projects, the <a href="https://www.opencompute.org/about" target="_blank">Open Compute Project®</a> (OCP) and the <a href="https://wiki.openstack.org/wiki/Main_Page" target="_blank">OpenStack</a> projects can only adopt Redfish as their preferred management protocol if they can easily define some sort of "baseline" containing which property must, should or could be implemented in their managed nodes.
 
 Concerning OCP, the charter of the <a href="https://www.opencompute.org/projects/hardware-management" target="_blank">Hardware Management Project</a> mentions: "*The hardware management specification incorporates \[...] tools and best practices \[...] for remote machine management*". This means that any server compliant to this specification must implement the network protocol(s) mentioned in the baseline.
 
-Systems eligible by the OpenStack <a href="https://wiki.openstack.org/wiki/Ironic" target="_blank">Ironic</a> (bare metal machine provisioning) and the <a href="https://wiki.openstack.org/wiki/Valence" target="_blank">Valence</a> projects (system lifecycle management) must implement as well a baseline of features containing at least the possibility to be started or stopped from remote.
+Systems supported by the OpenStack <a href="https://wiki.openstack.org/wiki/Ironic" target="_blank">Ironic</a> (bare metal machine provisioning) and the <a href="https://wiki.openstack.org/wiki/Valence" target="_blank">Valence</a> projects (system lifecycle management) must implement as well a baseline of features containing at least the possibility to be powered on and off remotely.
 
-Redfish clients designed for managing multi-vendor systems have also a need for a list of mandatory and recommended features. For example, if a system cannot return the firmware version of its BMC, the client will have difficulties to perform firmware updates.
+Redfish clients designed for managing multi-vendor systems have also a need for a list of mandatory and recommended features. For example, if a system cannot return its BMC's firmware version, the client will have difficulties to perform firmware updates.
 
 ## Redfish Interoperability Profiles
 
@@ -62,7 +62,7 @@ To address the baseline issue mentioned above, the DMTF created the
 
 ### Didactic minimal Profile example
 
-The following example is a minimal profile created for didactic purpose. It is not relevant for use in a real life context.
+The following example is a minimal profile created for didactic purpose. It is not relevant for use in a proper production context.
 
 A summary of this example could be the following: "To be compliant to this Profile, Redfish services must model at least one manager (BMC) and must be able to return the manager's `FirmwareVersion` value".
 
