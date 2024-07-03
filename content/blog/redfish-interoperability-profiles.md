@@ -14,7 +14,7 @@ tags:
 
 ## Introduction
 
-When I explain to an audience that the <a href="https://redfish.dmtf.org" target="_blank">Redfish® standard</a>
+When I explain to an audience that the <a href="https://redfish.dmtf.org" target="_blank">Redfish® standard</a> 
 requires the implementation of only a subset of the properties mentioned in the entire <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/#data-model" target="_blank">data model</a>, I can see people looking at me with big eyes and this question in mind:
 
 "*What ? potentially, some BMCs in my data center do not implement the `FirmwareVersion` property and they are considered as compliant to the standard?*".
@@ -232,10 +232,8 @@ You can view as well on this figure the results of the two verifications require
 
 Although present for a long time (January 2018) and despite an introduction <a href="https://www.youtube.com/watch?v=iVAYSEPwmV8" target="_blank">video</a>, the Redfish Interoperability Profile specification is not very well known and it could be better leveraged by Redfish client programmers supervising heterogeneous data centers; this standard along with the Interoperability Validator highlight the differences between Redfish implementations and can help them to fast produce a more efficient code. If you already know a property is absent in a Redfish service, you can anticipate adapt your code early in the development process. 
 
-Then, Interoperability Profiles could also be leveraged by the purchasing departments of large organizations with several computer suppliers. By including such Profiles in their Requests for Proposal (RFPs) documents, they could make sure that the computers they purchase have a common baseline in terms of management features. Having a clear knowledge of such baseline is TBD
+Then, Interoperability Profiles could also be leveraged by the purchasing departments of large organizations with several computer suppliers. By including such Profiles in their Requests for Proposal (RFPs) documents, they could make sure that the computers they purchase have a common baseline in terms of management features. Having a clear knowledge of such baseline is definite plus for security and supervising departments.
 
-One important drawback of IPMI was that there were as many standard as computer makers. Not leveraging Redfish Interoperability Profiles and its companion Validator may lead to the same problem. 
+With this blog post, I hope you discovered enough information about this Redfish standard to eventually use it or present it to friends or colleagues.
 
-
-
-Don't forget to check out some of my other <a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer portal to learn more about Redfish tips and tricks.
+And don't forget to check out some of my other <a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer portal to learn more about Redfish tips and tricks.
