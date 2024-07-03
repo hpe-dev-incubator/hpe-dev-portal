@@ -4,7 +4,7 @@ dateStart: 2024-07-16T22:01:31.313Z
 dateEnd: 2024-07-17T21:59:31.329Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://hpe.zoom.us/webinar/register/9117199315327/WN_64EBds78Qj6NMiV30FFGRg
 width: large
 ---
 ## Enhancing NLP with Retrieval-Augmented Generation: A Practical Demonstration
