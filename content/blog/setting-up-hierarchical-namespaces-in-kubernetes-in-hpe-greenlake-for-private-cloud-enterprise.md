@@ -24,6 +24,25 @@ This blog post shows the process to set up the hierarchical namespaces in Kubern
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
+K8s [*Namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is one of the most fundamental K8s API
+obejcts in the K8s system. It provides a mechanism for organizing and isolating groups of K8s resources within a single cluster.
+
+K8s uses namespaces to separate organizations in a multitenant architecture. Using such namespace based multitenant architecture 
+is more cost-effective than spinning up a new cluster for each organizational unit. However, along with that cost advantages comes
+a certain degree of management complexity, particularly around K8s namespaces. 
+
+
+
+Basically, all the K8s namespaces that are created in a cluster are perrs to each other. Each namespace is fully isolated from the 
+others. The administrative overhead makes managing such hierachical relationships among namespaces difficult. 
+
+
+
+In 2020, K8s upstream introduced the *hierarchical namaspace* (HNS) framework. HNS helps you manage the security and capabilities 
+of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNS, administrators can organize namespaces according
+to an organizational hierarchy and allocate capabilities accordingly. 
+
+
 ### Prerequisites
 
 Before starting, make sure you have the following:
