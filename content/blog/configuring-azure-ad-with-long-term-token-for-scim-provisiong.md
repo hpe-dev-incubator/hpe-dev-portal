@@ -8,7 +8,7 @@ disable: false
 tags:
   - hpe-greenlake-for-private-cloud-enterprise
 ---
-Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service, designed to simplify user authentication and authorization across various applications and platforms. It offers a centralized solution for managing user identities, enforcing security policies, and facilitating seamless access to cloud-based resources. Azure AD automatic user provisioning simplifies the creation, maintenance, and removal of user identities in SaaS applications based on business rules.
+Microsoft Entra ID / Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service, designed to simplify user authentication and authorization across various applications and platforms. It offers a centralized solution for managing user identities, enforcing security policies, and facilitating seamless access to cloud-based resources. Azure AD automatic user provisioning simplifies the creation, maintenance, and removal of user identities in SaaS applications based on business rules.
 
 The Azure AD provisioning service provisions users to the HPE GreenLake portal by connecting to the user management API endpoints provided by HPE GreenLake Identity and Access Management (IAM). These user management API endpoints allow Azure AD to programmatically create, update, and remove users and groups. The Azure AD provisioning service uses an HPE GreenLake tenant API token to provision users and groups to the HPE GreenLake IAM.  The HPE tenant API tokens are only valid for fifteen minutes. Because Azure AD cannot automatically renew the token, long-term tokens are required.
 
@@ -90,7 +90,7 @@ Attribute Mapping of Group
 
 Save the configuration and enable the provisioning status from "OFF" to "ON"
 
-![](/img/scim-page6.png "Enabling the Provisioning status to \\"ON\\"")
+![](/img/scim-page6.png "Enabling the Provisioning status to \\\"ON\\\"")
 
 Assign the Azure AD group to the Enterprise application
 
