@@ -1,5 +1,5 @@
 ---
-title: SCIM Integration with Microsoft Entra ID
+title: Configuring Azure Active Directory with long-lived tokens for user provisioning
 date: 2024-07-09T14:32:22.360Z
 priority: 9
 author: Meena Krishnamoorthy, Prabhu Murthy
