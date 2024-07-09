@@ -66,26 +66,42 @@ The generated SCIM Proxy Token should be copied and applied in the Azure AD Ente
 *  In Azure AD, go to the “Enterprise applications”.
 *  Click the “SSO-Integration” application.
 *  Click the “Provisioning” on the left navigation window.
-*  Click the “Edit provisioning.
-*  Click the “Admin Credentials”.
-*  Update the generated token in the “Secret Token” field.
-*  Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
-
-![](/img/scim-page2.png)
-
-## S﻿tep 5: Update the attribute mappings of users and groups
-
-For provisioning the user/group to HPE Greenlake Platform, Edit the attribute mapping tab:
+*  Click the “Get started.
 
 ![](/img/scim-page1.png "Application provisioning in Azure AD")
 
-Attribute Mapping of User
+*  Select "Provisioning Mode" to "Automatic" 
+*  Click the “Admin Credentials”.
+*  Update the generated token in the “Secret Token” field.
+*  Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
+* Test connection - Connection should HPE GreenLake Platform should succeed.
+* Save the configuration.
 
-Note: Update of user profile is not supported at this point
+![](/img/scim-page2.png "Updating the tenant URL and Token")
+
+## S﻿tep 5: Update the attribute mappings of users and groups
+
+Before provisioning the users/groups to HPE Greenlake Platform, Edit the attribute mappings:
+
+* Update the attribute mapping of Users
+
+  * Unselect the update options under "Target Object Actions"
+  * customappsso attribute should have below attributes configured\
+    userName\
+    displayName\
+    name.givenName\
+    name.familyName
+
+
 
 ![](/img/scim-page3.png "Attribute Mapping of user")
 
-Attribute Mapping of Group
+* Update the attribute mapping of groups
+
+  * customappsso attribute should have the below attributes configured\
+    displayName\
+    externalid\
+    members
 
 ![](/img/scim-page4.png "Attribute Mapping of Group")
 
@@ -93,23 +109,23 @@ Save the configuration and enable the provisioning status from "OFF" to "ON"
 
 ![](/img/scim-page6.png "Enabling the Provisioning status to \\"ON\\"")
 
-Assign the Azure AD group to the Enterprise application
+* Assign the Azure AD group to the Enterprise application
 
-Note: This is very important to give access to the groups and users before provisioning the groups and users 
+Note: This is very important to give access to subset of groups and users who need access to HPE GreenLake Platform from large enterprise groups and users from Azure AD.
 
 ![](/img/scim-page5.png "Assign the Azure AD group to the Enterprise application")
 
 ## S﻿tep 5: User/Group Provisioning
 
-All set to Provisioning the groups/users, 
+All set to provision the groups/users to "HPE GreenLake Platform". 
 
-* Click Start Provisioning to start 
-* Click Stop Provisioning to stop
-* Click View Provisioning logs to view the failures
+* Click "Start Provisioning" to start. 
+
+  * Upon successful provisioning verify the users and groups are pushed to "HPE GreenLake Platform"  
+* Click "Stop Provisioning" to stop.
+* Click "View Provisioning" logs to view the failures.
 
 ![](/img/scim-page7.png)
-
-Verify the users and groups are pushed to HPE GreenLake portal
 
 U﻿sers can rotate a long-lived token before its expiration date using the following API:
 
