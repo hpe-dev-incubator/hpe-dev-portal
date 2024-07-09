@@ -111,7 +111,7 @@ Save the configuration and enable the provisioning status from "OFF" to "ON"
 
 * Assign the Azure AD group to the Enterprise application
 
-Note: This is very important to give access to subset of groups and users who need access to HPE GreenLake Platform from large enterprise groups and users from Azure AD.
+  * Note: This is very important to give access to subset of groups and users who need access to HPE GreenLake Platform from large enterprise groups and users from Azure AD.
 
 ![](/img/scim-page5.png "Assign the Azure AD group to the Enterprise application")
 
