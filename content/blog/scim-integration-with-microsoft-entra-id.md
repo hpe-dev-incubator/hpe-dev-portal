@@ -20,7 +20,8 @@ I﻿n this blog post, I'll explain the process for configuring Azure AD to use a
 2. G﻿et a personal access token
 3. C﻿reate a SCIM proxy token
 4. U﻿pdate the SCIM proxy token and the tenant URL in Azure AD Enterprise Application
-5. User/Group Provisioning
+5. Update the attribute mappings of Users and Groups
+6. User/Group Provisioning
 
 ## S﻿tep 1: Apply System for Cross-domain Identity Management (SCIM) proxy token contributor role to IAM user/group
 
@@ -72,7 +73,7 @@ The generated SCIM Proxy Token should be copied and applied in the Azure AD Ente
 
 ![](/img/scim-page2.png)
 
-## S﻿tep 5: User/Group Provisioning
+## S﻿tep 5: Update the attribute mappings of users and groups
 
 For provisioning the user/group to HPE Greenlake Platform, Edit the attribute mapping tab:
 
@@ -90,13 +91,15 @@ Attribute Mapping of Group
 
 Save the configuration and enable the provisioning status from "OFF" to "ON"
 
-![](/img/scim-page6.png "Enabling the Provisioning status to \"ON\"")
+![](/img/scim-page6.png "Enabling the Provisioning status to \\"ON\\"")
 
 Assign the Azure AD group to the Enterprise application
 
 Note: This is very important to give access to the groups and users before provisioning the groups and users 
 
 ![](/img/scim-page5.png "Assign the Azure AD group to the Enterprise application")
+
+## S﻿tep 5: User/Group Provisioning
 
 All set to Provisioning the groups/users, 
 
