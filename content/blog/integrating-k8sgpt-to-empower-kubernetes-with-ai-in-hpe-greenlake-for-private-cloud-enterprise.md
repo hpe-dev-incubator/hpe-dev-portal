@@ -1,7 +1,7 @@
 ---
 title: Integrating K8sGPT to empower Kubernetes with AI in HPE GreenLake for
   Private Cloud Enterprise
-date: 2024-06-24T09:32:54.264Z
+date: 2024-07-09T11:48:04.105Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
