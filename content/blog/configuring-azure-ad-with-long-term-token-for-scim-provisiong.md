@@ -6,7 +6,7 @@ author: Meena Krishnamoorthy, Prabhu Murthy
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - hpe-greenlake-for-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise, SCIM
 ---
 Microsoft Entra ID / Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service, designed to simplify user authentication and authorization across various applications and platforms. It offers a centralized solution for managing user identities, enforcing security policies, and facilitating seamless access to cloud-based resources. Azure AD automatic user provisioning simplifies the creation, maintenance, and removal of user identities in SaaS applications based on business rules.
 
