@@ -83,7 +83,7 @@ The generated SCIM Proxy Token should be copied and applied in the Azure AD Ente
 
 ## S﻿tep 5: Update the attribute mappings of users and groups
 
-Before provisioning the users/groups to HPE Greenlake platform, edit the attribute mappings:
+Before provisioning the users/groups to HPE GreenLake platform, edit the attribute mappings:
 
 * Update the attribute mapping of Users
 * Unselect the update options under "Target Object Actions"
