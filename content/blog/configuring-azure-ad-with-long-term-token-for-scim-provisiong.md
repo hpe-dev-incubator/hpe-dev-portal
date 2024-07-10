@@ -1,12 +1,13 @@
 ---
 title: Configuring Azure Active Directory with long-lived tokens for user provisioning
-date: 2024-03-05T22:06:07.623Z
+date: 2024-07-09T14:32:22.360Z
 priority: 9
-author: Meena Krishnamoorthy
+author: Meena Krishnamoorthy, Prabhu Murthy
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
   - hpe-greenlake-for-private-cloud-enterprise
+  - SCIM
 ---
 Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service, designed to simplify user authentication and authorization across various applications and platforms. It offers a centralized solution for managing user identities, enforcing security policies, and facilitating seamless access to cloud-based resources. Azure AD automatic user provisioning simplifies the creation, maintenance, and removal of user identities in SaaS applications based on business rules.
 
@@ -16,16 +17,19 @@ I﻿n this blog post, I'll explain the process for configuring Azure AD to use a
 
 ## S﻿teps to configure long-term tokens in Azure AD
 
-1. A﻿pply the System for Cross-domain Identity Management (SCIM) proxy token contributor role to IAM user/group
+1. Connect to the HPE GreenLake portal and assign roles required for System for cross-domain identity management (SCIM)
 2. G﻿et a personal access token
 3. C﻿reate a SCIM proxy token
 4. U﻿pdate the SCIM proxy token and the tenant URL in Azure AD Enterprise Application
+5. Update the attribute mappings of Users and Groups
+6. User/Group Provisioning
 
-## S﻿tep 1: Apply System for Cross-domain Identity Management (SCIM) proxy token contributor role to IAM user/group
+## S﻿tep 1: Connect to HPE GreenLake portal and assign roles required for System for Cross-domain Identity Management (SCIM)
 
 A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that will create the long-term token
 
-* L﻿og in to the HPE GreenLake Flex Solutions.
+* Connect to the HPE GreenLake portal ([https://common.cloud.hpe.com](https://common.cloud.hpe.com/)).
+* Cross-launch "HPE GreenLake Flex Solutions" service.
 * C﻿lick the "User Management" icon on the top-right corner.
 * S﻿elect the user/user group that will generate the SCIM proxy token.
 * S﻿elect "Actions" and then "Create Assignment".
@@ -51,7 +55,7 @@ An API token issued by the HPE GreenLake Flex Solutions platform must be used as
 
 ## S﻿tep 3: Create a SCIM proxy token
 
-A SCIM Proxy Token is required for the SCIM integration to work. Run the following curl command to generate the SCIM Proxy token:
+A SCIM Proxy Token is required for the SCIM integration to work. Run the following cURL command to generate the SCIM Proxy token:
 
 `curl -H "Authorization: bearer $BEARER_TOKEN" -X POST https://sps.us1.greenlake-hpe.com/v1alpha1/proxytoken`
 
@@ -64,12 +68,60 @@ The generated SCIM Proxy Token should be copied and applied in the Azure AD Ente
 *  In Azure AD, go to the “Enterprise applications”.
 *  Click the “SSO-Integration” application.
 *  Click the “Provisioning” on the left navigation window.
-*  Click the “Edit provisioning.
-*  Click the “Admin Credentials”.
+*  Click the “Get started.
+
+![](/img/scim-page1.png "Application provisioning in Azure AD")
+
+* Select "Provisioning Mode" to "Automatic" 
+* Click the “Admin Credentials”.
 *  Update the generated token in the “Secret Token” field.
 *  Update the URL https://sps.us1.greenlake-hpe.com/v1alpha1/scimproxy in the “Tenant URL” field.
+* Test connection - Connection should HPE GreenLake Platform should succeed.
+* Save the configuration.
 
-![](/img/azuread-token-configuration-6-mar-2024.png "Application provisioning in Azure AD")
+![](/img/scim-page2.png "Updating the tenant URL and Token")
+
+## S﻿tep 5: Update the attribute mappings of users and groups
+
+Before provisioning the users/groups to HPE Greenlake platform, edit the attribute mappings:
+
+* Update the attribute mapping of Users
+* Unselect the update options under "Target Object Actions"
+* customappsso attribute should have below attributes configured\
+    userName\
+    displayName\
+    name.givenName\
+    name.familyName
+
+![](/img/scim-page3.png "Attribute Mapping of user")
+
+* Update the attribute mapping of groups
+* customappsso attribute should have the below attributes configured\
+    displayName\
+    externalid\
+    members
+
+![](/img/scim-page4.png "Attribute Mapping of Group")
+
+Save the configuration and enable the provisioning status from "OFF" to "ON"
+
+![](/img/scim-page6.png "Enabling the Provisioning status to \\\"ON\\\"")
+
+* Assign the Azure AD group to the Enterprise application
+* Note: This step is very important to give access to subset of groups and users who need access to HPE GreenLake Platform from large enterprise groups from Azure AD.
+
+![](/img/scim-page5.png "Assign the Azure AD group to the Enterprise application")
+
+## S﻿tep 5: User/Group Provisioning
+
+All set to provision the groups/users to "HPE GreenLake Platform". 
+
+* Click "Start Provisioning" to start.
+* Upon successful provisioning verify the users and groups are pushed to "HPE GreenLake platform"  
+* Click "Stop Provisioning" to stop.
+* Click "View Provisioning" logs to view the failures.
+
+![](/img/scim-page7.png)
 
 U﻿sers can rotate a long-lived token before its expiration date using the following API:
 
@@ -77,5 +129,4 @@ U﻿sers can rotate a long-lived token before its expiration date using the foll
 
 When the "remove_current" flag is enabled, it replaces the current token with a new one. During this process, there might be a temporary disruption in user and group provisioning, which will automatically resolve itself in the subsequent provisioning cycle. Alternatively, if the "remove_current" flag is disabled, the current token is replaced only after the new token takes effect, ensuring uninterrupted user experience without any provisioning failures.
 
-I hope this blog post answers any questions you may have had about configuring
-an Azure Active Directory with long-lived tokens for user provisioning on the HPE GreenLake platform. Please return to the HPE Developer Community blog for more tips and tricks on working with the HPE GreenLake platform.
+I hope this blog post answers any questions you may have regarding configuration of SCIM with HPE GreenLake Platform. Please return to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more tips and tricks on working with the HPE GreenLake platform.
