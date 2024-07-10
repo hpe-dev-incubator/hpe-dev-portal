@@ -6,7 +6,6 @@ author: Jeremiah Corrado
 authorimage: https://chapel-lang.org/blog/authors/jeremiah-corrado/photo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - Math
