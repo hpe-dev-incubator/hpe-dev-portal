@@ -26,7 +26,8 @@ Its design principles are centered on leveraging open standards and open systems
 
 For a quick overview of the service, please watch the video below.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ONRh2hUxrDk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-cIUkJL33ac?si=b_Rq6lQj6Kaczcsv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ## HPE GreenLake for Private Cloud Enterprise services
 
