@@ -1,5 +1,5 @@
 ---
-title: Introduction to Redfish Interoperability Profiles
+title: Introduction to Redfish interoperability profiles
 date: 2024-07-03T10:58:04.215Z
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
@@ -17,13 +17,13 @@ tags:
 When I explain to an audience that the <a href="https://redfish.dmtf.org" target="_blank">Redfish® standard</a> 
 requires the implementation of only a subset of the properties mentioned in the entire <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/#data-model" target="_blank">data model</a>, I can see people looking at me puzzled and asking themselves:
 
-"*What ? potentially, some BMCs in my data center do not implement the `FirmwareVersion` property and they are considered as compliant to the standard?*".
+"*What? Are you telling me that there is a potential that some BMCs in my data center do not implement the `FirmwareVersion` property and yet they are considered to be compliant with the standard?*".
 
-The answer is "*yes*"; Redfish services not implementing properties not labeled "required" are compliant.
+The answer is yes. Those Redfish services that are not implementing properties not labeled "required" are still considered to be compliant.
 
-This blog post elaborates the above statement and provides use cases where it can be a problem. Then it introduces the <a href="https://www.dmtf.org/dsp/DSP0272" target="_blank"> Redfish Interoperability Profiles Specification</a> that has been created by the Distributed Management Task Force (<a href="https://dmtf.org" target="_blank">DMTF</a>) to address those use cases.
+Although they are considered to be compliant, there are instances where this can be problematic. In this blog post, I'll elaborate and provide examples of use cases where it can be a problem. Then I'll introduce the <a href="https://www.dmtf.org/dsp/DSP0272" target="_blank"> Redfish interoperability profiles specification</a> that has been created by the Distributed Management Task Force (<a href="https://dmtf.org" target="_blank">DMTF</a>) to address those use cases.
 
-The Redfish Interoperability Profiles specification constitutes another Redfish specificity that could be added to the list presented in <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/" target="_blank">part 1</a> and <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-2/" target="_blank">part 2</a> of the *Why is Redfish different from other REST APIs* blog posts.
+The Redfish interoperability profiles specification constitutes another Redfish specificity that could be added to the list presented in <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-1/" target="_blank">part 1</a> and <a href="https://developer.hpe.com/blog/why-is-redfish%C2%AE-different-from-other-rest-apis-part-2/" target="_blank">part 2</a> of the *Why is Redfish different from other REST APIs* blog posts.
 
 ### Redfish services can omit defined properties
 
@@ -41,32 +41,32 @@ This assertion suggests that some properties are not "required" in the implement
 
 <figcaption>Figure 2: Manager required properties</figcaption>
 
-Requiring the implementation of only a small number properties *provide\[s] significant flexibility, and allow conforming implementations on a wide variety of products* as mentioned in the abstract of the <a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0272_1.8.0.pdf" target="_blank">standard document</a>
+Requiring the implementation of only a small number properties *provide\[s] significant flexibility, and allow conforming implementations on a wide variety of products* as mentioned in the abstract of the <a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0272_1.8.0.pdf" target="_blank">standard document</a>.
 
 ### Who cares?
 
-Flexibility is great, but too much flexibility can become an issue for standard organizations, software projects or end users willing to move away from the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to Redfish for hardware management.
+Flexibility is great, but too much flexibility can become an issue for standard organizations, software projects, or end users willing to move away from the Intelligent Platform Management Interface (<a href="https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html" target="_blank">IPMI</a>) to Redfish for hardware management.
 
-Concerning standard organizations and software projects, the <a href="https://www.opencompute.org/about" target="_blank">Open Compute Project®</a> (OCP) and the <a href="https://wiki.openstack.org/wiki/Main_Page" target="_blank">OpenStack</a> projects can only adopt Redfish as their preferred management protocol if they can easily define some sort of "baseline" containing which property must, should or could be implemented in their managed nodes.
+Standards organizations and software projects, like the <a href="https://www.opencompute.org/about" target="_blank">Open Compute Project®</a> (OCP) and the <a href="https://wiki.openstack.org/wiki/Main_Page" target="_blank">OpenStack</a> projects can only adopt Redfish as their preferred management protocol if they can easily define some sort of "baseline" containing which property must, should, or could be implemented in their managed nodes.
 
-Concerning OCP, the charter of the <a href="https://www.opencompute.org/projects/hardware-management" target="_blank">Hardware Management Project</a> mentions: "*The hardware management specification incorporates \[...] tools and best practices \[...] for remote machine management*". This means that any server compliant to this specification must implement the network protocol(s) mentioned in the baseline.
+Specific to OCP, the charter of the <a href="https://www.opencompute.org/projects/hardware-management" target="_blank">Hardware Management Project</a> mentions: "*The hardware management specification incorporates \[...] tools and best practices \[...] for remote machine management*". This means that any server compliant to this specification must implement the network protocol(s) mentioned in the baseline.
 
-Systems supported by the OpenStack <a href="https://wiki.openstack.org/wiki/Ironic" target="_blank">Ironic</a> (bare metal machine provisioning) and the <a href="https://wiki.openstack.org/wiki/Valence" target="_blank">Valence</a> projects (system lifecycle management) must implement as well a baseline of features containing at least the possibility to be powered on and off remotely.
+Systems supported by the OpenStack <a href="https://wiki.openstack.org/wiki/Ironic" target="_blank">Ironic</a> (bare metal machine provisioning) and the <a href="https://wiki.openstack.org/wiki/Valence" target="_blank">Valence</a> projects (system lifecycle management) must implement a baseline of features containing at least the possibility to be powered on and off remotely as well.
 
-Redfish clients designed for managing multi-vendor systems have also a need for a list of mandatory and recommended features. For example, if a system cannot return its BMC's firmware version, the client will have difficulties to perform firmware updates.
+Redfish clients designed for managing multi-vendor systems also need a list of mandatory and recommended features. For example, if a system cannot return its BMC's firmware version, the client will have difficulties performing firmware updates.
 
-## Redfish Interoperability Profiles
+## Redfish interoperability profiles
 
 To address the baseline issue mentioned above, the DMTF created the
-<a href="https://www.dmtf.org/dsp/DSP0272" target="_blank">DSP0272</a> specification document that defines Interoperability Profiles. A Redfish Interoperability Profile (or Profile) is a JSON document enumarating resources and properties that must, should or could be implemented in a Redfish service.
+<a href="https://www.dmtf.org/dsp/DSP0272" target="_blank">DSP0272</a> specification document that defines interoperability profiles. A Redfish interoperability profile (or profile) is a JSON document enumerating resources and properties that must, should, or could be implemented in a Redfish service.
 
-### Didactic minimal Profile example
+### Didactic minimal profile example
 
 The following example is a minimal profile created for didactic purpose. It is not relevant for use in a proper production context.
 
-A summary of this example could be the following: "To be compliant to this Profile, Redfish services must model at least one manager (BMC) and must be able to return the manager's `FirmwareVersion` value".
+A summary of this example could be the following: "To be compliant to this profile, Redfish services must model at least one manager (BMC) and must be able to return the manager's `FirmwareVersion` value".
 
-> NOTE: The content of Interoperability Profiles is described in a versioned schema file. All the Profile versioned schema files are grouped in compressed bundles (`.zip`) and can be <a href="https://www.dmtf.org/dsp/DSP8013" target="_blank">downloaded from the DMTF</a>. The following example is compliant with version 1.8.0 as specified in the `SchemaDefinition` key of the following example (first line).
+> NOTE: The content of interoperability profiles is described in a versioned schema file. All the profile versioned schema files are grouped in compressed bundles (`.zip`) and can be <a href="https://www.dmtf.org/dsp/DSP8013" target="_blank">downloaded from the DMTF</a>. The following example is compliant with version 1.8.0 as specified in the `SchemaDefinition` key of the following example (first line).
 
 ```json
 {
@@ -103,7 +103,7 @@ A summary of this example could be the following: "To be compliant to this Profi
 }
 ```
 
-Profiles contain administrative "self explanatory" keys like `ProfileName`, `ContactInfo`, or `Purpose`. The normative definition of those properties is in the schema mentioned in the above note. For this example I extracted in the next JSON block, the descripion of the `Protocol/MinVersion` property, which mentions that it is to be compared to the `ServiceRoot/RedfishVersion` of the evaluated Redfish service.
+Profiles contain administrative "self explanatory" keys like `ProfileName`, `ContactInfo`, or `Purpose`. The normative definition of those properties is in the schema mentioned in the above note. For this example I extracted in the next JSON block, the description of the `Protocol/MinVersion` property, which mentions that it is to be compared to the `ServiceRoot/RedfishVersion` of the evaluated Redfish service.
 
 ```json
 {
@@ -114,16 +114,16 @@ Profiles contain administrative "self explanatory" keys like `ProfileName`, `Con
             "properties": {
                 "MinVersion": {
                     "$ref": "#/definitions/MinVersion",
-                    "description": "Indicates the minimum version of the Redfish Specification protocol support required by this profile.  This version shall be reported by the Redfish service in the `ServiceRoot` resource property `RedfishVersion`.  The version shall be represented using a `<major>.<minor>.<errata>` format, including an optional errata version.  If this property is absent, the minimum value shall be `1.0.0`."
+                    "description": "Indicates the minimum version of the Redfish Specification protocol support required by this profile. This version shall be reported by the Redfish service in the `ServiceRoot` resource property `RedfishVersion`. The version shall be represented using a `<major>.<minor>.<errata>` format, including an optional errata version.  If this property is absent, the minimum value shall be `1.0.0`."
                 }
             }
         }
 }
 ```
 
-The `Resources{}` object of the above Profile contains two members: `ManagerCollection{}` and `Manager{}`. The first one requires at least one BMC modeled in the evaluated Redfish service (`MinCount = 1`). The second requires the implementation of the `Manager/FirmwareVersion` (`ReadRequirement = Mandatory`).
+The `Resources{}` object of the above profile contains two members: `ManagerCollection{}` and `Manager{}`. The first one requires at least one BMC modeled in the evaluated Redfish service (`MinCount = 1`). The second requires the implementation of the `Manager/FirmwareVersion` (`ReadRequirement = Mandatory`).
 
-The other possible values for the `ReadRequirement` property are listed and described in the Profile schema and I pasted them in the following JSON block. It is interesting to notice that, in addition to obvious values like `Mandatory` or `Recommended`, others (i.e. `Conditional`, `IfImplemented`) need more attention.
+The other possible values for the `ReadRequirement` property are listed and described in the profile schema. I pasted them in the following JSON block. It is interesting to notice that, in addition to obvious values, like `Mandatory` or `Recommended`, others (i.e. `Conditional`, `IfImplemented`) need more attention.
 
 ```json
 {
@@ -146,11 +146,11 @@ The other possible values for the `ReadRequirement` property are listed and desc
 }
 ```
 
-### Stacking Profiles
+### Stacking profiles
 
-An interesting feature of Redfish Interoperability Profiles is that you can extend at will existing Profiles with your own definitions; to create a Profile that extends the <a href="https://github.com/openstack/ironic/tree/master/redfish-interop-profiles" target="_blank">Ironic Profile</a>, just use the `RequiredProfile{}` object as shown in the next example.
+An interesting feature of Redfish interoperability profiles is that you can extend existing profiles with your own definitions at will. To create a profile that extends the <a href="https://github.com/openstack/ironic/tree/master/redfish-interop-profiles" target="_blank">Ironic profile</a>, just use the `RequiredProfile{}` object as shown in the next example.
 
-This example specifies the URL and minimum version of the Ironic Profile and yours.
+This example specifies the URL and minimum version of the Ironic profile and yours.
 
 ```json
     "RequiredProfiles": {
@@ -165,13 +165,13 @@ This example specifies the URL and minimum version of the Ironic Profile and you
     }
 ```
 
-Now that you understand the basic architecture of Redfish Interoperability Profiles I encourage you to study the <a href="https://github.com/opencomputeproject/HWMgmt-OCP-Profiles" target="_blank">OCP</a> and OpenStack public <a href="https://github.com/openstack/ironic/tree/master/redfish-interop-profiles" target="_blank">Profiles</a>. Don't forget to refer to the <a href="https://www.dmtf.org/dsp/DSP8013" target="_blank">Profile schemas</a> in case you have problem understanding some properties, directives or objects.
+Now that you understand the basic architecture of Redfish interoperability profiles, I encourage you to study the <a href="https://github.com/opencomputeproject/HWMgmt-OCP-Profiles" target="_blank">OCP</a> and OpenStack public <a href="https://github.com/openstack/ironic/tree/master/redfish-interop-profiles" target="_blank">profiles</a>. Don't forget to refer to the <a href="https://www.dmtf.org/dsp/DSP8013" target="_blank">profile schemas</a> in case you have problem understanding some properties, directives or objects.
 
-## How to validate Profiles?
+## How to validate profiles?
 
-Profile conformance can be easily performed with the <a href="https://github.com/DMTF/Redfish-Interop-Validator" target="_blank">Interoperability Validator</a> provided by the DMTF. It is a Python script that takes as input a configuration file and a Profile. The main output is an HTML report.
+Profile conformance can be easily performed with the <a href="https://github.com/DMTF/Redfish-Interop-Validator" target="_blank">interoperability validator</a> provided by the DMTF. It is a Python script that takes as input a configuration file and a profile. The main output is an HTML report.
 
-The following code block clones the Validator GitHub repository and asks to create a configuration file and a Profile. Then it launches the Validator with those two files as input.
+The following code block clones the validator GitHub repository and asks to create a configuration file and a profile. Then it launches the validator with those two files as input.
 
 ```shell
 git clone https://github.com/DMTF/Redfish-Interop-Validator.git
@@ -180,7 +180,7 @@ cd Redfish-Interop-Validator
 python RedfishInteropValidator.py -c config/ilo-scott380g11-1.ini FdzMiniProfile.v1_0_0.json
 ```
 
-The Profile used in the above code example is the minimal Profile mentioned [earlier](#didactic-minimal-profile-example). This profile requests at least one manager in the manager <a href="https://servermanagementportal.ext.hpe.com/docs/concepts/datatypesandcollections/#resource-collections" target="_blank">collection</a> and a `FirmwareVersion` property in the `Manager` resource. To be sure the Validator verifies those requirements, the configuration file (next code block) specifies `payload = tree /redfish/v1/Managers`. This line tells the Validator to verify the Profile directives at `/redfish/v1/Managers` and then follow recursively each and every link it finds and process them. The exact crawling algorithm is explained in the <a href="https://github.com/DMTF/Redfish-Interop-Validator/blob/main/README.md" target="_blank">Validator GitHub README.md</a> file.
+The profile used in the above code example is the minimal profile mentioned [earlier](#didactic-minimal-profile-example). This profile requests at least one manager in the manager <a href="https://servermanagementportal.ext.hpe.com/docs/concepts/datatypesandcollections/#resource-collections" target="_blank">collection</a> and a `FirmwareVersion` property in the `Manager` resource. To be sure the validator verifies those requirements, the configuration file (next code block) specifies `payload = tree /redfish/v1/Managers`. This line tells the validator to verify the profile directives at `/redfish/v1/Managers` and then follow recursively each and every link it finds and process them. The exact crawling algorithm is explained in the <a href="https://github.com/DMTF/Redfish-Interop-Validator/blob/main/README.md" target="_blank">validator GitHub README.md</a> file.
 
 ```shell
 # Profile Validator configuration file.
@@ -218,21 +218,21 @@ debugging = False
 collectionlimit =
 ```
 
-The Validator outputs two files in the directory specified in the configuration file (`logdir`): a report in HTML format and a text file containing the different steps of the validation process.
+The validator outputs two files in the directory specified in the configuration file (`logdir`): a report in HTML format and a text file containing the different steps of the validation process.
 
-Figure 3 below is a portion of the Validator report showing three successful verifications. The first one (`Service level requirements`) requires the existence of the `ManagerCollection` and `Manager` end points. It has been automatically added by the Validator as a mandatory condition before proceeding the verification of the other requirements mentioned in the Profile.
+Figure 3 below is a portion of the validator report showing three successful verification. The first one (`Service level requirements`) requires the existence of the `ManagerCollection` and `Manager` end points. It has been automatically added by the validator as a mandatory condition before proceeding the verification of the other requirements mentioned in the profile.
 
-You can view as well on this figure the results of the two verifications required in the Profile.
+In the figure below, you can also view the results of the two verifications required in the profile.
 
 ![Figure 3: Redfish conformance test report](/img/fig3-conformancetestreport.png "Redfish conformance test report")
 
 <figcaption>Figure 3: Redfish conformance test report</figcaption>
 
-## Leveraging Redfish Interoperability Profiles
+## Leveraging Redfish interoperability profiles
 
-Although present for a long time (January 2018) and despite an introduction <a href="https://www.youtube.com/watch?v=iVAYSEPwmV8" target="_blank">video</a>, the Redfish Interoperability Profile specification is not very well known and it could be better leveraged by Redfish client programmers supervising heterogeneous data centers; this standard along with the Interoperability Validator highlight the differences between Redfish implementations and can help them to fast produce a more efficient code. If you already know a property is absent in a Redfish service, you can anticipate adapt your code early in the development process. 
+Although present for a long time (January 2018) and despite an introduction <a href="https://www.youtube.com/watch?v=iVAYSEPwmV8" target="_blank">video</a>, the Redfish interoperability profile specification is not very well known and it could be better leveraged by Redfish client programmers supervising heterogeneous data centers. This standard, along with the interoperability validator highlight the differences between Redfish implementations and help them produce a more efficient code quickly. If you already know a property is absent in a Redfish service, you can anticipate and adapt your code early in the development process. 
 
-Then, Interoperability Profiles could also be leveraged by the purchasing departments of large organizations with several computer suppliers. By including such Profiles in their Requests for Proposal (RFPs) documents, they could make sure that the computers they purchase have a common baseline in terms of management features. Having a clear knowledge of such baseline is definite plus for security and supervising departments.
+Interoperability profiles can also be leveraged by purchasing departments of large organizations who have several suppliers. By including such profiles in their Requests for Proposal (RFPs) documents, they can make sure that the computers they purchase have a common baseline in terms of management features. Having a clear knowledge of this baseline is a definite plus for security and supervising departments.
 
 With this blog post, I hope you discovered enough information about this Redfish standard to eventually use it or present it to friends or colleagues.
 
