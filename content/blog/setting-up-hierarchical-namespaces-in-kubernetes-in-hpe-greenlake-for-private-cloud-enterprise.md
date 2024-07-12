@@ -17,10 +17,12 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post shows the process to set up the hierarchical namespaces in Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It demonstrates how easy to manage namespace relationships, propagate configurations and resources, and enforce access control policies using the hierarchical namespace in K8s for the cluster administrators. 
+This blog post provides a step-by-step guide on how to set up hierarchical namespaces in Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It explores and demonstrates the simplicity of handling relationships between K8s namespaces, propagating configurations and resources, and applying access control policies using hierarchical namespaces in K8s. The utilization of hierarchical namespaces can result in a more steamlined namespace management and improved security in the complex K8s production environment. 
 
 
 ### Overview
+
+
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
@@ -47,16 +49,19 @@ to an organizational hierarchy and allocate capabilities accordingly.
 
 Before starting, make sure you have the following:
 
-* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* A K8s cluster being provisioned, using [HPE GreenLake Terraform provider](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) for example, in HPE GreenLake for Private Cloud Enterprise
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The *helm* CLI tool, version 3.12.0 or later
-* A domain and a list of subdomains to generate the SSL certificate and host the game applications in the cluster
-* The optional *openssl* CLI tool, for validating the generated certificates
-* The [Python 3.8 or higher](https://www.python.org/downloads/), and *pip* that’s included by default in Python
+* [cURL](https://curl.se/) CLI tool
+
+
 
 ### Set up hierarchical namespaces
 
-#### Install the hierarchical namespace controller
+K8s does not come with hierarchical namespace support by default. There are two components, the *Hierarchical Namespace Controller* (HNC) and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces. 
+
+#### Install the HNC
+
+The Hierarchical Namespace Controller (HNC) can be installed within the control plane of the K8s cluster by typing the following commands:
 
 ```shell
 $ HNC_VERSION=v1.1.0
@@ -81,7 +86,7 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/hnc-mutating-webhook-c
 validatingwebhookconfiguration.admissionregistration.k8s.io/hnc-validating-webhook-configuration created
 ```
 
-The command installs the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *hnc-system* in the cluster.
+The above command installs the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *hnc-system* in the cluster.
 
 
 
@@ -101,10 +106,15 @@ deployment.apps/hnc-controller-manager   1/1     1            1           31s
 
 NAME                                               DESIRED   CURRENT   READY   AGE
 replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       32s
-
 ```
 
-#### Install the hns plugin for kubectl 
+#### Install the *kubectl-hns* plugin
+
+After the HNC is installed, it's possible to set up hierarchical namespaces in the cluster using directly the kubectl CLI tool. However, there is a kubectl plugin *kubectl-hns*
+exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin. 
+
+
+Type the following commands to install the *kubectl-hns* plugin using *curl*:
 
 ```shell
 
@@ -121,7 +131,7 @@ $ sudo mv kubectl-hns /usr/local/bin/kubectl-hns
 
 ```
 
-Type the following command to verify the plugin *hns* installed and it works with kubectl:
+Type the command below to verify the *kubectl-hns* plugin gets installed correctly and it works with kubectl:
 
 ```shell
 
@@ -170,7 +180,7 @@ Use "kubectl-hns [command] --help" for more information about a command.
 
 ### Create hierarchical namespaces
 
-This section sets up an imaginary hierarchical namespace structure, in which an organization named **cfe-pce** supports two teams, *team-caas* & *vmaas*, each running its *devops* and *iac* projects:
+With both the HNC and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespace. This section sets up an imaginary hierarchical namespace structure, in which an organization named **cfe-pce** supports two teams, *team-caas* & *vmaas*, each running its *devops* and *iac* projects:
 
 ```shell
 cfe-pce
@@ -184,7 +194,27 @@ cfe-pce
 
 
 
-Type below kubectl command to create the namespace *'cfe-pce'* to represent the organization:
+A hierarchical K8s namespace can be created using below command:
+
+```shell
+
+kubectl hns create <ns_child> -n <ns_parent>
+```
+
+
+
+*<ns_child>* is the child namespace you want to create, while *<ns_parent>* is the parent namespace which is created using the command *kubectl create ns <ns_parent>*. 
+
+
+
+In case both *<ns_child>* and *<ns_parent>* already exist, you can still create a hierarchical structure by running below command:
+
+```shell
+
+kubectl hns set <ns_child> --parent <ns_parent>
+```
+
+Type the command below to create the root namespace *'cfe-pce'* representing the organization:
 
 ```shell
 
@@ -194,7 +224,7 @@ namespace/cfe-pce created
 
 You can continue to create other namespaces using *'kubectl creat ns'* for two teams and two projects under each team. You then run the command *'kubectl hns set'* to set hierarchical properties of those created namespaces. 
 
-The following section will run the command *'kubectl hns create'* to create the subnamespaces under each parent:
+Then run the following commands to create the subnamespaces under each parent:
 
 ```shell
 $ kubectl hns create team-vmaas -n cfe-pce                                                                                                                                              
@@ -214,16 +244,14 @@ Successfully created "caas-iac" subnamespace anchor in "team-caas" namespace
 Type the command *'kubectl hns tree'* to check the hierarchical namespaces:
 
 ```shell
-$ k hns tree cfe-pce
+$ kubectl hns tree cfe-pce
 cfe-pce
 ├── team-caas
-│   ├── [s] caas-devops
-│   └── [s] caas-iac
+│   ├── caas-devops
+│   └── caas-iac
 └── team-vmaas
     ├── vmaas-devops
     └── vmaas-iac
-
-[s] indicates subnamespaces
 ```
 
 ### Apply propagating capabilities to hierarchical namespaces
@@ -245,31 +273,31 @@ role.rbac.authorization.k8s.io/caas-sre created
 ```
 
 ```shell
-$ k get role -n cfe-pce
+$ kubectl get role -n cfe-pce
 NAME                            CREATED AT
 ...
 pce-admin                       2024-06-27T12:45:51Z
 
-$ k get role -n team-caas
+$ kubectl get role -n team-caas
 NAME                            CREATED AT
 caas-sre                        2024-06-27T12:45:53Z
 ...
 pce-admin                       2024-06-27T12:45:51Z
 
-$ k get role -n vmaas-iac
+$ kubectl get role -n vmaas-iac
 NAME                            CREATED AT
 ...
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
 
-$ k get role -n team-vmaas
+$ kubectl get role -n team-vmaas
 NAME                            CREATED AT
 hpe-cfe-pce-role                2024-06-27T12:36:05Z
 ...
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
 
-$ k get role -n caas-devops
+$ kubectl get role -n caas-devops
 NAME                            CREATED AT
 caas-sre                        2024-06-27T12:45:53Z
 ...
@@ -280,7 +308,7 @@ pce-admin                       2024-06-27T12:45:51Z
 #### Cascade resource quotas
 
 ```shell
-# Create the resource quotas
+
 
 
 $ cat team-vmaas-quota.yaml
@@ -348,7 +376,7 @@ No resources found in vmaas-devops namespace.
 ```
 
 ```shell
-# List the hnc configure
+
 $ kubectl hns config describe
 Synchronized resources:
 * Propagating: rolebindings (rbac.authorization.k8s.io/v1)
@@ -452,8 +480,9 @@ caas-creds                             Opaque                                1  
 
 ### Conclusion
 
+This blog post provides a detailed guide on how to set up hierarchical namespaces in K8s in the HPE GreenLake for Private Cloud Enterprise. It delves into the capabilities of hierarchical namespaces and their impact on managing K8s namespaces. The support of hierarchical namespaces simplifies K8s management and addresses the complexities of administering large-scale namespaces. 
 
-
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
 
 
 
