@@ -6,7 +6,6 @@ author: Andy Stone
 authorimage: https://chapel-lang.org/blog/authors/andy-stone/photo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - 1BRC
