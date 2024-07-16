@@ -34,11 +34,11 @@ A﻿ssign "SCIM Proxy Token Contributor" role to the user or user group that wil
 * S﻿elect the user/user group that will generate the SCIM proxy token.
 * S﻿elect "Actions" and then "Create Assignment".
 * S﻿elect "SCIM Proxy Token Contributor" role.
-* S﻿elect "All Resources" space and "greenlake.service.system" scope.
+* S﻿elect "All Resources" space and "greenlake.service.user" scope.
 * E﻿nable "I confirm that I want to create the assignments listed above".
 * C﻿lick "Create Assignment" button.
 
-**N﻿ote**: This must be applied by an HPE engineer who has HPE GreenLake IAM owner permissions.
+
 
 ## S﻿tep 2: G﻿et a personal access token
 
@@ -105,7 +105,7 @@ Before provisioning the users/groups to HPE GreenLake platform, edit the attribu
 
 Save the configuration and enable the provisioning status from "OFF" to "ON"
 
-![](/img/scim-page6.png "Enabling the Provisioning status to \\\"ON\\\"")
+![](/img/scim-page6.png "Enabling the Provisioning status to \\\\"ON\\\\"")
 
 * Assign the Azure AD group to the Enterprise application
 * Note: This step is very important to give access to subset of groups and users who need access to HPE GreenLake platform from large enterprise groups from Azure AD.
