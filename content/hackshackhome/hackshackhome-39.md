@@ -12,6 +12,6 @@ description: "August 28, 2024: Everyone wants to use Large Language Models
   ecosystem."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 3
 image: /img/event-meetups-newlogo-400x400.png
 ---
