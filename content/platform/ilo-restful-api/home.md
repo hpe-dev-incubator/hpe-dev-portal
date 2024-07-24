@@ -1,6 +1,6 @@
 ---
 title: iLO RESTful API
-version: v 6.01.8966
+version: v 6.01.8970
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
 width: medium
@@ -17,14 +17,12 @@ HPE Server management provides intelligent remote control automation through HPE
 
 A single API interface integrates server management components and full compute power. Use it with HPE iLO 5 and iLO 6 to perform remote server provisioning, configuration, inventory and monitoring industry standards through Redfish API conformance.
 
-# HPE Redfish® API Implementation
+# HPE Redfish API Implementation
 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish® API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it's ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
 * [Read about Redfish on HPE iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
-
 * [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
-
 * [Choose a Redfish Client Tool](https://youtu.be/ur9UKRV_0S8)
 
 # GitHub and PowerShell Repositories
@@ -81,9 +79,9 @@ Puppet module for installing the Python iLOrest library and examples.
 
 ## IT Operations
 
-### [RESTful Interface Tool ![iLOrest](Github)](https://github.com/HewlettPackard/python-redfish-utility)
+### [RESTful Interface Tool ![iLOrest](Github)](https://github.com/HewlettPackard/python-redfish-utility/releases/latest)
 
-HPE iLOrest, the HPE RESTful Interface Tool ([iLOrest](https://www.hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
+[HPE iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest), the HPE RESTful Interface Tool is an open source Redfish client scripting tool also featuring interactive and debug modes. Packaging includes Windows, many Linux flavors as well as a [PyPI project](https://pypi.org/project/ilorest).
 
 * [Read the documentation guide](https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide/)
 * [Watch the Demo](https://www.youtube.com/watch?v=xfEN95pNNfY)
