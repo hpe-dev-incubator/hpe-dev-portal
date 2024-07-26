@@ -61,7 +61,17 @@ After getting the logs, you'll want to turn them into a format that’s easy to 
 
 ![](/img/excel-output.png)
 
-## Full Script
+I have used excel in this script just for testing and can be used with any of the databases including sqlite, postgres and oracle, and yes, python can do it, however, it varies on different use case, especially when it comes to real-time data monitoring or handling very large volumes of logs. \
+\
+For these scenarios, other tools and platforms can be more suitable:
+
+* **Splunk**: This powerful tool specializes in searching, monitoring, and analyzing machine-generated data via a Web-style interface. 
+* **ELK Stack (Elasticsearch, Logstash, Kibana)**: This group of three open-source tools works together to allow users to collect logs from different sources, process them, and then visualize and analyze these data in real time. Elasticsearch acts as a search and analytics engine, Logstash processes and prepares your data, while Kibana lets you visualize the data with charts and graphs.
+* **Tableau**: Known for its advanced visualization capabilities, Tableau can connect directly to nearly any database or log management solution to create complex dashboards and reports. 
+
+## \
+\
+Full Script
 
 ```
 import requests
