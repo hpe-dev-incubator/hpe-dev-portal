@@ -35,7 +35,6 @@ def generate_and_save_token():
     oauth = OAuth2Session(client=client)
     token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.oauth2', auth=(client_id, client_secret))
     return token['access_token']
-
 ```
 
 ### Step 2: Fetch the Audit Logs
@@ -49,17 +48,16 @@ def fetch_audit_logs(token):
     headers = {'Authorization': f'Bearer {token}'}
     response = requests.get('https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs', headers=headers)
     return response.json() if response.status_code == 200 else None
-
 ```
-
-
 
 ### Step 3: Process and Save the Data
 
 After getting the logs, you'll want to turn them into a format that’s easy to read and use.
 
 * **Process the JSON**: Convert the JSON data into a pandas DataFrame. This makes it easier to work with in Python.
-* **Save to Excel**: Export this DataFrame to an Excel file. This file will be your audit log record that you can open, share, and analyze without needing specialized software.
+* **Save to Excel**: Export this DataFrame to an Excel file. This file will be your audit log record that you can open, share, and analyze without needing specialised software.
+
+## How Does it Look Like in Excel?
 
 
 
