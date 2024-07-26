@@ -59,7 +59,7 @@ After getting the logs, you'll want to turn them into a format that’s easy to 
 
 ## How Does it Look Like in Excel?
 
-![](/img/screenshot-2024-07-26-at-11.42.05 am.png)
+![](/img/excel-output.png)
 
 ## Full Script
 
