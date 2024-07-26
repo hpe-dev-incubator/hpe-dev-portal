@@ -69,9 +69,9 @@ For these scenarios, other tools and platforms can be more suitable:
 * **ELK Stack (Elasticsearch, Logstash, Kibana)**: This group of three open-source tools works together to allow users to collect logs from different sources, process them, and then visualize and analyze these data in real time. Elasticsearch acts as a search and analytics engine, Logstash processes and prepares your data, while Kibana lets you visualize the data with charts and graphs.
 * **Tableau**: Known for its advanced visualization capabilities, Tableau can connect directly to nearly any database or log management solution to create complex dashboards and reports. 
 
-## \
-\
-Full Script
+In the next article, we will explore how to get additional detail of an audit log and all audit logs of a particular application or user.
+
+## Full Script
 
 ```
 import requests
