@@ -1,7 +1,7 @@
 ---
 title: HPE AI Foundations workshop
 dateStart: 2024-07-26T16:51:48.998Z
-dateEnd: 2024-10-31T22:59:49.015Z
+dateEnd: 2024-09-12T21:59:49.015Z
 category: Virtual Event
 image: /img/ai-workshop-qrcode-v2.png
 link: https://www.qrfy.com/c1dFJcflh9
