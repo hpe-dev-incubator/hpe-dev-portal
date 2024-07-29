@@ -3,7 +3,7 @@ title: HPE AI Foundations workshop
 dateStart: 2024-07-26T16:51:48.998Z
 dateEnd: 2024-09-12T21:59:49.015Z
 category: Virtual Event
-image: /img/innovation_2c_1600_0_72_rgb.jpg
+image: /img/innovation_2c_207x300.jpg
 link: https://developer.hpe.com/skillup/
 width: large
 ---
