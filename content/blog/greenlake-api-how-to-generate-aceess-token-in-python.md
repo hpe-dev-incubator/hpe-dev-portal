@@ -1,14 +1,22 @@
 ---
-title: Greenlake API - How To Fetch And Analyse Audit Logs  in Python?
+title: HPE GreenLake API - How to fetch and analyze Audit Logs in Python
 date: 2024-07-26T02:57:15.972Z
 featuredBlog: false
 author: Subash Krishnan
 authorimage: /img/subash-krishnan.png
 disable: false
+tags:
+  - hpe-greenlake-platform
+  - hpe-greenlake
+  - API
 ---
-The main reason to use this script is to simplify how you access and organize HPE GreenLake’s audit logs. These logs are essential for maintaining security, meeting compliance requirements, and optimising system operations through detailed activity records.
+Accessing and organizing audit logs is crucial for keeping your system secure, meeting compliance requirements, and running operations smoothly. HPE GreenLake’s audit logs are essential for tracking activities and spotting any unusual behavior that might indicate a security threat.
 
-## Use Cases of Fetching Audit Logs
+In this guide, we'll show you how to set up a Python script to automatically fetch and process HPE GreenLake audit logs. This will save you time and make it easier to keep an eye on your system.
+
+If you’re new to HPE GreenLake’s APIs, take a look at this [blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/) to get started with the HPE GreenLake platform API Audit Logs.
+
+## Use cases of fetching audit logs
 
 Audit logs are extremely useful in several scenarios:
 
@@ -16,11 +24,11 @@ Audit logs are extremely useful in several scenarios:
 * **Compliance Auditing**: Many industries have rules about keeping records of system activities. Audit logs are perfect for this and can be shown as proof during audits.
 * **Operational Analysis**: By looking at the audit logs, companies can see patterns in how their systems are used, helping them to make better decisions about resources and planning.
 
-## Detailed Steps to Set Up the Automation
+## Detailed steps to set up the automation
 
 Here’s a step-by-step guide to getting your audit logs automatically using Python:
 
-### Step 1: Set Up OAuth2 Authentication
+### Step 1: Set up oauth2 authentication
 
 HPE GreenLake uses OAuth2 for security, which means you first need to get an access token.
 
@@ -37,7 +45,7 @@ def generate_and_save_token():
     return token['access_token']
 ```
 
-### Step 2: Fetch the Audit Logs
+### Step 2: Fetch the audit logs
 
 Now that you have a token, you can ask HPE GreenLake for the logs.
 
@@ -50,28 +58,26 @@ def fetch_audit_logs(token):
     return response.json() if response.status_code == 200 else None
 ```
 
-### Step 3: Process and Save the Data
+### Step 3: Process and save the data
 
 After getting the logs, you'll want to turn them into a format that’s easy to read and use.
 
 * **Process the JSON**: Convert the JSON data into a pandas DataFrame. This makes it easier to work with in Python.
 * **Save to Excel**: Export this DataFrame to an Excel file. This file will be your audit log record that you can open, share, and analyze without needing specialised software.
 
-## How Does it Look Like in Excel?
+## How does it look like in excel?
 
 ![](/img/excel-output.png)
 
-I have used excel in this script just for testing and can be used with any of the databases including sqlite, postgres and oracle, and yes, python can do it, however, it varies on different use case, especially when it comes to real-time data monitoring or handling very large volumes of logs. \
-\
+I have used excel in this script just for testing and can be used with any of the databases including sqlite, postgres and oracle, and yes, python can do it, however, it varies on different use case, especially when it comes to real-time data monitoring or handling very large volumes of logs.
+
 For these scenarios, other tools and platforms can be more suitable:
 
 * **Splunk**: This powerful tool specializes in searching, monitoring, and analyzing machine-generated data via a Web-style interface. 
 * **ELK Stack (Elasticsearch, Logstash, Kibana)**: This group of three open-source tools works together to allow users to collect logs from different sources, process them, and then visualize and analyze these data in real time. Elasticsearch acts as a search and analytics engine, Logstash processes and prepares your data, while Kibana lets you visualize the data with charts and graphs.
 * **Tableau**: Known for its advanced visualization capabilities, Tableau can connect directly to nearly any database or log management solution to create complex dashboards and reports. 
 
-In the next article, we will explore how to get additional detail of an audit log and all audit logs of a particular application or user.
-
-## Full Script
+## Full python script
 
 ```
 import requests
@@ -164,3 +170,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## Summary
+
+This post showed how to access and organize HPE GreenLake's audit logs using Python. It explained how to set up OAuth2 to get an access token, fetch the audit logs, and turn them into an easy-to-read Excel file. This makes it easier to keep your system secure, follow rules, and run things smoothly.
+
+In the next article, we will explore how to get additional detail of an audit log and all audit logs of a particular application or user.
+
+If you still have any questions regarding the HPE GreenLake Audit Log APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
