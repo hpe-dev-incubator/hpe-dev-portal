@@ -1,6 +1,6 @@
 ---
 title: Vendor-Neutral GPU Programming in Chapel
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/5117177053996/WN_ojVy9LR_QHSCGxeg21rj7A
 imageBackground: white
