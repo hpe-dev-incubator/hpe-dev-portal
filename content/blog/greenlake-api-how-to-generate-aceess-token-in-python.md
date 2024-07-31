@@ -35,7 +35,7 @@ HPE GreenLake uses OAuth2 for security, which means you first need to get an acc
 1. **Store Your Credentials**: Keep your client ID and secret safe but accessible to your script. A good practice is to store them in a text file. (In this case, I did save the client_Id in first line and client_secret in second line)
 2. **Request a Token**: Your script needs to read these credentials and use them to request an access token. This token proves to HPE GreenLake that your script has permission to access the logs.
 
-```
+```python
 def generate_and_save_token():
     with open('credentials.txt', 'r') as file:
         client_id, client_secret = [line.strip() for line in file.readlines()]
@@ -51,7 +51,7 @@ Now that you have a token, you can ask HPE GreenLake for the logs.
 
 * **Make the Request**: Use the token to make a secure request to the audit logs endpoint. Handle any errors and ensure you process the logs only if the fetch was successful.
 
-```
+```python
 def fetch_audit_logs(token):
     headers = {'Authorization': f'Bearer {token}'}
     response = requests.get('https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs', headers=headers)
@@ -79,7 +79,7 @@ For these scenarios, other tools and platforms can be more suitable:
 
 ## Full python script
 
-```
+```python
 import requests
 from oauthlib.oauth2 import BackendApplicationClient
 from requests.auth import HTTPBasicAuth
