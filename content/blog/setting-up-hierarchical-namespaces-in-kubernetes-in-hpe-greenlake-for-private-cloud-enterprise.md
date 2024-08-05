@@ -17,7 +17,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post provides a step-by-step guide on how to set up hierarchical namespaces in Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It explores and demonstrates the simplicity of handling relationships between K8s namespaces, propagating configurations and resources, and applying access control policies using hierarchical namespaces in K8s. The utilization of hierarchical namespaces can result in a more steamlined namespace management and improved security in the complex K8s production environment. 
+This blog post provides a step-by-step guide on how to set up hierarchical namespaces in Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It explores and demonstrates the simplicity of handling relationships between K8s namespaces, propagating configurations and resource constraints, and applying access control policies using hierarchical namespaces in K8s. The utilization of hierarchical namespaces can result in a more steamlined namespace management and improved security in the complex K8s production environment. 
 
 
 ### Overview
@@ -27,22 +27,17 @@ This blog post provides a step-by-step guide on how to set up hierarchical names
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
 K8s [*Namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is one of the most fundamental K8s API
-obejcts in the K8s system. It provides a mechanism for organizing and isolating groups of K8s resources within a single cluster.
+obejcts in the K8s system. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own resources, policies and constraints. The cluster administrators can create roles, which define the permissions inside a specific namespace, using role-based access control (RBAC). They can also enforce how many resources can be consumed by objects in a namespace using resource limits and quotas. Namespaces provide a way to separate resources and share a cluster between multiple users across multiple teams or projects within an organization. Using namespaces to share the cluster is more cost-effective than 
+spinning up a new cluster for each organizational unit. Various K8s policies to namespace can ensure safely and fairely resource isolating and cluster sharing. It provides a mechanism for organizing and isolating groups of K8s resources within a single cluster.
 
-K8s uses namespaces to separate organizations in a multitenant architecture. Using such namespace based multitenant architecture 
-is more cost-effective than spinning up a new cluster for each organizational unit. However, along with that cost advantages comes
-a certain degree of management complexity, particularly around K8s namespaces. 
-
-
-
-Basically, all the K8s namespaces that are created in a cluster are perrs to each other. Each namespace is fully isolated from the 
-others. The administrative overhead makes managing such hierachical relationships among namespaces difficult. 
+K8s namespaces that are created in a cluster are peers to each other. Each K8s namespace is fully isolated from the others. K8s namespaces are not well matched with organization structures. The adminitrators have to define roles and create policies at the level of individual namespace. At scale, numerous namespaces could lead to management issues. The administrative overhead makes managing namespaces in the 
+cluster becoming tedious and error prone. 
 
 
 
-In 2020, K8s upstream introduced the *hierarchical namaspace* (HNS) framework. HNS helps you manage the security and capabilities 
-of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNS, administrators can organize namespaces according
-to an organizational hierarchy and allocate capabilities accordingly. 
+
+
+In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps you manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
 
 
 ### Prerequisites
@@ -57,11 +52,11 @@ Before starting, make sure you have the following:
 
 ### Set up hierarchical namespaces
 
-K8s does not come with hierarchical namespace support by default. There are two components, the *Hierarchical Namespace Controller* (HNC) and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces. 
+K8s does not come with hierarchical namespace support by default. There are  two components in HNC, the *HNC manager* and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces. 
 
 #### Install the HNC
 
-The Hierarchical Namespace Controller (HNC) can be installed within the control plane of the K8s cluster by typing the following commands:
+The HNC manager can be installed within the control plane of the K8s cluster by typing the following commands:
 
 ```shell
 $ HNC_VERSION=v1.1.0
@@ -86,11 +81,11 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/hnc-mutating-webhook-c
 validatingwebhookconfiguration.admissionregistration.k8s.io/hnc-validating-webhook-configuration created
 ```
 
-The above command installs the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *hnc-system* in the cluster.
+The above commands install the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *hnc-system* in the cluster.
 
 
 
-Type the following command to check the HNC installation:
+Type the following command to check the HNC manager installation:
 
 ```shell
 $ kubectl get all -n hnc-system
