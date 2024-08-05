@@ -3,9 +3,9 @@ title: HPE Innovation workshops
 authorimage: /img/innovation-workshops-icon-dale-207x200.png
 disable: false
 ---
-The HPE Innovation workshops are an invaluable opportunity for all IT technologists looking to learn how to design, implement, and operate a hybrid cloud AI platform. 
+The HPE Innovation workshops are an invaluable opportunity for all IT technologists looking to learn how to design, implement, and operate a hybrid cloud AI platform.
 
-One of the first workshops, HPE AI Foundations, shows you how to establish a comprehensive and extensible foundation to empower integration, strategic deployment, responsible data management & governance, machine & deep learning, and generative AI. 
+One of the first workshops, HPE AI Foundations, shows you how to establish a comprehensive and extensible foundation to empower integration, strategic deployment, responsible data management & governance, machine & deep learning, and generative AI.
 
 During the workshop, you will gain the knowledge and skills necessary to understand HPE GreenLake cloud and the best of breed AI ecosystem technologies incorporated within it.
 
@@ -15,18 +15,17 @@ table {
     width: 100%;
     width: max-content;
     max-width: 100%;
-    overflow: auto; 
+    overflow: auto;
      -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
-    border:1px solid grey;
+    box-shadow: none;
 }
 td {
    -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     border:1px solid grey;
-    text-align: left !important; 
+    text-align: left !important;
     padding: 10px !important;
 }
 thead tr:first-child td {
@@ -34,8 +33,8 @@ thead tr:first-child td {
   -moz-box-shadow: none;
   box-shadow: none;
   border:1px solid grey;
-  text-align: center !important; 
-  padding: 20px !important; 
+  text-align: center !important;
+  padding: 20px !important;
   font-weight: bold !important;
 }
 </style>
