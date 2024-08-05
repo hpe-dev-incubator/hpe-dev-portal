@@ -5,6 +5,10 @@ date: 2024-08-05T12:34:13.570Z
 author: Pete Baker, Naren Nayak (Ampere Computing)
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - ARM
+  - Ampere
+  - AArch64
 ---
 <style>
 li {
