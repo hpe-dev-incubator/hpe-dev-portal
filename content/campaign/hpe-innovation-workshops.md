@@ -1,6 +1,6 @@
 ---
 title: HPE Innovation workshops
-authorimage: /img/innovation_2c_70x100.jpg
+authorimage: /img/innovation-workshops-icon-dale-207x200.png
 disable: false
 ---
 The HPE Innovation workshops are an invaluable opportunity for all IT technologists looking to learn how to design, implement, and operate a hybrid cloud AI platform. 
