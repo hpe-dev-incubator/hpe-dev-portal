@@ -9,6 +9,8 @@ tags:
   - ARM
   - Ampere
   - AArch64
+  - HPE RL300
+  - HPE ProLiant RL300
 ---
 <style>
 li {
@@ -20,7 +22,7 @@ li {
 
 The demand for efficient software porting solutions is increasing. With the transition from legacy x86 to AArch64, and with Ampere processors gaining adoption momentum, developers are looking for ways to expedite the migration for existing codebases. Built for sustainable cloud computing, Ampere’s Cloud Native Processors (CNPs) deliver predictable high performance, platform scalability, and power efficiency unprecedented in the industry.
 
-Today, we are announcing the Ampere Porting Advisor (APA), a new (free) software porting advisor via our [GitHub](https://github.com/AmpereComputing/ampere-porting-advisor) page promising to simplify this process.  The introduction of the new Ampere Porting Advisor provides a significant advancement in simplifying the migration of x86 code to the AArch64 architecture. By streamlining the migration process, reducing development costs, and enabling access to a wider ecosystem, the advisor empowers developers to embrace the benefits of the AArch64 architecture more quickly and effectively. 
+Today, we are announcing the Ampere Porting Advisor (APA), a new open-source software porting advisor via our [GitHub](https://github.com/AmpereComputing/ampere-porting-advisor) page promising to simplify this process.  The introduction of the new Ampere Porting Advisor provides a significant advancement in simplifying the migration of x86 code to the AArch64 architecture. By streamlining the migration process, reducing development costs, and enabling access to a wider ecosystem, the advisor empowers developers to embrace the benefits of the AArch64 architecture more quickly and effectively. 
 
 The AArch64 architecture has gained significant traction across various software packages. By leveraging the APA, developers can tap into this expanding ecosystem and take advantage of the benefits offered by AArch64-based platforms. Migrating code from x86 to the AArch64 architecture does not have to be an intimidating process. 
 
@@ -40,6 +42,6 @@ The APA includes the following features:
 
 The Ampere Porting Advisor will not make code modifications, nor API level recommendations, and it will not send data back to Ampere.  The APA is a static command line tool that analyzes the make environment and source code for known code patterns and dependency libraries and generates a report with incompatibilities and recommendations. 
 
-Download and try the free Ampere Porting Advisor from [Ampere’s GitHub](https://github.com/AmpereComputing/ampere-porting-advisor).
+Download and try the Ampere Porting Advisor from [Ampere’s GitHub](https://github.com/AmpereComputing/ampere-porting-advisor).
  
 To learn more about the developer efforts, find best practices, insights, you are invited to join the conversation at: [https://developer.amperecomputing.com](https://developer.amperecomputing.com), and [https://community.amperecomputing.com/](https://community.amperecomputing.com/).
