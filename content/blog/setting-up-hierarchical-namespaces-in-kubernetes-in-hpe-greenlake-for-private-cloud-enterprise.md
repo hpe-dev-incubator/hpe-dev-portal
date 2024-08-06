@@ -109,7 +109,7 @@ After the HNC is installed, it's possible to set up hierarchical namespaces in t
 exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin. 
 
 
-Type the following commands to install the *kubectl-hns* plugin using *curl*:
+Type the following commands to install the *kubectl-hns* plugin using *curl* in my Linux client:
 
 ```shell
 
@@ -198,7 +198,7 @@ kubectl hns create <ns_child> -n <ns_parent>
 
 
 
-*<ns_child>* is the child namespace you want to create, while *<ns_parent>* is the parent namespace which is created using the command *kubectl create ns <ns_parent>*. 
+where, *<ns_child>* is the child namespace you want to create, while *<ns_parent>* is the parent namespace which is created using the command *kubectl create ns <ns_parent>*. 
 
 
 
@@ -216,8 +216,6 @@ Type the command below to create the root namespace *'cfe-pce'* representing the
 $ kubectl create ns cfe-pce
 namespace/cfe-pce created
 ```
-
-You can continue to create other namespaces using *'kubectl creat ns'* for two teams and two projects under each team. You then run the command *'kubectl hns set'* to set hierarchical properties of those created namespaces. 
 
 Then run the following commands to create the subnamespaces under each parent:
 
@@ -268,16 +266,34 @@ role.rbac.authorization.k8s.io/caas-sre created
 ```
 
 ```shell
-$ kubectl get role -n cfe-pce
-NAME                            CREATED AT
-...
-pce-admin                       2024-06-27T12:45:51Z
+$ kubectl get role -n cfe-pce pce-admin
+NAME        CREATED AT
+pce-admin   2024-06-27T12:45:51Z
+
+
+
 
 $ kubectl get role -n team-caas
 NAME                            CREATED AT
+
+...
 caas-sre                        2024-06-27T12:45:53Z
+pce-admin                       2024-06-27T12:45:51Z
+
+
+$ kubectl get role -n caas-devops
+NAME                            CREATED AT
+
+...
+caas-sre                        2024-06-27T12:45:53Z
+pce-admin                       2024-06-27T12:45:51Z
+
+$ kubectl get role -n team-vmaas
+NAME                            CREATED AT
+
 ...
 pce-admin                       2024-06-27T12:45:51Z
+vmaas-sre                       2024-06-27T12:45:52Z
 
 $ kubectl get role -n vmaas-iac
 NAME                            CREATED AT
@@ -285,18 +301,8 @@ NAME                            CREATED AT
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
 
-$ kubectl get role -n team-vmaas
-NAME                            CREATED AT
-hpe-cfe-pce-role                2024-06-27T12:36:05Z
-...
-pce-admin                       2024-06-27T12:45:51Z
-vmaas-sre                       2024-06-27T12:45:52Z
 
-$ kubectl get role -n caas-devops
-NAME                            CREATED AT
-caas-sre                        2024-06-27T12:45:53Z
-...
-pce-admin                       2024-06-27T12:45:51Z
+
 
 ```
 
@@ -352,6 +358,8 @@ resourcequota/team-caas-quota created
 ```shell
 $ kubectl get resourcequota -n cfe-pce
 No resources found in cfe-pce namespace.
+
+
 $ kubectl get resourcequota -n team-caas
 NAME               AGE   REQUEST                                                                                                                 LIMIT
 team-caas-quota   67s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
@@ -359,6 +367,8 @@ team-caas-quota   67s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, 
 $ kubectl get resourcequota -n team-vmaas
 NAME              AGE   REQUEST                                                                                                                 LIMIT
 team-vmaas-quota   74s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
+
+
 $ kubectl get resourcequota -n vmaas-iac
 No resources found in vmaas-iac namespace.
 $ kubectl get resourcequota -n caas-iac
@@ -404,21 +414,31 @@ $ kubectl get resourcequota -n team-caas
 NAME               AGE     REQUEST                                                                                                                 LIMIT
 team-caas-quota   3m39s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
 
+
+
 $ kubectl get resourcequota -n caas-iac
 NAME               AGE   REQUEST                                                                                                                 LIMIT
 team-caas-quota   45s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
+
+
 
 $ kubectl get resourcequota -n caas-devops
 NAME               AGE   REQUEST                                                                                                                 LIMIT
 team-caas-quota   60s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
 
+
+
 $ kubectl get resourcequota -n team-vmaas
 NAME              AGE     REQUEST                                                                                                                 LIMIT
 team-vmaas-quota   4m10s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
 
+
+
 $ kubectl get resourcequota -n vmaas-iac
 NAME              AGE   REQUEST                                                                                                                 LIMIT
 team-vmaas-quota   75s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
+
+
 
 $ kubectl get resourcequota -n vmaas-devops
 NAME              AGE   REQUEST                                                                                                                 LIMIT
@@ -446,6 +466,8 @@ Conditions:
 $ kubectl -n team-vmaas create secret generic vmaas-creds --from-literal=password=teamvmaas
 secret/vmaas-creds created
 
+
+
 $ kubectl -n team-caas create secret generic caas-creds --from-literal=password=teamcaas
 secret/caas-creds created
 
@@ -453,22 +475,44 @@ secret/caas-creds created
 ```
 
 ```shell
-$ kubectl get secrets -n cfe-pce | grep creds
+$ kubectl get secrets -n cfe-pce caas-creds
+Error from server (NotFound): secrets "caas-creds" not found
+
+
+$ kubectl get secrets -n cfe-pce vmaas-creds
+Error from server (NotFound): secrets "vmaas-creds" not found
+
 $
 
-$ kubectl get secrets -n team-vmaas | grep creds
-vmaas-creds                           Opaque                                1      76s
-$ kubectl get secrets -n team-caas | grep creds
-caas-creds                           Opaque                                1      82s
+$ kubectl get secrets -n team-vmaas vmaas-creds
+NAME          TYPE     DATA   AGE
+vmaas-creds   Opaque   1      76s
 
-$ kubectl get secrets -n vmaas-iac | grep creds
-vmaas-creds                          Opaque                                1      96s
-$ kubectl get secrets -n vmaas-devops | grep creds
-vmaas-creds                             Opaque                                1      101s
-$ kubectl get secrets -n caas-iac | grep creds
-caas-creds                           Opaque                                1      114s
-$ kubectl get secrets -n caas-devops | grep creds
-caas-creds                             Opaque                                1      2m1s
+
+$ kubectl get secrets -n team-caas caas-creds
+NAME         TYPE     DATA   AGE
+caas-creds   Opaque   1      82s
+
+
+
+$ kubectl get secrets -n vmaas-iac  vmaas-creds
+NAME          TYPE     DATA   AGE
+vmaas-creds   Opaque   1      96s
+
+
+$ kubectl get secrets -n vmaas-devops  vmaas-creds
+NAME          TYPE     DATA   AGE
+vmaas-creds   Opaque   1      101s
+
+
+$ kubectl get secrets -n caas-iac caas-creds
+NAME         TYPE     DATA   AGE
+caas-creds   Opaque   1      114s
+
+
+$ kubectl get secrets -n caas-devops caas-creds
+NAME         TYPE     DATA   AGE
+caas-creds   Opaque   1      2m1s
 
 
 ```
