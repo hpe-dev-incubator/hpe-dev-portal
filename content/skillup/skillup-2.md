@@ -6,6 +6,6 @@ description: Catch up on the latest technologies in the industry and learn how
   to best incorporate them into your business.
 disable: false
 priority: 6
-image: /img/medium-hpe-innovation-workshops-3-203x204.png
+image: /img/event-hpe-innovation-workshops-408x412.png
 ---
 Catch up on the latest technologies in the industry and learn how to best incorporate them into your business.
