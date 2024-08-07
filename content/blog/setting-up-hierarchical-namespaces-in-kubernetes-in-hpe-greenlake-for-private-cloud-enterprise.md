@@ -253,6 +253,11 @@ The advantage of the hierarchical namespaces is that they enable administrators 
 
 #### Cascade roles and rolebindings 
 
+RBAC is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. 
+
+K8s Roles and RoleBinding are two K8s API objects that are used at 
+a namespace level to enforce access control in the namespaces.  
+
 ```shell
 # Create the roles
 
@@ -395,7 +400,10 @@ vmaas-sres   Role/vmaas-sre   47s
 
 #### Cascade resource quotas
 
-Apply two resource quotas, *'team-vmaas-quota.yaml'* & *'team-caas-quota.yaml'*, to the namespaces *'team-vmaas'* and *'team-caas'*, respectively:
+K8s provides [K8s ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster admin to define resource quotas and 
+limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds.
+
+Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the namespaces *'team-vmaas'* and *'team-caas'*, respectively:
 
 ```shell
 
@@ -533,6 +541,10 @@ team-vmaas-quota   79s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10,
 
 #### Cascade secrets
 
+This section shows the process to configure some sensitive data to be propaged through the namespace hierarchy. It uses the [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object. 
+
+Type below command to first update the HNC configuration to propagete the K8s Secret resouce:
+
 ```shell
 $ kubectl hns config set-resource secrets --mode Propagate
 
@@ -548,56 +560,62 @@ Conditions:
 ```
 
 ```shell
-$ kubectl -n team-vmaas create secret generic vmaas-creds --from-literal=password=teamvmaas
-secret/vmaas-creds created
+ $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/
+guoping/.docker/config-team-caas.json --type=kubernetes.io/dockerconfigjson
+secret/team-caas-regcrd created
 
-
-
-$ kubectl -n team-caas create secret generic caas-creds --from-literal=password=teamcaas
-secret/caas-creds created
+$ kubectl -n team-vmaas create secret generic team-vmaas-regcrd --from-file=.dockerconfigjson=/hom
+e/guoping/.docker/config-team-vmaas.json --type=kubernetes.io/dockerconfigjson
+secret/team-vmaas-regcrd created
 
 
 ```
 
 ```shell
+$ kubectl get secret -n cfe-pce team-caas-regcrd
+Error from server (NotFound): secrets "team-caas-regcrd" not found
+$ kubectl get secret -n cfe-pce team-vmaas-regcrd
+Error from server (NotFound): secrets "team-vmaas-regcrd" not found
+$ kubectl get secret -n team-caas team-vmaas-regcrd
+Error from server (NotFound): secrets "team-vmaas-regcrd" not found
+$ kubectl get secret -n team-vmaas team-caas-regcrd
+Error from server (NotFound): secrets "team-caas-regcrd" not found
+
 $ kubectl get secrets -n cfe-pce caas-creds
 Error from server (NotFound): secrets "caas-creds" not found
 
 
 $ kubectl get secrets -n cfe-pce vmaas-creds
 Error from server (NotFound): secrets "vmaas-creds" not found
-
-$
-
-$ kubectl get secrets -n team-vmaas vmaas-creds
-NAME          TYPE     DATA   AGE
-vmaas-creds   Opaque   1      76s
+```
 
 
-$ kubectl get secrets -n team-caas caas-creds
-NAME         TYPE     DATA   AGE
-caas-creds   Opaque   1      82s
+```shell
+
+$ kubectl get secret -n team-caas team-caas-regcrd
+NAME               TYPE                             DATA   AGE
+team-caas-regcrd   kubernetes.io/dockerconfigjson   1      49s
+
+$ kubectl get secret -n caas-devops team-caas-regcrd
+NAME               TYPE                             DATA   AGE
+team-caas-regcrd   kubernetes.io/dockerconfigjson   1      99s
+
+$ kubectl get secret -n caas-iac team-caas-regcrd
+NAME               TYPE                             DATA   AGE
+team-caas-regcrd   kubernetes.io/dockerconfigjson   1      104s
+
+$ kubectl get secret -n team-vmaas team-vmaas-regcrd
+NAME                TYPE                             DATA   AGE
+team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      40s
+$ kubectl get secret -n vmaas-devops team-vmaas-regcrd
+NAME                TYPE                             DATA   AGE
+team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      59s
+$ kubectl get secret -n vmaas-iac team-vmaas-regcrd
+NAME                TYPE                             DATA   AGE
+team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      65s
 
 
 
-$ kubectl get secrets -n vmaas-iac  vmaas-creds
-NAME          TYPE     DATA   AGE
-vmaas-creds   Opaque   1      96s
-
-
-$ kubectl get secrets -n vmaas-devops  vmaas-creds
-NAME          TYPE     DATA   AGE
-vmaas-creds   Opaque   1      101s
-
-
-$ kubectl get secrets -n caas-iac caas-creds
-NAME         TYPE     DATA   AGE
-caas-creds   Opaque   1      114s
-
-
-$ kubectl get secrets -n caas-devops caas-creds
-NAME         TYPE     DATA   AGE
-caas-creds   Opaque   1      2m1s
 
 
 ```
