@@ -263,6 +263,15 @@ role.rbac.authorization.k8s.io/vmaas-sre created
 $ kubectl -n team-caas create role caas-sre --verb=update --resource=pod
 role.rbac.authorization.k8s.io/caas-sre created
 
+# Create the rolebindings
+
+$ kubectl -n cfe-pce create rolebinding pce-admins --role pce-admin --serviceaccount=cfe-pce:default
+rolebinding.rbac.authorization.k8s.io/pce-admins created
+$ kubectl -n team-caas create rolebinding caas-sres --role caas-sre --serviceaccount=team-caas:default
+rolebinding.rbac.authorization.k8s.io/caas-sres created
+$ kubectl -n team-vmaas create rolebinding vmaas-sres --role vmaas-sre --serviceaccount=team-vmaas:default
+rolebinding.rbac.authorization.k8s.io/vmaas-sres created
+
 ```
 
 ```shell
@@ -306,7 +315,87 @@ vmaas-sre                       2024-06-27T12:45:52Z
 
 ```
 
+```shell
+$ kubectl get rolebinding -n cfe-pce pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   51s
+
+$ kubectl get rolebinding -n team-caas pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   59s
+
+
+
+$ kubectl get rolebinding -n caas-devops pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   87s
+
+
+$ kubectl get rolebinding -n caas-iac pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   94s
+
+
+$ kubectl get rolebinding -n team-vmaas pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   111s
+
+
+$ kubectl get rolebinding -n vmaas-devops pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   2m2s
+
+
+$ kubectl get rolebinding -n vmaas-iac pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   2m10s
+
+
+```
+
+```shell
+$ kubectl get rolebinding -n cfe-pce caas-sres
+Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
+$ kubectl get rolebinding -n cfe-pce vmaas-sres
+Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
+```
+
+```shell
+$ kubectl get rolebinding -n team-vmaas caas-sres
+Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
+$ kubectl get rolebinding -n team-caas vmaas-sres
+Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
+```
+
+```shell
+
+$ kubectl get rolebinding -n team-caas caas-sres
+NAME         ROLE             AGE
+caas-sres    Role/caas-sre    38s
+$ kubectl get rolebinding -n caas-devops caas-sres
+NAME         ROLE             AGE
+caas-sres    Role/caas-sre    47s
+$ kubectl get rolebinding -n caas-iac caas-sres
+NAME         ROLE             AGE
+caas-sres    Role/caas-sre    52s
+
+
+
+
+$ kubectl get rolebinding -n team-vmaas vmaas-sres
+NAME         ROLE             AGE
+vmaas-sres   Role/vmaas-sre   28s
+$ kubectl get rolebinding -n vmaas-devops vmaas-sres
+NAME         ROLE             AGE
+vmaas-sres   Role/vmaas-sre   39s
+$ kubectl get rolebinding -n vmaas-iac vmaas-sres
+NAME         ROLE             AGE
+vmaas-sres   Role/vmaas-sre   47s
+```
+
 #### Cascade resource quotas
+
+Apply two resource quotas, *'team-vmaas-quota.yaml'* & *'team-caas-quota.yaml'*, to the namespaces *'team-vmaas'* and *'team-caas'*, respectively:
 
 ```shell
 
@@ -327,11 +416,8 @@ spec:
     requests.storage: 20Gi
 
 
-
 $ kubectl -n team-vmaas apply -f team-vmaas-quota.yaml
-
 resourcequota/team-vmaas-quota created
-
 
 $ cat team-caas-quota.yaml
 apiVersion: v1
@@ -346,7 +432,6 @@ spec:
     persistentvolumeclaims: "30"
     services.nodeports: "6"
     requests.storage: 60Gi
-
 
 
 $ kubectl -n team-caas apply -f team-caas-quota.yaml
