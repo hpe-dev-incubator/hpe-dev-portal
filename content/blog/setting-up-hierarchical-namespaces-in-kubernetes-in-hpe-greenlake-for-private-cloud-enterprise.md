@@ -253,9 +253,7 @@ The advantage of the hierarchical namespaces is that they enable administrators 
 
 #### Cascade roles and rolebindings 
 
-RBAC is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. 
-
-K8s Roles and RoleBinding are two K8s API objects that are used at 
+RBAC is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. K8s Roles and RoleBinding are two K8s API objects that are used at 
 a namespace level to enforce access control in the namespaces.  
 
 ```shell
@@ -263,17 +261,20 @@ a namespace level to enforce access control in the namespaces.
 
 $ kubectl -n cfe-pce create role pce-admin --verb=* --resource=pod
 role.rbac.authorization.k8s.io/pce-admin created
+
 $ kubectl -n team-vmaas create role vmaas-sre --verb=update --resource=pod
 role.rbac.authorization.k8s.io/vmaas-sre created
+
 $ kubectl -n team-caas create role caas-sre --verb=update --resource=pod
 role.rbac.authorization.k8s.io/caas-sre created
 
 # Create the rolebindings
-
 $ kubectl -n cfe-pce create rolebinding pce-admins --role pce-admin --serviceaccount=cfe-pce:default
 rolebinding.rbac.authorization.k8s.io/pce-admins created
+
 $ kubectl -n team-caas create rolebinding caas-sres --role caas-sre --serviceaccount=team-caas:default
 rolebinding.rbac.authorization.k8s.io/caas-sres created
+
 $ kubectl -n team-vmaas create rolebinding vmaas-sres --role vmaas-sre --serviceaccount=team-vmaas:default
 rolebinding.rbac.authorization.k8s.io/vmaas-sres created
 
@@ -284,9 +285,6 @@ $ kubectl get role -n cfe-pce pce-admin
 NAME        CREATED AT
 pce-admin   2024-06-27T12:45:51Z
 
-
-
-
 $ kubectl get role -n team-caas
 NAME                            CREATED AT
 
@@ -294,14 +292,12 @@ NAME                            CREATED AT
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
 
-
 $ kubectl get role -n caas-devops
 NAME                            CREATED AT
 
 ...
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
-
 $ kubectl get role -n team-vmaas
 NAME                            CREATED AT
 
@@ -320,6 +316,8 @@ vmaas-sre                       2024-06-27T12:45:52Z
 
 ```
 
+
+
 ```shell
 $ kubectl get rolebinding -n cfe-pce pce-admins
 NAME         ROLE             AGE
@@ -329,38 +327,32 @@ $ kubectl get rolebinding -n team-caas pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   59s
 
-
-
 $ kubectl get rolebinding -n caas-devops pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   87s
-
 
 $ kubectl get rolebinding -n caas-iac pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   94s
 
-
 $ kubectl get rolebinding -n team-vmaas pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   111s
-
 
 $ kubectl get rolebinding -n vmaas-devops pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   2m2s
 
-
 $ kubectl get rolebinding -n vmaas-iac pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   2m10s
-
 
 ```
 
 ```shell
 $ kubectl get rolebinding -n cfe-pce caas-sres
 Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
+
 $ kubectl get rolebinding -n cfe-pce vmaas-sres
 Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
 ```
@@ -368,6 +360,7 @@ Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres
 ```shell
 $ kubectl get rolebinding -n team-vmaas caas-sres
 Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
+
 $ kubectl get rolebinding -n team-caas vmaas-sres
 Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
 ```
@@ -377,9 +370,11 @@ Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres
 $ kubectl get rolebinding -n team-caas caas-sres
 NAME         ROLE             AGE
 caas-sres    Role/caas-sre    38s
+
 $ kubectl get rolebinding -n caas-devops caas-sres
 NAME         ROLE             AGE
 caas-sres    Role/caas-sre    47s
+
 $ kubectl get rolebinding -n caas-iac caas-sres
 NAME         ROLE             AGE
 caas-sres    Role/caas-sre    52s
@@ -387,12 +382,15 @@ caas-sres    Role/caas-sre    52s
 
 
 
+
 $ kubectl get rolebinding -n team-vmaas vmaas-sres
 NAME         ROLE             AGE
 vmaas-sres   Role/vmaas-sre   28s
+
 $ kubectl get rolebinding -n vmaas-devops vmaas-sres
 NAME         ROLE             AGE
 vmaas-sres   Role/vmaas-sre   39s
+
 $ kubectl get rolebinding -n vmaas-iac vmaas-sres
 NAME         ROLE             AGE
 vmaas-sres   Role/vmaas-sre   47s
@@ -401,7 +399,7 @@ vmaas-sres   Role/vmaas-sre   47s
 #### Cascade resource quotas
 
 K8s provides [K8s ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster admin to define resource quotas and 
-limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds.
+limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds. This section shows the process to set up resource quotas.
 
 Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the namespaces *'team-vmaas'* and *'team-caas'*, respectively:
 
@@ -447,12 +445,9 @@ resourcequota/team-caas-quota created
 
 
 ```
+If you check the resouce quotas using the following commands, you will find they are only visible in each team namespace. The quota resources are not propageted to any projects under the team namespace: 
 
 ```shell
-$ kubectl get resourcequota -n cfe-pce
-No resources found in cfe-pce namespace.
-
-
 $ kubectl get resourcequota -n team-caas
 NAME               AGE   REQUEST                                                                                                                 LIMIT
 team-caas-quota   67s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
@@ -461,17 +456,21 @@ $ kubectl get resourcequota -n team-vmaas
 NAME              AGE   REQUEST                                                                                                                 LIMIT
 team-vmaas-quota   74s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
 
-
 $ kubectl get resourcequota -n vmaas-iac
 No resources found in vmaas-iac namespace.
+
 $ kubectl get resourcequota -n caas-iac
 No resources found in caas-iac namespace.
+
 $ kubectl get resourcequota -n caas-devops
 No resources found in caas-devops namespace.
+
 $ kubectl get resourcequota -n vmaas-devops
 No resources found in vmaas-devops namespace.
 
 ```
+
+The reason is due to the fact that HNC comes with its default configuration to only propagate the RBAC objects, *roles* and *rolebindings*:
 
 ```shell
 
@@ -484,15 +483,13 @@ Conditions:
 
 ```
 
-Type the following command to configure the K8s API resource *ResourceQuotas*:
+Type the following command to update the HNC configuration to propagete the K8s *ResourceQuota* resource:
 
 ```shell
-# Set resource quotas
+
 $ kubectl hns config set-resource resourcequotas --mode Propagate
 
-```
-
-```shell
+$ kubectl hns config describe
 Synchronized resources:
 * Propagating: resourcequotas (/v1)
 * Propagating: rolebindings (rbac.authorization.k8s.io/v1)
@@ -502,11 +499,12 @@ Conditions:
 
 ```
 
+Then if you check again the resouce quotas, you will see the quota resources are  propageted to all projects under each team namespace: 
+
 ```shell
 $ kubectl get resourcequota -n team-caas
 NAME               AGE     REQUEST                                                                                                                 LIMIT
 team-caas-quota   3m39s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
-
 
 
 $ kubectl get resourcequota -n caas-iac
@@ -514,11 +512,9 @@ NAME               AGE   REQUEST                                                
 team-caas-quota   45s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
 
 
-
 $ kubectl get resourcequota -n caas-devops
 NAME               AGE   REQUEST                                                                                                                 LIMIT
 team-caas-quota   60s   cpu: 0/8, memory: 0/60Gi, persistentvolumeclaims: 0/30, pods: 0/30, requests.storage: 0/60Gi, services.nodeports: 0/6
-
 
 
 $ kubectl get resourcequota -n team-vmaas
@@ -526,11 +522,9 @@ NAME              AGE     REQUEST                                               
 team-vmaas-quota   4m10s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
 
 
-
 $ kubectl get resourcequota -n vmaas-iac
 NAME              AGE   REQUEST                                                                                                                 LIMIT
 team-vmaas-quota   75s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10, pods: 0/10, requests.storage: 0/20Gi, services.nodeports: 0/2
-
 
 
 $ kubectl get resourcequota -n vmaas-devops
@@ -543,7 +537,7 @@ team-vmaas-quota   79s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10,
 
 This section shows the process to configure some sensitive data to be propaged through the namespace hierarchy. It uses the [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object. 
 
-Type below command to first update the HNC configuration to propagete the K8s Secret resouce:
+Type below command first to update the HNC configuration to propagete the K8s *Secret* resouce:
 
 ```shell
 $ kubectl hns config set-resource secrets --mode Propagate
@@ -559,6 +553,8 @@ Conditions:
 
 ```
 
+As a demo example, the following commands will create two K8s secrets with *docker-registry* type in the namespace *team-caas* and *team-vmaas*, respectively. The secrets will be used by those two teams, and their projects, to authenticate with their team registry to pull private images for application deployment.
+
 ```shell
  $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/
 guoping/.docker/config-team-caas.json --type=kubernetes.io/dockerconfigjson
@@ -568,27 +564,20 @@ $ kubectl -n team-vmaas create secret generic team-vmaas-regcrd --from-file=.doc
 e/guoping/.docker/config-team-vmaas.json --type=kubernetes.io/dockerconfigjson
 secret/team-vmaas-regcrd created
 
-
 ```
+
+The created secrets are not visible to the parent namespace *cfe-pce*. 
 
 ```shell
 $ kubectl get secret -n cfe-pce team-caas-regcrd
 Error from server (NotFound): secrets "team-caas-regcrd" not found
+
 $ kubectl get secret -n cfe-pce team-vmaas-regcrd
 Error from server (NotFound): secrets "team-vmaas-regcrd" not found
-$ kubectl get secret -n team-caas team-vmaas-regcrd
-Error from server (NotFound): secrets "team-vmaas-regcrd" not found
-$ kubectl get secret -n team-vmaas team-caas-regcrd
-Error from server (NotFound): secrets "team-caas-regcrd" not found
 
-$ kubectl get secrets -n cfe-pce caas-creds
-Error from server (NotFound): secrets "caas-creds" not found
-
-
-$ kubectl get secrets -n cfe-pce vmaas-creds
-Error from server (NotFound): secrets "vmaas-creds" not found
 ```
 
+In addition to be visible in the team namespaces they are applied, those secrets are propagated automatically to all the projects under each teams:
 
 ```shell
 
@@ -607,9 +596,11 @@ team-caas-regcrd   kubernetes.io/dockerconfigjson   1      104s
 $ kubectl get secret -n team-vmaas team-vmaas-regcrd
 NAME                TYPE                             DATA   AGE
 team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      40s
+
 $ kubectl get secret -n vmaas-devops team-vmaas-regcrd
 NAME                TYPE                             DATA   AGE
 team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      59s
+
 $ kubectl get secret -n vmaas-iac team-vmaas-regcrd
 NAME                TYPE                             DATA   AGE
 team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      65s
@@ -617,8 +608,9 @@ team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      65s
 
 
 
-
 ```
+
+Each projects can start using the configured secret in their application deployment. 
 
 ### Conclusion
 
