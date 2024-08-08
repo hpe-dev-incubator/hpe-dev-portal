@@ -255,11 +255,9 @@ cfe-pce
 
 ### Apply propagating capabilities to hierarchical namespaces
 
-With the hierachical namespace structure being created, this section show the process to add roles and role bindings using RBAC to the namespaces. 
+With the hierachical namespace structure being created, this section shows the process to add roles and role bindings using RBAC to the namespaces to enforce access control. It shows also how to set up resource quotas and secrets to ensure safely and fairely cluster sharing. Hierarchical namespaces enable to propage configurations and resources and enforce access control policies across namespaces. 
 
-The advantage of hierarchical namespaces is that they enable administrators to build propagating permission structures to a Kubernetes cluster. Instead of setting up permissions per namespace, the administators can do it at the parent. The permissions will be propagated into its subnamespaces. 
-
-[HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md)
+You can refer to the [HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md) for setting up other K8s resources using HNC. 
 
 #### Cascade roles and rolebindings 
 
