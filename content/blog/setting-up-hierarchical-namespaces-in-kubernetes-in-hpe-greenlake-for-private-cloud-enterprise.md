@@ -54,7 +54,7 @@ Before starting, make sure you have the following:
 
 K8s does not come with hierarchical namespace support by default. There are  two components in HNC, the *HNC manager* and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces. 
 
-#### Install the HNC
+#### Install the HNC manager
 
 The HNC manager can be installed within the control plane of the K8s cluster by typing the following commands:
 
@@ -105,11 +105,10 @@ replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       3
 
 #### Install the *kubectl-hns* plugin
 
-After the HNC is installed, it's possible to set up hierarchical namespaces in the cluster using directly the kubectl CLI tool. However, there is a kubectl plugin *kubectl-hns*
-exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin. 
+After the HNC manager is installed, it's possible to set up hierarchical namespaces using the kubectl CLI tool with a list of the HNC custom resources definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin *kubectl-hns* exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
 
 
-Type the following commands to install the *kubectl-hns* plugin using *curl* in my Linux client:
+Type the following commands to install the *kubectl-hns* plugin using *curl*:
 
 ```shell
 
@@ -249,7 +248,9 @@ cfe-pce
 
 ### Apply propagating capabilities to hierarchical namespaces
 
-The advantage of the hierarchical namespaces is that they enable administrators to build propagating permission structures to a Kubernetes cluster. Instead of setting up permission per namespace, the administators can do it at the parent. The permission will be propagated into its subnamespaces. 
+The advantage of hierarchical namespaces is that they enable administrators to build propagating permission structures to a Kubernetes cluster. Instead of setting up permissions per namespace, the administators can do it at the parent. The permissions will be propagated into its subnamespaces. 
+
+[HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md)
 
 #### Cascade roles and rolebindings 
 
