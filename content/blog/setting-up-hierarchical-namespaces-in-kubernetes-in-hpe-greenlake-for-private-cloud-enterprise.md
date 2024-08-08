@@ -174,7 +174,7 @@ Use "kubectl-hns [command] --help" for more information about a command.
 
 ### Create hierarchical namespaces
 
-With both the HNC and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespace. This section sets up an imaginary hierarchical namespace structure, in which an organization named **cfe-pce** supports two teams, *team-caas* & *vmaas*, each running its *devops* and *iac* projects:
+With both the HNC and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization named **cfe-pce** supports two teams, *team-caas* & *vmaas*, each team running its *devops* and *iac* projects:
 
 ```shell
 cfe-pce
@@ -221,14 +221,21 @@ Then run the following commands to create the subnamespaces under each parent:
 ```shell
 $ kubectl hns create team-vmaas -n cfe-pce                                                                                                                                              
 Successfully created "team-vmaas" subnamespace anchor in "cfe-pce" namespace
+
 $ kubectl hns create vmaas-devops -n team-vmaas                                                                                                        
-Successfully created "vmaas-devops" subnamespace anchor in "team-vmaas" namespace                                                                                                      
+Successfully created "vmaas-devops" subnamespace anchor in "team-vmaas" namespace   
+                                                                                                   
 $ kubectl hns create vmaas-iac -n team-vmaas                                                                                                                                            
-Successfully created "vmaas-iac" subnamespace anchor in "team-vmaas" namespace                                                                                                         
+Successfully created "vmaas-iac" subnamespace anchor in "team-vmaas" namespace    
+                                                                                                     
 $ kubectl hns create team-caas -n cfe-pce                                                                                                                                               
 Successfully created "team-caas" subnamespace anchor in "cfe-pce" namespace
+
+
 $ kubectl hns create caas-devops -n team-caas
 Successfully created "caas-devops" subnamespace anchor in "team-caas" namespace
+
+
 $ kubectl hns create caas-iac -n team-caas
 Successfully created "caas-iac" subnamespace anchor in "team-caas" namespace
 ```
@@ -248,6 +255,8 @@ cfe-pce
 
 ### Apply propagating capabilities to hierarchical namespaces
 
+With the hierachical namespace structure being created, this section show the process to add roles and role bindings using RBAC to the namespaces. 
+
 The advantage of hierarchical namespaces is that they enable administrators to build propagating permission structures to a Kubernetes cluster. Instead of setting up permissions per namespace, the administators can do it at the parent. The permissions will be propagated into its subnamespaces. 
 
 [HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md)
@@ -256,6 +265,8 @@ The advantage of hierarchical namespaces is that they enable administrators to b
 
 RBAC is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. K8s Roles and RoleBinding are two K8s API objects that are used at 
 a namespace level to enforce access control in the namespaces.  
+
+Type the following commands to create an admin role across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles for *team-vmaas* and *team-caas*, together with the role bindings to those roles:
 
 ```shell
 # Create the roles
@@ -270,6 +281,7 @@ $ kubectl -n team-caas create role caas-sre --verb=update --resource=pod
 role.rbac.authorization.k8s.io/caas-sre created
 
 # Create the rolebindings
+
 $ kubectl -n cfe-pce create rolebinding pce-admins --role pce-admin --serviceaccount=cfe-pce:default
 rolebinding.rbac.authorization.k8s.io/pce-admins created
 
@@ -286,6 +298,12 @@ $ kubectl get role -n cfe-pce pce-admin
 NAME        CREATED AT
 pce-admin   2024-06-27T12:45:51Z
 
+$ k get rolebindings -n cfe-pce pce-admins
+NAME         ROLE             AGE
+pce-admins   Role/pce-admin   44s
+
+
+
 $ kubectl get role -n team-caas
 NAME                            CREATED AT
 
@@ -299,6 +317,26 @@ NAME                            CREATED AT
 ...
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
+
+$ k get rolebindings -n team-caas
+NAME                            ROLE                                 AGE
+...
+caas-sres                       Role/caas-sre                        44s
+pce-admins                      Role/pce-admin                       63s
+
+$ k get rolebindings -n caas-devops
+NAME                            ROLE                                 AGE
+...
+caas-sres                       Role/caas-sre                        53s
+pce-admins                      Role/pce-admin                       63s
+
+$ k get rolebindings -n caas-iac
+NAME                            ROLE                                 AGE
+...
+caas-sres                       Role/caas-sre                        53s
+pce-admins                      Role/pce-admin                       63s
+
+
 $ kubectl get role -n team-vmaas
 NAME                            CREATED AT
 
@@ -311,6 +349,24 @@ NAME                            CREATED AT
 ...
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
+
+$ k get rolebindings -n team-vmaas
+NAME                            ROLE                                 AGE
+...
+pce-admins                      Role/pce-admin                       63s
+vmaas-sres                      Role/vmaas-sre                       43s
+
+$ k get rolebindings -n vmaas-devops
+NAME                            ROLE                                 AGE
+pce-admins                      Role/pce-admin                       63s
+vmaas-sres                      Role/vmaas-sre                       43s
+
+$ k get rolebindings -n vmaas-iac
+NAME                            ROLE                                 AGE
+...
+pce-admins                      Role/pce-admin                       63s
+vmaas-sres                      Role/vmaas-sre                       44s
+
 
 
 
