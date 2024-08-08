@@ -28,7 +28,6 @@ HPE NonStop is a platform that runs some of the world’s most exciting workload
 
 [HPE NonStop Family of Systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
 
-[NonStop 101: Training Wheels for NonStop OS]
-(https://shaniceabigail.github.io/nonstop101/)
+[NonStop 101: Training Wheels for NonStop OS](https://shaniceabigail.github.io/nonstop101/)
 
 [Sample Code for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
