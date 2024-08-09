@@ -26,12 +26,9 @@ This blog post provides a step-by-step guide on how to set up hierarchical names
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-K8s [*Namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is one of the most fundamental K8s API
-obejcts in the K8s system. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own resources, policies and constraints. The cluster administrators can create roles, which define the permissions inside a specific namespace, using role-based access control (RBAC). They can also enforce how many resources can be consumed by objects in a namespace using resource limits and quotas. Namespaces provide a way to separate resources and share a cluster between multiple users across multiple teams or projects within an organization. Using namespaces to share the cluster is more cost-effective than 
-spinning up a new cluster for each organizational unit. Various K8s policies to namespace can ensure safely and fairely resource isolating and cluster sharing. It provides a mechanism for organizing and isolating groups of K8s resources within a single cluster.
+K8s [*Namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is a fundamental K8s API obejct within the K8s architecture. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own set of resources, policies and constraints. Cluster administrators can create roles using role-based access control (RBAC) to define permissions within a specific namespace. They can aslo enforce resource limits and quota to control the consumption of resources by objects in a namespace. Namespaces facilitate the separation of resources and allow multiple users, teams, or projects to share a cluster within an organization. This approach is more cost-effective than creating a new cluster for each organizational unit. By applying various K8s configurations and policies to namespaces, cluster administrators can ensure safe and fair resource isolatiion and cluster sharing. 
 
-K8s namespaces that are created in a cluster are peers to each other. Each K8s namespace is fully isolated from the others. K8s namespaces are not well matched with organization structures. The adminitrators have to define roles and create policies at the level of individual namespace. At scale, numerous namespaces could lead to management issues. The administrative overhead makes managing namespaces in the 
-cluster becoming tedious and error prone. 
+K8s namespaces created within a cluster are peers, each fully isolated from the others. K8s namespaces don't align well with organizational structures. Cluster adminitrators must define roles and create policies for each individual namespace. At scale, managing numerous namespaces can become challenging, leading to potential management issues. The administrative overhead can make managing namespaces within the cluster tedious and prone to errors.
 
 
 
@@ -39,9 +36,10 @@ cluster becoming tedious and error prone.
 
 In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps you manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
 
-This blog post shows the process to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. A list of K8s resources, including *Role*/*RoleBinding*, *ResourceQuota* and *Secret*, is created to demonstrate the advantage that hierarchical namespaces bring to K8s.
+This blog post outlines the steps to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It uses a list of K8s resources, such as *Role*/*RoleBinding*, *ResourceQuota* and *Secret*, to showcasae the befefits that hierarchical namespaces bring to K8s.
 
 ### Prerequisites
+
 
 
 Before starting, make sure you have the following:
