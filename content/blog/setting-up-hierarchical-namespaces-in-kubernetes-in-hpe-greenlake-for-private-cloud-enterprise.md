@@ -39,8 +39,10 @@ cluster becoming tedious and error prone.
 
 In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps you manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
 
+This blog post shows the process to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. A list of K8s resources, including *Role*/*RoleBinding*, *ResourceQuota* and *Secret*, is created to demonstrate the advantage that hierarchical namespaces bring to K8s.
 
 ### Prerequisites
+
 
 Before starting, make sure you have the following:
 
@@ -52,7 +54,7 @@ Before starting, make sure you have the following:
 
 ### Set up hierarchical namespaces
 
-K8s does not come with hierarchical namespace support by default. There are  two components in HNC, the *HNC manager* and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces. 
+K8s does not come with hierarchical namespace support by default. There are  two components, the *HNC manager* and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces in K8s. 
 
 #### Install the HNC manager
 
@@ -81,7 +83,7 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/hnc-mutating-webhook-c
 validatingwebhookconfiguration.admissionregistration.k8s.io/hnc-validating-webhook-configuration created
 ```
 
-The above commands install the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *hnc-system* in the cluster.
+The above commands install the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *'hnc-system'* in the cluster.
 
 
 
@@ -90,7 +92,7 @@ Type the following command to check the HNC manager installation:
 ```shell
 $ kubectl get all -n hnc-system
 NAME                                         READY   STATUS    RESTARTS      AGE
-pod/hnc-controller-manager-9b5dbcd48-2268c   1/1     Running   1 (11s ago)   29s
+pod/hnc-controller-manager-9b5dbcd48-2268c   1/1     Running   0             29s
 
 NAME                                             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 service/hnc-controller-manager-metrics-service   ClusterIP   10.96.255.60   <none>        8080/TCP   32s
@@ -105,7 +107,7 @@ replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       3
 
 #### Install the *kubectl-hns* plugin
 
-After the HNC manager is installed, it's possible to set up hierarchical namespaces using the kubectl CLI tool with a list of the HNC custom resources definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin *kubectl-hns* exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
+After the HNC manager is installed, it's possible to set up hierarchical namespaces using the kubectl CLI tool with a list of the HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin *kubectl-hns* exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
 
 
 Type the following commands to install the *kubectl-hns* plugin using *curl*:
@@ -174,7 +176,7 @@ Use "kubectl-hns [command] --help" for more information about a command.
 
 ### Create hierarchical namespaces
 
-With both the HNC and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization named **cfe-pce** supports two teams, *team-caas* & *vmaas*, each team running its *devops* and *iac* projects:
+With both the HNC manager and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization, named **cfe-pce**, consists of two teams, *team-caas* & *team-vmaas*, each team running its *devops* and *iac* projects:
 
 ```shell
 cfe-pce
@@ -216,25 +218,23 @@ $ kubectl create ns cfe-pce
 namespace/cfe-pce created
 ```
 
-Then run the following commands to create the subnamespaces under each parent:
+Then run the following commands to create the subnamespaces under teh organization:
 
 ```shell
 $ kubectl hns create team-vmaas -n cfe-pce                                                                                                                                              
 Successfully created "team-vmaas" subnamespace anchor in "cfe-pce" namespace
 
 $ kubectl hns create vmaas-devops -n team-vmaas                                                                                                        
-Successfully created "vmaas-devops" subnamespace anchor in "team-vmaas" namespace   
-                                                                                                   
+Successfully created "vmaas-devops" subnamespace anchor in "team-vmaas" namespace
+
 $ kubectl hns create vmaas-iac -n team-vmaas                                                                                                                                            
 Successfully created "vmaas-iac" subnamespace anchor in "team-vmaas" namespace    
                                                                                                      
 $ kubectl hns create team-caas -n cfe-pce                                                                                                                                               
 Successfully created "team-caas" subnamespace anchor in "cfe-pce" namespace
 
-
 $ kubectl hns create caas-devops -n team-caas
 Successfully created "caas-devops" subnamespace anchor in "team-caas" namespace
-
 
 $ kubectl hns create caas-iac -n team-caas
 Successfully created "caas-iac" subnamespace anchor in "team-caas" namespace
@@ -253,21 +253,19 @@ cfe-pce
     └── vmaas-iac
 ```
 
-### Apply propagating capabilities to hierarchical namespaces
+### Create resources and apply propagating capabilities
 
-With the hierachical namespace structure being created, this section shows the process to add roles and role bindings using RBAC to the namespaces to enforce access control. It shows also how to set up resource quotas and secrets to ensure safely and fairely cluster sharing. Hierarchical namespaces enable to propage configurations and resources and enforce access control policies across namespaces. 
+With the hierachical namespace structure being created, this section shows the process to add roles and rolebindings using RBAC to the namespaces to enforce access control. It shows also how to set up resource quotas and secrets to ensure safely cluster sharing. Hierarchical namespaces enable to propagate configurations and resources and enforce access control policies across namespaces. 
 
 You can refer to the [HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md) for setting up other K8s resources using HNC. 
 
 #### Cascade roles and rolebindings 
 
-RBAC is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. K8s Roles and RoleBinding are two K8s API objects that are used at 
-a namespace level to enforce access control in the namespaces.  
+[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. K8s *role* and *rolebinding* are two K8s API objects that are used at a namespace level to enforce access control in the namespaces.  
 
-Type the following commands to create an admin role across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles for *team-vmaas* and *team-caas*, together with the role bindings to those roles:
+Type the following commands to create an admin role across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles for *team-vmaas* and *team-caas*: 
 
 ```shell
-# Create the roles
 
 $ kubectl -n cfe-pce create role pce-admin --verb=* --resource=pod
 role.rbac.authorization.k8s.io/pce-admin created
@@ -277,8 +275,11 @@ role.rbac.authorization.k8s.io/vmaas-sre created
 
 $ kubectl -n team-caas create role caas-sre --verb=update --resource=pod
 role.rbac.authorization.k8s.io/caas-sre created
+```
 
-# Create the rolebindings
+Type the commands below to create the rolebindings:
+
+```shell
 
 $ kubectl -n cfe-pce create rolebinding pce-admins --role pce-admin --serviceaccount=cfe-pce:default
 rolebinding.rbac.authorization.k8s.io/pce-admins created
@@ -291,6 +292,8 @@ rolebinding.rbac.authorization.k8s.io/vmaas-sres created
 
 ```
 
+Apart from those roles and rolebindings being created at the parent namespaces, they are all propageted to the subnamespaces at team and project level:
+
 ```shell
 $ kubectl get role -n cfe-pce pce-admin
 NAME        CREATED AT
@@ -300,18 +303,14 @@ $ k get rolebindings -n cfe-pce pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   44s
 
-
-
 $ kubectl get role -n team-caas
 NAME                            CREATED AT
-
 ...
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
 
 $ kubectl get role -n caas-devops
 NAME                            CREATED AT
-
 ...
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
@@ -334,10 +333,8 @@ NAME                            ROLE                                 AGE
 caas-sres                       Role/caas-sre                        53s
 pce-admins                      Role/pce-admin                       63s
 
-
 $ kubectl get role -n team-vmaas
 NAME                            CREATED AT
-
 ...
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
@@ -348,32 +345,23 @@ NAME                            CREATED AT
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
 
-$ k get rolebindings -n team-vmaas
+$ kubectl get rolebindings -n team-vmaas
 NAME                            ROLE                                 AGE
 ...
 pce-admins                      Role/pce-admin                       63s
 vmaas-sres                      Role/vmaas-sre                       43s
 
-$ k get rolebindings -n vmaas-devops
+$ kubectl get rolebindings -n vmaas-devops
 NAME                            ROLE                                 AGE
 pce-admins                      Role/pce-admin                       63s
 vmaas-sres                      Role/vmaas-sre                       43s
 
-$ k get rolebindings -n vmaas-iac
+$ kubectl get rolebindings -n vmaas-iac
 NAME                            ROLE                                 AGE
 ...
 pce-admins                      Role/pce-admin                       63s
 vmaas-sres                      Role/vmaas-sre                       44s
 
-
-
-
-
-```
-
-
-
-```shell
 $ kubectl get rolebinding -n cfe-pce pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   51s
@@ -500,7 +488,7 @@ resourcequota/team-caas-quota created
 
 
 ```
-If you check the resouce quotas using the following commands, you will find they are only visible in each team namespace. The quota resources are not propageted to any projects under the team namespace: 
+If you check the resouce quotas using the following commands, you will find they are only created in each team namespace. The quota resources are not propageted to any projects under the team namespaces: 
 
 ```shell
 $ kubectl get resourcequota -n team-caas
@@ -525,7 +513,7 @@ No resources found in vmaas-devops namespace.
 
 ```
 
-The reason is due to the fact that HNC comes with its default configuration to only propagate the RBAC objects, *roles* and *rolebindings*:
+The reason is due to the fact that HNC comes with its default configuration to only propagate the RBAC objects, i.e., *roles* and *rolebindings*:
 
 ```shell
 
@@ -537,6 +525,8 @@ Synchronized resources:
 Conditions:
 
 ```
+
+You have to update the HNC configuration to propagete other K8s resources. 
 
 Type the following command to update the HNC configuration to propagete the K8s *ResourceQuota* resource:
 
@@ -554,7 +544,7 @@ Conditions:
 
 ```
 
-Then if you check again the resouce quotas, you will see the quota resources are  propageted to all projects under each team namespace: 
+Then if you check again the resouce quotas, you will see the quota resources are propageted to all projects under each team namespace: 
 
 ```shell
 $ kubectl get resourcequota -n team-caas
@@ -590,7 +580,7 @@ team-vmaas-quota   79s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10,
 
 #### Cascade secrets
 
-This section shows the process to configure some sensitive data to be propaged through the namespace hierarchy. It uses the [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object. 
+This section shows the process to configure some sensitive data to be propaged through the namespace hierarchy. It uses the K8s [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) API object. 
 
 Type below command first to update the HNC configuration to propagete the K8s *Secret* resouce:
 
@@ -608,7 +598,7 @@ Conditions:
 
 ```
 
-As a demo example, the following commands will create two K8s secrets with *docker-registry* type in the namespace *team-caas* and *team-vmaas*, respectively. The secrets will be used by those two teams, and their projects, to authenticate with their team registry to pull private images for application deployment.
+For demo purpose, the following commands will create two K8s secrets with *docker-registry* type in the namespace *team-caas* and *team-vmaas*, respectively. The secrets will be used by those two teams, and their projects, to authenticate with their team registry to pull private images for application deployment.
 
 ```shell
  $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/
@@ -621,18 +611,7 @@ secret/team-vmaas-regcrd created
 
 ```
 
-The created secrets are not visible to the parent namespace *cfe-pce*. 
-
-```shell
-$ kubectl get secret -n cfe-pce team-caas-regcrd
-Error from server (NotFound): secrets "team-caas-regcrd" not found
-
-$ kubectl get secret -n cfe-pce team-vmaas-regcrd
-Error from server (NotFound): secrets "team-vmaas-regcrd" not found
-
-```
-
-In addition to be visible in the team namespaces they are applied, those secrets are propagated automatically to all the projects under each teams:
+Apart from being created in the team namespaces, those secrets are propagated automatically to all the projects under each team:
 
 ```shell
 
