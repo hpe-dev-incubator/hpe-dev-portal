@@ -292,7 +292,7 @@ rolebinding.rbac.authorization.k8s.io/vmaas-sres created
 
 ```
 
-Apart from those roles and rolebindings being created at the parent namespaces, they are all propageted to the subnamespaces at team and project level:
+Apart from those roles and rolebindings being created at the parent namespaces, they are all propagated to the subnamespaces at team and project level:
 
 ```shell
 $ kubectl get role -n cfe-pce pce-admin
@@ -488,7 +488,7 @@ resourcequota/team-caas-quota created
 
 
 ```
-If you check the resouce quotas using the following commands, you will find they are only created in each team namespace. The quota resources are not propageted to any projects under the team namespaces: 
+If you check the resouce quotas using the following commands, you will find they are only created in each team namespace. The quota resources are not propagated to any projects under the team namespaces: 
 
 ```shell
 $ kubectl get resourcequota -n team-caas
@@ -513,7 +513,7 @@ No resources found in vmaas-devops namespace.
 
 ```
 
-The reason is due to the fact that HNC comes with its default configuration to only propagate the RBAC objects, i.e., *roles* and *rolebindings*:
+The lack of propagation of resource quotas to project namespaces is due to the default HNC configuration. The HNC configuration by default is configured to only propagate RBAC objects, specifically, *roles* and *rolebindings*. You have to update the HNC configuration to propagate other K8s resources. 
 
 ```shell
 
@@ -526,9 +526,7 @@ Conditions:
 
 ```
 
-You have to update the HNC configuration to propagete other K8s resources. 
-
-Type the following command to update the HNC configuration to propagete the K8s *ResourceQuota* resource:
+Type the following command to update the HNC configuration to propagate the K8s *ResourceQuota* resource:
 
 ```shell
 
@@ -544,7 +542,7 @@ Conditions:
 
 ```
 
-Then if you check again the resouce quotas, you will see the quota resources are propageted to all projects under each team namespace: 
+Then if you check again the resouce quotas, you will see the quota resources are propagated to all projects under each team namespace: 
 
 ```shell
 $ kubectl get resourcequota -n team-caas
@@ -580,9 +578,9 @@ team-vmaas-quota   79s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10,
 
 #### Cascade secrets
 
-This section shows the process to configure some sensitive data to be propaged through the namespace hierarchy. It uses the K8s [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) API object. 
+This section shows the process to configure some sensitive data to be propagated through the namespace hierarchy. It uses the K8s [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) API object. 
 
-Type below command first to update the HNC configuration to propagete the K8s *Secret* resouce:
+First type below command to update the HNC configuration to propagate the K8s *Secret* resouces:
 
 ```shell
 $ kubectl hns config set-resource secrets --mode Propagate
@@ -598,7 +596,7 @@ Conditions:
 
 ```
 
-For demo purpose, the following commands will create two K8s secrets with *docker-registry* type in the namespace *team-caas* and *team-vmaas*, respectively. The secrets will be used by those two teams, and their projects, to authenticate with their team registry to pull private images for application deployment.
+Then execute the following commands to generate two K8s secrets of the *docker-registry* type within the *'team-caas'* and *'team-vmaas'* namespaces, respectively. These secrets can be used by the corresponding teams and their projects, enabling them to authenticate against their respective team Docker registries and retrieve private images necessary for the deployment of their applications.
 
 ```shell
  $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/
@@ -611,7 +609,7 @@ secret/team-vmaas-regcrd created
 
 ```
 
-Apart from being created in the team namespaces, those secrets are propagated automatically to all the projects under each team:
+In addition to their creation within the team namespaces, these secrets are automatically propagated to every project that falls under each team namespace:
 
 ```shell
 
@@ -644,14 +642,8 @@ team-vmaas-regcrd   kubernetes.io/dockerconfigjson   1      65s
 
 ```
 
-Each projects can start using the configured secret in their application deployment. 
-
 ### Conclusion
 
 This blog post provides a detailed guide on how to set up hierarchical namespaces in K8s in the HPE GreenLake for Private Cloud Enterprise. It delves into the capabilities of hierarchical namespaces and their impact on managing K8s namespaces. The support of hierarchical namespaces simplifies K8s management and addresses the complexities of administering large-scale namespaces. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
-
-
-
-
