@@ -14,6 +14,7 @@ tags:
   - Role and RoleBinding
   - ResourceQuotas
   - Secrets
+  - Hierarchical Namespaces
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
