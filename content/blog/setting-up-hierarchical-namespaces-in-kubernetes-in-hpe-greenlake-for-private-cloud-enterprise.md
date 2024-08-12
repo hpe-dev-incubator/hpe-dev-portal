@@ -26,15 +26,15 @@ This blog post provides a step-by-step guide on how to set up hierarchical names
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-K8s [*Namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is a fundamental K8s API obejct within the K8s architecture. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own set of resources, policies and constraints. Cluster administrators can create roles using role-based access control (RBAC) to define permissions within a specific namespace. They can aslo enforce resource limits and quota to control the consumption of resources by objects in a namespace. Namespaces facilitate the separation of resources and allow multiple users, teams, or projects to share a cluster within an organization. This approach is more cost-effective than creating a new cluster for each organizational unit. By applying various K8s configurations and policies to namespaces, cluster administrators can ensure safe and fair resource isolatiion and cluster sharing. 
+A K8s [*namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is a fundamental API obejct within the K8s architecture. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own set of resources, policies and constraints. Cluster administrators can create roles using role-based access control (RBAC) to define permissions within a specific namespace. They can aslo enforce resource limits and quotas to control the consumption of resources by objects in a namespace. K8s namespaces facilitate the separation of resources and allow multiple users, teams, or projects to share a cluster within an organization. This approach is more cost-effective than creating a new cluster for each organizational unit. By applying various K8s configurations and policies to namespaces, cluster administrators can ensure safe and fair resource isolatiion and cluster sharing. 
 
-K8s namespaces created within a cluster are peers, each fully isolated from the others. K8s namespaces don't align well with organizational structures. Cluster adminitrators must define roles and create policies for each individual namespace. At scale, managing numerous namespaces can become challenging, leading to potential management issues. The administrative overhead can make managing namespaces within the cluster tedious and prone to errors.
-
-
+K8s namespaces created within a cluster are peers, each fully isolated from the others. K8s namespaces don't align well with organizational structures. Cluster adminitrators must define roles and create policies and constraints for each individual namespace. At scale, managing numerous namespaces can become challenging, leading to potential management issues. The administrative overhead can make managing namespaces within the cluster tedious and prone to errors.
 
 
 
-In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps you manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
+
+
+In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps cluster adminitrators manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
 
 This blog post outlines the steps to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It uses a list of K8s resources, such as *Role*/*RoleBinding*, *ResourceQuota* and *Secret*, to showcasae the befefits that hierarchical namespaces bring to K8s.
 
@@ -60,7 +60,6 @@ The HNC manager can be installed within the control plane of the K8s cluster by 
 
 ```shell
 $ HNC_VERSION=v1.1.0
-$ HNC_PLATFORM=linux_amd64
 
 $ kubectl apply -f https://github.com/kubernetes-sigs/multi-tenancy/releases/download/hnc-$HNC_VERSION/hnc-manager.yaml
 namespace/hnc-system created
@@ -105,7 +104,7 @@ replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       3
 
 #### Install the *kubectl-hns* plugin
 
-After the HNC manager is installed, it's possible to set up hierarchical namespaces using the kubectl CLI tool with a list of the HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin *kubectl-hns* exists and you can install it to your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
+Once the HNC manager has been installed, hierarchical namespaces can be set up using directly the kubectl CLI tool, in conjunction with a list of HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin called *kubectl-hns* that you can install in your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
 
 
 Type the following commands to install the *kubectl-hns* plugin using *curl*:
@@ -113,6 +112,8 @@ Type the following commands to install the *kubectl-hns* plugin using *curl*:
 ```shell
 
 
+
+$ HNC_PLATFORM=linux_amd64
 
 $ curl -L https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/download/$HNC_VERSION/kubectl-hns_$HNC_PLATFORM -o ./kubectl-hns
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -174,7 +175,7 @@ Use "kubectl-hns [command] --help" for more information about a command.
 
 ### Create hierarchical namespaces
 
-With both the HNC manager and the *kubectl-hns* plugin being installed, you can start creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization, named **cfe-pce**, consists of two teams, *team-caas* & *team-vmaas*, each team running its *devops* and *iac* projects:
+Once you have installed both the HNC manager and the *kubectl-hns* plugin, you can begin creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization, named **cfe-pce**, consists of two teams, *team-caas* & *team-vmaas*, each team running its *devops* and *iac* projects:
 
 ```shell
 cfe-pce
@@ -197,7 +198,7 @@ kubectl hns create <ns_child> -n <ns_parent>
 
 
 
-where, *<ns_child>* is the child namespace you want to create, while *<ns_parent>* is the parent namespace which is created using the command *kubectl create ns <ns_parent>*. 
+where, *<ns_child>* is the child namespace you want to create, while *<ns_parent>* is the parent namespace that is created using the command *kubectl create ns <ns_parent>*. 
 
 
 
@@ -216,7 +217,7 @@ $ kubectl create ns cfe-pce
 namespace/cfe-pce created
 ```
 
-Then run the following commands to create the subnamespaces under teh organization:
+Then run the following commands to create the subnamespaces under the organization:
 
 ```shell
 $ kubectl hns create team-vmaas -n cfe-pce                                                                                                                                              
@@ -253,13 +254,13 @@ cfe-pce
 
 ### Create resources and apply propagating capabilities
 
-With the hierachical namespace structure being created, this section shows the process to add roles and rolebindings using RBAC to the namespaces to enforce access control. It shows also how to set up resource quotas and secrets to ensure safely cluster sharing. Hierarchical namespaces enable to propagate configurations and resources and enforce access control policies across namespaces. 
+With the hierarchical namespace structure created, this section demonstrates how to add roles and rolebindings, using RBAC, to enforce access control within namespaces. It also covers setting up resource quotas and secrets to ensure safe cluster sharing. Hierarchical namespaces allow for the propagation of configurations and resources, enforcing access control policies across namespaces.
 
 You can refer to the [HNC user guide](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/README.md) for setting up other K8s resources using HNC. 
 
 #### Cascade roles and rolebindings 
 
-[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to restrict access to the appropirate namespaces. It's critical to ensure that each user or workload has the appropriate access to only the namespaces. K8s *role* and *rolebinding* are two K8s API objects that are used at a namespace level to enforce access control in the namespaces.  
+[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to limit access to the appropirate namespaces. It's essential to ensure that each user or workload has the correct access to only their designated namespaces. K8s *role* and *rolebinding* are two API objects used at the namespace level to enforce access control.  
 
 Type the following commands to create an admin role across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles for *team-vmaas* and *team-caas*: 
 
@@ -289,15 +290,14 @@ $ kubectl -n team-vmaas create rolebinding vmaas-sres --role vmaas-sre --service
 rolebinding.rbac.authorization.k8s.io/vmaas-sres created
 
 ```
-
-Apart from those roles and rolebindings being created at the parent namespaces, they are all propagated to the subnamespaces at team and project level:
+Besides the creation of roles and rolebindings in the parent namespaces, they are propagated to all associated subnamespaces at both the team and project levels:
 
 ```shell
 $ kubectl get role -n cfe-pce pce-admin
 NAME        CREATED AT
 pce-admin   2024-06-27T12:45:51Z
 
-$ k get rolebindings -n cfe-pce pce-admins
+$ kubectl get rolebindings -n cfe-pce pce-admins
 NAME         ROLE             AGE
 pce-admins   Role/pce-admin   44s
 
@@ -307,25 +307,31 @@ NAME                            CREATED AT
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
 
+$ kubectl get rolebindings -n team-caas
+NAME                            ROLE                                 AGE
+...
+caas-sres                       Role/caas-sre                        44s
+pce-admins                      Role/pce-admin                       63s
+
 $ kubectl get role -n caas-devops
 NAME                            CREATED AT
 ...
 caas-sre                        2024-06-27T12:45:53Z
 pce-admin                       2024-06-27T12:45:51Z
 
-$ k get rolebindings -n team-caas
-NAME                            ROLE                                 AGE
-...
-caas-sres                       Role/caas-sre                        44s
-pce-admins                      Role/pce-admin                       63s
-
-$ k get rolebindings -n caas-devops
+$ kubectl get rolebindings -n caas-devops
 NAME                            ROLE                                 AGE
 ...
 caas-sres                       Role/caas-sre                        53s
 pce-admins                      Role/pce-admin                       63s
 
-$ k get rolebindings -n caas-iac
+$ kubectl get role -n caas-iac
+NAME                            CREATED AT
+...
+caas-sre                        2024-07-29T12:10:59Z
+pce-admin                       2024-08-08T08:23:42Z
+
+$ kubectl get rolebindings -n caas-iac
 NAME                            ROLE                                 AGE
 ...
 caas-sres                       Role/caas-sre                        53s
@@ -337,112 +343,43 @@ NAME                            CREATED AT
 pce-admin                       2024-06-27T12:45:51Z
 vmaas-sre                       2024-06-27T12:45:52Z
 
-$ kubectl get role -n vmaas-iac
-NAME                            CREATED AT
-...
-pce-admin                       2024-06-27T12:45:51Z
-vmaas-sre                       2024-06-27T12:45:52Z
-
 $ kubectl get rolebindings -n team-vmaas
 NAME                            ROLE                                 AGE
 ...
 pce-admins                      Role/pce-admin                       63s
 vmaas-sres                      Role/vmaas-sre                       43s
 
+$ kubectl get role -n vmaas-devops
+NAME                            CREATED AT
+...
+pce-admin                       2024-08-03T14:08:45Z
+vmaas-sre                       2024-07-29T12:10:59Z
+
 $ kubectl get rolebindings -n vmaas-devops
 NAME                            ROLE                                 AGE
 pce-admins                      Role/pce-admin                       63s
 vmaas-sres                      Role/vmaas-sre                       43s
 
-$ kubectl get rolebindings -n vmaas-iac
+$ kubectl get role -n vmaas-iac
+NAME                            CREATED AT
+...
+pce-admin                       2024-06-27T12:45:51Z
+vmaas-sre                       2024-06-27T12:45:52Z
+
+$ k get rolebindings -n vmaas-iac
 NAME                            ROLE                                 AGE
 ...
-pce-admins                      Role/pce-admin                       63s
-vmaas-sres                      Role/vmaas-sre                       44s
+pce-admins                      Role/pce-admin                       65s
+vmaas-sres                      Role/vmaas-sre                       45s
 
-$ kubectl get rolebinding -n cfe-pce pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   51s
-
-$ kubectl get rolebinding -n team-caas pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   59s
-
-$ kubectl get rolebinding -n caas-devops pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   87s
-
-$ kubectl get rolebinding -n caas-iac pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   94s
-
-$ kubectl get rolebinding -n team-vmaas pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   111s
-
-$ kubectl get rolebinding -n vmaas-devops pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   2m2s
-
-$ kubectl get rolebinding -n vmaas-iac pce-admins
-NAME         ROLE             AGE
-pce-admins   Role/pce-admin   2m10s
-
-```
-
-```shell
-$ kubectl get rolebinding -n cfe-pce caas-sres
-Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
-
-$ kubectl get rolebinding -n cfe-pce vmaas-sres
-Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
-```
-
-```shell
-$ kubectl get rolebinding -n team-vmaas caas-sres
-Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "caas-sres" not found
-
-$ kubectl get rolebinding -n team-caas vmaas-sres
-Error from server (NotFound): rolebindings.rbac.authorization.k8s.io "vmaas-sres" not found
-```
-
-```shell
-
-$ kubectl get rolebinding -n team-caas caas-sres
-NAME         ROLE             AGE
-caas-sres    Role/caas-sre    38s
-
-$ kubectl get rolebinding -n caas-devops caas-sres
-NAME         ROLE             AGE
-caas-sres    Role/caas-sre    47s
-
-$ kubectl get rolebinding -n caas-iac caas-sres
-NAME         ROLE             AGE
-caas-sres    Role/caas-sre    52s
-
-
-
-
-
-$ kubectl get rolebinding -n team-vmaas vmaas-sres
-NAME         ROLE             AGE
-vmaas-sres   Role/vmaas-sre   28s
-
-$ kubectl get rolebinding -n vmaas-devops vmaas-sres
-NAME         ROLE             AGE
-vmaas-sres   Role/vmaas-sre   39s
-
-$ kubectl get rolebinding -n vmaas-iac vmaas-sres
-NAME         ROLE             AGE
-vmaas-sres   Role/vmaas-sre   47s
 ```
 
 #### Cascade resource quotas
 
-K8s provides [K8s ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster admin to define resource quotas and 
-limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds. This section shows the process to set up resource quotas.
+K8s provides [ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster administrators to define resource quotas and 
+limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds. This section shows the process to set up resource quotas using *ResourceQuota*.
 
-Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the namespaces *'team-vmaas'* and *'team-caas'*, respectively:
+Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the team namespaces *'team-vmaas'* and *'team-caas'*, respectively:
 
 ```shell
 
@@ -524,7 +461,7 @@ Conditions:
 
 ```
 
-Type the following command to update the HNC configuration to propagate the K8s *ResourceQuota* resource:
+Type the following command to update the HNC configuration to propagate the K8s *ResourceQuota* resources:
 
 ```shell
 
@@ -597,17 +534,14 @@ Conditions:
 Then execute the following commands to generate two K8s secrets of the *docker-registry* type within the *'team-caas'* and *'team-vmaas'* namespaces, respectively. These secrets can be used by the corresponding teams and their projects, enabling them to authenticate against their respective team Docker registries and retrieve private images necessary for the deployment of their applications.
 
 ```shell
- $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/
-guoping/.docker/config-team-caas.json --type=kubernetes.io/dockerconfigjson
+ $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/guoping/.docker/config-team-caas.json --type=kubernetes.io/dockerconfigjson
 secret/team-caas-regcrd created
 
-$ kubectl -n team-vmaas create secret generic team-vmaas-regcrd --from-file=.dockerconfigjson=/hom
-e/guoping/.docker/config-team-vmaas.json --type=kubernetes.io/dockerconfigjson
+$ kubectl -n team-vmaas create secret generic team-vmaas-regcrd --from-file=.dockerconfigjson=/home/guoping/.docker/config-team-vmaas.json --type=kubernetes.io/dockerconfigjson
 secret/team-vmaas-regcrd created
 
 ```
-
-In addition to their creation within the team namespaces, these secrets are automatically propagated to every project that falls under each team namespace:
+Besides being created within the team namespaces, these secrets are also automatically propagated to every project within each team namespace:
 
 ```shell
 
