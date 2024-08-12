@@ -37,7 +37,7 @@ K8s namespaces created within a cluster are peers, each fully isolated from the 
 
 In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps cluster adminitrators manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
 
-This blog post outlines the steps to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It uses a list of K8s resources, such as *Role*/*RoleBinding*, *ResourceQuota* and *Secret*, to showcasae the befefits that hierarchical namespaces bring to K8s.
+This blog post outlines the steps to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It uses a list of K8s resources, such as [*Role*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)/[*RoleBinding*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding), [*ResourceQuota*](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [*Secret*](https://kubernetes.io/docs/concepts/configuration/secret/), to showcase the benefits that hierarchical namespaces bring to K8s.
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       3
 
 #### Install the *kubectl-hns* plugin
 
-Once the HNC manager has been installed, hierarchical namespaces can be set up using directly the kubectl CLI tool, in conjunction with a list of HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin called *kubectl-hns* that you can install in your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in my local environment. 
+Once the HNC manager has been installed, hierarchical namespaces can be set up directly using  the kubectl CLI tool, in conjunction with a list of HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin called *kubectl-hns* that you can install in your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in the local environment. 
 
 
 Type the following commands to install the *kubectl-hns* plugin using *curl*:
@@ -114,6 +114,7 @@ Type the following commands to install the *kubectl-hns* plugin using *curl*:
 
 
 
+$ HNC_VERSION=v1.1.0
 $ HNC_PLATFORM=linux_amd64
 
 $ curl -L https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/download/$HNC_VERSION/kubectl-hns_$HNC_PLATFORM -o ./kubectl-hns
@@ -190,7 +191,7 @@ cfe-pce:
 
 
 
-A hierarchical K8s namespace can be created using below command:
+A hierarchical namespace can be created using below command:
 
 ```shell
 
@@ -261,9 +262,9 @@ You can refer to the [HNC user guide](https://github.com/kubernetes-sigs/hierarc
 
 #### Cascade roles and rolebindings 
 
-[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to limit access to the appropirate namespaces. It's essential to ensure that each user or workload has the correct access to only their designated namespaces. K8s *role* and *rolebinding* are two API objects used at the namespace level to enforce access control.  
+[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to limit access to the appropirate namespaces. It's essential to ensure that each user or workload has the correct access to only their designated namespaces. K8s  [*Role*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [*RoleBinding*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) are two API objects used at the namespace level to enforce access control.  
 
-Type the following commands to create an admin role across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles for *team-vmaas* and *team-caas*: 
+Type the following commands to create an admin role *'pce-admin'* across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles, *'vmaas-sre'* and *'caas-src'*, for *team-vmaas* and *team-caas*: 
 
 ```shell
 
@@ -380,7 +381,7 @@ vmaas-sres                      Role/vmaas-sre                       45s
 K8s provides [ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster administrators to define resource quotas and 
 limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds. This section shows the process to set up resource quotas using *ResourceQuota*.
 
-Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the team namespaces *'team-vmaas'* and *'team-caas'*, respectively:
+Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the team namespaces *team-vmaas* and *team-caas*, respectively:
 
 ```shell
 
@@ -478,7 +479,7 @@ Conditions:
 
 ```
 
-Then if you check again the resouce quotas, you will see the quota resources are propagated to all projects under each team namespace: 
+If you check again the resouce quotas, you will see the quota resources are propagated to all projects under each team namespace: 
 
 ```shell
 $ kubectl get resourcequota -n team-caas
@@ -532,7 +533,7 @@ Conditions:
 
 ```
 
-Then execute the following commands to generate two K8s secrets of the *docker-registry* type within the *'team-caas'* and *'team-vmaas'* namespaces, respectively. These secrets can be used by the corresponding teams and their projects, enabling them to authenticate against their respective team Docker registries and retrieve private images necessary for the deployment of their applications.
+Then execute the following commands to generate two K8s secrets of the *docker-registry* type, *'team-caas-regcrd'* & *'team-vmaas-regcrd'*, within the *team-caas* and *team-vmaas* namespaces, respectively. These secrets can be used by the corresponding teams and their projects, enabling them to authenticate against their respective team Docker registries and retrieve private images necessary for the deployment of their applications.
 
 ```shell
  $ kubectl -n team-caas create secret generic team-caas-regcrd --from-file=.dockerconfigjson=/home/guoping/.docker/config-team-caas.json --type=kubernetes.io/dockerconfigjson
