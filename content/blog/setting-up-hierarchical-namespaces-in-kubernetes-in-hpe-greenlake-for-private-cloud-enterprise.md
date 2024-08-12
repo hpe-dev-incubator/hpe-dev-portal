@@ -178,13 +178,13 @@ Use "kubectl-hns [command] --help" for more information about a command.
 Once you have installed both the HNC manager and the *kubectl-hns* plugin, you can begin creating hierarchical namespaces. This section sets up an imaginary hierarchical namespace structure, in which an organization, named **cfe-pce**, consists of two teams, *team-caas* & *team-vmaas*, each team running its *devops* and *iac* projects:
 
 ```shell
-cfe-pce
-├── team-caas
-│   ├── caas-devops
-│   └── caas-iac
-└── team-vmaas
-    ├── vmaas-devops
-    └── vmaas-iac
+cfe-pce:
+ - team-caas
+    - caas-devops
+    - caas-iac
+ - team-vmaas
+    - vmaas-devops
+    - vmaas-iac
 ```
 
 
