@@ -1,7 +1,7 @@
 ---
 title: Setting up hierarchical namespaces in Kubernetes in HPE GreenLake for
   Private Cloud Enterprise
-date: 2024-06-13T08:18:47.600Z
+date: 2024-08-12T10:02:38.074Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
