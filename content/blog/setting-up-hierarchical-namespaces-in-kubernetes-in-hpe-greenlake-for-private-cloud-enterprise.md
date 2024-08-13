@@ -18,7 +18,9 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post provides a step-by-step guide on how to set up hierarchical namespaces in Kubernetes (K8s) in HPE GreenLake for Private Cloud Enterprise. It explores and demonstrates the simplicity of handling relationships between K8s namespaces, propagating configurations and resource constraints, and applying access control policies using hierarchical namespaces in K8s. The utilization of hierarchical namespaces can result in a more steamlined namespace management and improved security in the complex K8s production environment. 
+**Multi-tenancy** for Kubernetes (K8s) cluster requires sophisticated namespace management to enable robust tenant isolation and organization. **Hierarchical namespaces** allows you to model namespaces according to your own organizational hierarchy and allocate capabilities inside a single K8s cluster rather than spinning up a new cluster for each organizational unit. The utilization of hierarchical namespaces can result in a more steamlined namespace management and improved security in the complex K8s production environment.
+
+This blog post provides a step-by-step guide on how to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It explores and demonstrates the simplicity of handling relationships between K8s namespaces, propagating configurations and resource constraints, and applying access control policies using hierarchical namespaces in K8s.
 
 
 ### Overview
@@ -27,7 +29,7 @@ This blog post provides a step-by-step guide on how to set up hierarchical names
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-A K8s [*namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is a fundamental API obejct within the K8s architecture. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own set of resources, policies and constraints. Cluster administrators can create roles using role-based access control (RBAC) to define permissions within a specific namespace. They can aslo enforce resource limits and quotas to control the consumption of resources by objects in a namespace. K8s namespaces facilitate the separation of resources and allow multiple users, teams, or projects to share a cluster within an organization. This approach is more cost-effective than creating a new cluster for each organizational unit. By applying various K8s configurations and policies to namespaces, cluster administrators can ensure safe and fair resource isolatiion and cluster sharing. 
+A K8s [*namespace*](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) is a fundamental API object within the K8s architecture. It provides a mechanism for grouping and isolating K8s resources within a single cluster. Each namespace has its own set of resources, policies and constraints. Cluster administrators can create roles using role-based access control (RBAC) to define permissions within a specific namespace. They can aslo enforce resource limits and quotas to control the consumption of resources by objects in a namespace. K8s namespaces facilitate the separation of resources and allow multiple users, teams, or projects to share a cluster within an organization. This approach is more cost-effective than creating a new cluster for each organizational unit. By applying various K8s configurations and policies to namespaces, cluster administrators can ensure safe and fair resource isolatiion and cluster sharing. 
 
 K8s namespaces created within a cluster are peers, each fully isolated from the others. K8s namespaces don't align well with organizational structures. Cluster adminitrators must define roles and create policies and constraints for each individual namespace. At scale, managing numerous namespaces can become challenging, leading to potential management issues. The administrative overhead can make managing namespaces within the cluster tedious and prone to errors.
 
@@ -35,9 +37,7 @@ K8s namespaces created within a cluster are peers, each fully isolated from the 
 
 
 
-In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps cluster adminitrators manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities accordingly. 
-
-This blog post outlines the steps to set up hierarchical namespaces in K8s in HPE GreenLake for Private Cloud Enterprise. It uses a list of K8s resources, such as [*Role*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)/[*RoleBinding*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding), [*ResourceQuota*](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [*Secret*](https://kubernetes.io/docs/concepts/configuration/secret/), to showcase the benefits that hierarchical namespaces bring to K8s.
+In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Namespace Controller* (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces#the-hierarchical-namespace-controller-hnc). HNC supports hierarchical namespaces and helps cluster administrators manage the security and capabilities of namespaces with less effort than the flat, peer-to-peer namespace model. Using HNC, administrators can organize namespaces according to an organizational hierarchy and allocate capabilities using a list of K8s resources, such as [*Role*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)/[*RoleBinding*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding), [*ResourceQuota*](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [*Secret*](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 ### Prerequisites
 
@@ -53,7 +53,7 @@ Before starting, make sure you have the following:
 
 ### Set up hierarchical namespaces
 
-K8s does not come with hierarchical namespace support by default. There are  two components, the *HNC manager* and the optional kubectl plugin *kubectl-hns*, need to install in order to support hierarchical namespaces in K8s. 
+K8s does not come with hierarchical namespace support by default. There are  two components, the *HNC manager* and the optional kubectl plugin *kubectl-hns* that need to be installed in order to support hierarchical namespaces in K8s. 
 
 #### Install the HNC manager
 
@@ -61,8 +61,9 @@ The HNC manager can be installed within the control plane of the K8s cluster by 
 
 ```shell
 $ HNC_VERSION=v1.1.0
+$ HNC_VARIANT=default
 
-$ kubectl apply -f https://github.com/kubernetes-sigs/multi-tenancy/releases/download/hnc-$HNC_VERSION/hnc-manager.yaml
+$ kubectl apply -f https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/download/${HNC_VERSION}/${HNC_VARIANT}.yaml 
 namespace/hnc-system created
 customresourcedefinition.apiextensions.k8s.io/hierarchicalresourcequotas.hnc.x-k8s.io created
 customresourcedefinition.apiextensions.k8s.io/hierarchyconfigurations.hnc.x-k8s.io created
@@ -81,7 +82,7 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/hnc-mutating-webhook-c
 validatingwebhookconfiguration.admissionregistration.k8s.io/hnc-validating-webhook-configuration created
 ```
 
-The above commands install the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases) to the namespace *'hnc-system'* in the cluster.
+The above commands install the latest [HNC v1.1.0](https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/tag/v1.1.0) to the namespace *'hnc-system'* in the cluster.
 
 
 
@@ -108,7 +109,7 @@ replicaset.apps/hnc-controller-manager-9b5dbcd48   1         1         1       3
 Once the HNC manager has been installed, hierarchical namespaces can be set up directly using  the kubectl CLI tool, in conjunction with a list of HNC custom resource definitions (CRDs), such as *HierarchyConfiguration* and *SubnamespaceAnchor*. However, there is a kubectl plugin called *kubectl-hns* that you can install in your client environment. This kubectl plugin works together with the kubectl CLI tool and it greatly simplifies many hierachical namespace operations. This section shows you the process to install the *kubectl-hns* plugin to the Linux workstation in the local environment. 
 
 
-Type the following commands to install the *kubectl-hns* plugin using *curl*:
+Type the following commands to install the *kubectl-hns* plugin using *cURL*:
 
 ```shell
 
@@ -264,7 +265,7 @@ You can refer to the [HNC user guide](https://github.com/kubernetes-sigs/hierarc
 
 [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is commonly used in K8s to limit access to the appropirate namespaces. It's essential to ensure that each user or workload has the correct access to only their designated namespaces. K8s  [*Role*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [*RoleBinding*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) are two API objects used at the namespace level to enforce access control.  
 
-Type the following commands to create an admin role *'pce-admin'* across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles, *'vmaas-sre'* and *'caas-src'*, for *team-vmaas* and *team-caas*: 
+Type the following commands to create an admin role *'pce-admin'* across the whole organization *cfe-pce* and two site reliability engineer (SRE) roles, *'vmaas-sre'* and *'caas-sre'*, for *team-vmaas* and *team-caas*: 
 
 ```shell
 
@@ -379,7 +380,7 @@ vmaas-sres                      Role/vmaas-sre                       45s
 #### Cascade resource quotas
 
 K8s provides [ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) API object that allows the cluster administrators to define resource quotas and 
-limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namspace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usgae is staying with certain bounds. This section shows the process to set up resource quotas using *ResourceQuota*.
+limit ranges per namespace. Resource quota tracks aggregate usage of resources in the namespace and allow cluster operators to define hard resource usage limits that a namespace may consume. A limit range defines minimum and maximum constraints on the amount of resources a single entity can consume in a namespace. It's useful to make sure resource usage is staying with certain bounds. This section shows the process to set up resource quotas using *ResourceQuota*.
 
 Type below commands to apply two resource quotas, *'team-vmaas-quota'* & *'team-caas-quota'*, to the team namespaces *team-vmaas* and *team-caas*, respectively:
 
@@ -517,7 +518,7 @@ team-vmaas-quota   79s   cpu: 0/4, memory: 0/20Gi, persistentvolumeclaims: 0/10,
 
 This section shows the process to configure some sensitive data to be propagated through the namespace hierarchy. It uses the K8s [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) API object. 
 
-First type below command to update the HNC configuration to propagate the K8s *Secret* resouces:
+First type below command to update the HNC configuration to propagate the K8s *Secret* resources:
 
 ```shell
 $ kubectl hns config set-resource secrets --mode Propagate
