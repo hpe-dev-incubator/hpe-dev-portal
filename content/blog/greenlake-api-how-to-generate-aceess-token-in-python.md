@@ -16,7 +16,7 @@ In this guide, we'll show you how to set up a Python script to automatically fet
 
 If you’re new to HPE GreenLake’s APIs, take a look at this [blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/) to get started with the HPE GreenLake platform API Audit Logs.
 
-## Use cases of fetching audit logs
+## Use cases for fetching audit logs
 
 Audit logs are extremely useful in several scenarios:
 
@@ -28,11 +28,11 @@ Audit logs are extremely useful in several scenarios:
 
 Here’s a step-by-step guide to getting your audit logs automatically using Python:
 
-### Step 1: Set up oauth2 authentication
+### Step 1: Set up OAuth2 authentication
 
 HPE GreenLake uses OAuth2 for security, which means you first need to get an access token.
 
-1. **Store Your Credentials**: Keep your client ID and secret safe but accessible to your script. A good practice is to store them in a text file. (In this case, I did save the client_Id in first line and client_secret in second line)
+1. **Store Your Credentials**: Keep your client ID and secret safe but accessible to your script. A good practice is to store them in a text file. In this case, I did save the client_Id in first line and client_secret in second line.
 2. **Request a Token**: Your script needs to read these credentials and use them to request an access token. This token proves to HPE GreenLake that your script has permission to access the logs.
 
 ```python
@@ -47,7 +47,7 @@ def generate_and_save_token():
 
 ### Step 2: Fetch the audit logs
 
-Now that you have a token, you can ask HPE GreenLake for the logs.
+Now that you have a token, you can fetch the logs from HPE GreenLake.
 
 * **Make the Request**: Use the token to make a secure request to the audit logs endpoint. Handle any errors and ensure you process the logs only if the fetch was successful.
 
@@ -60,16 +60,16 @@ def fetch_audit_logs(token):
 
 ### Step 3: Process and save the data
 
-After getting the logs, you'll want to turn them into a format that’s easy to read and use.
+After getting the logs, you'll want to convert them into a format that’s easy to read and use.
 
 * **Process the JSON**: Convert the JSON data into a pandas DataFrame. This makes it easier to work with in Python.
 * **Save to Excel**: Export this DataFrame to an Excel file. This file will be your audit log record that you can open, share, and analyze without needing specialised software.
 
-## How does it look like in excel?
+## What does it look like in excel?
 
 ![](/img/excel-output.png)
 
-I have used excel in this script just for testing and can be used with any of the databases including sqlite, postgres and oracle, and yes, python can do it, however, it varies on different use case, especially when it comes to real-time data monitoring or handling very large volumes of logs.
+I have used excel in this script just for testing and can be used with any of the databases including sqlite, postgres and oracle. Python can also do it, but the results vary depending on the use case, especially when it comes to real-time data monitoring or handling very large volumes of logs.
 
 For these scenarios, other tools and platforms can be more suitable:
 
