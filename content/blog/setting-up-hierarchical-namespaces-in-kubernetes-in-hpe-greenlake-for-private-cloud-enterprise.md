@@ -1,7 +1,7 @@
 ---
 title: Setting up hierarchical namespaces in Kubernetes in HPE GreenLake for
   Private Cloud Enterprise
-date: 2024-08-12T10:02:38.074Z
+date: 2024-08-22T16:16:41.186Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -43,7 +43,7 @@ In 2020, K8s upstream introduced a K8s extension known as the [*Hierarchical Nam
 
 
 
-Before starting, make sure you have the following:
+
 
 * A K8s cluster being provisioned, using [HPE GreenLake Terraform provider](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) for example, in HPE GreenLake for Private Cloud Enterprise
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
