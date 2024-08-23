@@ -12,6 +12,6 @@ description: "September 18, 2024:  In the evolving landscape of Natural Language
   responses."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 2
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
