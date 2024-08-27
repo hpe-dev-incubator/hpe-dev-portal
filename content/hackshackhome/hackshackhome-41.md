@@ -1,6 +1,6 @@
 ---
 title: "Exploring the HPE Sustainability Insight Center: Key features,
-  innovations, and SIC API capabilities"
+  innovations, and API capabilities"
 fit: contain
 path: https://developer.hpe.com/campaign/meetups/
 imageBackground: white
