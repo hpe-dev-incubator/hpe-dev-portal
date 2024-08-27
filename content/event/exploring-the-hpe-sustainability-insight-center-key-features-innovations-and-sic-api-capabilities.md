@@ -1,6 +1,6 @@
 ---
 title: "Exploring the HPE Sustainability Insight Center: Key features,
-  innovations, and SIC API capabilities"
+  innovations, and API capabilities"
 dateStart: 2024-09-24T22:01:47.176Z
 dateEnd: 2024-09-25T21:59:47.196Z
 category: Virtual Event
@@ -8,7 +8,7 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://developer.hpe.com/campaign/meetups/
 width: large
 ---
-## Exploring the HPE Sustainability Insight Center: Key features, innovations, and SIC API capabilities
+## Exploring the HPE Sustainability Insight Center: Key features, innovations, and API capabilities
 
 September 25, 2024
 
