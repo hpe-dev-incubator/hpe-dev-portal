@@ -1,6 +1,6 @@
 ---
 title: LLM finetuning for mere mortals
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/5717206962137/WN_PRv-gpmXRPmNVfQFaoEGNg
 imageBackground: white
