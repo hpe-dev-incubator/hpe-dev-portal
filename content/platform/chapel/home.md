@@ -62,3 +62,4 @@ CrayAI is a suite of distributed machine learning workflow libraries designed wi
 # Any questions on Chapel?
 
 Join the conversation by chat on our [Chapel Gitter Channel](https://gitter.im/chapel-lang/chapel) or by posting to our [Chapel Discourse Forum](https://chapel.discourse.group/latest).
+
