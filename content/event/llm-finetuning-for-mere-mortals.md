@@ -4,7 +4,7 @@ dateStart: 2024-08-27T22:01:13.541Z
 dateEnd: 2024-08-28T21:59:13.556Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/5717206962137/WN_PRv-gpmXRPmNVfQFaoEGNg
+link: https://developer.hpe.com/campaign/meetups/
 width: large
 ---
 ## LLM finetuning for mere mortals
