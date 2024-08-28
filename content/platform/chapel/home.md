@@ -24,6 +24,7 @@ Chapel was designed from first principles rather than by extending an existing l
 - [Learn more about Chapel](https://chapel-lang.org/)
 - [Read the Introduction to Chapel Whitepaper](https://chapel-lang.org/publications/PMfPC-Chapel.pdf)
 - [See Chapel's Performance](https://chapel-lang.org/performance.html)
+- [Check out Chapel Newsletters](https://chapel.discourse.group/c/newsletters) 
 
 
 [Join HPE and the active Chapel community on GitHub ![](Github)](https://github.com/chapel-lang/chapel) 
