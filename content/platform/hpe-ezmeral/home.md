@@ -14,73 +14,15 @@ tags:
 ---
 <a id="top"></a>
 
-HPE Ezmeral Software gives customers the software foundations to develop and deploy analytics applications seamlessly across hybrid-cloud environments.
+HPE Ezmeral Software is a unified platform that streamlines AI and GenAI development and deployment. Its open architecture and flexible deployment options empower organizations to efficiently build and deploy AI solutions across hybrid cloud environments. By providing a comprehensive suite of tools for data management, model training, and inference, HPE Ezmeral Software helps address common AI challenges such as data heterogeneity, security compliance, scalability, and management of a diverse ecosystem of AI tools. 
 
-The complete HPE Ezmeral Software portfolio offers integrated workflows from analytics to ML/AI, spanning hybrid clouds and edge locations. HPE Ezmeral Data Fabric Software delivers a single source of trusted data that spans on-premises, edge, co-location, and Amazon Web Services, Microsoft Azure, and Google Cloud Platform™. Designed for developers, it allows seamless access to files, objects, tables, and streaming data regardless of its location or format. And HPE Ezmeral Unified Analytics Software helps customers develop and deploy data and analytic workloads faster by providing fully managed, secure, enterprise-grade versions of the most popular open-source frameworks in a cloud-like, consumption-based experience. 
+HPE Ezmeral Software is composed of two components: 
 
-## Learn more about the HPE Ezmeral Software products
+[HPE Ezmeral Data Fabric](http://www.hpe.com/datafabric) is a centralized data management platform that simplifies access, governance, and security across diverse data types. By federating data silos enabling instant access, HPE Ezmeral Data Fabric empowers organizations to unlock the full potential of their data for AI data-driven initiatives.
 
-[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – Unlock more value by unifying data distributed across cloud, edge, and core into a global data plane. Fuel decision velocity with secure access, and real-time identification, control, and processing of data everywhere it lives. 
+[HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) is a comprehensive platform that simplifies AI and ML development, deployment, and management across hybrid multicloud environments. By providing self-service access to diverse data sources and a unified set of tools, HPE Ezmeral Unified Analytics accelerates time-to-value for AI initiatives. Its scalable architecture and support for popular open-source frameworks enable organizations to train, tune, and deploy models efficiently, while its centralized monitoring capabilities ensure optimal performance and governance.
 
-[HPE Ezmeral Unified Analytics Software](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) – Unlock data and insights faster from edge to cloud with a managed, open-source SaaS data analytics solution providing curated, best-of-breed analytic software tools to develop and deploy applications across hybrid environments.
-
-HPE Ezmeral Software supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
-
-- - -
-
-## Resources
-
-* [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
-* [HPE Ezmeral Runtime Enterprise API Documentation](https://docs.containerplatform.hpe.com/home/)[](https://docs.containerplatform.hpe.com/home/)
-* [HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/home/)
-* [HPE Ezmeral Learn On-Demand](https://learn.software.hpe.com/)
-* [Request your own demo from the HPE Demo Portal](https://hpedemoportal.ext.hpe.com/home)
-
-[HPE Ezmeral demo](https://github.com/HewlettPackard/ezdemo)
-
-Automated installation for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops on various platforms for demo purposes.
-
-[HPE Ezmeral Python Library](https://github.com/hpe-container-platform-community/hpecp-python-library)
-
-Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops.
-
-#### Interactive Demo Experience (IDE)
-
-Use the [HPE Ezmeral interactive demo experience](https://www.hpe.com/us/en/resources/solutions/hpe-ezmeral-demo.html) to learn how to perform common tasks related to building and deploying stateful, containerized applications with HPE Ezmeral Runtime Enterprise, building an Apache Spark ML model, and protecting container data using data fabric.
-
-- - -
-
-<a id="projects"></a>
-
-## Projects
-
-[KubeDirector](https://github.com/bluek8s/kubedirector)
-
-Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
-
-* [Explore the KubeDirector Documentation](https://kubedirector.io/)
-
-[Apache Spark](https://spark.apache.org/)
-
-HPE Ezmeral software provides the option of leveraging the power of Apache Spark, which is an open-source unified analytics engine for large-scale data processing that is maintained by the Apache Software Foundation. If your organization has a need to run Apache Spark jobs in a Containerized environment, such as within a Kubernetes cluster using a Spark Operator or Livy API server to manage Apache Spark jobs, then HPE offers the HPE Ezmeral Unified Analytics license for the [HPE Ezmeral Runtime Enterprise platform](https://docs.containerplatform.hpe.com/home/).  
-
-<font size="2"> *Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.* </font>
-
-- - -
-
-## Workshops-on-Demand
-
-Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Runtime Enterprise workshops (previously called HPE Ezmeral Container Platform workshops) are available today.
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="w3-container w3-center w3-margin-bottom">
-  <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
-</div>
-
-- - -
 
 ## Any questions on HPE Ezmeral Software?
 
-Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W), [\#hpe-ezmeral-unified-analytics-software](https://hpedev.slack.com/archives/C055D1EECAK), and [\#hpe-ezmeral-data-fabric-software](https://hpedev.slack.com/archives/CU3JRBTB7) channels.
-
-Not a Slack user? You can also ask your questions in our [HPE Ezmeral Software Forum](https://hpe.com/forum/ezmeral).
+Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-ezmeral-runtime-enterprise](https://hpedev.slack.com/archives/C01BB50LG4W), [\#hpe-ezmeral-unified-analytics-software](https://hpedev.slack.com/archives/C055D1EECAK), and [\#hpe-ezmeral-data-fabric-software](https://hpedev.slack.com/archives/CU3JRBTB7) Slack channels.
