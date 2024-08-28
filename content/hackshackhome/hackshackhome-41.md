@@ -11,7 +11,7 @@ description: "September 25, 2024: Discover how the HPE Sustainability Insight
   the opportunity to learn about the SIC API, exploring its use to enhance
   sustainable IT solutions. Join us and take the first step toward a greener,
   more efficient future. "
-background: background
+background: rgba(0, 86, 122, 0.8);
 label: Register Now!
 priority: 3
 image: /img/event-meetups-newlogo-400x400.png
