@@ -6,8 +6,8 @@ description: A sophisticated data fabric that enables you to run the right
 image: /img/platforms/EzmeralDataFabric.svg
 width: large
 priority: 2
-frontpage: true
-active: true
+frontpage: false
+active: false
 tags:
   - hpe-ezmeral-data-fabric
 ---
