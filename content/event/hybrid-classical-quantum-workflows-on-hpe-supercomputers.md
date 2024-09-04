@@ -4,7 +4,7 @@ dateStart: 2024-10-15T22:01:27.517Z
 dateEnd: 2024-10-16T21:30:27.538Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://hpe.zoom.us/webinar/register/1517254363076/WN_9HtgXQ6uR4SP7StnaVfsyQ
 width: large
 ---
 ## Hybrid Classical-Quantum Workflows on HPE Supercomputers
