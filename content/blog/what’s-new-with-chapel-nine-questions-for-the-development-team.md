@@ -7,11 +7,10 @@ author: HPE DEV
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - Chapel
+  - chapel
   - HPC
   - GPU Programming
   - interview
   - opensource
-  - chapel
 ---
 external blog
