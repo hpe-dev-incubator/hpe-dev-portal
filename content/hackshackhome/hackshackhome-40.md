@@ -1,7 +1,8 @@
 ---
 title: Hybrid Classical-Quantum Workflows on HPE Supercomputers
+active: true
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn/
+path: https://hpe.zoom.us/webinar/register/1517254363076/WN_9HtgXQ6uR4SP7StnaVfsyQ
 imageBackground: white
 description: "October 16, 2024: Quantum computing is an active area of research
   that has attracted attention from key players in academia and industry. Join
