@@ -472,7 +472,6 @@ module.exports = {
     paginatedCollection('opensource-blog-posts', 'opensource'),
     paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral'),
     paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
-    paginatedCollection('data-fabric-posts', 'hpe-ezmeral-data-fabric'),
     paginatedCollection('greenlake-posts', 'hpe-greenlake'),
     paginatedCollection('chapel-posts', 'chapel'),
     paginatedCollection('grommet-posts', 'grommet'),

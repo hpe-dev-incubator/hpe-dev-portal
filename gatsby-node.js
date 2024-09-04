@@ -147,9 +147,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const spiffeQueryResult = await graphql(
     paginatedCollectionQuery('spiffe-blog-posts'),
   );
-  const dataFabricQueryResult = await graphql(
-    paginatedCollectionQuery('data-fabric-posts'),
-  );
   const greenLakeQueryResult = await graphql(
     paginatedCollectionQuery('greenlake-posts'),
   );
@@ -222,7 +219,6 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(openSourceQueryResult);
   setPagination(ezmeralRuntimeQueryResult);
   setPagination(spiffeQueryResult);
-  setPagination(dataFabricQueryResult);
   setPagination(greenLakeQueryResult);
   setPagination(chapelQueryResult);
   setPagination(grommetQueryResult);

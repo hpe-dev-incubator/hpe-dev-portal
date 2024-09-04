@@ -378,31 +378,6 @@ export const pageQuery = graphql`
         id
       }
     }
-    dataFabricBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          tags: { in: ["hpe-ezmeral-data-fabric", "MapR"] }
-          disable: { ne: true }
-        }
-      }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      totalCount
-    }
-    dataFabricBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "data-fabric-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     alletraBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }

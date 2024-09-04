@@ -68,10 +68,6 @@ function BlogTabs({ data, columns }) {
       label: 'HPE Ezmeral Software',
       count: data?.ezmeralBlogsCount?.totalCount || 0,
     },
-    dataFabricBlogs: {
-      label: 'HPE Ezmeral Data Fabric',
-      count: data?.dataFabricBlogsCount?.totalCount || 0,
-    },
     projectDataMapBlogs: {
       label: 'Project Data Map',
       count: data?.projectdataMapBlogsCount?.totalCount || 0,
@@ -406,7 +402,6 @@ BlogTabs.propTypes = {
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
     spiffeBlogsCount: PropTypes.objectOf(PropTypes.number),
     kubeDirectorBlogsCount: PropTypes.objectOf(PropTypes.number),
-    dataFabricBlogsCount: PropTypes.objectOf(PropTypes.number),
     greenlakeBlogsCount: PropTypes.objectOf(PropTypes.number),
     chapelBlogsCount: PropTypes.objectOf(PropTypes.number),
     grommetBlogsCount: PropTypes.objectOf(PropTypes.number),
