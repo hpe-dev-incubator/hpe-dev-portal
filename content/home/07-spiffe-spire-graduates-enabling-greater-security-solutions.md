@@ -1,13 +1,12 @@
 ---
-author: Denis Choukroun
+author: Didier Lalli
+category: Feature Blog
 priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: "Get started with the foundational APIs for the HPE GreenLake
-  edge-to-cloud platform – Part 1: Introduction to the APIs"
-category: Feature Blog
-link: https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/
-image: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
+title: HPE Sustainability Insight Center API at a glance
+link: https://developer.hpe.com/blog/hpe-sustainability-insight-center-api-at-a-glance/
+image: /img/didier-lalli-192x192.png
 ---
-HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform, provides a set of common services that are used by cloud services that run on top of the platform. The platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services.
+HPE GreenLake provides a new service called HPE Sustainability Insight Center that can assist you in obtaining detailed information about carbon emissions, energy consumption and the cost of the infrastructure that is managed by HPE GreenLake. Learn how to extract data from this service in a programmatic way using cURL and the HPE Sustainability Insight Center API.
