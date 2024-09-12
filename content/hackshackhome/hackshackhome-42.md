@@ -1,5 +1,6 @@
 ---
 title: How to fix your biggest security hole
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/munch-and-learn/
 imageBackground: white
