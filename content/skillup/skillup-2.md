@@ -1,11 +1,12 @@
 ---
-title: HPE Innovation workshops
-link: /campaign/hpe-innovation-workshops
+title: Get Real with AI – Jam Series
+link: /campaign/get-real-with-ai-%E2%80%93-jam-series/
 linkname: Get the details
-description: Catch up on the latest technologies in the industry and learn how
-  to best incorporate them into your business.
+description: "This informative series will provide you with insights on how to
+  make AI a functional reality in your organization, transforming industry hype
+  into technical and business value. "
 disable: false
 priority: 6
 image: /img/event-hpe-innovation-workshops-808x815.png
 ---
-Catch up on the latest technologies in the industry and learn how to best incorporate them into your business.
+This informative series will provide you with insights on how to make AI a functional reality in your organization, transforming industry hype into technical and business value. 
