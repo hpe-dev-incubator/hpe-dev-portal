@@ -6,7 +6,7 @@ description: "This informative series will provide you with insights on how to
   make AI a functional reality in your organization, transforming industry hype
   into technical and business value. "
 disable: false
-priority: 6
+priority: 3
 image: /img/event-hpe-innovation-workshops-808x815.png
 ---
 This informative series will provide you with insights on how to make AI a functional reality in your organization, transforming industry hype into technical and business value. 
