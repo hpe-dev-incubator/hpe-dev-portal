@@ -39,7 +39,7 @@ thead tr:first-child td {
 }
 </style>
 
-| &nbsp;Date&nbsp;&nbsp;| Title                                                   | Speaker(s)       | Company | Link                                                                                          |
+| &nbsp;Date&nbsp;&nbsp;| Title                                                   | Speaker(s)       | Link                                                                                          |
 | ---------------------------------------------------- | ------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------- |
-| 21-Aug-24                                            | Exploring Transformative AI Use Cases Across Industries | Audrey Scribner / Anthony Deli Coli / Mark Perreira / Peter Moser / Travis Tripp        | [Replay](https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) |
-| 02-Oct-24                                            | Cool AI Use Case, Now What?                      | Audrey Scribner / Hayden Barnes / Chad Smykay / Anthony Deli Coli / Steven Fatigante  |    Register                                                                                           |                                                                                          |
+| 21-Aug-24 | Exploring Transformative AI Use Cases Across Industries | Audrey Scribner / Anthony Deli Coli / Mark Perreira / Peter Moser / Travis Tripp | [Replay](https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) |
+| 02-Oct-24 | Cool AI Use Case, Now What?                      | Audrey Scribner / Hayden Barnes / Chad Smykay / Anthony Deli Coli / Steven Fatigante  |    Register                                                                                           |                                                                                          
