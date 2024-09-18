@@ -23,6 +23,7 @@ Obtain simple, secure management of today’s scalable data center hardware with
 
 * [Read about Redfish on HPE iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
 * [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
+* [Consult the API reference documentation](https://servermanagementportal.ext.hpe.com/)
 * [Choose a Redfish Client Tool](https://youtu.be/ur9UKRV_0S8)
 
 # GitHub and PowerShell Repositories
