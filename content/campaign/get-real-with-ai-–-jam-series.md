@@ -1,9 +1,11 @@
 ---
-title: Get Real with AI – Jam Series
-authorimage: /img/Avatar1.svg
+title: Keeping it Real with AI Jam Series
+authorimage: /img/ai-compas.jpg
 disable: false
 ---
-This informative series will provide you with insights on how to make AI a functional reality in your organization, transforming industry hype into technical and business value...
+AI is now revolutionizing how enterprises create business value from data. New technical capabilities are disrupting infrastructure configurations, business processes and organizational structures. This now enabling companies to harness the power and value of their data more efficiently, leading to enhanced decision-making, improved customer experiences, and the creation of new business models.
+ 
+This new interactive series is focused on “keeping it real with AI” and will provide you with insights on how to make AI a functional reality in your organization. Mark your calendar to engage with HPE’s leading innovators, developers and architects as they share what they have learned traversing industry hype, while transforming AI into technical and business value.  
  
 
 <style>
