@@ -22,7 +22,7 @@ A single API interface integrates server management components and full compute 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish® API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it's ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
 * [Read about Redfish on HPE iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
-* [Explore the API](https://servermanagementportal.ext.hpe.com/)
+* [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
 * [Choose a Redfish Client Tool](https://youtu.be/ur9UKRV_0S8)
 
 # GitHub and PowerShell Repositories
