@@ -7,6 +7,6 @@ description: "This informative series will provide you with insights on how to
   into technical and business value. "
 disable: false
 priority: 3
-image: /img/ai-jam-series.jpg
+image: /img/ai-jam-series-192-x-192.jpg
 ---
 This informative series will provide you with insights on how to make AI a functional reality in your organization, transforming industry hype into technical and business value. 
