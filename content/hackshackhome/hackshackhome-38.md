@@ -1,6 +1,6 @@
 ---
 title: "Enhancing NLP with RAG: A Practical Demonstration"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/9117199315327/WN_64EBds78Qj6NMiV30FFGRg
 imageBackground: white
