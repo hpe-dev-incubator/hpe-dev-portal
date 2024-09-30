@@ -2,7 +2,7 @@
 title: Keeping it Real with a new AI Jam Series
 date: 2024-09-26T13:54:21.844Z
 author: Audrey Scribner
-authorimage: /img/Avatar1.svg
+authorimage: /img/audrey.jpg
 disable: false
 tags:
   - AI
