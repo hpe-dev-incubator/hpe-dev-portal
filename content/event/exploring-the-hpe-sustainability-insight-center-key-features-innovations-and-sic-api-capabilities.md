@@ -5,7 +5,7 @@ dateStart: 2024-09-25T15:01:00.000Z
 dateEnd: 2024-09-25T16:00:47.196Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/6917248527648/WN_i1kT_k_TSRu7Z9oNU0pQkg
+link: https://www.youtube.com/watch?v=jzYjTrnbmsE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Exploring the HPE Sustainability Insight Center: Key features, innovations, and API capabilities
