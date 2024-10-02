@@ -70,11 +70,7 @@ The implementation of the `SimpleUpdate` used for the writing of this article al
 
 ![Simple Update Action](/img/6_simpleupdateaction.png "Simple Update Action")
 
-
-
  .
-
-
 
 ![Simple Update Action With Transfer Protocol](/img/7_simpleupdateactionwithtransferprotocol.png "Simple Update Action with Transfer Protocol")
 
@@ -90,9 +86,9 @@ With iLO 5 firmware 2.30 and higher versions, a successful `SimpleUpdate` return
 
 The following two pictures show, respectively, the response of a successful `SimpleUpdate` and the task monitor details including a running task state. Note that the accomplished percentage of the task is not present in the Task Monitor location. It is only mentioned in the `Oem.Hpe` extension properties, as mentioned above.
 
-![Successful Simple Update](/img/10_SuccessfulSimpleUpdate.png "Successful Simple Update")
+![Successful Simple Update](/img/10_successfulsimpleupdate.png "Successful Simple Update")
 
-![Task Monitor Details](/img/11_TaskMonitorDetails.png "Task Monitor Details")
+![Task Monitor Details](/img/11_taskmonitordetails.png "Task Monitor Details")
 
 The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#taskstate).
 
