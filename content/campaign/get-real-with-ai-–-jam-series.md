@@ -4,9 +4,8 @@ authorimage: /img/ai-jam-series-192-x-192.jpg
 disable: false
 ---
 AI is now revolutionizing how enterprises create business value from data. New technical capabilities are disrupting infrastructure configurations, business processes and organizational structures. This now enabling companies to harness the power and value of their data more efficiently, leading to enhanced decision-making, improved customer experiences, and the creation of new business models.
- 
+
 This new interactive series is focused on “keeping it real with AI” and will provide you with insights on how to make AI a functional reality in your organization. Mark your calendar to engage with HPE’s leading innovators, developers and architects as they share what they have learned traversing industry hype, while transforming AI into technical and business value.  
- 
 
 <style>
 table {
@@ -38,7 +37,7 @@ thead tr:first-child td {
 }
 </style>
 
-| &nbsp;Date&nbsp;&nbsp; | Title                                                   | Speaker(s)                                                                           | Link                                                                                          |
-| ---------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| 21-Aug-24              | Exploring Transformative AI Use Cases Across Industries | Audrey Scribner / Anthony Deli Coli / Mark Perreira / Peter Moser / Travis Tripp     | [Replay](https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) |
-| 02-Oct-24              | Cool AI Use Case, Now What?                             | Audrey Scribner / Hayden Barnes / Chad Smykay / Anthony Deli Coli / Steven Fatigante | [Register](https://hpe.zoom.us/webinar/register/8517265929872/WN_wledhshQRIGNu-vq7Dot0g)      |
+| &nbsp;Date&nbsp;&nbsp; | Title                                                   | Speaker(s)                                                                       | Link                                                                                          |
+| ---------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 02-Oct-24              | Cool AI Use Case, Now What?                             | Audrey Scribner / Hayden Barnes / Chad Smykay / Anthony Deli Coli                |                                                                                               |
+| 21-Aug-24              | Exploring Transformative AI Use Cases Across Industries | Audrey Scribner / Anthony Deli Coli / Mark Perreira / Peter Moser / Travis Tripp | [Replay](https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) |
