@@ -35,25 +35,18 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 1. ###### Test and validate installation of the new kernel on the staging backend server by:
 
-  * Creating a new branch for this test
-  * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
-
-  ![](/img/wod-go-yml1.png)
-
-  ![](/img/wod-go-yaml2.png)
-
-  * Validating the changes by testing a new backend install process.
-  * Pushing the changes to the github repo.
+* Creating a new branch for this test
+* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
+* Validating the changes by testing a new backend install process.
+* Pushing the changes to the github repo.
 
 2. ###### Creating a user for the workshop developer on the test/dev and staging backend servers.
 3. ###### Providing to the developer the necessary information to connect to the test/dev and staging backend servers.
 4. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
+5. **Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when workshop does not require appliance but just a jupyter kernel for instance)**
+6. **Whenever ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps to prepare the infrastructure to host the workshop**
 
-OR
 
-Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine.
-
-Whenever ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps to prepare the infrastructure to host the workshop.
 
 ##### O﻿n the database server:
 
@@ -195,7 +188,6 @@ t﻿he  workshop will require:
     * reset-\[WKSHP-NAME].sh (reset of the workshop's appliance, docker compose down of a container for instance)
 * A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment times to set student ids, appliance IP addresses, and other relevant parameters like ports, simulated hardware information for instance.
 
-
 Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can conducted using cli and later webui as described earlier for the simple workshop example.
 
 * From the cli on the jupyterhub server: 
@@ -223,9 +215,5 @@ A workshop should come up with at least :
 * wod.yml ( for database injection)
 
 When all tests validated the workshop, it can follow the move to prod cycle.
-
-
-
-
 
 If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
