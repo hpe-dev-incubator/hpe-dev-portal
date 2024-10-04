@@ -49,6 +49,12 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 3. ###### Providing to the developer the necessary information to connect to the test/dev and staging backend servers.
 4. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
 
+OR
+
+Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine.
+
+Whenever ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps to prepare the infrastructure to host the workshop.
+
 ##### O﻿n the database server:
 
 In order to exist, a workshop requires serveral entries in the database:
@@ -103,7 +109,7 @@ A﻿ new entry will need the following:
 * **W﻿orkshopId:** Id of the workshop linked to the video. 
 * **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal.
 
-one could create these entries manually or leverage a simple wod.yml fiel containing them and that can be later parsed in order to feed the database with the relevant info, quite handy,no ?
+One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info, quite handy,no ?
 
 Here is an exampe of such a file:
 
@@ -140,10 +146,10 @@ A﻿s the developer of the Workshops-on-demand content, Matt had to perform seve
 
 ##### O﻿n the backend server:
 
-1. ###### Log on to the backend server and clone the notebook repo in his home folder.
-2. ###### Create a new branch for his workshop following the naming convention defined with the admin and clone the notebooks repo.
+1. ###### Log on to the backend server and clone the notebook repo in his home folder or as explained earlier fork the repo on his laptop and work from there.
+2. ###### Create a new branch for his workshop following the naming convention defined with the admin.
 3. ###### L﻿everage the template provided by me to build up the content of his workshop.
-4. ###### T﻿est the workshop leveraging the `test-action.sh` script
+4. ###### T﻿est the workshop locally on his laptop or on the dev server leveraging the `test-action.sh` script
 5. ###### T﻿est the workshop using the staging registration portal.
 6. ###### W﻿hen all tests are green, create a pull request to merge content with master repo.
 
@@ -190,8 +196,7 @@ t﻿he  workshop will require:
 * A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment times to set student ids, appliance IP addresses, and other relevant parameters like ports, simulated hardware information for instance.
 
 
-
-Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can conducted using cli and later webui.
+Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can conducted using cli and later webui as described earlier for the simple workshop example.
 
 * From the cli on the jupyterhub server: 
 
@@ -216,6 +221,8 @@ A workshop should come up with at least :
 * A pictures folder (if any screenshot is required in lab instructions)
 * A README.md (0-ReadMeFirst.ipynb in md format)
 * wod.yml ( for database injection)
+
+When all tests validated the workshop, it can follow the move to prod cycle.
 
 
 
