@@ -35,11 +35,8 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 1. ###### Test and validate installation of the new kernel on the staging backend server by:
 
-* * Creating a new branch for this test
-
-<!---->
-
-* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
+  * Creating a new branch for this test
+  * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
 
   ![](/img/wod-go-yml1.png)
 
