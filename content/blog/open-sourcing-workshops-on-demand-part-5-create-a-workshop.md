@@ -35,14 +35,18 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 1. ###### Test and validate installation of the new kernel on the staging backend server by:
 
-* Creating a new branch for this test
+* * Creating a new branch for this test
+
+<!---->
+
 * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
 
   ![](/img/wod-go-yml1.png)
 
   ![](/img/wod-go-yaml2.png)
-* Validating the changes by testing a new backend install process.
-* Pushing the changes to the github repo.
+
+  * Validating the changes by testing a new backend install process.
+  * Pushing the changes to the github repo.
 
 2. ###### Creating a user for the workshop developer on the test/dev and staging backend servers.
 3. ###### Providing to the developer the necessary information to connect to the test/dev and staging backend servers.
@@ -50,7 +54,7 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 ##### O﻿n the database server:
 
-In order to exist, a workshop requires serveral things:
+In order to exist, a workshop requires serveral entries in the database:
 
 I﻿n the **Workshops table:**
 
@@ -102,6 +106,39 @@ A﻿ new entry will need the following:
 * **W﻿orkshopId:** Id of the workshop linked to the video. 
 * **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal.
 
+one could create these entries manually or leverage a simple wod.yml fiel containing them and that can be later parsed in order to feed the database with the relevant info, quite handy,no ?
+
+Here is an exampe of such a file:
+
+```
+%YAML 1.1
+# Meta data for the GO101 Workshop to populate seeder
+---
+name: 'GO 101 - A simple introduction to Go Programming Language'
+notebook: 'WKSHP-GO101'
+description: 'Go, also called Golang or Go language, is an open source programming language that Google developed. Software developers use Go in an array of operating systems and frameworks to develop web applications, cloud and networking services, and other types of software. This workshop will drive you through the basics of this programming language.'
+active: false
+capacity: 20
+priority: 1
+range: [151-170]
+reset: false
+ldap: false
+location: 'mougins'
+replayId: 31
+varpass: false
+compile: false
+workshopImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/WOD-GO-101-A-simp-introduction-to-Go-programming-language.jpeg'
+badgeImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/go101-a-simple-introduction-to-go-programming-language.jpg'
+beta: false
+category: 'Open Source'
+duration: 4
+alternateLocation: 'grenoble'
+presenter: 'Matthew Doddler'
+role: 'FullStack developer'
+avatar: '/img/SpeakerImages/MattD.jpg'
+videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
+```
+
 A﻿s the developer of the Workshops-on-demand content, Matt had to perform several tasks:
 
 ##### O﻿n the backend server:
@@ -126,12 +163,6 @@ A﻿s an admin, I need to check the pull request and accept it. Once done, the t
 
 T﻿he very same processes will apply to the move to production phase.
 
-
-
-* M﻿odifying the \[backend server installation yaml file ]
-
-
-
 # Complex workshop example:
 
 II will not repeat the steps I descirbed earlier for the simple workshop example. I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even tough I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
@@ -142,22 +173,55 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 t﻿he  workshop will require:
 
-* A dedicated server running docker to host the student containers in which the workshops' labs will take place.
+* A dedicated server running docker to host the student containers in which the workshops' labs  will take place.
 
-* A﻿ set of Ansible playbooks to setup the dedicated server.
+  * This means preparing a server (VM or physical) : We will consider it as an appliance.
+  * Updating the relevant variable file to associate the IP address of the server to the workshop (there could be multiple servers too associated to a given workshop)
+* A﻿ set of scripts under wod-backend/scripts or wod-private/scripts folders depending on the nature of the workshop to manage the workshop's lifecycle.
 
-* A﻿ set of scripts to manage the workshop's lifecycle.
+  * Some generic scripts applying to all workshops' appliances : general setup phase setting up common requirements for any appliance (student users creation, ssh keys, etc..) up to some specific ones dedicated to a given workshop.
 
-* A set of variables to be leveraged by the notebooks. 
+    * create-appliance.sh (ssh keys, ldap setup)
+    * setup-appliance.sh \[WKSHP-NAME] (Student setup, Appliance Setup, Workshop setup) calls:
+
+      * setup-globalappliance.sh (global / generic setup)
+      * setup-\[WKSHP-NAME].sh (Prepare appliance with workshop's reqs, Docker image for instance)
+    * create-\[WKSHP-NAME].sh (called at deployement time to instantiate the necessary appliance(s) requiered by the workshop 
+    * reset-appliance (reset ssh keys and students credentials on appliance
+    * cleanup-\[WKSHP-NAME].sh (takes care of cleanup some workshop's specifics)
+    * reset-\[WKSHP-NAME].sh (reset of the workshop's appliance, docker compose down of a container for instance)
+* A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment times to set student ids, appliance IP addresses, and other relevant parameters like ports, simulated hardware information for instance.
 
 
 
+Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can conducted using cli and later webui.
 
+* From the cli on the jupyterhub server: 
+
+  * one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to cleanup, rest or purge.
+
+    ```
+    dev@dev3:~$ wod-test-action.sh
+    Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
+    ACTION is mandatory
+    ```
+  * The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
-O﻿ptional:
+A workshop should come up with at least :
 
-You should now have a better understanding of the maintenance tasks associated to the backend server. Similar actions are available for the other components of the project. Checking tasks have been created for the frontend and api-db server. Having now mostly covered all the subjects related to the backend server from an infrastructure standpoint, it is high time to discuss the content part. In my next blog, I plan to describe the workshop creation process.  Time to understand how to build up some content for the JupyterHub server!
+* 0-ReadMeFirst.ipynb 
+* 1-WKSHP-LAB1.ipynb
+* 2-WKSHP-LAB2.ipynb
+* 3-WKSHP-Conclusion.ipynb
+* LICENCE.MD
+* A pictures folder (if any screenshot is required in lab instructions)
+* A README.md (0-ReadMeFirst.ipynb in md format)
+* wod.yml ( for database injection)
+
+
+
+
 
 If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
