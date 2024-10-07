@@ -19,6 +19,8 @@ li {
 }
 </style>
 
+**Editor's note:** This blog post series may refer to older release of the HPE GreenLake platform APIs. For information about the current release of the HPE GreenLake service APIs, please visit the [HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/).  
+
 HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform, provides a set of _common services_ that are used by cloud services that run on top of the platform. Cloud services rely on these common services for user's authentication, authorization, devices and subscriptions management, monitoring, audit trail and more. 
 
 The HPE GreenLake platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services. 
@@ -39,14 +41,15 @@ The foundational APIs for the HPE GreenLake platform services are designed to en
 
 For example, the current set of APIs for common platform services allows HPE GreenLake customers and partners to **programmatically** add users, add devices and associated subscriptions (licenses), track users’ activities and monitor the overall health of the managed services and devices in the workspace.
 
-> **Important note:** This set of APIs for common platform services differentiates from the specific APIs for the cloud services that HPE GreenLake administrators can deploy in their workspace to operate and manage workloads and their underlying infrastructure for networking, compute, storage and data services. You can find more information about these services’ specific APIs in the HPE Developer Community portal: [HPE Aruba Networking Central](https://developer.hpe.com/greenlake/aruba-central/home/), [HPE GreenLake for Compute Ops Management](https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/), and [Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/).   
+> **Important note:** This set of APIs for common platform services differentiates from the specific APIs for the cloud services that HPE GreenLake administrators can deploy in their workspace to operate and manage workloads and their underlying infrastructure for networking, compute, storage and data services. You can find more information about these services’ specific APIs in the HPE Developer Community portal: [HPE Aruba Networking Central](https://developer.hpe.com/greenlake/aruba-central/home/), [HPE GreenLake for Compute Ops Management](https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/), and [HPE GreenLake for Data Services](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/).   
 
 The set of APIs for common platform services includes:
 
-* **Identity and Access management (IAM):** Identity and Access management service controls access to HPE GreenLake workspace. The service ensures that users are granted appropriate access rights based on their roles. IAM includes the following services:
+* **Identity and Access management (IAM) services:** Identity and Access management services control access to HPE GreenLake workspace. The services ensure that users are granted appropriate access rights based on their roles. IAM includes the following services:
 
   * **Workspace management service:** Workspace management service allows you to manage workspace information and operate tenants for a Managed Service Provider (MSP) workspace.
   * **Identity management service:** Identity management service allows you to manage the workspace users. The service allows you to invite users to join the workspace, retrieve a list of existing users in the workspace and delete users from the workspace.
+  * **API client credentials:** HPE GreenLake API Client Credentials service allows programmatic access to manage workspace API Client credentials.
   
 * **Location management:** Location management service manages service delivery information (SDI), including device location and support contact information.     
 
