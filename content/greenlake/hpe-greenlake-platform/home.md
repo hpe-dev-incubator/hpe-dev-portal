@@ -41,7 +41,7 @@ The HPE GreenLake APIs:
 
 We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more.
 
-For a full list of HPE GreenLake platform API please visit [the HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). Some of the APIs currently available are listed below:
+For a full list of HPE GreenLake APIs please visit [the HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). Some of the APIs currently available are listed below:
 
 ### Workspace management
 
