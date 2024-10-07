@@ -12,6 +12,6 @@ description: "October 16, 2024: Quantum computing is an active area of research
   and communication of potentially large data volumes."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
