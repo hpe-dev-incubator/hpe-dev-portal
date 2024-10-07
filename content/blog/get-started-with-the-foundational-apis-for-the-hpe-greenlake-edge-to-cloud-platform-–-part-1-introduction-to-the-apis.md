@@ -49,7 +49,7 @@ The set of APIs for common platform services includes:
 
   * **Workspace management service:** Workspace management service allows you to manage workspace information and operate tenants for a Managed Service Provider (MSP) workspace.
   * **Identity management service:** Identity management service allows you to manage the workspace users. The service allows you to invite users to join the workspace, retrieve a list of existing users in the workspace and delete users from the workspace.
-  * **API client credentials:** HPE GreenLake API Client Credentials service allows programmatic access to manage workspace API Client credentials.
+  * **API client credentials service:** HPE GreenLake API Client Credentials service allows programmatic access to manage workspace API Client credentials.
   
 * **Location management:** Location management service manages service delivery information (SDI), including device location and support contact information.     
 
