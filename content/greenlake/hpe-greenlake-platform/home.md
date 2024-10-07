@@ -33,7 +33,7 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 
 The HPE GreenLake APIs:
 
-* Conform to the OpenAPI 3.0 specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
+* Conform to the OpenAPI 3.x specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
 * Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
 * Use a single OAuth token to access all APIs.
 * Are built to be secure and highly available.
@@ -41,13 +41,13 @@ The HPE GreenLake APIs:
 
 We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more.
 
-For the HPE GreenLake platform, the following APIs are currently available:
+For a full list of HPE GreenLake APIs please visit [the HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). Some of the APIs currently available are listed below:
 
 ### Workspace management
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
 
->>[Visit Workspace management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)
+>>[Visit Workspace management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/workspace/public/)
 
 ### Authorization
 
