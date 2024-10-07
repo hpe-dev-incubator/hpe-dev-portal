@@ -1,7 +1,7 @@
 ---
 title: "Exploring the HPE Sustainability Insight Center: Key features,
   innovations, and API capabilities"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/6917248527648/WN_i1kT_k_TSRu7Z9oNU0pQkg
 imageBackground: white
