@@ -17,6 +17,8 @@ li {
 }
 </style>
 
+**Editor's note:** This blog post series may refer to older release of the HPE GreenLake platform APIs. For information about the current release of the HPE GreenLake service APIs, please visit the [HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). 
+
 This is Part 2 of a blog series that showcases the capabilities of APIs for common HPE GreenLake platform services through a real customer use case, presenting it from the perspective of a user of the platform, such as an IT administrator. 
 
 [In the previous blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/), I described the current set of APIs for the HPE GreenLake platform, and I covered the Postman collection aspect I built to get started with these APIs.   
