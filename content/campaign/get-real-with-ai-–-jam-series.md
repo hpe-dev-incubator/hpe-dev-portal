@@ -1,5 +1,5 @@
 ---
-title: Keeping it Real with AI Jam Series
+title: Get Real with AI Jam Series
 authorimage: /img/ai-jam-series-192-x-192.jpg
 disable: false
 ---
