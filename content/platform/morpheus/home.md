@@ -8,7 +8,7 @@ width: large
 priority: 7
 active: false
 tags:
-  - Morpheus
+  - morpheus
 ---
 Morpheus is a vendor-agnostic management platform for multi-cloud orchestration, unified operations, and self-service provisioning. It bridges the gap between teams, tools, and processes, independent of where and how applications are deployed. As a centralized control plane, Morpheus enables enterprise-wide governance, policy enforcement, and self-service application provisioning access across virtually any hybrid cloud environment.
 
@@ -30,13 +30,3 @@ The Morpheus platform offers a robust plugin framework that enables developers t
 
 ## Gain hands-on experience with Morpheus
 The Morpheus platform includes a community edition that enables users to get hands-on experience with the Morpheus platform. The platform can be quickly deployed on a single Linux server running in a home lab, datacenter, or public cloud environment. Get started with the community edition at [https://morpheusdata.com/community](https://morpheusdata.com/community). 
-
- 
-
-
-
-
-
-
-
-
