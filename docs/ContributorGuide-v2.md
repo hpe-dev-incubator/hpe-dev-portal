@@ -757,6 +757,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE SimpliVity**                 | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
+  | **Morpheus**                       | morpheus |
   | **SmartSim**                       | smartsim    |
   | **Zerto**                          | zerto   |
   | **Project Data Map**               | project-data-map |
