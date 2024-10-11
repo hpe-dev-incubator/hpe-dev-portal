@@ -5,7 +5,7 @@ dateStart: 2024-10-29T23:01:20.796Z
 dateEnd: 2024-10-30T22:30:20.811Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://hpe.zoom.us/webinar/register/8517286558968/WN_FWKRV57vRpaeVIN2--nGew
 width: large
 ---
 ## NVIDIA NIM Agents Blueprints - Do your own AI: Multimodal PDF Data Extraction 101
