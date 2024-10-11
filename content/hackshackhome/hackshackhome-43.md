@@ -1,8 +1,9 @@
 ---
 title: "NVIDIA NIM Agents Blueprints - Do your own AI: Multimodal PDF Data
   Extraction 101"
+active: true
 fit: contain
-link: https://developer.hpe.com/campaign/meetups/
+link: https://hpe.zoom.us/webinar/register/8517286558968/WN_FWKRV57vRpaeVIN2--nGew
 imageBackground: white
 description: "October 30, 2024: Pursuant to the launch of HPE Private Cloud AI,
   which leverages NVIDIA AI Enterprise and NIM Agent Blueprints, NVIDIA will
