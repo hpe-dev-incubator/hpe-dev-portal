@@ -91,6 +91,9 @@ const Workshop = (props) => {
     };
     getToken();
     // eslint-disable-next-line
+    const queryParams = new URLSearchParams(window.location.search);
+    const tab = queryParams.get('activeTab');
+    if (tab) setIndex(+tab);
   }, []);
 
   const { title, description, badgeImg } = props.pageContext;

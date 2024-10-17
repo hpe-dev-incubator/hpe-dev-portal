@@ -61,6 +61,9 @@ function BlogTabs({ data, columns }) {
       setIndex(activeBlogTab);
       setPlatform(true);
     }
+    const queryParams = new URLSearchParams(window.location.search);
+    const tab = queryParams.get('activeTab');
+    if (tab) setIndex(+tab);
   }, [platformData, openSourceData, activeBlogTab]);
 
   const platforms = {
