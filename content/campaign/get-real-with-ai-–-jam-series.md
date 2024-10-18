@@ -37,7 +37,7 @@ thead tr:first-child td {
 }
 </style>
 
-| &nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp; | Title                                                                              | Speaker(s)                                                                         | Link                                                                                          |
+| &nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp; | Title                                                                              | Speaker(s)                                                                         | Link                                                                                          |
 | ---------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | 11-Dec-24                          | Picking the right software for your AI Use Cases                                   | Audrey Scribner / Anthony Delli Colli / Derek Bekebrede / Jimmy Whitaker           | [Register](https://hpe.zoom.us/webinar/register/7817292626669/WN_4Zmk7uomR7mkoHCijAr5Rg)      |
 | **06-Nov-24**                      | **Implementing your AI breakthroughs effectively - The infrastructure to your AI** | **Audrey Scribner / Anthony Delli Colli / Shep Bostin / Tyler Britten**            | **[Register](https://hpe.zoom.us/webinar/register/6117292619521/WN_ohWywnxbTV-YGrPRhhFbHA)**  |
