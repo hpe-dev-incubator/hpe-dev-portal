@@ -78,10 +78,10 @@ A﻿ new entry will need the following:
 ***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server.
 
 * **B﻿eta:** Not implemented yet :-)
-* **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly.
-* **A﻿lternateLocation:** Not implemented yet. The purpose is allow automation of the relocation of a workshop in case of primary location's failure.
-* **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop.
-* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal.
+* **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
+* **A﻿lternateLocation:** Not implemented yet. The purpose is allow automation of the relocation of a workshop in case of primary location's failure
+* **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
+* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
@@ -91,14 +91,14 @@ A﻿ new entry will need the following:
 
 ![](/img/wod-db-go-3.png)
 
-* **Id:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
-* **Avatar:**  This defines whethere a workshop require some password variable to be leveraged or not.
+* **ID:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files
+* **Avatar:**  This defines whethere a workshop require some password variable to be leveraged or not
 * **D﻿escription:** Same description as the one available in the workshop's table entry
 * **P﻿resenter:** Name of the presenter
 * **Role:** Roe of the presenter (the workshop developer in fact: Solution Architect, Fullstack Developer, etc...)
-* **V﻿ideoLink:** Youtube link of the recorded video to be used as a replay.
-* **W﻿orkshopId:** Id of the workshop linked to the video. 
-* **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal.
+* **V﻿ideoLink:** Youtube link of the recorded video to be used as a replay
+* **W﻿orkshopId:** Id of the workshop linked to the video
+* **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal
 
 One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info, quite handy,no ?
 
