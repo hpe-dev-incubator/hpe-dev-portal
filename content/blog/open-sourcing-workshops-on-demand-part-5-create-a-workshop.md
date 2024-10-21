@@ -27,9 +27,9 @@ As I continue this series, I will explore two scenarios. For the first, I will c
 
 # S﻿imple workshop example:
 
-l﻿et's consider that I plan to create a new workshop on the Go language. It becomes more and more popular among the developer community I interact with and one of the the developer was kind enough to agree with working with me on creating this new workshop. After a first meeting, where I explainied to him the creation process, and the expectations, we quickly started to work together. We defined title, abstract,  notebooks' folder name, and student range. As far as infrastructure's requirements, a new kernel was needed. No additional scripts are requiered for this workshop.
+L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
-A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
+A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
 ##### O﻿n the backend server:
 
