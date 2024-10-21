@@ -27,7 +27,7 @@ As I continue this series, I will explore two scenarios. For the first, I will c
 
 # S﻿imple workshop example:
 
-L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
+L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer (Let's call him **Matt**) was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
 A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
@@ -133,21 +133,21 @@ avatar: '/img/SpeakerImages/MattD.jpg'
 videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
 ```
 
-A﻿s the developer of the Workshops-on-demand content, Matt had to perform several tasks:
+A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
 
-##### O﻿n the backend server:
+### O﻿n the backend server:
 
-1. ###### Log on to the backend server and clone the notebook repo in his home folder or as explained earlier fork the repo on his laptop and work from there.
-2. ###### Create a new branch for his workshop following the naming convention defined with the admin.
-3. ###### L﻿everage the template provided by me to build up the content of his workshop.
-4. ###### T﻿est the workshop locally on his laptop or on the dev server leveraging the `test-action.sh` script
-5. ###### T﻿est the workshop using the staging registration portal.
-6. ###### W﻿hen all tests are green, create a pull request to merge content with master repo.
+1. ##### Log on to the backend server and clone the notebook repo in his home folder or as explained earlier fork the repo on his laptop and work from there
+2. ##### Create a new branch for his workshop following the naming convention defined with the admin
+3. ##### L﻿everage the template provided by me to build up the content of his workshop
+4. ##### T﻿est the workshop locally on his laptop or on the dev server leveraging the `test-action.sh` script
+5. ##### T﻿est the workshop using the staging registration portal
+6. ##### W﻿hen all tests are green, create a pull request to merge content with master repo
 
 A﻿s an admin, I need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
 
-1. ###### Log on to the backend server as wodadmin and update the notebook repository.
-2. ###### R﻿un a wod-deliver to update the relevant backend server.
+1. #####Log on to the backend server as wodadmin and update the notebook repository.
+2. ##### R﻿un a wod-deliver to update the relevant backend server.
 
    ```
    git remote update
