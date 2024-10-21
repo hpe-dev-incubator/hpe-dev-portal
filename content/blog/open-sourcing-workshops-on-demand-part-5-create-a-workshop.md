@@ -165,15 +165,15 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 ##### O﻿n the backend server:
 
-t﻿he  workshop will require:
+The  workshop will require:
 
-* A dedicated server running docker to host the student containers in which the workshops' labs  will take place.
+* A dedicated server running Docker to host the student containers in which the workshops' labs  will take place
 
-  * This means preparing a server (VM or physical) : We will consider it as an appliance.
+  * This means preparing a server (VM or physical) : We will consider it as an appliance
   * Updating the relevant variable file to associate the IP address of the server to the workshop (there could be multiple servers too associated to a given workshop)
-* A﻿ set of scripts under wod-backend/scripts or wod-private/scripts folders depending on the nature of the workshop to manage the workshop's lifecycle.
+* A﻿ set of scripts under wod-backend/scripts or wod-private/scripts folders depending on the nature of the workshop to manage the workshop's lifecycle
 
-  * Some generic scripts applying to all workshops' appliances : general setup phase setting up common requirements for any appliance (student users creation, ssh keys, etc..) up to some specific ones dedicated to a given workshop.
+  * Some generic scripts applying to all workshops' appliances : general setup phase setting up common requirements for any appliance (student users creation, ssh keys, etc..) up to some specific ones dedicated to a given workshop
 
     * create-appliance.sh (ssh keys, ldap setup)
     * setup-appliance.sh \[WKSHP-NAME] (Student setup, Appliance Setup, Workshop setup) calls:
