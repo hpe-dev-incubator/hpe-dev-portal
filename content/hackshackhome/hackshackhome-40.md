@@ -1,6 +1,6 @@
 ---
 title: Hybrid Classical-Quantum Workflows on HPE Supercomputers
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/1517254363076/WN_9HtgXQ6uR4SP7StnaVfsyQ
 imageBackground: white
