@@ -19,11 +19,11 @@ S﻿ome other workshops might need a proper infrastructure to run on. A kubernet
 
 F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. You will need a test/ dev,  a staging, and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging environment on one side and a production on the other side.
 
-In this post, I won't focus on the initial steps required for set up. I'll leave that to you to figure out based on what subjects you wish to cover. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the frontend (web portal and database server mainly)
+In this post, I won't focus on the initial steps required for set up. I'll leave that to you to figure out based on what subjects you wish to cover. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the frontend (web portal and database server mainly).
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-I﻿ will consider two scenarios going further. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I could think of.
+As I continue this series, I will explore two scenarios. For the first, I will create a simple workshop. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
 
 # S﻿imple workshop example:
 
