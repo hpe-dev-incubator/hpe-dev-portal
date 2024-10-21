@@ -159,7 +159,7 @@ T﻿he very same processes will apply to the move to production phase.
 
 # Complex workshop example:
 
-I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even tough I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
+I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even though I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
 
 A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
 
