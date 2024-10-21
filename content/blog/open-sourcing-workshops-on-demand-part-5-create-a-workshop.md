@@ -144,7 +144,7 @@ A﻿s the developer of the Workshops-on-Demand content, Matt had to perform seve
 5. ##### T﻿est the workshop using the staging registration portal
 6. ##### W﻿hen all tests are green, create a pull request to merge content with the master repo
 
-A﻿s an admin, I need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
+A﻿s an admin, I would need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
 
 1. ##### Log on to the backend server as wodadmin and update the notebook repository.
 2. ##### R﻿un a wod-deliver to update the relevant backend server.
@@ -159,7 +159,7 @@ T﻿he very same processes will apply to the move to production phase.
 
 # Complex workshop example:
 
-II will not repeat the steps I descirbed earlier for the simple workshop example. I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even tough I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
+I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even tough I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
 
 A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
 
