@@ -96,11 +96,11 @@ A﻿ new entry will need the following:
 * **D﻿escription:** Same description as the one available in the workshop's table entry
 * **P﻿resenter:** Name of the presenter
 * **Role:** Role of the presenter (the workshop developer in fact: Solution Architect, Fullstack Developer, etc...)
-* **V﻿ideoLink:** Youtube link of the recorded video to be used as a replay
-* **W﻿orkshopId:** Id of the workshop linked to the video
+* **V﻿ideoLink:** YouTube link of the recorded video to be used as a replay
+* **W﻿orkshopId:** ID of the workshop linked to the video
 * **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal
 
-One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info, quite handy,no ?
+One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
 
 Here is an exampe of such a file:
 
