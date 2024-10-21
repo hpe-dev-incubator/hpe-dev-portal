@@ -137,12 +137,12 @@ A﻿s the developer of the Workshops-on-Demand content, Matt had to perform seve
 
 ### O﻿n the backend server:
 
-1. ##### Log on to the backend server and clone the notebook repo in his home folder or as explained earlier fork the repo on his laptop and work from there
+1. ##### Log on to the backend server and clone the notebook repo in his home folder, or as explained earlier, fork the repo on his laptop and work from there
 2. ##### Create a new branch for his workshop following the naming convention defined with the admin
 3. ##### L﻿everage the template provided by me to build up the content of his workshop
 4. ##### T﻿est the workshop locally on his laptop or on the dev server leveraging the `test-action.sh` script
 5. ##### T﻿est the workshop using the staging registration portal
-6. ##### W﻿hen all tests are green, create a pull request to merge content with master repo
+6. ##### W﻿hen all tests are green, create a pull request to merge content with the master repo
 
 A﻿s an admin, I need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
 
