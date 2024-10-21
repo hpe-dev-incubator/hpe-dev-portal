@@ -44,7 +44,7 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 3. ##### Provide to the developer the necessary information to connect to the test/dev and staging backend servers
 4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
 5. **Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)**
-6. **Whenever ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps to prepare the infrastructure to host the workshop**
+6. **When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop**
 
 ##### O﻿n the database server:
 
