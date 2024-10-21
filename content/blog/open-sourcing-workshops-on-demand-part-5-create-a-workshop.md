@@ -69,11 +69,11 @@ A﻿ new entry will need the following:
 
 ![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
 
-* **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files
+* **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
 * **Varpass:**  This defines whethere a workshop require some password variable to be leveraged or not
 * **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop
 * **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
-* **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on SoME like linkedin for instance
+* **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
 
 ***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server.
 
