@@ -102,7 +102,7 @@ A﻿ new entry will need the following:
 
 One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
 
-Here is an exampe of such a file:
+Here is an example of such a file:
 
 ```
 %YAML 1.1
