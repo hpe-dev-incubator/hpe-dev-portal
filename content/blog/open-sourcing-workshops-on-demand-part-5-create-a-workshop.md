@@ -35,21 +35,16 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 1. ##### Test and validate installation of the new kernel on the staging backend server by:
 
-  * Creating a new branch for this test
+* Creating a new branch for this test
+* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
+* Validating the changes by testing a new backend install process
+* Pushing the changes to the github repo
 
-  * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
-
-  * Validating the changes by testing a new backend install process.
-
-  * Pushing the changes to the github repo.
-
-2. ##### Creating a user for the workshop developer on the test/dev and staging backend servers.
-3. ##### Providing to the developer the necessary information to connect to the test/dev and staging backend servers.
-4. ##### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
+2. ##### Create a user for the workshop developer on the test/dev and staging backend servers.
+3. ##### Provide to the developer the necessary information to connect to the test/dev and staging backend servers.
+4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work.
 5. **Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when workshop does not require appliance but just a jupyter kernel for instance)**
 6. **Whenever ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps to prepare the infrastructure to host the workshop**
-
-
 
 ##### O﻿n the database server:
 
@@ -218,8 +213,6 @@ A workshop should come up with at least :
 * wod.yml ( for database injection)
 
 When all tests validated the workshop, it can follow the move to prod cycle.
-
-
 
 You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure. I will need to address one last point in this blog series related to the Worshops-on-Demand project, and this is the frontend part. I will explain how to deploy and mange it.
 
