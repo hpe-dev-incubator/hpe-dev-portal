@@ -31,9 +31,9 @@ L﻿et's imagine that I plan to create a new workshop in the Go language. Go has
 
 A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
-##### O﻿n the backend server:
+### O﻿n the backend server:
 
-1. ###### Test and validate installation of the new kernel on the staging backend server by:
+1. ##### Test and validate installation of the new kernel on the staging backend server by:
 
 * * Creating a new branch for this test
 
