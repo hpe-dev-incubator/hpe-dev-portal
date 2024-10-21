@@ -5,21 +5,21 @@ author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 ---
-I﻿n this new article that is part of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the necessary steps to build up a new workshop. I already covered most of the infrastructure part that supports the workshops. It now makes sense to emphasize a bit on the content creation.
+I﻿n this new article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. I already covered most of the infrastructure part that supports the workshops. In my previous posts, I already covered setting up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
 
 # O﻿verview
 
-H﻿ere is a simple flowchart describing the 10000 feet view of the creation process:
+Let's start with a simple flowchart describing the 10000-foot view of the creation process:
 
 ![](/img/wod-b-process.png "Workshop's creation flow.")
 
-A﻿s you can see, no rocket science here. Just common sense. Depending on the workshop you wish to create, some obvious requirements should show up. A workshop based on a programmatic language for instance, will require the relevant kernel to be setup on the JupyterHub server. The following [page](https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624) will list all available kernels.
+A﻿s you can see, there's no rocket science here. Just common sense. Depending on the workshop you wish to create, some obvious requirements should show up. A workshop based on a programmatic language, for instance, will require the relevant kernel to be set up on the JupyterHub server. The following [page](https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624) lists all available kernels.
 
-S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop fro instance could not exist without the presence of a proper Kubernetes cluster. Same thing goes for any HPE related solutions.
+S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop for instance could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
 
-F﻿rom an infrastructure standpoint, a minimum of environments are necessary. You will need a test/ dev,  a staging and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging on one side and a production on the other side.
+F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. You will need a test/ dev,  a staging, and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging environment on one side and a production on the other side.
 
-I﻿ will not focus here on the first steps. I leave it to you to figure out new subjects. I will talk a bit again about the infrastructure and especially the dedicated scripts and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the frontend (web portal and database server mainly)
+In this post, I won't focus on the initial steps required for set up. I'll leave that to you to figure out based on what subjects you wish to cover. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the frontend (web portal and database server mainly)
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
