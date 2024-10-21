@@ -12,6 +12,6 @@ description: "November 20, 2024: Are your users doing everything right to keep
   control system."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 2
+priority: 3
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
