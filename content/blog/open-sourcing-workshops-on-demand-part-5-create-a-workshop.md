@@ -161,7 +161,7 @@ T﻿he very same processes will apply to the move to production phase.
 
 I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not, even though I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start with a meeting where each of us will explain to the other what our goals are and how we expect to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on to figure out what the best platform would be on which to run his workshop.
 
-A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
+A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
 ##### O﻿n the backend server:
 
