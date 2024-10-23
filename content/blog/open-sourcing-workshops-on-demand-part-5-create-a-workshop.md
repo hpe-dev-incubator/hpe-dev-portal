@@ -184,13 +184,13 @@ The  workshop will require:
     * reset-appliance (reset ssh keys and students credentials on appliance
     * cleanup-\[WKSHP-NAME].sh (takes care of cleanup some workshop's specifics)
     * reset-\[WKSHP-NAME].sh (reset of the workshop's appliance, docker compose down of a container for instance)
-* A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment times to set student ids, appliance IP addresses, and other relevant parameters like ports, simulated hardware information for instance.
+* A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment time to set student ids, appliance IP addresses, and other relevant parameters like ports, or simulated hardware information
 
-Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can conducted using cli and later webui as described earlier for the simple workshop example.
+Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can be conducted using cli and later webui as described earlier for the simple workshop example.
 
-* From the cli on the jupyterhub server: 
+Testing the workshop: 
 
-  * one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to cleanup, rest or purge.
+  * one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
 
     ```
     dev@dev3:~$ wod-test-action.sh
@@ -199,7 +199,9 @@ Whenever all the scripts are functional and that the necessary actions have been
     ```
   * The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.
 
-A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
+* A﻿ set of notebooks that will be used by the student:
+
+ * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
 A workshop should come up with at least :
 
