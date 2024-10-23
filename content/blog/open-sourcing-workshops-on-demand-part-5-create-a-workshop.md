@@ -197,13 +197,14 @@ Testing the workshop:
     Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
     ACTION is mandatory
     ```
-  * The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.
+
+`Note: The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.`
 
 * A﻿ set of notebooks that will be used by the student:
 
  * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
-A workshop should come up with at least :
+A workshop should have with at least :
 
 * 0-ReadMeFirst.ipynb 
 * 1-WKSHP-LAB1.ipynb
@@ -214,8 +215,8 @@ A workshop should come up with at least :
 * A README.md (0-ReadMeFirst.ipynb in md format)
 * wod.yml ( for database injection)
 
-When all tests validated the workshop, it can follow the move to prod cycle.
+When all tests have validated the workshop, it can follow the move to prod cycle.
 
-You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure. I will need to address one last point in this blog series related to the Worshops-on-Demand project, and this is the frontend part. I will explain how to deploy and mange it.
+You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.In the next post, I Iwill explain how to deploy and manage the frontend part.
 
 If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
