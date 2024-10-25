@@ -46,7 +46,7 @@ A workshop should contain at least :
 
 To make the workshop compliant to our platform, Matt just needs to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called **wod.yml**.
 
-One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
+Matt could leverage a simple **wod.yml** file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
 
 Here is an example of such a file:
 
@@ -62,20 +62,20 @@ priority: 1
 range: [151-170]
 reset: false
 ldap: false
-location: 'mougins'
+location: 'fully qualified domain name of default JupyterHub server'
 replayId: 31
 varpass: false
 compile: false
 workshopImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/WOD-GO-101-A-simp-introduction-to-Go-programming-language.jpeg'
 badgeImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/go101-a-simple-introduction-to-go-programming-language.jpg'
 beta: false
-category: 'Open Source'
+category: ['Open Source']
 duration: 4
-alternateLocation: 'grenoble'
+alternateLocation: ['fully qualified domain name of an alternate JupyterHub server']
 presenter: 'Matthew Doddler'
 role: 'FullStack developer'
 avatar: '/img/SpeakerImages/MattD.jpg'
-videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
+replayLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
 ```
 
 the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
@@ -96,35 +96,30 @@ As a contributor, Matt should be able to provide all the following details.
 * **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
 * **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
 * **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
+* **session type:** Workshops-on-Demand by default (automatically created at the import of the wod.yml file process)
 
-The following fields are required by the infrastructure.
+The following fields are required by the infrastructure. And I will work as the infrastructure Admin with Matt to define them.
 
 * **capacity:** The number of maximum concurrent students allowed to take on the workshop
 * **range:** The range between which students get picked at registration time
 * **r﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
-* **session type:** Workshops-on-Demand by default
-* **location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake . As a consequence, the location is set to greenlake in this case
-* **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
-* **Varpass:**  This defines whether or not a workshop requires a password variable needs to be leveraged
-
-
+* **location:** If your setup includes multiple jupyterhub servers, use this field to allocate workshops according to your needs.
+* **compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
+* **varpass:**  This defines whether or not a workshop requires a password variable needs to be leveraged
 * **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
-* **B﻿eta:** Not implemented yet :-)
-
-* **A﻿lternateLocation:** Not implemented yet. The purpose is allow automation of the relocation of a workshop in case of primary location's failure
+* **beta:** Not implemented yet :-)
+* **AlternateLocation:** future development. The purpose is to allow automation of the relocation of a workshop in case of primary location's failure
 
 
 *N﻿ote:* B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
-I﻿n the **Replays table:**
-
-A﻿ new entry will need the following:
+I﻿n the **Replays table:
 
 ![](/img/wod-db-go-3.png)
 
-* **ID:** This ID is used to link the correct video with the associated workshop
+* **ID:** This ID is used to link the correct video with the associated workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
 * **Avatar:**  This is the link to the presenter 's picture that will be displayed on the workshop's tile on the registration portal
 * **D﻿escription:** Same description as the one available in the workshop's table entry
 * **P﻿resenter:** Name of the presenter
