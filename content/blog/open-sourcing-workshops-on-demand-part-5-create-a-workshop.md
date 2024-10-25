@@ -17,34 +17,71 @@ A﻿s you can see, there's no rocket science here. Just common sense. Depending 
 
 S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop for instance could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
 
-F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. You will need a test/ dev,  a staging, and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging environment on one side and a production on the other side.
+F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. The project makes it easy to deploy a test/ dev,  a staging, and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging environment on one side and a production on the other side.
 
-In this post, I won't focus on the initial steps required for set up. I'll leave that to you to figure out based on what subjects you wish to cover. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the frontend (web portal and database server mainly).
+In this post, I won't focus on the subject selection process. I'll leave that to you to figure it out. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the api db server mainly).
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-As I continue this series, I will explore two scenarios. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
 
-# S﻿imple workshop example:
 
-L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer (Let's call him **Matt**) was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
+What is a workshop? What do you need to develop ?
 
-A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
+* A﻿ set of notebooks that will be used by the student:
 
-### O﻿n the backend server:
+ * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
-1. ##### Test and validate installation of the new kernel on the staging backend server by:
+A workshop should have with at least :
 
-* Creating a new branch for this test
-* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
-* Validating the changes by testing a new backend install process
-* Pushing the changes to the github repo
+* 0-ReadMeFirst.ipynb 
+* 1-WKSHP-LAB1.ipynb
+* 2-WKSHP-LAB2.ipynb
+* 3-WKSHP-Conclusion.ipynb
+* LICENCE.MD
+* A pictures folder (if any screenshot is required in lab instructions)
+* A README.md (0-ReadMeFirst.ipynb in md format)
 
-2. ##### Create a user for the workshop developer on the test/dev and staging backend servers
-3. ##### Provide to the developer the necessary information to connect to the test/dev and staging backend servers
-4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
-5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
-6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
+
+
+
+
+to make the workshop compliant to our platform, you just need to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called wod.yml
+
+One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
+
+Here is an example of such a file:
+
+```
+%YAML 1.1
+# Meta data for the GO101 Workshop to populate seeder
+---
+name: 'GO 101 - A simple introduction to Go Programming Language'
+description: 'Go, also called Golang or Go language, is an open source programming language that Google developed. Software developers use Go in an array of operating systems and frameworks to develop web applications, cloud and networking services, and other types of software. This workshop will drive you through the basics of this programming language.'
+active: true
+capacity: 20
+priority: 1
+range: [151-170]
+reset: false
+ldap: false
+location: 'mougins'
+replayId: 31
+varpass: false
+compile: false
+workshopImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/WOD-GO-101-A-simp-introduction-to-Go-programming-language.jpeg'
+badgeImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/go101-a-simple-introduction-to-go-programming-language.jpg'
+beta: false
+category: 'Open Source'
+duration: 4
+alternateLocation: 'grenoble'
+presenter: 'Matthew Doddler'
+role: 'FullStack developer'
+avatar: '/img/SpeakerImages/MattD.jpg'
+videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
+```
+
+the following file
+
+
 
 ### O﻿n the database server:
 
@@ -100,38 +137,32 @@ A﻿ new entry will need the following:
 * **W﻿orkshopId:** ID of the workshop linked to the video
 * **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal
 
-One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
 
-Here is an example of such a file:
+As I continue this series, I will explore two scenarios. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
 
-```
-%YAML 1.1
-# Meta data for the GO101 Workshop to populate seeder
----
-name: 'GO 101 - A simple introduction to Go Programming Language'
-notebook: 'WKSHP-GO101'
-description: 'Go, also called Golang or Go language, is an open source programming language that Google developed. Software developers use Go in an array of operating systems and frameworks to develop web applications, cloud and networking services, and other types of software. This workshop will drive you through the basics of this programming language.'
-active: false
-capacity: 20
-priority: 1
-range: [151-170]
-reset: false
-ldap: false
-location: 'mougins'
-replayId: 31
-varpass: false
-compile: false
-workshopImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/WOD-GO-101-A-simp-introduction-to-Go-programming-language.jpeg'
-badgeImg: 'https://us-central1-grommet-designer.cloudfunctions.net/images/frederic-passeron-hpe-com/go101-a-simple-introduction-to-go-programming-language.jpg'
-beta: false
-category: 'Open Source'
-duration: 4
-alternateLocation: 'grenoble'
-presenter: 'Matthew Doddler'
-role: 'FullStack developer'
-avatar: '/img/SpeakerImages/MattD.jpg'
-videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
-```
+# S﻿imple workshop example:
+
+L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer (Let's call him **Matt**) was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
+
+A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
+
+### O﻿n the backend server:
+
+1. ##### Test and validate installation of the new kernel on the staging backend server by:
+
+* Creating a new branch for this test
+* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
+* Validating the changes by testing a new backend install process
+* Pushing the changes to the github repo
+
+2. ##### Create a user for the workshop developer on the test/dev and staging backend servers
+3. ##### Provide to the developer the necessary information to connect to the test/dev and staging backend servers
+4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
+5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
+6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
+
+
+
 
 A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
 
