@@ -115,7 +115,7 @@ The following fields are required by the infrastructure. And I will work as the 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
-I﻿n the **Replays table:
+I﻿n the **Replay table**:
 
 ![](/img/wod-db-go-3.png)
 
@@ -151,8 +151,6 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
 5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
 6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
-
-
 
 
 A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
@@ -221,21 +219,6 @@ Testing the workshop:
     ```
 
 `Note: The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.`
-
-* A﻿ set of notebooks that will be used by the student:
-
- * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
-
-A workshop should have with at least :
-
-* 0-ReadMeFirst.ipynb 
-* 1-WKSHP-LAB1.ipynb
-* 2-WKSHP-LAB2.ipynb
-* 3-WKSHP-Conclusion.ipynb
-* LICENCE.MD
-* A pictures folder (if any screenshot is required in lab instructions)
-* A README.md (0-ReadMeFirst.ipynb in md format)
-* wod.yml ( for database injection)
 
 When all tests have validated the workshop, it can follow the move to prod cycle.
 
