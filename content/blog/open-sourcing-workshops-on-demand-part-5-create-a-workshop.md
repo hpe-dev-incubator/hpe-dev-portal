@@ -79,46 +79,44 @@ avatar: '/img/SpeakerImages/MattD.jpg'
 videoLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
 ```
 
-the following file
+the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
 
-
-
-### O﻿n the database server:
-
-In order to exist, a workshop requires serveral entries in the database:
-
-I﻿n the **Workshops table:**
-
-A﻿ new entry will need the following:
 
 ![](/img/wod-db-go-1.png "Workshop's fields in the Database.")
-
-* **An ID:** A workshop ID to be used by backend server automation and Replays table to reference the associated replay video of the workshop
-* **A﻿ name:** The workshop's name as it will will be displayed on the registration portal
-* **A name of the folder** containing all the workshop's notebooks
-* **A﻿ description / abstract:** The workshop's abstract as it will will be displayed on the registration portal
-* **A﻿ capacity:** The number of maximum concurrent students allowed to take on the workshop
-* **A﻿ student range:** The range between which students get picked at registration time
-* **R﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
-* **A﻿ session type:** Workshops-on-Demand by default
-* **A﻿ location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake . As a consequence, the location is set to greenlake in this case
-* **A﻿vatar, role and replayLink** are superseded by entries in the replay table. I will explain later
-
 ![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
+
+* **ID:** A workshop ID to be used by backend server automation and Replays table to reference the associated replay video of the workshop (automatically created at the import of the wod.yml file process)
+* **name:** The workshop's name as it will will be displayed on the registration portal
+* **notebook:** Name of the folder containing all the workshop's notebooks (automatically created at the import of the wod.yml file process)
+* **description:** The workshop's abstract as it will will be displayed on the registration portal
+* **avatar, role and replayLink** are superseded by entries in the replay table. I will explain later
+* **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop (automatically created at the import of the wod.yml file process)
+* **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
+* **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
+* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
+
+The following fields are required by the infrastructure.
+
+* **capacity:** The number of maximum concurrent students allowed to take on the workshop
+* **range:** The range between which students get picked at registration time
+* **r﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
+* **session type:** Workshops-on-Demand by default
+* **location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake . As a consequence, the location is set to greenlake in this case
+
+
+
 
 * **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
 * **Varpass:**  This defines whether or not a workshop requires a password variable needs to be leveraged
-* **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop
+
 * **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
 * **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
-
-***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server.
-
 * **B﻿eta:** Not implemented yet :-)
-* **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
+
 * **A﻿lternateLocation:** Not implemented yet. The purpose is allow automation of the relocation of a workshop in case of primary location's failure
-* **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
-* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
+
+
+*N﻿ote:* B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
