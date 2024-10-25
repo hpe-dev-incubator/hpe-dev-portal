@@ -13,7 +13,7 @@ Let's start with a simple flowchart describing the 10000-foot view of the creati
 
 ![](/img/wod-b-process.png "Workshop's creation flow.")
 
-A﻿s you can see, there's no rocket science here. Just common sense. Depending on the workshop you wish to create, some obvious requirements should show up. A workshop based on a programmatic language, for instance, will require the relevant kernel to be set up on the JupyterHub server. The following [page](https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624) lists all available kernels.
+A﻿s you can see, there's no rocket science here. Just common sense. Depending on the workshop you wish to create, some obvious requirements should show up. A workshop based on a programmatic language, for instance, may require the relevant kernel to be set up on the JupyterHub server. The following [page](https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624) lists all available kernels.
 
 S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop for instance could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
 
@@ -23,7 +23,7 @@ In this post, I won't focus on the initial steps required for set up. I'll leave
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-As I continue this series, I will explore two scenarios. For the first, I will create a simple workshop. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
+As I continue this series, I will explore two scenarios. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
 
 # S﻿imple workshop example:
 
