@@ -27,11 +27,13 @@ In this post, I won't focus on the subject selection process. I'll leave that to
 
 What is a workshop? What do you need to develop ?
 
+L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined what is needed:
+
 * A﻿ set of notebooks that will be used by the student:
 
  * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
-A workshop should have with at least :
+A workshop should contain at least :
 
 * 0-ReadMeFirst.ipynb 
 * 1-WKSHP-LAB1.ipynb
@@ -42,10 +44,7 @@ A workshop should have with at least :
 * A README.md (0-ReadMeFirst.ipynb in md format)
 
 
-
-
-
-to make the workshop compliant to our platform, you just need to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called wod.yml
+To make the workshop compliant to our platform, Matt just needs to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called **wod.yml**.
 
 One could create these entries manually or leverage a simple wod.yml file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
 
@@ -85,6 +84,8 @@ the following file will be used to update the **workshops table** in the databas
 ![](/img/wod-db-go-1.png "Workshop's fields in the Database.")
 ![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
 
+As a contributor, Matt should be able to provide all the following details.
+
 * **ID:** A workshop ID to be used by backend server automation and Replays table to reference the associated replay video of the workshop (automatically created at the import of the wod.yml file process)
 * **name:** The workshop's name as it will will be displayed on the registration portal
 * **notebook:** Name of the folder containing all the workshop's notebooks (automatically created at the import of the wod.yml file process)
@@ -94,6 +95,7 @@ the following file will be used to update the **workshops table** in the databas
 * **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
 * **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
 * **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
+* **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
 
 The following fields are required by the infrastructure.
 
@@ -102,14 +104,10 @@ The following fields are required by the infrastructure.
 * **r﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
 * **session type:** Workshops-on-Demand by default
 * **location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake . As a consequence, the location is set to greenlake in this case
-
-
-
-
 * **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
 * **Varpass:**  This defines whether or not a workshop requires a password variable needs to be leveraged
 
-* **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
+
 * **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
 * **B﻿eta:** Not implemented yet :-)
 
@@ -140,7 +138,7 @@ As I continue this series, I will explore two scenarios. In the first one, I wil
 
 # S﻿imple workshop example:
 
-L﻿et's imagine that I plan to create a new workshop in the Go language. Go has become more and more popular among the developer community I interact with and one developer (Let's call him **Matt**) was kind enough to agree with working with me on creating this new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined the title, abstract,  notebooks' folder name, and student range. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
+ As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
 A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
