@@ -140,7 +140,7 @@ A﻿s the developer of the Workshops-on-Demand content, Matt had to perform seve
 1. ##### Log on to the backend server and clone the notebook repo in his home folder, or as explained earlier, fork the repo on his laptop and work from there
 2. ##### Create a new branch for his workshop following the naming convention defined with the admin
 3. ##### L﻿everage the template provided by me to build up the content of his workshop
-4. ##### T﻿est the workshop locally on his laptop or on the dev server leveraging the `test-action.sh` script
+4. ##### T﻿est the workshop locally on his laptop or on the dev server leveraging the `wod-test-action.sh` script
 5. ##### T﻿est the workshop using the staging registration portal
 6. ##### W﻿hen all tests are green, create a pull request to merge content with the master repo
 
@@ -217,6 +217,6 @@ A workshop should have with at least :
 
 When all tests have validated the workshop, it can follow the move to prod cycle.
 
-You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.In the next post, I Iwill explain how to deploy and manage the frontend part.
+You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.In the next post, I will explain how to deploy and manage the frontend part.
 
 If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
