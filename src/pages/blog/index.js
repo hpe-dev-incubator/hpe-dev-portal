@@ -30,6 +30,7 @@ function Blog({ data, location }) {
   /* eslint-disable no-unused-vars */
   const [index, setIndex] = useState(0);
   const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
+  const [isActiveTab, setIsActiveTab] = useState(false);
   /* eslint-disable no-unused-vars */
 
   useEffect(() => {
@@ -43,6 +44,9 @@ function Blog({ data, location }) {
   }, [location]);
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const activeTab = queryParams.get('activeTab');
+    if (activeTab) setIsActiveTab(true);
     const scrollPosition = blogPosition;
 
     if (scrollPosition) {
@@ -54,7 +58,7 @@ function Blog({ data, location }) {
         });
       }, 100);
     }
-  }, [blogPosition]);
+  }, [blogPosition, isActiveTab]);
 
   return (
     <Layout title={siteTitle}>
@@ -73,7 +77,7 @@ function Blog({ data, location }) {
           <ButtonLink primary label="Get Started" to="/contribute" />
         </Box>
       </PageDescription>
-      {featuredposts && featuredposts.length > 0 && (
+      {featuredposts && featuredposts.length > 0 && !isActiveTab && (
         <SectionHeader title="Featured Blogs">
           <FeaturedBlogCard
             key={featuredposts[0].node.id}
