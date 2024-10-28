@@ -4,7 +4,7 @@ dateStart: 2024-12-10T23:01:41.769Z
 dateEnd: 2024-12-11T22:30:41.786Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://developer.hpe.com/campaign/get-real-with-ai-%E2%80%93-jam-series/
+link: https://hpe.zoom.us/webinar/register/2917301090501/WN_4Zmk7uomR7mkoHCijAr5Rg
 width: large
 ---
 ## Picking the right software for your AI Use Cases
