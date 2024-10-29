@@ -1,5 +1,6 @@
 ---
 title: LL-Mesh – Democratizing Gen AI
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3917301947692/WN_Dg57aHX5QLeOWsWDtgfy1w
 imageBackground: white
