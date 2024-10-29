@@ -4,7 +4,7 @@ dateStart: 2024-12-17T23:01:53.763Z
 dateEnd: 2024-12-18T22:30:53.775Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://hpe.zoom.us/webinar/register/3917301947692/WN_Dg57aHX5QLeOWsWDtgfy1w
 width: large
 ---
 ## LL-Mesh – Democratizing Gen AI
