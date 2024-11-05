@@ -9,13 +9,13 @@ authorimage: /img/fdz-photoprofile.png
 thumbnailimage: null
 tags:
   - Redfish
-  - PostState
-  - PowerState
-  - ServerState
-  - iLO5
+  - iLO RESTful API
   - ProLiant
-  - Synergy
 ---
+<style> li { font-size: 27px; line-height: 35px; max-width: none; } </style>
+
+<style> figcaption {font-style: italic; font-size: 15px; line-height: 33px; max-width: none;} </style>
+
 Updated November, 2024
 
 ## Introduction
@@ -41,11 +41,17 @@ The `InPost` value means that the server is still performing the Pre-OS Tasks (t
 
 ![InPost state 1](/img/1-inpost.png "InPost state 1")
 
+<figcaption>Figure 1: InPost state 1</figcaption>
+
 ![InPost state 2](/img/2-inpost.png "InPost state 2")
+
+<figcaption>Figure 2: InPost state 2</figcaption>
 
 `InPostDiscoveryStart` follows the `InPost` state and then, `InPostDiscoveryComplete`.  For the purpose of this blog, I'll assume that it corresponds to the state in which UEFI is loaded and running:
 
 ![InPostDiscoveryComplete / UEFI](/img/3-inpostdiscoverycomplete.png "InPostDiscoveryComplete / UEFI")
+
+<figcaption>Figure 3: InPostDiscoveryComplete / UEFI</figcaption>
 
 Note that when an UEFI executable is running (i.e. UEFI Shell, `grubx64.efi`...) the server stays in the `InPostDiscoveryComplete` state.
 
@@ -60,6 +66,8 @@ In a server management and configuration context, several properties can only be
 In the following screenshot I used <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a> to change the next boot entry of a server being in the `InPostDiscoveryComplete` state. In this case, the iLO returns a `[400]` error code with an explicit message.
 
 ![Boot Order cannot be changed when in POST](/img/4-cannotchangebootorderwheninpost.png "Boot Order cannot be changed when in POST")
+
+<figcaption>Figure 4: Boot Order cannot be changed when in POST</figcaption>
 
 In a Bios and/or storage controller configuration process, the `PostState` property plays a crucial role. As explained in
 <a href="https://developer.hpe.com/blog/setting-bios-and-storage-controller-properties-with-redfish/"
@@ -77,6 +85,8 @@ The easiest way to obtain the `PostState` of a server is to issue the `serversta
 The <a href="https://github.com/HewlettPackard/python-redfish-utility" target="_blank">Open Source</a> version of iLOrest contains the source of this <a href="https://github.com/HewlettPackard/python-redfish-utility/blob/master/src/extensions/iLO_COMMANDS/ServerStateCommand.py" target="_blank">ServerState</a> macro command in Python. Feel free to consult it.
 
 ![Retrieve `PostState` with iLOrest](/img/5-retrieveserverstatewithilorest.png "Retrieve `PostState` with iLOrest")
+
+<figcaption>Figure 5: Retrieve `PostState` with iLOrest</figcaption>
 
 If you decide to create your own Redfish client, you will have to adapt your code to the potential Redfish <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_adaptation/#ilo-5-data-model-changes" target="_blank">data model changes</a> between the different generations of servers or iLOs.
 
@@ -115,6 +125,8 @@ Two seconds later the next iteration returns the `InPostDiscoveryComplete` state
 In iteration 62 we are still in `InPostDiscoveryComplete` but both `DeviceDiscovery` and `SmartArrayDiscovery` have reached their final `Complete` state. Hence the the corresponding devices can be queried safely.
 
 ![The `DeviceDiscoveryComplete{}` object](/img/6-devicediscoverycomplete.png "The `DeviceDiscoveryComplete{}` object")
+
+<figcaption>Figure 6: The `DeviceDiscoveryComplete{}` object</figcaption>
 
 If iLOrest is your preferred Redfish client tool, the above script looks like:
 
