@@ -4,7 +4,7 @@ date: 2022-10-31T14:44:54.480Z
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/hpe-gl-test-drive-1200-x-675.jpg
-disable: false
+disable: true
 tags:
   - hpe-greenlake
 ---
