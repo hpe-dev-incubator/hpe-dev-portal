@@ -2,7 +2,7 @@
 title: VLAN Versus VXLAN
 date: 2024-11-11T14:57:37.063Z
 author: Indira Manthri
-authorimage: https://gravatar.com/delectablycollectorffb88d7dc2
+authorimage: /img/indira_manthri.jpg
 disable: false
 tags:
   - aruba
