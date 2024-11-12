@@ -13,7 +13,7 @@ tags:
 
 This technical blog gives insight on basic understanding of VLAN and VXLAN and the purpose achieved by using VLAN and VXLAN. It is interesting to compare these two features as they look similar from top level but there is lot of difference in the networking layer they are used and the way the VLAN, VXLAN headers are embedded in the packet and the scalability issues resolved by these two features. A quick look into the sample configuration provided in this blog for inquisitive networking colleagues.
 
-### What is VLAN 
+### What is VLAN
 
 VLAN – Virtual Local Area Network – Layer 2 which segments a physical network into multiple isolated networks. This is achieved by VLAN-ID which can range from <1-4096> which is 12 bit. Different ports on a networking device can be associated to different VLAN-IDs and the networking device would ensure that the incoming/outgoing traffic is forwarded based on the VLAN-ID which is present in the ethernet frames.
 
@@ -22,7 +22,7 @@ So, if the physical network is layer-1, the physical network segmented using VLA
 ### What is VXLAN
 
 VXLAN – Virtual Extensible Local Area Networks – Layer 2 over Layer 3 network
-VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The layer-2 ethernet frames are encapsulated by VNI outer headers. Due to this encapsulation, VXLAN is also called tunnelling. The VXLAN tunnel end point is called VTEP. VTEPs encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer3 Packet. 
+VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The layer-2 ethernet frames are encapsulated by VNI outer headers. Due to this encapsulation, VXLAN is also called tunneling. The VXLAN tunnel end point is called VTEP. VTEPs encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer3 Packet. 
 
 ### Why there is a need for VXLAN:
 
@@ -39,25 +39,21 @@ VXLAN is a tunneling mechanism over layer2 ethernet frames. The encapsulation wi
 
 ![VLAN Header](/img/picture1.png "VLAN Header")
 
-•	The ethernet frame has 4 bytes VLAN tag field to identify the VLAN-ID that the packet originated from.
-•	The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
-•	The VLAN TAG has below fields:
-a.	TPID – By Default VLAN Tagged packets has 0x8100. 
-b.	Priority – To indicate the 802.1p priority of the frame
-c.	CFI – By default it is 0. 0 indicates MAC addresses are in standard format. 1 indicated non-standard format.
+* The ethernet frame has 4 bytes VLAN tag field to identify the VLAN-ID that the packet originated from. The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
+
+* The VLAN TAG has below fields:
+  a. TPID – By Default VLAN Tagged packets has 0x8100. b.	Priority – To indicate the 802.1p priority of the framec.	CFI – By default it is 0. 0 indicates MAC addresses are in standard format. 1 indicated non-standard format.
 
 ### VXLAN Header in Ethernet Frame
 
 ![VXLAN Header](/img/picture2.png "VXLAN Header")
 
+* The entire ethernet frame including DMAC, SMAC and IP-header or IPv6 header and UDP header is encapsulated with four headers:
+  outer ethernet header, outer IP-header, outer UDP Header and VXLAN Header.
 
-•	The entire ethernet frame including DMAC, SMAC and IP-header or IPv6 header and UDP header is encapsulated with four headers:
-o	outer ethernet header, outer IP-header, outer UDP Header and VXLAN Header.
-•	VXLAN Header has the following fields
-o	Flags: I bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
-o	VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
-
-
+* VXLAN Header has the following fields
+  Flags: I bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
+  o	VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
 
 ### VLAN and VXLAN Configuration:
 
