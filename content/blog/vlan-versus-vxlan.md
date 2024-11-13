@@ -65,19 +65,30 @@ Each VNI would be mapped with the VLAN it is carrying.
 ### FAQs
 
 1. Will VXLAN replace VLAN standard?
+
+
    VLAN standard is specified in IEEE 802.1Q standard by IEEE.
-   VXLAN standard is specified in RFC 7438 by IETF.
-   VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
+VXLAN standard is specified in RFC 7438 by IETF.
+VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
+
 2. Does VXLAN always have outer VLAN header?
+
+
    The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
+
 3. Does VXLAN only solve the scalability issue? 
+
+
    Along with scalability issue, VXLAN is used for having IP based traffic in core network. 
-   As VXLAN is used for network segmentation which solves two major issues:
-   Allows multiple VMs to share a single physical network without seeing each other’s traffic for the reuse of IP addresses.
-   The VNI identifies the scope of the inner MAC frame originated by the individual VM.  Thus, it could have overlapping MAC addresses across VXLAN segments but never have traffic "cross over" since the traffic is isolated using the VNI.
+As VXLAN is used for network segmentation which solves two major issues:
+Allows multiple VMs to share a single physical network without seeing each other’s traffic for the reuse of IP addresses.
+The VNI identifies the scope of the inner MAC frame originated by the individual VM.  Thus, it could have overlapping MAC addresses across VXLAN segments but never have traffic "cross over" since the traffic is isolated using the VNI.
+
 4. What’s the difference between QinQ and VXLAN?
+
+
    QinQ and VXLAN are protocols designed for achieving virtual segmentation of physical network.
-   QinQ adds an outer VLAN header on top of the original ethernet frame. This also solves scalability issues.
-   Whereas VXLAN is tunnelling mechanism which is primarily layer3 over layer2 ethernet frame. VXLAN also adds outer UDP header.
+QinQ adds an outer VLAN header on top of the original ethernet frame. This also solves scalability issues.
+Whereas VXLAN is tunnelling mechanism which is primarily layer3 over layer2 ethernet frame. VXLAN also adds outer UDP header.
 
 To summarize, VLAN and VXLAN are used together to solve scalability issues and to overcome the limitations of VLAN.
