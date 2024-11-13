@@ -2,6 +2,7 @@
 title: How to Pick a Large Language Model for Private AI
 date: 2024-11-13T16:48:01.096Z
 priority: -1
+externalLink: https://www.youtube.com/watch?v=sNRqJOEKkCw
 author: Jordan Nanos
 authorimage: /img/headshot-01.jpeg
 disable: false
@@ -38,7 +39,7 @@ Evaluating LLM performance involves two key metrics:
 
 Understanding how different models perform in these aspects is essential for selecting the right one.
 
-## Visual Comparisons of Speed
+## Comparing Speed
 
 ### Throughput
 
@@ -61,19 +62,9 @@ HPE offers tailored hardware solutions optimized for AI, including options like 
 
 The field of LLMs is rapidly advancing, with regular improvements in model efficiency and runtime performance. For instance, in a span of just over three months, throughput for certain models nearly doubled. Staying updated with these advancements allows organizations to take advantage of more efficient, cost-effective deployments.
 
-## Example Architecture: Coding Assistant
 
-One potential application of an LLM is a coding assistant, where the model helps with code completion, documentation, and troubleshooting. This architecture might include:
 
-- **Frontend**: User interface where developers interact with the assistant.
-- **Backend**: Model server that processes requests, powered by an LLM.
-- **Data Storage**: Storage for code snippets, user data, and reference materials.
-  
-This architecture exemplifies how LLMs can be integrated into specific applications to streamline development tasks.
 
-## Why Choose the HPE DL384 for LLMs?
-
-The HPE DL384 is a versatile and powerful choice for LLM applications, providing high-performance, scalable hardware capable of supporting intensive workloads. It’s designed to meet the needs of modern AI applications, offering the reliability and efficiency required for enterprise-level deployments.
 
 ---
 
