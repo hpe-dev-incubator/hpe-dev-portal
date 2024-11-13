@@ -46,20 +46,36 @@ Moving on...
 
 The second most popular LLM-powered application today seems to be GitHub Copilot. It's already spawned open-source projects (with much more flexibility) such as [Cursor](https://www.cursor.com/) and [Continue](https://continue.dev/). I'm a big Continue user myself.
 
+There are three main things that I do with Cursor: Generate, Edit, and Explain.
+
+* **Generate** is text in, code out. You write a description of the code you want to see, and the model generates it from scratch. For example, a new page on a website, an API call, or a new function in a library. Personally, I've been writing a lot of yaml for k8s recently (is config code?). Also, I don't hit the docs to figure out slurm and linux commands as much anymore (is bash code? alas...)
+* **Edit** is code + text in, code out. Editing is similar to generating code, but you're including some existing code in-context for the model to use. For example, you might want to write a unit test, create a function, refactor something, or add comments. The model is reasoning based on existing code.
+* **Explain** is code in, text out. For example, you might be moving onto a new project and trying to understand the existing code base. Or you forgot what you were trying to do the night before. Explanations can be helpful.
+
 ### Everything Else
 
-asdf
+Models are improving over time. With the introduction of "multimodal" LLMs, we now have both "Large" and "Language" being misnomers in this acronym. Anyway, this is what I'll call the domain of Everything Else:
 
-In summary, it's really hard to understand the objective quality of an LLM. Open source benchmarks exist, but they're not representative of your business objectives. To understand how a model performs on the specific downstream task that your organization will be performing, there is really no substitute for user feedback. Test your models, and talk to your users.
+* Analyze the contents of an image (say, diagnose an X-Ray for a patient)
+* Generate an image (text-to-image)
+* Transcribe audio (speech-to-text)
+* Generate audio (text-to-speech)
+* Generate a video (text-to-video)
+
+You can see that in general, text is still usually the modality of input or output. However, transformer models are being used in unique ways (audio-to-audio, image-to-video, etc.) and research continues. How long until this blog is out of date?
 
 ## Types of Performance: Quality vs. Speed
 
 Evaluating LLM performance involves two key metrics:
 
-1. **Quality**: Refers to the accuracy or relevance of the model’s outputs. Quality can be assessed through various benchmarks like MMLU and HumanEval, which measure models on complex reasoning and specific problem-solving tasks.
-2. **Speed**: Involves both throughput and latency. Throughput is the volume of outputs the model can generate per unit of time, while latency (Time to First Token, or TTFT) indicates the delay before generating the first part of a response.
+1. **Quality**: Refers to the accuracy or relevance of the model’s outputs. Quality can be assessed through various benchmarks like the [LMSys Chatbot Arena](https://lmarena.ai/?leaderboard), [MMLU,](https://github.com/hendrycks/test) [HumanEval](https://github.com/openai/human-eval), and [GSM8K](https://github.com/openai/grade-school-math), which measure models on complex reasoning and specific problem-solving tasks.
+2. **Speed**: Involves both throughput and latency. Throughput is the volume of outputs the model can generate per unit of time (request/sec or tokens/sec), while latency (time-to-first-token, or TTFT) indicates the delay before generating the first part of a response.
 
-Understanding how different models perform in these aspects is essential for selecting the right one.
+## Comparing Quality
+
+In terms of measuring quality, it's frankly just really hard to understand the objective quality of an LLM. Open source benchmarks exist, but they're usually not representative of your business objectives. To understand how a model performs on the specific downstream task that your organization will be performing, there is really no substitute for user feedback and custom evals. I'm going to leave this topic for a future blog.
+
+Test your models, and talk to your users.
 
 ## Comparing Speed
 
@@ -71,20 +87,22 @@ Throughput metrics offer insights into how well models handle large volumes of d
 
 Latency reflects the model’s responsiveness, which is critical for real-time applications. Lower latency means faster initial responses, which is crucial for user-facing applications, like chatbots or customer support systems.
 
-## Hardware Requirements for LLM Applications
-
-Determining the right hardware to support an LLM is critical to deployment success. Hardware requirements are influenced by:
-
-* **Model size and complexity**: Larger models generally require more powerful infrastructure.
-* **Desired performance**: The need for high throughput or low latency impacts the choice of hardware.
-
-HPE offers tailored hardware solutions optimized for AI, including options like the DL384, which provides a reliable foundation for handling LLM workloads effectively.
-
 ## Continuous Improvement in Runtimes
 
 The field of LLMs is rapidly advancing, with regular improvements in model efficiency and runtime performance. For instance, in a span of just over three months, throughput for certain models nearly doubled thanks to improvements in the vLLM runtime from v0.5.0 (released in June 2024) to v0.6.2 (released in September 2024).
 
 Whether you prefer [ollama](https://ollama.com/), [vLLM](https://docs.vllm.ai/en/latest/), [tgi](https://huggingface.co/docs/text-generation-inference/en/index), [NIMs](https://www.nvidia.com/en-us/ai/), or something else, staying updated with these advancements is important to keep deployments cost-effective over time.
+
+## Conclusion: Infrastructure Sizing
+
+Determining the right infrastructure to support an LLM is critical to deployment success. Hardware requirements are influenced by model size and complexity, since larger models generally require more powerful infrastructure, as well as desired performance, since the need for high throughput or low latency impacts the choice of hardware and the amount of it.
+
+The obvious conclusion to draw here is that there is a tradeoff:
+
+* bigger models provide higher quality output, but are slower (or more expensive to run)
+* smaller models provide lower quality output, but are faster (or less expensive to run)
+
+Understanding this tradeoff is critical to ensure that you have control over the cost and performance (quality and speed) of your LLM-powered application.
 
 - - -
 
