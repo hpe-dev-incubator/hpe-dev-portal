@@ -11,7 +11,9 @@ tags:
 ---
 ## Contents
 
-This technical blog gives insight on basic understanding of VLAN and VXLAN and the purpose achieved by using VLAN and VXLAN. It is interesting to compare these two features as they look similar from top level but there is lot of difference in the networking layer they are used and the way the VLAN, VXLAN headers are embedded in the packet and the scalability issues resolved by these two features. A quick look into the sample configuration provided in this blog for inquisitive networking colleagues.
+This technical blog gives insight on the need for VXLAN over VLAN. It is interesting to compare these two features as they look similar from top level but there is lot of difference in the networking layer they are used.  
+
+Lets dive into the definition of VLAN and VXLAN, details of the VLAN and VXLAN headers in the frame and the sample configuration provided in this blog for inquisitive networking colleagues.
 
 ### What is VLAN
 
