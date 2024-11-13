@@ -40,7 +40,6 @@ VXLAN is a tunneling mechanism over layer2 ethernet frames. The encapsulation wi
 ![VLAN Header](/img/picture1.png "VLAN Header")
 
 * The ethernet frame has 4 bytes VLAN tag field to identify the VLAN-ID that the packet originated from. The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
-
 * The VLAN TAG has below fields:
   a. TPID – By Default VLAN Tagged packets has 0x8100. b.	Priority – To indicate the 802.1p priority of the framec.	CFI – By default it is 0. 0 indicates MAC addresses are in standard format. 1 indicated non-standard format.
 
@@ -50,7 +49,6 @@ VXLAN is a tunneling mechanism over layer2 ethernet frames. The encapsulation wi
 
 * The entire ethernet frame including DMAC, SMAC and IP-header or IPv6 header and UDP header is encapsulated with four headers:
   outer ethernet header, outer IP-header, outer UDP Header and VXLAN Header.
-
 * VXLAN Header has the following fields
   Flags: I bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
   o	VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
