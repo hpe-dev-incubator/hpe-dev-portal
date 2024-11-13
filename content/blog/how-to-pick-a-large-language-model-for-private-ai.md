@@ -7,13 +7,18 @@ author: Jordan Nanos
 authorimage: /img/headshot-01.jpeg
 disable: false
 ---
-# Picking the Right Large Language Model (LLM)
+# How to Pick a Large Language Model for Private AI
+
 
 As organizations continue to explore the potential of generative AI, choosing the right Large Language Model (LLM) is crucial for performance, scalability, and integration with existing systems. This post explores key considerations for selecting an LLM, including understanding different classes of models, evaluating performance, and planning for hardware requirements.
+
+
 
 ## Why HPE for Generative AI?
 
 Hewlett Packard Enterprise (HPE) offers unique advantages for those looking to implement generative AI at scale. With robust infrastructure options and expertise in AI-driven solutions, HPE helps companies leverage LLMs for real business impact. HPE’s AI offerings support high performance, flexibility, and the scalability needed for enterprise use.
+
+
 
 ## Classes of Language Models: What Does “Large” Mean?
 
@@ -23,7 +28,17 @@ Language models vary significantly in scale, with "large" models generally chara
 - **Medium Models**: Balances performance with efficiency, suitable for a wider range of applications.
 - **Large Models**: Ideal for complex tasks, like code generation and nuanced content creation, though they require substantial hardware resources.
 
+
+
+In the chart below, I describe 
+
+
+
+
+
 Understanding these distinctions can help narrow down which model class best suits an organization's goals and budget.
+
+
 
 ## What Can These AI Models Do?
 
@@ -68,4 +83,5 @@ The field of LLMs is rapidly advancing, with regular improvements in model effic
 
 ---
 
-By carefully assessing model classes, performance requirements, and hardware needs, organizations can make informed decisions about deploying LLMs. HPE's offerings provide a robust foundation for integrating LLMs into various applications, allowing businesses to unlock new levels of productivity and innovation with AI.
+Watch this video for more detail, and live demo comparing latency and throughput for three different sizes of the Llama 3.1 Instruct model: https://www.youtube.com/watch?v=sNRqJOEKkCw 
+
