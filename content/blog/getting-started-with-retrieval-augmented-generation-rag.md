@@ -12,24 +12,16 @@ tags:
   - LLM
 ---
 <style>
-ol li{
- font-size:25px;
-
-padding: 5px;
-}
-</style>
-
-<style>
-ul li{
- font-size:27px;
-
-padding: 5px;
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
 }
 </style>
 
 Keeping up with AI technology and understanding more about Generative AI and LLM (Large Language Models) is quickly becoming an imperative. If you are like me, curious but not that much of a data scientist or a mathematician, you don't really want to deep dive into the gory details of a model and, instead, would prefer to consider them as interchangeable black boxes with specific properties and application ranges. Still, it’s important to understand how to consume some of these foundation models in order to build something for your own business. Let’s say, for example, that you want to use AI to help customers on your commercial web site, something often referred to as a Chatbot.  
 
-This blog post will show you how to build a simple questions-answering generative AI application using the LangChain orchestration framework powered by a large language model with private data source to augment the knowledge of the model and answer the question more effectively. 
+This blog post will show you how to build a simple questions-answering generative AI application using the LangChain orchestration framework powered by a large language model with a private data source to augment the knowledge of the model and answer the question more effectively. 
 
 ## Using a foundation model 
 
@@ -107,7 +99,7 @@ You can see that the model used is meta/llama3-70b-instruct, so first try only u
 
 ![Asking what is a flyer uproc without context](/img/ragblog2.jpg "Asking what is a flyer uproc without context")
 
-As you can see from the response, there is a problem, as the LLM was not trained with the information about the Flyer brand. The model did find something about uproc, but clearly this is not what my customer would expect to find on my web site. 
+As you can see from the response, there is a problem, as the LLM was not trained with the information about the Flyer brand. The model did find something about *Flyer Uproc*, but clearly this is not what my customer would expect to find on my web site. 
 
 ### Step 2 - Loading data into the knowledge base 
 
@@ -117,7 +109,7 @@ To address this issue, use a PDF that describes the technical specifications of 
 
 ### Step 3 - Query using RAG 
 
-Now that the knowledge base includes details on the Flyer Uproc product line, try the same query, but this time, make sure to check the "use knowledge base" checkbox. 
+Now that the knowledge base includes details on the *Flyer Uproc* product line, try the same query, but this time, make sure to check the "use knowledge base" checkbox. 
 
 ![Asking what is a flyer uproc with context](/img/ragblog4.jpg "Asking what is a flyer uproc with context")
 
