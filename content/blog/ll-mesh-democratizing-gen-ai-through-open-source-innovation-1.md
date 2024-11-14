@@ -56,6 +56,6 @@ This seamless integration is possible because, while the management of LLM tools
 
 ## Join the LL-Mesh Community
 
-LL-Mesh is now open source; you can download it from our [repository](https://github.com/HewlettPackard/llmesh) and explore its [Wiki documentation](https://github.com/HewlettPackard/llmesh/wiki). In the coming weeks, we will publish additional blog posts providing more details about the services offered by LL-Mesh, moving from theory to practical examples. We will also release a Workshop on Demand and host a Meetup to give you hands-on experience and share the latest updates and vision for the project.
+LL-Mesh is now open source; you can download it from our [GitHub repository](https://github.com/HewlettPackard/llmesh) and explore its [Wiki documentation](https://github.com/HewlettPackard/llmesh/wiki). In the coming weeks, we will publish additional blog posts providing more details about the services offered by LL-Mesh, moving from theory to practical examples. We will also release a Workshop on Demand and host a Meetup to give you hands-on experience and share the latest updates and vision for the project.
 
 We invite you to join us on this journey to harness the transformative power of Gen AI. Let's collaborate to craft our own masterpieces and drive innovation forward. Engage with LL-Mesh, contribute to the open-source project, and share your experiences with the community. Together, we can shape the future of Gen AI.
