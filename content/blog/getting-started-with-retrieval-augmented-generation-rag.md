@@ -5,6 +5,18 @@ author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
 ---
+<style>
+ol li{
+ font-size:25px;
+}
+</style>
+
+<style>
+ul li{
+ font-size:27px;
+}
+</style>
+
 Keeping up with AI technology and understanding more about Generative AI and LLM (Large Language Models) is quickly becoming an imperative. If you are like me, curious but not that much of a data scientist or a mathematician, you don't really want to deep dive into the gory details of a model and, instead, would prefer to consider them as interchangeable black boxes with specific properties and application ranges. Still, it’s important to understand how to consume some of these foundation models in order to build something for your own business. Let’s say, for example, that you want to use AI to help customers on your commercial web site, something often referred to as a Chatbot.  
 
 This blog post will show you how to build a simple questions-answering generative AI application using the LangChain orchestration framework powered by a large language model with private data source to augment the knowledge of the model and answer the question more effectively. 
@@ -35,7 +47,7 @@ In order to build a RAG system, you would need the following: 
 
 ## Seeing is believing 
 
-NVIDIA provides a good way to build this and get your hands (a little) dirty. You can find it on this GitHub repository: <https://github.com/NVIDIA/GenerativeAIExamples> 
+NVIDIA provides a good way to build this and get your hands (a little) dirty. You can find it on [this GitHub repository](https://github.com/NVIDIA/GenerativeAIExamples).
 
 Once the repository is cloned, you can select [the basic RAG using LangChain](https://github.com/NVIDIA/GenerativeAIExamples/tree/main/RAG/examples/basic_rag/langchain) example.   
 
@@ -43,7 +55,6 @@ As explained in the [README.md](https://github.com/NVIDIA/GenerativeAIExamples/b
 
 ![](https://github.com/NVIDIA/GenerativeAIExamples/raw/main/docs/images/basic_rag_langchain_arch.png )
 
-\
 **Prerequisites**: To get this working you will need the following: 
 
 * A machine with Ubuntu, Docker and Docker Compose (a GPU is not mandatory) 
@@ -74,7 +85,6 @@ As you can see from the port configuration of the rag-playground container, it's
 docker port rag-playground 
 8090/tcp -> 0.0.0.0:8090 
 8090/tcp -> [::]:8090 
-
 ```
 
 So, let’s open a browser on this URL to see the RAG in action.
@@ -83,23 +93,23 @@ So, let’s open a browser on this URL to see the RAG in action.
 
 ### Step 1 - Query using a foundation LLM 
 
-You can see that the model used is meta/llama3-70b-instruct, so first try only using the LLM. To do this, enter some text in the prompt window. For the sake of the example here, I'll pretend to be a mountain bike dealer, carrying the Swiss brand of mountain bikes called Flyer. Imagine that I am looking for details of one model called the Uproc. I ask the model: "What is a Flyer Uproc?".
+You can see that the model used is meta/llama3-70b-instruct, so first try only using the LLM. To do this, enter some text in the prompt window. For the sake of the example here, I'll pretend to be a mountain bike dealer, carrying the Swiss brand of mountain bikes called Flyer. Imagine that I am looking for details of one model called the *Uproc*. I ask the model: *What is a Flyer Uproc?*.
 
-![](/img/ragblog2.jpg)
+![Asking what is a flyer uproc without context](/img/ragblog2.jpg "Asking what is a flyer uproc without context")
 
 As you can see from the response, there is a problem, as the LLM was not trained with the information about the Flyer brand. The model did find something about uproc, but clearly this is not what my customer would expect to find on my web site. 
 
 ### Step 2 - Loading data into the knowledge base 
 
-To address this issue, use a PDF that describes the technical specifications of the Flyer Uproc in great detail. In the UI, select Knowledge base from the upper right corner, then select the PDF (any PDF, TXT or markdown files can work, too). The system will check the content of the file, then build a series of embeddings to describe it, and then store these embeddings in the vector database. It only takes a few seconds to process the details contained in the PDF.
+To address this issue, use a PDF that describes the technical specifications of the Flyer Uproc in great detail. In the UI, select **Knowledge base** from the upper right corner, then select the PDF (any PDF, TXT or markdown files can work, too). The system will check the content of the file, then build a series of embeddings to describe it, and then store these embeddings in the vector database. It only takes a few seconds to process the details contained in the PDF.
 
-![](/img/ragblog3.jpg)
+![Adding a PDF in the knowledge base](/img/ragblog3.jpg "Adding a PDF in the knowledge base")
 
 ### Step 3 - Query using RAG 
 
 Now that the knowledge base includes details on the Flyer Uproc product line, try the same query, but this time, make sure to check the "use knowledge base" checkbox. 
 
-![](/img/ragblog4.jpg)
+![Asking w](/img/ragblog4.jpg)
 
 As you can see, the context, provided by the augmented knowledge base, provides additional knowledge to the LLM, and it is now able to provide a much better result, delivering a lot more value to my customers. The RAG system has retrieved the most relevant information from the vector database and passed the information to the LLM. The LLM then used the information to answer the question more effectively. 
 
