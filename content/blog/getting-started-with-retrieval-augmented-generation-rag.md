@@ -52,7 +52,7 @@ As explained in the [README.md](https://github.com/NVIDIA/GenerativeAIExamples/b
 
 Once you have this ready, you can use Docker Compose to build the solution and start it. Docker Compose will download from the NVIDIA container registry, build, and run the following:
 
-```
+```markdown
 $ docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" 
 CONTAINER ID   	NAMES                    		STATUS 
 436a1e0e1f2a   	milvus-standalone        		Up 18 hours 
@@ -61,3 +61,62 @@ c3a5bf578654   	rag-playground           		Up 18 hours
 dc3bcc2c7b16   	chain-server             		Up 18 hours 
 af87e14ff763   	milvus-etcd              		Up 18 hours (healthy) 
 ```
+
+Let me quickly run through what each container is all about: 
+
+* milvus-standalone, milvus-etcd and milvus-minio: the vector database used as a knowledge base for private data 
+* rag-playground: the GUI to capture the user prompt and display the response from the LLM. It also has the GUI for selecting documents to add into the knowledge base  
+* chain-server: the LangChain based chain server 
+
+As you can see from the port configuration of the rag-playground container, it's listening to port 8090. 
+
+```markdown
+docker port rag-playground 
+8090/tcp -> 0.0.0.0:8090 
+8090/tcp -> [::]:8090 
+
+```
+
+So, let’s open a browser on this URL to see the RAG in action.
+
+![](/img/ragblog-1.jpg)
+
+### Step 1 - Query using a foundation LLM 
+
+You can see that the model used is meta/llama3-70b-instruct, so first try only using the LLM. To do this, enter some text in the prompt window. For the sake of the example here, I'll pretend to be a mountain bike dealer, carrying the Swiss brand of mountain bikes called Flyer. Imagine that I am looking for details of one model called the Uproc. I ask the model: "What is a Flyer Uproc?".
+
+![](/img/ragblog2.jpg)
+
+As you can see from the response, there is a problem, as the LLM was not trained with the information about the Flyer brand. The model did find something about uproc, but clearly this is not what my customer would expect to find on my web site. 
+
+### Step 2 - Loading data into the knowledge base 
+
+To address this issue, use a PDF that describes the technical specifications of the Flyer Uproc in great detail. In the UI, select Knowledge base from the upper right corner, then select the PDF (any PDF, TXT or markdown files can work, too). The system will check the content of the file, then build a series of embeddings to describe it, and then store these embeddings in the vector database. It only takes a few seconds to process the details contained in the PDF.
+
+![](/img/ragblog3.jpg)
+
+### Step 3 - Query using RAG 
+
+Now that the knowledge base includes details on the Flyer Uproc product line, try the same query, but this time, make sure to check the "use knowledge base" checkbox. 
+
+![](/img/ragblog4.jpg)
+
+As you can see, the context, provided by the augmented knowledge base, provides additional knowledge to the LLM, and it is now able to provide a much better result, delivering a lot more value to my customers. The RAG system has retrieved the most relevant information from the vector database and passed the information to the LLM. The LLM then used the information to answer the question more effectively. 
+
+Other examples of customer questions could be:
+
+![](/img/ragblog5.jpg)
+
+![](/img/ragblog6.jpg)
+
+I think you get the point. If this was a Chatbot on my website, it would clearly be very efficient and helpful to my customers.
+
+## Next steps 
+
+This lab exercise is a great way to put rapidly a RAG system into play. Remember, however, that it calls the NVIDIA API to get to the Llama3 model, which has a cost associated with it. NVIDIA provides a number of credits to get you started, but these credits won’t last forever. 
+
+The next step from here might be to run this entirely on premises, in your datacenter, on GPU-equipped hardware. There is another version of this lab dedicated to doing this at: <https://github.com/NVIDIA/GenerativeAIExamples/tree/main/RAG/examples/local_deploy>. 
+
+If you are looking for the right platform to run an application like this, please check [HPE Private Cloud for AI,](https://www.hpe.com/us/en/private-cloud-ai.html) which has been developed in collaboration with NVIDIA. It is a platform that has been developed specifically for running these types of workloads and can be sized in accordance with your specific needs.
+
+![](/img/pcai.webp)
