@@ -8,12 +8,16 @@ disable: false
 <style>
 ol li{
  font-size:25px;
+
+padding: 5px;
 }
 </style>
 
 <style>
 ul li{
  font-size:27px;
+
+padding: 5px;
 }
 </style>
 
