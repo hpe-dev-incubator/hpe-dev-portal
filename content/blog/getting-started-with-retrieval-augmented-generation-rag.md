@@ -4,6 +4,12 @@ date: 2024-11-14T07:42:05.843Z
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
+tags:
+  - AI
+  - NVIDIA
+  - PCAI
+  - RAG
+  - LLM
 ---
 <style>
 ol li{
@@ -57,7 +63,7 @@ Once the repository is cloned, you can select [the basic RAG using LangChain](ht
 
 As explained in the [README.md](https://github.com/NVIDIA/GenerativeAIExamples/blob/main/RAG/examples/basic_rag/langchain/README.md), the example uses NeMo Retriever Text Embedding NIM as text embedding model, Milvus for its vector database, LangChain for its chain server, and meta/llama3-70b-instruct for its LLM. 
 
-![](https://github.com/NVIDIA/GenerativeAIExamples/raw/main/docs/images/basic_rag_langchain_arch.png )
+![Architecture of the RAG example](https://github.com/NVIDIA/GenerativeAIExamples/raw/main/docs/images/basic_rag_langchain_arch.png  "Architecture of the RAG example")
 
 **Prerequisites**: To get this working you will need the following: 
 
@@ -93,7 +99,7 @@ docker port rag-playground
 
 So, let’s open a browser on this URL to see the RAG in action.
 
-![](/img/ragblog-1.jpg)
+![Connect to web UI](/img/ragblog-1.jpg "Connect to web UI")
 
 ### Step 1 - Query using a foundation LLM 
 
@@ -113,15 +119,15 @@ To address this issue, use a PDF that describes the technical specifications of 
 
 Now that the knowledge base includes details on the Flyer Uproc product line, try the same query, but this time, make sure to check the "use knowledge base" checkbox. 
 
-![Asking w](/img/ragblog4.jpg)
+![Asking what is a flyer uproc with context](/img/ragblog4.jpg "Asking what is a flyer uproc with context")
 
 As you can see, the context, provided by the augmented knowledge base, provides additional knowledge to the LLM, and it is now able to provide a much better result, delivering a lot more value to my customers. The RAG system has retrieved the most relevant information from the vector database and passed the information to the LLM. The LLM then used the information to answer the question more effectively. 
 
 Other examples of customer questions could be:
 
-![](/img/ragblog5.jpg)
+![Asking more questions to system](/img/ragblog5.jpg "Asking more questions to system")
 
-![](/img/ragblog6.jpg)
+![Asking more questions to system](/img/ragblog6.jpg "Asking more questions to system")
 
 I think you get the point. If this was a Chatbot on my website, it would clearly be very efficient and helpful to my customers.
 
@@ -129,8 +135,8 @@ I think you get the point. If this was a Chatbot on my website, it would clearly
 
 This lab exercise is a great way to put rapidly a RAG system into play. Remember, however, that it calls the NVIDIA API to get to the Llama3 model, which has a cost associated with it. NVIDIA provides a number of credits to get you started, but these credits won’t last forever. 
 
-The next step from here might be to run this entirely on premises, in your datacenter, on GPU-equipped hardware. There is another version of this lab dedicated to doing this at: <https://github.com/NVIDIA/GenerativeAIExamples/tree/main/RAG/examples/local_deploy>. 
+The next step from here might be to run this entirely on premises, in your datacenter, on GPU-equipped hardware. There is another version of this lab dedicated to doing this [here](<https://github.com/NVIDIA/GenerativeAIExamples/tree/main/RAG/examples/local_deploy>). 
 
 If you are looking for the right platform to run an application like this, please check [HPE Private Cloud for AI,](https://www.hpe.com/us/en/private-cloud-ai.html) which has been developed in collaboration with NVIDIA. It is a platform that has been developed specifically for running these types of workloads and can be sized in accordance with your specific needs.
 
-![](/img/pcai.webp)
+![HPE Private Cloud for AI](/img/pcai.webp "HPE Private Cloud for AI")
