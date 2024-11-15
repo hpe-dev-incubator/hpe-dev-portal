@@ -1,8 +1,8 @@
 ---
 title: Getting started with the HPE GreenLake Developer Portal
 date: 2024-03-08T17:37:23.499Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority: 13
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
