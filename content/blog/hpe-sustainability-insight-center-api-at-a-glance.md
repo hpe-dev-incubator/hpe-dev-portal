@@ -1,8 +1,8 @@
 ---
 title: HPE Sustainability Insight Center API at a glance
 date: 2024-06-24T12:44:18.079Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 10
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 disable: false
