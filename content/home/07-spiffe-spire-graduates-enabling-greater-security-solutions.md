@@ -5,8 +5,8 @@ priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: HPE Sustainability Insight Center API at a glance
-link: https://developer.hpe.com/blog/hpe-sustainability-insight-center-api-at-a-glance/
+title: Getting started with Retrieval Augmented Generation (RAG)
+link: https://developer.hpe.com/blog/getting-started-with-retrieval-augmented-generation-rag/
 image: /img/didier-lalli-192x192.png
 ---
-HPE GreenLake provides a new service called HPE Sustainability Insight Center that can assist you in obtaining detailed information about carbon emissions, energy consumption and the cost of the infrastructure that is managed by HPE GreenLake. Learn how to extract data from this service in a programmatic way using cURL and the HPE Sustainability Insight Center API.
+This blog post will show you how to build a simple questions-answering generative AI application using the LangChain orchestration framework powered by NVIDIA Inference Microservices (NIM), a large language model with a private data source to augment the knowledge of the model and answer the question more effectively.
