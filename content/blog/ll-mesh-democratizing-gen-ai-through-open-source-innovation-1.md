@@ -40,9 +40,9 @@ To support this digital transformation, HPE Athonet developed LL-Mesh, an open-s
 
 ![](/img/athon_ux_tools.png)
 
-LL-Mesh empowers users to create tools and web applications using Gen AI with low or no coding. This approach addresses technical challenges by simplifying the integration process.
-
 ## Simplify complexity with LL-Mesh
+
+LL-Mesh empowers users to create tools and web applications using Gen AI with low or no coding. This approach addresses technical challenges by simplifying the integration process.
 
 The Pareto principle, also known as the 80/20 rule, states that roughly 80% of outcomes come from 20% of causes. Leveraging this principle, LL-Mesh focuses on the 20% of features that cover 80% of user needs. It achieves this by abstracting complex, low-level libraries into easy-to-understand, user-friendly configurations, effectively hiding the underlying complexity.
 
