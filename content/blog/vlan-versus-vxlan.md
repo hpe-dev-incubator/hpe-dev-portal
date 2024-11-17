@@ -9,38 +9,37 @@ tags:
   - aruba-central
   - networking
 ---
-This technical blog post gives insight on the need for VXLAN over VLAN. It is interesting to compare these two features as they look similar from top level but there is lot of difference in the networking layer they are used.  
+In a modern data center or large-scale network environment, network segmentation and isolation are key to optimizing both performance and security. Two popular technologies that address this need are VLANs and VXLANs, but they serve slightly different purposes and have distinct configurations. Understanding the nuances of both is essential for network engineers, systems administrators, and architects when deciding how to structure their networks.
 
-Lets dive into the definition of VLAN and VXLAN, details of the VLAN and VXLAN headers in the frame and the sample configuration provided in this blog post for inquisitive community members.
+While the two technologies appear very similar from a high level, they operate at different layers in the networking stack and differ in capabilities, scalability, and use cases. In this post, I'll define what a VLAN and VXLAN is, provide details showing their headers, show how they are configured and benefits of using VXLAN over VLAN. 
 
 ### What is VLAN?
 
-VLAN – Virtual Local Area Network – Layer 2 which segments a physical network into multiple isolated networks. This is achieved by VLAN-ID which can range from <1-4096> which is 12 bit. Different ports on a networking device can be associated to different VLAN-IDs and the networking device would ensure that the incoming/outgoing traffic is forwarded based on the VLAN-ID which is present in the ethernet frames.
+A VLAN (Virtual Local Area Network), operates at Layer 2 and segments a physical network into multiple isolated networks, through the use of VLAN-ID, which can range from <1-4096> (12-bit). Different ports on a networking device can be assigned to different VLAN-IDs. The networking device ensures that the incoming/outgoing traffic is forwarded based on the VLAN-ID that is present in the ethernet frames.
 
-So, if the physical network is layer-1, the physical network segmented using VLANs is called layer-2 data link layer.
+So, if the physical network is defined as Layer 1, the segmented physical network using VLANs is the Layer 2 data link layer.
 
 ### What is VXLAN?
 
-VXLAN – Virtual Extensible Local Area Networks – Layer 2 over Layer 3 network
-VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The layer-2 ethernet frames are encapsulated by VNI outer headers. Due to this encapsulation, VXLAN is also called tunneling. The VXLAN tunnel end point is called VTEP. VTEPs encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer3 Packet. 
+A VXLAN (Virtual Extensible Local Area Networks),  operates as an encapsulation protocol designed to extend Layer 2 networks over Layer 3 infrastructure. VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The Layer 2 Ethernet frames are encapsulated by VNI outer headers. Due to this encapsulation, VXLAN is also called IP tunneling protocol to carry Layer 2 traffic over Layer 3 network for wide area deployments. The VTEP (VXLAN tunnel end point) must be configured on a networking device which encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer 3 Packet. 
 
 ### Why do we need VXLAN?
 
-With VLANs being used for segmentation across and within the data centers, spanning tree protocol (STP) will be used for forming loop-free topology. STP disables few links which also results in large number of disabled links.
-This issue would be solved by using a Layer-3 virtual tunnel over the layer-2 network.
+With VLANs being used for segmentation across and within data centers, the Spanning Tree Protocol (STP) is used to build a loop-free logical topology for Ethernet networks. The basic function of STP is to prevent bridge loops and the broadcast radiation that results from them. STP disables links that are not part of the spanning tree, leaving a single active path between two network nodes. This can result in a large number of disabled links, an issue that can be resolved by using a Layer 3 virtual tunnel over the Layer 2 network.
 
-A 12-bit VLAN ID is used in the Ethernet data frames to divide the larger Layer 2 network into multiple broadcast domains.  VLANs could be used only for data centers that require fewer than 4094 VLANs. So, scalability issue is resolved using VXLAN.
+Another issue that VXLANs resolve is that of scalability. A 12-bit VLAN ID is used in the Ethernet data frames to divide the larger Layer 2 network into multiple broadcast domains. As such, VLANs can only be used for data centers that require fewer than 4094 VLANs, limiting their scalability.
 
-There could be 24 or 48 servers connected to the Top-of-the-Rack (ToR) switch. Instead of just one MAC address per server link, the switch must learn all the MAC addresses of the virtual machines (VMs) communicating across the servers. This inadequate MAC address table issue would be addressed with the layer3 tunnel over the layer2 frames.
-
-VXLAN is a tunneling mechanism over layer2 ethernet frames. The encapsulation will be known to VTEPs alone and the VMs would not see it.
+Consider a situation where there are 24 or 48 servers connected to a Top-of-the-Rack (ToR) switch. Instead of just one MAC address per server link, the switch must learn all the MAC addresses of the virtual machines (VMs) communicating across the servers. This inadequate MAC address table issue would be addressed with the Layer 3 tunnel over the Layer 2 frames.  
 
 ### VLAN Header in Ethernet Frame
 
+This image illustrates the structure of an Ethernet frame with a VLAN tag. As you can see, the VLAN header is inserted after the source MAC address. VLAN header contains a 4-byte VLAN tag field used to identify the VLAN-ID from which the packet originated. The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
+
+
+
 ![VLAN Header](/img/picture1.png "VLAN Header")
 
-* The ethernet frame has 4 bytes VLAN tag field to identify the VLAN-ID that the packet originated from. The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
-* The VLAN TAG has below fields:
+* The VLAN tag displays the following fields:
 
   * TPID – By Default VLAN Tagged packets has 0x8100.
   * Priority – To indicate the 802.1p priority of the frame
@@ -49,14 +48,13 @@ VXLAN is a tunneling mechanism over layer2 ethernet frames. The encapsulation wi
 
 ### VXLAN Header in Ethernet Frame
 
+A networking device which is configured as VTEP adds the VXLAN header to the Ethernet frame. This image illustrates the structure of an Ethernet frame with a VXLAN header. 
+
 ![VXLAN Header](/img/picture2.png "VXLAN Header")
 
-* The entire ethernet frame including DMAC, SMAC and IP-header or IPv6 header and UDP header is encapsulated with four headers:
-  outer ethernet header, outer IP-header, outer UDP Header and VXLAN Header.
 * VXLAN Header has the following fields:
 
-
-  * Flags -  I bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
+  * Flags -  The  bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
   * VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
 
 ### VLAN and VXLAN Configuration:
@@ -90,4 +88,4 @@ The VNI identifies the scope of the inner MAC frame originated by the individual
 QinQ and VXLAN are protocols designed for achieving virtual segmentation of physical network. QinQ adds an outer VLAN header on top of the original ethernet frame. This also solves scalability issues.
 Whereas VXLAN is tunneling mechanism which is primarily layer3 over layer2 ethernet frame. VXLAN also adds outer UDP header.
 
-To summarize, VLAN and VXLAN are used together to solve scalability issues and to overcome the limitations of VLAN.
+To summarize, both VLAN and VXLAN are valuable tools for network segmentation, but they serve different needs. VLANs remain a simple and effective choice for smaller, less complex networks, while VXLAN provides the scalability and flexibility needed for modern, distributed, and virtualized environments. Understanding the technical differences in configuration and their respective use cases will help you choose the right solution for your network architecture, ensuring optimal performance, security, and scalability. Both VLAN and VXLAN are used together to solve scalability issues and to overcome the limitations of VLAN.
