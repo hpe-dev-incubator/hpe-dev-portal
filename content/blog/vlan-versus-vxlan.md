@@ -77,7 +77,7 @@ This image illustrates the structure of an **Ethernet frame with a VLAN tag**. A
   * **TPID** – By Default VLAN Tagged packets has 0x8100.
   * **Priority** – To indicate the 802.1p priority of the frame
   * **CFI(Canonical Format Indicator)** – By default it is 0. 0 indicates MAC addresses are in standard format. 1 indicated non-standard format.
-  * **VLAN-ID** - 12 Bit value to identify the VLAN.
+  * **VLAN-ID** – 12 Bit value to identify the VLAN.
 
 ### VXLAN Header in Ethernet Frame
 
@@ -87,8 +87,8 @@ This image illustrates the structure of VXLAN encapsulated Ethernet frame includ
 
 * **VXLAN Header** contains the following fields:
 
-  * **Flags** -  The `"I"` bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
-  * **VXLAN-ID -**  This is the 24 bit value used to designate the VXLAN overlay network.
+  * **Flags** –  The `"I"` bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
+  * **VXLAN-ID** –  This is the 24 bit value used to designate the VXLAN overlay network.
 
 ### VLAN and VXLAN Configuration:
 
@@ -110,8 +110,7 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
 **3. Does VXLAN only solve the scalability issue?** 
 
-   Apart from scalability issues, VXLAN addresses below issues.
-
+* Apart from scalability issues, VXLAN addresses below issues.
 * The **VNI (VXLAN Network Identifier)** serves as a unique identifier for a **Layer 2 segment** (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues. 
 
   * This allows the **MAC addresses** of devices (such as virtual machines or VMs) within different VXLAN segments to **overlap** without causing any conflict or risk of traffic "crossover" between virtual networks.
@@ -122,8 +121,6 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
 * **QinQ** (also known as **802.1ad** or **stacked VLANs**) is a **Layer 2** technology that adds an **outer VLAN tag** to the original Ethernet frame, allowing for a **hierarchical VLAN structure**. This technology is used in service provider environments, where **multiple customers** need to share the same physical network while maintaining their own isolated virtual networks.
 * **VXLAN** is primarily used in **data centers and cloud networks** to create large-scale virtualized Layer 2 networks over a Layer 3 network .
-
-
 
 #### Summary
 
