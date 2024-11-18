@@ -88,7 +88,7 @@ This image illustrates the structure of VXLAN encapsulated Ethernet frame includ
 * **VXLAN Header** contains the following fields:
 
   * **Flags** -  The `"I"` bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
-  * **VXLAN-ID**: This is the 24 bit value used to designate the VXLAN overlay network.
+  * **VXLAN-ID -**  This is the 24 bit value used to designate the VXLAN overlay network.
 
 ### VLAN and VXLAN Configuration:
 
@@ -110,7 +110,7 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
 **3. Does VXLAN only solve the scalability issue?** 
 
-\    Apart from scalability issues, VXLAN addresses below issues.
+   Apart from scalability issues, VXLAN addresses below issues.
 
 * The **VNI (VXLAN Network Identifier)** serves as a unique identifier for a **Layer 2 segment** (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues. 
 
