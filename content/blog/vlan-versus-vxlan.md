@@ -106,7 +106,8 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
    * The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
 3. Does VXLAN only solve the scalability issue? 
 
-   * Apart from scalability issues, VXLAN addresses the issues below.
+   Apart from scalability issues, VXLAN addresses the issues below.
+
    * VXLAN encapsulated packet contains IP header. So, the VXLAN technology is used for having IP based traffic in core network.
    * The VNI (VXLAN Network Identifier) serves as a unique identifier for a Layer 2 segment (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues mentioned below:
    * This allows the MAC addresses of devices (such as virtual machines or VMs) within different VXLAN segments to overlap without causing any conflict or risk of traffic "crossover" between virtual networks.
