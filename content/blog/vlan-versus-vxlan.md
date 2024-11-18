@@ -35,8 +35,6 @@ Consider a situation where there are 24 or 48 servers connected to a Top-of-the-
 
 This image illustrates the structure of an Ethernet frame with a VLAN tag. As you can see, the VLAN header is inserted after the source MAC address. VLAN header contains a 4-byte VLAN tag field used to identify the VLAN-ID from which the packet originated. The format of VLAN-tagged frames is defined in IEEE 802.1Q standard.
 
-
-
 ![VLAN Header](/img/picture1.png "VLAN Header")
 
 * The VLAN tag displays the following fields:
@@ -54,7 +52,7 @@ A networking device which is configured as VTEP adds the VXLAN header to the Eth
 
 * VXLAN Header has the following fields:
 
-  * Flags -  The  bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
+  * Flags -  The `"I"` bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
   * VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
 
 ### VLAN and VXLAN Configuration:
