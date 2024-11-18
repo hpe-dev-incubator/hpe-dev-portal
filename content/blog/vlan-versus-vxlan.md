@@ -9,6 +9,8 @@ tags:
   - aruba-central
   - networking
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 In a modern data center or large-scale network environment, **network segmentation** and isolation are key to optimizing both **performance and security**. **Two popular technologies** that address this need are **VLANs and VXLANs**, but they serve slightly different purposes and have distinct configurations. Understanding the nuances of both is essential for network engineers, systems administrators, and architects when deciding how to structure their networks.
 
 While the two technologies appear very similar from a high level, they **operate at different layers** in the networking stack and differ in capabilities, scalability, and use cases. In this post, I'll define what a VLAN and VXLAN is, provide details showing their headers, show how they are configured and benefits of using VXLAN over VLAN. 
@@ -116,10 +118,6 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
    * QinQ (also known as 802.1ad or stacked VLANs) is a Layer 2 technology that adds an outer VLAN tag to the original Ethernet frame, allowing for a hierarchical VLAN structure. This technology is used in service provider environments, where multiple customers need to share the same physical network while maintaining their own isolated virtual networks.VXLAN is primarily used in data centers and cloud networks to create large-scale virtualized Layer 2 networks over a Layer 3 network.
    * VXLAN is primarily used in data centers and cloud networks to create large-scale virtualized Layer 2 networks over a Layer 3 network.
-
-
-
-
 
 #### Summary
 
