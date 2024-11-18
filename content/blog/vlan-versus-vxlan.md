@@ -1,6 +1,6 @@
 ---
 title: VLAN Versus VXLAN
-date: 2024-11-11T14:57:37.063Z
+date: 2024-11-18T14:57:37.063Z
 author: Indira Manthri
 authorimage: /img/indira_manthri.jpg
 disable: false
