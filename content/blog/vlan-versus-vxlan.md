@@ -98,29 +98,27 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
 ### FAQs
 
-**1. Will VXLAN replace VLAN standard?**
+1. Will VXLAN replace VLAN standard?
 
-* VLAN standard is specified in the IEEE 802.1Q standard by IEEE.
-  VXLAN standard is specified in the RFC 7438 by IETF.
-  VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
+   * VLAN standard is specified in the IEEE 802.1Q standard by IEEE. VXLAN standard is specified in the RFC 7438 by IETF. VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
+2. Does VXLAN always have an outer VLAN header?
 
-**2. Does VXLAN always have outer VLAN header?**
+   * The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
+3. Does VXLAN only solve the scalability issue? 
 
-* The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
+   * Apart from scalability issues, VXLAN addresses the issues below.
+   * VXLAN encapsulated packet contains IP header. So, the VXLAN technology is used for having IP based traffic in core network.
+   * The VNI (VXLAN Network Identifier) serves as a unique identifier for a Layer 2 segment (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues.
+   * This allows the MAC addresses of devices (such as virtual machines or VMs) within different VXLAN segments to overlap without causing any conflict or risk of traffic "crossover" between virtual networks.
+   * This allows multiple VMs to exist within the same physical Layer 3 network but remain logically isolated in their own VXLAN segment, even if they have overlapping IP addresses and MAC addresses.
+4. What’s the difference between QinQ and VXLAN?
 
-**3. Does VXLAN only solve the scalability issue?** 
+   * QinQ (also known as 802.1ad or stacked VLANs) is a Layer 2 technology that adds an outer VLAN tag to the original Ethernet frame, allowing for a hierarchical VLAN structure. This technology is used in service provider environments, where multiple customers need to share the same physical network while maintaining their own isolated virtual networks.VXLAN is primarily used in data centers and cloud networks to create large-scale virtualized Layer 2 networks over a Layer 3 network.
+   * VXLAN is primarily used in data centers and cloud networks to create large-scale virtualized Layer 2 networks over a Layer 3 network.
 
-* Apart from scalability issues, VXLAN addresses below issues.
-* VXLAN encapsulated packet contains IP header. So the VXLAN technology is used for having IP based traffic in core network.
-* The VNI (VXLAN Network Identifier) serves as a unique identifier for a Layer 2 segment (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues. 
 
-  * This allows the MAC addresses of devices (such as virtual machines or VMs) within different VXLAN segments to overlap without causing any conflict or risk of traffic "crossover" between virtual networks.
-  * This allows multiple VMs to exist within the same physical Layer 3 network but remain logically isolated in their own VXLAN segment, even if they have overlapping IP addresses and MAC addresses.
 
-**4. What’s the difference between QinQ and VXLAN?**
 
-* QinQ (also known as 802.1ad or stacked VLANs) is a Layer 2 technology that adds an outer VLAN tag to the original Ethernet frame, allowing for a hierarchical VLAN structure. This technology is used in service provider environments, where multiple customers need to share the same physical network while maintaining their own isolated virtual networks.
-* VXLAN is primarily used in data centers and cloud networks to create large-scale virtualized Layer 2 networks over a Layer 3 network.
 
 #### Summary
 
