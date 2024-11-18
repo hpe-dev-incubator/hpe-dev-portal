@@ -119,8 +119,11 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
 **4. What’s the difference between QinQ and VXLAN?**
 
+* Apart from scalability issues, VXLAN addresses below issues.
 * **QinQ** (also known as **802.1ad** or **stacked VLANs**) is a **Layer 2** technology that adds an **outer VLAN tag** to the original Ethernet frame, allowing for a **hierarchical VLAN structure**. This technology is used in service provider environments, where **multiple customers** need to share the same physical network while maintaining their own isolated virtual networks.
 * **VXLAN** is primarily used in **data centers and cloud networks** to create large-scale virtualized Layer 2 networks over a Layer 3 network .
+
+
 
 #### Summary
 
