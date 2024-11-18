@@ -15,15 +15,50 @@ While the two technologies appear very similar from a high level, they operate a
 
 ### What is VLAN?
 
-A VLAN (Virtual Local Area Network), operates at Layer 2 and segments a physical network into multiple isolated networks, through the use of VLAN-ID, which can range from <1-4096> (12-bit). Different ports on a networking device can be assigned to different VLAN-IDs. The networking device ensures that the incoming/outgoing traffic is forwarded based on the VLAN-ID that is present in the ethernet frames.
+A VLAN (Virtual Local Area Network), operates at Layer 2 and segments a physical network into multiple isolated networks, through the use of VLAN-ID, which can range from <1-4096> (12-bit). Different ports on a networking device can be assigned to different VLAN-IDs. The networking device ensures that the incoming or outgoing traffic is forwarded based on the VLAN-ID that is present in the ethernet frames.
 
 So, if the physical network is defined as Layer 1, the segmented physical network using VLANs is the Layer 2 data link layer.
 
 ### What is VXLAN?
 
-A VXLAN (Virtual Extensible Local Area Networks),  operates as an encapsulation protocol designed to extend Layer 2 networks over Layer 3 infrastructure. VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The Layer 2 Ethernet frames are encapsulated by VNI outer headers. Due to this encapsulation, VXLAN is also called IP tunneling protocol to carry Layer 2 traffic over Layer 3 network for wide area deployments. The VTEP (VXLAN tunnel end point) must be configured on a networking device which encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer 3 Packet. 
+A VXLAN (Virtual Extensible Local Area Networks),  operates as an encapsulation protocol designed to extend Layer 2 networks over Layer 3 infrastructure. Due to this encapsulation, VXLAN is also called IP tunneling protocol to carry Layer 2 traffic over Layer 3 network for wide area deployments. 
 
-### Why do we need VXLAN?
+VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The Layer 2 Ethernet frames are encapsulated by VNI outer headers. 
+
+#### How VXLAN encapsulation works?
+
+The VXLAN encapsulation is done by VTEP (VXLAN tunnel end point). The VTEP  must be configured on a networking device which encapsulate and decapsulates the ethernet frames into VXLAN packets. The intermediate networking devices receiving these VXLAN packets are routed as any other Layer 3 Packet.
+
+The VXLAN encapsulated packet or the VNI outer headers contains:
+
+**1. Other Ethernet Header (Layer 2)**
+
+* **Destination MAC Address:** The MAC address of the next-hop device.
+* **Source MAC address:** The MAC address of the VTEP device sending the encapsulated frame.
+* **Ether Type:** Typically, `0x0800` for IPv4 or `0x86DD` for IPv6.
+
+**2. Outer IP Header (Layer 3)**
+
+* **Source IP Address**: The IP address of the VXLAN tunnel endpoint (VTEP) originating the packet.
+* **Destination IP Address**: The IP address of the remote VTEP, where the VXLAN frame is being sent.
+* **Protocol**: Usually, this is set to `0x11`, which signifies UDP (User Datagram Protocol).
+
+**3. Outer UDP Header (Layer 4)**
+
+* **Source Port**: Typically randomized by the sending VTEP.
+* **Destination Port**: Fixed at `4789`, which is the well-known port for VXLAN.
+* **Length**: Specifies the length of the UDP datagram, including the VXLAN header.
+
+**4. VXLAN Header  (Layer 4)**
+
+* The VXLAN header is inserted within the UDP payload.
+* **VXLAN Network Identifier (VNI, 24 bits)**: A 24-bit field used to identify the VXLAN segment or virtual network. 
+
+**5. Original Ethernet Frame (Layer 2)**
+
+* This actual Ethernet frame including the originated Source MAC address, Destination MAC Address, Ether Type and it may contain the VLAN Header, IP Header, UDP Header and Application data.
+
+#### Why do we need VXLAN?
 
 With VLANs being used for segmentation across and within data centers, the Spanning Tree Protocol (STP) is used to build a loop-free logical topology for Ethernet networks. The basic function of STP is to prevent bridge loops and the broadcast radiation that results from them. STP disables links that are not part of the spanning tree, leaving a single active path between two network nodes. This can result in a large number of disabled links, an issue that can be resolved by using a Layer 3 virtual tunnel over the Layer 2 network.
 
@@ -50,7 +85,7 @@ A networking device which is configured as VTEP adds the VXLAN header to the Eth
 
 ![VXLAN Header](/img/picture2.png "VXLAN Header")
 
-* VXLAN Header has the following fields:
+* VXLAN Header contains the following fields:
 
   * Flags -  The `"I"` bit would be set to 1 for a valid VXLAN Network ID (VNI).  The other reserved 7 bits would be set to zero.
   * VXLAN-ID: This is the 24 bit value used to designate the VXLAN overlay network.
