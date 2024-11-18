@@ -23,7 +23,7 @@ So, if the physical network is defined as Layer 1, the segmented physical networ
 
 A VXLAN (Virtual Extensible Local Area Networks),  operates as an encapsulation protocol designed to extend Layer 2 networks over Layer 3 infrastructure. Due to this encapsulation, VXLAN is also called IP tunneling protocol to carry Layer 2 traffic over Layer 3 network for wide area deployments. 
 
-VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The Layer 2 Ethernet frames are encapsulated by VNI outer headers. 
+VXLAN segment is identified by VNI (Virtual Network Identifier) which is 24 bits. The Layer 2 Ethernet frames are encapsulated by VNI outer headers. A networking device which is configured as VTEP adds the VXLAN header to the Ethernet frame. 
 
 #### How VXLAN encapsulation works?
 
@@ -81,7 +81,7 @@ This image illustrates the structure of an Ethernet frame with a VLAN tag. As yo
 
 ### VXLAN Header in Ethernet Frame
 
-A networking device which is configured as VTEP adds the VXLAN header to the Ethernet frame. This image illustrates the structure of an Ethernet frame with a VXLAN header. 
+This image illustrates the structure of VXLAN encapsulated Ethernet frame including the VXLAN header.
 
 ![VXLAN Header](/img/picture2.png "VXLAN Header")
 
@@ -101,24 +101,35 @@ Each VNI would be mapped with the VLAN it is carrying.
 
 **1. Will VXLAN replace VLAN standard?**
 
-VLAN standard is specified in IEEE 802.1Q standard by IEEE.
-VXLAN standard is specified in RFC 7438 by IETF.
-VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
+* VLAN standard is specified in the IEEE 802.1Q standard by IEEE.
+  VXLAN standard is specified in the RFC 7438 by IETF.
+  VXLAN encapsulates the VLAN tagged packet with four outer headers to transmit the packet in IP based network. It does not replace the VLAN standard.
 
 **2. Does VXLAN always have outer VLAN header?**
 
-The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
+* The outer VLAN header in VXLAN headers is optional. It is based on the deployment scenario.
 
 **3. Does VXLAN only solve the scalability issue?** 
 
-Along with scalability issue, VXLAN is used for having IP based traffic in core network. 
-As VXLAN is used for network segmentation which solves two major issues:
-Allows multiple VMs to share a single physical network without seeing each other’s traffic for the reuse of IP addresses.
-The VNI identifies the scope of the inner MAC frame originated by the individual VM.  Thus, it could have overlapping MAC addresses across VXLAN segments but never have traffic "cross over" since the traffic is isolated using the VNI.
+Apart from scalability issues, VXLAN addresses below issues.
+
+* The **VNI (VXLAN Network Identifier)** serves as a unique identifier for a **Layer 2 segment** (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues. 
+
+  * This allows the **MAC addresses** of devices (such as virtual machines or VMs) within different VXLAN segments to **overlap** without causing any conflict or risk of traffic "crossover" between virtual networks.
+  * This allows multiple **VMs** to exist within the same **physical Layer 3 network** but **remain logically isolated** in their own **VXLAN segment**, even if they have overlapping **IP addresses** and **MAC addresses**.
+* VXLAN encapsulated packet contains IP header. So the VXLAN technology is used for having IP based traffic in core network.
 
 **4. What’s the difference between QinQ and VXLAN?**
 
-QinQ and VXLAN are protocols designed for achieving virtual segmentation of physical network. QinQ adds an outer VLAN header on top of the original ethernet frame. This also solves scalability issues.
-Whereas VXLAN is tunneling mechanism which is primarily layer3 over layer2 ethernet frame. VXLAN also adds outer UDP header.
+* **QinQ** (also known as **802.1ad** or **stacked VLANs**) is a **Layer 2** technology that adds an **outer VLAN tag** to the original Ethernet frame, allowing for a **hierarchical VLAN structure**. This technology is used in service provider environments, where **multiple customers** need to share the same physical network while maintaining their own isolated virtual networks.
+* **VXLAN** is primarily used in **data centers and cloud networks** to create large-scale virtualized Layer 2 networks over a Layer 3 network .
 
-To summarize, both VLAN and VXLAN are valuable tools for network segmentation, but they serve different needs. VLANs remain a simple and effective choice for smaller, less complex networks, while VXLAN provides the scalability and flexibility needed for modern, distributed, and virtualized environments. Understanding the technical differences in configuration and their respective use cases will help you choose the right solution for your network architecture, ensuring optimal performance, security, and scalability. Both VLAN and VXLAN are used together to solve scalability issues and to overcome the limitations of VLAN.
+
+
+#### Summary
+
+To summarize, both **VLAN and VXLAN** are valuable tools for **network segmentation**, but they serve different needs. VLANs remain a simple and effective choice for smaller, less complex networks, while VXLAN provides the **scalability and flexibility** needed for modern, distributed, and virtualized environments. Understanding the technical differences in configuration and their respective use cases will help you choose the right solution for your network architecture, ensuring optimal performance, security, and scalability. Both VLAN and VXLAN are used together to solve scalability issues and to **overcome the limitations of VLAN**.  
+
+To learn more about VLANs and VXLANs, please check out this documentation.
+
+<https://support.hpe.com/techhub/eginfolib/networking/docs/switches/12900E/5200-4956_vxlan_cg/content/504981855.htm>
