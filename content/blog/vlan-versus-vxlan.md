@@ -108,7 +108,7 @@ To understand VXLAN further, let us go through the **configurations of VLAN and 
 
    * Apart from scalability issues, VXLAN addresses the issues below.
    * VXLAN encapsulated packet contains IP header. So, the VXLAN technology is used for having IP based traffic in core network.
-   * The VNI (VXLAN Network Identifier) serves as a unique identifier for a Layer 2 segment (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues.
+   * The VNI (VXLAN Network Identifier) serves as a unique identifier for a Layer 2 segment (or virtual network) within a VXLAN environment. VXLAN based network segmentation which solves two major issues mentioned below:
    * This allows the MAC addresses of devices (such as virtual machines or VMs) within different VXLAN segments to overlap without causing any conflict or risk of traffic "crossover" between virtual networks.
    * This allows multiple VMs to exist within the same physical Layer 3 network but remain logically isolated in their own VXLAN segment, even if they have overlapping IP addresses and MAC addresses.
 4. What’s the difference between QinQ and VXLAN?
