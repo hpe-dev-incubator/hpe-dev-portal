@@ -121,7 +121,7 @@ Explanation:
 
 The modular design of LL-Mesh ensures scalability and maintainability. Here’s a glimpse into its structure:
 
-```
+```bash
 self_serve_platform/
 │
 └── chat/
