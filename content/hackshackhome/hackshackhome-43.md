@@ -1,7 +1,7 @@
 ---
 title: "NVIDIA NIM Agents Blueprints - Do your own AI: Multimodal PDF Data
   Extraction 101"
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/8517286558968/WN_FWKRV57vRpaeVIN2--nGew
 imageBackground: white
