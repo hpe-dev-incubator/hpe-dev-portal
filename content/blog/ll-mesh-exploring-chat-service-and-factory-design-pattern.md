@@ -22,7 +22,7 @@ li {
 In our previous blog post, we introduced **[LL-Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/)**, an **[open-source project](https://github.com/HewlettPackard/llmesh)** aimed at democratizing Generative AI (Gen AI). The initiative addresses both the technical complexity both organizational challenges of adopting Gen AI. The vision behind LL-Mesh is to make Gen AI accessible and beneficial to a broader audience, empowering users from diverse backgrounds to leverage cutting-edge AI technologies effortlessly.
 
 This blog dives deeper into one of LL-Mesh's core features: the **Chat Service**. The LL-Mesh platform provides a robust foundation for creating chat applications using Large Language Models (LLMs).
-First, we'll detail chat's key services. Then, we’ll explore some code that illustrate how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. We'll also link to our **Workshop-on-Demand **, which allow users to try these features hands-on using Jupyter Notebooks. Finally, we’ll highlight some examples in the LL-Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
+First, we'll detail chat's key services. Then, we’ll explore some code that illustrate how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. We'll also link to our **Workshop-on-Demand** , which allow users to try these features hands-on using Jupyter Notebooks. Finally, we’ll highlight some examples in the LL-Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
 
 ## Key components of LL-Mesh's chat service
 
@@ -155,17 +155,12 @@ You can run these tools and applications individually or use the `run_examples.s
 2. The **Basic Copywriter** also features a configurable backpanel app accessible at `https://127.0.0.1:5011/`. Without needing to code, users can modify settings such as system prompts, LLM type, or even interface behavior—for example, transforming a formal copywriter into one with a pirate's flair.
 3. The **Temperature Analyzer** enriches its prompts by incorporating historical temperature datasets. It then uses the chat service to generate code as instructed in the system prompt, executes the analysis, and visualizes the results in a chart.
 
-![](/img/tools-chat.png)
+![](/img/tool-chat.png)
 
 These examples demonstrate the flexibility and potential of LL-Mesh services, highlighting the power of LLM models and advanced prompt engineering in solving diverse problems. 
 
 ### Conclusion
 
-
-
 The **LL-Mesh Chat Service** and accompanying tools exemplify how advanced design principles like the Factory Design Pattern, combined with innovative prompt engineering, simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LL-Mesh enables developers and users alike to unlock the transformative potential of Generative AI in a variety of domains.
 
-
-
 Stay tuned for our next post, where we’ll delve into another key service of LL-Mesh and explore how it continues to democratize Gen AI!
-
