@@ -135,7 +135,7 @@ self_serve_platform/
 
 ## Interactive workshops: hands-on with LL-Mesh
 
-To further enhance user engagement and understanding, we have developed **[Workshop-on-Demand](LINK_TBD)** featuring Jupyter Notebooks. These workshops allow users to log in and experiment with the chat service code directly, providing a hands-on experience of LL-Mesh's capabilities. Participants can explore the platform's low-code features, which are made possible by the flexible configuration settings available during object creation. 
+To further enhance user engagement and understanding, we have developed a **[Workshop-on-Demand](LINK_TBD)** featuring Jupyter Notebooks. These workshops allow users to log in and experiment with the chat service code directly, providing a hands-on experience of LL-Mesh's capabilities. Participants can explore the platform's low-code features, which are made possible by the flexible configuration settings available during object creation. 
 
 Through these interactive sessions, users can dive into key functionalities such as prompt customization, memory management, and LLM selection. The workshops are designed to demonstrate how simple changes to configurations can drastically alter the behavior of chat models and services—empowering participants to experiment with different use cases and scenarios effortlessly. Whether you're a developer, data scientist, or AI enthusiast, these workshops provide a practical pathway to mastering LL-Mesh's innovative features.
 
