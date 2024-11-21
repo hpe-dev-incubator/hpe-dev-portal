@@ -1,6 +1,6 @@
 ---
 title: How to fix your biggest security hole
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/6417292661970/WN_Hk_LIi7ZRq6oY4PCzpqr6w
 imageBackground: white
