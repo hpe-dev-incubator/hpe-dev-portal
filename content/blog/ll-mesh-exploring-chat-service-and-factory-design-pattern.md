@@ -4,6 +4,12 @@ date: 2024-11-21T12:21:15.969Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
+tags:
+  - HPE
+  - Athonet
+  - Gen-AI
+  - LL-Mesh
+  - Chatbot
 ---
 <style>
 li {
