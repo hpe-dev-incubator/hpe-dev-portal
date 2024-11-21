@@ -22,18 +22,15 @@ li {
 In our previous blog post, we introduced **[LL-Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/)**, an **[open-source project](https://github.com/HewlettPackard/llmesh)** aimed at democratizing Generative AI (Gen AI). The initiative addresses both the technical complexity both organizational challenges of adopting Gen AI. The vision behind LL-Mesh is to make Gen AI accessible and beneficial to a broader audience, empowering users from diverse backgrounds to leverage cutting-edge AI technologies effortlessly.
 
 This blog dives deeper into one of LL-Mesh's core features: the **Chat Service**. The LL-Mesh platform provides a robust foundation for creating chat applications using Large Language Models (LLMs).
-First, we'll detail chat's key services. Then, we’ll explore some code that illustrate how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. We'll also link to our **Workshop-on-Demand** , which allow users to try these features hands-on using Jupyter Notebooks. Finally, we’ll highlight some examples in the LL-Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
+First, we'll detail chat's key services. Then, we’ll explore some code that illustrate how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. Finally, we’ll highlight some examples in the LL-Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
 
 ## Key components of LL-Mesh's chat service
 
 Let’s explore the key components and how they enable seamless integration of Gen AI into chat applications.
 
-1. **Prompt rendering**
-   : This service simplifies the creation and management of prompts, which are the backbone of effective LLM interactions. It supports rendering prompts from templates or files and even saving custom prompts to the file system. 
-2. **Model management**
-   : It manages the initialization and utilization of different LLMs based on configuration parameters. 
-3. **Memory management**
-   : Maintaining context in a chat is essential for meaningful interactions. This service manages storage and retrieval of conversation history. 
+1. **Prompt rendering**: This service simplifies the creation and management of prompts, which are the backbone of effective LLM interactions. It supports rendering prompts from templates or files and even saving custom prompts to the file system. 
+2. **Model management**: It manages the initialization and utilization of different LLMs based on configuration parameters. 
+3. **Memory management**: Maintaining context in a chat is essential for meaningful interactions. This service manages storage and retrieval of conversation history. 
 4. **Message processing**: This service handles the serialization and deserialization of messages, converting between different data formats to maintain compatibility across components
 
 ![](/img/chat-chat.png)
@@ -132,12 +129,6 @@ self_serve_platform/
         ├── langchain_azure_chat_openai.py  # Azure chat model implementation
         └── ... # Additional implementations
 ```
-
-## Interactive workshops: hands-on with LL-Mesh
-
-To further enhance user engagement and understanding, we have developed a **[Workshop-on-Demand](LINK_TBD)** featuring Jupyter Notebooks. These workshops allow users to log in and experiment with the chat service code directly, providing a hands-on experience of LL-Mesh's capabilities. Participants can explore the platform's low-code features, which are made possible by the flexible configuration settings available during object creation. 
-
-Through these interactive sessions, users can dive into key functionalities such as prompt customization, memory management, and LLM selection. The workshops are designed to demonstrate how simple changes to configurations can drastically alter the behavior of chat models and services—empowering participants to experiment with different use cases and scenarios effortlessly. Whether you're a developer, data scientist, or AI enthusiast, these workshops provide a practical pathway to mastering LL-Mesh's innovative features.
 
 ## Examples of LL-Mesh in action
 
