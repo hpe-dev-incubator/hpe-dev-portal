@@ -14,23 +14,22 @@ tags:
 
 ## Introduction
 
-Have you ever moved one or more servers from a Local Area Network (LAN) to another, without configuring the target network detail before the move ?
-As an example, some servers in the corporate network `10.1.2.0/24` have been moved to the lab network `19.168.1.0/22`.
-I am sure the answer is yes. As a result the moved servers are unreachable and can be considered as expensive bricks!
+Have you ever moved one or more servers from a Local Area Network (LAN) to another without configuring the target network detail before the move ?
+Perhaps some servers in the corporate network `10.1.2.0/24` have been moved to the lab network `19.168.1.0/22`.
+I am sure the answer is yes. As a result, the servers that have been moved are unreachable and could just as well be expensive bricks!
 
 This blog post presents a procedure to recover from this unpleasant situation with the help of the
-<a href="https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.6" target="_blank">IPv6 link local address</a>
-of the affected iLO network ports. A brief recapitulation of what an IPv6 link local is, is also presented.
+<a href="https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.6" target="_blank">IPv6 link local address</a> of the affected iLO network ports. I will also explain what an IPv6 link local is.
 
-## Context
+## Prerequisites
 
-The [Recovery process](#recovery-process) presented below is suitable for both the dedicated and the shared iLO network ports of lost iLOs. Then, it is assumed that an access to a system connected to the same LAN as the affected iLOs is possible. This system will be called the "brick-saver" throughout of this blog post. During my tests, I used a Linux brick-saver, but I am convinced that Windows or macOS could have used it as well.
+The [recovery process](#recovery-process) presented below is suitable for both the dedicated and the shared iLO network ports of lost iLOs. In this post, it is assumed that access to a system connected to the same LAN as the affected iLOs is possible. This system is called the "brick-saver" throughout of this blog post. During my tests, I used a Linux brick-saver, but I am convinced that Microsoft Windows or Apple macOS could have used it as well.
 
-It is also assumed that it is not possible to change the brick-saver network configuration to match the LAN settings of lost iLOs. Otherwise, this article is not relevant.
+In this post, it is also assumed that it is not possible to change the brick-saver network configuration to match the LAN settings of lost iLOs. If that is not the case, this article is not relevant.
 
 When the Media Access Control (MAC) address of impacted iLOs is unknown, an operator must be able to access and manipulate iLO cables and power buttons of the affected servers.
 
-Then, in order to re-program the network configuration of lost iLOs, you must have the credentials of a privileged user in each of them. This user could be the factory administrator account and associated password mentioned on the toe-tag of servers.
+Then, in order to re-program the network configuration of lost iLOs, you must have the credentials of a privileged user in each of them. This user could be the factory administrator account and associated password mentioned on the "toe-tag" present on the front panel of HPE servers.
 
 > TIP:<br>
 > If you know that the Link Layer Discovery Protocol (<a href="https://standards.ieee.org/standard/802_1AB-2005.html" target="_blank">LLDP</a>) is enabled in lost iLOs (<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_changelog/#schema-updates"
@@ -45,7 +44,7 @@ Then, in order to re-program the network configuration of lost iLOs, you must ha
 
 ## IPv6 basics
 
-If you are familiar with IPv6, link local and multicast pre-defined addresses like `FF02::1%ZoneId`, you can skip this paragraph and go directly to the [Recovery process](#recovery-process) section.
+If you are already familiar with IPv6, link local, and multicast pre-defined addresses like `FF02::1%ZoneId`, you can skip this paragraph and go directly to the [Recovery process](#recovery-process) section.
 
 The basic IPv6 architecture is described in Request For Comments (RFC) <a href="https://datatracker.ietf.org/doc/html/rfc4291" target="_blank">4291</a>.
 Briefly, IPv6 addresses are 128 bit long with the colon (":") character
@@ -98,7 +97,7 @@ Simply explained, this process consists of stretching the MAC address from 48 bi
 and inverting the universal/local bit of the MAC address. Refer to Appendix A of
 <a href="https://datatracker.ietf.org/doc/html/rfc4291" target="_blank">RFC 4291</a> for more detail.
 
-The following two examples retrieves the EUI-64 link local address of a
+The following two examples retrieve the EUI-64 link local address of a
 dedicated iLO 6 network port, its MAC address and the value of the
 `RFC7217Enabled` property. Notice the `FF:FE` string in the link
 local address and the similarity between the identifier and the
@@ -173,13 +172,13 @@ ilorest logout
 ### How to completely disable IPv6 in iLO?
 
 This question is a bit aside of the core subject of this blog post, but, as it is
-a recurrent question and there is enough information to answer it clearly in this blog post, I'll take my chance.
+a recurrent question and there is enough information to answer it clearly in this blog post, I thought I would answer it here.
 
 The answer is: *Disable DHCPv6 as well as SLAAC* as shown in Figure 1 below.
 I can hear you reply that you did that, but you still can see the link local address
 like in Figure 1 below. This is expected.
 
-As said previously, SLAAC is always enabled in the iLO OS kernel, and cannot be disabled.
+As stated previously, SLAAC is always enabled in the iLO OS kernel, and cannot be disabled.
 As a consequence, the IPv6 link local SLAAC address is always present in both the iLO Graphical User Interface (GUI),
 and Redfish responses. However, you will not find any SLAAC addresses resulting of an
 <a href="https://radvd.litech.org/" target="_blank">advertised prefix</a> or a DHCP server.
@@ -190,11 +189,11 @@ and Redfish responses. However, you will not find any SLAAC addresses resulting 
 
 ### How to compute an EUI-64 link local
 
-The easiest method to compute the EUI-64 link local address using a MAC address,
+The easiest method to compute the EUI-64 link local address using a MAC address
 is with the `ipv6calc`
 <a href="https://www.deepspace6.net/projects/ipv6calc.html"
 target="_blank">utility</a>. Use your favorite package installer on modern Linux
-systems, or compile the sources on Microsoft Windows to make it work.
+systems or compile the sources on Microsoft Windows to make it work.
 
 The following block of code transforms a MAC address into its EUI-64 equivalent.
 By prepending `FE80::` to the output of the `ipv6calc` command,
@@ -210,7 +209,7 @@ fe80::9618:82ff:fe71:a07a
 
 ### Zone indexes
 
-From your brick-saver, when you will want to initiate a communication with a link-local IPv6 address,
+From your brick-saver, when you want to initiate a communication with a link-local IPv6 address,
 you will have to tell the operating system the network interface to use to send the packets.
 The reason is because addresses starting with the `FE80::/10` prefix are present on all
 the networks directly connected to the system.
@@ -297,7 +296,7 @@ By doing so, you can build the table of all your IPv6 neighbors. You will find m
 The recovery process presented in this blog post relies entirely on EUI-64 IPv6 link local addresses, and thus on MAC addresses. If you don't have
 the list of the affected iLO MAC addresses, you need to go through the next paragraph.
 
-In case you have that list and your systems are iLO 5 based or later with
+If you have that list and your systems are iLO 5 based or later with
 <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_161/ilo6_network_resourcedefns161/#oemhpeipv6"
 target="_blank">RFC7217</a>
 disabled, you can skip the next paragraph and study the second scenario.
@@ -306,9 +305,9 @@ disabled, you can skip the next paragraph and study the second scenario.
 
 The lost iLOs MAC address discovery is performed with the IPv6 neighbor table maintained in your brick-saver.
 
-The overall method is the following:
+The overall method used is the following:
 
-1. Make sure affected servers are powered on. This step can only be done by a human being present in the computer room. Then hide their iLO port from the network by physically disconnecting the network cable. You could unplug the server power cables to achieve this goal, but this would hide also OS interfaces connected to the management LAN. Those interfaces would then re-appear in step 5 below, although they are not iLO interfaces and alter the discovered MAC address list.
+1. Make sure affected servers are powered on. This step can only be done by a human being present in the computer room. Then, hide their iLO port from the network by physically disconnecting the network cable. You could unplug the server power cables to achieve this goal, but this would also hide OS interfaces connected to the management LAN. Those interfaces would then re-appear in step 5 below, although they are not iLO interfaces and alter the discovered MAC address list.
 2. Connect to your brick-saver, flush the neighbor table, solicitate IPv6 neighbors and save the table in a file.
 
    ```shell
@@ -461,11 +460,11 @@ Payload:
 ## Conclusion
 
 This article presented a method with simple PowerShell and Linux commands
-to find back lost servers after a
+to find lost servers after a
 move from one network to another without any configuration preparation prior to the move.
 
 As this method uses IPv6, many of its concepts have been introduced,
-including the its autoconfiguration process. If you like more detail on autoconfiguration,
+including its autoconfiguration process. If you like more detail on autoconfiguration,
 I would suggest to read the corresponding section I wrote some time ago in the
 <a href="https://ipj.dreamhosters.com/wp-content/uploads/issues/2004/ipj07-2.pdf"
 target="_blank">Internet Protocol Journal</a>.
