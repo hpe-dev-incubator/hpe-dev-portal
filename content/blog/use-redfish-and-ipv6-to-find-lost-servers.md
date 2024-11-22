@@ -318,6 +318,7 @@ The overall method used is the following:
    ip -6 neigh show dev eno1 | \
       sort -u  > File1.txt     # Sort neighbor table and save it
    ```
+
 3. Reconnect affected iLO cables.
 4. Repeat step 2.
 
@@ -329,6 +330,7 @@ The overall method used is the following:
    ip -6 neigh show dev eno1 | \
       sort -u  > File2.txt     # Sort neighbor table and save it
    ```
+
 5. The list of affected iLO link local and MAC addresses is obtained by computing the difference of the files saved in steps 2 and 4.
 
    ```shell
@@ -338,6 +340,7 @@ The overall method used is the following:
    echo $LL_LIST
    fe80::5eed:8cff:fe01:d7c fe80::4645:c007:6bc2:bac6 fe80::5eed:8cff:fe6b:617
    ```
+
 6. You should verify that the list collected above contains Redfish conformant addresses and only
    Redfish conformant addresses.
    This can be done by performing a GET request toward each IPv6 link-local
