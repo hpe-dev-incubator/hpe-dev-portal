@@ -33,8 +33,7 @@ Then, in order to re-program the network configuration of lost iLOs, you must ha
 
 > TIP:<br>
 > If you know that the Link Layer Discovery Protocol (<a href="https://standards.ieee.org/standard/802_1AB-2005.html" target="_blank">LLDP</a>) is enabled in lost iLOs (<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_changelog/#schema-updates"
-> target="_blank">iLO 6</a>
-> and later) and you have a mean to collect LLDP information, save their `ManagementAddressIPv6` property in a list. It contains their link local address. With this list, the recovery process is shorter.
+> target="_blank">iLO 6</a> and later) and you have a mean to collect LLDP information, save their `ManagementAddressIPv6` property in a list. It contains their link local address. With this list, the recovery process is shorter.
 > The next screenshot shows the content of an LLDP transmit object sent
 > over the network by an HPE iLO 6.
 
@@ -84,8 +83,7 @@ Other link local autoconfiguration methods exist.
 describes a temporary address creation that is used by Microsoft Windows
 on personal computers to make them harder to find. This RFC is not implemented in HPE iLOs.
 
-Then, <a href="https://datatracker.ietf.org/doc/html/rfc7217" target="_blank">RFC 7217</a>
-proposes a method for generating opaque interface identifiers. This RFC is implemented in
+Then, <a href="https://datatracker.ietf.org/doc/html/rfc7217" target="_blank">RFC 7217</a> proposes a method for generating opaque interface identifiers. This RFC is implemented in
 <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_161/ilo6_network_resourcedefns161/#oemhpeipv6"
 target="_blank">modern versions</a> of iLO 6 and later, but disabled by default.
 
@@ -473,5 +471,4 @@ I would suggest to read the corresponding section I wrote some time ago in the
 target="_blank">Internet Protocol Journal</a>.
 
 And don't forget to check out some of my other
-<a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a>
-on the HPE Developer portal to learn more about Redfish tips and tricks.
+<a href="https://developer.hpe.com/search/?term=donze" target="_blank">blog posts</a> on the HPE Developer Community portal to learn more about Redfish tips and tricks.
