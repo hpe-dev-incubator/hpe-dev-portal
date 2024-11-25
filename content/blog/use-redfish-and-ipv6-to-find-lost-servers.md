@@ -377,8 +377,7 @@ Compare-Object (Get-Content File1.txt) (Get-Content File2.txt) |  Where-Object {
 ### Known MAC addresses and RFC 7217 disabled
 
 If you have the list of lost MAC addresses and you know that
-<a href="https://datatracker.ietf.org/doc/html/rfc7217" target="_blank">RFC 7217</a>
-is set to disabled, you just have to compute the corresponding IPv6 link-local addresses with the `ipv6calc`
+<a href="https://datatracker.ietf.org/doc/html/rfc7217" target="_blank">RFC 7217</a> is set to disabled, you just have to compute the corresponding IPv6 link-local addresses with the `ipv6calc`
 tool and verify their accuracy.
 
 > NOTE: RFC 7217 is disabled by default as explained [above](#ipv6-link-local-addresses).
