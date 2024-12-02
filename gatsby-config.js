@@ -239,25 +239,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-108944070-6',
-        head: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-          '357693145', // Google Analytics / GA
-        ],
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
-        },
-      },
-    },
     // {
     //   resolve: 'gatsby-plugin-adobe-launch-hpe',
     //   options: {
