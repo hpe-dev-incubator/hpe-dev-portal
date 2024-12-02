@@ -294,10 +294,11 @@ By doing so, you can build the table of all your IPv6 neighbors. You will find m
 The recovery process presented in this blog post relies entirely on EUI-64 IPv6 link local addresses, and thus on MAC addresses. If you don't have
 the list of the affected iLO MAC addresses, you need to go through the next paragraph.
 
-If you have that list and your systems are iLO 5 based or later with
-<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_161/ilo6_network_resourcedefns161/#oemhpeipv6"
-target="_blank">RFC7217</a>
-disabled, you can skip the next paragraph and study the second scenario.
+You can skip the next paragraph and study the second scenario if already have that list and your systems are :
+
+* iLO 5 based
+* iLO 6 (or later) based with <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_161/ilo6_network_resourcedefns161/#oemhpeipv6"
+target="_blank">RFC7217</a> turned off.
 
 ### MAC address discovery
 
