@@ -7,7 +7,7 @@ description: HPE OpsRamp is a comprehensive Autonomous IT operations platform
 image: /img/platforms/logo-opsramp-192x99.png
 width: large
 priority: 8
-active: false
+active: true
 tags:
   - hpe-opsramp
 ---
