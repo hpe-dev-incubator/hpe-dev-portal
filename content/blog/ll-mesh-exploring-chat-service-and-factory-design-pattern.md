@@ -143,7 +143,7 @@ In the [LL-Mesh GitHub](https://github.com/HewlettPackard/llmesh), there are a s
 You can run these tools and applications individually or use the `run_examples.sh` script to launch them all at once. Once initialized:
 
 1. Access the **chatbot application** via `https://127.0.0.1:5001/` to start chatting or explore its additional features like the **personal chat**. Within Personal Chat, users can enhance text using the copywriter tool by interacting directly in chat or clicking interface buttons.
-2. The **Basic copywriter** also features a configurable backpanel app accessible at `https://127.0.0.1:5011/`. Without needing to code, users can modify settings such as system prompts, LLM type, or even interface behavior—for example, transforming a formal copywriter into one with a pirate's flair, where  one might start by saying "Welcome to our sale" and it would be transformed into "Ahoy, matey, grab the loot!".
+2. The **basic copywriter** also features a configurable backpanel app accessible at `https://127.0.0.1:5011/`. Without needing to code, users can modify settings such as system prompts, LLM type, or even interface behavior—for example, transforming a formal copywriter into one with a pirate's flair, where  one might start by saying "Welcome to our sale" and it would be transformed into "Ahoy, matey, grab the loot!".
 3. The **temperature analyzer** enriches its prompts by incorporating historical temperature datasets. It then uses the chat service to generate code as instructed in the system prompt, executes the analysis, and visualizes the results in a chart.
 
 ![](/img/tool-chat.png)
