@@ -754,6 +754,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE NonStop**                    | hpe-nonstop |
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
+  | **HPE OpsRamp**                    | hpe-opsramp |
   | **HPE SimpliVity**                 | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
