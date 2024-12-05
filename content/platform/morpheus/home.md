@@ -10,7 +10,7 @@ active: true
 tags:
   - morpheus
 ---
-Morpheus is a vendor-agnostic management platform for multi-cloud orchestration, unified operations, and self-service provisioning. It bridges the gap between teams, tools, and processes, independent of where and how applications are deployed. As a centralized control plane, Morpheus enables enterprise-wide governance, policy enforcement, and self-service application provisioning access across virtually any hybrid cloud environment.
+Morpheus, a Hewlett Packard Enterprise company, is a vendor-agnostic management platform for multi-cloud orchestration, unified operations, and self-service provisioning. It bridges the gap between teams, tools, and processes, independent of where and how applications are deployed. As a centralized control plane, Morpheus enables enterprise-wide governance, policy enforcement, and self-service application provisioning access across virtually any hybrid cloud environment.
 
 Learn more at [www.morpheusdata.com](https://morpheusdata.com/).
 
