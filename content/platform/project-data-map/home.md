@@ -7,7 +7,7 @@ description: A collaborative service platform for data publishing, subscription,
 image: /img/platforms/hpe-element.png
 width: large
 priority: 4
-active: false
+active: true
 tags:
   - project-data-map
 ---
