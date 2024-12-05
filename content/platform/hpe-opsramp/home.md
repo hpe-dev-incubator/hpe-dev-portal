@@ -40,11 +40,11 @@ The platform supports easy instrumentation using OpenTelemetry’s libraries and
 
 Ready to learn more about OpsRamp? Browse through the [OpsRamp resources portal](https://www.opsramp.com/resources/).
 
-<br />
+<br/>
 
 ---
 
-<br />
+<br/>
 
 ## Any questions on HPE OpsRamp?
 
