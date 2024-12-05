@@ -7,7 +7,7 @@ description: A collaborative service platform for data publishing, subscription,
 image: /img/platforms/hpe-element.png
 width: large
 priority: 4
-active: true
+active: false
 tags:
   - project-data-map
 ---
@@ -109,4 +109,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 
 Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#HPEDataMap](https://hpedev.slack.com/archives/C03LU2V1CSJ) channel.
+
+
 
