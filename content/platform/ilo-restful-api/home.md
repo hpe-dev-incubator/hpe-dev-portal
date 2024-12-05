@@ -13,7 +13,7 @@ tags:
 ---
 # One Interface for Server Management Automation
 
-HPE Server management provides intelligent remote control automation through HPE iLO and the Redfish® iLO RESTful API. Gain even more capabilities that go beyond scripting by leveraging one API to manage your complete lifecycle of HPE Gen10, Gen10 Plus and Gen11 servers.
+HPE Server management provides intelligent remote control automation through [HPE Integrated Lights-Out](https://www.hpe.com/us/en/hpe-integrated-lights-out-ilo.html) (iLO) and the Redfish® iLO RESTful API. Gain even more capabilities that go beyond scripting by leveraging one API to manage your complete lifecycle of HPE Gen10, Gen10 Plus and Gen11 servers.
 
 A single API interface integrates server management components and full compute power. Use it with HPE iLO 5 and iLO 6 to perform remote server provisioning, configuration, inventory and monitoring industry standards through Redfish API conformance.
 
