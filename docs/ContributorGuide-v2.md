@@ -761,7 +761,6 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Morpheus**                       | morpheus |
   | **SmartSim**                       | smartsim    |
   | **Zerto**                          | zerto   |
-  | **Project Data Map**               | project-data-map |
   | **KubeDirector**                   | kubedirector |
   | **HPE Swarm Learning**             | swarm-learning |
   | **open-source software**           | opensource |
