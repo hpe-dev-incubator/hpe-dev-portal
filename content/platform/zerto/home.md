@@ -10,7 +10,7 @@ active: true
 ---
 Zerto, a Hewlett Packard Enterprise company, empowers customers to run an always-on business by simplifying the protection, recovery, and mobility of on-premises and cloud applications. Zerto’s cloud data management and protection solution eliminate the risks and complexity of modernization and cloud adoption across private, public, and hybrid deployments. The simple, software-only solution uses continuous data protection at scale to converge disaster recovery, backup, and data mobility. Zerto is trusted by over 9,500 customers globally and is powering offerings for Microsoft Azure, IBM Cloud, AWS (Amazon Web Services), Google Cloud, Oracle Cloud, and more than 350 managed service providers.  
 
-Learn more at [www.zerto.com](https://www.zerto.com)
+Learn more about [Zerto](https://www.hpe.com/us/en/zerto.html)
 
 ## Welcome to the Zerto Hacker Hub!
 
@@ -41,6 +41,12 @@ Linked to our [GitHub here](https://github.com/ZertoPublic/ZIC-AWS) are the Terr
 Ready to learn more? Read the [Zerto-In Cloud for AWS datasheet](https://www.zerto.com/wp-content/uploads/2021/11/Zerto-In-Cloud-for-AWS-Data-Sheet.pdf).
 
 Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.com/myzerto/labs)
+
+## Resources
+
+Ready to learn more about Zerto? Browse through the [Zerto portal](https://www.zerto.com/).
+
+<br />
 
 - - -
 
