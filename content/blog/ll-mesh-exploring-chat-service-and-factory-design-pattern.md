@@ -1,5 +1,5 @@
 ---
-title: "LL-Mesh: Exploring chat service and factory design pattern"
+title: "LLM Agentic Tool Mesh: Exploring chat service and factory design pattern"
 date: 2024-11-21T12:21:15.969Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
@@ -8,7 +8,7 @@ tags:
   - HPE
   - Athonet
   - Gen-AI
-  - LL-Mesh
+  - LLM-Agentic-Tool-Mesh
   - Chatbot
 ---
 <style>
@@ -19,12 +19,12 @@ li {
 }
 </style>
 
-In our previous blog post, we introduced **[LL-Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/)**, an **[open-source project](https://github.com/HewlettPackard/llmesh)** aimed at democratizing Generative AI (Gen AI). The initiative addresses both the technical complexity and organizational challenges of adopting Gen AI. The vision behind LL-Mesh is to make Gen AI accessible and beneficial to a broader audience, empowering users from diverse backgrounds to leverage cutting-edge AI technologies effortlessly.
+In our previous blog post, we introduced **[LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/)**, an **[open-source project](https://github.com/HewlettPackard/llmesh)** aimed at democratizing Generative AI (Gen AI). The initiative addresses both the technical complexity and organizational challenges of adopting Gen AI. The vision behind LLM Agentic Tool Mesh is to make Gen AI accessible and beneficial to a broader audience, empowering users from diverse backgrounds to leverage cutting-edge AI technologies effortlessly.
 
-This blog dives deeper into one of LL-Mesh's core features: the **Chat Service**. The LL-Mesh platform provides a robust foundation for creating chat applications using Large Language Models (LLMs).
-First, we'll detail its key services. Then, we’ll explore some code that illustrates how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. Finally, we’ll highlight some examples in the LL-Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
+This blog dives deeper into one of LLM Agentic Tool Mesh's core features: the **Chat Service**. The LLM Agentic Tool Mesh platform provides a robust foundation for creating chat applications using Large Language Models (LLMs).
+First, we'll detail its key services. Then, we’ll explore some code that illustrates how the **Factory Design Pattern** empowers it to handle diverse LLM integrations seamlessly. Finally, we’ll highlight some examples in the LLM Agentic Tool Mesh repository that utilize the Chat Service, such as the **chatbot** application and **agentic tools**, showcasing the flexibility and practical applications of these services.
 
-## Key components of LL-Mesh's Chat Service
+## Key components of LLM Agentic Tool Mesh's Chat Service
 
 Let’s explore the key components and how they enable seamless integration of Gen AI into chat applications.
 
@@ -37,9 +37,9 @@ Let’s explore the key components and how they enable seamless integration of G
 
 ## The power of the Factory Design Pattern
 
-All the previous services are implemented using the **Factory Design Pattern**. This is a creational design approach that provides a flexible interface for object creation. In LL-Mesh, this pattern ensures that the platform can handle multiple service types dynamically based on configuration parameters.
+All the previous services are implemented using the **Factory Design Pattern**. This is a creational design approach that provides a flexible interface for object creation. In LLM Agentic Tool Mesh, this pattern ensures that the platform can handle multiple service types dynamically based on configuration parameters.
 
-One of LL-Mesh's Chat Service features is the **`ChatModel`** factory, which simplifies the creation of specific chat models. Here's an example of how it works:
+One of LLM Agentic Tool Mesh's Chat Service features is the **`ChatModel`** factory, which simplifies the creation of specific chat models. Here's an example of how it works:
 
 ```python
 class ChatModel:
@@ -74,7 +74,7 @@ The main benefits of this approach are:
 * **Extensibility**: New models can be added by updating the `_models` dictionary without modifying the logic.
 * **Error handling**: By validating the configuration and supported model types, the design prevents runtime errors, ensuring the system is robust and user-friendly.
 
-Here’s how a developer might use LL-Mesh's **`ChatModel`** factory:
+Here’s how a developer might use LLM Agentic Tool Mesh's **`ChatModel`** factory:
 
 ```python
 from athon.chat import ChatModel
@@ -116,7 +116,7 @@ Explanation:
 2. Prompts are processed through the `invoke()` method, which interacts with the LLM to generate responses.
 3. Developers handle responses easily, focusing on application logic rather than the complexities of model interaction.
 
-The modular design of LL-Mesh ensures scalability and maintainability. Here’s a glimpse into its structure:
+The modular design of LLM Agentic Tool Mesh ensures scalability and maintainability. Here’s a glimpse into its structure:
 
 ```plaintext
 self_serve_platform/
@@ -130,9 +130,9 @@ self_serve_platform/
         └── ... # Additional implementations
 ```
 
-## Examples of LL-Mesh in action
+## Examples of LLM Agentic Tool Mesh in action
 
-In the [LL-Mesh GitHub](https://github.com/HewlettPackard/llmesh), there are a series of web applications and tools, complete with examples, to showcase the versatility and capabilities of LL-Mesh. These examples are designed to demonstrate how the platform's services can be leveraged for real-world applications. Notably, the repository includes:
+In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there are a series of web applications and tools, complete with examples, to showcase the versatility and capabilities of LLM Agentic Tool Mesh. These examples are designed to demonstrate how the platform's services can be leveraged for real-world applications. Notably, the repository includes:
 
 * **Chatbot application** (`examples/app_chatbot`): A web-based chatbot built using the chat service, offering a hands-on example of how to integrate LLM-powered conversational agents.
 * **Agentic tools**:  
@@ -148,10 +148,10 @@ You can run these tools and applications individually or use the `run_examples.s
 
 ![](/img/tool-chat.png)
 
-These examples demonstrate the flexibility and potential of LL-Mesh services, highlighting the power of LLM models and advanced prompt engineering in solving diverse problems. 
+These examples demonstrate the flexibility and potential of LLM Agentic Tool Mesh services, highlighting the power of LLM models and advanced prompt engineering in solving diverse problems. 
 
 ### Conclusion
 
-The **LL-Mesh Chat Service** and accompanying tools exemplify how advanced design principles like the Factory Design Pattern, combined with innovative prompt engineering, simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LL-Mesh enables developers and users alike to unlock the transformative potential of Gen AI in a variety of domains.
+The **LLM Agentic Tool Mesh Chat Service** and accompanying tools exemplify how advanced design principles like the Factory Design Pattern, combined with innovative prompt engineering, simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in a variety of domains.
 
-Stay tuned for our next post, where we’ll delve into another key service of LL-Mesh and explore how it continues to democratize Gen AI!
+Stay tuned for our next post, where we’ll delve into another key service of LLM Agentic Tool Mesh and explore how it continues to democratize Gen AI!
