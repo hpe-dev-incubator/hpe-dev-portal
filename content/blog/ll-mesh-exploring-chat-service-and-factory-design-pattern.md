@@ -7,8 +7,8 @@ disable: false
 tags:
   - HPE
   - Athonet
-  - Gen-AI
-  - LLM-Agentic-Tool-Mesh
+  - GenAI
+  - LAT-Mesh
   - Chatbot
 ---
 <style>
