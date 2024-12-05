@@ -36,8 +36,15 @@ The platform supports easy instrumentation using OpenTelemetry’s libraries and
 
 * **Ansible integration:** OpsRamp's [Ansible](https://www.ansible.com/) integration enables automation of a wide range of tasks across hybrid infrastructures. It supports agent deployment, updates, and uninstallation, but also goes further by automating diagnostic health checks and performing remediation actions to maintain system stability. Through the use of Ansible playbooks, IT teams can automate the identification and resolution of issues, enforce compliance, and ensure system health. This integration also includes secure management of sensitive data with Ansible Vault, making it a powerful tool for streamlining IT operations and ensuring consistency and efficiency across diverse environments. For further details, visit the [Ansible integration documentation](https://docs.opsramp.com/integrations/automation-integration/ansible-integration/).    
 
+## Resources
+
+Ready to learn more about OpsRamp? Browse through the [OpsRamp resources portal](https://www.opsramp.com/resources/).
+
+<br/>
 
 ---
+
+<br/>
 
 ## Any questions on HPE OpsRamp?
 
