@@ -70,10 +70,7 @@ For getting started with the Data Services APIs and improve your agility in mana
 4. The [link](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) to the documentation of the HPE GreenLake APIs at HPE GreenLake help menu.
 5. Watch the replay of the Meetup webinar “**The data services family of APIs for HPE GreenLake – Putting it all together**” 
 
-<iframe src=https://players.brightcove.net/1160438707001/IgBbIFicRj_default/index.html?videoId=6351749255112
-  allowfullscreen=""
-  allow="encrypted-media"
-  width="960" height="540"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-ffzhc6TzoA?si=fzg4jiakx_L2GxZB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <br /> <br />
 
