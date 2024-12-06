@@ -30,17 +30,14 @@ You can download an eBook that presents the SPIFFE standard for service identity
 
 In this lightboard video, Evan Gilman, co-author of O’Reilly’s book Zero Trust Networks and a maintainer for SPIRE, provides an overview of CNCF’s SPIFFE and SPIRE Projects. Evan goes into the security issues that SPIFFE/SPIRE solve and how through workload identity attestation.
 
-<p style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+[![Introduction to Spiffe and Spire](https://img.youtube.com/vi/-XGKybqTfZo/hqdefault.jpg)](https://www.youtube.com/watch?v=-XGKybqTfZo)
 
 ### How to prevent software supply chain attacks using SPIRE and Sigstore
 
 In this video, Daniel Feldman, Cloud Security Architect at HPE, shows how HPE is using the innovative Open Source project SPIRE (the SPIFFE Runtime Environment) with Sigstore integration. He covers how it is used to establish trust between workloads, secure and prevent complex cyber attacks on the software supply chain, and protect modern infrastructure environments.
 
-<p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qT09bEmQmLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+
 
 - - -
 
