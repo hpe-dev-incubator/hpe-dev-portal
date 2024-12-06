@@ -68,9 +68,11 @@ For getting started with the Data Services APIs and improve your agility in mana
 2. Blog [post](https://developer.hpe.com/blog/getting-started-with-hpe-greenlake-api-for-virtualization/): Getting Started with HPE GreenLake APIs for Virtualization.
 3. Blog [post](https://developer.hpe.com/blog/getting-started-with-private-cloud-business-edition-apis/): Getting Started with HPE GreenLake APIs for HPE GreenLake Private Cloud Business Edition.
 4. The [link](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003533en_us&page=ps_api_dscc.html) to the documentation of the HPE GreenLake APIs at HPE GreenLake help menu.
-5. The [link](https://www.youtube.com/watch?v=-ffzhc6TzoA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) to the YouTube video of the Meetup webinar “The data services family of APIs for HPE GreenLake – Putting it all together” 
+5. Watch the replay of the Meetup webinar “**The data services family of APIs for HPE GreenLake – Putting it all together**” 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-ffzhc6TzoA?si=fzg4jiakx_L2GxZB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br /> <br />
 
 ### Any questions on HPE GreenLake APIs for Data Services on HPE GreenLake platform?
 
