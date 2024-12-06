@@ -65,3 +65,9 @@ Testing YouTube image with link:
 <br />
 
 [![Zerto for Kubernetes Overview](https://img.youtube.com/vi/EIQcOIcbBwU/mqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
+
+<br />
+<br />
+
+[![Zerto for Kubernetes Overview](https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
+
