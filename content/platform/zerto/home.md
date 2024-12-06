@@ -24,7 +24,7 @@ Zerto for Kubernetes (Z4K) enables continuous backup, disaster recovery, and lon
 
 Learn more by watching Zerto for Kubernetes Overview 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EIQcOIcbBwU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Zerto for Kubernetes Overview](https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
 
 or going to our [solution page](https://www.zerto.com/solutions/workloads-and-applications/zerto-for-kubernetes/).
 
