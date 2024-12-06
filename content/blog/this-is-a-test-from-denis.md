@@ -50,3 +50,8 @@ Third update.
 * Bullet list item 3 - test of suggestion to change bulet list item 3
 
 ![Test image 3 in bullet item list](/img/aaa-seats-hackshack.png "Test image 3 in bullet item list")
+
+
+Testing YouTube image with link:
+
+[![Zerto for Kubernetes Overview](https://img.youtube.com/vi/EIQcOIcbBwU/maxresdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
