@@ -26,8 +26,7 @@ Its design principles are centered on leveraging open standards and open systems
 
 For a quick overview of the service, please watch the video below.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-cIUkJL33ac?si=b_Rq6lQj6Kaczcsv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+[![HPE GreenLake for Private Cloud Enterprise](https://img.youtube.com/vi/-cIUkJL33ac/hqdefault.jpg)](https://www.youtube.com/watch?v=-cIUkJL33ac)
 
 ## HPE GreenLake for Private Cloud Enterprise services
 
@@ -93,12 +92,13 @@ For more information on the HPE GreenLake DevOps capabilities, please watch thes
 
 **Create a DevOps Project with HPE GreenLake for Private Cloud Enterprise**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gU_LM-JHqz0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Create a DevOps project](https://img.youtube.com/vi/gU_LM-JHqz0/hqdefault.jpg)](https://www.youtube.com/watch?v=gU_LM-JHqz0)
+
 
 **Create a CD pipeline with a release trigger with HPE GreenLake for Private Cloud Enterprise**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i95-FO0bvgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
- 
+[![Create a CD pipeline](https://img.youtube.com/vi/i95-FO0bvgg/hqdefault.jpg)](https://www.youtube.com/watch?v=i95-FO0bvgg)
+
 
 ## Resources
 
