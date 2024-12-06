@@ -38,9 +38,9 @@ We are happy to announce [Swarm 2.2.0 community release](https://github.com/Hewl
 
 **\-﻿ The big shift: What is swarm learning?**
 
-Swarm learning is the next gold rush for machine intelligence - training at the edge so the edge devices get smarter and also train their peers. With no central authority, Blockchain is integrated to add control, privacy, and security.
+Swarm learning is the next gold rush for machine intelligence - training at the edge so the edge devices get smarter and also train their peers. With no central authority, Blockchain is integrated to add control, privacy, and security. Learn more by watching **What is swarm learning?**:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![What is swarm learning?](https://img.youtube.com/vi/6Fep6Lw5t-U/hqdefault.jpg)](https://www.youtube.com/watch?v=6Fep6Lw5t-U)
 
 - - -
 
@@ -48,9 +48,9 @@ Swarm learning is the next gold rush for machine intelligence - training at the 
 
 \-﻿ **How to optimize machine learning at the edge with HPE Swarm Learning**
 
-In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry, talk about optimizing machine learning at the edge with swarm learning
+In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry, talk about optimizing machine learning at the edge with swarm learning. Learn more by watching **How to optimize machine learning at the edge with HPE Swarm Learning**:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/paBt6nvyTHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Optimize ML at the edge with HPE Swarm learning](https://img.youtube.com/vi/paBt6nvyTHQ/hqdefault.jpg)](https://www.youtube.com/watch?v=paBt6nvyTHQ)
 
 - - -
 
