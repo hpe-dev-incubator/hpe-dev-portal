@@ -23,7 +23,7 @@ Containers offer a range of benefits across enterprise computing environments―
 
 Join this discussion with HPE Pointnext Services' Simon Leech and host Dana Gardner to learn about the advantages containers bring, what it takes to move your projects from proof of concept to mainstream production, and why a DevSecOps approach to security is key to that.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ayoJY1EGsAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Containers go mainstream](https://img.youtube.com/vi/ayoJY1EGsAw/hqdefault.jpg)](https://www.youtube.com/watch?v=ayoJY1EGsAw)
 
 <br />
 <br />
