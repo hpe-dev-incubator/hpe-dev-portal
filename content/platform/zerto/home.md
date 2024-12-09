@@ -1,6 +1,6 @@
 ---
 title: Zerto
-version: "1.0"
+version: "2.0"
 description: "Empowering an  run an always-on business by simplifying data
   protection, recovery, and multi-cloud mobility "
 image: https://www.zerto.com/wp-content/uploads/2019/04/Zerto-Logo.png
