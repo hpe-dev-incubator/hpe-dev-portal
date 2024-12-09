@@ -18,7 +18,13 @@ Have you ever moved one or more servers from a Local Area Network (LAN) to anoth
 Perhaps some servers in the corporate network `10.1.2.0/24` have been moved to the lab network `19.168.1.0/22`.
 I am sure the answer is yes. As a result, the servers that have been moved are unreachable and could just as well be expensive bricks!
 
-This blog post presents a procedure to recover from this unpleasant situation with the help of the
+A similar situation happens on LANs without a DHCP server when you initiate a
+[secure erase](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securesystemerase/#initiating-secure-erase-through-redfish) operation
+on systems using a static iLO IP address.
+Among other operations, the [One-button Secure Erase](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_us&docLocale=en_US&page=GUID-8A7C60B7-A3A1-42C6-BEA5-0252F945B7C9.html#ariaid-title2) procedure resets the iLO to its factory defaults which includes the use of DHCP for
+its network configuration. As a consequence, the iLOs are not easily reachable anymore.
+
+This blog post presents a procedure to recover from these unpleasant situations with the help of the
 <a href="https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.6" target="_blank">IPv6 link local address</a> of the affected iLO network ports. I will also explain what an IPv6 link local is.
 
 ## Prerequisites
@@ -36,7 +42,6 @@ Then, in order to re-program the network configuration of lost iLOs, you must ha
 > target="_blank">iLO 6</a> and later) and you have a mean to collect LLDP information, save their `ManagementAddressIPv6` property in a list. It contains their link local address. With this list, the recovery process is shorter.
 > The next screenshot shows the content of an LLDP transmit object sent
 > over the network by an HPE iLO 6.
-
 ![Figure 1: Link local address in LLDP transmit object](/img/fig1-lldp-transmit.png "Figure 1: Link local address in LLDP transmit object")
 
 <figcaption>Figure 1: Link local address in LLDP transmit object</figcaption>
