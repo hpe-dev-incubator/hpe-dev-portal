@@ -551,13 +551,30 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
  
 - **Tip #8: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
 
+    * _**YouTube video that has gone through the HPE Marketing Asset Publishing (MAP) process:**_
+  
     To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
-    * Go to your YouTube video URL
-    * Select ***"Share"*** option just underneath the video frame
-    * Select ***"Embed"*** option
-    * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
-    * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
+    
+   * Go to your YouTube video URL.
+   * Select ***"Share"*** option just underneath the video frame.
+   * Select ***"Embed"*** option.
+   * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
+   * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
 
+  * _**YouTube video that has NOT gone through the MAP process:**_
+
+     To be compliant with the HPE legal policies, proceed as follows:
+    
+       * Go to your YouTube video URL.
+       * Get the video ID (after "watch?v=" in the address bar).
+       * Use the Markdown syntax below to insert the clickable thumbnail image and link it to the YouTube video:
+    
+    \[\!\[Brief description of your video\]\(https://img.youtube.com/vi/Video-ID/hqdefault.jpg)](YouTube Video URL)
+
+       For Example:
+    
+    \[\!\[Zerto for Kubernetes\]\(https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
+    
 - **Tip #9: Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
