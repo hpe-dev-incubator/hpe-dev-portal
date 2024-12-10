@@ -17,7 +17,51 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-Updated: March 6, 2024
+<style>
+.warning-box {
+    background-color: #fff3cd; /* Light yellow background */
+    /* border: 2px solid #ffeb3b; /* Yellow border */
+    color: #856404; /* Dark text color for contrast */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px 0; /* Margin for spacing */
+    width: 80%; /* Width of the rectangle */
+    max-width: 600px; /* Maximum width of the rectangle */
+    margin-left: auto; /* Center the rectangle horizontally */
+    margin-right: auto; /* Center the rectangle horizontally */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
+}
+
+.warning-box p {
+    margin: 0; /* Remove default margin from the paragraph */
+    font-weight: bold; /* Bold text */
+}
+
+.warning-box a {
+    color: blue; /* Change the color of the link */
+    text-decoration: none; /* Remove the underline */
+    /*font-style: italic; /* Make the text italic */
+    /*font-weight: bold; /* Make the text bold */
+        }
+</style>
+
+Updated: December 10, 2024
+
+<div class="warning-box">
+    <p>
+    NOTE:
+    </p>
+    <p>
+    Due to the deprecation of the
+    <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated" target="_blank">SmartStorageConfig</a> data model and the adoption of the <a href="https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish%C2%AE-device-enablement-standard/" target="_blank">PLDM for RDE</a> standard by HPE iLO and storage
+    device providers, this blog post is deprecated.
+    </p>
+    <p>
+    Refer to the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/#storage-data-models" target="_blank">Storage data models</a> documentation section for
+    up to date information.
+    </p>
+</div>
+
 
 ## Introduction
 
