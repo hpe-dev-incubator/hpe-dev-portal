@@ -71,8 +71,6 @@ In HPE ProLiant and Synergy Gen10 servers, HPE iLO 5 introduced the management o
 
 In this article you start by learning how to cleanup and prepare a SmartRAID (SR) storage Controller for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones.
 
-**NOTE**: The HPE proprietary `SmartStorageConfig` introduced with HPE iLO 5 has been <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated" target="_blank">deprecated</a> in iLO 6 based servers (Gen11) in favor of the standard <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/" target="_blank">DMTF storage model<a>. For backward compatibility, HPE iLO 5 implements both models.
-
 ## Foreword
 
 I've used the <a href="https://www.getpostman.com/" target="_blank">Postman</a> API development to illustrate our examples. This should give you the ability to implement these raw examples using your own preferred language.
