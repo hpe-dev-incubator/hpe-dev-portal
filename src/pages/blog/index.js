@@ -357,31 +357,6 @@ export const pageQuery = graphql`
         id
       }
     }
-    dsccBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          tags: { eq: "data-services-cloud-console" }
-          disable: { ne: true }
-        }
-      }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      totalCount
-    }
-    dsccBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "dscc-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     alletraBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -528,6 +503,50 @@ export const pageQuery = graphql`
     }
     hpeNonstopBlogs: paginatedCollectionPage(
       collection: { name: { eq: "hpe-nonstop-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    hpeOpsRampBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-opsramp" }, disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      totalCount
+    }
+    hpeOpsRampBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "hpe-opsramp-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    hpeMorpheusBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "morpheus" }, disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      totalCount
+    }
+    hpeMorpheusBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "morpheus-posts" } }
       index: { eq: 0 }
     ) {
       nodes

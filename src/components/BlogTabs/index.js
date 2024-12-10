@@ -103,10 +103,6 @@ function BlogTabs({ data, columns }) {
       label: 'iLO RESTful API',
       count: data?.iloBlogsCount?.totalCount || 0,
     },
-    dsccBlogs: {
-      label: 'Data Service Cloud Console',
-      count: data?.dsccBlogsCount?.totalCount || 0,
-    },
     crayBlogs: {
       label: 'HPE Cray Programming Environment',
       count: data?.crayBlogsCount?.totalCount || 0,
@@ -122,6 +118,14 @@ function BlogTabs({ data, columns }) {
     hpeNonstopBlogs: {
       label: 'HPE NonStop',
       count: data?.hpeNonstopBlogsCount?.totalCount || 0,
+    },
+    hpeOpsRampBlogs: {
+      label: 'HPE OpsRamp',
+      count: data?.hpeOpsRampBlogsCount?.totalCount || 0,
+    },
+    hpeMorpheusBlogs: {
+      label: 'HPE Morpheus',
+      count: data?.hpeMorpheusBlogsCount?.totalCount || 0,
     },
   };
 
@@ -419,11 +423,12 @@ BlogTabs.propTypes = {
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
     determinedBlogsCount: PropTypes.objectOf(PropTypes.number),
     smartSimBlogsCount: PropTypes.objectOf(PropTypes.number),
-    dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     crayBlogsCount: PropTypes.objectOf(PropTypes.number),
     swarmBlogsCount: PropTypes.objectOf(PropTypes.number),
     dragonhpcBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
+    hpeOpsRampBlogsCount: PropTypes.objectOf(PropTypes.number),
+    hpeMorpheusBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({
