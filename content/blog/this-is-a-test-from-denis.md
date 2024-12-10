@@ -12,6 +12,10 @@ li {
 }
 </style>
 
+
+
+Test
+
 This is a test from Denis to check the View Preview after submission.
 Update for the blog post.
 Second update of the blog.
@@ -28,13 +32,10 @@ Third update.
 1. Numbered item 1 - test change
 
    ![Test image 1](/img/1-gunna.png "Test image 1")
-
 2. Numbered item 2 - test change item 2
 
    ![Test image M&L ](/img/MunchandLearn.svg "Tets image M&L")
-
 3. Numbered item 3   - test change item 3
-
 4. Numbered Item 4 - test change item 4
 
 ![Test image 2 outside the Item list](/img/2-gunna.png "Test image 2 outside the Item list")
@@ -50,7 +51,6 @@ Third update.
 * Bullet list item 3 - test of suggestion to change bulet list item 3
 
 ![Test image 3 in bullet item list](/img/aaa-seats-hackshack.png "Test image 3 in bullet item list")
-
 
 Testing YouTube image with link:
 
@@ -70,4 +70,3 @@ Testing YouTube image with link:
 <br />
 
 [![Zerto for Kubernetes Overview](https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
-
