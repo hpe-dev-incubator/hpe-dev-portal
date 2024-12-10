@@ -12,6 +12,16 @@ const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
 const setPagination = (queryResult) => {
+  if (
+    !queryResult ||
+    !queryResult.data ||
+    !queryResult.data.paginatedCollection ||
+    !queryResult.data.paginatedCollection.id
+  ) {
+    throw new Error(
+      'Invalid query result: paginatedCollection or id is missing',
+    );
+  }
   const collection = queryResult.data.paginatedCollection;
   const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
   fs.mkdirSync(dir, { recursive: true });
@@ -210,13 +220,13 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('hpe-nonstop-posts'),
   );
 
-  const hpeOpsrampQueryResult = await graphql(
-    paginatedCollectionQuery('hpe-opsramp'),
-  );
+  // const hpeOpsrampQueryResult = await graphql(
+  //   paginatedCollectionQuery('hpe-opsramp'),
+  // );
 
-  const hpeMorpheusQueryResult = await graphql(
-    paginatedCollectionQuery('morpheus'),
-  );
+  // const hpeMorpheusQueryResult = await graphql(
+  //   paginatedCollectionQuery('morpheus'),
+  // );
 
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
@@ -247,8 +257,8 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(swarmQueryResult);
   setPagination(dragonhpcQueryResult);
   setPagination(hpeNonStopQueryResult);
-  setPagination(hpeOpsrampQueryResult);
-  setPagination(hpeMorpheusQueryResult);
+  // setPagination(hpeOpsrampQueryResult);
+  // setPagination(hpeMorpheusQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(`
