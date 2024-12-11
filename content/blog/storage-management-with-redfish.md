@@ -57,8 +57,7 @@ Updated: December 10, 2024
     device providers, this blog post is deprecated.
     </p>
     <p>
-    Refer to the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/#storage-data-models" target="_blank">Storage data models</a> documentation section for
-    up to date information.
+    Refer to the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/#storage-data-models" target="_blank">Storage data models</a> documentation section for up to date information concerning Redfish storage management.
     </p>
 </div>
 
