@@ -1,6 +1,6 @@
 ---
-title: "Get started with the foundational APIs for the HPE GreenLake
-  edge-to-cloud platform – Part 1: Introduction to the APIs"
+title: "Get started with the foundational APIs for the HPE GreenLake platform –
+  Part 1: Introduction to the APIs"
 date: 2024-01-12T15:33:48.384Z
 featuredBlog: false
 priority: 10
@@ -21,7 +21,7 @@ li {
 
 **Editor's note:** This blog post series may refer to older release of the HPE GreenLake platform APIs. For information about the current release of the HPE GreenLake service APIs, please visit the [HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/).  
 
-HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform, provides a set of *common services* that are used by cloud services that run on top of the platform. Cloud services rely on these common services for user's authentication, authorization, devices and subscriptions management, monitoring, audit trail and more. 
+HPE’s unified management plane for hybrid cloud, the HPE GreenLake platform, provides a set of *common services* that are used by cloud services that run on top of the platform. Cloud services rely on these common services for user's authentication, authorization, devices and subscriptions management, monitoring, audit trail and more. 
 
 The HPE GreenLake platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services. 
 
@@ -73,11 +73,11 @@ As an IT administrator, before you can work with the APIs for common HPE GreenLa
 
 1. Create an HPE account and a company workspace for your organization. Ensure you get assigned the ***Workspace Administrator*** role in HPE GreenLake platform for your organization workspace. 
 
-> **Note:** You can refer to the [HPE GreenLake edge-to-cloud platform user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html) to learn how to create an HPE account, a workspace and assign roles.  
+> **Note:** You can refer to the [HPE GreenLake platform user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html) to learn how to create an HPE account, a workspace and assign roles.  
 
 2. Generate personal API client credentials for the *HPE GreenLake platform*. The credentials consist of a *ClientID* and *ClientSecret* pair that represents the permissions granted to the user who creates the personal API client credentials. **Save** the *ClientID* and *ClientSecret* to a safe location. You will need the credentials to generate and refresh an expired OAuth based access token when making REST API calls. Once the token is generated or refreshed, it can be used as an **authorization bearer token** to make further secure REST API calls to the APIs for HPE GreenLake platform common services. 
 
-> **Note:** To make REST API calls to HPE GreenLake platform APIs, you will need to select “**HPE GreenLake platform**” as an option when configuring personal API client credentials. To learn how to create personal API client credentials for HPE GreenLake platform APIs, check out the [Creating a personal API client](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake edge-to-cloud platform user guide.
+> **Note:** To make REST API calls to HPE GreenLake platform APIs, you will need to select “**HPE GreenLake platform**” as an option when configuring personal API client credentials. To learn how to create personal API client credentials for HPE GreenLake platform APIs, check out the [Creating a personal API client](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake platform user guide.
 
 3. Gather the unique identifier of your organization workspace: Go to **Manage Workspace** in the [HPE GreenLake platform Graphical User Interface](https://common.cloud.hpe.com/) to get the identifier of your workspace. **Save** the *workspace identifier*.
 4. Obtain the unique ***identifier*** of your services deployed in your workspace. These services are typically HPE Aruba Networking Central, Data Services, and HPE Compute Ops Management used to manage and operate your networking, storge and compute infrastructure. One method is to use your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as *application_id* in the *Response* tab) for each of your *PROVISIONED* services. Another method is to use the [Service catalog API](https://developer.greenlake.hpe.com/docs/greenlake/services/service-catalog/public/) to list the services that are ***provisioned*** in your workspace. You will need the information about the provisioned services when making REST API calls to the foundational, common services for the HPE GreenLake platform. 
