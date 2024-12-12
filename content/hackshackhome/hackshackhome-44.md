@@ -12,6 +12,6 @@ description: 'December 18, 2024: LL-Mesh is a pioneering initiative by HPE aimed
   agentic Reasoning Engine based on Large Language Models (LLMs).'
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 1
 image: /img/event-meetups-newlogo-400x400.png
 ---
