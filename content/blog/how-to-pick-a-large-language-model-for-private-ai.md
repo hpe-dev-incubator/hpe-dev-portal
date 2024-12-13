@@ -6,7 +6,14 @@ author: Jordan Nanos
 authorimage: /img/headshot-01.jpeg
 disable: false
 ---
-# How to Pick a Large Language Model for Private AI
+
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
 
 *Note: this blog is based on a video and slide deck available [here on YouTube](https://www.youtube.com/watch?v=sNRqJOEKkCw).*
 
