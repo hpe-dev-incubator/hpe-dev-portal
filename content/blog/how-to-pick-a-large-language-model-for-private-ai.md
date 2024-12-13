@@ -5,6 +5,10 @@ priority: -1
 author: Jordan Nanos
 authorimage: /img/headshot-01.jpeg
 disable: false
+tags:
+  - AI
+  - GenAI
+  - LLM
 ---
 
 <style>
