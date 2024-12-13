@@ -46,9 +46,9 @@ Managing such agents typically requires advanced coding and deep knowledge of ag
 
 LLM Agentic Tool Mesh provides all the necessary tools to build a powerful agentic system by handling:
 
-1. Tool repository
-2. Reasoning engine
-3. Multi-agent task force
+1. **Tool repository**
+2. **Reasoning engine**
+3. **Multi-agent task force**
 
 ### Tool repository
 
@@ -93,7 +93,7 @@ if add_result.status == "success":
     print("Tool added successfully.")
 else:
     print(f"ERROR:\n{add_result.error_message}")
-Retrieving tools based on metadata:
+
 # Retrieve tools with a metadata filter
 metadata_filter = {'category': 'NLP'}
 get_result = tool_repository.get_tools(metadata_filter)
@@ -228,14 +228,14 @@ The OpenAPI Manager is a multi-agent tool that reads OpenAPI documentation and p
 
 Capabilities:
 
-* ListOpenApis: Lists all OpenAPI specifications present in the system.
-* SelectOpenApi: Selects a specific OpenAPI specification.
-* GetOpenApiVersion: Returns the OpenAPI version of the selected specification.
-* GetInfo: Returns the information dictionary of the selected specification.
-* GetMethodsByTag: Lists all methods of the selected specification for a specific tag.
-* GetMethodById: Returns detailed information about a method selected by ID.
-* GetRequestBody: Returns the request body schema of the selected specification.
-* GetResponse: Returns the response schema of the selected specification.
+* **ListOpenApis**: Lists all OpenAPI specifications present in the system.
+* **SelectOpenApi**: Selects a specific OpenAPI specification.
+* **GetOpenApiVersion**: Returns the OpenAPI version of the selected specification.
+* **GetInfo**: Returns the information dictionary of the selected specification.
+* **GetMethodsByTag**: Lists all methods of the selected specification for a specific tag.
+* **GetMethodById**: Returns detailed information about a method selected by ID.
+* **GetRequestBody**: Returns the request body schema of the selected specification.
+* **GetResponse**: Returns the response schema of the selected specification.
 
 ![](/img/mesh.png)
 
