@@ -2,7 +2,6 @@
 title: How to Pick a Large Language Model for Private AI
 date: 2024-11-13T16:48:01.096Z
 priority: -1
-externalLink:
 author: Jordan Nanos
 authorimage: /img/headshot-01.jpeg
 disable: false
