@@ -5,6 +5,11 @@ date: 2024-12-12T17:08:46.212Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
+tags:
+  - HPE
+  - GenAI
+  - LAT-Mesh
+  - MultiAgents
 ---
 <style>
 li {
@@ -16,7 +21,7 @@ li {
 
 In our previous blog post, we explored the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/) of [LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/), an [open-source project](https://github.com/HewlettPackard/llmesh) aimed at democratizing Generative AI (Gen AI). 
 
-Today, we'll delve into another core feature: the **Agent Service**. We'll discuss what agents are, explain the LLM Agentic Tool Mesh related services, and showcase examples from the LLM Agentic Tool Mesh repository. 
+Today, we'll delve into another core feature: the **Agent Service**. We'll discuss what agents are, explain the LLM Agentic Tool Mesh related services, and showcase examples from its repository. 
 
 ## Understanding LLM agents
 
@@ -44,8 +49,6 @@ LLM Agentic Tool Mesh provides all the necessary tools to build a powerful agent
 1. Tool repository
 2. Reasoning engine
 3. Multi-agent task force
-
-Let's explore each of these components in detail.
 
 ### Tool repository
 
@@ -111,8 +114,6 @@ Key Features:
 * **Memory management**: Handles storage and retrieval of relevant memory for ongoing tasks or conversations.
 * **Dynamic configuration**: Allows users to adjust the Reasoning Engine's behavior dynamically, tailoring interactions between LLMs and tools.
 
-Architecture Overview:
-
 ![](/img/reasoning.png)
 
 ### Task force
@@ -127,42 +128,51 @@ Key Features:
 * **Tool integration**: Agents utilize a suite of tools to complete their tasks, dynamically loaded and executed during task completion.
 
 Example Usage:
+
 ```python
 from athon.agents import TaskForce
+from custom_tools import DataFetcher, SalesSummarizer, PresentationBuilder
 
-# Configuration for the Task Force Multi-Agents
+# Example configuration for the Task Force Multi-Agents
 TASK_FORCE_CONFIG = {
     'type': 'CrewAIMultiAgent',
     'plan_type': 'Sequential',
-    'tasks': \[
+    'tasks': [
         {
-            'description': 'Perform research to gather information for a blog post on {request}.',
-            'expected_output': 'A summary of key insights related to the topic.',
+            'description': 'Analyze the recent sales data.',
+            'expected_output': 'A summary report of sales trends.',
             'agent': {
-                'role': 'Research Agent',
-                'goal': 'Gather relevant information for the blog post',
-                'backstory': 'Expert in researching and summarizing information',
-                'tools': []
+                'role': 'Data Analyst',
+                'goal': 'Summarize sales data',
+                'backstory': 'Experienced in sales data analysis',
+                'tools': ['DataFetcher', 'SalesSummarizer']
             }
         },
-        # Additional tasks...
+        {
+            'description': 'Prepare a presentation based on the report.',
+            'expected_output': 'A presentation deck summarizing the sales report.',
+            'agent': {
+                'role': 'Presentation Specialist',
+                'goal': 'Create a presentation',
+                'backstory': 'Expert in creating engaging presentations',
+                'tools': ['PresentationBuilder']
+            }
+        }
     ],
     'llm': {
         'type': 'LangChainChatOpenAI',
-        'api_key': 'your-api-key',
-        'model_name': 'openai/gpt-4',
-        'base_url': 'your-base-url'
+        'api_key': 'your-api-key-here',
+        'model_name': 'gpt-4o-mini'
     },
     'verbose': True,
     'memory': False
 }
 
-# Initialize the Task Force
+# Initialize the Task Force with the provided configuration
 task_force = TaskForce.create(TASK_FORCE_CONFIG)
-Running the task force with an input message:
 
 # Run the task force with an input message
-input_message = "Write a blog post about the importance of renewable energy."
+input_message = "Generate a sales analysis report and prepare a presentation."
 result = task_force.run(input_message)
 
 # Handle the response
@@ -174,19 +184,15 @@ else:
 
 ## LLM Agentic Tool Mesh in Action: Examples from the Repository
 
-
 The LLM Agentic Tool Mesh GitHub repository includes several examples demonstrating the versatility and capabilities of the agent services.
-
 
 ### Chatbot application (examples/app_chatbot)
 
 This chatbot is capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
 
-
 Configuration Example:
 
 ```yaml
-
 projects:
   - name: "Personal Chat"
     memory:
@@ -216,15 +222,11 @@ projects:
       - "https://127.0.0.1:5004/"     # Temperature Analyzer
 ```
 
-
 ### OpenAPI manager (examples/tool_agents)
-
 
 The OpenAPI Manager is a multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries. It uses the Task Force service to answer questions related to 5G APIs.
 
-
 Capabilities:
-
 
 * ListOpenApis: Lists all OpenAPI specifications present in the system.
 * SelectOpenApi: Selects a specific OpenAPI specification.
@@ -235,13 +237,10 @@ Capabilities:
 * GetRequestBody: Returns the request body schema of the selected specification.
 * GetResponse: Returns the response schema of the selected specification.
 
+![](/img/mesh.png)
 
+## Conclusion
 
-Conclusion
-
-
-The LLM Agentic Tool Mesh Agent Services exemplify how advanced design principles and innovative prompt engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
-
+The **LLM Agentic Tool Mesh Agent Service** exemplifies how advanced design principles and innovative prompt engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
 
 Stay tuned for our next post, where we'll explore another key service of LLM Agentic Tool Mesh and continue our journey to democratize Gen AI!
-
