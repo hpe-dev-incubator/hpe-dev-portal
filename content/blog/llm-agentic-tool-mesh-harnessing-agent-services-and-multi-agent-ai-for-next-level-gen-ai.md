@@ -29,7 +29,7 @@ In the context of Large Language Models (LLMs), an agent is an autonomous entity
 These agents can operate independently or interact with one another to optimize their collective performance, depending on the complexity of the task.
 In fact, multi-agent AI involves coordinating multiple agents, each specialized in a specific domain or function, to collaborate and achieve a common goal. These agents handle:
 
-* **Task Division**: Dividing complex tasks into manageable parts.
+* **Task division**: Dividing complex tasks into manageable parts.
 * **Specialization**: Each agent specializes in a particular function, such as information retrieval or decision-making.
 * **Collaboration**: Agents communicate and share information for effective and efficient task execution.
 
@@ -115,19 +115,22 @@ Architecture Overview:
 
 ![](/img/reasoning.png)
 
-### Task force multi-agents
+### Task force
 
-The Task Force Multi-Agents service enables the orchestration of complex tasks through a network of specialized agents. This service allows users to define a structured workflow where each agent is assigned a specific task, executed in sequence or parallel.
+The **multi-agents task force** service enables the orchestration of complex tasks through a network of specialized agents. This service allows users to define a structured workflow where each agent is assigned a specific task, executed in sequence or parallel.
+
 Key Features:
-•	LLM-Driven Planning: Integrates with an LLM to plan task sequences, ensuring intelligent coordination.
-•	Agent Specialization: Each agent specializes in a particular task, tailored through prompts defining their role, backstory, and goals.
-•	Task-Oriented Workflow: Supports both sequential and parallel task execution, configurable through prompts and configuration files.
-•	Tool Integration: Agents utilize a suite of tools to complete their tasks, dynamically loaded and executed during task completion.
+
+* **LLM-driven planning**: Integrates with an LLM to plan task sequences, ensuring intelligent coordination.
+* **Agent specialization**: Each agent specializes in a particular task, tailored through prompts defining their role, backstory, and goals.
+* **Task-oriented workflow**: Supports both sequential and parallel task execution, configurable through prompts and configuration files.
+* **Tool integration**: Agents utilize a suite of tools to complete their tasks, dynamically loaded and executed during task completion.
+
 Example Usage:
+```python
 from athon.agents import TaskForce
 
 # Configuration for the Task Force Multi-Agents
-
 TASK_FORCE_CONFIG = {
     'type': 'CrewAIMultiAgent',
     'plan_type': 'Sequential',
@@ -155,18 +158,90 @@ TASK_FORCE_CONFIG = {
 }
 
 # Initialize the Task Force
-
 task_force = TaskForce.create(TASK_FORCE_CONFIG)
 Running the task force with an input message:
 
 # Run the task force with an input message
-
 input_message = "Write a blog post about the importance of renewable energy."
 result = task_force.run(input_message)
 
 # Handle the response
-
 if result.status == "success":
     print(f"COMPLETION:\n{result.completion}")
 else:
     print(f"ERROR:\n{result.error_message}")
+```
+
+## LLM Agentic Tool Mesh in Action: Examples from the Repository
+
+
+The LLM Agentic Tool Mesh GitHub repository includes several examples demonstrating the versatility and capabilities of the agent services.
+
+
+### Chatbot application (examples/app_chatbot)
+
+This chatbot is capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
+
+
+Configuration Example:
+
+```yaml
+
+projects:
+  - name: "Personal Chat"
+    memory:
+      type: LangChainBuffer
+      memory_key: chat_history
+      return_messages: true
+    tools:
+      - "https://127.0.0.1:5002/"     # Basic Copywriter
+  - name: "Project 5G Network"
+    memory:
+      type: LangChainRemote
+      memory_key: chat_history
+      return_messages: true
+      base_url: "https://127.0.0.1:5010/"
+      timeout: 100
+      cert_verify: false
+    tools:
+      - "https://127.0.0.1:5005/"     # OpenAPI Manager
+      - "https://127.0.0.1:5006/"     # IMS Expert
+  - name: "Project Meteo"
+    memory:
+      type: LangChainBuffer
+      memory_key: chat_history
+      return_messages: true
+    tools:
+      - "https://127.0.0.1:5003/"     # Temperature Finder
+      - "https://127.0.0.1:5004/"     # Temperature Analyzer
+```
+
+
+### OpenAPI manager (examples/tool_agents)
+
+
+The OpenAPI Manager is a multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries. It uses the Task Force service to answer questions related to 5G APIs.
+
+
+Capabilities:
+
+
+* ListOpenApis: Lists all OpenAPI specifications present in the system.
+* SelectOpenApi: Selects a specific OpenAPI specification.
+* GetOpenApiVersion: Returns the OpenAPI version of the selected specification.
+* GetInfo: Returns the information dictionary of the selected specification.
+* GetMethodsByTag: Lists all methods of the selected specification for a specific tag.
+* GetMethodById: Returns detailed information about a method selected by ID.
+* GetRequestBody: Returns the request body schema of the selected specification.
+* GetResponse: Returns the response schema of the selected specification.
+
+
+
+Conclusion
+
+
+The LLM Agentic Tool Mesh Agent Services exemplify how advanced design principles and innovative prompt engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
+
+
+Stay tuned for our next post, where we'll explore another key service of LLM Agentic Tool Mesh and continue our journey to democratize Gen AI!
+
