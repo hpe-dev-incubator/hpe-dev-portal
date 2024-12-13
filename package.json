@@ -95,7 +95,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "validate": "yarn format && yarn eslint ./"
+    "validate": "yarn format && yarn eslint ./",
+    "clean": "gatsby clean"
   },
   "husky": {
     "hooks": {

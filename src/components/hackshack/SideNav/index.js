@@ -125,7 +125,7 @@ const SideNav = ({ data }) => {
       </NavButton> */}
       <NavButton
         active={location.pathname === '/hackshack/replays/:replayId'}
-        to="/hackshack/replays/0"
+        to="/hackshack/replays/1"
       >
         REPLAYS
       </NavButton>

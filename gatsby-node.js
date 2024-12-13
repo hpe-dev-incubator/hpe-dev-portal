@@ -81,54 +81,53 @@ exports.createPages = async ({ graphql, actions }) => {
     console.log('error: ', error);
   }
 
-  try {
-    // eslint-disable-next-line max-len
-    const replaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-    const getReplays = await axios({
+   try {
+    const workshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+    const getWorkshops = await axios({
       method: 'GET',
-      url: replaysApi,
+      url: workshopsApi,
     });
-
-    getReplays.data.forEach(({ id, title, desc, workshop }) => {
+    console.log('API response:', getWorkshops.data);
+    getWorkshops.data.forEach(({ id, name, description, workshopImg, badgeImg }) => {
       createPage({
         path: `/hackshack/replays/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
+          workshopTitle: name,
+          workshopDesc: description,
+          workshopImg: workshopImg,
         },
       });
-
+  
       // console.log(`Create pages /hackshack/replays/${id} from ${id}`);
       // console.log('------------------------------');
-
+      console.log(`Creating page for workshop ID: ${id}`);
       createPage({
         path: `/hackshack/workshop/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
+          workshopTitle: name,
+          workshopDesc: description,
+          workshopImg: workshopImg,
         },
       });
-
+  
       // console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
       // console.log('------------------------------');
-
+  
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.badgeImg,
+          workshopTitle: name,
+          workshopDesc: description,
+          workshopImg: badgeImg,
         },
       });
-
+  
       // console.log(
       //   `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
       // );

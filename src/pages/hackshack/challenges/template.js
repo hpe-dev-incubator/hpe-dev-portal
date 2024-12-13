@@ -10,7 +10,7 @@ import { SEO } from '../../../components';
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
-    avatar={workshop.replay && workshop.replay.avatar}
+    avatar={workshop.avatar}
     desc={
       workshop.sessionType === 'Workshops-on-Demand'
         ? `${workshop.description.slice(0, 520)}`
@@ -19,8 +19,8 @@ const renderScheduleCard = (workshop, i) => (
     id={workshop.sessionId}
     key={i}
     DBid={workshop.id}
-    presenter={workshop.replay && workshop.replay.presenter}
-    role={workshop.replay && workshop.replay.role}
+    presenter={workshop.presenter}
+    role={workshop.role}
     sessionLink={workshop.replayLink}
     sessionType={workshop.sessionType}
     title={workshop.name}

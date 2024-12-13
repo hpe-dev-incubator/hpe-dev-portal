@@ -14,34 +14,34 @@ import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
 import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 
-const sortReplays = (replayData, current) => {
-  const beggining = [];
+const sortWorkshops = (workshopDetailsData, current) => {
+  const beginning = [];
   const end = [];
 
-  replayData.map((replay) => {
-    if (current > replay.id) {
-      end.push(replay);
+  workshopDetailsData.map((workshopDetails) => {
+    if (current > workshopDetails.id) {
+      end.push(workshopDetails);
     } else {
-      beggining.push(replay);
+      beginning.push(workshopDetails);
     }
-    return replay;
+    return workshopDetails;
   });
-  return beggining.concat(end);
+  return beginning.concat(end);
 };
 
 const ReplayTemplate = (props) => {
-  const getReplaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-  const [replays, setReplays] = useState([]);
+  const getWorkshopDetailsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+  const [workshopDetails, setWorkshopDetails] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const getReplays = () => {
+    const getWorkshops = () => {
       axios({
         method: 'GET',
-        url: getReplaysApi,
+        url: getWorkshopDetailsApi,
       })
         .then((response) => {
-          setReplays(response.data);
+          setWorkshopDetails(response.data);
         })
         .catch(() => {
           setError(
@@ -53,7 +53,7 @@ const ReplayTemplate = (props) => {
     const getToken = () => {
       AuthService.login().then(
         () => {
-          getReplays(AuthService.getCurrentUser().accessToken);
+          getWorkshops(AuthService.getCurrentUser().accessToken);
         },
         () => {
           setError(
@@ -64,7 +64,7 @@ const ReplayTemplate = (props) => {
     };
     getToken();
     // eslint-disable-next-line
-  }, [error, getReplaysApi]);
+  }, [error, getWorkshopDetailsApi]);
   const { workshopId, workshopTitle, workshopDesc, workshopImg } =
     props.pageContext;
   const workshopIndex = workshopId
@@ -72,8 +72,8 @@ const ReplayTemplate = (props) => {
     : 0;
   const [current, setCurrent] = useState(workshopIndex);
   const [autoplay, setAutoPlay] = useState(false);
-  const sortedReplays = sortReplays(replays, current);
-  const selectedReplay = replays.find(({ id }) => id === current);
+  const sortedWorkshops = sortWorkshops(workshopDetails, current);
+  const selectedWorkshop = workshopDetails.find(({ id }) => id === current);
 
   return (
     <GrommetThemeWrapper>
@@ -85,41 +85,28 @@ const ReplayTemplate = (props) => {
               description={workshopDesc}
               image={workshopImg}
             />
-            {selectedReplay ? (
+            {selectedWorkshop ? (
               <>
                 <Video
-                  videolink={selectedReplay.videoLink}
-                  id={selectedReplay.id}
-                  avatar={selectedReplay.avatar}
-                  desc={selectedReplay.desc}
-                  key={selectedReplay.title}
-                  presenter={selectedReplay.presenter}
-                  role={selectedReplay.role}
-                  title={selectedReplay.title}
+                  videolink={selectedWorkshop.videoLink}
+                  id={selectedWorkshop.id}
+                  avatar={selectedWorkshop.avatar}
+                  desc={selectedWorkshop.description}
+                  key={selectedWorkshop.name}
+                  presenter={selectedWorkshop.presenter}
+                  role={selectedWorkshop.role}
+                  title={selectedWorkshop.name}
                   setCurrent={setCurrent}
                   current={current}
-                  replaysLength={replays.length}
+                  replaysLength={workshopDetails.length}
                   autoplay={autoplay}
-                  notebook={
-                    selectedReplay.workshop && selectedReplay.workshop.notebook
-                  }
-                  sessionType={
-                    selectedReplay.workshop &&
-                    selectedReplay.workshop.sessionType
-                  }
-                  location={
-                    selectedReplay.workshop && selectedReplay.workshop.location
-                  }
-                  capacity={
-                    selectedReplay.workshop && selectedReplay.workshop.capacity
-                  }
-                  workshopTitle={
-                    selectedReplay.workshop && selectedReplay.workshop.name
-                  }
+                  notebook={selectedWorkshop.notebook}
+                  sessionType={selectedWorkshop.sessionType}
+                  location={selectedWorkshop.location}
+                  capacity={selectedWorkshop.capacity}
+                  workshopTitle={selectedWorkshop.name}
                   workshopId={workshopId}
-                  workshopDuration={
-                    selectedReplay.workshop && selectedReplay.workshop.duration
-                  }
+                  workshopDuration={selectedWorkshop.duration}
                 />
                 <Heading color="text" style={{ fontWeight: '500' }} level={2}>
                   UP NEXT
@@ -149,14 +136,14 @@ const ReplayTemplate = (props) => {
                 )}
               </Box>
             )}
-            {sortedReplays.map(
-              ({ desc, presenter, role, title, videoLink, id }) =>
+            {sortedWorkshops.map(
+              ({ description, presenter, role, name, videoLink, id }) =>
                 id !== current && (
                   <VideoList
-                    key={title}
+                    key={name}
                     id={id}
-                    desc={`${desc.slice(0, 150)}...`}
-                    title={title}
+                    desc={`${description.slice(0, 150)}...`}
+                    title={name}
                     presenter={presenter}
                     videoLink={videoLink}
                     role={role}
