@@ -1,6 +1,7 @@
 ---
 title: "From Log Files to AI Insights: The 60-Year Evolution of Observability
   and AIOps"
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/munch-and-learn/
 imageBackground: white
