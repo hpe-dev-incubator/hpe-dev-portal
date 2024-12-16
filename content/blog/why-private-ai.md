@@ -9,6 +9,14 @@ tags:
   - GenAI
   - LLM
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 Everybody’s getting into AI. The visceral experience of using ChatGPT in professional or personal lives raises lots of questions. Questions about the future of work, creativity, civilization’s lifespan…
 
 One big question that comes up is about **control**. How can an organization or individual maintain a certain amount of control over their experience when using AI?
