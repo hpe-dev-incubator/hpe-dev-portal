@@ -26,7 +26,7 @@ With Swagger, developers can interactively explore and test the APIs, making it 
 
 Unlock the full potential of your disaster recovery strategy with Zerto’s REST Swagger APIs today!
 
-For more information and to access the Zerto REST Swagger APIs, visit the [Zerto API Documentation](https://www.zerto.com/myzerto/apis/).
+For more information and to access the Zerto REST Swagger APIs, visit the [Zerto API Documentation](https://help.zerto.com/category/ZVM_REST_API_Swagger).
 
 ### Unlock powerful insights with Zerto Resiliency Observation Console
 
