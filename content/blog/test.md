@@ -79,7 +79,7 @@ thead tr:first-child td {
 
 
  
-<iframe src=https://players.brightcove.net/1160438707001/V1YFSRkoe_default/index.html?videoId=ref:v100004910 allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+<iframe src=https://players.brightcove.net/1160438707001/V1YFSRkoe_default/index.html?videoId=ref:v100004910 allowfullscreen webkitallowfullscreen mozallowfullscreen  width="960" height="540"></iframe>
 
 <iframe src=https://players.brightcove.net/1160438707001/IgBbIFicRj_default/index.html?videoId=6351749255112
   allowfullscreen=""
