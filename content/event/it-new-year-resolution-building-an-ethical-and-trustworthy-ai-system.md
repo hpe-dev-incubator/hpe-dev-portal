@@ -3,7 +3,7 @@ title: "IT New Year’s resolution: Build an ethical and trustworthy AI system"
 dateStart: 2025-01-21T23:01:11.329Z
 dateEnd: 2025-01-22T22:30:11.342Z
 category: Virtual Event
-image: /img/ai-jam-series.jpg
+image: /img/ai-jam-400.jpg
 link: https://developer.hpe.com/campaign/get-real-with-ai-%E2%80%93-jam-series/
 width: large
 ---
