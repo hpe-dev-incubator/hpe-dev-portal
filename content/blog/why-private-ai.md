@@ -51,8 +51,7 @@ Beyond reputational risk, regulations like HIPAA and PCI forces counterparties i
 
 The final example of losing control of your data is when some engineer goes and uploads a document describing trade secrets, debugs some code with a proprietary algorithm inside, or signs a waiver to download a confidential document, forgets about the waiver, and then uploads it to get a quick summary. Looking at you [Samsung](https://www.bloomberg.com/news/articles/2023-05-02/samsung-bans-chatgpt-and-other-generative-ai-use-by-staff-after-leak)…
 
-## \
-2. Model Performance
+## 2. Model Performance
 
 I referred to this [in a previous blog](https://developer.hpe.com/blog/how-to-pick-a-large-language-model-for-private-ai/): there are two ways to measure model performance: the **speed** of the output, and the **quality** of the output.
 
