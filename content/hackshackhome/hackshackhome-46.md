@@ -1,15 +1,15 @@
 ---
-title: "From Log Files to AI Insights: The 60-Year Evolution of Observability
+title: "From log files to AI insights: The 60-year evolution of observability
   and AIOps"
 active: true
 fit: contain
 path: https://developer.hpe.com/campaign/munch-and-learn/
 imageBackground: white
 description: "January 15, 2025: In an era where systems are increasingly complex
-  and interconnected, the ability to monitor, understand, and optimize has
-  evolved dramatically. This session takes you on a 60-year journey through the
-  evolution of observability and the rise of Artificial Intelligence for IT
-  Operations (AIOps)."
+  and interconnected, the ability to monitor, understand, and optimize your IT
+  landscape has evolved dramatically. This session takes you on a 60-year
+  journey through the evolution of observability and the rise of Artificial
+  Intelligence for IT Operations (AIOps)."
 background: background
 label: Register Now!
 priority: 2
