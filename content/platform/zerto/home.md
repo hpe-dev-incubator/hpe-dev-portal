@@ -14,11 +14,11 @@ Learn more about [Zerto](https://www.hpe.com/us/en/zerto.html)
 
 ## Welcome to the Zerto Hacker Hub!
 
-Here you will be provided the tools to get started in deploying and managing Zerto’s CDP that leverages its proprietary near-synchronous replication capabilities to protect and restore virtual machines and public cloud instances. Zerto offers an extensive REST API with Swagger support, for users to programmatically create and manage end-to-end disaster recovery workflows.  
+On this page, will be provided the tools to help you get started in deploying and managing Zerto’s CDP, which leverages its proprietary near-synchronous replication capabilities to protect and restore virtual machines and public cloud instances. Zerto offers an extensive REST API with Swagger support that enables users to programmatically create and manage end-to-end disaster recovery workflows.  
 
 Get started by diving into [our GitHub page](https://github.com/ZertoPublic) or check out the documentation at <https://help.zerto.com>
 
-### Simplify Automation with Zerto’s REST Swagger APIs
+### Simplify automation with Zerto’s REST Swagger APIs
 
 Zerto’s REST Swagger APIs offer a powerful and user-friendly way to automate and integrate Zerto into your existing IT workflows. These APIs provide a comprehensive set of endpoints that allow you to programmatically manage, monitor, and control your Zerto environment with ease. Whether you are looking to automate routine tasks, integrate with third-party tools, or develop custom applications, Zerto’s REST APIs make it straightforward and efficient.
 
@@ -28,9 +28,7 @@ Unlock the full potential of your disaster recovery strategy with Zerto’s REST
 
 For more information and to access the Zerto REST Swagger APIs, visit the [Zerto API Documentation](https://www.zerto.com/myzerto/apis/).
 
-
-
-### Unlock Powerful Insights with Zerto Resiliency Observation Console
+### Unlock powerful insights with Zerto Resiliency Observation Console
 
 Meet the Zerto Resiliency Observation Console (zROC) – a dynamic, Docker-compose based software stack designed to transform your Zerto API data into rich, visual insights using Prometheus and Grafana. This innovative tool empowers you to monitor and analyze your data effortlessly.
 
@@ -40,11 +38,9 @@ While zROC comes with pre-built dashboards to get you started, we encourage you 
 
 Explore the Zerto Resiliency Observation Console today on our [GitHub page](https://github.com/ZertoPublic/zroc).
 
+### Zerto In-Cloud for AWS
 
-
-### Zerto In Cloud for AWS
-
-Zerto In-Cloud for AWS is disaster recovery for EC2 Instances between regions and availability zones. Zerto In-Cloud for AWS blends the familiar Zerto approach to disaster recovery for workloads with the AWS native platform capabilities and services. Zerto In-Cloud for AWS features virtual protection groups, non-disruptive to production failover testing to isolated environments, and disaster recovery failover orchestration. 
+Zerto In-Cloud for AWS is disaster recovery for EC2 instances between regions and availability zones. Zerto In-Cloud for AWS blends the familiar Zerto approach to disaster recovery for workloads with the AWS native platform capabilities and services. Zerto In-Cloud for AWS features virtual protection groups, non-disruptive to production failover testing to isolated environments, and disaster recovery failover orchestration. 
 
 Zerto In-Cloud for AWS supports 1000+ instance types and is 100% API-first developed to enable automation tools integration. 
 
@@ -62,7 +58,7 @@ Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.co
 
 - - -
 
-## Any questions on Zerto?
+## Any questions about Zerto?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#zerto](https://hpedev.slack.com/archives/C03J3EGDDM0) channel.
 
