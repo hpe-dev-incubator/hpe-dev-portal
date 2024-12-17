@@ -10,7 +10,7 @@ description: "January 15, 2025: In an era where systems are increasingly complex
   landscape has evolved dramatically. This session takes you on a 60-year
   journey through the evolution of observability and the rise of Artificial
   Intelligence for IT Operations (AIOps)."
-background: background
+background: rgba(0, 86, 122, 0.8);
 label: Register Now!
 priority: 2
 image: /img/event-munch-and-learn-newlogo400x400.png
