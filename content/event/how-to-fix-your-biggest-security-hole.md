@@ -4,7 +4,7 @@ dateStart: 2024-11-19T23:01:07.135Z
 dateEnd: 2024-11-20T22:30:07.153Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://www.youtube.com/watch?v=mgla3ovDlXA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## How to fix your biggest security hole
