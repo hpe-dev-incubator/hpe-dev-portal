@@ -5,7 +5,7 @@ dateStart: 2025-01-28T23:01:04.904Z
 dateEnd: 2025-01-29T22:30:04.922Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://hpe.zoom.us/webinar/register/2717344512161/WN_nduyJIN1R_mMaEoTMIawMg
 width: large
 ---
 ## Unleashing AI Innovation: A deep dive into the HPE Private Cloud AI Software Stack
