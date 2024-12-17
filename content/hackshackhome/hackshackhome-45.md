@@ -2,7 +2,7 @@
 title: A deep dive into the HPE Private Cloud AI Software Stack
 active: true
 fit: contain
-path: https://developer.hpe.com/campaign/meetups/
+path: https://hpe.zoom.us/webinar/register/2717344512161/WN_nduyJIN1R_mMaEoTMIawMg
 imageBackground: white
 description: "January 29, 2025: Join us for an in-depth exploration of the
   cutting-edge AI software stack powering the HPE Private Cloud AI (PCAI).
