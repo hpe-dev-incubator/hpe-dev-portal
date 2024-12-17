@@ -5,7 +5,7 @@ dateStart: 2025-01-14T23:01:54.712Z
 dateEnd: 2025-01-15T22:30:54.729Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://hpe.zoom.us/webinar/register/7417344497263/WN_436X_watTMCFNFdTDyGUAA
 width: large
 ---
 ## From log files to AI insights: The 60-year evolution of observability and AIOps
