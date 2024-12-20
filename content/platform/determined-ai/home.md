@@ -32,10 +32,6 @@ Since the open-source project launched in 2020, and as a result of its focus on 
 
 Call-to-action: [Get Started With Determined](https://docs.determined.ai/latest/#get-started-locally)
 
-By investing in Determined AI’s open-source project, HPE is furthering its mission in making AI heterogeneous and empowering ML engineers to build AI models at a greater scale. HPE Machine Learning Development Environment builds upon Determined's world-class capabilities to support training at enterprise-scale. In addition to premium support, it includes additional features such as advanced security and tools for monitoring and observability.
-
-Call-to-action: [Get Started With HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html)
-
 # Projects
 
 ### [Determined ![](Github)](https://github.com/determined-ai/determined)
@@ -48,7 +44,7 @@ Determined is an open-source deep learning training platform that makes building
 
 ## Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. Getting started with Determined AI workshop is available today.
+Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
