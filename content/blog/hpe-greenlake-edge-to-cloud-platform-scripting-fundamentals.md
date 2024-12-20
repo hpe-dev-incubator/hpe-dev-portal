@@ -1,5 +1,5 @@
 ---
-title: HPE GreenLake edge-to-cloud platform scripting fundamentals
+title: HPE GreenLake cloud scripting fundamentals
 date: 2024-01-24T09:51:57.270Z
 featuredBlog: false
 priority: 15
@@ -111,13 +111,13 @@ The response provides an access token of type “Bearer” with a time to live o
 According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:
 
 ```markdown
-GET /audit-log/v1beta1/logs
+GET /audit-log/v1/logs
 ```
 
 I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following parameter: 
 
 ```markdown
-GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
+GET /audit-log/v1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
 ```
 
 > > *Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)* 
@@ -235,7 +235,7 @@ do 
 I can now call the API with the right authorization header and set the filter parameter, **startTime** greater than the computed date: 
 
 ```shell
-http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$d'" \ 
+http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'$d'" \ 
 --header 'Accept: application/json' \ 
 --header "Authorization: $access_token")
 ```
@@ -371,7 +371,7 @@ Here, you’ll see that I can leverage exceptions that PowerShell supports: 
 
 ```powershell
     try { 
-        $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
+        $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
     } 
     catch { 
         write-host "Error calling the API or token has expired!" 
@@ -498,7 +498,7 @@ my_headers = { 
         'accept': 'application/json', 
         'Authorization': my_token, 
     } 
-    my_url = "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'" + date + "'" 
+    my_url = "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'" + date + "'" 
 
 # Fetch audit logs since last minute 
     response = requests.get(url=my_url, headers=my_headers) 
