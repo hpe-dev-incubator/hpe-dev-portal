@@ -222,9 +222,9 @@ projects:
       - "https://127.0.0.1:5004/"     # Temperature Analyzer
 ```
 
-### OpenAPI manager (examples/tool_agents)
+### OpenAPI manager 
 
-The OpenAPI Manager is a multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries. It uses the Task Force service to answer questions related to 5G APIs.
+The OpenAPI manager (examples/tool_agents) is a multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries. It uses the Task Force service to answer questions related to 5G APIs.
 
 Capabilities:
 
