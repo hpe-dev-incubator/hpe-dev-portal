@@ -10,7 +10,7 @@ description: HPE Machine Learning Development Environment helps developers train
 image: /img/platforms/hpe-element.png
 width: large
 priority: 4
-active: true
+active: false
 tags:
   - hpe-machine-learning-development-environment
 ---
