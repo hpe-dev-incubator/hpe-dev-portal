@@ -19,9 +19,9 @@ li {
 }
 </style>
 
-In our previous blog post, we explored the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/) of [LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/), an [open-source project](https://github.com/HewlettPackard/llmesh) aimed at democratizing Generative AI (Gen AI). 
+In my previous blog post, I explored the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/) of [LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/), an [open-source project](https://github.com/HewlettPackard/llmesh) aimed at democratizing Generative AI (Gen AI). 
 
-Today, we'll delve into another core feature: the **Agent Service**. We'll discuss what agents are, explain the LLM Agentic Tool Mesh related services, and showcase examples from its repository. 
+Today, I'll delve into another core feature: the **Agent Service**. I'll discuss what agents are, explain the LLM Agentic Tool Mesh related services, and showcase examples from its repository. 
 
 ## Understanding LLM agents
 
@@ -31,7 +31,7 @@ In the context of Large Language Models (LLMs), an agent is an autonomous entity
 * **Making decisions**: Based on the perceived information, agents decide on the best course of action.
 * **Acting on decisions**: Agents execute actions to achieve specific objectives.
 
-These agents can operate independently or interact with one another to optimize their collective performance, depending on the complexity of the task.
+These agents can operate independently or interact with one another to optimize their collective performance depending on the complexity of the task.
 In fact, multi-agent AI involves coordinating multiple agents, each specialized in a specific domain or function, to collaborate and achieve a common goal. These agents handle:
 
 * **Task division**: Dividing complex tasks into manageable parts.
@@ -46,21 +46,21 @@ Managing such agents typically requires advanced coding and deep knowledge of ag
 
 LLM Agentic Tool Mesh provides all the necessary tools to build a powerful agentic system by handling:
 
-1. **Tool repository**
-2. **Reasoning engine**
-3. **Multi-agent task force**
+1. The **tool repository**
+2. The **reasoning engine**
+3. A **multi-agent task force**
 
 ### Tool repository
 
 Agents in LLM Agentic Tool Mesh rely on tools to perform specialized tasks like information retrieval, document summarization, or data analysis. These tools extend the agents' capabilities, allowing them to efficiently complete complex operations. The **tool repository** service in LLM Agentic Tool Mesh simplifies and automates the storage, management, and retrieval of these tools.
 
-Key Features:
+Key features:
 
 * **Dynamic tool storage**: Add tools with associated metadata, including tool name, description, function, and usage parameters.
 * **Tool retrieval**: Flexible search and retrieval functionality, enabling agents to access tools based on specific criteria.
 * **Metadata management**: Store relevant metadata for each tool, aiding in decision-making for task assignments.
 
-Example Usage:
+Example usage:
 
 ```python
 from athon.agents import ToolRepository
@@ -108,11 +108,11 @@ else:
 
 The **reasoning engine** orchestrates interactions between the LLM and various tools, enabling agents to seamlessly combine decision-making capabilities with tool-based actions. It extends the chat capabilities by managing the dynamic integration of tools with the LLM, allowing for real-time decision-making and task execution.
 
-Key Features:
+Key features:
 
 * **Tool orchestration**: Coordinates between the LLM and tools, deciding which tools to invoke based on context and user input.
 * **Memory management**: Handles storage and retrieval of relevant memory for ongoing tasks or conversations.
-* **Dynamic configuration**: Allows users to adjust the Reasoning Engine's behavior dynamically, tailoring interactions between LLMs and tools.
+* **Dynamic configuration**: Allows users to adjust the reasoning engine's behavior dynamically, tailoring interactions between LLMs and tools.
 
 ![](/img/reasoning.png)
 
@@ -120,14 +120,14 @@ Key Features:
 
 The **multi-agents task force** service enables the orchestration of complex tasks through a network of specialized agents. This service allows users to define a structured workflow where each agent is assigned a specific task, executed in sequence or parallel.
 
-Key Features:
+Key features:
 
 * **LLM-driven planning**: Integrates with an LLM to plan task sequences, ensuring intelligent coordination.
 * **Agent specialization**: Each agent specializes in a particular task, tailored through prompts defining their role, backstory, and goals.
 * **Task-oriented workflow**: Supports both sequential and parallel task execution, configurable through prompts and configuration files.
 * **Tool integration**: Agents utilize a suite of tools to complete their tasks, dynamically loaded and executed during task completion.
 
-Example Usage:
+Example usage:
 
 ```python
 from athon.agents import TaskForce
@@ -182,15 +182,15 @@ else:
     print(f"ERROR:\n{result.error_message}")
 ```
 
-## LLM Agentic Tool Mesh in Action: Examples from the Repository
+## LLM Agentic Tool Mesh in action: Examples from the repository
 
 The LLM Agentic Tool Mesh GitHub repository includes several examples demonstrating the versatility and capabilities of the agent services.
 
-### Chatbot application (examples/app_chatbot)
+### Chatbot application 
 
-This chatbot is capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
+This chatbot (examples/app_chatbot) is capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
 
-Configuration Example:
+Configuration example:
 
 ```yaml
 projects:
