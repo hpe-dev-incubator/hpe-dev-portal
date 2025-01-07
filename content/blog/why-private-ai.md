@@ -17,25 +17,25 @@ li {
 }
 </style>
 
-Everybody’s getting into AI. The visceral experience of using ChatGPT in professional or personal lives raises lots of questions. Questions about the future of work, creativity, civilization’s lifespan…
+Everybody’s getting into AI. The visceral experience of using ChatGPT in professional or personal lives can raise a lot of concern. Concerns about the future of work, creativity... even civilization's lifespan.
 
-One big question that comes up is about **control**. How can an organization or individual maintain a certain amount of control over their experience when using AI?
+One big concern that often comes up is about **control**. How can an organization or individual maintain a certain amount of control over their experience when using AI?
 
 Not everyone cares about this. But for those who do, it’s critical.
 
 I think there are three major reasons why organizations want control over their AI-powered applications, and I’ll discuss them in this post: **Data**, **Model Performance**, and **Cost**.
 
-The only way to address these concerns is to run a model in private, that you have full control over.
+The only way to address these concerns is to run a model in a private, protected environment - one in which you have full control.
 
 ## 1. Data
 
-Having control over your data means what you think… don’t let anyone else see it.
+Having control over your data means what you think it does; that you don't let anyone else see it.
 
 ### Privacy and security guarantees
 
-When you run your own LLM endpoint, all data is processed locally, on your network. This means you minimize the risk of exposure in two ways: when the data is in transit, and when the data is stored in the LLM endpoint’s logs.
+When you run your own large language model (LLM) endpoint, all data is processed locally, on your network. This allows you to minimize the risk of exposure in two ways: when the data is in transit, and when the data is stored in the LLM endpoint’s logs.
 
-When you depend on a service that is hosted externally to your orgnization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can forget to fill up on API credits.
+When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can forget cost of API calls.
 
 Processing data locally or in controlled environments, minimizes these risks. Not because you’re any better at cybersecurity or running a datacenter than these counterparties… just because you’re **already exposed** to issues on your side. Why increase the surface area? Why trust someone with your tokens if you don’t have to?
 
@@ -82,14 +82,12 @@ As discussed earlier, the quality of your AI-powered application depends on the 
 
 The biggest thing that bothers me about using public API’s is paying per token. It seems like cloud has gone too far: first it was CPU cycles by the hour. Then it was functions as-a-Service. Now if the model is too chatty I’m getting hit with a bill.
 
-This isn’t fantasy: many use cases for large context windows are popping up. The first Harry Potter book is around 100k tokens, and so are lots of my product spec sheets and user guides. Anthropic is pricing Claude 3.5 Sonnet at $3/M tokens. OpenAI has gpt-4o at $5/M tokens. Google has Gemini 1.5 Pro at $1.25/M tokens.
+This isn’t fantasy: many use cases for large context windows are popping up. The first Harry Potter book costs around 100k tokens, and so do a lot of my product spec sheets and user guides. Anthropic prices Claude 3.5 Sonnet at $3/M tokens. OpenAI charges $5/M tokens for GPT-4o. Google offers Gemini 1.5 Pro for $1.25/M tokens.
 
-So, (over simplifying and avoiding the pricing improvements of context caching), if I have 10 questions about the first Harry Potter book that’s going to cost me between $1 and $5.
+So, (over simplifying and avoiding the pricing improvements of context caching), if I have 10 questions about the first Harry Potter book, it’s going to cost me between $1 and $5. And, I have a few more questions than that.
 
-I have a few more questions than that.
+## Conclusion: The world will be hybrid
 
-## Conclusion: The World Will Be Hybrid
-
-It seems to me that Private AI is just like Private Cloud. Public experiences will win hearts, minds, and popular culture. Meanwhile, many “legacy” companies are going to try and get the same experience in private. The result will be a mix of both, due to the three major considerations of data privacy, model performance, and costs.
+It seems to me that Private AI will experience a similar evolution as that found with Private Cloud. Public experiences will win hearts, minds, and popular culture. However, many companies will feel the need to try and get the same experience in private due to specific requirements for data privacy, model performance, and cost. The result will be a mix of both, resulting in a hybrid AI experience.
 
 Hunter and I discussed this in Episode 3 of *Things We Read This Week*. You can watch it [here on YouTube](https://www.youtube.com/watch?v=Byjlr0xplNI).
