@@ -86,7 +86,7 @@ As part of the transformation phase, the process involves cleaning the data by r
 
 Example usage
 
-```python
+````python
 from athon.rag import DataTransformer
 
 # Configuration for the Data Transformer
@@ -107,7 +107,7 @@ TRANSFORMER_CONFIG = {
     },
     'enrich': {
         'metadata': {
-            'source': 'LL-Mesh Platform',
+            'source': 'LLM Agentic Tool Mesh Platform',
             'processed_by': 'CteActionRunner'
         }
     }
@@ -133,7 +133,7 @@ if result.status == "success":
     print(f"TRANSFORMED ELEMENTS:\n{result.elements}")
 else:
     print(f"ERROR:\n{result.error_message}")
-```
+````
 
 ### Loading
 
@@ -219,6 +219,41 @@ else:
 
 The telco xxpert (examples/tool_rag) is a RAG-based tool that provides quick and accurate access to 5G specifications. It leverages the RAG services in LLM Agentic Tool Mesh to read telco standards, build or use a vector store from them, and then uses a query engine to find and return relevant information based on user queries.
 
-
 For enhanced observability, the telco expert not only provides the answer but also displays the retrieved chunks used to formulate the response. This includes both the text of the chunks and their associated metadata, such as the document source, date, and other relevant details. This feature allows users to verify the origin of the information and gain deeper insights into the data supporting the answer.
 
+Tool entry point
+
+```python
+@AthonTool(config, logger)
+def telco_expert(query: str) -> str:
+    """
+    This function reads the telco standards, builds or uses a vector store
+    from them, and then uses a query engine to find and return relevant
+    information to the input question.
+    """
+    collection = _get_collection()
+    if LOAD:
+        _load_files_into_db(collection)
+    augment_query = _augment_query_generated(query)
+    rag_results = _retrieve_from_collection(collection, augment_query)
+    ordered_rag_results = _rerank_answers(augment_query, rag_results)
+    summary_answer = _summary_answer(augment_query, ordered_rag_results)
+    chunk_answer = _create_chunk_string(ordered_rag_results)
+    return summary_answer + "\n\n" + chunk_answer
+```
+
+The functionalities showed are:
+
+* **Data injection**: Loads telco standards into a vector store.
+* **Query augmentation**: Enhances the user's query for better retrieval.
+* **Data retrieval**: Retrieves relevant chunks from the vector store.
+* **Answer generation**: Summarizes and formats the retrieved information to provide a comprehensive answer.
+
+![](/img/rag_tool.png)
+
+# Conclusion
+
+The RAG capabilities in LLM Agentic Tool Mesh exemplify how advanced design principles and innovative engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
+
+
+Stay tuned for our next post, where we'll explore the System Service of LLM Agentic Tool Mesh, essential for creating and managing a mesh of tools, as we continue our journey to democratize Gen AI!
