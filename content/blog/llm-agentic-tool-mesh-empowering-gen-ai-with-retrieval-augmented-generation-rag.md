@@ -5,6 +5,11 @@ date: 2025-01-08T11:46:13.362Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
+tags:
+  - HPE
+  - GenAI
+  - LAT-Mesh
+  - RAG
 ---
 <style>
 li {
