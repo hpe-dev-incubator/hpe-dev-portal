@@ -14,13 +14,15 @@ li {
 }
 </style>
 
-In our previous blog posts, we explored the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/) and the [Agents Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-harnessing-agent-services-and-multi-agent-ai-for-next-level-gen-ai/) of [LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/), highlighting how they simplify the integration of Generative AI (Gen AI) into applications. Today, we'll dive into another pivotal feature of LLM Agentic Tool Mesh: **Retrieval-Augmented Generation (RAG)**. We'll explain what RAG is, how LLM Agentic Tool Mesh handles it, delve into the RAG services, and showcase an example of an agentic tool using RAG. We'll also provide information on interactive workshops where you can experiment with these services firsthand.
+In our previous blog posts, we explored the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/) and the [Agents Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-harnessing-agent-services-and-multi-agent-ai-for-next-level-gen-ai/) of [LLM Agentic Tool Mesh](https://developer.hpe.com/blog/ll-mesh-democratizing-gen-ai-through-open-source-innovation-1/), highlighting how they simplify the integration of Generative AI (Gen AI) into applications.
+
+Today, we'll dive into another pivotal feature of LLM Agentic Tool Mesh: **Retrieval-Augmented Generation (RAG) Service**. We'll explain what RAG is, how LLM Agentic Tool Mesh handles it, delve into the RAG services, and showcase an example of an agentic tool using RAG.
 
 # Understanding Retrieval-Augmented Generation (RAG)
 
-RAG is a technique that enhances the capabilities of language models by providing them with access to external knowledge sources. Instead of relying solely on the information contained within the model's parameters, RAG allows models to retrieve and utilize relevant data from external documents or databases. This approach improves the accuracy and relevance of generated responses, especially in domains requiring up-to-date or specialized information.
+RAG is a technique that enhances the capabilities of language models by providing them with access to external knowledge sources. Instead of relying solely on the information contained within the model's parameters, RAG allows models to retrieve and utilize relevant data from external documents or databases. 
 
-The key benefits of RAG are:
+This approach improves the accuracy and relevance of generated responses, especially in domains requiring up-to-date or specialized information. The key benefits of RAG are:
 
 * **Enhanced accuracy**: By accessing external data, models can provide more precise and factual responses.
 * **Domain specialization**: Enables models to handle specialized topics by leveraging domain-specific documents.
@@ -39,13 +41,13 @@ Each stage is designed to standardize and optimize data use, ensuring generated 
 
 The injection process involves preparing and integrating data into a storage system where it can be efficiently retrieved during the generation process. 
 
-![](/img/ingestion.png)
-
-This process is abstracted into several key steps:
+This process is abstracted into three key steps:
 
 1. **Extraction**
 2. **Transformation**
 3. **Loading**
+
+![](/img/ingestion.png)
 
 ### Extraction
 
@@ -217,11 +219,13 @@ else:
 
 # LLM Agentic Tool Mesh in action: Agentic tool using RAG
 
-The telco xxpert (examples/tool_rag) is a RAG-based tool that provides quick and accurate access to 5G specifications. It leverages the RAG services in LLM Agentic Tool Mesh to read telco standards, build or use a vector store from them, and then uses a query engine to find and return relevant information based on user queries.
+In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there is an example of a RAG-based tool that provides quick and accurate access to 5G specifications: the **telco expert**.
+
+This agentic tool leverages the RAG services in LLM Agentic Tool Mesh to read telco standards, build or use a vector store from them, and then uses a query engine to find and return relevant information based on user queries.
 
 For enhanced observability, the telco expert not only provides the answer but also displays the retrieved chunks used to formulate the response. This includes both the text of the chunks and their associated metadata, such as the document source, date, and other relevant details. This feature allows users to verify the origin of the information and gain deeper insights into the data supporting the answer.
 
-Tool entry point
+Tool code snippet
 
 ```python
 @AthonTool(config, logger)
@@ -253,7 +257,6 @@ The functionalities showed are:
 
 # Conclusion
 
-The RAG capabilities in LLM Agentic Tool Mesh exemplify how advanced design principles and innovative engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
-
+The RAG Service in LLM Agentic Tool Mesh exemplifies how advanced design principles and innovative engineering simplify and enhance the adoption of Gen AI. By abstracting complexities and providing versatile examples, LLM Agentic Tool Mesh enables developers and users alike to unlock the transformative potential of Gen AI in various domains.
 
 Stay tuned for our next post, where we'll explore the System Service of LLM Agentic Tool Mesh, essential for creating and managing a mesh of tools, as we continue our journey to democratize Gen AI!
