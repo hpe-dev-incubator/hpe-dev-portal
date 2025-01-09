@@ -16,7 +16,7 @@ Inspired by production infrastructure at Facebook, Google, Netflix, and more, SP
 
 Together, the projects deliver a foundational capability, *service identity*, for cloud- and container-deployed microservices. They enable organizations to deploy consistent, fine-grained cross-service authentication via a “dial-tone” API across heterogeneous environments.
 
-[SPIFFE and SPIRE are graduated projects](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from the Cloud Native Computing Foundation (CNCF). Joining the group of 16 already [graduated projects](https://www.cncf.io/projects/),  including HELM and Kubernetes, SPIFFE and SPIRE projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others and have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
+[SPIFFE and SPIRE are graduated projects](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from the Cloud Native Computing Foundation (CNCF). Joining the group of already [graduated projects](https://www.cncf.io/projects/),  including HELM and Kubernetes, SPIFFE and SPIRE projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, HPE and others and have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, Sigstore, and OPA (Open Policy Agent).
 
 * [Project web site at CNCF](https://spiffe.io/)
 
@@ -32,11 +32,11 @@ In this lightboard video, Evan Gilman, co-author of O’Reilly’s book Zero Tru
 
 [![Introduction to Spiffe and Spire](https://img.youtube.com/vi/-XGKybqTfZo/hqdefault.jpg)](https://www.youtube.com/watch?v=-XGKybqTfZo)
 
-### How to prevent software supply chain attacks using SPIRE and Sigstore
+### Service Authentication for Zero Trust Model with SPIRE
 
-In this video, Daniel Feldman, Cloud Security Architect at HPE, shows how HPE is using the innovative Open Source project SPIRE (the SPIFFE Runtime Environment) with Sigstore integration. He covers how it is used to establish trust between workloads, secure and prevent complex cyber attacks on the software supply chain, and protect modern infrastructure environments.
+In this video, Evan Gilman, co-author of O’Reilly’s book Zero Trust Networks and a maintainer for SPIRE, explains how SPIRE addresses zero trust challenges in a distributed environment.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qT09bEmQmLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Zero Trust challenges](https://img.youtube.com/vi/QNDWRQY0t-o/hqdefault.jpg)](https://www.youtube.com/watch?v=QNDWRQY0t-o)
 
 
 - - -
@@ -61,7 +61,7 @@ In this video, Daniel Feldman, Cloud Security Architect at HPE, shows how HPE is
 
 # Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. SPIFFE and SPIRE workshops are available today.
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [HPE Developer Community Hack Shack](https://developer.hpe.com/hackshack/workshops/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. SPIFFE and SPIRE workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
