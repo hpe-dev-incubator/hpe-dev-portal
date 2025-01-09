@@ -253,10 +253,10 @@ def telco_expert(query: str) -> str:
 
 The functionalities shown are:
 
-* **Data injection**: Loads telco standards into a vector store.
-* **Query augmentation**: Enhances the user's query for better retrieval.
-* **Data retrieval**: Retrieves relevant chunks from the vector store.
-* **Answer generation**: Summarizes and formats the retrieved information to provide a comprehensive answer.
+* **Data injection**: Loads telco standards into a vector store
+* **Query augmentation**: Enhances the user's query for better retrieval
+* **Data retrieval**: Retrieves relevant chunks from the vector store
+* **Answer generation**: Summarizes and formats the retrieved information to provide a comprehensive answer
 
 ![](/img/rag_tool.png)
 
