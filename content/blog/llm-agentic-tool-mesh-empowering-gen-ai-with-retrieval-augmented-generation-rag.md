@@ -224,7 +224,7 @@ else:
 
 # LLM Agentic Tool Mesh in action: Agentic tool using RAG
 
-In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there is an example of a RAG-based tool that provides quick and accurate access to 5G specifications: the **telco expert (inside folder `examples/tool_rag`)**.
+In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there is an example of a RAG-based tool that provides quick and accurate access to 5G specifications: the **telco expert** (inside folder `examples/tool_rag`).
 
 This agentic tool leverages the RAG services in LLM Agentic Tool Mesh to read telco standards, build or use a vector store from them, and then uses a query engine to find and return relevant information based on user queries.
 
