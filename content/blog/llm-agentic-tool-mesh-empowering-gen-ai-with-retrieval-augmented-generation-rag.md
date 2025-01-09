@@ -29,22 +29,22 @@ RAG is a technique that enhances the capabilities of language models by providin
 
 This approach improves the accuracy and relevance of generated responses, especially in domains requiring up-to-date or specialized information. The key benefits of RAG are:
 
-* **Enhanced accuracy**: By accessing external data, models can provide more precise and factual responses.
-* **Domain specialization**: Enables models to handle specialized topics by leveraging domain-specific documents.
-* **Reduced hallucinations**: Minimizes the generation of incorrect or nonsensical information by grounding responses in real data.
+* **Enhanced accuracy**: Provides more precise and factual responses by accessing more data available externally
+* **Domain specialization**: Enables models to handle specialized topics by leveraging domain-specific documents
+* **Reduced hallucinations**: Minimizes the generation of incorrect or nonsensical information by grounding responses in real data
 
 # RAG in LLM Agentic Tool Mesh
 
-In the LLM Agentic Tool Mesh platform, RAG is a crucial process that enhances language models' capabilities by integrating external knowledge. LLM Agentic Tool  implements RAG through two main stages:
+In the LLM Agentic Tool Mesh platform, RAG is a **crucial tool** that **can enhance** **a language model's** capabilities by integrating external knowledge. LLM Agentic Tool  implements RAG through two main stages:
 
-* **Injection**.
-* **Retrieval**.
+* **Injection**
+* **Retrieval**
 
 Each stage is designed to standardize and optimize data use, ensuring generated content is both relevant and accurate.
 
 ## The injection process
 
-The injection process involves preparing and integrating data into a storage system where it can be efficiently retrieved during the generation process. 
+The injection process involves preparing and integrating data into a storage system where it can be efficiently retrieved when content is being generated.
 
 This process is abstracted into three key steps:
 
@@ -144,7 +144,7 @@ else:
 
 ### Loading
 
-As part of the loading phase, the process includes injecting the transformed data into the chosen storage solution, such as a vector database, and further adapting the data as needed, such as by chunking it into smaller pieces for efficient retrieval.
+As part of the loading phase, the process includes injecting the transformed data into the chosen storage solution, such as a vector database, and further adapting the data as needed, such as chunking it into smaller pieces for efficient retrieval.
 
 Example usage
 
@@ -182,9 +182,9 @@ else:
 
 Once the data has been injected and is ready for use, the retrieval process focuses on fetching the most relevant information based on a given input query. This ensures that the language model has access to the right data to generate accurate and contextually relevant outputs.
 
-1. **Data retrieval**: Use various methods, such as dense or sparse retrieval, to fetch the most relevant data from storage.
-2. **Metadata filtering**:  Apply metadata filters to narrow down search results, ensuring the retrieved data matches the specific needs of the query.
-3. **Chunk Expansion**: Expand the retrieved data chunks to provide comprehensive information for the language model.
+1. **Data retrieval**: Uses various methods, such as dense or sparse retrieval, to fetch the most relevant data from storage
+2. **Metadata filtering**:  Applies metadata filters to narrow down search results, ensuring the retrieved data matches the specific needs of the query
+3. **Chunk Expansion**: Expands the retrieved data chunks to provide comprehensive information for the language model
 
 ![](/img/retrieve.png)
 
@@ -224,7 +224,7 @@ else:
 
 # LLM Agentic Tool Mesh in action: Agentic tool using RAG
 
-In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there is an example of a RAG-based tool that provides quick and accurate access to 5G specifications: the **telco expert**.
+In the [LLM Agentic Tool Mesh GitHub](https://github.com/HewlettPackard/llmesh), there is an example of a RAG-based tool that provides quick and accurate access to 5G specifications: the **telco expert (inside folder `examples/tool_rag`)**.
 
 This agentic tool leverages the RAG services in LLM Agentic Tool Mesh to read telco standards, build or use a vector store from them, and then uses a query engine to find and return relevant information based on user queries.
 
@@ -251,7 +251,7 @@ def telco_expert(query: str) -> str:
     return summary_answer + "\n\n" + chunk_answer
 ```
 
-The functionalities showed are:
+The functionalities shown are:
 
 * **Data injection**: Loads telco standards into a vector store.
 * **Query augmentation**: Enhances the user's query for better retrieval.
