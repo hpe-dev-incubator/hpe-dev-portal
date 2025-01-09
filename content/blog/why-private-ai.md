@@ -37,15 +37,15 @@ When you run your own large language model (LLM) endpoint, all data is processed
 
 When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can forget cost of API calls.
 
-Processing data locally or in controlled environments, minimizes these risks. Not because you’re any better at cybersecurity or running a datacenter than these counterparties… just because you’re **already exposed** to issues on your side. Why increase the surface area? Why trust someone with your tokens if you don’t have to?
+Processing data locally or in controlled environments minimizes these risks. Not because you’re any better at cybersecurity or running a datacenter than these counterparties… just because you’re **already exposed** to issues on your side. Why increase the surface area? Why trust someone with your tokens if you don’t have to?
 
-In addition, if you are using a public LLM endpoint that provides a streaming response, even encrypted data in transmit makes it possible to recover the plaintext from the encrypted network traffic. More detail is available in [this paper](https://cdn.arstechnica.net/wp-content/uploads/2024/03/LLM-Side-Channel.pdf), which I hope public endpoint providers have seen and addressed.
+In addition, if you are using a public LLM endpoint that provides a streaming response, even encrypted data in transmit makes it possible to recover the plain text from the encrypted network traffic. More detail is available in [this paper](https://cdn.arstechnica.net/wp-content/uploads/2024/03/LLM-Side-Channel.pdf), which I hope public endpoint providers have seen and addressed.
 
 ![](https://jordannanos.github.io/images/2024-11-15-streaming-response.png)
 
 ### Compliance with regulations
 
-Beyond reputational risk, regulations like HIPAA and PCI forces counterparties in healthcare and finance to store data for years, while the EU’s GDPR and India’s DPDPA to forces PII to be stored within their jurisdiction (at least, that’s how companies are interpreting the laws). Ensuring compliance with these regulations is important, but it’s also important in conjunction with the security risks described earlier. Why rely on a third-party who is forced to store every prompt and response for six years?
+Beyond reputational risk, regulations like HIPAA and PCI force counterparties in healthcare and finance to store data for years, while the EU’s GDPR and India’s DPDPA force PII to be stored within their jurisdiction (at least, that’s how companies are interpreting the laws). Ensuring compliance with these regulations is important, but it’s also important in conjunction with the security risks described earlier. Why rely on a third-party who is forced to store every prompt and response for six years?
 
 ### IP and copyright protection
 
@@ -57,14 +57,14 @@ I referred to this [in a previous blog](https://developer.hpe.com/blog/how-to-pi
 
 ### Improving Model Speed
 
-Primarily, there are two key metrics that impact user experience: latency and throughput. Latency is generally considered to be “time to first token” or TTFT this is constrained by how fast the model can process the input (i.e. the prompt) measured in tokens-per-second (tok/sec) Throughput is generally considered to be “time per output token” or TPOT throughput can also be measured by inter-token latency and generally, it is represented in tokens-per-second (tok/sec)
+Primarily, there are two key metrics that impact user experience: latency and throughput. Latency is generally considered to be “time to first token” or TTFT. This is constrained by how fast the model can process the input (i.e. the prompt) measured in tokens-per-second (tok/sec). Throughput is generally considered to be “time per output token” or TPOT. Throughput can also be measured by inter-token latency and generally, it is represented in tokens-per-second (tok/sec).
 
-When considering a minimum tok/sec of performance for language models, most people jump to a comparison that includes reading speed. The reasoning goes something like: proficient readers are around 300 words per minute. Consider the vocabulary size of current LLM tokenizers to be 1.5 tokens per word, that is 450 tokens per minute, or 7.5 tokens per second.
+When considering a minimum tok/sec of performance for language models, most people jump to a comparison that includes reading speed. The reasoning goes something like: proficient readers are around 300 words per minute. Considering the vocabulary size of current LLM tokenizers to be 1.5 tokens per word, that is 450 tokens per minute, or 7.5 tokens per second.
 
 However, a few comments:
 
-* **5 tok/sec feels slow to me**. 10 tok/sec feels good. 20+ tok/sec feels fast
-* **Many LLM’s are used for things beyond just chatting back and forth**, where the user doesn’t read every line that was generated line by line. For example, when I am editing a blog or generating an image I am just waiting for the LLM to finish generating before I ctrl+C, ctrl+V. Or when generating, refactoring, and adding comments to code, I am going to immediately insert it and move on.
+* **5 tok/sec feels slow to me**. 10 tok/sec feels good. 20+ tok/sec feels fast.
+* **Many LLM’s are used for things beyond just chatting back and forth**, where the user doesn’t read every line that was generated line by line. For example, when I am editing a blog or generating an image, I am just waiting for the LLM to finish generating before I ctrl+C, ctrl+V. Or, when generating, refactoring, and adding comments to code, I am going to immediately insert it and move on.
 * **Many “online” or “interactive” LLM-powered applications contain multiple prompts and responses**. For example, RAG involves an embedding model and a chat model. Text-to-SQL involves a prompt/response to generate the query, running the query, and an optional prompt/response for synthesis of the response. Tool use, agentic workflows, reflection, and chain-of-thought prompting is all growing in popularity. These approaches require multiple prompt/response turns before. Anything that involves audio (text-to-speech or speech-to-text) has a minimum speed requirement (people can speak English at around 150 words per minute, about half as fast as they read).
 * **Many “offline” or “batch” use cases also exist** (i.e. summarize, classify, translate or transcribe 1000 files)
 
@@ -80,7 +80,7 @@ As discussed earlier, the quality of your AI-powered application depends on the 
 
 ## 3. Cost
 
-The biggest thing that bothers me about using public API’s is paying per token. It seems like cloud has gone too far: first it was CPU cycles by the hour. Then it was functions as-a-Service. Now if the model is too chatty I’m getting hit with a bill.
+The biggest thing that bothers me about using public APIs, is paying per token. It seems like cloud has gone too far. First, it was CPU cycles by the hour. Then, it was functions as-a-Service. Now, if the model is too chatty, I’m getting hit with a bill.
 
 This isn’t fantasy: many use cases for large context windows are popping up. The first Harry Potter book costs around 100k tokens, and so do a lot of my product spec sheets and user guides. Anthropic prices Claude 3.5 Sonnet at $3/M tokens. OpenAI charges $5/M tokens for GPT-4o. Google offers Gemini 1.5 Pro for $1.25/M tokens.
 
@@ -88,6 +88,6 @@ So, (over simplifying and avoiding the pricing improvements of context caching),
 
 ## Conclusion: The world will be hybrid
 
-It seems to me that Private AI will experience a similar evolution as that found with Private Cloud. Public experiences will win hearts, minds, and popular culture. However, many companies will feel the need to try and get the same experience in private due to specific requirements for data privacy, model performance, and cost. The result will be a mix of both, resulting in a hybrid AI experience.
+It seems to me that Private AI will experience a similar evolution as found with Private Cloud. Public experiences will win hearts, minds, and popular culture. However, many companies will feel the need to try and get the same experience in private due to specific requirements for data privacy, model performance, and cost. The result will be a mix of both, resulting in a hybrid AI experience.
 
 Hunter and I discussed this in Episode 3 of *Things We Read This Week*. You can watch it [here on YouTube](https://www.youtube.com/watch?v=Byjlr0xplNI).
