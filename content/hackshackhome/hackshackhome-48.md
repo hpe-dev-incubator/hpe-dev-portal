@@ -5,7 +5,7 @@ path: https://developer.hpe.com/campaign/munch-and-learn/
 imageBackground: white
 description: "February 19, 2025: Join us to explore the potential of HPE Private
   Cloud AI in tackling real-world challenges, such as insurance fraud detection.
-  This session will demontrate how one can train and deploy AI models to detect
+  This session will demonstrate how one can train and deploy AI models to detect
   fraud in auto insurance claims, and will discuss the role of generative AI in
   enhancing fraud detection capabilities."
 background: rgba(0, 86, 122, 0.8);
