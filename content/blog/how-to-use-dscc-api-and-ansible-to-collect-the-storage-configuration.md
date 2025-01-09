@@ -6,4 +6,4 @@ author: Thomas Beha
 authorimage: /img/thomasbeha.jpg
 disable: false
 ---
-tbd.
+Capturing the current storage configuration in order to verify it against the best practices or configuration rules is a task that is requested regularly.
