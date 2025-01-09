@@ -12,6 +12,6 @@ description: "January 15, 2025: In an era where systems are increasingly complex
   Intelligence for IT Operations (AIOps)."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 2
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
