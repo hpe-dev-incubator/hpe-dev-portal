@@ -11,6 +11,6 @@ description: "January 29, 2025: Join us for an in-depth exploration of the
   deployment and management of generative AI within your organization."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
