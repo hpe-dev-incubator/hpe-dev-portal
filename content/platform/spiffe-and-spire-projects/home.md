@@ -38,12 +38,6 @@ In this video, Evan Gilman, co-author of O’Reilly’s book Zero Trust Networks
 
 [![Zero Trust challenges](https://img.youtube.com/vi/QNDWRQY0t-o/hqdefault.jpg)](https://www.youtube.com/watch?v=QNDWRQY0t-o)
 
-### How to prevent software supply chain attacks using SPIRE and Sigstore
-
-In this video, Daniel Feldman, Cloud Security Architect at HPE, shows how HPE is using the innovative Open Source project SPIRE (the SPIFFE Runtime Environment) with Sigstore integration. He covers how it is used to establish trust between workloads, secure and prevent complex cyber attacks on the software supply chain, and protect modern infrastructure environments.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qT09bEmQmLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 - - -
 
