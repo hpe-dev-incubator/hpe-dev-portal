@@ -127,6 +127,16 @@ Capturing the current storage configuration in order to verify it against best p
 
 
 
+![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
+
+
+
+
+
+
+
+
+
 ```
 ---
 - name: Capture System Configuration
