@@ -1,6 +1,6 @@
 ---
 title: Why Private AI?
-date: 2024-12-16T13:21:41.149Z
+date: 2025-01-10T13:21:41.149Z
 author: Jordan Nanos
 authorimage: /img/jordan-nanos.jpg
 disable: false
@@ -35,7 +35,7 @@ Having control over your data means what you think it does; that you don't let a
 
 When you run your own large language model (LLM) endpoint, all data is processed locally, on your network. This allows you to minimize the risk of exposure in two ways: when the data is in transit, and when the data is stored in the LLM endpoint’s logs.
 
-When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can't forget cost of API calls.
+When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can't forget the cost of API calls.
 
 Processing data locally or in controlled environments minimizes these risks. Not because you’re any better at cybersecurity or running a datacenter than these counterparties… just because you’re **already exposed** to issues on your side. Why increase the surface area? Why trust someone with your tokens if you don’t have to?
 
