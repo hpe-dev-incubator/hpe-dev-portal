@@ -10,9 +10,13 @@ Capturing the current storage configuration in order to verify it against best p
 
 # Basic tasks
 
-
-
 ## Retrieving a DSCC access token
+
+The steps to first generate the client Id and the client secret used to access the DSCC REST API was already described in a blog on the HPE Developer Portal:  <!--StartFragment--> [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)<!--EndFragment-->.
+
+Once you do have your client id and client secret, you can generate an access token that is valid for two hours. 
+
+
 
 
 
