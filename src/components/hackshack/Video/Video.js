@@ -74,11 +74,13 @@ const Video = ({
   };
   return (
     <Box>
+    <Box style={{ position: 'relative', width: '640px', height: '360px' }}>
       <ReactPlayer
         controls
         url={videolink}
         playing={autoplay}
-        style={size === 'small' ? optionsSmall : optionsLarge}
+        width="100%"
+        height="100%"
         onEnded={() => {
           if (current >= replaysLength - 1) {
             setCurrent(0);
@@ -87,6 +89,20 @@ const Video = ({
           }
         }}
       />
+      <div
+        onClick={() => window.open(videolink, '_blank')}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          cursor: 'pointer',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+        }}
+      />
+    </Box>
       <Box fill="horizontal" border={{ side: 'bottom' }}>
         <Box direction="column">
           <Box direction="column">
