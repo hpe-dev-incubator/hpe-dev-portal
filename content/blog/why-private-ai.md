@@ -35,7 +35,7 @@ Having control over your data means what you think it does; that you don't let a
 
 When you run your own large language model (LLM) endpoint, all data is processed locally, on your network. This allows you to minimize the risk of exposure in two ways: when the data is in transit, and when the data is stored in the LLM endpoint’s logs.
 
-When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can forget cost of API calls.
+When you depend on a service that is hosted externally to your organization, there is always a form of [counterparty risk](https://www.investopedia.com/terms/c/counterpartyrisk.asp). Public services can fall victim to scalability issues, power outages, ransomware attacks, or other Force Majeure. Also, counterparties can choose to update or change models without telling you. And you can't forget cost of API calls.
 
 Processing data locally or in controlled environments minimizes these risks. Not because you’re any better at cybersecurity or running a datacenter than these counterparties… just because you’re **already exposed** to issues on your side. Why increase the surface area? Why trust someone with your tokens if you don’t have to?
 
@@ -58,6 +58,8 @@ I referred to this [in a previous blog](https://developer.hpe.com/blog/how-to-pi
 ### Improving Model Speed
 
 Primarily, there are two key metrics that impact user experience: latency and throughput. Latency is generally considered to be “time to first token” or TTFT. This is constrained by how fast the model can process the input (i.e. the prompt) measured in tokens-per-second (tok/sec). Throughput is generally considered to be “time per output token” or TPOT. Throughput can also be measured by inter-token latency and generally, it is represented in tokens-per-second (tok/sec).
+
+>**Note:** Tokens are the basic units of input and output in a large language model. Tokens typically represent words, sub-words, or characters. They are the smallest units of meaning in a text that can be processed by a large language model.
 
 When considering a minimum tok/sec of performance for language models, most people jump to a comparison that includes reading speed. The reasoning goes something like: proficient readers are around 300 words per minute. Considering the vocabulary size of current LLM tokenizers to be 1.5 tokens per word, that is 450 tokens per minute, or 7.5 tokens per second.
 
