@@ -131,85 +131,18 @@ Capturing the current storage configuration in order to verify it against best p
 
 
 
+Used Playbook hierarchy:
 
 
 
+* Capture-Systems.yaml
+
+  * DSCC-API-Call.yaml
+  * DSCC-API-401.yaml
+  * Loop-Systems.yaml
+
+    * Loop-Links.yaml
 
 
 
-```
----
-- name: Capture System Configuration
-  # Capture the details of all Systems
-  # v1.0 12/20/2024 Thomas Beha
-  # Parameter:
-  #   -
-  #
-  # Accessed data file:
-  #   
-  #
-  # Run command:
-  #   ansible-playbook Capture-Systems.yaml 1>CaptureSystem.log 2>CaptureSystem.err
-  #
-
-  hosts: localhost
-  vars:
-    method: "GET"
-
-  tasks:
-  - name: DSCC API Call GET storage systems
-    vars:
-      request_uri: "/api/v1/storage-systems" 
-    ansible.builtin.include_tasks:
-      file: DSCC-API-Call.yaml
-
-  - name: Retry the command if status 401
-    vars:
-      request_uri: "/api/v1/storage-systems" 
-    ansible.builtin.include_tasks:
-      file: DSCC-API-401.yaml
-    when: status == '401'
-
-  - name: Set Systems
-    ansible.builtin.set_fact:
-      systems: "{{ response.json['items'] }}"
-    when: status in ['200', '201']
-
-  - name: Initialize Storage system dictionary if not defined
-    ansible.builtin.set_fact:
-      storage_systems: "{{ storage_systems | default({}) }}"
-  - name: Create StorageSystems Dictionary
-    ansible.builtin.set_fact:
-      storage_systems: "{{ storage_systems | combine({item.name: {'id': item.id, 'resourceUri': item.resourceUri}}) }}"
-    with_items: "{{ systems }}"
-
-  - name: Loop Systems
-    vars: 
-    ansible.builtin.include_tasks:
-      file: Loop-Systems.yaml
-    with_dict: "{{storage_systems}}"
-    loop_control:
-      loop_var: my_system
-  
-  - name: Get HostGroups
-    vars:
-      request_uri: "/api/v1/host-initiator-groups"
-    ansible.builtin.include_tasks:
-      file: DSCC-API-Call.yaml    
-  - name: Store the HostGroups
-    ansible.builtin.copy:
-      content: "{{ response.json | to_nice_json }}"
-      dest: "../Outputs/hostGroups.json"
-      mode: '0644'
-    when: response.json is defined
-  
-  - name: Get Hosts
-    ansible.builtin.include_tasks:
-      file: GetAllHosts.yaml
-  - name: Store the Hosts
-    ansible.builtin.copy:
-      content: "{{ response.json | to_nice_json }}"
-      dest: "../Outputs/hosts.json"
-      mode: '0644'
-    when: response.json is defined  
-```
+Playbooks currently stored at: <https://github.com/tbeha/DSCC-Ansible>
