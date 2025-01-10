@@ -16,7 +16,106 @@ Capturing the current storage configuration in order to verify it against best p
 
 
 
+```
+- name: Include encrypted vars
+  include_vars: credentials.yml
+
+- name: Get Access Token
+  ansible.builtin.uri:
+    url: "{{ sso_url }}"
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
+      Authorization: "Basic {{ (dscc_id + ':' + dscc_secret) | b64encode }}"
+    method: POST
+    body: "grant_type=client_credentials"
+    validate_certs: false
+  register: oauth_response
+
+- name: Define header
+  ansible.builtin.set_fact:
+    token: "Bearer {{ oauth_response.json.access_token }}"
+
+- name: Store Token
+  ansible.builtin.copy:
+    content: "{{ token }}"
+    dest: 'vars/token.txt'
+    mode: "0644"
+```
+
+
+
+
+
 ## DSCC REST API call
+
+
+
+```
+- name: Include encrypted vars
+  include_vars: vars/credentials.yml
+
+- name: Get Access Token
+  ansible.builtin.set_fact:
+    token: "{{ lookup('file', 'vars/token.txt') }}"
+
+- name: Check the Methood 
+  ansible.builtin.fail:
+    msg: "DSCC-API-CALL: RestAPI Method is not defined!"
+  when: method is not defined
+
+- name: Check for the request Uri 
+  ansible.builtin.fail:
+    msg: "DSCC-API-Call: Request URI is not defined!"
+  when: request_uri is not defined
+
+- name: DSCC Command - {{request_uri}}
+  ansible.builtin.uri:
+    url: "{{ base_url }}{{ request_uri }}"
+    headers:
+      Authorization: "{{ token }}"
+      Content-Type: "application/json"
+    method: "{{ method }}"
+    validate_certs: false
+    status_code: [200, 201, 202, 401, 404]
+  register: result
+  when: body is not defined
+
+- name: Set result status
+  ansible.builtin.set_fact:
+    status: "{{ result.status }}"
+    tmpres: "{{ result }}"
+  when: body is not defined
+
+- name: DSCC Command with body {{request_uri}}
+  ansible.builtin.uri:
+    url: "{{ base_url }}{{ request_uri }}"
+    headers:
+      Authorization: "{{ token }}"
+      Content-Type: "application/json"
+    method: "{{ method }}"
+    body_format: json
+    body: "{{ body | to_json }}"
+    validate_certs: false
+    status_code: [200, 201, 202, 400, 401, 404]
+  register: result2
+  when: body is defined
+
+- name: Set result status
+  ansible.builtin.set_fact:
+    status: "{{ result2.status }}"
+    tmpres: "{{ result2 }}"
+  when: body is defined
+
+- name: Set response when status in [200, 201, 202, 401]
+  ansible.builtin.set_fact:
+    response: "{{ tmpres }}"
+  when: status in ['200', '201', '202','401']
+
+- name: Undefine Response when status not in [200...]
+  ansible.builtin.set_fact:
+    response: ""
+  when: status not in ['200', '201', '202','401']
+```
 
 
 
