@@ -8,6 +8,42 @@ disable: false
 ---
 Capturing the current storage configuration in order to verify it against best practices or configuration rules is a task that customer requested regularly. If the customer is using Ansible as the automation platform, then there is on one hand the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file), that is  used to create and delete hosts, volumes etc, but it is not really a solution for gathering the complete current configuration. Furthermore, this module uses the WSAPI of individual Alletra storage systems, while the HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems that might even be distributed across multiple sites. The DSCC would over a central, single location to get the data of all storage systems. [Ansible playbooks for the DSCC](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) were discussed in one of the previous HPE developer blogs. The playbooks offer fact gatherings for storage systems, hosts and volumes, but once you dig into the details, you will find that the modules were not updated for  more than two years and for instance do not support the HPE Alletra MP B10000 storage array. In this blog, I will discuss a possible approach for DSCC data gathering using Ansible built-in functionality to overcome the lack of continuous playbook development.
 
+# Capture the storage system configuration
+
+
+
+DSCC@HPEDev:
+
+<!--StartFragment-->
+
+[Data Services on the HPE GreenLake platform | HPE Developer Portal](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)
+
+<!--EndFragment-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
+
+
+
+
+
+![Get Storage-Systems API Response](/img/getstoragesystems.png "Get Storage-Systems API Response")
+
+
+
 # Basic tasks
 
 ## Retrieving a DSCC access token
@@ -15,10 +51,6 @@ Capturing the current storage configuration in order to verify it against best p
 The steps to first generate the client Id and the client secret used to access the DSCC REST API was already described in a blog on the HPE Developer Portal:  <!--StartFragment--> [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)<!--EndFragment-->.
 
 Once you do have your client id and client secret, you can generate an access token that is valid for two hours. 
-
-
-
-
 
 ```
 - name: Include encrypted vars
@@ -46,13 +78,7 @@ Once you do have your client id and client secret, you can generate an access to
     mode: "0644"
 ```
 
-
-
-
-
 ## DSCC REST API call
-
-
 
 ```
 - name: Include encrypted vars
@@ -123,21 +149,7 @@ Once you do have your client id and client secret, you can generate an access to
 
 
 
-# Capture the storage system configuration
-
-
-
-
-
-
-
-![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
-
-
-
 Used Playbook hierarchy:
-
-
 
 * Capture-Systems.yaml
 
@@ -146,7 +158,5 @@ Used Playbook hierarchy:
   * Loop-Systems.yaml
 
     * Loop-Links.yaml
-
-
 
 Playbooks currently stored at: <https://github.com/tbeha/DSCC-Ansible>
