@@ -20,9 +20,7 @@ The complete workflow of the DSCC data capturing is shown in the following flow 
 
 ![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
 
-
-
-
+Now in order to be independent of any python library (or the lack of updates to a python library) I have decided to use Ansible built-in functionality to create the DSCC capture playbooks. The basic tasks that are used by the playbooks are on one hand the DSCC REST API call using the ansible.builtin.uri function and as a special call variant the retrieval of the DSCC access token - special in terms of the URI used to get the access token. 
 
 # Basic tasks
 
