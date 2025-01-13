@@ -6,41 +6,21 @@ author: Thomas Beha
 authorimage: /img/thomasbeha.jpg
 disable: false
 ---
-Capturing the current storage configuration in order to verify it against best practices or configuration rules is a task that customer requested regularly. If the customer is using Ansible as the automation platform, then there is on one hand the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file), that is  used to create and delete hosts, volumes etc, but it is not really a solution for gathering the complete current configuration. Furthermore, this module uses the WSAPI of individual Alletra storage systems, while the HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems that might even be distributed across multiple sites. The DSCC would over a central, single location to get the data of all storage systems. [Ansible playbooks for the DSCC](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) were discussed in one of the previous HPE developer blogs. The playbooks offer fact gatherings for storage systems, hosts and volumes, but once you dig into the details, you will find that the modules were not updated for  more than two years and for instance do not support the HPE Alletra MP B10000 storage array. In this blog, I will discuss a possible approach for DSCC data gathering using Ansible built-in functionality to overcome the lack of continuous playbook development.
+Capturing the current storage configuration in order to verify it against best practices or configuration rules is a task that customer requested regularly. If the customer is using Ansible as the automation platform, then there is on one hand the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file), that is  used to create and delete hosts, volumes etc., but it is not really a solution for gathering the complete current configuration. Furthermore, this module uses the WSAPI of individual Alletra storage systems, while the HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems that might even be distributed across multiple sites. The DSCC would over a central, single location to get the data of all storage systems. [Ansible playbooks for the DSCC](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) were discussed in one of the previous HPE developer blogs. The playbooks offer fact gatherings for storage systems, hosts and volumes, but once you dig into the details, you will find that the modules were not updated for  more than two years and for instance do not support the HPE Alletra MP B10000 storage array. In this blog, I will discuss a possible approach for DSCC data gathering using Ansible built-in functionality to overcome the lack of continuous playbook development.
 
 # Capture the storage system configuration
 
+ After learning that the playbooks for the DSCC are not well maintained, I needed to find a different way to capture the configuration data of all arrays of the HPE Customer Technology Center in Böblingen. The <!--StartFragment--> [](https://github.com/HewlettPackard/hpe3par_ansible_module) [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file)<!--EndFragment--> would require to connect to each array individually and does not provide a complete capture of the array configuration. Hence it is not a solution to my current problem. A way forward would be to use the HPE Data Services Cloud Console and the corresponding Data Services REST API (the basics are already discussed in previous blogs on the HPE developer network: <!--StartFragment-->[Data Services on the HPE GreenLake platform | HPE Developer Portal ](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)<!--EndFragment-->). The Data Services REST API offers a complete list of commands that can be issued on the DSCC. 
 
+The configuration of a storage system would include the configuration data of the storage system itself, the details of the configured volumes of an storage array, the host group and the host details. The first step of gathering the configuration information would be to get a list of storage arrays connected to the Data Services Cloud Console. Once you do have the list, you can go and gather details of each storage array. The Data Services REST API is supporting the data gathering by supplying with every array a list of associated links, that refer to controller, disk etc. information of this array. An example of REST API call response is given below:
 
-DSCC@HPEDev:
+![](/img/getstoragesystems.png "Get Storage System")
 
-<!--StartFragment-->
-
-[Data Services on the HPE GreenLake platform | HPE Developer Portal](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)
-
-<!--EndFragment-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The complete workflow of the DSCC data capturing is shown in the following flow diagram. First the list of connected storage arrays is compiled and stored in a dictionary. Next the playbook will loop through the storage array dictionary in order to capture the details of each connected storage array (this includes looping through all associated links of a storage array and the gathering of all volumes that are defined on the storage array). Afterwards the host group and host details are captured and stored too. 
 
 ![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
 
 
-
-
-
-![Get Storage-Systems API Response](/img/getstoragesystems.png "Get Storage-Systems API Response")
 
 
 
@@ -146,8 +126,6 @@ Once you do have your client id and client secret, you can generate an access to
     response: ""
   when: status not in ['200', '201', '202','401']
 ```
-
-
 
 Used Playbook hierarchy:
 
