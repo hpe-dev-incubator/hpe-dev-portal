@@ -120,6 +120,7 @@ const getSearchResults = async (query) => {
         (await window.__LUNR__.__loaded) &&
         window.__LUNR__.en.index.search(query);
       searchResults = queryResults.map((searchResult) => {
+        const doc = window.__LUNR__.en.store[searchResult.ref];
         categoryMap[doc.sourceInstanceName] = true;
         return {
           titlePos: getPositions(searchResult, 'title'),
