@@ -1,5 +1,5 @@
 ---
-title: Introduction to HPE GreenLake webhooks
+title: Introduction to HPE GreenLake cloud webhooks
 active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/7417368476354/WN_4EFwAmDFSLSaegjM61ckZg
