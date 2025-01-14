@@ -4,7 +4,7 @@ dateStart: 2025-02-18T23:01:31.764Z
 dateEnd: 2025-02-19T22:30:31.776Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://hpe.zoom.us/webinar/register/1617368469647/WN_cvTfagHpQM-PFQ0ndqB9BA
 width: large
 ---
 ## Unlocking Private AI Power: Insurance Fraud Detection and Beyond
