@@ -27,11 +27,11 @@ const Results = ({ searchTerm, results }) => {
     <Box pad={{ bottom: 'medium' }} border={{ side: 'bottom' }} key={index}>
       <Text size="small">{categoryLabel(doc.sourceInstanceName)}</Text>
       {doc && doc.sourceInstanceName !== 'platforms' ? (
-        <Link to={`/${doc.path}`}>
+        <Link to={doc.externalLink ? doc.externalLink : `/${doc.path}`}>
           <HighlightedText content={doc.title} positions={titlePos} />
         </Link>
-      ) : (
-        <Link to={doc.path}>
+      ) : ( 
+        <Link to={doc.externalLink ? doc.externalLink : doc.path}>
           <HighlightedText content={doc.title} positions={titlePos} />
         </Link>
       )}
@@ -63,6 +63,7 @@ Results.propTypes = {
         tags: PropTypes.string,
         sourceInstanceName: PropTypes.string,
         path: PropTypes.string,
+        externalLink:PropTypes.string
       }),
       titlePos: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
         .isRequired,
@@ -118,9 +119,7 @@ const getSearchResults = async (query) => {
       const queryResults =
         (await window.__LUNR__.__loaded) &&
         window.__LUNR__.en.index.search(query);
-
       searchResults = queryResults.map((searchResult) => {
-        const doc = window.__LUNR__.en.store[searchResult.ref];
         categoryMap[doc.sourceInstanceName] = true;
         return {
           titlePos: getPositions(searchResult, 'title'),
@@ -161,7 +160,6 @@ const SearchContainer = ({ location }) => {
   const onChange = (event) => {
     const { value: newValue } = event.target;
     setValue(newValue);
-
     // update the URL
     const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
     navigate(`/search/${query}`, { replace: true });
