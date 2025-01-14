@@ -1,7 +1,8 @@
 ---
 title: Introduction to HPE GreenLake webhooks
+active: true
 fit: contain
-path: https://developer.hpe.com/campaign/meetups/
+path: https://hpe.zoom.us/webinar/register/7417368476354/WN_4EFwAmDFSLSaegjM61ckZg
 imageBackground: white
 description: "February 26, 2025: Join this session to learn about the
   architecture, features, and benefits of the new webhook functionality within
