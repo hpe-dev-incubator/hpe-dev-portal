@@ -4,7 +4,7 @@ dateStart: 2025-02-25T23:01:37.237Z
 dateEnd: 2025-02-26T22:30:37.252Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://hpe.zoom.us/webinar/register/7417368476354/WN_4EFwAmDFSLSaegjM61ckZg
 width: large
 ---
 ## Introduction to HPE GreenLake webhooks
