@@ -1,7 +1,8 @@
 ---
 title: "Unlocking Private AI Power: Insurance Fraud Detection and Beyond"
+active: true
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn/
+path: https://hpe.zoom.us/webinar/register/1617368469647/WN_cvTfagHpQM-PFQ0ndqB9BA
 imageBackground: white
 description: "February 19, 2025: Join us to explore the potential of HPE Private
   Cloud AI in tackling real-world challenges, such as insurance fraud detection.
