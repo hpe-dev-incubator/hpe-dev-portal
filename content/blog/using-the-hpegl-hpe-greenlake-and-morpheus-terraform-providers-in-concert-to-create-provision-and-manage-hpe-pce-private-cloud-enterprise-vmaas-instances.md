@@ -518,15 +518,13 @@ hpegl_vmaas_instance.sample_vm[0]: Creation complete after 1m34s [id=52689]
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 ```
 
-
-
 ## One Location/Two VMaaS Clouds/Two VMaaS Instances example
 
 ![](/img/hpegl-and-morpheus-terraform-blog-post-frame-2-1-.jpg)
 
-The example HCL used here is based on the HCL for the first example.  However we have created two separate “Modules” based on that HCL: 
+The example HCL used here is based on the HCL for the first example.  However we have created two separate *Modules* based on that HCL: 
 
-* “morpheus_artefacts” which does the following 
+* *morpheus_artefacts* which does the following 
 
   * Takes as input: 
 
@@ -546,7 +544,7 @@ The example HCL used here is based on the HCL for the first example.  However w
     * Node Type details 
     * Group details 
     * Cloud ID 
-* “vmaas_instance” which does the following 
+* *vmaas_instance* which does the following 
 
   * Takes inputs from an instance of the “morpheus_artefacts” module 
   * Retrieves details for the following VMaaS resources: 
@@ -559,14 +557,10 @@ The example HCL used here is based on the HCL for the first example.  However w
     * VMaaS Cloud Folder 
   * Creates a VMaaS instance 
 
- 
-
 These modules can be combined in different ways.  In our specific case we: 
 
-* Make two calls to “morpheus_artefacts” 
-* Make two calls to “vmaas_instance” each using outputs from one of the above calls to “morpheus_artefacts” 
-
- 
+* Make two calls to *morpheus_artefacts* 
+* Make two calls to *vmaas_instance* each using outputs from one of the above calls to *morpheus_artefacts* 
 
 In this way we create two VMaaS instances each in a separate VMaaS Cloud based on the one underlying on-premise Morpheus instance.
 
