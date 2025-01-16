@@ -29,7 +29,7 @@ IaC is now a well-established approach to configuring, creating and managing res
 These two providers complement each other: 
 
 * hpegl deals with GreenLake IAM and manages VMaaS resources, including VM instances 
-* Morpheus deals underlying Morpheus resources on which the VMaaS resources – including VM instances – depend.  This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
+* Morpheus deals with underlying Morpheus resources on which the VMaaS resources – including VM instances – depend.  This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
 
 The glue between these two providers is a hpegl *Data Source* called *hpegl_vmaas_morpheus_details*.  For a specific VMaaS *location* this data source will output: 
 
@@ -37,7 +37,7 @@ The glue between these two providers is a hpegl *Data Source* called *hpegl_vmaa
 * The URL of the Morpheus instance 
 * The time to expiry of the Access Token (in seconds) 
 
-The first two outputs can then be passed-into a Morpheus provider stanza.  See the following example where there is just one *location* for a VMaaS instance:
+The first two outputs can then be passed into a Morpheus provider stanza.  See the following example where there is just one *location* for a VMaaS instance:
 
 ```hcl
 provider "hpegl" {
@@ -104,14 +104,12 @@ provider "morpheus" {
 
 # **Complete examples for One VMaaS Location**
 
-In the next two sections we present complete HCL (Hashicorp Configuration Language) examples for two configurations each with one VmaaS Location: 
+In the next two sections we present complete HCL (Hashicorp Configuration Language) examples for two configurations each with one VMaaS Location: 
 
 * One VMaaS Cloud, with one VMaaS instance 
 * Two VMaaS Clouds, each with one VMaaS instance for a total of two VMaaS instances 
 
- The clouds are Vsphere clouds 
-
-In both cases: 
+ The clouds are vSphere clouds.  In both cases: 
 
 * hpegl is used to: 
 
