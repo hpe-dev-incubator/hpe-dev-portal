@@ -1,7 +1,5 @@
 ---
-title: "Using the hpegl (HPE GreenLake) and Morpheus Terraform Providers in
-  concert to create, provision and manage HPE PCE (Private Cloud Enterprise)
-  VMaaS instances "
+title: Using the hpegl and Morpheus Terraform Providers to provision a VMaaS workload
 date: 2025-01-15T14:58:20.593Z
 author: Eamonn O'Toole Senior Principal Cloud Developer, John Lenihan Software
   Engineer, HPE Private Cloud
