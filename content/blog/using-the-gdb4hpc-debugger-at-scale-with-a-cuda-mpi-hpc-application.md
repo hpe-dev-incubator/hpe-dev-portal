@@ -51,20 +51,20 @@ For this tutorial, you will use the `simpleMPI` example from
 
 Start by cloning the sample code repository.
 
-```
+```shell
 $ git clone https://github.com/NVIDIA/cuda-samples.git
 ```
 
 Next, navigate to the directory containing the `simpleMPI` sample.
 
-```
+```shell
 $ cd cuda-samples/Samples/0_Introduction/simpleMPI
 ```
 
 The sample comes with some source files, some Visual Studio project files, a
 Makefile, and a README.
 
-```
+```shell
 $ ls
 Makefile       simpleMPI.cu          simpleMPI_vs2017.vcxproj  simpleMPI_vs2022.sln
 README.md      simpleMPI.h           simpleMPI_vs2019.sln      simpleMPI_vs2022.vcxproj
@@ -73,13 +73,13 @@ simpleMPI.cpp  simpleMPI_vs2017.sln  simpleMPI_vs2019.vcxproj
 
 For this tutorial, you will only need the following source files:
 
-```
+```shell
 simpleMPI.cpp  simpleMPI.cu  simpleMPI.h
 ```
 
 Remove the other files if desired.
 
-```
+```shell
 $ rm *.sln *.vcxproj README.md Makefile
 ```
 
@@ -102,7 +102,7 @@ When writing this tutorial, I used CCE 17 and CUDA 12 and ran the application on
 
 After deciding which versions you want, use the `module` command in a terminal to ensure that the Cray `CC` compiler and the NVIDIA `nvcc` compiler are available.
 
-```
+```shell
 $ module load cce/17
 $ module load cuda/12
 ```
@@ -111,7 +111,7 @@ You can check that your environment is set up correctly by checking that CC
 (the Cray CCE C++ compiler) and nvcc (the NVIDIA CUDA application compiler)
 are available in the terminal.
 
-```
+```shell
 $ CC --version
 Cray clang version 17.0.1  (5ec9405551a8c8845cf14e81dc28bff7aa3935cb)
 ...
@@ -143,7 +143,7 @@ the debugger can use to reason about the original code.
 The simpleMPI.cu file contains the code that will be run on the GPU. Use
 nvcc to compile it.
 
-```
+```shell
 $ nvcc -g -G -O0 -c -ccbin=cc -gencode arch=... simpleMPI.cu -o simpleMPI_gpu.o
 ```
 
@@ -179,7 +179,7 @@ the output file `simpleMPI_gpu.o`.
 
 My complete nvcc invocation for an A100 GPU looks like this:
 
-```
+```shell
 $ nvcc -g -G -c -ccbin=cc -gencode arch=compute_80,code=sm_80 simpleMPI.cu -o simpleMPI_gpu.o
 ```
 
@@ -193,7 +193,7 @@ The simpleMPI.cpp file contains code that will be run on the CPU. It is the
 entry point to the program and contains the MPI operations. Use CC to compile
 it.
 
-```
+```shell
 $ CC -g -O0 -c simpleMPI.cpp -o simpleMPI_cpu.o
 ```
 
@@ -204,7 +204,7 @@ compiler will automatically include the flags needed for building with MPI.
 
 Finally, use CC to link the two object files into the final executable.
 
-```
+```shell
 $ CC simpleMPI_gpu.o simpleMPI_cpu.o -o simpleMPI
 ```
 
@@ -213,7 +213,7 @@ $ CC simpleMPI_gpu.o simpleMPI_cpu.o -o simpleMPI
 Test that the application was compiled correctly by running it on multiple
 nodes. For example, on a Slurm system:
 
-```
+```shell
 $ srun -n8 -N2 --ntasks-per-node 4 --exclusive -p griz256 ./simpleMPI
 Running on 8 nodes
 Average of square roots is: 0.667337
@@ -246,7 +246,7 @@ will probably be different.
 
 You're ready to start debugging! Load the gdb4hpc debugger.
 
-```
+```shell
 $ module load gdb4hpc
 $ gdb4hpc --version
 gdb4hpc-4.16.3.
@@ -259,7 +259,7 @@ gdb4hpc will use the cuda-gdb debugger for GPU debugging. cuda-gdb is
 provided by the cuda module that you loaded for building the application.
 Check that cuda-gdb is available.
 
-```
+```shell
 $ cuda-gdb --version
 NVIDIA (R) cuda-gdb 12.5
 Portions Copyright (C) 2007-2024 NVIDIA Corporation
@@ -276,7 +276,7 @@ Start gdb4hpc. You will be dropped into a command line interface. gdb4hpc is ope
 by issuing debugging commands on the command line. The commands should be familiar
 to anyone who has used gdb before.
 
-```
+```shell
 $ gdb4hpc
 gdb4hpc 4.16.3. - Cray Interactive Parallel Debugger
 With Cray Comparative Debugging Technology.
@@ -290,7 +290,7 @@ dbg all>
 
 Use the `launch` command to start the application in the debugger.
 
-```
+```shell
 dbg all> launch $simpleMPI{8} --launcher-args="-N2 --ntasks-per-node=4 --exclusive -p griz256" --gpu ./simpleMPI
 Starting application, please wait...
 Launched application...
@@ -333,7 +333,7 @@ defined in simpleMPI.cu. The source code for the kernel looks like this:
 Set a breakpoint at the first line of the kernel with the `break` command, just
 like you would in gdb:
 
-```
+```shell
 dbg all> break simpleMPI.cu:55
 simpleMPI{0..7}: Breakpoint 1: file simpleMPI.cu, line 55.
 ```
@@ -344,7 +344,7 @@ simpleMPI{0..7}: Breakpoint 1: file simpleMPI.cu, line 55.
 Now use the `continue` command to run the application until it reaches the
 breakpoint in the kernel.
 
-```
+```shell
 dbg all> continue
 dbg all> <$simpleMPI>: Running on 8 nodes
 simpleMPI{0..7}: Breakpoint 1,  at simpleMPI.cu:55
@@ -356,7 +356,7 @@ inspect GPU memory as you would any other memory. Here we print the first 8 item
 of the `input` array. Since the program initializes the array with random data,
 the result is different for each rank, and your data might be different.
 
-```
+```shell
 dbg all> info locals
 simpleMPI{0..7}: Name:tid                       Type:@register int
 simpleMPI{0..7}: Name:input                     Type:@generic float * @parameter
@@ -378,7 +378,7 @@ gdb4hpc supports cuda-gdb's `cuda` commands.
 
 To get info about currently running CUDA threads, use `info cuda threads`.
 
-```
+```shell
 dbg all> info cuda threads
 simpleMPI{0}: Showing one thread per location; use -v for full list.
 simpleMPI{0}:    BlockIdx ThreadIdx   Count    Location
@@ -421,7 +421,7 @@ Use `cuda block x thread y` to switch to a different block and thread. You can
 confirm the switch by printing the CUDA kernel built in variables `blockIdx`
 and `threadIdx`.
 
-```
+```shell
 dbg all> cuda block 649 thread 0
 simpleMPI{0}: [Switching focus to CUDA kernel 0, grid 1, block (649,0,0), thread (0,0,0), device 2, sm 0, warp 59, lane 0]
 simpleMPI{0}: 0x00007fcef725da10        54      in simpleMPI.cu
@@ -449,7 +449,7 @@ simpleMPI{0..7}: {x = 0, y = 0, z = 0}
 
 To see what other `info` commands are available, use `cuda info help`:
 
-```
+```shell
 dbg all> cuda help info
 simpleMPI{0..7}: Print informations about the current CUDA activities. Available options:
 simpleMPI{0..7}:          devices : information about all the devices
@@ -469,7 +469,7 @@ simpleMPI{0..7}:
 
 There are also other top level `cuda` commands other than `info`:
 
-```
+```shell
 dbg all> cuda help
 simpleMPI{0..7}: Print or select the CUDA focus.
 simpleMPI{0..7}:
@@ -500,7 +500,7 @@ granularity the GPU scheduler works at. See
 [the cuda-gdb documentation](https://docs.nvidia.com/cuda/cuda-gdb/index.html#single-stepping)
 for more info.
 
-```
+```shell
 simpleMPI{0..7}: Breakpoint 1,  at simpleMPI.cu:55
 dbg all> list 55
 simpleMPI{0..7}: 50       }
