@@ -20,7 +20,7 @@ This is where gdb4hpc comes in. gdb4hpc is part of the HPE Cray Programming Envi
 
 gdb4hpc works by connecting the user to many instances of gdb at once. gdb4hpc controls all of the instances of gdb at once and aggregates and filters the results into representations that will comfortably fit on a single terminal screen.
 
-<center><img src="/img/gdb4hpc-controlling-gdbs.png" width="50%" alt="Illustration showing how gdb4hpc connects to individual gdb instances. A single gdb4hpc instance is run on the login node. On each compute node, multiple application ranks are running. Each application rank has an instance of gdb attached to it. In turn, gdb4hpc remotely attaches to each individual gdb instance." title="gdb4hpc controlling multiple instances of gdb"></center>
+<center><img src="/img/gdb4hpc-controlling-gdbs.png" width="95%" alt="Illustration showing how gdb4hpc connects to individual gdb instances. A single gdb4hpc instance is run on the login node. On each compute node, multiple application ranks are running. Each application rank has an instance of gdb attached to it. In turn, gdb4hpc remotely attaches to each individual gdb instance." title="gdb4hpc controlling multiple instances of gdb"></center>
 
 In this tutorial, you will learn how to debug a multinode MPI/CUDA application
 with gdb4hpc in the HPE Cray Programming Environment. This tutorial uses a CUDA
