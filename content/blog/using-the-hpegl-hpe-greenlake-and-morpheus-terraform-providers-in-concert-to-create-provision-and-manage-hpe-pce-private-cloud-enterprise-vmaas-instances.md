@@ -21,11 +21,11 @@ Many customers of HPE GreenLake for Private Cloud Enterprise want to use Terrafo
 
 In this blog post we will demonstrate how to use the two providers in concert to create, provision and manage VMaaS VM instances. Central to this is a hpegl data-source which can be used to retrieve an Access Token and URL for the on-premise Morpheus instance which are then passed to the Morpheus provider.
 
-# **IaC and HPE GreenLake Private Clour Enterprise**
+# **IaC and HPE GreenLake Private Cloud Enterprise**
 
 IaC is now a well-established approach to configuring, creating and managing resources. Terraform and more recently its OpenSource alternative OpenTofu along with per-service providers are especially popular. For HPE GreenLake for Private Cloud Enterprise's VMaaS (VM as a Service) service there are two relevant providers: 
 
-* hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Indentity and Access Management (IAM) and VMaaS 
+* hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Identity and Access Management (IAM) and VMaaS 
 * Morpheus, which interacts with the on-premise Morpheus instance or instances that are associated with the VMaaS service.  Each Morpheus instance is a separate on-premise installation of Morpheus 
 
 These two providers complement each other: 
@@ -1491,4 +1491,4 @@ We have included example HCL for two separate VMaaS configurations: 
 
  The HCL for the second configuration is built around a pair of HCL modules that can be combined in various ways to work with a number of different VMaaS configurations, including those with more than one on-premise Morpheus instance. 
 
-HPE for Private Cloud Enterprise customers are encouraged to use these example HCL bundles as a starting point for their own investigations into using the two providers (hpegl and Morpheus) for IaC with their environments.
+HPE GreenLake for Private Cloud Enterprise customers are encouraged to use these example HCL bundles as a starting point for their own investigations into using the two providers (hpegl and Morpheus) for IaC with their environments.
