@@ -4,6 +4,14 @@ date: 2025-01-17T16:37:53.003Z
 author: Josh Chandler
 authorimage: /img/e01ld9fh0jz-u014j40c3d2-43d529500caf-192.jpg
 disable: false
+tags:
+  - HPE Cray Programming Environment
+  - gdb4hpc
+  - debuggers
+  - developer tools
+  - HPC
+  - CPE
+  - cray
 ---
 Command line debuggers for Linux have existed for decades. The gdb debugger is the most famous and arguably the most powerful. But gdb has a weakness when it comes to HPC applications - it can only run on one system at a time. gdb can't be used to debug an HPC application at scale because HPC applications run tens of thousands of processes on thousands of systems at once!
 
