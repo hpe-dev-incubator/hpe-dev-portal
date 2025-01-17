@@ -3,6 +3,7 @@ title: Using the gdb4hpc debugger at scale with a CUDA/MPI HPC application
 date: 2025-01-17T16:37:53.003Z
 author: Josh Chandler
 authorimage: /img/e01ld9fh0jz-u014j40c3d2-43d529500caf-192.jpg
+thumbnailimage: ""
 disable: false
 tags:
   - HPE Cray Programming Environment
@@ -16,6 +17,10 @@ tags:
 Command line debuggers for Linux have existed for decades. The gdb debugger is the most famous and arguably the most powerful. But gdb has a weakness when it comes to HPC applications - it can only run on one system at a time. gdb can't be used to debug an HPC application at scale because HPC applications run tens of thousands of processes on thousands of systems at once!
 
 This is where gdb4hpc comes in. gdb4hpc is part of the HPE Cray Programming Environment package. It captures the powerful features of gdb and allows the user to apply them to an HPC application at scale. gdb4hpc can debug HPC applications running on thousands of nodes.
+
+gdb4hpc works by connecting the user to many instances of gdb at once. gdb4hpc controls all of the instances of gdb at once and aggregates and filters the results into representations that will comfortably fit on a single terminal screen.
+
+<center><img src="/img/gdb4hpc-controlling-gdbs.png" width="50%" alt="Illustration showing how gdb4hpc connects to individual gdb instances. A single gdb4hpc instance is run on the login node. On each compute node, multiple application ranks are running. Each application rank has an instance of gdb attached to it. In turn, gdb4hpc remotely attaches to each individual gdb instance." title="gdb4hpc controlling multiple instances of gdb"></center>
 
 In this tutorial, you will learn how to debug a multinode MPI/CUDA application
 with gdb4hpc in the HPE Cray Programming Environment. This tutorial uses a CUDA
@@ -87,8 +92,7 @@ sample application for your chosen GPU architecture with debug information.
 
 The version of the `cce` and `cuda` compilers that you should load depend on
 which GPU architecture you will be compiling for and the version of the CUDA
-drivers on your system. Find your GPU on the [NVIDIA GPU Compute Capability page]
-(https://developer.nvidia.com/cuda-gpus) and choose a version of CUDA that
+drivers on your system. Find your GPU on the [NVIDIA GPU Compute Capability page](https://developer.nvidia.com/cuda-gpus) and choose a version of CUDA that
 supports the required compute capability. Then load an appropriate CCE version.
 For information about which CCE versions support which versions of CUDA, see
 the [HPE Cray Programming Environment release announcements](https://cpe.ext.hpe.com/docs/latest/release_announcements/index.html). If in doubt, the default versions on your system
