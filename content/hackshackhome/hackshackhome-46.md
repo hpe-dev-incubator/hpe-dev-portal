@@ -1,7 +1,7 @@
 ---
 title: "From log files to AI insights: The 60-year evolution of observability
   and AIOps"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/7417344497263/WN_436X_watTMCFNFdTDyGUAA
 imageBackground: white
