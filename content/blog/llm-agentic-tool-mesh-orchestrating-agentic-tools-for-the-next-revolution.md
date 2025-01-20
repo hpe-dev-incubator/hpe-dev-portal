@@ -4,6 +4,10 @@ date: 2025-01-20T08:36:14.226Z
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
+tags:
+  - HPE
+  - GenAI
+  - LAT-Mesh
 ---
 <style>
 li {
@@ -21,8 +25,8 @@ In our previous blog posts, we delved into the [Chat Service](https://developer.
 
 The System Services in LLM Agentic Tool Mesh are crucial for the seamless operation and orchestration of agentic tools and web applications. These services ensure consistency, ease of use, and flexibility across the platform. They include:
 
-1. Tool Client Service
-2. Tool Server Service
+1. **Tool Client Service**
+2. **Tool Server Service**
 
 Let's explore each of these components in detail.
 
@@ -112,44 +116,78 @@ for tool in tool_repository.get_tools().tools:
 
 # LLM Agentic Tool Mesh in action: Building a mesh of LLM Agentic Tools
 
-
 We have developed a series of web applications and tools, complete with examples, to demonstrate the capabilities of LLM Agentic Tool Mesh.
-
 
 Web Applications
 
-* Chatbot (`examples/app_chatbot`): A chatbot capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
-* Admin panel (`examples/app_backpanel`): An admin panel that enables the configuration of basic LLM tools to perform actions via LLM calls. It allows you to set the system prompt, select the LLM model, and define the LLM tool interface, simplifying the process of configuring LLM tool interfaces.
+* **Chatbot** (`examples/app_chatbot`): A chatbot capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations
+* **Admin panel** (`examples/app_backpanel`): An admin panel that enables the configuration of basic LLM tools to perform actions via LLM calls. It allows you to set the system prompt, select the LLM model, and define the LLM tool interface, simplifying the process of configuring LLM tool interfaces
 
 Tools
 
+* **Basic copywriter** (`examples/tool_copywriter`): A tool that rewrites text, providing explanations for enhancements and changes
+* **Temperature finder** (`examples/tool_api`): Fetches and displays the current temperature for a specified location by utilizing a public API
+* **Temperature analyzer** (examples/tool_analyzer): Generates code using a language model to analyze historical temperature data and create visual charts for better understanding
+* **Telco expert** (`examples/tool_rag`): A RAG tool that provides quick and accurate access to 5G specifications.
+* **OpenAPI manager** (`examples/tool_agents`): A multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries
 
-* Basic Copywriter (`examples/tool_copywriter`): A tool that rewrites text, providing explanations for enhancements and changes.
-* Temperature Finder (`examples/tool_api`): Fetches and displays the current temperature for a specified location by utilizing a public API.
-* Temperature Analyzer (examples/tool_analyzer): Generates code using a language model to analyze historical temperature data and create visual charts for better understanding.
-* Telco Expert (`examples/tool_rag`): A RAG tool that provides quick and accurate access to 5G specifications.
-* OpenAPI Manager (`examples/tool_agents`): A multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries.
+## Running the examples:
+
+You can run the tools and web applications individually or use the provided `run_examples.sh` script to run them all together. Once everything is started:
+
+* Access the chatbot at `https://127.0.0.1:5001/`
+* Access the admin panel at `https://127.0.0.1:5011/`
+
+![](/img/mesh-apps.png)
+
+# Federated Governance and Standards
+
+In the LLM Agentic Tool Mesh platform, the management of LLM tools is decentralized, promoting flexibility and innovation. To ensure this decentralization does not compromise the platform's integrity, LLM Agentic Tool Mesh implements a unified framework of governance policies and standards.
+
+Key principles
+
+* Interoperable standards: Ensures all tools and services work together seamlessly while adhering to best practices
+* Ethical compliance: Emphasizes minimizing biases, ensuring fairness, and upholding ethical principles across all AI tools and models
+* Security and privacy: Maintains rigorous standards to protect data and ensure compliance with privacy regulations
+* Continuous improvement: Encourages feedback and collaboration to refine governance practices
+* Automated governance: Plans to extend code quality checks to enforce governance policies, ensuring comprehensive compliance across the platform
+
+LLM Agentic Tool Mesh includes a dedicated repository containing text files that outline various policies and standards (`federated_governance/`). These documents cover essential areas such as LLM model usage, RAG processes, and more.
+
+# Vision for LLM Agentic Tool Mesh project evolution
+
+The LLM Agentic Tool Mesh platform is evolving into a comprehensive solution, providing several panel views tailored for various stages of the tool and application lifecycle. 
+
+When creating a new web app, you can build upon the existing examples. With all services fully parameterized, there is unparalleled flexibility to design diverse user experience panels. For instance, current examples include a chatbot as a user interface and an admin panel for configuring an LLM tool. Additionally, web apps can be developed to support deployment tasks or facilitate experiments aimed at optimizing service parameters for specific objectives.
+
+Currently, the platform provides:
+
+**User panel**:
+
+* Implemented features: This panel focuses on engaging with tools like Chat, RAG, and Agent services. It provides a user-friendly interface for interacting with these capabilities
+* Future goals: Enrich the existing services, offering an even more seamless and feature-rich experience for end-users
+
+ **Development panel**:
+
+* Implemented features: This panel has been partially tackled with the backpanel web app example, which allows users to runtime modify the basic copywriter agentic tool and the RAG tool
+* Future goals: Add more system services to support development, including real-time LLM tuning and configuration
+
+ **Deployment panel (future)**:
+
+* Purpose: This panel will focus on deploying the LLM Agentic Tool Mesh tools seamlessly across one or more clusters, enabling large-scale and distributed deployments
+* Planned features: Tools for monitoring deployed tools, orchestrating distributed systems, and managing deployment pipelines
+
+ **Experiment Panel (Future)**:
+
+* Purpose: Designed for tracking and managing experiments to optimize LLM tool performance and suitability
+* Planned features: This panel will allow users to try different configurations and compare outcomes, helping teams evaluate the most effective settings for their use cases
+
+![](/img/usage.png)
+
+# Our mission ahead
 
 
-Running the Examples:
-You can run the tools and web applications individually or use the provided run_examples.sh script to run them all together. Once everything is started:
-•	Access the Chatbot App at https://127.0.0.1:5001/.
-•	Access the Admin Panel at https://127.0.0.1:5011/.
-Configuring the LLM Model:
-Depending on the LLM you are using, update the configuration files accordingly.
-•	For OpenAI's ChatGPT:
-•	# LLM settings
-•	type: LangChainChatOpenAI
-•	model_name: gpt-4
-•	api_key: $ENV{OPENAI_API_KEY}
-•	temperature: 0
-•	seed: 42
-•	For Internal Models:
-•	# LLM settings
-•	type: LangChainAzureChatOpenAI
-•	azure_deployment: $ENV{HPE_DEPLOYMENT}
-•	api_version: "2023-10-01-preview"
-•	endpoint: $ENV{HPE_ENDPOINT}
-•	api_key: $ENV{HPE_API_KEY}
-•	temperature: 0
-•	seed: 42
+As LLM Agentic Tool Mesh evolves, we aim to continue enhancing the platform by enriching existing services, especially in the user panel, and expanding the development panel with more robust system services. The addition of the deployment panel and experiment panel will complete the platform's vision, enabling a fully integrated lifecycle from development to deployment and optimization.
+
+
+Stay tuned as we advance toward democratizing Gen AI with a comprehensive, flexible, and user-centric platform!
