@@ -17,11 +17,13 @@ li {
 }
 </style>
 
-In our previous blog posts, we delved into the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/), [Agent Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-harnessing-agent-services-and-multi-agent-ai-for-next-level-gen-ai/), and [RAG Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-empowering-gen-ai-with-retrieval-augmented-generation-rag/) of [LLM Agentic Tool Mesh open source project](https://github.com/HewlettPackard/llmesh). Today, we'll explore the System Services of LLM Agentic Tool Mesh that are essential for managing and orchestrating the mesh of agentic tools. We'll provide insights into these services, showcase an example of a Mesh available in the repository, discuss federated governance, and share our vision for the future evolution of the LLM Agentic Tool Mesh project.
+In our previous blog posts, we delved into the [Chat Service](https://developer.hpe.com/blog/ll-mesh-exploring-chat-service-and-factory-design-pattern/), [Agent Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-harnessing-agent-services-and-multi-agent-ai-for-next-level-gen-ai/), and [RAG Service](https://developer.hpe.com/blog/llm-agentic-tool-mesh-empowering-gen-ai-with-retrieval-augmented-generation-rag/) of [LLM Agentic Tool Mesh open source project](https://github.com/HewlettPackard/llmesh). Today, we'll explore the System Services of LLM Agentic Tool Mesh that are essential for managing and orchestrating the mesh of agentic tools. 
+
+We'll provide insights into these services, showcase an example of a Mesh available in the repository, discuss federated governance, and share our vision for the future evolution of the LLM Agentic Tool Mesh project.
 
 ![](/img/mesh.png)
 
-# Understanding LLM Agentic Tool Mesh System Services
+# Understanding the System Services
 
 The System Services in LLM Agentic Tool Mesh are crucial for the seamless operation and orchestration of agentic tools and web applications. These services ensure consistency, ease of use, and flexibility across the platform. They include:
 
@@ -36,8 +38,8 @@ The Tool Client Service enables developers to transform any code function into a
 
 Key features:
 
-* Decorator-based: Convert functions into tools using the `@AthonTool` decorator.
-* Seamless integration: Decorated functions are fully integrated into the LLM Agentic Tool Mesh platform.
+* Decorator-based: Convert functions into tools using the `@AthonTool` decorator
+* Seamless integration: Decorated functions are fully integrated into the LLM Agentic Tool Mesh platform
 
 Example usage:
 
@@ -62,8 +64,8 @@ The Tool Server Service provides the necessary infrastructure to manage and run 
 
 Key features:
 
-* Tool discovery: Automatically discover tools within the platform.
-* Execution management: Manage the execution of tools, ensuring efficient operation.
+* Tool discovery: Automatically discover tools within the platform
+* Execution management: Manage the execution of tools, ensuring efficient operation
 
 ![](/img/tools.png)
 
@@ -114,7 +116,7 @@ for tool in tool_repository.get_tools().tools:
     print(f"Discovered tool: {tool['name']} from project: {tool['metadata']['project']}")
 ```
 
-# LLM Agentic Tool Mesh in action: Building a mesh of LLM Agentic Tools
+# Building a mesh of LLM Agentic Tools
 
 We have developed a series of web applications and tools, complete with examples, to demonstrate the capabilities of LLM Agentic Tool Mesh.
 
@@ -131,7 +133,7 @@ Tools
 * **Telco expert** (`examples/tool_rag`): A RAG tool that provides quick and accurate access to 5G specifications.
 * **OpenAPI manager** (`examples/tool_agents`): A multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries
 
-## Running the examples:
+## Running the examples
 
 You can run the tools and web applications individually or use the provided `run_examples.sh` script to run them all together. Once everything is started:
 
@@ -140,7 +142,7 @@ You can run the tools and web applications individually or use the provided `run
 
 ![](/img/mesh-apps.png)
 
-# Federated Governance and Standards
+# Federated governance and standards
 
 In the LLM Agentic Tool Mesh platform, the management of LLM tools is decentralized, promoting flexibility and innovation. To ensure this decentralization does not compromise the platform's integrity, LLM Agentic Tool Mesh implements a unified framework of governance policies and standards.
 
@@ -186,8 +188,6 @@ Currently, the platform provides:
 
 # Our mission ahead
 
-
 As LLM Agentic Tool Mesh evolves, we aim to continue enhancing the platform by enriching existing services, especially in the user panel, and expanding the development panel with more robust system services. The addition of the deployment panel and experiment panel will complete the platform's vision, enabling a fully integrated lifecycle from development to deployment and optimization.
-
 
 Stay tuned as we advance toward democratizing Gen AI with a comprehensive, flexible, and user-centric platform!
