@@ -146,11 +146,11 @@ In the LLM Agentic Tool Mesh platform, the management of LLM tools is decentrali
 
 Key principles
 
-* Interoperable standards: Ensures all tools and services work together seamlessly while adhering to best practices
-* Ethical compliance: Emphasizes minimizing biases, ensuring fairness, and upholding ethical principles across all AI tools and models
-* Security and privacy: Maintains rigorous standards to protect data and ensure compliance with privacy regulations
-* Continuous improvement: Encourages feedback and collaboration to refine governance practices
-* Automated governance: Plans to extend code quality checks to enforce governance policies, ensuring comprehensive compliance across the platform
+* **Interoperable standards**: Ensures all tools and services work together seamlessly while adhering to best practices
+* **Ethical compliance**: Emphasizes minimizing biases, ensuring fairness, and upholding ethical principles across all AI tools and models
+* **Security and privacy**: Maintains rigorous standards to protect data and ensure compliance with privacy regulations
+* **Continuous improvement**: Encourages feedback and collaboration to refine governance practices
+* **Automated governance**: Plans to extend code quality checks to enforce governance policies, ensuring comprehensive compliance across the platform
 
 LLM Agentic Tool Mesh includes a dedicated repository containing text files that outline various policies and standards (`federated_governance/`). These documents cover essential areas such as LLM model usage, RAG processes, and more.
 
@@ -167,17 +167,17 @@ Currently, the platform provides:
 * Implemented features: This panel focuses on engaging with tools like Chat, RAG, and Agent services. It provides a user-friendly interface for interacting with these capabilities
 * Future goals: Enrich the existing services, offering an even more seamless and feature-rich experience for end-users
 
- **Development panel**:
+**Development panel**:
 
 * Implemented features: This panel has been partially tackled with the backpanel web app example, which allows users to runtime modify the basic copywriter agentic tool and the RAG tool
 * Future goals: Add more system services to support development, including real-time LLM tuning and configuration
 
- **Deployment panel (future)**:
+**Deployment panel (future)**:
 
 * Purpose: This panel will focus on deploying the LLM Agentic Tool Mesh tools seamlessly across one or more clusters, enabling large-scale and distributed deployments
 * Planned features: Tools for monitoring deployed tools, orchestrating distributed systems, and managing deployment pipelines
 
- **Experiment Panel (Future)**:
+**Experiment Panel (Future)**:
 
 * Purpose: Designed for tracking and managing experiments to optimize LLM tool performance and suitability
 * Planned features: This panel will allow users to try different configurations and compare outcomes, helping teams evaluate the most effective settings for their use cases
