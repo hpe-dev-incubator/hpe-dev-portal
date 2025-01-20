@@ -38,8 +38,8 @@ The Tool Client Service enables developers to transform any code function into a
 
 Key features:
 
-* Decorator-based: Convert functions into tools using the `@AthonTool` decorator
-* Seamless integration: Decorated functions are fully integrated into the LLM Agentic Tool Mesh platform
+* Decorator-based: Convert functions into tools using the `@AthonTool` decorator.
+* Seamless integration: Decorated functions are fully integrated into the LLM Agentic Tool Mesh platform.
 
 Example usage:
 
@@ -64,8 +64,8 @@ The Tool Server Service provides the necessary infrastructure to manage and run 
 
 Key features:
 
-* Tool discovery: Automatically discover tools within the platform
-* Execution management: Manage the execution of tools, ensuring efficient operation
+* Tool discovery: Automatically discover tools within the platform.
+* Execution management: Manage the execution of tools, ensuring efficient operation.
 
 ![](/img/tools.png)
 
@@ -118,20 +118,20 @@ for tool in tool_repository.get_tools().tools:
 
 # Building a mesh of LLM Agentic Tools
 
-We have developed a series of web applications and tools, complete with examples, to demonstrate the capabilities of LLM Agentic Tool Mesh.
+We have developed a series of web applications and tools, complete with examples, to demonstrate the capabilities of LLM Agentic Tool Mesh in out [GitHub repo](https://github.com/HewlettPackard/llmesh).
 
-Web Applications
+Web Applications:
 
-* **Chatbot** (`examples/app_chatbot`): A chatbot capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations
-* **Admin panel** (`examples/app_backpanel`): An admin panel that enables the configuration of basic LLM tools to perform actions via LLM calls. It allows you to set the system prompt, select the LLM model, and define the LLM tool interface, simplifying the process of configuring LLM tool interfaces
+* **Chatbot** (`examples/app_chatbot`): A chatbot capable of reasoning and invoking appropriate LLM tools to perform specific actions. You can configure the chatbot using files that define LLM Agentic Tool Mesh platform services, project settings, toolkits, and memory configurations. The web app orchestrates both local and remote LLM tools, allowing them to define their own HTML interfaces, supporting text, images, and code presentations.
+* **Admin panel** (`examples/app_backpanel`): An admin panel that enables the configuration of basic LLM tools to perform actions via LLM calls. It allows you to set the system prompt, select the LLM model, and define the LLM tool interface, simplifying the process of configuring LLM tool interfaces.
 
-Tools
+Tools:
 
-* **Basic copywriter** (`examples/tool_copywriter`): A tool that rewrites text, providing explanations for enhancements and changes
-* **Temperature finder** (`examples/tool_api`): Fetches and displays the current temperature for a specified location by utilizing a public API
-* **Temperature analyzer** (examples/tool_analyzer): Generates code using a language model to analyze historical temperature data and create visual charts for better understanding
+* **Basic copywriter** (`examples/tool_copywriter`): A tool that rewrites text, providing explanations for enhancements and changes.
+* **Temperature finder** (`examples/tool_api`): Fetches and displays the current temperature for a specified location by utilizing a public API.
+* **Temperature analyzer** (`examples/tool_analyzer`): Generates code using a language model to analyze historical temperature data and create visual charts for better understanding
 * **Telco expert** (`examples/tool_rag`): A RAG tool that provides quick and accurate access to 5G specifications.
-* **OpenAPI manager** (`examples/tool_agents`): A multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries
+* **OpenAPI manager** (`examples/tool_agents`): A multi-agent tool that reads OpenAPI documentation and provides users with relevant information based on their queries.
 
 ## Running the examples
 
@@ -146,13 +146,13 @@ You can run the tools and web applications individually or use the provided `run
 
 In the LLM Agentic Tool Mesh platform, the management of LLM tools is decentralized, promoting flexibility and innovation. To ensure this decentralization does not compromise the platform's integrity, LLM Agentic Tool Mesh implements a unified framework of governance policies and standards.
 
-Key principles
+Key principles:
 
-* **Interoperable standards**: Ensures all tools and services work together seamlessly while adhering to best practices
-* **Ethical compliance**: Emphasizes minimizing biases, ensuring fairness, and upholding ethical principles across all AI tools and models
-* **Security and privacy**: Maintains rigorous standards to protect data and ensure compliance with privacy regulations
-* **Continuous improvement**: Encourages feedback and collaboration to refine governance practices
-* **Automated governance**: Plans to extend code quality checks to enforce governance policies, ensuring comprehensive compliance across the platform
+* **Interoperable standards**: Ensures all tools and services work together seamlessly while adhering to best practices.
+* **Ethical compliance**: Emphasizes minimizing biases, ensuring fairness, and upholding ethical principles across all AI tools and models.
+* **Security and privacy**: Maintains rigorous standards to protect data and ensure compliance with privacy regulations.
+* **Continuous improvement**: Encourages feedback and collaboration to refine governance practices.
+* **Automated governance**: Plans to extend code quality checks to enforce governance policies, ensuring comprehensive compliance across the platform.
 
 LLM Agentic Tool Mesh includes a dedicated repository containing text files that outline various policies and standards (`federated_governance/`). These documents cover essential areas such as LLM model usage, RAG processes, and more.
 
@@ -166,23 +166,23 @@ Currently, the platform provides:
 
 **User panel**:
 
-* Implemented features: This panel focuses on engaging with tools like Chat, RAG, and Agent services. It provides a user-friendly interface for interacting with these capabilities
-* Future goals: Enrich the existing services, offering an even more seamless and feature-rich experience for end-users
+* Implemented features: This panel focuses on engaging with tools like Chat, RAG, and Agent services. It provides a user-friendly interface for interacting with these capabilities.
+* Future goals: Enrich the existing services, offering an even more seamless and feature-rich experience for end-users.
 
 **Development panel**:
 
-* Implemented features: This panel has been partially tackled with the backpanel web app example, which allows users to runtime modify the basic copywriter agentic tool and the RAG tool
-* Future goals: Add more system services to support development, including real-time LLM tuning and configuration
+* Implemented features: This panel has been partially tackled with the backpanel web app example, which allows users to runtime modify the basic copywriter agentic tool and the RAG tool.
+* Future goals: Add more system services to support development, including real-time LLM tuning and configuration.
 
 **Deployment panel (future)**:
 
-* Purpose: This panel will focus on deploying the LLM Agentic Tool Mesh tools seamlessly across one or more clusters, enabling large-scale and distributed deployments
-* Planned features: Tools for monitoring deployed tools, orchestrating distributed systems, and managing deployment pipelines
+* Purpose: This panel will focus on deploying the LLM Agentic Tool Mesh tools seamlessly across one or more clusters, enabling large-scale and distributed deployments.
+* Planned features: Tools for monitoring deployed tools, orchestrating distributed systems, and managing deployment pipelines.
 
 **Experiment Panel (Future)**:
 
-* Purpose: Designed for tracking and managing experiments to optimize LLM tool performance and suitability
-* Planned features: This panel will allow users to try different configurations and compare outcomes, helping teams evaluate the most effective settings for their use cases
+* Purpose: Designed for tracking and managing experiments to optimize LLM tool performance and suitability.
+* Planned features: This panel will allow users to try different configurations and compare outcomes, helping teams evaluate the most effective settings for their use cases.
 
 ![](/img/usage.png)
 
