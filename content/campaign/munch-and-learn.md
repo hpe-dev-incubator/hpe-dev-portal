@@ -35,6 +35,8 @@ thead tr:first-child td {
   padding: 20px !important;
   font-weight: bold !important;
 }
+
+
 </style>
 
 | &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date&nbsp; | Title                                                                                                                                                                                                                       | Speaker(s)                                            | Link                                                                                                       |
