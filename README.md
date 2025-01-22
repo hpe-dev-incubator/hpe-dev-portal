@@ -8,7 +8,7 @@ Kick off your project with this blog boilerplate. This starter ships with the ma
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-## Commands
+## Commands 
 1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up to run the gatsby project on development mode
