@@ -13,23 +13,25 @@ tags:
   - HPC
   - CPE
   - cray
+  - hpe-cray-programming-environment
 ---
-Command line debuggers for Linux have existed for decades. The gdb debugger is the most famous and arguably the most powerful. But gdb has a weakness when it comes to HPC applications - it can only run on one system at a time. gdb can't be used to debug an HPC application at scale because HPC applications run tens of thousands of processes on thousands of systems at once!
+Command line debuggers for Linux have existed for decades. The gdb debugger is the most famous and arguably the most powerful. But gdb has a weakness when it comes to high performance computing (HPC) applications - it can only run on one system at a time. A typical HPC application runs tens of thousands of processes on thousands of systems at once! Classic debuggers like gdb were never designed for that.
 
-This is where gdb4hpc comes in. gdb4hpc is part of the HPE Cray Programming Environment package. It captures the powerful features of gdb and allows the user to apply them to an HPC application at scale. gdb4hpc can debug HPC applications running on thousands of nodes.
+This is where gdb4hpc comes in. The gdb4hpc debugger is part of the HPE Cray Programming Environment package. It captures and extends the powerful single-system features of gdb and provides a familiar command line debugging experience for HPC applications running on thousands of nodes.
 
-gdb4hpc works by connecting the user to many instances of gdb at once. gdb4hpc controls all of the instances of gdb at once and aggregates and filters the results into representations that will comfortably fit on a single terminal screen.
+To provide these features, gdb4hpc connects the user to many instances of gdb at once. While connected, it provides tools enabling the user to control all of the instances of gdb simultaneously. Familiar debugging features like breakpoints, backtraces, and printing variables can be applied to all processes simultaneously. Additionally, more advanced debugging features like attaching to a running application and debugging GPU kernels are supported.
+
+To help the user manage the inherent complexities of debugging thousands of processes at once, the gdb4hpc debugger aggregates and filters the results from potentially thousands of gdb instances into representations that will comfortably fit on a single terminal screen. Additionally, it provides tools to inspect large amounts of data like the very large arrays that are typical in HPC applications.
 
 <center><img src="/img/gdb4hpc-controlling-gdbs.png" width="95%" alt="Illustration showing how gdb4hpc connects to individual gdb instances. A single gdb4hpc instance is run on the login node. On each compute node, multiple application ranks are running. Each application rank has an instance of gdb attached to it. In turn, gdb4hpc remotely attaches to each individual gdb instance." title="gdb4hpc controlling multiple instances of gdb"></center>
 
 In this tutorial, you will learn how to debug a multinode MPI/CUDA application
 with gdb4hpc in the HPE Cray Programming Environment. This tutorial uses a CUDA
-application and NVIDIA GPUs as examples, but the concepts are applicable to HIP
-applications on AMD GPUs as well.
+application and NVIDIA GPUs as examples, but the concepts are applicable to HIP (AMD's equivalent of NVIDIA's CUDA) applications on AMD GPUs as well.
 
 ## Prerequisites
 
-This tutorial assumes you already have a familiarity with command line debuggers, git, MPI, and CUDA.
+This tutorial assumes you already have a familiarity with [command line debuggers](https://sourceware.org/gdb/), [Git](https://git-scm.com/), [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface), and [CUDA](https://developer.nvidia.com/cuda-toolkit).
 
 You will need a system with access to Cray C++ compilers and gdb4hpc, which are parts of the HPC Cray Programming Environment. You will also need access to the NVIDIA C++ compiler.
 
@@ -38,11 +40,11 @@ You will need a system with access to Cray C++ compilers and gdb4hpc, which are 
 To set up the debugging session, you will need to obtain the sample application
 and compile it for your chosen GPU with debug information.
 
-### Download The Sample Code
+### Download the sample code
 
 For this tutorial, you will use the `simpleMPI` example from
 [NVIDIA's cuda-samples repository](https://github.com/NVIDIA/cuda-samples).
-`simpleMPI` does a simple distributed calculation involving square roots and averages:
+The `simpleMPI` application does a distributed calculation involving square roots and averages:
 
 1. `simpleMPI` generates millions of random floats (2,560,000 per node)
 2. `simpleMPI` uses MPI to distribute those numbers across multiple compute nodes
@@ -77,18 +79,18 @@ For this tutorial, you will only need the following source files:
 simpleMPI.cpp  simpleMPI.cu  simpleMPI.h
 ```
 
-Remove the other files if desired.
+Remove the other files, if desired.
 
 ```shell
 $ rm *.sln *.vcxproj README.md Makefile
 ```
 
-### Build The Application
+### Build the application
 
 To compile the application, load the appropriate compilers and compile the
 sample application for your chosen GPU architecture with debug information.
 
-#### Load Compilers
+#### Load compilers
 
 The version of the `cce` and `cuda` compilers that you should load depend on
 which GPU architecture you will be compiling for and the version of the CUDA
@@ -100,7 +102,7 @@ should work just fine.
 
 When writing this tutorial, I used CCE 17 and CUDA 12 and ran the application on NVIDIA A100 GPUs, but the debugging process is the same for any compiler combination.
 
-After deciding which versions you want, use the `module` command in a terminal to ensure that the Cray `CC` compiler and the NVIDIA `nvcc` compiler are available.
+After finding which versions you need, use the `module` command in a terminal to ensure that the Cray `CC` compiler and the NVIDIA `nvcc` compiler are available.
 
 ```shell
 $ module load cce/17
@@ -124,12 +126,12 @@ Cuda compilation tools, release 12.5, V12.5.82
 ...
 ```
 
-#### Compile the Application
+#### Compile the application
 
 The sample application comes with a Makefile, but it's not compatible with the
 HPE Cray Programming Environment. You will compile the application manually.
 
-#### Debug Info
+#### Include debug info
 
 When compiling an application, compilers apply optimizations to make the resulting
 application faster and smaller. These optimizations often rearrange the order
@@ -138,7 +140,7 @@ at runtime difficult. When preparing to debug an application, you need to tell
 the compiler to disable these optimizations and include extra information that
 the debugger can use to reason about the original code.
 
-#### Compile the .cu File
+#### Compile the .cu file
 
 The simpleMPI.cu file contains the code that will be run on the GPU. Use
 nvcc to compile it.
@@ -158,7 +160,7 @@ object file is a mostly-compiled program that only needs to be linked to create
 an executable. After you compile the .cpp file in the next section, you will
 link the object files together to create the final executable.
 
-nvcc does not actually fully compile C/C++. It actually processes the CUDA
+The nvcc compiler does not actually fully compile C/C++. It actually processes the CUDA
 directives in the .cu file and produces a new C/C++ file where the CUDA
 directives are replaced with the proper C/C++ code that interacts with the CUDA
 API to do the work of loading the correct GPU driver etc. `-ccbin=cc` tells
@@ -187,7 +189,7 @@ Refer to the [`nvcc` user manual](https://docs.nvidia.com/cuda/cuda-compiler-dri
 and the [compilation section of the cuda-gdb documentation](https://docs.nvidia.com/cuda/cuda-gdb/index.html#compiling-the-application)
 for more information.
 
-#### Compile the .cpp File
+#### Compile the .cpp file
 
 The simpleMPI.cpp file contains code that will be run on the CPU. It is the
 entry point to the program and contains the MPI operations. Use CC to compile
@@ -200,7 +202,7 @@ $ CC -g -O0 -c simpleMPI.cpp -o simpleMPI_cpu.o
 The flags have the same meanings as in the nvcc compilation. The Cray CC
 compiler will automatically include the flags needed for building with MPI.
 
-#### Link the Application and Produce an Executable
+#### Link the application and produce an executable
 
 Finally, use CC to link the two object files into the final executable.
 
@@ -208,7 +210,7 @@ Finally, use CC to link the two object files into the final executable.
 $ CC simpleMPI_gpu.o simpleMPI_cpu.o -o simpleMPI
 ```
 
-#### Test The Application
+#### Test the application
 
 Test that the application was compiled correctly by running it on multiple
 nodes. For example, on a Slurm system:
@@ -228,12 +230,12 @@ for how to achieve a correct job launch on your system.
 In my specific example:
 
 `-n8 -N2 --ntasks-per-node 4` tells Slurm to run 8 ranks across 2 nodes,
-splitting the job evenly by running 4 ranks on each node. In this example we
-are using nodes with 4 A100s each.
+splitting the job evenly by running 4 ranks on each node. In this example I
+am using nodes with 4 A100s each.
 
 `--exclusive` tells Slurm to run on nodes that aren't being used by anyone
 else, and to not let anyone else use them while running the job. Only one
-application can use each GPU at a time, so we need to make sure that we aren't
+application can use each GPU at a time, so you need to make sure that you aren't
 given nodes that have GPUs that are already in use.
 
 `-p griz256` tells Slurm to use the nodes in the griz256 partition. In my case,
@@ -255,7 +257,7 @@ gdb4hpc-4.16.3.
 For this tutorial, I am using gdb4hpc 4.16.3, but any version above 4.13.1
 will have the commands used in this tutorial.
 
-gdb4hpc will use the cuda-gdb debugger for GPU debugging. cuda-gdb is
+The gdb4hpc debugger will internally use the cuda-gdb debugger for GPU debugging. cuda-gdb is
 provided by the cuda module that you loaded for building the application.
 Check that cuda-gdb is available.
 
@@ -270,7 +272,7 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 ```
 
-#### Launch the Application in gdb4hpc
+#### Launch the application in gdb4hpc
 
 Start gdb4hpc. You will be dropped into a command line interface. gdb4hpc is operated
 by issuing debugging commands on the command line. The commands should be familiar
@@ -316,7 +318,7 @@ The final argument, `./simpleMPI`, specifies the binary to launch.
 
 After the launch completes, gdb4hpc stops at `main` and gives you control.
 
-#### Stop at a Breakpoint in a GPU kernel
+#### Stop at a breakpoint in a GPU kernel
 
 The sample application contains one CUDA Kernel called `simpleMPIKernel`
 defined in simpleMPI.cu. The source code for the kernel looks like this:
@@ -352,7 +354,7 @@ simpleMPI{0..7}: Breakpoint 1,  at simpleMPI.cu:55
 
 The application has stopped in a GPU kernel. From here you can use the usual
 debugger commands like `print`, `step`, `next`, etc. You can use `print` to
-inspect GPU memory as you would any other memory. Here we print the first 8 items
+inspect GPU memory as you would any other memory. Here I print the first 8 items
 of the `input` array. Since the program initializes the array with random data,
 the result is different for each rank, and your data might be different.
 
@@ -372,9 +374,9 @@ simpleMPI{6}: {0.959459,0.299068,0.889675,0.0221367,0.809361,0.0220988,0.373968,
 simpleMPI{7}: {0.839492,0.778462,0.195212,0.832727,0.125331,0.211325,0.0624168,0.56848}
 ```
 
-#### CUDA Threads and CUDA Commands
+#### Inspect CUDA threads and use CUDA commands
 
-gdb4hpc supports cuda-gdb's `cuda` commands.
+The gdb4hpc debugger supports cuda-gdb's `cuda` commands.
 
 To get info about currently running CUDA threads, use `info cuda threads`.
 
@@ -445,7 +447,7 @@ dbg all> print threadIdx
 simpleMPI{0..7}: {x = 0, y = 0, z = 0}
 ```
 
-#### More CUDA Commands
+#### Use more CUDA commands
 
 To see what other `info` commands are available, use `cuda info help`:
 
@@ -492,7 +494,7 @@ simpleMPI{0..7}: Command name abbreviations are allowed if unambiguous.
 
 See [the cuda-gdb documentation](https://docs.nvidia.com/cuda/cuda-gdb/index.html) for more information.
 
-#### Single Stepping
+#### Single step in a GPU kernel
 
 The usual `step` and `next` commands are supported. In a GPU kernel, stepping
 has the granularity of a warp. A warp is a group of 32 GPU threads and is the
@@ -532,11 +534,11 @@ simpleMPI{6}: 0.366925
 simpleMPI{7}: 0.646477
 ```
 
-## Next Steps
+## Next steps
 
-You now know how to start debugging a multinode MPI/CUDA application with gdb4hpc in the HPE Cray Programming Environment!
+You now know how to start debugging a multinode MPI/CUDA application with gdb4hpc in the HPE Cray Programming Environment! You can now start tracking down bugs in HPC applications with thousands of processes just as easily as you would in a single process application, saving you time and sanity.
 
-In general, gdb4hpc's debugging capabilities are that of the underlying GPU
+In general, gdb4hpc's GPU debugging capabilities are that of the underlying GPU
 debugger. See the [cuda-gdb documentation](https://docs.nvidia.com/cuda/cuda-gdb/index.html)
 for more capabilities.
 
