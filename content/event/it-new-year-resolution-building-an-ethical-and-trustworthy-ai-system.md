@@ -4,7 +4,7 @@ dateStart: 2025-01-21T23:01:11.329Z
 dateEnd: 2025-01-22T22:30:11.342Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://hpe.zoom.us/webinar/register/4817344507940/WN_oSPJFEAzT8y4dRnRcZHgFQ
+link: https://developer.hpe.com/campaign/get-real-with-ai-%E2%80%93-jam-series/
 width: large
 ---
 ## IT New Year’s resolution: Build an ethical and trustworthy AI system
