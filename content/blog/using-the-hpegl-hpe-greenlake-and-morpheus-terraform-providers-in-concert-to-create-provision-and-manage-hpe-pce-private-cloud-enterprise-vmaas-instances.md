@@ -15,9 +15,11 @@ tags:
   - VMaaS
   - hpe-greenlake-for-private-cloud-enterprise
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 # **Introduction**
 
-Many customers of HPE GreenLake for Private Cloud Enterprise want to use Terraform or the open-source alternative OpenTofu to create, provision and manage VMaaS (VM as a Service) VMs. The cloud-based VMaaS service interacts with Morpheus (recently acquired by HPE) running on-premise. There is a HPE GreenLake Terraform provider called *hpegl* (HPE GreenLake) and a separate Morpheus provider. Both providers complement each other and when used in concert offer a rich set of IaC capabilities.
+Many customers of HPE GreenLake for Private Cloud Enterprise want to use [Terraform](https://www.terraform.io/) or the open-source alternative [OpenTofu](https://opentofu.org/) to create, provision and manage VMaaS (VM as a Service) VMs. The cloud-based VMaaS service interacts with Morpheus (recently acquired by HPE) running on-premise. There is a HPE GreenLake Terraform provider called [*hpegl*](https://registry.terraform.io/providers/HPE/hpegl/latest) (HPE GreenLake) and a separate [Morpheus](https://registry.terraform.io/providers/gomorpheus/morpheus/latest) provider. Both providers complement each other and when used in concert offer a rich set of IaC capabilities.
 
 In this blog post we will demonstrate how to use the two providers in concert to create, provision and manage VMaaS VM instances. Central to this is a hpegl data-source which can be used to retrieve an Access Token and URL for the on-premise Morpheus instance which are then passed to the Morpheus provider.
 
@@ -543,7 +545,8 @@ The example HCL used here is based on the HCL for the first example.  However w
     * Instance Layout details 
     * Node Type details 
     * Group details 
-    * Cloud ID 
+    * Cloud ID
+
 * *vmaas_instance* which does the following 
 
   * Takes inputs from an instance of the “morpheus_artefacts” module 
@@ -1481,8 +1484,8 @@ node_type_name_cloud_2 = "cfe_tf_example_node_type--1661"
 
 When using Terraform (or OpenTofu) to interact with HPE GreenLake for Private Cloud Enterprise VMaaS there are two complementary providers: 
 
-* hpegl
-* Morpheus 
+* [hpegl](https://registry.terraform.io/providers/HPE/hpegl/latest)
+* [Morpheus](https://registry.terraform.io/providers/gomorpheus/morpheus/latest)
 
  When used in concert these two providers enable a rich set of IaC functionality. The hpegl provider has a *Data Source* named *hpegl_vmaas_morpheus_details* which can be used to retrieve an access token and URL for the on-premise Morpheus instance associated with the specific VMaaS *location*. These can be used as inputs to the provider stanza for the Morpheus provider. 
 
@@ -1491,6 +1494,9 @@ We have included example HCL for two separate VMaaS configurations: 
 * One location, One VMaaS Cloud with One VMaaS Instance 
 * One location, Two VMaaS Clouds each with One VMaaS Instance 
 
- The HCL for the second configuration is built around a pair of HCL modules that can be combined in various ways to work with a number of different VMaaS configurations, including those with more than one on-premise Morpheus instance. 
+ The HCL for the second configuration is built around a pair of HCL modules that can be combined in various ways to work with a number of different VMaaS configurations, including those with more than one on-premise Morpheus instance. These modules are:
+
+* [morpheus_artefacts](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/morpheus_artefacts) which uses the Morpheus provider to create a group, instance type, instance layout and node type in the target VMaaS cloud
+* [vmaas_instance](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/vmaas_instance) which takes inputs from morpheus_artefacts and uses the hpegl provider to retrieve details about VMaaS resources and creates and launches a VMaaS VM Instance
 
 HPE GreenLake for Private Cloud Enterprise customers are encouraged to use these example HCL bundles as a starting point for their own investigations into using the two providers (hpegl and Morpheus) for IaC with their environments.
