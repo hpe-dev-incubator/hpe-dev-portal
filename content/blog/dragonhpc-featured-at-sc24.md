@@ -1,6 +1,6 @@
 ---
 title: DragonHPC featured at SC24
-date: 2025-01-15T16:53:37.311Z
+date: 2025-01-29T16:53:37.311Z
 author: Faisal Hadi
 authorimage: /img/Avatar1.svg
 disable: false
