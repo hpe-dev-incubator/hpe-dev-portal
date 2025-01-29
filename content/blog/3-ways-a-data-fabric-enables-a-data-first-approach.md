@@ -7,7 +7,6 @@ disable: false
 tags:
   - hpe-ezmeral-data-fabric
   - hpe-ezmeral
-  - dragonhpc
 ---
 **Editor’s note: This article was originally posted on HPE Enterprise.nxt on March 15, 2022**
 
