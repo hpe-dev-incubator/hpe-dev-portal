@@ -1,6 +1,6 @@
 ---
 title: DragonHPC featured at SC24
-date: 2025-01-15T16:53:37.311Z
+date: 2025-01-29T16:53:37.311Z
 author: Faisal Hadi
 authorimage: /img/Avatar1.svg
 disable: false
@@ -17,10 +17,8 @@ A sample DragonHPC telemetry panel image from the workshop is shown below:
 
 ![DragonHPC Telemetry Sample Panel](/img/dragonhpc_telemetry_sc24.png "DragonHPC Telemetry Sample Panel")
 
-DragonHPC is a composable and highly versatile distributed runtime for HPC & AI workflows. The DragonHPC distributed runtime is python native but also extensible to other common programming languages. DragonHPC can help orchestrate distributed processes effectively, access distributed data efficiently, and can be used on heterogeneous hardware.
+DragonHPC is a composable and highly versatile distributed runtime for HPC & AI workflows. The DragonHPC distributed runtime is Python native but also extensible to other common programming languages. DragonHPC can help orchestrate distributed processes effectively, access distributed data efficiently, and can be used on heterogeneous hardware.
 
 DragonHPC would be of benefit and high interest for HPC & AI software developers, architects, researchers, and data scientists.
 
-You can learn more about DragonHPC at:
-
-https://developer.hpe.com/platform/dragonhpc/
+You can learn more about DragonHPC by visiting [the landing page on HPE Developer Community portal](https://developer.hpe.com/platform/dragonhpc/home/).
