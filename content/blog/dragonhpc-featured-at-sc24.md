@@ -21,6 +21,4 @@ DragonHPC is a composable and highly versatile distributed runtime for HPC & AI 
 
 DragonHPC would be of benefit and high interest for HPC & AI software developers, architects, researchers, and data scientists.
 
-You can learn more about DragonHPC at:
-
-https://developer.hpe.com/platform/dragonhpc/
+You can learn more about DragonHPC by visiting [the landing page on HPE Developer Community portal](https://developer.hpe.com/platform/dragonhpc/home/).
