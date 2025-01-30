@@ -11,6 +11,6 @@ description: "February 19, 2025: Join us to explore the potential of HPE Private
   enhancing fraud detection capabilities. "
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---

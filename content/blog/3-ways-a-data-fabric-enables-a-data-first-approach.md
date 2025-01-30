@@ -7,7 +7,6 @@ disable: false
 tags:
   - hpe-ezmeral-data-fabric
   - hpe-ezmeral
-  - dragonhpc
 ---
 **Editor’s note: This article was originally posted on HPE Enterprise.nxt on March 15, 2022**
 
@@ -94,3 +93,4 @@ Having the right data infrastructure lets you focus on the decisions that will m
 Ted Dunning is chief technologist for data fabric at HPE. He has a PhD in computer science and authored more than 10 books focused on data sciences. He has more than 25 patents in advanced computing and plays the mandolin and guitar, both poorly.
 
 Ellen Friedman is a principal technologist at Hewlett Packard Enterprise focused on large-scale data analytics and machine learning. Ellen worked at MapR Technologies prior to her current role at HPE. She was a committer for the Apache Drill and Apache Mahout open source projects and is a co-author of multiple books published by O’Reilly Media, including AI & Analytics in Production, Machine Learning Logistics, and the Practical Machine Learning series.
+

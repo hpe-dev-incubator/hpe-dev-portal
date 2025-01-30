@@ -1,6 +1,6 @@
 ---
 title: A deep dive into the HPE Private Cloud AI Software Stack
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2717344512161/WN_nduyJIN1R_mMaEoTMIawMg
 imageBackground: white
