@@ -21,7 +21,7 @@ tags:
 
 Many customers of HPE GreenLake for Private Cloud Enterprise want to use [Terraform](https://www.terraform.io/) or the open-source alternative [OpenTofu](https://opentofu.org/) to create, provision and manage VMaaS (VM as a Service) VMs. The cloud-based VMaaS service interacts with Morpheus (recently acquired by HPE) running on-premise. There is a HPE GreenLake Terraform provider called [*hpegl*](https://registry.terraform.io/providers/HPE/hpegl/latest) (HPE GreenLake) and a separate [Morpheus](https://registry.terraform.io/providers/gomorpheus/morpheus/latest) provider. Both providers complement each other and when used in concert offer a rich set of IaC capabilities.
 
-In this blog post we will demonstrate how to use the two providers in concert to create, provision and manage VMaaS VM instances. Central to this is a hpegl data-source which can be used to retrieve an Access Token and URL for the on-premise Morpheus instance which are then passed to the Morpheus provider.
+In this blog post, we will demonstrate how to use the two providers in concert to create, provision, and manage VMaaS VM instances. Central to this is a hpegl data source used to retrieve an access token and URL for the on-premise Morpheus instance, which are then passed to the Morpheus provider.
 
 # **IaC and HPE GreenLake Private Cloud Enterprise**
 
