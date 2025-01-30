@@ -27,7 +27,7 @@ In this blog post, we will demonstrate how to use the two providers in concert t
 
 IaC is a well-established approach to configuring, creating, and managing resources. Terraform and its open-source alternative OpenTofu, along with per-service providers, are especially popular. For HPE GreenLake for Private Cloud Enterprise's VMaaS (VM as a Service) service, there are two relevant providers: 
 
-* hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Identity and Access Management (IAM) and VMaaS 
+* hpegl (HPE GreenLake) interacts with the HPE GreenLake for Private Cloud Enterprise services such as Identity and Access Management (IAM) and VMaaS. 
 * Morpheus, which interacts with the on-premise Morpheus instance or instances that are associated with the VMaaS service.  Each Morpheus instance is a separate on-premise installation of Morpheus 
 
 These two providers complement each other: 
