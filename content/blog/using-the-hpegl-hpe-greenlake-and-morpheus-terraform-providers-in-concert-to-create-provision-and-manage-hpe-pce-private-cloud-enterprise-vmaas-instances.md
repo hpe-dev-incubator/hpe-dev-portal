@@ -30,7 +30,7 @@ IaC is a well-established approach to configuring, creating, and managing resour
 * hpegl (HPE GreenLake) interacts with the HPE GreenLake for Private Cloud Enterprise services such as Identity and Access Management (IAM) and VMaaS. 
 * Morpheus interacts with the on-premise Morpheus instance or instances that are associated with the VMaaS service. Each Morpheus instance is a separate on-premise installation of Morpheus. 
 
-These two providers complement each other: 
+These two providers complement each other. For example: 
 
 * hpegl deals with HPE GreenLake IAM and manages VMaaS resources, including VM instances. 
 * Morpheus deals with the underlying Morpheus resources on which the VMaaS resources—including VM instances—depend. This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
