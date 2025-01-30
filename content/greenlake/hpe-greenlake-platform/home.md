@@ -102,4 +102,4 @@ Take advantage of our free, Jupyter Notebook-based Workshops-on-Demand available
 
 ## Any questions on HPE GreenLake cloud APIs?
 
-Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
