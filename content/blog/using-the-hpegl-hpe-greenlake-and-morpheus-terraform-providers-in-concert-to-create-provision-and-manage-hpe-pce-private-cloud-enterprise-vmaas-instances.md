@@ -136,9 +136,7 @@ In the next two sections we present complete HCL examples for two configurations
 
 ### HCL
 
-Here is an example piece of HCL that uses hpegl and the Morpheus provider in the case of One VMaaS Cloud:
-
-<https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud>
+[View the example HCL](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud)
 
 ### The output from a Terraform run (v1.5.7) to create the VMaaS Instance:
 
