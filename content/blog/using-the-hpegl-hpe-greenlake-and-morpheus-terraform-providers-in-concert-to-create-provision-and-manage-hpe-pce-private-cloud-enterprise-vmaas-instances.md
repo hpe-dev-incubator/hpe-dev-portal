@@ -33,7 +33,7 @@ IaC is a well-established approach to configuring, creating, and managing resour
 These two providers complement each other: 
 
 * hpegl deals with HPE GreenLake IAM and manages VMaaS resources, including VM instances. 
-* Morpheus deals with underlying Morpheus resources on which the VMaaS resources – including VM instances – depend. This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
+* Morpheus deals with the underlying Morpheus resources on which the VMaaS resources—including VM instances—depend. This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
 
 The glue between these two providers is a hpegl *Data Source* called *hpegl_vmaas_morpheus_details*.  For a specific VMaaS *location* this data source will output: 
 
