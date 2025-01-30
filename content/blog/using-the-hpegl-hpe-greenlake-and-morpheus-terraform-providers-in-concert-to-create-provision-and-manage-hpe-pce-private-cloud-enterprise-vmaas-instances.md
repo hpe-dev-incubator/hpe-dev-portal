@@ -1482,7 +1482,7 @@ node_type_name_cloud_2 = "cfe_tf_example_node_type--1661"
 
 # Summary 
 
-When using Terraform (or OpenTofu) to interact with HPE GreenLake for Private Cloud Enterprise VMaaS there are two complementary providers: 
+When using Terraform (or OpenTofu) to interact with HPE GreenLake for Private Cloud Enterprise VMaaS, there are two complementary providers: 
 
 * [hpegl](https://registry.terraform.io/providers/HPE/hpegl/latest)
 * [Morpheus](https://registry.terraform.io/providers/gomorpheus/morpheus/latest)
