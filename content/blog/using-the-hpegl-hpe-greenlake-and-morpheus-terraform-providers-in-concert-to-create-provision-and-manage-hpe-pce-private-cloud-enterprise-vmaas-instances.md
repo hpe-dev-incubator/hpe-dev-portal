@@ -569,7 +569,7 @@ In this way we create two VMaaS instances each in a separate VMaaS Cloud based o
 
 ### HCL
 
-The HCL can be found at the following link:
+[View the example HCL](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances>[](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud).
 
 <https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances>[](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud)
 
