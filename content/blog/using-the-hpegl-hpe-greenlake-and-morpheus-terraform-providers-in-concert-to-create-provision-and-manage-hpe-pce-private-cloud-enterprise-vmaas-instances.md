@@ -1,5 +1,5 @@
 ---
-title: Using the hpegl and Morpheus Terraform Providers to provision a VMaaS workload
+title: Using the hpegl and Morpheus Terraform providers to provision a VMaaS workload
 date: 2025-01-15T14:58:20.593Z
 author: Eamonn O'Toole, John Lenihan
 authorimage: /img/head-shot.jpg
