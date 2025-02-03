@@ -4,7 +4,7 @@ dateStart: 2025-02-11T23:01:45.806Z
 dateEnd: 2025-02-12T22:30:45.825Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://developer.hpe.com/campaign/get-real-with-ai-jam-series/
+link: https://hpe.zoom.us/webinar/register/8517380809133/WN_lpmgpO3XSZKpE0cPyX284A
 width: large
 ---
 ## AI Inferencing at the Edge: Use Cases from Earth to Space
