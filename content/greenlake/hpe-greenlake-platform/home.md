@@ -24,7 +24,7 @@ ul li:first-child {
 }
 </style>
 
-HPE GreenLake cloud is a secure, cloud-based platform that allows you to view and control your hybrid cloud estate. The platform unifies and simplifies IT operations with a centralized, unified control plane that provides an intuitive, self-service home page where you can run cloud services and provision and manage infrastructure. The platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
+HPE GreenLake cloud is a modular hybrid cloud platform that enables enterprises to unlock insights and innovate faster by deploying a single cloud operating model everywhere. 
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 
@@ -42,7 +42,7 @@ The HPE GreenLake cloud APIs:
 
 We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more.
 
-For a full list of HPE GreenLake cloud APIs please visit [the HPE GreenLake cloud API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). Some of the APIs currently available are listed below:
+For a full list of HPE GreenLake APIs please visit [the HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/). Some of the APIs currently available are listed below:
 
 ### Workspace management
 
@@ -85,7 +85,7 @@ Learn more about the unified HPE GreenLake cloud experience for developers by vi
 
 ## Demos and resources
 
-Get an overview of how you can manage workloads with the HPE GreenLake cloud using our [interactive demos](https://hpe.com/greenlake/demos).
+Get an overview of how you can manage workloads with HPE GreenLake cloud using our [interactive demos](https://hpe.com/greenlake/demos).
 
 ## Workshops-on-Demand
 
@@ -100,6 +100,6 @@ Take advantage of our free, Jupyter Notebook-based Workshops-on-Demand available
 
 <br/>
 
-## Any questions on HPE GreenLake cloud APIs?
+## Any questions on HPE GreenLake APIs?
 
-Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) Slack channel.
