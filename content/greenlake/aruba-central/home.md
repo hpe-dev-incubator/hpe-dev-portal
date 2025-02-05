@@ -20,7 +20,6 @@ Supercharge your network operations with HPE Aruba Networking Developer Hub. Fin
 * [Leverage the HPE Aruba Networking GitHub repository](https://github.com/aruba)    
 
 
-     
 ## Resources
 
 * [HPE Aruba Networking Central API reference](https://developer.arubanetworks.com/hpe-aruba-networking-central/docs/rest-api-getting-started)    
