@@ -17,7 +17,7 @@ Supercharge your network operations with HPE Aruba Networking Developer Hub. Fin
 * [Check out the HPE Aruba Networking Developer Hub](https://devhub.arubanetworks.com/)    
 * [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home/digestviewer?communitykey=ea467413-8db4-4c49-b5f8-1a12f193e959&tab=digestviewer)    
 * [Simplify network operations with HPE Aruba Networking and Ansible](https://www.ansible.com/integrations/networks/aruba)    
-* [Leverage the HPE Aruba Networking GitHub repository ![](Github)](https://github.com/aruba)
+* [Leverage the HPE Aruba Networking GitHub repository](https://github.com/aruba)
 
      
 
