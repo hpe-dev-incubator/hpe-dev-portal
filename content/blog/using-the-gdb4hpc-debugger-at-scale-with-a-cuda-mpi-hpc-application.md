@@ -15,9 +15,9 @@ tags:
   - cray
   - hpe-cray-programming-environment
 ---
-Command line debuggers for Linux have existed for decades. The gdb debugger is the most famous and arguably the most powerful. But gdb has a weakness when it comes to high performance computing (HPC) applications - it can only run on one system at a time. A typical HPC application runs tens of thousands of processes on thousands of systems at once! Classic debuggers like gdb were never designed for that.
+Command line debuggers for Linux have existed for decades. The GNU debugger (gdb) is the most famous and arguably the most powerful. But gdb has a weakness when it comes to high performance computing (HPC) applications - it can only run on one system at a time. A typical HPC application runs tens of thousands of processes on thousands of systems at once! Classic debuggers like gdb were never designed for that.
 
-This is where gdb4hpc comes in. The gdb4hpc debugger is part of the HPE Cray Programming Environment package. It captures and extends the powerful single-system features of gdb and provides a familiar command line debugging experience for HPC applications running on thousands of nodes.
+This is where gdb4hpc, the gdb based debugger for HPC, comes in. The gdb4hpc debugger is part of the HPE Cray Programming Environment package. It captures and extends the powerful single-system features of gdb and provides a familiar command line debugging experience for HPC applications running on thousands of nodes.
 
 To provide these features, gdb4hpc connects the user to many instances of gdb at once. While connected, it provides tools enabling the user to control all of the instances of gdb simultaneously. Familiar debugging features like breakpoints, backtraces, and printing variables can be applied to all processes simultaneously. Additionally, more advanced debugging features like attaching to a running application and debugging GPU kernels are supported.
 
