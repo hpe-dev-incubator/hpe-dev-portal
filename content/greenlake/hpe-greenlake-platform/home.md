@@ -1,6 +1,6 @@
 ---
-title: HPE GreenLake Platform
-version: "1"
+title: HPE GreenLake cloud
+version: "1.1"
 description: A managed cloud experience that accelerates your transformation by
   helping you to design, build, manage, and optimize your on- and off-premises
   clouds.
@@ -12,6 +12,7 @@ tags:
   - hpe-greenlake-cloud-platform
   - hpe-greenlake-platform
   - hpe-greenlake
+  - hpe-greenlake-cloud
 ---
 <style>
 ul li{
@@ -23,15 +24,15 @@ ul li:first-child {
 }
 </style>
 
-The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
+HPE GreenLake cloud is a modular hybrid cloud platform that enables enterprises to unlock insights and innovate faster by deploying a single cloud operating model everywhere. 
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 
-## APIs and Documentation
+## HPE GreenLake cloud APIs and documentation
 
-HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com), covering both the HPE GreenLake platform and the HPE GreenLake cloud services that run on it.
+HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com), covering both the platform and the cloud services that run on it.
 
-The HPE GreenLake APIs:
+The HPE GreenLake cloud APIs:
 
 * Conform to the OpenAPI 3.x specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
 * Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
@@ -55,7 +56,7 @@ Familiarize yourself with the details about a permissions role, or full CRUD on 
 
 ### Devices and subscriptions management
 
-Add and modify hardware devices in a workspace, initiate subscriptions, and assign to devices.
+Add and modify hardware devices in a workspace, initiate subscriptions, and assign them to devices.
 
 >>[Visit device management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public)
 
@@ -80,15 +81,15 @@ Get a list of wellness events via searches and filters, organize them with tags,
 >>[Visit Wellness API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)
 
 
-Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
+Learn more about the unified HPE GreenLake cloud experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
 ## Demos and resources
 
-Get an overview of how you can manage workloads with the HPE GreenLake platform using our [interactive demos](https://hpe.com/greenlake/demos).
+Get an overview of how you can manage workloads with HPE GreenLake cloud using our [interactive demos](https://hpe.com/greenlake/demos).
 
 ## Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE GreenLake workshops are available today.
+Take advantage of our free, Jupyter Notebook-based Workshops-on-Demand available in the [Hack Shack](https://developer.hpe.com/hackshack/workshops/?activeTab=4). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE GreenLake workshops are available today.
 
 <br/>
 
@@ -99,6 +100,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 <br/>
 
-## Any questions on HPE GreenLake?
+## Any questions on HPE GreenLake APIs?
 
-Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) Slack channel.
