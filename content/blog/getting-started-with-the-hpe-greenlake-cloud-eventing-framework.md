@@ -13,6 +13,7 @@ ul li{
  font-size:27px;
 }
 </style>
+
 <style>
 ol li{
  font-size:25px;
@@ -31,9 +32,7 @@ The following diagram illustrates the mechanism by which this works:
 
 ![HPE GreenLake eventing framework](/img/presentation2-auto-saved-.jpg "HPE GreenLake eventing framework")
 
-## \
-
-How do you write webhook handlers?
+## How do you write webhook handlers?
 
 There are many ways you can write a webhook handler. You could use traditional languages such as Node.js (using Express.js), Python (using Flask) or Ruby (using Sinatra). Also very popular is the use of serverless functions such as AWS Lambda or Google Cloud Functions. You could also use low-code/no-code platforms such as Zapier, Make or Automate.io. Another option is to use an existing platform that supports webhooks such as ServiceNow or HPE OpsRamp.
 
@@ -50,9 +49,7 @@ Additional requirements for writing a webhook handler for HPE GreenLake include:
 * The endpoint needs to use HTTPS
 * The handler needs to respond to the initial challenge through the use of a shared secret key
 
-## \
-
-Taking the challenge
+## Taking the challenge
 
 From the picture above, you can see that the webhook handler is a piece of code that runs outside of the HPE GreenLake cloud, possibly posing a security risk. In order to avoid calling a rogue code, HPE GreenLake will establish a trust relationship with the webhook handler by issuing a challenge request and expecting a very specific response. The challenge is an HTTP POST request that is sent to the webhook handler (via its URL) with a payload containing a **challengeRequest** as shown below:
 
@@ -71,14 +68,11 @@ From the picture above, you can see that the webhook handler is a piece of code 
 }
 ```
 
-\
 The mission of the challenge handler is to provide the correct answer to the challenge in a timely fashion and with an HTTP response in the following form:
 
-* Status code = 200
+* Status code: 200
 * JSON body: { “verification” : “<CHALLENGE-RESPONSE>”}
-* Header:
-
-  *   content-type: application/json
+* Header: content-type: application/json
 
 Where **<CHALLENGE-RESPONSE>** is the computed [SHA-256](https://en.wikipedia.org/wiki/SHA-2) [HMAC](https://en.wikipedia.org/wiki/HMAC) (Hash-based Message Authentication Code) of the **challengeRequest** provided in the input payload.
 
@@ -129,11 +123,9 @@ Now that you have a clear understanding of what has to be done within a webhook 
 
 I decided to use Make (previously known as Integromat , which was a great name as it was a contraction of Integration-Automat and that is exactly what it is) to demonstrate this because:
 
-\-          it doesn’t require any specific programming language knowledge
-
-\-          it provides a FQDN of the webhook over HTTPS
-
-\-          it’s free for simple prototyping usage
+* it doesn’t require any specific programming language knowledge
+* it provides a FQDN of the webhook over HTTPS
+* it’s free for simple prototyping usage
 
 It turned out to be a very elegant and fast way to get the work done.
 
@@ -149,9 +141,9 @@ Give it a name and leave the rest of the settings as their defaults.
 
 ![Use URL of Webhook](/img/create-webhook-2.jpg "Use URL of Webhook")
 
-You can already copy address to clipboard to get the URL of your webhook. **Save it** for later.
+You can already **Copy address to clipboard** to get the URL of your webhook. Save it for later.
 
-Select the **Add** button, then click on **Show Advanced Option** to add a data structure using the payload example from the Take the challenge section above. Click ge**nerate,** paste the JSON and save it as **challenge**.
+Select the **Add** button, then click on **Show Advanced Option** to add a data structure using the payload example from the Take the challenge section above. Click **generate,** paste the JSON and save it as **challenge**.
 
 Make sure the **challenge** data structure is selected in the advanced settings of the Webhooks module before continuing.
 
@@ -166,20 +158,19 @@ Configure the Set variable module with:
 * Variable name: **hmac** 
 * Variable value: **sha256( challengeRequest ; ; <SecretKey> )**
 
-Note: *you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **<SecretKey>** is a placeholder which you will  replace later, once we know the the real shared secret key.*
+Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **<SecretKey>** is a placeholder which you will  replace later, once we know the the real shared secret key.
 
 ![drag and drop properties](/img/drag-drop-properties.jpg "drag and drop properties")
 
-\
 The final step is to prepare the response of the webhook. For this, you need to add another module after the **Set variable** module, called **Webhook response**.
 
 ![Add webhook response](/img/add-webhook-response.jpg "Add webhook response")
 
-Set the status to **200** and the body to **{ “verification” : “”}**,then drag/drop the **hmac** property from the **Set variable** step in between the double quotes.
+Set the status to **200** and the body to **{"verification":""}**, then drag/drop the **hmac** property from the **Set variable** step in between the double quotes.
 
 ![Set webhook response](/img/setwebhook-response.jpg "Set webhook response")
 
-In the advanced settings, add a custom header for content-type: application/json
+In the advanced settings, add a custom header for **content-type: application/json**
 
 Your overall workflow basically looks like this:
 
@@ -244,7 +235,6 @@ Create a second Postman **POST** request using the same webhook URL but this tim
 
 ![Post event in Postman](/img/post-event-in-postman.jpg "Post event in Postman")
 
-\
 Click **Send** in Postman, and check in Make (in the scenario’s history) that the second route was taken, as shown below.
 
 ![Second route was taken](/img/second-route-taken.jpg "Second route was taken")
@@ -284,7 +274,7 @@ From the web console, you can now **subscribe to events** available from the HPE
 
 Select your webhook from the list and select Subscribe to event. Select the source Service manager (there is only HPE GreenLake Platform for now), then cut/paste the event name from the [event catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/#event-catalog). For example:
 
-```
+```markdown
 com.hpe.greenlake.audit-log.v1.logs.created
 com.hpe.greenlake.subscriptions.v1.expiring-subscriptions
 ```
