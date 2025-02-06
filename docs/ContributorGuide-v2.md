@@ -754,7 +754,8 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
-  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-platform |
+  | **HPE GreenLake cloud**            | hpe-greenlake-cloud |
+  | **HPE GreenLake platform**         | hpe-greenlake-platform |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
