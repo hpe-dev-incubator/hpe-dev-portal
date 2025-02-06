@@ -8,6 +8,17 @@ tags:
   - hpe-greenlake-cloud
   - webhooks
 ---
+<style>
+ul li{
+ font-size:27px;
+}
+</style>
+<style>
+ol li{
+ font-size:25px;
+}
+</style>
+
 ## Polling API or subscribing to events: That IS the question
 
 In one of my previous blog posts, I used the HPE GreenLake API to query the audit log and, if anything appeared in the audit log over the course of the last few minutes, I arranged for it to be displayed on screen. To do this, I had to continuously poll the API at a regular polling interval. While this works, it is not ideal, since it is not real time, and you might get notified of an important event after, at max, your polling interval. A better approach that is often available on software platforms is called events, also referred to as webhooks. HPE GreenLake cloud provides this functionality and, in this post, I will explain how to leverage it.
