@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 20 Sep, 2023
+**Version 2.1** - 6 Feb, 2025
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
