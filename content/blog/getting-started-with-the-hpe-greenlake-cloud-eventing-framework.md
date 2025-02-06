@@ -4,6 +4,9 @@ date: 2025-02-06T13:53:06.527Z
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
+tags:
+  - hpe-greenlake-cloud
+  - webhooks
 ---
 ## Polling API or subscribing to events: That IS the question
 
@@ -240,3 +243,63 @@ You can also verify that in the **Google sheets** module, the content of the pay
 ![Google sheet property mapping ](/img/googlesheet-set.jpg "Google sheet property mapping ")
 
 Finally verify that your Google sheet was updated and a new row was added using the payload content, as shown in my Google sheet below.
+
+![Row was added in Google sheet](/img/google-row-visible.jpg "Row was added in Google sheet")
+
+## Putting it all together
+
+It’s now time to put it all together. Connect to HPE GreenLake cloud console and select to **Manage Workspace**. From there, select the **Automations** tile and finally the **Webhooks** tile to access the webhooks configuration section:
+
+![Webhooks in HPE GreenLake cloud](/img/webhooksview.jpg "Webhooks in HPE GreenLake cloud")
+
+To register a new webhook as shown in the capture above, you need to provide:
+
+* A name
+* A description
+* The URL of the webhook
+* The Webhook secret key. (When you set this secret key don’t forget to go back to Make and edit the **Tool Set variable** module to use the same secret key. These keys MUST match exactly!)
+
+![You must use the same secret key on both ends](/img/same-secret-key.jpg "You must use the same secret key on both ends")
+
+### Register your webhook
+
+When you select **Register webhook**, the first thing HPE GreenLake cloud will do is to establish a trust relationship with the webhook pointed by the URL, by sending a challenge payload using an HTTP POST request (as already discussed in the previous section).
+
+If the webhook response is the expected one, then the webhook is placed in **Active** state. Otherwise, after a few attempts, the webhook state will be set to **Critical**. At any point in time you can use the **Test** button, to submit a new challenge (after fixing an issue with your webhook, for example).
+
+### It’s time to subscribe to events
+
+From the web console, you can now **subscribe to events** available from the HPE GreenLake services. You can find the list of those already available from the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/ui/#finding-events-on-hpe-greenlake-developer-portal). The list will grow over time as new services adopt this eventing framework.
+
+Select your webhook from the list and select Subscribe to event. Select the source Service manager (there is only HPE GreenLake Platform for now), then cut/paste the event name from the [event catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/#event-catalog). For example:
+
+```
+com.hpe.greenlake.audit-log.v1.logs.created
+com.hpe.greenlake.subscriptions.v1.expiring-subscriptions
+```
+
+![Subscribing to events](/img/subscribe.jpg "Subscribing to events")
+
+Once you select **Subscribe to event**, your webhook handler is now registered to receive these types of events.
+
+![Event subscribed](/img/event-subscribed.jpg "Event subscribed")
+
+Let’s check what happened in the Google Sheet after a while.
+
+![Google Sheet starts being populated with events](/img/events-in-google-docs.jpg "Google Sheet starts being populated with events")
+
+You can see different types of audit log events coming up from the HPE GreenLake cloud. They could be processed on the receiving end, for example, to open incident tickets or take an automatic action.
+
+## Call to action
+
+Webhooks together with the HPE GreenLake cloud eventing framework provide a great way to integrate with HPE GreenLake cloud using modern technology. It provides great flexibility on where you can run the subscriber code, and allows you to choose the language in which to write the webhook code. It also allows you to build a tight integration with an existing platform such as HPE OpsRamp or ServiceNow.
+
+Additional benefits I can see from this technique are:
+
+* no need to verify that a polling code is still running
+* no risk of API token expiration
+* no loss of events
+* it’s well established industry standard mechanism
+* there is a huge choice of implementation methods including low code/no code ones
+
+You can request access to this feature by signing up to the Automations/Webhook Access Beta Program [here](https://app.smartsheet.com/b/form/0e61e8c2bd6d48c7829845ab824c11d6).
