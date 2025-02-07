@@ -22,7 +22,7 @@ In one of my previous blog posts, I used the HPE GreenLake API to query the audi
 
 ## It's a publisher/subscriber world
 
-HPE GreenLake cloud provides an eventing framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
+HPE GreenLake cloud provides an eventing framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake cloud forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
 
 The following diagram illustrates the mechanism by which this works:
 
@@ -287,7 +287,7 @@ Let’s check what happened in the Google Sheet after a while.
 
 ![Google Sheet starts being populated with events](/img/events-in-google-docs.jpg "Google Sheet starts being populated with events")
 
-You can see different types of audit log events coming up from the HPE GreenLake cloud. They could be processed on the receiving end, for example, to open incident tickets or take an automatic action.
+You can see different types of audit log events coming up from HPE GreenLake cloud. They could be processed on the receiving end, for example, to open incident tickets or take an automatic action.
 
 ## Call to action
 
