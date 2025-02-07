@@ -158,7 +158,7 @@ Configure the Set variable module with:
 * Variable name: **hmac** 
 * Variable value: **sha256( challengeRequest ; ; \<SecretKey\> )**
 
-> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. \**<SecretKey\>** is a placeholder which you will replace later, once we know the the real shared secret key.
+> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **\<SecretKey\>** is a placeholder which you will replace later, once we know the the real shared secret key.
 
 ![drag and drop properties](/img/drag-drop-properties.jpg "drag and drop properties")
 
@@ -280,6 +280,11 @@ com.hpe.greenlake.subscriptions.v1.expiring-subscriptions
 ```
 
 ![Subscribing to events](/img/subscribe.jpg "Subscribing to events")
+
+
+<img src="/img/subscribe.jpg" width="50%" height="50%" alt="Subscribing to events" title="Subscribing to events">
+
+
 
 Once you select **Subscribe to event**, your webhook handler is now registered to receive these types of events.
 
