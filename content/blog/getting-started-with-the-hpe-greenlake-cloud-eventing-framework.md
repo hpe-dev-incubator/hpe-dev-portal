@@ -26,7 +26,7 @@ HPE GreenLake cloud provides an eventing framework in which event publishers (an
 
 The following diagram illustrates the mechanism by which this works:
 
-![HPE GreenLake eventing framework](/img/presentation2-auto-saved-.jpg "HPE GreenLake eventing framework")
+![HPE GreenLake cloud eventing framework](/img/slide-for-blog-webhooks.jpg "HPE GreenLake cloud eventing framework")
 
 ## How do you write webhook handlers?
 
@@ -156,9 +156,9 @@ Next, add another module to compute the HMAC. Click the plus sign and add a **To
 Configure the Set variable module with:
 
 * Variable name: **hmac** 
-* Variable value: **sha256( challengeRequest ; ; <SecretKey> )**
+* Variable value: **sha256( challengeRequest ; ; \<SecretKey\> )**
 
-> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **\<SecretKey\>** is a placeholder which you will replace later, once we know the the real shared secret key.
+> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **<SecretKey>** is a placeholder which you will replace later, once we know the the real shared secret key.
 
 ![drag and drop properties](/img/drag-drop-properties.jpg "drag and drop properties")
 
