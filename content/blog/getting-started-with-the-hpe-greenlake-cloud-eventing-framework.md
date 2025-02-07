@@ -9,14 +9,10 @@ tags:
   - webhooks
 ---
 <style>
-ul li{
- font-size:27px;
-}
-</style>
-
-<style>
-ol li{
- font-size:25px;
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
 }
 </style>
 
