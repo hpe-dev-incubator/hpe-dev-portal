@@ -64,11 +64,13 @@ From the picture above, you can see that the webhook handler is a piece of code 
 }
 ```
 
+> > *Example of a challenge payload*
+
 The mission of the challenge handler is to provide the correct answer to the challenge in a timely fashion and with an HTTP response in the following form:
 
-* Status code: 200
-* JSON body: { “verification” : “<CHALLENGE-RESPONSE>”}
-* Header: content-type: application/json
+* Status code: **200**
+* JSON body: **{ "verification" : "<CHALLENGE-RESPONSE>" }**
+* Header: **content-type: application/json**
 
 Where **<CHALLENGE-RESPONSE>** is the computed [SHA-256](https://en.wikipedia.org/wiki/SHA-2) [HMAC](https://en.wikipedia.org/wiki/HMAC) (Hash-based Message Authentication Code) of the **challengeRequest** provided in the input payload.
 
@@ -113,6 +115,8 @@ If the challenge was successful, meaning that the webhook handler has been recog
     	}
 ```
 
+> > *Example of an event payload*
+
 Now that you have a clear understanding of what has to be done within a webhook handler, let me show you how to build one.
 
 ## Using Make.com to create a webhook handler
@@ -139,7 +143,7 @@ Give it a name and leave the rest of the settings as their defaults.
 
 You can already **Copy address to clipboard** to get the URL of your webhook. Save it for later.
 
-Select the **Add** button, then click on **Show Advanced Option** to add a data structure using the payload example from the Take the challenge section above. Click **generate,** paste the JSON and save it as **challenge**.
+Select the **Add** button, then click on **Show Advanced Option** to add a data structure using the challenge payload example from the Take the challenge section above. Click **generate,** paste the JSON and save it as **challenge**.
 
 Make sure the **challenge** data structure is selected in the advanced settings of the Webhooks module before continuing.
 
@@ -162,7 +166,7 @@ The final step is to prepare the response of the webhook. For this, you need to 
 
 ![Add webhook response](/img/add-webhook-response.jpg "Add webhook response")
 
-Set the status to **200** and the body to **{"verification":""}**, then drag/drop the **hmac** property from the **Set variable** step in between the double quotes.
+Set the status to **200** and the body to **{"verification":"hmac"}**. Feel free to drag/drop the **hmac** property from the **Set variable** step in between the double quotes.
 
 ![Set webhook response](/img/setwebhook-response.jpg "Set webhook response")
 
@@ -180,7 +184,7 @@ In the parameter of the scenario (bottom of your editor), make sure the green ch
 
 You can use Postman to test this workflow first before you declare it in HPE GreenLake cloud.
 
-For this, create a **POST** request using the URL of the webhook (which you saved earlier) and the challenge body in JSON (we used it earlier). Make sure you add a **content-type:application/json** header before clicking **Send**. Check:
+For this, create a **POST** request using the URL of the webhook (which you saved earlier) and the challenge example payload in JSON (we used it earlier). Make sure you add a **content-type:application/json** header before clicking **Send**. Check:
 
 * That the status code is 200
 * That the response body is the expected **hmac** value
@@ -201,7 +205,7 @@ To do this, click on the topmost link and set up a filter to verify that propert
 
 ![Setup a filter on top most branch](/img/setup-filter.jpg "Setup a filter on top most branch")
 
-Earlier, I showed an example of a payload received when an event is triggered. You can create another structure in the custom webhook (like what was done with the challenge JSON earlier). Call this structure event and make sure it’s selected before continuing.
+Earlier, I showed an example of a payload received when an event is triggered. You can create another structure in the custom webhook (like what was done with the challenge JSON earlier). Call this structure **event** and make sure it’s selected before continuing.
 
 ![Select event structure](/img/select-event-struture.jpg "Select event structure")
 
