@@ -18,11 +18,11 @@ li {
 
 ## Polling API or subscribing to events: That IS the question
 
-In one of my previous blog posts, I used the HPE GreenLake API to query the audit log and, if anything appeared in the audit log over the course of the last few minutes, I arranged for it to be displayed on screen. To do this, I had to continuously poll the API at a regular polling interval. While this works, it is not ideal, since it is not real time, and you might get notified of an important event after, at max, your polling interval. A better approach that is often available on software platforms is called events, also referred to as webhooks. HPE GreenLake cloud provides this functionality and, in this post, I will explain how to leverage it.
+In one of my previous blog posts, I used the HPE GreenLake API to query the audit log and, if anything appeared in the audit log over the course of a few minutes, I arranged for it to be displayed on screen. To do this, I had to continuously poll the API at a regular polling interval. While this method works, it is not ideal, since it is not done in real time, and you might get notified of an important event after, at max, your polling interval. A better approach that is often available on software platforms is called events, also referred to as webhooks. HPE GreenLake cloud provides this functionality and, in this post, I will explain how to leverage it.
 
 ## It's a publisher/subscriber world
 
-HPE GreenLake cloud provides an eventing framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform, and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
+HPE GreenLake cloud provides an eventing framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
 
 The following diagram illustrates the mechanism by which this works:
 
@@ -47,7 +47,7 @@ Additional requirements for writing a webhook handler for HPE GreenLake include:
 
 ## Taking the challenge
 
-From the picture above, you can see that the webhook handler is a piece of code that runs outside of the HPE GreenLake cloud, possibly posing a security risk. In order to avoid calling a rogue code, HPE GreenLake will establish a trust relationship with the webhook handler by issuing a challenge request and expecting a very specific response. The challenge is an HTTP POST request that is sent to the webhook handler (via its URL) with a payload containing a **challengeRequest** as shown below:
+From the illustration above, you can see that the webhook handler is a piece of code that runs outside of the HPE GreenLake cloud, possibly posing a security risk. In order to avoid calling a rogue code, HPE GreenLake will establish a trust relationship with the webhook handler by issuing a challenge request and expecting a very specific response. The challenge is an HTTP POST request that is sent to the webhook handler (via its URL) with a payload containing a **challengeRequest** as shown below:
 
 ```json
 {
@@ -66,15 +66,13 @@ From the picture above, you can see that the webhook handler is a piece of code 
 
 > > *Example of a challenge payload*
 
-The mission of the challenge handler is to provide the correct answer to the challenge in a timely fashion and with an HTTP response in the following form:
+The mission of the challenge handler is to provide the correct answer to the challenge in a timely fashion and with an HTTP response in the following form, where **<CHALLENGE-RESPONSE>** is the computed [SHA-256](https://en.wikipedia.org/wiki/SHA-2) [HMAC](https://en.wikipedia.org/wiki/HMAC) (Hash-based Message Authentication Code) of the **challengeRequest** provided in the input payload.
 
 * Status code: **200**
 * JSON body: **{ "verification" : "<CHALLENGE-RESPONSE>" }**
 * Header: **content-type: application/json**
 
-Where **<CHALLENGE-RESPONSE>** is the computed [SHA-256](https://en.wikipedia.org/wiki/SHA-2) [HMAC](https://en.wikipedia.org/wiki/HMAC) (Hash-based Message Authentication Code) of the **challengeRequest** provided in the input payload.
-
-There are [online ways](https://www.devglan.com/online-tools/hmac-sha256-online) to generate SHA256 MAC encodings and test different options. But what you need to remember is that you have to provide a hexadecimal format of the hash, and that a secret key is used as a “salt” for the calculation of that hash. That secret key is shared by HPE GreenLake cloud and the webhook handler.
+> Note: There are [online ways](https://www.devglan.com/online-tools/hmac-sha256-online) to generate SHA256 MAC encodings and test different options but what you need to remember is that you have to provide a hexadecimal format of the hash and that a secret key is used as a “salt” for the calculation of that hash. That secret key is shared by HPE GreenLake cloud and the webhook handler.
 
 ### Processing events as they arrive
 
@@ -243,7 +241,7 @@ You can also verify that in the **Google sheets** module, the content of the pay
 
 ![Google sheet property mapping ](/img/googlesheet-set.jpg "Google sheet property mapping ")
 
-Finally verify that your Google sheet was updated and a new row was added using the payload content, as shown in my Google sheet below.
+Finally, verify that your Google sheet was updated and a new row was added using the payload content, as shown in my Google sheet below.
 
 ![Row was added in Google sheet](/img/google-row-visible.jpg "Row was added in Google sheet")
 
@@ -270,9 +268,9 @@ If the webhook response is the expected one, then the webhook is placed in **Act
 
 ### It’s time to subscribe to events
 
-From the web console, you can now **subscribe to events** available from the HPE GreenLake services. You can find the list of those already available from the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/ui/#finding-events-on-hpe-greenlake-developer-portal). The list will grow over time as new services adopt this eventing framework.
+From the web console, you can now subscribe to events available from the HPE GreenLake services. You can find the list of those already available from the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/ui/#finding-events-on-hpe-greenlake-developer-portal). The list will grow over time as new services adopt this eventing framework.
 
-Select your webhook from the list and select Subscribe to event. Select the source Service manager (there is only HPE GreenLake Platform for now), then cut/paste the event name from the [event catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/#event-catalog). For example:
+Select your webhook from the list and select **Subscribe to event**. Select the source **Service manager** (there is only HPE GreenLake Platform for now), then cut/paste the **Event type** from the [event catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/#event-catalog). The following show two examples of event type.
 
 ```markdown
 com.hpe.greenlake.audit-log.v1.logs.created
@@ -280,11 +278,6 @@ com.hpe.greenlake.subscriptions.v1.expiring-subscriptions
 ```
 
 ![Subscribing to events](/img/subscribe.jpg "Subscribing to events")
-
-
-<img src="/img/subscribe.jpg" width="50%" height="50%" alt="Subscribing to events" title="Subscribing to events">
-
-
 
 Once you select **Subscribe to event**, your webhook handler is now registered to receive these types of events.
 
