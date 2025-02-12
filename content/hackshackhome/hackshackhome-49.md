@@ -1,5 +1,6 @@
 ---
 title: "ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE"
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/munch-and-learn/
 imageBackground: white
