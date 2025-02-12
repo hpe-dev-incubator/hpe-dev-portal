@@ -1,5 +1,6 @@
 ---
 title: "No more blind spots: How eBPF transforms observability"
+active: true
 fit: contain
 path: https://developer.hpe.com/campaign/meetups/
 imageBackground: white
