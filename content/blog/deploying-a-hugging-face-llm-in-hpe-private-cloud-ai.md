@@ -19,12 +19,10 @@ Next select "Add new model".
 
 ```python
 # vLLM Chat OpenAI
-#pip install openai
+#!pip intall openai
 from openai import OpenAI
 ```
 
 For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
-
-
 
 With HPE Private Cloud AI loading new models into the system and providing endpoints is just a few simple clicks and easily integrates with popular tools like Jupyter Notebooks.
