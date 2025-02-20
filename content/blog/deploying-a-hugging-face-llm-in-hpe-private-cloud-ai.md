@@ -17,21 +17,10 @@ Next select "Add new model".
 
 ![Computer screen showing packaged AI models and a selection to add a new model.](/img/add-new-model.png)
 
-
-```yaml
-
+```python
 # vLLM Chat OpenAI
 #pip install openai
 from openai import OpenAI
 ```
-
-
-
-
-
-
-
-
-
 
 With HPE Private Cloud AI loading new models into the system and providing endpoints is just a few simple clicks and easily integrates with popular tools like Jupyter Notebooks.
