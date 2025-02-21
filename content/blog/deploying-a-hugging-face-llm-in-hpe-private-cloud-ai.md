@@ -25,7 +25,19 @@ Next select "Add new model".
 
 ![Computer screen showing packaged AI models and a selection to add a new model.](/img/new-model.png)
 
+This brings up the "add new packaged model" dialog box. Fill in the the name of the model, storage requirements and resources. We reduce the default resources as this is a small model.
 
+![Dialog box for defining a new packaged model.](/img/define-parameters.png)
+
+Once the package is setup we get a confirmation.
+
+![Shows running packaged model.](/img/package-running.png)
+
+With the new packaged model complete we need to be able to deploy it for use. Select "create new deployment" from the HPE MLIS "Deployments" tab. Select submit when all tabs are filled out as shown below.
+
+This will create an endpoint for use in the notebook and provide an API token.
+
+![New deployment for AI model](/img/new-deployment.png)
 
 ### Building the Jupyter Notebook
 
@@ -103,8 +115,6 @@ def chat():
 Then interacting with the model is done through a simple chat.
 
 ![Interaction with the SmolLM2 small language model in a Jupyter Notebook](/img/chat-interface.png)
-
-
 
 For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
 
