@@ -1,9 +1,15 @@
 ---
-title: Deploying a Small LLM in HPE Private Cloud AI Using a Jupyter Notebook
+title: Deploying a Small Language Model in HPE Private Cloud AI Using a Jupyter
+  Notebook
 date: 2025-02-20T20:03:50.971Z
 author: Dave Wright and Elias Alagna
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - AI
+  - PCAI
+  - vllm
+  - SLM
 ---
 Deploying new large language models for for users to interact with can be challenging for beginners. HPE has developed Private Cloud AI to help users get to productive AI work quickly and easily. 
 
@@ -122,7 +128,7 @@ Then interacting with the model is done through a simple chat.
 
 ![Interaction with the SmolLM2 small language model in a Jupyter Notebook](/img/chat-interface.png)
 
-For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
+For a recorded demonstration that shows the process real time see this screen recording. <https://www.youtube.com/watch?v=oqjc-2c1Vtk>
 
 ### Summary
 
