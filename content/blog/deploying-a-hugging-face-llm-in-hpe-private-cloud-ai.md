@@ -17,7 +17,7 @@ Next select "Add new model".
 
 ![Computer screen showing packaged AI models and a selection to add a new model.](/img/new-model.png)
 
-First install openai if you do not already have it and import.
+First install `openai` if you do not already have it and import.
 
 ```python
 # vLLM Chat OpenAI
