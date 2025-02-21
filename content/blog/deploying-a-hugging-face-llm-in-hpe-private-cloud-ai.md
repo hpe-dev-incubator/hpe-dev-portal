@@ -17,11 +17,17 @@ This tutorial uses the [HPE Private Cloud AI](https://www.hpe.com/us/en/private-
 
 First we need to choose a model to deploy, in this case we've chosen a model hosted on Hugging Face called [SmolLM2 1.7B](https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct). This is a compact model that can solve a wide range of problems even though it is relatively diminutive at 1.7B parameters.
 
+### Launching the Interface
+
 ![Computer screen showing the HPE Private Cloud AI user interface and the HPE MLIS tile is highlighted.](/img/mlis.png)
 
 Next select "Add new model".
 
 ![Computer screen showing packaged AI models and a selection to add a new model.](/img/new-model.png)
+
+
+
+### Building the Jupyter Notebook
 
 First install `openai` if you do not already have it and import.
 
