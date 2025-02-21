@@ -46,9 +46,55 @@ client = OpenAI(
 
 
 
+In order to interact with the model we need to create a chat function, but let's give it a history feature as well as basic chat.
+
+```python
+# Interactive chat function with message history. 
+def chat():
+    # Initialize conversation history
+    messages = []
+    
+    print("Chat with "+model+"! Type 'quit' to exit.")
+    
+    while True:
+        # Get user input
+        user_input = input("\nYou: ").strip()
+        
+        # Check for quit command
+        if user_input.lower() == 'quit':
+            print("Goodbye!")
+            break
+        
+        # Add user message to history
+        messages.append({"role": "user", "content": user_input})
+        
+        try:
+            # Get model response using chat completion
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages
+            )
+            
+            # Extract assistant's message
+            assistant_message = response.choices[0].message.content
+            
+            # Add assistant's response to history
+            messages.append({"role": "assistant", "content": assistant_message})
+            
+            # Print the response
+            print("\nAssistant:", assistant_message)
+            
+        except Exception as e:
+            print(f"\nError: {str(e)}")
+```
+
+
+
+
+
+
+
 ![Jupyter Notebook showing imported model endpoint and API key.](/img/jupyter.png)
-
-
 
 For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
 
