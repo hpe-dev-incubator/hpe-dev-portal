@@ -126,4 +126,4 @@ For a recorded demonstration that shows the process real time see this screen re
 
 ### Summary
 
-With HPE Private Cloud AI loading new models into the system and providing endpoints is just a few simple clicks and easily integrates with popular tools like Jupyter Notebooks.
+With HPE Private Cloud AI loading new models into the system and providing endpoints is just a few simple clicks and easily integrates with popular tools like Jupyter Notebooks. To learn more about HPE Private Cloud AI please visit: <https://www.hpe.com/us/en/private-cloud-ai.html>
