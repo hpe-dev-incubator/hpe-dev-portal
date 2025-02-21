@@ -100,6 +100,12 @@ def chat():
 
 ![Jupyter Notebook showing imported model endpoint and API key.](/img/jupyter.png)
 
+Then interacting with the model is done through a simple chat.
+
+![Interaction with the SmolLM2 small language model in a Jupyter Notebook](/img/chat-interface.png)
+
+
+
 For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
 
 ### Summary
