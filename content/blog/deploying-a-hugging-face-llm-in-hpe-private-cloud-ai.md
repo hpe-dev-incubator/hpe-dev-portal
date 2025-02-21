@@ -11,17 +11,13 @@ Here we will show how to use HPE Machine Learning Inference Service as a part of
 
 The Hugging Face model we've chosen is [SmolLM2 1.7B](https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct). 
 
-![Computer screen showing the HPE Private Cloud AI user interface and the HPE MLIS tile is highlighted.](/img/hpe-mlis.png)
-
-<img src="/img/hpe-mlis.png" width="50%" height="50%" alt="Computer screen showing the HPE Private Cloud AI user interface and the HPE MLIS tile is highlighted." title="PCAI MLIS">
+![Computer screen showing the HPE Private Cloud AI user interface and the HPE MLIS tile is highlighted.](/img/mlis.png)
 
 Next select "Add new model".
 
-![Computer screen showing packaged AI models and a selection to add a new model.](/img/add-new-model.png)
-
+![Computer screen showing packaged AI models and a selection to add a new model.](/img/new-model.png)
 
 First install openai if you do not already have it and import.
-
 
 ```python
 # vLLM Chat OpenAI
