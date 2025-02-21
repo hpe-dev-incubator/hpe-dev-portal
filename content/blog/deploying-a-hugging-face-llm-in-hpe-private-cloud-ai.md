@@ -1,5 +1,5 @@
 ---
-title: Deploying a Hugging Face LLM in HPE Private Cloud AI
+title: Deploying a Small LLM in HPE Private Cloud AI Using a Jupyter Notebook
 date: 2025-02-20T20:03:50.971Z
 author: Dave Wright and Elias Alagna
 authorimage: /img/Avatar1.svg
@@ -9,7 +9,13 @@ Deploying new large language models for for users to interact with can be challe
 
 Here we will show how to use HPE Machine Learning Inference Service as a part of HPE Private Cloud AI to add a new packaged model from a Hugging Face repository and create an endpoint to query the model. This is done in a Jupyter Notebook.
 
-The Hugging Face model we've chosen is [SmolLM2 1.7B](https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct). 
+### Prerequisites
+
+This tutorial uses the [HPE Private Cloud AI](https://www.hpe.com/us/en/private-cloud-ai.html) (PCAI) platform. A PCAI system is required for these steps to work. It is assumed that the PCAI system is physically installed, patched and running with user accounts provisioned.
+
+### Steps to Deploy
+
+First we need to choose a model to deploy, in this case we've chosen a model hosted on Hugging Face called [SmolLM2 1.7B](https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct). This is a compact model that can solve a wide range of problems even though it is relatively diminutive at 1.7B parameters.
 
 ![Computer screen showing the HPE Private Cloud AI user interface and the HPE MLIS tile is highlighted.](/img/mlis.png)
 
@@ -43,8 +49,6 @@ client = OpenAI(
     base_url=openai_api_base,
 )
 ```
-
-
 
 In order to interact with the model we need to create a chat function, but let's give it a history feature as well as basic chat.
 
@@ -88,14 +92,10 @@ def chat():
             print(f"\nError: {str(e)}")
 ```
 
-
-
-
-
-
-
 ![Jupyter Notebook showing imported model endpoint and API key.](/img/jupyter.png)
 
 For a recorded demonstration that shows the process real time see this screen recording. <https://youtu.be/oqjc-2c1Vtk>
+
+### Summary
 
 With HPE Private Cloud AI loading new models into the system and providing endpoints is just a few simple clicks and easily integrates with popular tools like Jupyter Notebooks.
