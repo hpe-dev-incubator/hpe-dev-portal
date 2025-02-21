@@ -4,7 +4,7 @@ dateStart: 2025-02-11T23:01:45.806Z
 dateEnd: 2025-02-12T22:30:45.825Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://www.youtube.com/watch?v=YOqeOpoiopc&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=9QxCAaAKN3c&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## AI Inferencing at the Edge: Use Cases from Earth to Space
