@@ -39,6 +39,12 @@ This will create an endpoint for use in the notebook and provide an API token.
 
 ![New deployment for AI model](/img/new-deployment.png)
 
+
+
+Next up let's take the now deployed model that's ready for inference and connect to it and interact with it from a Jupyter Notebook.
+
+
+
 ### Building the Jupyter Notebook
 
 First install `openai` if you do not already have it and import.
