@@ -2,7 +2,8 @@
 title: "ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE"
 active: true
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn/
+link: ""
+path: https://hpe.zoom.us/webinar/register/1317404047450/WN_27DCW281R2-m_KlZRTLB2g
 imageBackground: white
 description: "March 19, 2025: Join this session to learn about ChatHPE GenAI
   Hub, an internal project HPE has developed using HPE Private Cloud AI that
