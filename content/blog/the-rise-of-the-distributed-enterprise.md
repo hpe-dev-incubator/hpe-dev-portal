@@ -5,6 +5,14 @@ author: Denis Vilfort
 authorimage: /img/Avatar1.svg
 disable: false
 ---
+style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 A major shift is underway in IT, and our customers are leading the charge. Across industries — retail, logistics, healthcare, and manufacturing — businesses are moving away from centralized data centers and embracing a model that brings technology closer to where value is created. The distributed enterprise isn’t just an emerging trend; it’s a complete rethinking of IT strategy.
 
 In this blog series, I’ll explore why this shift matters, how it’s reshaping IT infrastructure, and what it means for organizations looking to stay ahead. The distributed model isn’t just about efficiency — it’s about unlocking new levels of agility, resilience, and innovation.
