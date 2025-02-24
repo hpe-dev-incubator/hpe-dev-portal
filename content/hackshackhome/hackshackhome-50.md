@@ -2,7 +2,7 @@
 title: "No more blind spots: How eBPF transforms observability"
 active: true
 fit: contain
-path: https://developer.hpe.com/campaign/meetups/
+path: https://hpe.zoom.us/webinar/register/8517404062774/WN_vcL8GjKmSSyQVbP18wITrg
 imageBackground: white
 description: "March 26, 2025: Join this session to explore eBPF (Extended
   Berkeley Packet Filter), a revolutionary technology that allows deep,
