@@ -8,6 +8,8 @@ disable: false
 tags:
   - apache-spark
   - big data
+  - optimization
+  - best-practices
 ---
 <!--\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
