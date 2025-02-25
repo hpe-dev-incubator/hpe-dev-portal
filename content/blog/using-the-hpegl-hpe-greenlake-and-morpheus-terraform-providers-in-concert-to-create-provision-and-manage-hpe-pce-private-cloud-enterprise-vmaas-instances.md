@@ -37,9 +37,9 @@ These two providers complement each other: 
 
 The glue between these two providers is a hpegl *Data Source* called *hpegl_vmaas_morpheus_details*.  For a specific VMaaS *location* this data source will output: 
 
-* A Morpheus Access Token 
-* The URL of the Morpheus instance 
-* The time to expiry of the Access Token (in seconds) 
+* A Morpheus access token. 
+* The URL of the Morpheus instance. 
+* The time to expiry of the access token (in seconds). 
 
 The first two outputs can then be passed into a Morpheus provider stanza. See the following example where there is just one *location* for a VMaaS instance:
 
