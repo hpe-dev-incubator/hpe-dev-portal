@@ -1,5 +1,5 @@
 ---
-title: Deploying a Small Language Model in HPE Private Cloud AI Using a Jupyter
+title: Deploying a Small Language Model in HPE Private Cloud AI using a Jupyter
   Notebook
 date: 2025-02-20T20:03:50.971Z
 author: Dave Wright and Elias Alagna
@@ -11,7 +11,7 @@ tags:
   - vllm
   - SLM
 ---
-Deploying new large language models for for users to interact with can be challenging for beginners. HPE has developed Private Cloud AI to help users get to productive AI work quickly and easily. 
+Deploying new language models for for users to interact with can be challenging for beginners. HPE has developed Private Cloud AI to help users get to productive AI work quickly and easily. 
 
 Here we will show how to use HPE Machine Learning Inference Service as a part of HPE Private Cloud AI to add a new packaged model from a Hugging Face repository and create an endpoint to query the model. This is done in a Jupyter Notebook.
 
@@ -45,11 +45,11 @@ This will create an endpoint for use in the notebook and provide an API token.
 
 ![New deployment for AI model](/img/new-deployment.png)
 
+When the process is complete an endpoint will be provided.
 
+![Endpoint provided by MLIS system](/img/endpoint.png)
 
 Next up let's take the now deployed model that's ready for inference and connect to it and interact with it from a Jupyter Notebook.
-
-
 
 ### Building the Jupyter Notebook
 
