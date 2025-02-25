@@ -4,6 +4,10 @@ date: 2025-02-24T18:31:55.573Z
 author: Denis Vilfort
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - distributed enterprise
+  - cloud deployment
+  - distributed systems
 ---
 <style>
 li {
