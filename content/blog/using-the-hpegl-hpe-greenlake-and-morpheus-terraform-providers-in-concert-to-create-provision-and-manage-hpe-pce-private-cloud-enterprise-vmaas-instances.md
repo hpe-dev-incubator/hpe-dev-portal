@@ -1495,4 +1495,4 @@ We have included example HCL for two separate VMaaS configurations: 
 * [morpheus_artefacts](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/morpheus_artefacts) which uses the Morpheus provider to create a group, instance type, instance layout and node type in the target VMaaS cloud
 * [vmaas_instance](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/vmaas_instance) which takes inputs from morpheus_artefacts and uses the hpegl provider to retrieve details about VMaaS resources and creates and launches a VMaaS VM Instance
 
-HPE GreenLake for Private Cloud Enterprise customers are encouraged to use these example HCL bundles as a starting point for their own investigations into using the two providers (hpegl and Morpheus) for IaC with their environments.
+HPE GreenLake for Private Cloud Enterprise customers are encouraged to use these example HCL bundles as a starting point for their own investigations into using hpegl and Morpheus for IaC with their environments.
