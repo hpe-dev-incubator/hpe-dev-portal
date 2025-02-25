@@ -518,7 +518,7 @@ hpegl_vmaas_instance.sample_vm[0]: Creation complete after 1m34s [id=52689]
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 ```
 
-## One location/Two VMaaS Clouds/Two VMaaS Instances example
+## One location, two VMaaS clouds, two VMaaS instances example
 
 ![](/img/hpegl-and-morpheus-terraform-blog-post-frame-2-1-.jpg)
 
