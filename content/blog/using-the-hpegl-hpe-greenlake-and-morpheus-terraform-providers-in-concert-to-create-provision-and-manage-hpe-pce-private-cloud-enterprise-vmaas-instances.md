@@ -23,6 +23,8 @@ Many customers of HPE GreenLake for Private Cloud Enterprise want to use [Terraf
 
 In this blog post we will demonstrate how to use the two providers in concert to create, provision and manage VMaaS VM instances. Central to this is a hpegl data-source which can be used to retrieve an Access Token and URL for the on-premise Morpheus instance which are then passed to the Morpheus provider.
 
+Note that we plan to write and release a new Terraform provider which will combine the functionality of the hpegl and Morpheus providers into a single provider and replace both. This will simplify the process of creating, provisioning and managing VM instances.  It will also extend the provider functionality.  This new provider will be released at a future date and will be the subject of a follow-on blog post.
+
 # **IaC and HPE GreenLake for Private Cloud Enterprise**
 
 [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) (Infrastructure as Code) is a well-established approach to configuring, creating, and managing resources. Terraform and its OpenSource alternative OpenTofu, along with per-service providers, are especially popular. For HPE GreenLake for Private Cloud Enterprise's VMaaS (VM as a Service) service, there are two relevant providers: 
@@ -30,7 +32,9 @@ In this blog post we will demonstrate how to use the two providers in concert to
 * hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Identity and Access Management (IAM) and VMaaS 
 * Morpheus, which interacts with the on-premise Morpheus instance or instances that are associated with the VMaaS service.  Each Morpheus instance is a separate on-premise installation of Morpheus 
 
-These two providers complement each other: 
+Note that we plan to write and release a new unified provider which will replace these providers and offer a richer set of functionality.
+
+These two current providers (hpegl and Morpheus) complement each other: 
 
 * hpegl deals with HPE GreenLake IAM and manages VMaaS resources, including VM instances 
 * Morpheus deals with underlying Morpheus resources on which the VMaaS resources – including VM instances – depend. This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
