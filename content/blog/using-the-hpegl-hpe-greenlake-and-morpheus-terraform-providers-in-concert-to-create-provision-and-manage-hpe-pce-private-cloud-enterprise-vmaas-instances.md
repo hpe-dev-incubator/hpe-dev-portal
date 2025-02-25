@@ -23,7 +23,7 @@ Many customers of HPE GreenLake for Private Cloud Enterprise want to use [Terraf
 
 In this blog post we will demonstrate how to use the two providers in concert to create, provision and manage VMaaS VM instances. Central to this is a hpegl data-source which can be used to retrieve an Access Token and URL for the on-premise Morpheus instance which are then passed to the Morpheus provider.
 
-# **IaC and HPE GreenLake Private Cloud Enterprise**
+# **IaC and HPE GreenLake for Private Cloud Enterprise**
 
 [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) (Infrastructure as Code) is a well-established approach to configuring, creating, and managing resources. Terraform and its OpenSource alternative OpenTofu, along with per-service providers, are especially popular. For HPE GreenLake for Private Cloud Enterprise's VMaaS (VM as a Service) service, there are two relevant providers: 
 
