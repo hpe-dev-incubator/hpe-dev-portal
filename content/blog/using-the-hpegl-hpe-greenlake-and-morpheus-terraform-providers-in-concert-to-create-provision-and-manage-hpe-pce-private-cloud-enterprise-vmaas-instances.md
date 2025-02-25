@@ -130,7 +130,7 @@ In the next two sections we present complete HCL examples for two configurations
   * Create a Node Type for the VM Image. 
   * Create an Instance Layout for the above Node Type and Instance Type.
 
-## **One location/One VMaaS Cloud/One VMaaS Instance example**
+## **One location, one VMaaS cloud, one VMaaS instance example**
 
 ![](/img/hpegl-and-morpheus-terraform-blog-post-frame-1-1-.jpg)
 
