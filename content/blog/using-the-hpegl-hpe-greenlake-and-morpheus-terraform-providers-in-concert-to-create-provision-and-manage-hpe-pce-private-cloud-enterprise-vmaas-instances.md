@@ -563,7 +563,7 @@ These modules can be combined in different ways. In our specific case we: 
 * Make two calls to *morpheus_artefacts*. 
 * Make two calls to *vmaas_instance* each using outputs from one of the calls to *morpheus_artefacts*.
 
-In this way we create two VMaaS instances each in a separate VMaaS Cloud based on the one underlying on-premise Morpheus instance.
+In this way we create two VMaaS instances each in a separate VMaaS cloud based on the one underlying on-premise Morpheus instance.
 
 ### HCL
 
