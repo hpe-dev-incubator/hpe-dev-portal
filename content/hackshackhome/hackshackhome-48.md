@@ -1,6 +1,6 @@
 ---
 title: "Unlocking Private AI Power: Insurance Fraud Detection and Beyond"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/1617368469647/WN_cvTfagHpQM-PFQ0ndqB9BA
 imageBackground: white
@@ -14,3 +14,4 @@ label: Register Now!
 priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
+

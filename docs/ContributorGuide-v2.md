@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 20 Sep, 2023
+**Version 2.1** - 6 Feb, 2025
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
@@ -754,7 +754,8 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
-  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-platform |
+  | **HPE GreenLake cloud**            | hpe-greenlake-cloud |
+  | **HPE GreenLake platform**         | hpe-greenlake-platform |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
