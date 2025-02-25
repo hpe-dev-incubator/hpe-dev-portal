@@ -569,7 +569,7 @@ In this way we create two VMaaS instances each in a separate VMaaS Cloud based o
 
 [View the example HCL](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud)
 
-### The output from a Terraform run (v1.5.7) to create the two VMaaS instances:
+### The output from a Terraform (v1.5.7) run to create the two VMaaS instances
 
 ```shellsession
 ➜  2_clouds_module_nest git:(blog1) ✗ terraform apply -var-file variables_tenant.tfvars -auto-approve
