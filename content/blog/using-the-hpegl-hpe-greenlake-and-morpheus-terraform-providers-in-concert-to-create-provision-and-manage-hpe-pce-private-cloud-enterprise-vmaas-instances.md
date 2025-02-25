@@ -110,8 +110,8 @@ provider "morpheus" {
 
 In the next two sections we present complete HCL examples for two configurations each with one VMaaS location: 
 
-* One VMaaS Cloud, with one VMaaS instance 
-* Two VMaaS Clouds, each with one VMaaS instance for a total of two VMaaS instances 
+* One VMaaS cloud, with one VMaaS instance. 
+* Two VMaaS clouds, each with one VMaaS instance for a total of two VMaaS instances. 
 
  The clouds are VMware vSphere clouds.  In both cases: 
 
