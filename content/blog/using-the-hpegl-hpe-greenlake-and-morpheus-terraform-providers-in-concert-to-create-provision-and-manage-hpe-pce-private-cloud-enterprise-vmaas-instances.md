@@ -59,7 +59,7 @@ provider "morpheus" {
 }
 ```
 
-For VMaaS instances with multiple locations *Provider Aliasing* can be used to tie a specific VMaaS *location* to the corresponding Morpheus instance:
+For VMaaS instances with multiple locations *provider aliasing* can be used to tie a specific VMaaS *location* to the corresponding Morpheus instance:
 
 ```hcl
 # Location 1
@@ -113,7 +113,7 @@ In the next two sections we present complete HCL examples for two configurations
 * One VMaaS Cloud, with one VMaaS instance 
 * Two VMaaS Clouds, each with one VMaaS instance for a total of two VMaaS instances 
 
- The clouds are vSphere clouds.  In both cases: 
+ The clouds are VMware vSphere clouds.  In both cases: 
 
 * hpegl is used to: 
 
@@ -524,37 +524,38 @@ Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 
 The example HCL used here is based on the HCL for the first example.  However we have created two separate *Modules* based on that HCL: 
 
-* *morpheus_artefacts* which does the following 
+*morpheus_artefacts* which does the followingi. 
 
   * Takes as input: 
 
-    * A VMaaS Cloud Name 
-    * A Group name 
+    * A VMaaS cloud name 
+    * A group name 
     * An image name 
   * Creates: 
 
-    * A Group 
-    * An Instance Type 
-    * An Instance Layout 
-    * A Node Type 
+    * A group 
+    * An instance type 
+    * An instance layout 
+    * A node type 
   * Outputs: 
 
-    * Instance Type details 
-    * Instance Layout details 
-    * Node Type details 
+    * Instance type details 
+    * Instance layout details 
+    * Node type details 
     * Group details 
     * Cloud ID
-* *vmaas_instance* which does the following 
+
+*vmaas_instance* which does the following. 
 
   * Takes inputs from an instance of the “morpheus_artefacts” module 
   * Retrieves details for the following VMaaS resources: 
 
-    * VMaaS Datastore 
-    * VMaaS Network 
-    * VMaaS Resource Pool 
-    * VMaaS Plan 
-    * VMaaS Environment 
-    * VMaaS Cloud Folder 
+    * VMaaS datastore 
+    * VMaaS network 
+    * VMaaS resource pool 
+    * VMaaS plan 
+    * VMaaS environment 
+    * VMaaS cloud folder 
   * Creates a VMaaS instance 
 
 These modules can be combined in different ways. In our specific case we: 
