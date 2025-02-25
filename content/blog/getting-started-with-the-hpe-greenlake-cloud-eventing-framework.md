@@ -1,5 +1,5 @@
 ---
-title: Getting started with the HPE GreenLake cloud eventing framework
+title: Getting started with webhooks on HPE GreenLake cloud
 date: 2025-02-06T13:53:06.527Z
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
