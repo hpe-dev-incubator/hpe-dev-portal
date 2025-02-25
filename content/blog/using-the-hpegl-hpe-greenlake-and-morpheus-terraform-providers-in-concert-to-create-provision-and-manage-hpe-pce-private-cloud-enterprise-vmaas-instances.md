@@ -1490,7 +1490,7 @@ We have included example HCL for two separate VMaaS configurations: 
 * One location, One VMaaS Cloud with One VMaaS Instance 
 * One location, Two VMaaS Clouds each with One VMaaS Instance 
 
- The HCL for the second configuration is built around a pair of HCL modules that can be combined in various ways to work with a number of different VMaaS configurations, including those with more than one on-premise Morpheus instance. These modules are:
+The HCL for the second configuration is built around a pair of HCL modules. These modules can be combined in various ways to work with a number of different VMaaS configurations, including configurations with more than one on-premise Morpheus instance. These modules are:
 
 * [morpheus_artefacts](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/morpheus_artefacts) uses the Morpheus provider to create a group, instance type, instance layout, and node type in the target VMaaS cloud.
 * [vmaas_instance](https://github.com/eamonnotoole/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/Two-Clouds-Two-Instances/vmaas_instance) which takes inputs from morpheus_artefacts and uses the hpegl provider to retrieve details about VMaaS resources and creates and launches a VMaaS VM Instance
