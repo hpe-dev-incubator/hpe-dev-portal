@@ -106,7 +106,7 @@ provider "morpheus" {
 }
 ```
 
-# **Complete examples for One VMaaS location**
+# **Complete examples for one VMaaS location**
 
 In the next two sections we present complete HCL examples for two configurations each with one VMaaS location: 
 
