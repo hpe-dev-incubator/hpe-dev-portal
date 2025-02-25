@@ -1487,8 +1487,8 @@ When used in concert, these two providers enable a rich IaC functionality. The 
 
 We have included example HCL for two separate VMaaS configurations: 
 
-* One location, One VMaaS Cloud with One VMaaS Instance 
-* One location, Two VMaaS Clouds each with One VMaaS Instance 
+* One location, one VMaaS cloud with one VMaaS instance 
+* One location, two VMaaS clouds each with one VMaaS instance 
 
 The HCL for the second configuration is built around a pair of HCL modules. These modules can be combined in various ways to work with a number of different VMaaS configurations, including configurations with more than one on-premise Morpheus instance. These modules are:
 
