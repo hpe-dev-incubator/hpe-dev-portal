@@ -330,7 +330,7 @@ Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
  
 ```
 
-### The output from an OpenTofu run (v1.6.2) to create the VMaaS Instance:
+### The output from an OpenTofu (v1.6.2) run  to create the VMaaS instance
 
 ```shellsession
 ➜  1_location_1_cloud git:(blog1) ✗ tofu apply -var-file variables_tenant.tfvars -auto-approve
