@@ -123,12 +123,12 @@ In the next two sections we present complete HCL examples for two configurations
   * Create a VMaaS instance. 
 * Morpheus is used to: 
 
-  * Retrieve details for the VMaaS Cloud 
-  * Create a Group for the above cloud 
-  * Create an Instance Type 
-  * Retrieve details for a VM Image 
-  * Create a Node Type for the VM Image 
-  * Create an Instance Layout for the above Node Type and Instance Type 
+  * Retrieve details for the VMaaS Cloud. 
+  * Create a Group for the above cloud. 
+  * Create an Instance Type. 
+  * Retrieve details for a VM Image. 
+  * Create a Node Type for the VM Image. 
+  * Create an Instance Layout for the above Node Type and Instance Type.
 
 ## **One location/One VMaaS Cloud/One VMaaS Instance example**
 
