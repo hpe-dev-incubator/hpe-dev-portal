@@ -5,7 +5,7 @@ author: Denis Vilfort
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-style>
+<style>
 li {
    font-size: 27px;
    line-height: 33px;
@@ -13,7 +13,7 @@ li {
 }
 </style>
 
-A major shift is underway in IT, and our customers are leading the charge. Across industries — retail, logistics, healthcare, and manufacturing — businesses are moving away from centralized data centers and embracing a model that brings technology closer to where value is created. The distributed enterprise isn’t just an emerging trend; it’s a complete rethinking of IT strategy.
+A major shift is underway in IT, and customers are leading the charge. Across industries — retail, logistics, healthcare, and manufacturing — businesses are moving away from centralized data centers and embracing a model that brings technology closer to where value is created. The distributed enterprise isn’t just an emerging trend; it’s a complete rethinking of IT strategy.
 
 In this blog series, I’ll explore why this shift matters, how it’s reshaping IT infrastructure, and what it means for organizations looking to stay ahead. The distributed model isn’t just about efficiency — it’s about unlocking new levels of agility, resilience, and innovation.
 
@@ -29,7 +29,7 @@ Long before cloud computing was even a thing, that moment taught me a lesson tha
 
 ## Fast forward to 2025: IT’s biggest challenge isn’t what you think
 
-At HPE, we have some of the most forward-thinking customers in the world. What we’re hearing is that the biggest IT challenge today isn’t simply choosing between cloud, AI, or edge computing. It’s something deeper.
+At Hewlett Packard Enterprise (HPE), we have some of the most forward-thinking customers in the world. What we’re hearing is that the biggest IT challenge today isn’t simply choosing between cloud, AI, or edge computing. It’s something deeper.
 
 Decades of IT decisions — investments in legacy architecture, vendor lock-in, and rigid operating models — have created an enormous weight that enterprises are struggling to escape. Many organizations find themselves not just burdened by technical debt, but by the outdated IT philosophies that shaped those decisions. Even modernization efforts, like shifting workloads to the cloud or navigating compliance challenges, have often resulted in fragmented, complex, and costly environments that are difficult to manage.
 
