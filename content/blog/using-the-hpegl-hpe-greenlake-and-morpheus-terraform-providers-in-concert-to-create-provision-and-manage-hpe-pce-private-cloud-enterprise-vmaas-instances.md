@@ -117,10 +117,10 @@ In the next two sections we present complete HCL examples for two configurations
 
 * hpegl is used to: 
 
-  * Define the VMaaS location and space 
-  * Retrieve the relevant Morpheus Token and URL 
-  * Retrieve details for the VMaaS Datastore, Network, Resource Pool, Plan, Environment and Cloud Folder 
-  * Create a VMaaS instance 
+  * Define the VMaaS location and space. 
+  * Retrieve the relevant Morpheus token and URL. 
+  * Retrieve details for the VMaaS Datastore, Network, Resource Pool, Plan, Environment, and Cloud Folder. 
+  * Create a VMaaS instance. 
 * Morpheus is used to: 
 
   * Retrieve details for the VMaaS Cloud 
