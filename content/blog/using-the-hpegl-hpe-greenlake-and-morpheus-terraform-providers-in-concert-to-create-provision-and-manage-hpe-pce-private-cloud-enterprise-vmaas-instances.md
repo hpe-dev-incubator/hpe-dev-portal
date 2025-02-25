@@ -1023,7 +1023,7 @@ node_type_name_cloud_1 = "cfe_tf_example_node_type--17891"
 node_type_name_cloud_2 = "cfe_tf_example_node_type--29896"
 ```
 
-### The output from an OpenTofu run (v1.6.2) to create the two VMaaS instances:
+### The output from an OpenTofu (v1.6.2) run to create the two VMaaS instances
 
 ```shellsession
 ➜  2_clouds_module_nest git:(blog1) ✗ tofu apply -var-file variables_tenant.tfvars -auto-approve
