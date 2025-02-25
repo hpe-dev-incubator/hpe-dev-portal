@@ -2,7 +2,7 @@
 title: The Rise of the Distributed Enterprise
 date: 2025-02-24T18:31:55.573Z
 author: Denis Vilfort
-authorimage: /img/Avatar1.svg
+authorimage: /img/denisvilfort_head_shot_2.png
 disable: false
 tags:
   - distributed enterprise
