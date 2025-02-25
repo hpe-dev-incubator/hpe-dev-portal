@@ -138,7 +138,7 @@ In the next two sections we present complete HCL examples for two configurations
 
 [View the example HCL](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Terraform/HPEGL-Morpheus-PCE-VMaaS/One-Location/One-Cloud-One-Instance/1_location_1_cloud)
 
-### The output from a Terraform run (v1.5.7) to create the VMaaS Instance:
+### The output from a Terraform (v1.5.7) run to create the VMaaS instance
 
 ```shellsession
 ➜  1_location_1_cloud git:(blog1) ✗ terraform apply -var-file variables_tenant.tfvars -auto-approve
