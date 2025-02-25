@@ -1483,7 +1483,7 @@ When using Terraform (or OpenTofu) to interact with HPE GreenLake for Private Cl
 * [hpegl](https://registry.terraform.io/providers/HPE/hpegl/latest)
 * [Morpheus](https://registry.terraform.io/providers/gomorpheus/morpheus/latest)
 
- When used in concert these two providers enable a rich set of IaC functionality. The hpegl provider has a *Data Source* named *hpegl_vmaas_morpheus_details* which can be used to retrieve an access token and URL for the on-premise Morpheus instance associated with the specific VMaaS *location*. These can be used as inputs to the provider stanza for the Morpheus provider. 
+When used in concert, these two providers enable a rich IaC functionality. The hpegl provider has a *data source* named *hpegl_vmaas_morpheus_details*, which can be used to retrieve an access token and URL for the on-premise Morpheus instance associated with the specific VMaaS *location*. These can be used as inputs to the provider stanza for the Morpheus provider. 
 
 We have included example HCL for two separate VMaaS configurations: 
 
