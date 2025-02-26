@@ -1,6 +1,8 @@
 ---
 title: Why Private AI?
 date: 2025-01-10T13:21:41.149Z
+featuredBlog: true
+priority: 4
 author: Jordan Nanos
 authorimage: /img/jordan-nanos.jpg
 disable: false
