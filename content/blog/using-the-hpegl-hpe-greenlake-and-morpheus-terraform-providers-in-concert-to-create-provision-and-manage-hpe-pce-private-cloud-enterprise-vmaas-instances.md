@@ -29,7 +29,7 @@ Note that we plan to write and release a new Terraform provider which will combi
 
 [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) (Infrastructure as Code) is a well-established approach to configuring, creating, and managing resources. Terraform and its OpenSource alternative OpenTofu, along with per-service providers, are especially popular. For HPE GreenLake for Private Cloud Enterprise's VMaaS (VM as a Service) service, there are two relevant providers: 
 
-* hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Identity and Access Management (IAM) and VMaaS 
+* hpegl (HPE GreenLake), which interacts with the HPE GreenLake for Private Cloud Enterprise Services such as Identity and Access Management (IAM) and VMaaS. 
 * Morpheus, which interacts with the on-premise Morpheus instance or instances that are associated with the VMaaS service.  Each Morpheus instance is a separate on-premise installation of Morpheus 
 
 Note that we plan to write and release a new unified provider which will replace these providers and offer a richer set of functionality.
