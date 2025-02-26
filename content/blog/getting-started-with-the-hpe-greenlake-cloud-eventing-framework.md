@@ -26,7 +26,7 @@ HPE GreenLake cloud provides an events framework in which event publishers (any 
 
 The following diagram illustrates the mechanism by which this works:
 
-![HPE GreenLake cloud events framework](/img/slide-for-blog-webhooks.jpg "HPE GreenLake cloud events framework")
+![HPE GreenLake cloud events framework](/img/slide-pour-blog-webhooks.jpg "HPE GreenLake cloud events framework")
 
 ## How do you write webhook handlers?
 
