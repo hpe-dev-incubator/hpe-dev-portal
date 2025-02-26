@@ -1,8 +1,8 @@
 ---
 title: "Small Language Models: The Next Frontier with Private Cloud AI"
 date: 2024-10-03T17:13:41.947Z
-featuredBlog: true
-priority: 5
+featuredBlog: false
+priority: 10
 externalLink: https://www.linkedin.com/pulse/small-language-models-next-frontier-private-cloud-ai-gruttadauria-zcfwe/
 author: Brian Gruttadauria
 authorimage: /img/1701400243241.jpeg
