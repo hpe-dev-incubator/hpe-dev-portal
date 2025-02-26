@@ -1,6 +1,8 @@
 ---
 title: Getting started with webhooks on HPE GreenLake cloud
 date: 2025-02-06T13:53:06.527Z
+featuredBlog: true
+priority: 1
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
