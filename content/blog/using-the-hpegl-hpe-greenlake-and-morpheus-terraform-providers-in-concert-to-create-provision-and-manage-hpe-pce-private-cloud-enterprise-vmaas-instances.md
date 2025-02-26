@@ -36,7 +36,7 @@ Note that we plan to write and release a new unified provider which will replace
 
 These two current providers (hpegl and Morpheus) complement each other: 
 
-* hpegl deals with HPE GreenLake IAM and manages VMaaS resources, including VM instances 
+* hpegl deals with HPE GreenLake IAM and manages VMaaS resources, including VM instances. 
 * Morpheus deals with underlying Morpheus resources on which the VMaaS resources – including VM instances – depend. This covers resources such as Clouds, VM images, Node Types, Groups, Instance Types, and Instance Layouts. 
 
 The glue between these two providers is a hpegl *data source* called *hpegl_vmaas_morpheus_details*. For a specific VMaaS *location*, this data source will output: 
