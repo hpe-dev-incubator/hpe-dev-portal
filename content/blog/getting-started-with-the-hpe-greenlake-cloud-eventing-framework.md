@@ -22,11 +22,11 @@ In one of my previous blog posts, I used the HPE GreenLake API to query the audi
 
 ## It's a publisher/subscriber world
 
-HPE GreenLake cloud provides an eventing framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake cloud forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
+HPE GreenLake cloud provides an events framework in which event publishers (any of the HPE GreenLake cloud services) can register event types with the platform and event subscribers can declare what event types they would like to subscribe to. After they establish a security handshake, HPE GreenLake cloud forwards selected events to the subscriber in a close-to-real-time mode. No polling is necessary as the event handler (webhook) will be notified asynchronously.
 
 The following diagram illustrates the mechanism by which this works:
 
-![HPE GreenLake cloud eventing framework](/img/slide-for-blog-webhooks.jpg "HPE GreenLake cloud eventing framework")
+![HPE GreenLake cloud events framework](/img/slide-for-blog-webhooks.jpg "HPE GreenLake cloud events framework")
 
 ## How do you write webhook handlers?
 
@@ -154,9 +154,9 @@ Next, add another module to compute the HMAC. Click the plus sign and add a **To
 Configure the Set variable module with:
 
 * Variable name: **hmac** 
-* Variable value: **sha256( challengeRequest ; ; \<SecretKey\> )**
+* Variable value: **sha256( challengeRequest ; ; <SecretKey> )**
 
-> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **\<SecretKey\>** is a placeholder which you will replace later, once we know the the real shared secret key.
+> Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **<SecretKey>** is a placeholder which you will replace later, once we know the the real shared secret key.
 
 ![drag and drop properties](/img/drag-drop-properties.jpg "drag and drop properties")
 
@@ -268,7 +268,7 @@ If the webhook response is the expected one, then the webhook is placed in **Act
 
 ### It’s time to subscribe to events
 
-From the web console, you can now subscribe to events available from the HPE GreenLake services. You can find the list of those already available from the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/ui/#finding-events-on-hpe-greenlake-developer-portal). The list will grow over time as new services adopt this eventing framework.
+From the web console, you can now subscribe to events available from the HPE GreenLake services. You can find the list of those already available from the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/ui/#finding-events-on-hpe-greenlake-developer-portal). The list will grow over time as new services adopt this events framework.
 
 Select your webhook from the list and select **Subscribe to event**. Select the source **Service manager** (there is only HPE GreenLake Platform for now), then cut/paste the **Event type** from the [event catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/#event-catalog). The following show two examples of event type.
 
@@ -291,7 +291,7 @@ You can see different types of audit log events coming up from HPE GreenLake clo
 
 ## Call to action
 
-Webhooks together with the HPE GreenLake cloud eventing framework provide a great way to integrate with HPE GreenLake cloud using modern technology. It provides great flexibility on where you can run the subscriber code, and allows you to choose the language in which to write the webhook code. It also allows you to build a tight integration with an existing platform such as HPE OpsRamp or ServiceNow.
+Webhooks together with the HPE GreenLake cloud events framework provide a great way to integrate with HPE GreenLake cloud using modern technology. It provides great flexibility on where you can run the subscriber code, and allows you to choose the language in which to write the webhook code. It also allows you to build a tight integration with an existing platform such as HPE OpsRamp or ServiceNow.
 
 Additional benefits I can see from this technique are:
 
