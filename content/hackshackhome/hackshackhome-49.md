@@ -13,6 +13,6 @@ description: "March 19, 2025: Join this session to learn about ChatHPE GenAI
   organization."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
