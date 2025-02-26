@@ -10,6 +10,6 @@ description: "March 26, 2025: Join this session to explore eBPF (Extended
   code or adding intrusive instrumentation. "
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
