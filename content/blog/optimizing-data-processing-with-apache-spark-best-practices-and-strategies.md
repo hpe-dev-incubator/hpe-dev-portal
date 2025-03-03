@@ -12,15 +12,15 @@ tags:
   - optimization
   - best-practices
 ---
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ tags:
 	mso-ligatures:standardcontextual;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 Big Data processing is at the core of modern analytics, and **Apache Spark** has emerged as a leading framework for handling large-scale data workloads. However, optimizing Spark jobs for **efficiency, performance, and scalability** remains a challenge for many data engineers. Traditional data processing systems struggle to keep up with the exponential growth of data, leading to issues like **resource bottlenecks, slow execution, and increased complexity**.
 
@@ -679,7 +679,9 @@ This whitepaper explores **best practices and optimization strategies** to enhan
 
 Apache Spark, an open-source distributed data processing framework, addresses these challenges through its innovative architecture and in-memory computing capabilities, making it significantly faster than traditional data processing systems.
 
-Apache Spark was developed to address several limitations and challenges that were present in existing big data processing frameworks, such as Hadoop MapReduce. It supports multiple programming languages, including Python (PySpark), Scala, and Java, and is widely used in ETL, machine learning, and real-time streaming applications. Here are the key reasons why Spark came into existence and what sets it apart from other frameworks in the big data world:
+Apache Spark was developed to address several limitations and challenges that were present in existing big data processing frameworks, such as Hadoop MapReduce. It supports multiple programming languages, including Python (PySpark), Scala, and Java, and is widely used in ETL, machine learning, and real-time streaming applications. 
+
+Here are the key reasons why Spark came into existence and what sets it apart from other frameworks in the big data world:
 
 * *In-memory processing*
 * *Iterative and interactive processing*
