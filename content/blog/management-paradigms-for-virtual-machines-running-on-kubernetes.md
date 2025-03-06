@@ -21,11 +21,11 @@ But first, a brief introduction to KubeVirt.
 
 KubeVirt provide abstractions to Kubernetes users for Linux Kernel Virtual Machines (KVM). KVM has been around for about two decades now with several successful commercial hypervisors built around the implementation and is at this point considered mature.
 
-KubeVirt itself does not have a user interface which most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different Kinds provided by Custom Resource Definitions (CRD).
+KubeVirt itself does not have a user interface which most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different Kinds provided by \`CustomResourceDefinitions\` (CRDs).
 
-The CRDs allows users to manage VM resources through a set of KubeVirt’s controllers.
+The \`CRDs\` allows users to manage VM resources through a set of KubeVirt’s controllers.
 
-insert diagram here
+![](/img/kubevirt.png)
 
 Deploying KubeVirt on upstream Kubernetes and other distributions is straightforward. The [official documentation](https://kubevirt.io/user-guide/) walks through the different distributions and platform specific quirks that needs to be considered.
 
@@ -35,9 +35,9 @@ Most VM administrators connect VMs to existing networks that assign IP addresses
 
 As a prerequisite for this exercise and examples, the following resources have been created prior:
 
-- An SSH public key has been created on the cluster as a `Secret` to be injected into my VM instance during initialization.
-- A `NodeNetworkConfigurationPolicy` using the Kubernetes NMState Operator that creates a bridge on NIC connected to the data center management network.
-- A `NetworkAttachmentDefinition` in my VM instance `Namespace` to connect virtual NICs to.
+* An SSH public key has been created on the cluster as a `Secret` to be injected into my VM instance during initialization.
+* A `NodeNetworkConfigurationPolicy` using the Kubernetes NMState Operator that creates a bridge on NIC connected to the data center management network.
+* A `NetworkAttachmentDefinition` in my VM instance `Namespace` to connect virtual NICs to.
 
 For the sake of completeness, this is what those resources look like:
 
@@ -235,11 +235,11 @@ Fortunately, there are KubeVirt implementations that heavily focus on a graphica
 
 We’ll take a closer look at OKD, the upstream Kubernetes distribution of OpenShift, and Harvester, an HCI solution built for VMs on KubeVirt with striking simplicity.
 
-OKD screenshot
+![OKD Virtualization landing page.](/img/screenshot-2025-03-05-at-12.18.46-pm.png "OKD Virtualization landing page.")
 
 OKD is the upstream open source project of Red Hat OpenShift. Enabling virtualization is a two-click operation and considered the gold standard for managing VMs and containers with a unified control plane. KubeVirt has been part of OKD and OpenShift since 2020. 
 
-Harvester screenshot
+![Harvester landing page](/img/screenshot-2025-03-05-at-12.48.03-pm.png "Harvester landing page")
 
 Harvester is an open source Hyper Converged Infrastructure (HCI) solution primarily focused on running a highly opinionated stack of software and tools on Kubernetes designed solely for running VMs. Harvester can be consumed by Rancher to allow Rancher to deploy and manage Kubernetes clusters on Harvester in a symbiotic relationship.
 
@@ -259,9 +259,9 @@ ansible-galaxy collection install kubevirt.core
 
 There are a couple of distinct patterns for managing cloud compute instances (VMs on KubeVirt in this case) with Ansible.
 
-- Declaratively CRUD (Create, Read, Update Delete) the instances from a pre-rendered inventory, preferable templatized with Ansible, idempotent with desired parameters. Manage the OS and apps with playbooks using the rendered inventory.
-- Imperatively CRUD the instances with some other tooling, either from the cloud provider directly or idempotent with something like OpenTofu. Employ dynamic inventory plugins to manage the OS and apps inside the instances.
-- Imperatively CRUD the instances with Ansible playbooks and using a dynamic inventory plugin to manage OS and apps.
+* Declaratively CRUD (Create, Read, Update Delete) the instances from a pre-rendered inventory, preferable templatized with Ansible, idempotent with desired parameters. Manage the OS and apps with playbooks using the rendered inventory.
+* Imperatively CRUD the instances with some other tooling, either from the cloud provider directly or idempotent with something like OpenTofu. Employ dynamic inventory plugins to manage the OS and apps inside the instances.
+* Imperatively CRUD the instances with Ansible playbooks and using a dynamic inventory plugin to manage OS and apps.
 
 For the sake of simplicity and clarity the examples will imperatively CRUD the instances and showcase the dynamic inventory plugin with KubeVirt. In a production scenario where collaboration among engineers is required, the first option is the more elegant choice.
 
