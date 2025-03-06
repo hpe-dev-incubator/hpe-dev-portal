@@ -10,7 +10,6 @@ import {
   Video,
   PageHeader,
 } from '../../../components/hackshack';
-import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
 import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 
@@ -50,19 +49,7 @@ const ReplayTemplate = (props) => {
           console.log(error);
         });
     };
-    const getToken = () => {
-      AuthService.login().then(
-        () => {
-          getReplays(AuthService.getCurrentUser().accessToken);
-        },
-        () => {
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
-        },
-      );
-    };
-    getToken();
+    getReplays();
     // eslint-disable-next-line
   }, [error, getReplaysApi]);
   const { workshopId, workshopTitle, workshopDesc, workshopImg } =

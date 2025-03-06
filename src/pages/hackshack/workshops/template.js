@@ -5,7 +5,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
-import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
 
 const renderScheduleCard = (workshop, i) => (
@@ -34,7 +33,7 @@ const renderScheduleCard = (workshop, i) => (
 
 const Workshop = (props) => {
   const getWorkshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
-  const [workshops, setworkshops] = useState([]);
+  const [workshops, setWorkshops] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
   const [index, setIndex] = useState(0);
@@ -48,27 +47,10 @@ const Workshop = (props) => {
     .slice(0, 10);
 
   useEffect(() => {
-    const getToken = () => {
-      AuthService.login().then(
-        () => {
-          /* eslint-disable no-use-before-define */
-          getWorkshops(AuthService.getCurrentUser().accessToken);
-          /* eslint-enable no-use-before-define */
-        },
-        (err) => {
-          console.log('Error: ', err);
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
-        },
-      );
-    };
-
-    const getWorkshops = (token) => {
+    const getWorkshops = () => {
       axios({
         method: 'GET',
         url: getWorkshopsApi,
-        headers: { 'x-access-token': token },
       })
         .then((response) => {
           // Map created
@@ -76,20 +58,16 @@ const Workshop = (props) => {
             if (workshop.sessionType === 'Workshops-on-Demand')
               arr.push({ ...workshop });
           });
-          setworkshops(arr);
+          setWorkshops(arr);
         })
         .catch((err) => {
-          if (err.response.status === 401) {
-            AuthService.login().then(() => getToken());
-          } else {
-            console.log('catch error', err);
-            setError(
-              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-            );
-          }
+          console.log('catch error', err);
+          setError(
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+          );
         });
     };
-    getToken();
+    getWorkshops();
     // eslint-disable-next-line
     const queryParams = new URLSearchParams(window.location.search);
     const tab = queryParams.get('activeTab');
