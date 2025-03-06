@@ -543,6 +543,7 @@ module.exports = {
           { name: 'path', store: true },
           { name: 'sourceInstanceName', store: true },
           { name: 'author', store: true },
+          {name: 'externalLink',store:true}
         ],
         filterNodes: (node) => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
@@ -565,6 +566,7 @@ module.exports = {
                   )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
             author: (node) => node.frontmatter.author,
+            externalLink:(node)=> node.frontmatter.externalLink
           },
         },
       },

@@ -1,8 +1,8 @@
 ---
 title: Getting started with Retrieval Augmented Generation (RAG)
 date: 2024-11-14T07:42:05.843Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 13
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false

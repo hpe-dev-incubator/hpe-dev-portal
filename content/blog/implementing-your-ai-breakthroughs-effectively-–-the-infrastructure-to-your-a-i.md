@@ -1,8 +1,8 @@
 ---
 title: Implementing your AI Breakthroughs Effectively – The Infrastructure to your AI
 date: 2024-10-31T18:58:58.285Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority: 11
 author: Audrey Scribner
 authorimage: /img/audrey.jpg
 disable: false
