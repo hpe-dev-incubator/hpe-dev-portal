@@ -21,9 +21,9 @@ But first, a brief introduction to KubeVirt.
 
 KubeVirt provide abstractions to Kubernetes users for Linux Kernel Virtual Machines (KVM). KVM has been around for about two decades now with several successful commercial hypervisors built around the implementation and is at this point considered mature.
 
-KubeVirt itself does not have a user interface which most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different Kinds provided by \`CustomResourceDefinitions\` (CRDs).
+KubeVirt itself does not have a user interface which most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different Kinds provided by `CustomResourceDefinitions` (CRDs).
 
-The \`CRDs\` allows users to manage VM resources through a set of KubeVirt’s controllers.
+The `CRDs` allows users to manage VM resources through a set of KubeVirt’s controllers.
 
 ![](/img/kubevirt.png)
 
@@ -107,13 +107,13 @@ It is entirely possible to use `kubectl` out-of-the-box to deploy and manage VM 
 
 Installing `virtctl` varies by platform and KubeVirt distribution. It’s advised at this point to have the same client and server version which at the time of writing is 1.4.0. If using a Mac with Brew installed, it’s simply:
 
-```bash
+```shell
 brew install virtctl
 ```
 
 First we need to inform ourselves what `DataSources` are available on the cluster. Building new `DataSources` or importing new ones is out of scope for this blog post. VMs are cloned into new `PersistentVolumeClaims` (PVCs) from `DataSources`. List the existing the `DataSources` on the cluster:
 
-```bash
+```shell
 $ kubectl get datasources -A
 NAMESPACE            NAME             AGE
 kubevirt-os-images   centos-stream8   13h
@@ -135,7 +135,7 @@ kubevirt-os-images   win2k22          13h
 
 Not all `DataSources` are populated by default. On OKD, only “fedora” and “centos-stream9” are available. It can be checked by examining `DataImportCrons`.
 
-```bash
+```shell
 $ kubectl get dataimportcrons -A
 NAMESPACE            NAME                        FORMAT
 kubevirt-os-images   centos-stream9-image-cron   pvc
@@ -162,7 +162,7 @@ spec:
 
 Now, create the VM and attach it to the network:
 
-```bash
+```shell
 virtctl create vm --name my-vm-0 \
   --access-cred type:ssh,src:desktop,user:fedora \
   --volume-import=type:ds,src:kubevirt-os-images/fedora,size:64Gi \
@@ -172,7 +172,7 @@ kubectl patch vm/my-vm-0 -n hpe-vmi --type=merge --patch-file my-network.yaml
 
 Monitor the progress of the VM:
 
-```bash
+```shell
 $ kubectl get vm -n hpe-vmi -w
 NAME      AGE   STATUS         READY
 my-vm-0   13s   Provisioning   False
@@ -183,14 +183,14 @@ my-vm-0   42s   Running        True
 
 Once the VM is running, it’s possible to login with the SSH identity and hostname given to the VM (assuming DHCP registers the hostname in DNS on the management network).
 
-```bash
+```shell
 $ ssh fedora@my-vm-0
 [fedora@my-vm-0 ~]$
 ```
 
 So, what does the VM instance actually look like? Let’s install some tools and inspect.
 
-```bash
+```shell
 $ sudo dnf install -yq fastfetch virt-what
 $ sudo virt-what
 redhat
@@ -221,7 +221,7 @@ Except for the “Host” hint, this looks like any VM instance on a KVM hypervi
 
 With `virtctl` it’s possible to live migrate, pause/unpause, stop/start and restart the VM. Deleting the VM requires `kubectl`.
 
-```bash
+```shell
 kubectl delete -n hpe-vmi vm/my-vm-0
 ```
 
@@ -253,7 +253,7 @@ Ansible has historically been well integrated with other KVM-based hypervisors s
 
 Ansible can be installed on your desktop computer in a multitude of ways and will not be covered in this blog. Once Ansible is in place, install the KubeVirt collection:
 
-```bash
+```shell
 ansible-galaxy collection install kubevirt.core
 ```
 
@@ -335,7 +335,7 @@ Many attributes have been hardcoded in this example but it illustrates the simil
 
 Use the playbook to create a VM:
 
-```bash
+```shell
 ansible-playbook -e vm=my-vm-0 create_vm.yaml
 ```
 
@@ -354,7 +354,7 @@ compose:
 
 It’s now possible to use the KubeVirt inventory plugin to manage the OS and apps in the VM. Let’s see if it connects:
 
-```bash
+```shell
 ansible -i hosts.kubevirt.yaml -m ping my-vm-0
 my-vm-0 | SUCCESS => {
     "ansible_facts": {
