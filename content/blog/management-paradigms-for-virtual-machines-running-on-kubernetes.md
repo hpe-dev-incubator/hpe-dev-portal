@@ -39,7 +39,7 @@ Most VM administrators connect VMs to existing networks that assign IP addresses
 As a prerequisite for this exercise and examples, the following resources have been created prior:
 
 * An SSH public key has been created on the cluster as a `Secret` to be injected into my VM instance during initialization.
-* A `NodeNetworkConfigurationPolicy` using the Kubernetes NMState Operator that creates a bridge on NIC connected to the data center management network.
+* A `NodeNetworkConfigurationPolicy` using the Kubernetes NMState Operator that creates a bridge on a NIC connected to the data center management network.
 * A `NetworkAttachmentDefinition` in my VM instance `Namespace` to connect virtual NICs to.
 
 For the sake of completeness, this is what those resources look like:
@@ -100,7 +100,7 @@ spec:
     }
 ```
 
-Another essential prerequisite is that a `StorageClass` exist on the cluster which supports KubeVirt. The examples below uses the HPE CSI Driver for Kubernetes but it could be any vendor or platform supporting the bare minimum requires for KubeVirt, see the KubeVirt [admin guide](https://kubevirt.io/user-guide/storage/clone_api/) for the details.
+Another essential prerequisite is that a `StorageClass` exist on the cluster which supports KubeVirt. The examples below uses the HPE CSI Driver for Kubernetes but it could be any vendor or platform supporting the bare minimum requirements for KubeVirt, see the KubeVirt [admin guide](https://kubevirt.io/user-guide/storage/clone_api/) for the details.
 
 Now, the environment is primed, let’s provision a VM and take KubeVirt for a spin.
 
