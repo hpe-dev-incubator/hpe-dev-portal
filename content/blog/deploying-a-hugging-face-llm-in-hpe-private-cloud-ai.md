@@ -31,21 +31,21 @@ Next select "Add new model".
 
 ![Computer screen showing packaged AI models and a selection to add a new model.](/img/new-model.png)
 
-This brings up the "add new packaged model" dialog box. Fill in the the name of the model, storage requirements and resources. We reduce the default resources as this is a small model.
+This brings up the "Add new packaged model" dialog box. Fill in the the name of the model, storage requirements, and resources. We have reduced the default resources, given that this is a small model.
 
 ![Dialog box for defining a new packaged model.](/img/define-parameters.png)
 
-Once the package is setup we get a confirmation.
+Once the package is set up, you will receive a confirmation.
 
 ![Shows running packaged model.](/img/package-running.png)
 
-With the new packaged model complete we need to be able to deploy it for use. Select "create new deployment" from the HPE MLIS "Deployments" tab. Select submit when all tabs are filled out as shown below.
+With the new packaged model complete, you will need to deploy it for use. Select "create new deployment" from the HPE MLIS "Deployments" tab. Select submit when all tabs are filled out as shown below.
 
 This will create an endpoint for use in the notebook and provide an API token.
 
 ![New deployment for AI model](/img/new-deployment.png)
 
-When the process is complete an endpoint will be provided.
+When the process is complete, an endpoint will be provided.
 
 ![Endpoint provided by MLIS system](/img/endpoint.png)
 
@@ -53,7 +53,7 @@ Next up, let's take the now deployed model that's ready for inference and connec
 
 ### Building the Jupyter Notebook
 
-First install `openai` if you do not already have it and import.
+First, install `openai` if you do not already have it and import.
 
 ```python
 # vLLM Chat OpenAI
