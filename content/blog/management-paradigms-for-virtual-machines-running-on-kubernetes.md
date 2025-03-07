@@ -1,5 +1,5 @@
 ---
-title: Management Paradigms for Virtual Machines running on Kubernetes
+title: Management paradigms for virtual machines running on Kubernetes
 date: 2025-03-06T20:13:53.863Z
 featuredBlog: true
 author: Michael Mattsson
@@ -11,13 +11,16 @@ tags:
   - ansible
   - kubevirt
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 With the rise of virtual machine containerization it’s imperative to familiarize ourselves with the different aspects of performing VM management on Kubernetes. From crude CLIs, to declarative GitOps patterns, and further extending to lush UIs where your next VM is just a right-click away.
 
-This blog post brush over the basics in VM management with the most common patterns to give us an idea of what tools and processes to adopt in your organization.
+KubeVirt, an open source project governed by the Cloud-Native Computing Foundation (CNCF), is an add-on for Kubernetes that allows management of virtual machines alongside containers using a single API endpoint.
+
+This blog post brush over the basics in VM management on KubeVirt with the most common patterns to give us an idea of what tools and processes to adopt in your organization.
 
 But first, a brief introduction to KubeVirt.
 
-# A KubeVirt Crash Course
+# A KubeVirt crash course
 
 KubeVirt provide abstractions to Kubernetes users for Linux Kernel Virtual Machines (KVM). KVM has been around for about two decades now with several successful commercial hypervisors built around the implementation and is at this point considered mature.
 
@@ -101,7 +104,7 @@ Another essential prerequisite is that a `StorageClass` exist on the cluster whi
 
 Now, the environment is primed, let’s provision a VM and take KubeVirt for a spin.
 
-# The Command Line Interface
+# The command line interface
 
 It is entirely possible to use `kubectl` out-of-the-box to deploy and manage VM resources. The `virtctl` CLI feature a more rich experience with the ability to upload disk images, connect to the VM console and manage power states more easily. The most important task of `virtctl` is to render tedious manifests from just a few arguments to deploy new VMs.
 
@@ -227,13 +230,13 @@ kubectl delete -n hpe-vmi vm/my-vm-0
 
 This will remove all resources created with `virtctl`, including `PVCs`.
 
-# UX with Web UIs
+# User experience with web user interfaces
 
 KubeVirt does not have an official graphical user interface. That is a tall threshold for new users who are familiar with legacy VM management solutions where everything is a right-click away, structured in an intuitive manner. In a way, the KubeVirt project assumes the user to have fundamental KVM knowledge and able to scrape by managing Kubernetes resources through the CLI.
 
 Fortunately, there are KubeVirt implementations that heavily focus on a graphical user experience and provide a great way to learn and explore the capabilities, very similar to legacy hypervisors.
 
-We’ll take a closer look at OKD, the upstream Kubernetes distribution of OpenShift, and Harvester, an HCI solution built for VMs on KubeVirt with striking simplicity.
+We’ll take a closer look at OKD, the upstream Kubernetes distribution of OpenShift, and Harvester, an Hyper Converged Infrastructure (HCI) solution built for VMs on KubeVirt with striking simplicity.
 
 ![OKD Virtualization landing page.](/img/screenshot-2025-03-05-at-12.18.46-pm.png "OKD Virtualization landing page.")
 
@@ -241,7 +244,7 @@ OKD is the upstream open source project of Red Hat OpenShift. Enabling virtualiz
 
 ![Harvester landing page](/img/screenshot-2025-03-05-at-12.48.03-pm.png "Harvester landing page")
 
-Harvester is an open source Hyper Converged Infrastructure (HCI) solution primarily focused on running a highly opinionated stack of software and tools on Kubernetes designed solely for running VMs. Harvester can be consumed by Rancher to allow Rancher to deploy and manage Kubernetes clusters on Harvester in a symbiotic relationship.
+Harvester is an open source HCI solution primarily focused on running a highly opinionated stack of software and tools on Kubernetes designed solely for running VMs. Harvester can be consumed by Rancher to allow Rancher to deploy and manage Kubernetes clusters on Harvester in a symbiotic relationship.
 
 Walking through the UIs are out of scope for this blog post but the same outcomes can be accomplished in a few clicks similar to using the CLI with `virtctl` and `kubectl`.
 
