@@ -188,4 +188,4 @@ def json_to_csv(resources_json, file_csv) -> None :
 
 ```
 ## Conclusion
-The OpsQL API is a powerful tool that enhances the capabilities of the OpsRamp platform, providing users with the flexibility to perform complex queries and manage data efficiently. By leveraging the OpsQL API, IT administrators and developers can streamline their operations, improve data management, and enhance overall productivity.
+The OpsQL API is a powerful tool that enhances the capabilities of the OpsRamp platform, providing users with the flexibility to perform complex queries and manage data efficiently. By leveraging the OpsQL API, IT administrators and developers can streamline their operations, improve data management, and enhance overall productivity. For more details, you can refer to the [OpsRamp API Documentation](https://develop.opsramp.com/v3/api/opsql/tenantid-queries/)
