@@ -14,7 +14,7 @@ tags:
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 With the rise of virtual machine containerization, it’s imperative to familiarize ourselves with the different aspects of performing VM management on Kubernetes. From crude CLIs, to declarative GitOps patterns, and further extending to lush UIs where your next VM is just a right-click away, having a handle on each of these disciplines is essential for Kubernetes VM management regardless of which role you're in.
 
-Whether you're a classic sysadmin, site reliability engineer (SRE) or have any kind of role in IT operators touching virtualization, the winds of change are catching up. Collectively we need to re-evaluate the VM estate, understand platform requirements for mission-critical applications and look for alternatives with the least amount of friction and resistance to ease migration.
+Whether you're a classic sysadmin, site reliability engineer (SRE) or have any kind of role in IT operations touching virtualization, the winds of change are catching up. Collectively we need to re-evaluate the VM estate, understand platform requirements for mission-critical applications and look for alternatives with the least amount of friction and resistance to ease migration.
 
 KubeVirt, an open source project governed by the Cloud-Native Computing Foundation (CNCF), is an add-on for Kubernetes that allows management of virtual machines alongside containers using a single API endpoint. KubeVirt is where a large chunk of the market is gravitating towards, whether the abstractions are disguised by a glossy frontend or deployed manually on existing Kubernetes clusters, KubeVirt needs to be considered for any new virtualization project. 
 
