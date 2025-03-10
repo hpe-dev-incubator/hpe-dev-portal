@@ -1,5 +1,5 @@
 ---
-title: Learning to manage iLO 7 with Restful Interface Tool (iLOrest) 6.0
+title: Learning to manage iLO 7 with Restful Interface Tool (iLORest) 6.0
 date: 2025-03-10T14:05:22.058Z
 featuredBlog: true
 priority: 0
@@ -726,17 +726,20 @@ Here’s a screenshot of the App account creation dialog box during installation
 
 ![](/img/windows_msi.jpg)
 
-Installing and Using iLORest on Different OSes
-On all operating systems, the iLORest tool can be installed effortlessly via PyPI using the following command:
+**Installing and using iLORest on different OSes**
+
+On all operating systems like ubuntu and mac, the iLORest tool can be installed effortlessly via PyPI using the following command:
 ```bash
 pip install ilorest
 ```
-Creating an App Account
+**Creating an App account**
+
 For these OSes, you can create an App account using the following iLORest command:
 ```bash
 ilorest appaccount create -u Administrator -p password –self
 ```
-Logging into iLO 7
+**Logging into iLO 7**
+
 Once the App account is created, you can perform an inband login with:
 ```bash
 ilorest login
