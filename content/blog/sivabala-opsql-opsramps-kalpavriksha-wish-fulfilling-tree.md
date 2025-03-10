@@ -6,7 +6,7 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-# sivabala OpsQL - OpsRamp's Kalpavriksha wish-fulfilling tree
+# OpsQL - OpsRamp's Kalpavriksha wish-fulfilling tree
 
 
 
@@ -187,3 +187,5 @@ def json_to_csv(resources_json, file_csv) -> None :
         data_file.close()
 
 ```
+## Conclusion
+The OpsQL API is a powerful tool that enhances the capabilities of the OpsRamp platform, providing users with the flexibility to perform complex queries and manage data efficiently. By leveraging the OpsQL API, IT administrators and developers can streamline their operations, improve data management, and enhance overall productivity.
