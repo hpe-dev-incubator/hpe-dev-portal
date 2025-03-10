@@ -12,19 +12,21 @@ tags:
   - kubevirt
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
-With the rise of virtual machine containerization it’s imperative to familiarize ourselves with the different aspects of performing VM management on Kubernetes. From crude CLIs, to declarative GitOps patterns, and further extending to lush UIs where your next VM is just a right-click away.
+With the rise of virtual machine containerization, it’s imperative to familiarize ourselves with the different aspects of performing VM management on Kubernetes. From crude CLIs, to declarative GitOps patterns, and further extending to lush UIs where your next VM is just a right-click away, having a handle on each of these disciplines is essential for Kubernetes VM management regardless of which role you're in.
 
-KubeVirt, an open source project governed by the Cloud-Native Computing Foundation (CNCF), is an add-on for Kubernetes that allows management of virtual machines alongside containers using a single API endpoint.
+Whether you're a classic sysadmin, site reliability engineer (SRE) or have any kind of role in IT operators touching virtualization, the winds of change are catching up. Collectively we need to re-evaluate the VM estate, understand platform requirements for mission-critical applications and look for alternatives with the least amount of friction and resistance to ease migration.
 
-This blog post brush over the basics in VM management on KubeVirt with the most common patterns to give us an idea of what tools and processes to adopt in your organization.
+KubeVirt, an open source project governed by the Cloud-Native Computing Foundation (CNCF), is an add-on for Kubernetes that allows management of virtual machines alongside containers using a single API endpoint. KubeVirt is where a large chunk of the market is gravitating towards, whether the abstractions are disguised by a glossy frontend or deployed manually on existing Kubernetes clusters, KubeVirt needs to be considered for any new virtualization project. 
 
-But first, a brief introduction to KubeVirt.
+This blog post brush over the basics in VM management on KubeVirt with the most common patterns to give us an idea of what tools and processes to adopt in your organization. Declarative CLIs, imperative GUIs or idempotent IT platform automation tools such as Ansible. There are strengths and weaknesses across the different interfaces but understanding how to operate them is fundamental for any VM management journey with KubeVirt.
+
+But first, let me give you a brief introduction to KubeVirt.
 
 # A KubeVirt crash course
 
-KubeVirt provide abstractions to Kubernetes users for Linux Kernel Virtual Machines (KVM). KVM has been around for about two decades now with several successful commercial hypervisors built around the implementation and is at this point considered mature.
+KubeVirt provides abstractions to Kubernetes users for Linux Kernel Virtual Machines (KVM). KVM has been around for about two decades now with several successful commercial hypervisors built around the implementation and is, at this point, considered mature.
 
-KubeVirt itself does not have a user interface which most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different Kinds provided by `CustomResourceDefinitions` (CRDs).
+KubeVirt itself does not have a user interface that most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different `Kinds` provided by `CustomResourceDefinitions` (CRDs).
 
 The `CRDs` allows users to manage VM resources through a set of KubeVirt’s controllers.
 
@@ -236,7 +238,7 @@ KubeVirt does not have an official graphical user interface. That is a tall thre
 
 Fortunately, there are KubeVirt implementations that heavily focus on a graphical user experience and provide a great way to learn and explore the capabilities, very similar to legacy hypervisors.
 
-We’ll take a closer look at OKD, the upstream Kubernetes distribution of OpenShift, and Harvester, an Hyper Converged Infrastructure (HCI) solution built for VMs on KubeVirt with striking simplicity.
+Let's take a closer look at OKD, the upstream Kubernetes distribution of OpenShift, and Harvester, an Hyper Converged Infrastructure (HCI) solution built for VMs on KubeVirt with striking simplicity.
 
 ![OKD Virtualization landing page.](/img/screenshot-2025-03-05-at-12.18.46-pm.png "OKD Virtualization landing page.")
 
@@ -250,7 +252,7 @@ Walking through the UIs are out of scope for this blog post but the same outcome
 
 # Ansible
 
-Using CLIs and graphical UIs are great for exploratory administration and one-offs. They’re usually tedious and error prone when it comes to repeating the same set of tasks indefinitely. This is where Ansible comes it. Idempotent and declarative interfaces lend itself to distilling very complex tasks across multiple layers of infrastructure to gain full control all the way up to deploying the application. This kind of IT automation lends itself to GitOps and self-service patterns in large scale environments. Write once, delegate and reuse with ease, like cookie cutter templates.
+Using CLIs and graphical UIs are great for exploratory administration and one-offs. They’re usually tedious and error prone when it comes to repeating the same set of tasks indefinitely. This is where Ansible comes it. Idempotent and declarative interfaces allow it to distill very complex tasks across multiple layers of infrastructure to gain full control all the way up to deploying the application. This kind of IT automation lends itself to GitOps and self-service patterns in large scale environments. Write once, delegate and reuse with ease, like cookie cutter templates.
 
 Ansible has historically been well integrated with other KVM-based hypervisors such as oVirt/RHEV and provides VM management at scale quite elegantly.
 
@@ -372,6 +374,6 @@ At this point it’s possible to manage the VM like any other host provisioned o
 
 # Summary
 
-It doesn’t matter what your distinct VM management workflow looks like, KubeVirt serves all popular patterns. That said, current tools and processes will require an overhaul and why not switch to idempotent VM management through GitOps while transitioning from your legacy hypervisor? That's a topic for another day.
+It doesn’t matter what your distinct VM management workflow looks like, KubeVirt serves all popular patterns. That said, current tools and processes will require an overhaul. Why not switch to idempotent VM management through GitOps while transitioning from your legacy hypervisor in the meantime? That's a topic for another day.
 
 Connect with the HPE Developer Community via [Slack](https://developer.hpe.com/slack-signup/) or sign up for the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn/) to immerse yourself in the latest breakthrough technologies from HPE, customers, and partners.
