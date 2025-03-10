@@ -12,7 +12,8 @@ disable: false
 
   
 
-In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsQL (OpsRamp Query Language) and powerful API for the same. OpsQL empowers users to perform complex searches within the OpsRamp platform. This article delves into the capabilities and usage of the OpsQL API, providing insights into how it can enhance your IT operations.
+
+In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsQL (OpsRamp Query Language) and powerful API for the same. OpsQL empowers users to perform complex searches within the OpsRamp platform. This article delves into the capabilities and usage of the OpsQL API, providing insights into how it can enhance your IT operations.
 
 
 
@@ -51,43 +52,46 @@ agentInstalled = "true" AND type = "Windows"
 Attributes are different types of information available on an object. For instance, a resource might have attributes like `make`, `ipAddress`, and `agentInstalled`, while an alert might have attributes like `priority`, `currentState`, and `createdTime`.
 
 
-For more details, you can refer to the [OpsRamp Documentation](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)[1](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/ "Query Language Reference | OpsRamp Documentation").
+
+For more details, you can refer to the [OpsRamp Documentation](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)(https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/ "Query Language Reference | OpsRamp Documentation").
 
 ## More Examples
 ### Search for resources that were discovered by an AWS Integration​
+
 ```PlainText
 installedAppName = aws
+```
 
-
-
-### Search for resources that I tagged in AWS with AWS tag BU: bu-123
-
-
+### Search for resources that I tagged in AWS with AWS tag OwnerName :SivaBalaSubramanian
 ```PlainText
 installedAppName = "aws" AND tags.name = "OwnerName" and tags.value = "SivaBalaSubramanian"​
 ```
 ### Search for resources with alerts that have been open for the last 2 hours​
+
 ```PlainText
 createdTime > "-7200sec" ​
 createdTime > "-120min"​
-```​
+```
 
 ### Search for Open alerts that are Critical​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" ​
-```​
+```
+​
 ### Search for Open and Critical alerts that have an Open incident​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" AND incidentId IS NOT NULL ​
-```​
+```
+
 ### Search for alerts that have been Open for longer than 2 hours​
 ```PlainText
 createdTime < "-7200sec" ​
-```​
+``` 
+​
 ### Search for Open and Critical alerts on resources tagged with AWS tag “BU: bu-123”​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" AND resource.tags.name = "Team" AND resource.tags.value = "Opsqa"​
-```​
+```
 
 ## What is OpsQL API?
 The OpsQL API is a powerful interface that allows users to execute OpsQL queries programmatically. This API provides the flexibility to filter, search data within the OpsRamp platform, making it an indispensable tool for IT administrators and developers.
