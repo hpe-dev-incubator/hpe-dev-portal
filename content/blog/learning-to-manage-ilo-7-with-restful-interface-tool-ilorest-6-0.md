@@ -9,13 +9,15 @@ disable: false
 tags:
   - ilorest, ilo7, appaccount, vnic
 ---
-<!--\[if gte mso 9]><xml>
+![]()
+
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +61,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +642,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -670,7 +672,7 @@ tags:
 	mso-ansi-language:EN-US;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -685,3 +687,68 @@ In this article, I’ll walk you through **managing iLO 7 using the iLORest 6.0 
 Let’s get started! 🚀
 
 <!--EndFragment-->
+
+**Installing iLORest 6.0 on Linux**
+
+On Linux, iLORest can be installed as an RPM package. If you already have a previous version installed, you can upgrade it using the -Uvh option.
+For a fresh installation, use:
+
+```bash
+rpm -ivh ilorest-6.0.x86_64.rpm
+```
+
+Here is a screenshot of successful installation.
+
+![](/img/rpm_linux.jpg)
+
+**App account creation during iLORest installation**
+
+During the RPM installation of iLORest 6.0, you might notice that the installer prompts for iLO credentials to create an App account. While this step is optional, HPE strongly recommends creating the App account during installation itself.
+Why?
+
+•	The App account provides an additional method for in-band authentication with iLO 7, enhancing security and flexibility.
+
+•	Once created, the App account allows you to log in without needing traditional credentials every time.
+
+If you choose to skip this step, you can always create the App account later using the following command:
+
+```bash
+ilorest appaccount create -u Administrator -p password –self
+```
+
+By leveraging this new authentication method, managing iLO 7 becomes even more seamless. 🚀
+
+**Installing iLORest 6.0 on Windows**
+
+On Windows, iLORest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for App account creation.
+Just like on Linux, this step is optional but recommended by HPE, as the App account allows for in-band authentication with iLO 7 without requiring traditional credentials.
+Here’s a screenshot of the App account creation dialog box during installation:
+
+![](/img/windows_msi.jpg)
+
+Installing and Using iLORest on Different OSes
+On all operating systems, the iLORest tool can be installed effortlessly via PyPI using the following command:
+```bash
+pip install ilorest
+```
+Creating an App Account
+For these OSes, you can create an App account using the following iLORest command:
+```bash
+ilorest appaccount create -u Administrator -p password –self
+```
+Logging into iLO 7
+Once the App account is created, you can perform an inband login with:
+```bash
+ilorest login
+```
+If you prefer to log in without using an App account, you can opt for credential-based login instead:
+```bash
+ilorest login --no_app_account -u Administrator -p password
+```
+**Summary**
+
+In this guide, I have demonstrated how to install iLORest 6.0 across different operating systems and leverage the new App account login method introduced in iLO 7.
+
+**Call to Action**
+
+Get started today! Download iLORest 6.0, explore its exciting new features, and take full control of iLO 7 with ease.
