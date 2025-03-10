@@ -1,5 +1,5 @@
 ---
-title: "sivabala OpsRamp OpsQL API:  IT Operations kalpavriksha(wish-fulfilling tree)"
+title: "OpsRamp OpsQL API:  IT Operations kalpavriksha(wish-fulfilling tree)"
 date: 2025-03-10T21:32:15.912Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
