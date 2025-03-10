@@ -12,7 +12,7 @@ disable: false
 
   
 
-In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsQL (OpsRamp Query Language). OpsQL empowers users to perform complex searches within the OpsRamp platform.
+In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsQL (OpsRamp Query Language) and powerful API for the same. OpsQL empowers users to perform complex searches within the OpsRamp platform. This article delves into the capabilities and usage of the OpsQL API, providing insights into how it can enhance your IT operations.
 
 
 
@@ -52,3 +52,98 @@ Attributes are different types of information available on an object. For instan
 
 
 For more details, you can refer to the [OpsRamp Documentation](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)[1](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/ "Query Language Reference | OpsRamp Documentation").
+
+## What is OpsQL API?
+The OpsQL API is a powerful interface that allows users to execute OpsQL queries programmatically. This API provides the flexibility to filter, search data within the OpsRamp platform, making it an indispensable tool for IT administrators and developers.
+
+#### Key Features
+
+ 1.  **Comprehensive Querying**: The OpsQL API supports a wide range of query operations, allowing users to filter data based on various attributes and conditions.
+ 2.  **Flexibility**: Users can create complex queries using logical operators and a variety of comparison operators.
+3.  **Integration**: The API can be integrated into custom applications, scripts, and workflows, enhancing automation and efficiency.
+
+
+#### Basic Syntax and Structure
+
+The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. Here’s a basic example:
+
+
+## Basic Syntax and Structure
+The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. Here’s a basic example:
+
+Here’s a basic example:
+
+```
+POST /opsql/api/v3/tenants/{tenantId}/queries
+```
+
+The request body typically includes:
+
+* *   `objectType`: The type of object to query (e.g., resource, alert, ticket).
+* *   `fields`: The fields to retrieve.
+* *   `filterCriteria`: The criteria to filter the objects.
+
+## Common Use Cases and code samples
+
+### To filter critical alerts
+
+```python
+import requests
+import json
+accessToken='valid access token'
+
+
+url = "https://server/opsql/api/v3/tenants/client_id/queries"
+
+payload = json.dumps({
+  "objectType": "alert",
+  "fields": [
+    "id",
+    "clientId",
+    "component",
+    "currentState"
+  ],
+  "filterCriteria": "currentState=critical"
+})
+headers = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': accessToken
+}
+
+response = requests.request("POST", url, headers = headers, data = payload)
+```
+### Saving OpsQL response as CSV file
+
+```python
+def invoke_opsql() -> None:
+  response = requests.request("POST", url, headers = headers, data = payload)
+  timestr = time.strftime("%Y%m%d-%H%M%S")
+  json_file_name = "siva_aws_resources-" + timestr + ".json"
+  csv_file_name = "siva_aws_resources-" + timestr + ".csv"
+
+  with open(json_file_name, "wb") as file:
+      file.write(response.content)
+
+  json_to_csv(json_file_name, csv_file_name)
+
+def json_to_csv(resources_json, file_csv) -> None :
+        with open(resources_json) as json_file:
+            data = json.load(json_file)
+
+        opsql_response = data['results']
+        data_file = open(file_csv, 'w')
+        csv_writer = csv.writer(data_file)
+        count = 0
+
+        for opsql_row in opsql_response:
+            if count == 0:
+                header = opsql_row.keys()
+                csv_writer.writerow(header)
+                count += 1
+
+            csv_writer.writerow(opsql_row.values())
+
+        data_file.close()
+
+```
