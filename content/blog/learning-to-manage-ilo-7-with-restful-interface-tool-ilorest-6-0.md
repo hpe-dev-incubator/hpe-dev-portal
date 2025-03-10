@@ -7,4 +7,4 @@ author: Rajeevalochana Kallur
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-We
+We know that you love HPE servers.
