@@ -1,6 +1,6 @@
 ---
 title: Management paradigms for virtual machines running on Kubernetes
-date: 2025-03-06T20:13:53.863Z
+date: 2025-03-12T20:13:53.863Z
 featuredBlog: true
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
@@ -18,7 +18,7 @@ Whether you're a classic sysadmin, site reliability engineer (SRE) or have any k
 
 KubeVirt, an open source project governed by the Cloud-Native Computing Foundation (CNCF), is an add-on for Kubernetes that allows management of virtual machines alongside containers using a single API endpoint. KubeVirt is where a large chunk of the market is gravitating towards, whether the abstractions are disguised by a glossy frontend or deployed manually on existing Kubernetes clusters, KubeVirt needs to be considered for any new virtualization project. 
 
-This blog post brush over the basics in VM management on KubeVirt with the most common patterns to give us an idea of what tools and processes to adopt in your organization. Declarative CLIs, imperative GUIs or idempotent IT platform automation tools such as Ansible. There are strengths and weaknesses across the different interfaces but understanding how to operate them is fundamental for any VM management journey with KubeVirt.
+This blog post brushes over the basics in VM management on KubeVirt covering the most common patterns to give you an idea of what tools and processes to adopt in your organization, like declarative CLIs, imperative GUIs or idempotent IT platform automation tools such as Ansible. There are strengths and weaknesses across the different interfaces but understanding how to operate them is fundamental for any VM management journey with KubeVirt.
 
 But first, let me give you a brief introduction to KubeVirt.
 
@@ -28,19 +28,19 @@ KubeVirt provides abstractions to Kubernetes users for Linux Kernel Virtual Mach
 
 KubeVirt itself does not have a user interface that most VM administrators are used to. The point of abstraction is through standard Kubernetes tools by manipulating API resources of different `Kinds` provided by `CustomResourceDefinitions` (CRDs).
 
-The `CRDs` allows users to manage VM resources through a set of KubeVirt’s controllers.
+The `CRDs` allow users to manage VM resources through a set of KubeVirt’s controllers.
 
 ![](/img/kubevirt.png)
 
 Deploying KubeVirt on upstream Kubernetes and other distributions is straightforward. The [official documentation](https://kubevirt.io/user-guide/) walks through the different distributions and platform specific quirks that needs to be considered.
 
-The examples below uses KubeVirt provided by the KubeVirt HyperConverged Cluster Operator installed on OKD, the upstream project of OpenShift.
+The examples below use KubeVirt provided by the KubeVirt HyperConverged Cluster Operator installed on OKD, the community distribution of Kubernetes that powers Red Hat OpenShift.
 
 Most VM administrators connect VMs to existing networks that assign IP addresses and DNS names. Having the VM immediately reachable from your desktop computer or other already established infrastructure management tools makes the transition from legacy VM management platforms to KubeVirt much smoother.
 
 As a prerequisite for this exercise and examples, the following resources have been created prior:
 
-* An SSH public key has been created on the cluster as a `Secret` to be injected into my VM instance during initialization.
+* An SSH public key has been created on the cluster as a `Secret` to be injected into the VM instance during initialization.
 * A `NodeNetworkConfigurationPolicy` using the Kubernetes NMState Operator that creates a bridge on a NIC connected to the data center management network.
 * A `NetworkAttachmentDefinition` in my VM instance `Namespace` to connect virtual NICs to.
 
@@ -102,15 +102,15 @@ spec:
     }
 ```
 
-Another essential prerequisite is that a `StorageClass` exist on the cluster which supports KubeVirt. The examples below uses the HPE CSI Driver for Kubernetes but it could be any vendor or platform supporting the bare minimum requirements for KubeVirt, see the KubeVirt [admin guide](https://kubevirt.io/user-guide/storage/clone_api/) for the details.
+Another essential prerequisite is that a `StorageClass` exists on the cluster that supports KubeVirt. The examples below use the HPE CSI Driver for Kubernetes but that could be swapped out for any vendor or platform supporting the bare minimum requirements for KubeVirt (see the KubeVirt [admin guide](https://kubevirt.io/user-guide/storage/clone_api/) for details).
 
-Now, the environment is primed, let’s provision a VM and take KubeVirt for a spin.
+Now that the environment is primed, let’s provision a VM and take KubeVirt for a spin.
 
 # The command line interface
 
-It is entirely possible to use `kubectl` out-of-the-box to deploy and manage VM resources. The `virtctl` CLI feature a more rich experience with the ability to upload disk images, connect to the VM console and manage power states more easily. The most important task of `virtctl` is to render tedious manifests from just a few arguments to deploy new VMs.
+It is entirely possible to use `kubectl` out-of-the-box to deploy and manage VM resources. The `virtctl` CLI features a more rich experience with the ability to upload disk images, connect to the VM console and manage power states more easily. The most important task of `virtctl` is to render tedious manifests from just a few arguments to deploy new VMs.
 
-Installing `virtctl` varies by platform and KubeVirt distribution. It’s advised at this point to have the same client and server version which at the time of writing is 1.4.0. If using a Mac with Brew installed, it’s simply:
+Installing `virtctl` varies by platform and KubeVirt distribution. It’s advised at this point to have the same client and server version, which at the time of writing is 1.4.0. If using a Mac with Brew installed, it’s simply:
 
 ```shell
 brew install virtctl
@@ -234,7 +234,7 @@ This will remove all resources created with `virtctl`, including `PVCs`.
 
 # User experience with web user interfaces
 
-KubeVirt does not have an official graphical user interface. That is a tall threshold for new users who are familiar with legacy VM management solutions where everything is a right-click away, structured in an intuitive manner. In a way, the KubeVirt project assumes the user to have fundamental KVM knowledge and able to scrape by managing Kubernetes resources through the CLI.
+KubeVirt does not have an official graphical user interface. That is a tall threshold for new users who are familiar with legacy VM management solutions where everything is a right-click away, structured in an intuitive manner. In a way, the KubeVirt project assumes that the user has a fundamental knowledge of KVM and can scrape through by managing Kubernetes resources through the CLI.
 
 Fortunately, there are KubeVirt implementations that heavily focus on a graphical user experience and provide a great way to learn and explore the capabilities, very similar to legacy hypervisors.
 
