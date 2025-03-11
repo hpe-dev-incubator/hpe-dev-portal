@@ -11,7 +11,7 @@ tags:
   - vllm
   - SLM
 ---
-Deploying new language models for for users to interact with can be challenging for beginners. HPE developed Private Cloud AI to help users set up and implement AI solutions quickly and easily. 
+Deploying new language models for users to interact with can be challenging for beginners. HPE developed Private Cloud AI to help users set up and implement AI solutions quickly and easily. 
 
 In this post, we will show how to use the HPE Machine Learning Inference Service (MLIS) as a part of HPE Private Cloud AI to add a new packaged model from a Hugging Face repository and create an endpoint to query the model. This is done using a Jupyter Notebook.
 
