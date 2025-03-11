@@ -1,5 +1,5 @@
 ---
-title: "OpsRamp OpsQL API:  IT Operations kalpavriksha(wish-fulfilling tree)"
+title: "OpsRamp OpsQL API: Fulfilling wishes for IT Ops management"
 date: 2025-03-10T21:32:15.912Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
@@ -9,7 +9,7 @@ disable: false
 tags:
   - OpsRamp, OpsQL, OpsRamp API
 ---
-# OpsQL - OpsRamp's Kalpavriksha wish-fulfilling tree
+# OpsQL - OpsRamp's Kalpavriksha (aka a wish-fulfilling tree)
 
 
 
