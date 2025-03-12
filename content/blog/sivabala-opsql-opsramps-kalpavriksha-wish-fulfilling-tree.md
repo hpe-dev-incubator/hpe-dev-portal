@@ -16,33 +16,15 @@ li {
   max-width: none;
 }
 </style>
- 
-
-
-
-
-  
-
 
 In today's data centers, IT Ops managers face mounting challenges in managing and retrieving data efficiently. They've introduced so many network, storage, and computing devices into their environment that they have become unmanageable. At times performance issues and critical services going down keep happening and they're left with headaches, higher costs, and poor performance. If only they had a Kalpavriksha, a magical wish-fulfilling tree that could answer their needs for quickly searching for any resource from their complex, wide data centre to make all their dreams come true.
 
 With OpsRamp, a comprehensive IT operations management platform, they may very well get their wish. With its OpsRamp Query Language (OpsQL) and its powerful API, users can perform complex searches within the OpsRamp platform. It allows users to retrieve specific data based on various attributes and conditions. To quickly access and manipulate data in order to maintain optimal system performance and resolve issues, OpsQL is a Kalpavriksha that truly grants wishes. In this blog post, I will explain the basics of OpsQL and how to use it.
 
-
-
-
-
 ## What is OpsQL?
-
 OpsQL is a flexible and powerful query language to search objects within the OpsRamp platform. It allows users to retrieve specific data based on various attributes and conditions. OpsQL is essential for IT administrators to quickly access and manipulate data, in order to maintain optimal system performance and resolve issues. IT Ops Managers, users can run OpsQL in intuitive OpsRamp UI or using OpsQL API.
 
-
-
-
-
-
 ## Basic syntax and structure
-
 Let's say you want to make a query. The general syntax for an OpsQL query is very straightforward:
 
 ```PlainText
@@ -70,48 +52,37 @@ agentInstalled = "true" AND type = "Windows"
 ## Attributes
 Attributes are different types of information available on an object. For instance, a resource might have attributes like `make`, `ipAddress`, and `agentInstalled`, while an alert might have attributes like `priority`, `currentState`, and `createdTime`.
 
-
-
 For more details, you can refer to the [OpsRamp Query Language Reference Documentation.](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)
-
-
 
 ## More examples
 Here are some OpsQL examples to search resources on the OpsRamp platform.
 
-### Search for resources that were discovered by an AWS Integration​
-
+### Search for resources that were discovered by an AWS integration​
 ```PlainText
 installedAppName = aws
 ```
-
 ### Search for resources that I tagged in AWS with AWS tag OwnerName :SivaBalaSubramanian
 ```PlainText
 installedAppName = "aws" AND tags.name = "OwnerName" and tags.value = "SivaBalaSubramanian"​
 ```
 ### Search for resources with alerts that have been open for the last 2 hours​
-
 ```PlainText
 createdTime > "-7200sec" ​
 createdTime > "-120min"​
 ```
-
-### Search for Open alerts that are Critical​
+### Search for open alerts that are critical​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" ​
 ```
-​
-### Search for Open and Critical alerts that have an Open incident​
+### Search for open and critical alerts that have an open incident​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" AND incidentId IS NOT NULL ​
 ```
-
 ### Search for alerts that have been Open for longer than 2 hours​
 ```PlainText
 createdTime < "-7200sec" ​
 ``` 
-​
-### Search for Open and Critical alerts on resources tagged with AWS tag “BU: bu-123”​
+### Search for Open and critical alerts on resources tagged with AWS tag “BU: bu-123”​
 ```PlainText
 currentState = "CRITICAL" AND status = "OPEN" AND resource.tags.name = "Team" AND resource.tags.value = "Opsqa"​
 ```
@@ -123,18 +94,13 @@ IT Administrators can invoke OpsQL API using tools such as Postman, cURL, Python
 
 
 #### Key features
-
- 1.  **Comprehensive querying**: The OpsQL API supports a wide range of query operations, allowing users to filter data based on various attributes and conditions.
- 2.  **Flexibility**: Users can create complex queries using logical operators and a variety of comparison operators.
+1.  **Comprehensive querying**: The OpsQL API supports a wide range of query operations, allowing users to filter data based on various attributes and conditions.
+2.  **Flexibility**: Users can create complex queries using logical operators and a variety of comparison operators.
 3.  **Integration**: The API can be integrated into custom applications, scripts, and workflows, enhancing automation and efficiency.
 
 
 #### Basic syntax and structure
-
 The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. 
-
-
-
 
 Here’s a basic example:
 
@@ -143,13 +109,11 @@ POST /opsql/api/v3/tenants/{tenantId}/queries
 ```
 
 The request body typically includes:
-
-* *   `objectType`: The type of object to query (e.g., resource, alert, ticket).
-* *   `fields`: The fields to retrieve.
-* *   `filterCriteria`: The criteria to filter the objects.
+*    `objectType`: The type of object to query (e.g., resource, alert, ticket).
+*    `fields`: The fields to retrieve.
+*    `filterCriteria`: The criteria to filter the objects.
 
 ## Common use cases and code samples
-
 ### Filtering critical alerts
 There are times that you would want to filter only critical alerts. This is how that would be done:
 
