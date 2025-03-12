@@ -9,6 +9,14 @@ disable: false
 tags:
   - OpsRamp, OpsQL, OpsRamp API
 ---
+<style>
+li {
+  font-size: 15px;
+  line-height: 20px;
+  max-width: none;
+}
+</style>
+ 
 # OpsQL - OpsRamp's Kalpavriksha (aka a wish-fulfilling tree)
 
 
@@ -120,11 +128,10 @@ IT Administrators can invoke OpsQL API using tools such as Postman, cURL, Python
 
 #### Basic syntax and structure
 
-The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. Here’s a basic example:
+The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. 
 
 
-## Basic Syntax and Structure
-The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. Here’s a basic example:
+
 
 Here’s a basic example:
 
@@ -138,7 +145,7 @@ The request body typically includes:
 * *   `fields`: The fields to retrieve.
 * *   `filterCriteria`: The criteria to filter the objects.
 
-## Common Use Cases and code samples
+## Common use cases and code samples
 
 ### Filtering critical alerts
 
