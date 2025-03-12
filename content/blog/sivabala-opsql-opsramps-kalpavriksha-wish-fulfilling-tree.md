@@ -17,14 +17,16 @@ li {
 }
 </style>
  
-# OpsQL - OpsRamp's Kalpavriksha (aka a wish-fulfilling tree)
+
 
 
 
   
 
 
-In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsRamp Query Language (OpsQL) and powerful API for the same.
+In today's data centers, IT Ops managers face mounting challenges in managing and retrieving data efficiently. They've introduced so many network, storage, and computing devices into their environment that they have become unmanageable. At times performance issues and critical services going down keep happening and they're left with headaches, higher costs, and poor performance. If only they had a Kalpavriksha, a magical wish-fulfilling tree that could answer their needs for quickly searching for any resource from their complex, wide data centre to make all their dreams come true.
+
+With OpsRamp, a comprehensive IT operations management platform, they may very well get their wish. With its OpsRamp Query Language (OpsQL) and its powerful API, users can perform complex searches within the OpsRamp platform. It allows users to retrieve specific data based on various attributes and conditions. To quickly access and manipulate data in order to maintain optimal system performance and resolve issues, OpsQL is a Kalpavriksha that truly grants wishes. In this blog post, I will explain the basics of OpsQL and how to use it.
 
 
 
