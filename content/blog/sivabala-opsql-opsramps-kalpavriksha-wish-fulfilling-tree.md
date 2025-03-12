@@ -16,7 +16,9 @@ tags:
   
 
 
-In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsQL (OpsRamp Query Language) and powerful API for the same. OpsQL empowers users to perform complex searches within the OpsRamp platform. This article delves into the capabilities and usage of the OpsQL API, providing insights into how it can enhance your IT operations.
+In the realm of IT operations, managing and retrieving data efficiently is crucial. OpsRamp, a comprehensive IT operations management platform, offers a robust query language known as OpsRamp Query Language (OpsQL) and powerful API for the same.
+
+
 
 
 
