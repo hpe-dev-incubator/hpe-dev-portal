@@ -41,12 +41,13 @@ Let's say you want to make a query. The general syntax for an OpsQL query is ver
 You can use logical operators  `AND` and `OR` to refine your search further.
 
 ## Operators
+Operator is the key of the query. It relates the attribute to the value. 
 OpsQL supports a variety of operators to create precise queries.
-### Equality Operators
+ 1.  **Equality Operators**
  `=`, `!=` 
-### String Operators
+ 2.  **String Operators**
  `CONTAINS`, `STARTS WITH`, `LIKE`
-### Logical Operators
+ 3.  **Logical Operators**
 `AND`, `OR`
 
 For example, to find all resources with an agent installed and of type "Windows," you would use:
