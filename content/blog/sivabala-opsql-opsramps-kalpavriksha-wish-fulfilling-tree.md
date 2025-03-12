@@ -107,6 +107,9 @@ currentState = "CRITICAL" AND status = "OPEN" AND resource.tags.name = "Team" AN
 
 ## What is OpsQL API?
 The OpsQL API is a powerful interface that allows users to execute OpsQL queries programmatically. This API provides the flexibility to filter, search data within the OpsRamp platform, making it an indispensable tool for IT administrators and developers.
+IT Administrators can invoke OpsQL API using tools such as Postman, cURL, Python.
+ 
+
 
 #### Key Features
 
