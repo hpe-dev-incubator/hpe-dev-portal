@@ -111,14 +111,14 @@ IT Administrators can invoke OpsQL API using tools such as Postman, cURL, Python
  
 
 
-#### Key Features
+#### Key features
 
- 1.  **Comprehensive Querying**: The OpsQL API supports a wide range of query operations, allowing users to filter data based on various attributes and conditions.
+ 1.  **Comprehensive querying**: The OpsQL API supports a wide range of query operations, allowing users to filter data based on various attributes and conditions.
  2.  **Flexibility**: Users can create complex queries using logical operators and a variety of comparison operators.
 3.  **Integration**: The API can be integrated into custom applications, scripts, and workflows, enhancing automation and efficiency.
 
 
-#### Basic Syntax and Structure
+#### Basic syntax and structure
 
 The general structure of an OpsQL API request involves specifying the tenant ID and the query payload. Here’s a basic example:
 
