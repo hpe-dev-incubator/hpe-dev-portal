@@ -148,6 +148,8 @@ The request body typically includes:
 ## Common use cases and code samples
 
 ### Filtering critical alerts
+There are times that you would want to filter only critical alerts. This is how that would be done:
+
 
 ```python
 import requests
