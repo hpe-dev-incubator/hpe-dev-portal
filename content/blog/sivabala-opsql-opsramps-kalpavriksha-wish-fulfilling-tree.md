@@ -32,7 +32,7 @@ OpsQL is a flexible and powerful query language to search objects within the Ops
 
 ## Basic syntax and structure
 
-The general syntax for an OpsQL query is straightforward:
+Let's say you want to make a query. The general syntax for an OpsQL query is very straightforward:
 
 ```PlainText
  <attribute> <operator> | <coperator> "<value>" [[<operator> [<attribute> | <coperator> "<value>"[)]] ... ]
