@@ -34,7 +34,8 @@ With OpsRamp, a comprehensive IT operations management platform, they may very w
 
 ## What is OpsQL?
 
-OpsQL is a flexible and powerful query language to search objects within the OpsRamp platform. It allows users to retrieve specific data based on various attributes and conditions. OpsQL is essential for IT administrators to quickly access and manipulate data, in order to maintain optimal system performance and resolve issues.
+OpsQL is a flexible and powerful query language to search objects within the OpsRamp platform. It allows users to retrieve specific data based on various attributes and conditions. OpsQL is essential for IT administrators to quickly access and manipulate data, in order to maintain optimal system performance and resolve issues. IT Ops Managers, users can run OpsQL in intuitive OpsRamp UI or using OpsQL API.
+
 
 
 
