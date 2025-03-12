@@ -28,7 +28,9 @@ OpsQL is a flexible and powerful query language to search objects within the Ops
 
 
 
-## Basic Syntax and Structure
+
+
+## Basic syntax and structure
 
 The general syntax for an OpsQL query is straightforward:
 
