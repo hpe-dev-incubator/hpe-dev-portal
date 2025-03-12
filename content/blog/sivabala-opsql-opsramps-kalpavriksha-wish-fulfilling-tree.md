@@ -43,11 +43,11 @@ You can use logical operators  `AND` and `OR` to refine your search further.
 ## Operators
 Operator is the key of the query. It relates the attribute to the value. 
 OpsQL supports a variety of operators to create precise queries.
- 1.  **Equality Operators**
+ 1.  **Equality operators**
  `=`, `!=` 
- 2.  **String Operators**
+ 2.  **String operators**
  `CONTAINS`, `STARTS WITH`, `LIKE`
- 3.  **Logical Operators**
+ 3.  **Logical operators**
 `AND`, `OR`
 
 For example, to find all resources with an agent installed and of type "Windows," you would use:
