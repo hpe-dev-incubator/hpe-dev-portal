@@ -61,9 +61,9 @@ Attributes are different types of information available on an object. For instan
 
 
 
-For more details, you can refer to the [OpsRamp Documentation](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)(https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/ "Query Language Reference | OpsRamp Documentation").
+For more details, you can refer to the [OpsRamp Query Language Reference Documentation.](https://docs.opsramp.com/platform-features/feature-guides/query-language-reference/query-language-ref/)
 
-## More Examples
+## More examples
 ### Search for resources that were discovered by an AWS Integration​
 
 ```PlainText
