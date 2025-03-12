@@ -175,7 +175,10 @@ headers = {
 
 response = requests.request("POST", url, headers = headers, data = payload)
 ```
-### Saving OpsQL response as CSV file
+### Saving OpsQL response as CSV file 
+There are times that you would want to save an OpsQL response as a CSV file, perhaps for further analysis. This is how that would be done:
+
+
 
 ```python
 def invoke_opsql() -> None:
