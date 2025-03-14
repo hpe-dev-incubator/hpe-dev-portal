@@ -678,7 +678,7 @@ tags:
 
 ## Introduction
 
-We know you love **HPE servers** for their **security** and **ease of management**. With the release of **HPE iLO 7** on **Gen12 servers**, HPE has taken security to the next level. Unlike previous generations where **Production** was the default <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#ilo-security-state" target="_blank">security state</a>, iLO 7 introduces the **Secure Standard** state by default, enhancing system security.
+We know you love **HPE servers** for their **security** and **ease of management**. With the release of **HPE iLO 7** on **Gen12 servers**, HPE has taken security to the next level. Unlike previous generations where **Production** was the default <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#ilo-security-state" target="_blank">security state</a>, iLO 7 introduces the **Secure Standard** state by default, enhancing the system security.
 
 Another major shift is in the default login method - **Virtual NIC (<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/vnic/#the-ilo-redfish-host-interface-virtual-nic" target="_blank">VNIC</a>)** replaces the **<a href="https://servermanagementportal.ext.hpe.com/docs/etc/glossaryterms/" target="_blank">CHIF</a> interface**, which was used in **iLO 6 and earlier versions**.
 
@@ -688,7 +688,9 @@ Let’s get started! 🚀
 
 <!--EndFragment-->
 
-**Installing iLOrest 6.0 on Linux**
+## Installation
+
+### Linux:
 
 On Linux, iLOrest can be installed as an RPM package. If you already have a previous version installed, you can upgrade it using the -Uvh option.
 For a fresh installation, use:
@@ -718,7 +720,7 @@ ilorest appaccount create -u ilo-user -p password --self
 
 By leveraging this new authentication method, managing iLO 7 becomes even more seamless. 🚀
 
-**Installing iLORest 6.0 on Windows**
+### Windows:
 
 On Windows, iLORest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for Application account creation.
 Just like on Linux, this step is optional but recommended by HPE, as the Application account allows for in-band authentication with iLO 7 without requiring traditional credentials.
@@ -726,19 +728,25 @@ Here’s a screenshot of the Application account creation dialog box during inst
 
 ![](/img/windows_msi.jpg)
 
-**Installing and using iLORest on different OSes**
+### All other OSes:
 
-On all operating systems like ubuntu and mac, the iLORest tool can be installed effortlessly via PyPI using the following command:
+On operating systems like ubuntu and mac, the iLORest tool can be installed effortlessly via PyPI using the following command:
 ```bash
 pip install ilorest
 ```
-**Creating an Application account**
+On Vmware ESXi, it is installed using 
+```
+esxcli software component apply -d ilorest-component.zip
+
+```
+
+#### Creating an Application account
 
 For these OSes, you can create an Application account using the following iLORest command:
 ```bash
 ilorest appaccount create -u ilo-user -p password --self
 ```
-**Logging into iLO 7**
+#### Logging into iLO 7
 
 Once the Application account is created, you can perform an inband login with:
 ```bash
@@ -748,10 +756,10 @@ If you prefer to log in without using an Application account, you can opt for cr
 ```bash
 ilorest login --no_app_account -u ilo-user -p password
 ```
-**Summary**
+## Summary
 
 In this guide, I have demonstrated how to install iLOrest 6.0 across different operating systems and leverage the new Application account login method introduced in iLO 7.
 
-**Call to Action**
+## Call to Action
 
 Get started today! Download <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a>, explore its exciting new features, and take full control of iLO 7 with ease.
