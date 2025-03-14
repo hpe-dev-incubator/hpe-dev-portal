@@ -1,5 +1,5 @@
 ---
-title: Learning to manage HPE iLO 7 with Restful Interface Tool 6.0
+title: Learning to manage HPE iLO 7 with RESTful Interface Tool 6.0
 date: 2025-03-10T14:05:22.058Z
 featuredBlog: true
 priority: 0
@@ -7,7 +7,11 @@ author: Rajeevalochana Kallur
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - ilorest, ilo7, appaccount, vnic
+  - ilorest
+  - ilo-restful-api
+  - ilo7
+  - appaccount
+  - vnic
 ---
 ![]()
 
@@ -682,7 +686,7 @@ We know you love **HPE servers** for their **security** and **ease of management
 
 Another major shift is in the default login method - **Virtual NIC (<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/vnic/#the-ilo-redfish-host-interface-virtual-nic" target="_blank">VNIC</a>)** replaces the **<a href="https://servermanagementportal.ext.hpe.com/docs/etc/glossaryterms/" target="_blank">CHIF</a> interface**, which was used in **iLO 6 and earlier versions**.
 
-In this article, I’ll walk you through **managing HPE iLO 7 using the iLORest 6.0 tool via in-band access**. We’ll start with **installing <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a>** on different operating systems and then dive into **logging into iLO 7**. Since **iLO 7 introduces a new <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#application-accounts" target="_blank">application account</a> login method**, I’ll also cover how iLORest 6.0 fully supports this feature.
+In this article, I’ll walk you through **managing HPE iLO 7 using the iLOrest 6.0 tool via in-band access**. We’ll start with **installing <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a>** on different operating systems and then dive into **logging into iLO 7**. Since **iLO 7 introduces a new <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#application-accounts" target="_blank">application account</a> login method**, I’ll also cover how iLOrest 6.0 fully supports this feature.
 
 Let’s get started! 🚀
 
@@ -705,7 +709,7 @@ Here is a screenshot of successful installation.
 
 **Application account creation during iLOrest installation**
 
-During the RPM installation of iLOrest 6.0, you might notice that the installer prompts for iLO credentials to create an Application account. While this step is optional, HPE strongly recommends creating the App account during installation itself.
+During the RPM installation of iLOrest 6.0, you might notice that the installer prompts for iLO credentials to create an Application account. While this step is optional, HPE strongly recommends creating the Application account during installation itself.
 Why?
 
 •	The Application account provides an additional method for in-band authentication with iLO 7, enhancing security and flexibility.
@@ -722,7 +726,7 @@ By leveraging this new authentication method, managing iLO 7 becomes even more s
 
 ### Windows:
 
-On Windows, iLORest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for Application account creation.
+On Windows, iLOrest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for Application account creation.
 Just like on Linux, this step is optional but recommended by HPE, as the Application account allows for in-band authentication with iLO 7 without requiring traditional credentials.
 Here’s a screenshot of the Application account creation dialog box during installation:
 
@@ -730,19 +734,19 @@ Here’s a screenshot of the Application account creation dialog box during inst
 
 ### All other OSes:
 
-On operating systems like ubuntu and mac, the iLORest tool can be installed effortlessly via PyPI using the following command:
+On operating systems like ubuntu and mac, the iLOrest tool can be installed effortlessly via PyPI using the following command:
 ```bash
 pip install ilorest
 ```
-On Vmware ESXi, it is installed using 
-```
-esxcli software component apply -d ilorest-component.zip
+On VMware ESXi, it is installed using
 
+```bash
+esxcli software component apply -d ilorest-component.zip
 ```
 
 #### Creating an Application account
 
-For these OSes, you can create an Application account using the following iLORest command:
+For these OSes, you can create an Application account using the following iLOrest command:
 ```bash
 ilorest appaccount create -u ilo-user -p password --self
 ```
