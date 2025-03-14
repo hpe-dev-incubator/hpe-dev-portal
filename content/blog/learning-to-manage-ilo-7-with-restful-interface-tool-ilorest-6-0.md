@@ -1,5 +1,5 @@
 ---
-title: Learning to manage iLO 7 with Restful Interface Tool (iLORest) 6.0
+title: Learning to manage HPE iLO 7 with Restful Interface Tool 6.0
 date: 2025-03-10T14:05:22.058Z
 featuredBlog: true
 priority: 0
@@ -676,21 +676,21 @@ tags:
 
 <!--StartFragment-->
 
-### Introduction
+## Introduction
 
-We know you love **HPE servers** for their **security** and **ease of management**. With the release of **iLO 7** on **Gen12 servers**, HPE has taken security to the next level. Unlike previous generations where **"production" mode** was the default, iLO 7 introduces **"secure standard" mode** by default, enhancing system security.
+We know you love **HPE servers** for their **security** and **ease of management**. With the release of **HPE iLO 7** on **Gen12 servers**, HPE has taken security to the next level. Unlike previous generations where **Production** was the default <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#ilo-security-state" target="_blank">security state</a>, iLO 7 introduces the **Secure Standard** state by default, enhancing system security.
 
-Another major shift is in the default login method - **Virtual NIC (VNIC)** replaces the **CHiF interface**, which was used in **iLO 6 and earlier versions**.
+Another major shift is in the default login method - **Virtual NIC (<a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/vnic/#the-ilo-redfish-host-interface-virtual-nic" target="_blank">VNIC</a>)** replaces the **<a href="https://servermanagementportal.ext.hpe.com/docs/etc/glossaryterms/" target="_blank">CHIF</a> interface**, which was used in **iLO 6 and earlier versions**.
 
-In this article, I’ll walk you through **managing iLO 7 using the iLORest 6.0 tool via in-band access**. We’ll start with **installing iLORest** on different operating systems and then dive into **logging into iLO 7**. Since **iLO 7 introduces a new application account (App account) login method**, I’ll also cover how iLORest 6.0 fully supports this feature.
+In this article, I’ll walk you through **managing HPE iLO 7 using the iLORest 6.0 tool via in-band access**. We’ll start with **installing <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a>** on different operating systems and then dive into **logging into iLO 7**. Since **iLO 7 introduces a new <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/securityservice/#application-accounts" target="_blank">application account</a> login method**, I’ll also cover how iLORest 6.0 fully supports this feature.
 
 Let’s get started! 🚀
 
 <!--EndFragment-->
 
-**Installing iLORest 6.0 on Linux**
+**Installing iLOrest 6.0 on Linux**
 
-On Linux, iLORest can be installed as an RPM package. If you already have a previous version installed, you can upgrade it using the -Uvh option.
+On Linux, iLOrest can be installed as an RPM package. If you already have a previous version installed, you can upgrade it using the -Uvh option.
 For a fresh installation, use:
 
 ```bash
@@ -701,28 +701,28 @@ Here is a screenshot of successful installation.
 
 ![](/img/rpm_linux.jpg)
 
-**App account creation during iLORest installation**
+**Application account creation during iLOrest installation**
 
-During the RPM installation of iLORest 6.0, you might notice that the installer prompts for iLO credentials to create an App account. While this step is optional, HPE strongly recommends creating the App account during installation itself.
+During the RPM installation of iLOrest 6.0, you might notice that the installer prompts for iLO credentials to create an Application account. While this step is optional, HPE strongly recommends creating the App account during installation itself.
 Why?
 
-•	The App account provides an additional method for in-band authentication with iLO 7, enhancing security and flexibility.
+•	The Application account provides an additional method for in-band authentication with iLO 7, enhancing security and flexibility.
 
-•	Once created, the App account allows you to log in without needing traditional credentials every time.
+•	Once created, the Application account allows you to log in without needing traditional credentials every time.
 
-If you choose to skip this step, you can always create the App account later using the following command:
+If you choose to skip this step, you can always create the Application account later using the following command:
 
 ```bash
-ilorest appaccount create -u Administrator -p password –self
+ilorest appaccount create -u ilo-user -p password --self
 ```
 
 By leveraging this new authentication method, managing iLO 7 becomes even more seamless. 🚀
 
 **Installing iLORest 6.0 on Windows**
 
-On Windows, iLORest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for App account creation.
-Just like on Linux, this step is optional but recommended by HPE, as the App account allows for in-band authentication with iLO 7 without requiring traditional credentials.
-Here’s a screenshot of the App account creation dialog box during installation:
+On Windows, iLORest is installed using an MSI package. During installation, a user interface will appear, prompting you to enter iLO credentials for Application account creation.
+Just like on Linux, this step is optional but recommended by HPE, as the Application account allows for in-band authentication with iLO 7 without requiring traditional credentials.
+Here’s a screenshot of the Application account creation dialog box during installation:
 
 ![](/img/windows_msi.jpg)
 
@@ -732,26 +732,26 @@ On all operating systems like ubuntu and mac, the iLORest tool can be installed 
 ```bash
 pip install ilorest
 ```
-**Creating an App account**
+**Creating an Application account**
 
-For these OSes, you can create an App account using the following iLORest command:
+For these OSes, you can create an Application account using the following iLORest command:
 ```bash
-ilorest appaccount create -u Administrator -p password –self
+ilorest appaccount create -u ilo-user -p password --self
 ```
 **Logging into iLO 7**
 
-Once the App account is created, you can perform an inband login with:
+Once the Application account is created, you can perform an inband login with:
 ```bash
 ilorest login
 ```
-If you prefer to log in without using an App account, you can opt for credential-based login instead:
+If you prefer to log in without using an Application account, you can opt for credential-based login instead:
 ```bash
-ilorest login --no_app_account -u Administrator -p password
+ilorest login --no_app_account -u ilo-user -p password
 ```
 **Summary**
 
-In this guide, I have demonstrated how to install iLORest 6.0 across different operating systems and leverage the new App account login method introduced in iLO 7.
+In this guide, I have demonstrated how to install iLOrest 6.0 across different operating systems and leverage the new Application account login method introduced in iLO 7.
 
 **Call to Action**
 
-Get started today! Download iLORest 6.0, explore its exciting new features, and take full control of iLO 7 with ease.
+Get started today! Download <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest</a>, explore its exciting new features, and take full control of iLO 7 with ease.
