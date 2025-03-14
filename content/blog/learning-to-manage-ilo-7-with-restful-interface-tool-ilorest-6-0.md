@@ -7,11 +7,12 @@ author: Rajeevalochana Kallur
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - ilorest
+  - iLOrest
   - ilo-restful-api
   - ilo7
   - appaccount
   - vnic
+  - REST
 ---
 ![]()
 
@@ -762,7 +763,7 @@ ilorest login --no_app_account -u ilo-user -p password
 ```
 ## Summary
 
-In this guide, I have demonstrated how to install iLOrest 6.0 across different operating systems and leverage the new Application account login method introduced in iLO 7.
+In this guide, I have demonstrated how to install iLOrest 6.0 across different operating systems and leverage the new Application account login method introduced in iLO 7. For more information on HPE iLO, along with some tips and tricks in working with it, make sure you check out the HPE Developer blog regularly.
 
 ## Call to Action
 
