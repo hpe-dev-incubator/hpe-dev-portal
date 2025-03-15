@@ -78,6 +78,3 @@ yarn-error.log
 
 # VSCode files
 .vscode/
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea
