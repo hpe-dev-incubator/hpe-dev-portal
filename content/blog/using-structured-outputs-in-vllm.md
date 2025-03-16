@@ -42,10 +42,10 @@ These optimizations make vLLM one of the fastest and most versatile engines for 
 
 vLLM extends the OpenAI API with additional parameters to enable structured outputs. These include:
 
-* **`guided_choice`:** Restricts output to a set of predefined choices.
-* **`guided_regex`:** Ensures outputs match a given regex pattern.
-* **`guided_json`:** Validates outputs against a JSON schema.
-* **`guided_grammar`:** Enforces structure using context-free grammars.
+* **guided_choice:** Restricts output to a set of predefined choices.
+* **guided_regex:** Ensures outputs match a given regex pattern.
+* **guided_json:** Validates outputs against a JSON schema.
+* **guided_grammar:** Enforces structure using context-free grammars.
 
 Here’s how each works, along with example outputs:
 
