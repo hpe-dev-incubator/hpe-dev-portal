@@ -13,7 +13,7 @@ tags:
 ---
 Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
 
-### Why Structured Outputs?
+## Why Structured Outputs?
 
 LLMs are incredibly powerful, but their outputs can be inconsistent when a specific format is required. Structured outputs address this issue by restricting the model’s generated text to adhere to predefined rules or formats, ensuring:
 
@@ -28,7 +28,7 @@ How these tools work? The idea is that we´ll be able to filter the list of poss
 
 ![Structured outputs in vLLM](/img/structured_outputs_thumbnail.png "Structured outputs in vLLM")
 
-### What is vLLM?
+## What is vLLM?
 
 vLLM is a state-of-the-art, open-source inference and serving engine for LLMs. It’s built for performance and simplicity, offering:
 
@@ -38,7 +38,7 @@ vLLM is a state-of-the-art, open-source inference and serving engine for LLMs. I
 
 These optimizations make vLLM one of the fastest and most versatile engines for production environments.
 
-### Structured outputs on vLLM
+## Structured outputs on vLLM
 
 vLLM extends the OpenAI API with additional parameters to enable structured outputs. These include:
 
@@ -49,7 +49,7 @@ vLLM extends the OpenAI API with additional parameters to enable structured outp
 
 Here’s how each works, along with example outputs:
 
-#### **1. Guided Choice**
+### **1. Guided Choice**
 
 Simplest form of structured output, ensuring the response is one of a set of predefined options.
 
@@ -74,7 +74,7 @@ print(completion.choices[0].message.content)
 positive
 ```
 
-#### **2. Guided Regex**
+### **2. Guided Regex**
 
 Constrains output to match a regex pattern, useful for formats like email addresses.
 
@@ -98,7 +98,7 @@ print(completion.choices[0].message.content)
 alan.turing@enigma.com
 ```
 
-#### **3. Guided JSON**
+### **3. Guided JSON**
 
 Enforces a valid JSON format based on a schema, simplifying integration with other systems.
 
@@ -139,7 +139,7 @@ print(completion.choices[0].message.content)
 }
 ```
 
-#### **4. Guided Grammar**
+### **4. Guided Grammar**
 
 Uses an EBNF grammar to define complex output structures, such as SQL queries.
 
@@ -167,7 +167,7 @@ print(completion.choices[0].message.content)
 SELECT * FROM users WHERE age > 30;
 ```
 
-### **Next Steps**
+## **Next Steps**
 
 To start integrating structured outputs into your projects:
 
