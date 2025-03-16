@@ -3,6 +3,7 @@ title: Using structured outputs in vLLM
 date: 2025-03-16T19:28:00.657Z
 author: Ismael Delgado Muñoz
 authorimage: /img/Avatar6.svg
+thumbnailimage: /img/structured_outputs_thumbnail.png
 disable: false
 tags:
   - AI
