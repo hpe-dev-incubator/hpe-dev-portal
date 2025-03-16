@@ -11,8 +11,6 @@ tags:
   - opensource
   - LLM
 ---
-## Using structured outputs in vLLM
-
 Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the Structured Outputs documentation page (https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
 
 ### Why Structured Outputs?
