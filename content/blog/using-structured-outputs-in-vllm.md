@@ -26,7 +26,9 @@ LLMs are incredibly powerful, but their outputs can be inconsistent when a speci
 Imagine we have an external system which receives a JSON with the all the details to trigger an alert, and we want our LLM-based system to be able to use it. Of course we can try to explain the LLM what should be the output format and that it must be a valid JSON, but LLMs are not deterministic and thus we may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
 
 How these tools work? The idea is that we´ll be able to filter the list of possible next tokens to force that we are always generating a token that is valid for the desired output format.
-![Structured outputs using vLLM](/img/structured_outputs_thumbnail.png "Structured outputs using vLLM")
+
+
+![Structured outputs in vLLM](/img/structured_outputs_thumbnail.png "Structured outputs in vLLM")
 
 ### What is vLLM?
 
