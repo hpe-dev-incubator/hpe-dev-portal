@@ -3,7 +3,7 @@ title: Using structured outputs in vLLM
 date: 2025-03-16T19:28:00.657Z
 author: Ismael Delgado Muñoz
 authorimage: /img/Avatar6.svg
-thumbnailimage: /img/structured_outputs_thumbnail.png
+thumbnailimage: ""
 disable: false
 tags:
   - AI
@@ -12,6 +12,7 @@ tags:
   - LLM
 ---
 ## Using structured outputs in vLLM
+
 Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the Structured Outputs documentation page (https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
 
 ### Why Structured Outputs?
@@ -25,14 +26,15 @@ LLMs are incredibly powerful, but their outputs can be inconsistent when a speci
 Imagine we have an external system which receives a JSON with the all the details to trigger an alert, and we want our LLM-based system to be able to use it. Of course we can try to explain the LLM what should be the output format and that it must be a valid JSON, but LLMs are not deterministic and thus we may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
 
 How these tools work? The idea is that we´ll be able to filter the list of possible next tokens to force that we are always generating a token that is valid for the desired output format.
+![Structured outputs using vLLM](/img/structured_outputs_thumbnail.png "Structured outputs using vLLM")
 
 ### What is vLLM?
 
 vLLM is a state-of-the-art, open-source inference and serving engine for LLMs. It’s built for performance and simplicity, offering:
 
-- **PagedAttention:** An innovative memory management mechanism for efficient attention key-value handling.
-- **Continuous Batching:** Supports concurrent requests dynamically.
-- **Advanced Optimizations:** Includes features like quantization, speculative decoding, and CUDA graphs.
+* **PagedAttention:** An innovative memory management mechanism for efficient attention key-value handling.
+* **Continuous Batching:** Supports concurrent requests dynamically.
+* **Advanced Optimizations:** Includes features like quantization, speculative decoding, and CUDA graphs.
 
 These optimizations make vLLM one of the fastest and most versatile engines for production environments.
 
@@ -40,10 +42,10 @@ These optimizations make vLLM one of the fastest and most versatile engines for 
 
 vLLM extends the OpenAI API with additional parameters to enable structured outputs. These include:
 
-- **`guided_choice`:** Restricts output to a set of predefined choices.
-- **`guided_regex`:** Ensures outputs match a given regex pattern.
-- **`guided_json`:** Validates outputs against a JSON schema.
-- **`guided_grammar`:** Enforces structure using context-free grammars.
+* **`guided_choice`:** Restricts output to a set of predefined choices.
+* **`guided_regex`:** Ensures outputs match a given regex pattern.
+* **`guided_json`:** Validates outputs against a JSON schema.
+* **`guided_grammar`:** Enforces structure using context-free grammars.
 
 Here’s how each works, along with example outputs:
 
