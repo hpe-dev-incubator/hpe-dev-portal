@@ -1,7 +1,7 @@
 ---
 title: Management paradigms for virtual machines running on Kubernetes
 date: 2025-03-12T20:13:53.863Z
-featuredBlog: true
+featuredBlog: false
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
 disable: false
