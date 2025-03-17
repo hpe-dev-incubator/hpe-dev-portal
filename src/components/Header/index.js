@@ -180,7 +180,7 @@ function Header() {
     //   to="/platform/hpe-greenlake/home"
     // />,
     <DropButton
-      label="HPE GreenLake"
+      label="HPE GreenLake cloud"
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
