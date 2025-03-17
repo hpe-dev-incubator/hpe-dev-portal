@@ -11,7 +11,10 @@ tags:
   - opensource
   - LLM
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM, an open source inference and serving engine for LLMs, supports structured outputs since some time ago, but there were no documentation on how to use it supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
+
+In this blog post, I'll explain how structured outputs work in vLLM and walk you through how to use them effectively.
 
 ## Why structured outputs?
 
@@ -170,8 +173,8 @@ SELECT * FROM users WHERE age > 30;
 
 To start integrating structured outputs into your projects:
 
-1. **Explore the documentation:** Check out the official documentation for more examples and detailed explanations.
-2. **Install vLLM locally:** Set up the inference server on your local machine using the vLLM GitHub repository.
+1. **Explore the documentation:** Check out the [official documentation](https://docs.vllm.ai/en/latest/) for more examples and detailed explanations.
+2. **Install vLLM locally:** Set up the inference server on your local machine using the [vLLM GitHub repository](https://github.com/vllm-project/vllm).
 3. **Experiment with structured outputs:** Try out different formats (choice, regex, JSON, grammar) and observe how they can simplify your workflow.
 4. **Deploy in production:** Once comfortable, deploy vLLM to your production environment and integrate it with your applications.
 
