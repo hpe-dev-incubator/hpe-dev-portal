@@ -11,9 +11,9 @@ tags:
   - opensource
   - LLM
 ---
-Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
+Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM, an open source inference and serving engine for LLMs, supports structured outputs since some time ago, but there were no documentation on how to use it supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
 
-## Why Structured Outputs?
+## Why structured outputs?
 
 LLMs are incredibly powerful, but their outputs can be inconsistent when a specific format is required. Structured outputs address this issue by restricting the model’s generated text to adhere to predefined rules or formats, ensuring:
 
@@ -25,7 +25,6 @@ Imagine we have an external system which receives a JSON with the all the detail
 
 How these tools work? The idea is that we´ll be able to filter the list of possible next tokens to force that we are always generating a token that is valid for the desired output format.
 
-
 ![Structured outputs in vLLM](/img/structured_outputs_thumbnail.png "Structured outputs in vLLM")
 
 ## What is vLLM?
@@ -33,8 +32,8 @@ How these tools work? The idea is that we´ll be able to filter the list of poss
 vLLM is a state-of-the-art, open-source inference and serving engine for LLMs. It’s built for performance and simplicity, offering:
 
 * **PagedAttention:** An innovative memory management mechanism for efficient attention key-value handling.
-* **Continuous Batching:** Supports concurrent requests dynamically.
-* **Advanced Optimizations:** Includes features like quantization, speculative decoding, and CUDA graphs.
+* **Continuous batching:** Supports concurrent requests dynamically.
+* **Advanced optimizations:** Includes features like quantization, speculative decoding, and CUDA graphs.
 
 These optimizations make vLLM one of the fastest and most versatile engines for production environments.
 
@@ -49,7 +48,7 @@ vLLM extends the OpenAI API with additional parameters to enable structured outp
 
 Here’s how each works, along with example outputs:
 
-### **1. Guided Choice**
+### **1. Guided choice**
 
 Simplest form of structured output, ensuring the response is one of a set of predefined options.
 
@@ -68,7 +67,7 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-**Example Output:**
+**Example output:**
 
 ```
 positive
@@ -92,7 +91,7 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-**Example Output:**
+**Example output:**
 
 ```
 alan.turing@enigma.com
@@ -129,7 +128,7 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-**Example Output:**
+**Example output:**
 
 ```json
 {
@@ -139,9 +138,9 @@ print(completion.choices[0].message.content)
 }
 ```
 
-### **4. Guided Grammar**
+### **4. Guided grammar**
 
-Uses an EBNF grammar to define complex output structures, such as SQL queries.
+Uses an Extended Backus–Naur Form (EBNF) grammar to define complex output structures, such as SQL queries.
 
 ```python
 completion = client.chat.completions.create(
@@ -161,19 +160,19 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-**Example Output:**
+**Example output:**
 
 ```sql
 SELECT * FROM users WHERE age > 30;
 ```
 
-## **Next Steps**
+## **Next steps**
 
 To start integrating structured outputs into your projects:
 
-1. **Explore the Documentation:** Check out the official documentation for more examples and detailed explanations.
-2. **Install vLLM Locally:** Set up the inference server on your local machine using the vLLM GitHub repository.
-3. **Experiment with Structured Outputs:** Try out different formats (choice, regex, JSON, grammar) and observe how they can simplify your workflow.
-4. **Deploy in Production:** Once comfortable, deploy vLLM to your production environment and integrate it with your applications.
+1. **Explore the documentation:** Check out the official documentation for more examples and detailed explanations.
+2. **Install vLLM locally:** Set up the inference server on your local machine using the vLLM GitHub repository.
+3. **Experiment with structured outputs:** Try out different formats (choice, regex, JSON, grammar) and observe how they can simplify your workflow.
+4. **Deploy in production:** Once comfortable, deploy vLLM to your production environment and integrate it with your applications.
 
 Structured outputs make LLMs not only powerful but also practical for real-world applications. Dive in and see what you can build!
