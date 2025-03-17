@@ -1,7 +1,7 @@
 ---
 title: "OpsRamp OpsQL API: Fulfilling wishes for IT Ops management"
 date: 2025-03-10T21:32:15.912Z
-featuredBlog: true
+featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-2.png
 thumbnailimage: https://www.google.com/imgres?q=opsramp&imgurl=https%3A%2F%2Fwww.opsramp.com%2Fwp-content%2Fthemes%2Ffas-base%2Ffreemium%2Fassets%2Fbrand%2FOpsRamp_Logo_Gray_Blue_RGB.svg&imgrefurl=https%3A%2F%2Fwww.opsramp.com%2F&docid=zXQkTLrgWW4LtM&tbnid=LjasiVSx9A0jAM&vet=12ahUKEwjVvYfK2ICMAxV89DgGHQ9-OQoQM3oECB0QAA..i&w=800&h=239&hcb=2&ved=2ahUKEwjVvYfK2ICMAxV89DgGHQ9-OQoQM3oECB0QAA
