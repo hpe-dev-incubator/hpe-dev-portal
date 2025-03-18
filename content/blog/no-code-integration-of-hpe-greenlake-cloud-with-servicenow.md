@@ -4,6 +4,9 @@ date: 2025-03-18T07:49:59.220Z
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
+tags:
+  - hpe-greenlake-cloud
+  - webhooks
 ---
 <style>
 li {
@@ -13,19 +16,17 @@ li {
 }
 </style>
 
-
-
 In my [previous tutorial](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) on webhooks for HPE GreenLake cloud, I used a no-code/low-code platform called [Make.com](https://www.make.com/) to implement a webhook handler. The webhook handler’s URL endpoint was then registered with HPE GreenLake cloud to subscribe to audit log events from the platform. In my simplistic use case, I stored these events in a Google Sheet as they arrived.
 
 For this handler, I was responsible for taking care of the handshake initiated by HPE GreenLake cloud when the new webhook was registered. This is a security feature that uses a secret key shared by HPE GreenLake cloud and the webhook handler. The following diagram illustrates the mechanics involved in this process.
 
 ![HPE Greenlake cloud event framework](/img/slide-pour-blog-webhooks.jpg "HPE Greenlake cloud event framework")
 
-As this implementation was working well, I thought I would reuse this low-code handler technique to demonstrate another use case of an integration with an IT service management (ITSM) platform. I decided to use **ServiceNow** because it’s a very popular ITSM platform and because it provides a very nice way for developers to fire up a [personal developer instance](https://devportaluat.service-now.com/dev.do#!/learn/learning-plans/washingtondc/new_to_servicenow/app_store_learnv2_buildmyfirstapp_washingtondc_personal_developer_instances) (PDI) and get their work done.
+As this implementation was working well, I thought I would reuse this low-code handler technique to demonstrate another use case of an integration with an IT service management (ITSM) platform. I decided to use ServiceNow because it’s a very popular ITSM platform and because it provides a very nice way for developers to fire up a [personal developer instance](https://devportaluat.service-now.com/dev.do#!/learn/learning-plans/washingtondc/new_to_servicenow/app_store_learnv2_buildmyfirstapp_washingtondc_personal_developer_instances) (PDI) and get their work done.
 
 ## Problems, incidents and change orders
 
-Most of these ITSM platforms are managed through the lifecycle of different types of tickets (New, In Progress, Resolved). One of the most common ticket types is called **Incident**, which is the type of ticket that users might open when they face an issue and want to raise it to their IT team for resolution. In most cases, end users use a web portal to do this. However, there is also an API to programmatically do it, and this is exactly what I’m going to use in this blog.
+Most of these ITSM platforms are managed through the lifecycle of different types of tickets (New, In Progress, Resolved). One of the most common ticket types is called *Incident*, which is the type of ticket that users might open when they face an issue and want to raise it to their IT team for resolution. In most cases, end users use a web portal to do this. However, there is also an API to programmatically do it, and this is exactly what I’m going to use in this blog.
 
 ## What’s the right API then?
 
@@ -76,7 +77,7 @@ else:
 
 Nevertheless, this script was very helpful because I now understand:
 
-* The API I need to use is the table API and the table name to be used is called incident, thus the API call: **POST /api/now/table/incident**
+* The API I need to use is the table API and the table name to be used is called incident, thus the API call: POST /api/now/table/incident
 * The (minimal) payload I need to pass in the API call
 * The necessary headers
 * The response code expected if it worked: 201
@@ -144,23 +145,23 @@ For more information, you can refer to the chapter *“Getting started with Make
 
 Next, I’ll dive into the properties of the **HTTP Make a request** module that needs to be configured based on the details collected from the Python script:
 
-* **The URL endpoint of my ServiceNow instance**: *https://{your-instance}/api/now/table/incident*
-* **Method**: *POST*
-* Two custom headers for **Accept** and **Content-Type** both set to *application/json*
-* **Body type**: *Raw*
+* The URL endpoint of my ServiceNow instance: *https://{your-instance}/api/now/table/incident*
+* Method: *POST*
+* Two custom headers for Accept and Content-Type both set to *application/json*
+* Body type: *Raw*
 
 ![Setting up HTTP Make a request properties - part 1](/img/webhook-blog-servicenow-picture-3.jpg "Setting up HTTP Make a request properties - part 1")
 
-To setup the JSON payload as shown below, I need to first configure the first step of my webhook scenario to use the JSON payload of the ***Expiring Subscriptions*** event described earlier.
+To setup the JSON payload as shown below, I need to first configure the first step of my webhook scenario to use the JSON payload of the **Expiring Subscriptions** event described earlier.
 
-I then need to set up the JSON payload (***Request content*** as shown below) with ServiceNow information such as:
+I then need to set up the JSON payload (**Request content** as shown below) with ServiceNow information such as:
 
-* The ***short description*** (for example, the subscription type is expiring soon)
-* The ***description*** (for example, License <license type> expires on <date>)
-* The ***category***, and the ***subcategory***
-* The level of ***urgency*** (high, medium, low), the level of ***priority*** (high, medium, low) and the level of the ***impact*** (high, medium, low)
-* The ***caller_id***
-* The ***service***
+* The *short description* (for example, the subscription type is expiring soon)
+* The *description* (for example, License <license type> expires on <date>)
+* The *category*, and the *subcategory*
+* The level of *urgency* (1 to 5) and the level of the *impact* (1 to 5)
+* The *caller_id*
+* The *service*
 
 Once this is in place, I can build the Request content and drag/drop items from the JSON input payload (shown in red) into the Request content of the HTTP call as shown below:
 
@@ -170,7 +171,7 @@ It’s important not to forget to specify username and password obtained when cr
 
 ## Putting it all together
 
-Voila! Now the Webhook scenario is in place. I need to subscribe to the event with HPE GreenLake cloud. As noted in my first [blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) post, I can apply the same logic, except that this time I will subscribe to ***Expiring Subscriptions*** event as shown below:
+Voila! Now the Webhook scenario is in place. I need to subscribe to the event with HPE GreenLake cloud. As noted in my first [blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) post, I can apply the same logic, except that this time I will subscribe to **Expiring Subscriptions** event as shown below:
 
 ![Subscribing to expiring subscriptions](/img/webhook-blog-servicenow-picture-5.jpg "Subscribing to expiring subscriptions")
 
