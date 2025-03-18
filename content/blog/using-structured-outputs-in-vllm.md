@@ -12,7 +12,7 @@ tags:
   - LLM
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
-Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even grammars. vLLM, an open source inference and serving engine for LLMs, supports structured outputs since some time ago, but there were no documentation on how to use it supported this since some time ago, but there were no documentation on how to use it, and that´s why I decided to do a contribution and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
+Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even formal grammars. vLLM, an open source inference and serving engine for LLMs, has supported structured outputs for a while. However, there is little documentation on how to use it. This is why I decided to contribute and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).
 
 In this blog post, I'll explain how structured outputs work in vLLM and walk you through how to use them effectively.
 
@@ -24,9 +24,9 @@ LLMs are incredibly powerful, but their outputs can be inconsistent when a speci
 2. **Compatibility:** Seamless integration with APIs, databases, or other systems.
 3. **Efficiency:** No need for extensive post-processing to validate or fix outputs.
 
-Imagine we have an external system which receives a JSON with the all the details to trigger an alert, and we want our LLM-based system to be able to use it. Of course we can try to explain the LLM what should be the output format and that it must be a valid JSON, but LLMs are not deterministic and thus we may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
+Imagine there is an external system which receives a JSON object with the all the details to trigger an alert, and you want your LLM-based system to be able to use it. Of course you could try to explain the LLM what should be the output format and that it must be a valid JSON object, but LLMs are not deterministic and thus we may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
 
-How these tools work? The idea is that we´ll be able to filter the list of possible next tokens to force that we are always generating a token that is valid for the desired output format.
+How do these tools work? The idea behind them is to filter a list of possible next tokens to force a valid token to be generated that produces the desired output format, for example, a valid JSON object.
 
 ![Structured outputs in vLLM](/img/structured_outputs_thumbnail.png "Structured outputs in vLLM")
 
@@ -53,7 +53,7 @@ Here’s how each works, along with example outputs:
 
 ### **1. Guided choice**
 
-Simplest form of structured output, ensuring the response is one of a set of predefined options.
+Guided choice is the simplest form of structured output. It ensures the response is one from of a set of predefined options.
 
 ```python
 from openai import OpenAI
@@ -78,7 +78,7 @@ positive
 
 ### **2. Guided Regex**
 
-Constrains output to match a regex pattern, useful for formats like email addresses.
+A guided regex constrains the output to match a regex pattern, which is useful for formats like email addresses.
 
 ```python
 completion = client.chat.completions.create(
@@ -102,7 +102,7 @@ alan.turing@enigma.com
 
 ### **3. Guided JSON**
 
-Enforces a valid JSON format based on a schema, simplifying integration with other systems.
+Guided JSON enforces a valid JSON format based on a schema, simplifying integration with other systems.
 
 ```python
 from pydantic import BaseModel
@@ -143,7 +143,7 @@ print(completion.choices[0].message.content)
 
 ### **4. Guided grammar**
 
-Uses an Extended Backus–Naur Form (EBNF) grammar to define complex output structures, such as SQL queries.
+Guided grammar uses an Extended Backus-Naur Form (EBNF) grammar syntax to define complex output structures, such as SQL queries.
 
 ```python
 completion = client.chat.completions.create(
