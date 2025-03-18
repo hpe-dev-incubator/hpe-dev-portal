@@ -173,7 +173,7 @@ export const pageQuery = graphql`
     allBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { featuredBlog: { ne: true }, disable: { ne: true } }
+        frontmatter: { disable: { ne: true } }
       }
       sort: { frontmatter: { date: DESC } }
     ) {
