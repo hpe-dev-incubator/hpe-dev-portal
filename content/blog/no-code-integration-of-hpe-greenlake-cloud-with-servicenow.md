@@ -13,6 +13,8 @@ li {
 }
 </style>
 
+
+
 In my [previous tutorial](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) on webhooks for HPE GreenLake cloud, I used a no-code/low-code platform called [Make.com](https://www.make.com/) to implement a webhook handler. The webhook handler’s URL endpoint was then registered with HPE GreenLake cloud to subscribe to audit log events from the platform. In my simplistic use case, I stored these events in a Google Sheet as they arrived.
 
 For this handler, I was responsible for taking care of the handshake initiated by HPE GreenLake cloud when the new webhook was registered. This is a security feature that uses a secret key shared by HPE GreenLake cloud and the webhook handler. The following diagram illustrates the mechanics involved in this process.
@@ -146,8 +148,6 @@ Next, I’ll dive into the properties of the **HTTP Make a request** module that
 * **Method**: *POST*
 * Two custom headers for **Accept** and **Content-Type** both set to *application/json*
 * **Body type**: *Raw*
-
-
 
 ![Setting up HTTP Make a request properties - part 1](/img/webhook-blog-servicenow-picture-3.jpg "Setting up HTTP Make a request properties - part 1")
 
