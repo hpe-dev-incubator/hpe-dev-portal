@@ -24,7 +24,7 @@ LLMs are incredibly powerful, but their outputs can be inconsistent when a speci
 2. **Compatibility:** Seamless integration with APIs, databases, or other systems.
 3. **Efficiency:** No need for extensive post-processing to validate or fix outputs.
 
-Imagine there is an external system which receives a JSON object with the all the details to trigger an alert, and you want your LLM-based system to be able to use it. Of course you could try to explain the LLM what should be the output format and that it must be a valid JSON object, but LLMs are not deterministic and thus we may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
+Imagine there is an external system which receives a JSON object with the all the details to trigger an alert, and you want your LLM-based system to be able to use it. Of course you could try to explain the LLM what should be the output format and that it must be a valid JSON object, but LLMs are not deterministic and thus you may end up with an invalid JSON. Probably, if you have tried to do something like this before, you would have found yourself in this situation.
 
 How do these tools work? The idea behind them is to filter a list of possible next tokens to force a valid token to be generated that produces the desired output format, for example, a valid JSON object.
 
