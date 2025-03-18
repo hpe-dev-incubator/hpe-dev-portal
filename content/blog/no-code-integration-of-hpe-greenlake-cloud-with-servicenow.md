@@ -73,7 +73,7 @@ else:
     print(f"Response: {response.text}")
 ```
 
-> > Note: ServiceNow provides the full documentation for their API once you sign up as a ServiceNow developer and it is free.
+> > **Note**: ServiceNow provides the full documentation for their API once you sign up as a ServiceNow developer and it is free.
 
 Nevertheless, this script was very helpful because I now understand:
 
@@ -128,7 +128,7 @@ What I will do now is duplicate this scenario, delete the Google Sheets module, 
 
 The HTTP Make a request module that allows you to make any type of REST API call. It comes in very handy for integration use cases.
 
-> > Note: Make.com also provides a native ServiceNow integration, but you need an Enterprise plan to use it, which I don’t have.
+> > **Note**: Make.com also provides a native ServiceNow integration, but you need an Enterprise plan to use it, which I don’t have.
 
 My scenario looks like this:
 
@@ -205,6 +205,6 @@ Additional benefits I can see from this technique are:
 * It’s a well-established industry standard mechanism
 * There is a huge choice of implementation methods including low code/no code ones
 
-> > Note: While a low-code/no-code approach was taken in this tutorial, the same logic applies to any other programming language selected.
+> > **Note**: While a low-code/no-code approach was taken in this tutorial, the same logic applies to any other programming language selected.
 
 You can request access to this feature by signing up to the Automations/Webhook Access Beta Program [here](https://app.smartsheet.com/b/form/0e61e8c2bd6d48c7829845ab824c11d6).
