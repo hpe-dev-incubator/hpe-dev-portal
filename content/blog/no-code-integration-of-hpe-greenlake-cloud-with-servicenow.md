@@ -159,7 +159,7 @@ I then need to set up the JSON payload (**Request content** as shown below) with
 * The *short description* (for example, the subscription type is expiring soon)
 * The *description* (for example, License <license type> expires on <date>)
 * The *category*, and the *subcategory*
-* The level of *urgency* (1 to 5) and the level of the *impact* (1 to 5)
+* The level of *urgency* (1=high, 2=medium, 3=low) and the level of the *impact* (1=high, 2=medium, 3=low) which will be used to compute *priority* in ServiceNow 
 * The *caller_id*
 * The *service*
 
