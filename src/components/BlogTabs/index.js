@@ -198,7 +198,7 @@ function BlogTabs({ data, columns }) {
     });
 
   const previousTabContent = (previousTabIndex) => {
-    const { allBlogs, openSourceBlogs, greenlakeBlogs, othersBlogs } = data;
+    const { allBlogs, openSourceBlogs, greenlakeBlogs } = data;
     switch (previousTabIndex) {
       case 0:
         return allBlogs;
@@ -206,8 +206,6 @@ function BlogTabs({ data, columns }) {
         return greenlakeBlogs;
       case 2:
         return openSourceBlogs;
-      case 3:
-        return othersBlogs;
       default:
         return allBlogs;
     }
@@ -392,7 +390,6 @@ BlogTabs.propTypes = {
     allBlogs: blogsPropType,
     openSourceBlogs: blogsPropType,
     greenlakeBlogs: blogsPropType,
-    othersBlogs: blogsPropType,
     allBlogsCount: PropTypes.objectOf(PropTypes.number),
     openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
@@ -418,7 +415,6 @@ BlogTabs.propTypes = {
     hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeOpsRampBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeMorpheusBlogsCount: PropTypes.objectOf(PropTypes.number),
-    othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({
     small: PropTypes.string,
