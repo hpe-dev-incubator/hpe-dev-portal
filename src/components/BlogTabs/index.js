@@ -45,7 +45,6 @@ function BlogTabs({ data, columns }) {
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   const totalGreenLakeBlogsCount = data.greenlakeBlogsCount.totalCount;
-  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
 
   useEffect(() => {
     // loads persisted platform data when the user goes back to the blog page
@@ -340,16 +339,6 @@ function BlogTabs({ data, columns }) {
           setPreviousTab={setPreviousTab}
         />
       </Tab> */}
-      <Tab title={`Others (${totalOthersBlogsCount})`}>
-        <BlogTabContent
-          key={index}
-          initialPage={data.othersBlogs}
-          columns={columns}
-          activeTab={index}
-          setPlatform={setPlatform}
-          setPreviousTab={setPreviousTab}
-        />
-      </Tab>
     </Tabs>
   );
 }
