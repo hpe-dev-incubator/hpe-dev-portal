@@ -338,7 +338,7 @@ module.exports = {
         query: `
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-        }, frontmatter: {disable:{ne: true},featuredBlog: {ne: true}}},
+        }, frontmatter: {disable:{ne: true}}},
           sort: {frontmatter: {date: DESC}}) {
             nodes {
               id
