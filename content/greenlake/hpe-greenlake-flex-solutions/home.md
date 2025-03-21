@@ -62,5 +62,5 @@ In this video, you can discover, observe and optimize your entire hybrid IT envi
 
 ## Any questions about hybrid observability on HPE GreenLake Flex Solutions?
 
-Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our #hpe-greenlake-flex Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
+Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our #hpe-greenlake-flex-observability Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
 
