@@ -49,11 +49,13 @@ In this video, you can discover, observe and optimize your entire hybrid IT envi
 
 [Provisioning and setting up OpsRamp ](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html&docLocale=en_US)
 
-## Demos and Resources
+## Resources
 
 * [HPE GreenLake Flex Solutions user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us)
 
 * [HPE GreenLake Flex Solutions briefcase](https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow)
+
+* [OpsRamp APIs and integration capabilities](https://developer.hpe.com/platform/hpe-opsramp/home/)
 
 * [OpsRamp documentation](https://docs.opsramp.com/)
 
