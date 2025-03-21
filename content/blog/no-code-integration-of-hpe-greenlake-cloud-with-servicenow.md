@@ -75,20 +75,20 @@ else:
 
 > > **Note**: ServiceNow provides the full documentation for their API once you sign up as a ServiceNow developer and it is free.
 
-Nevertheless, this script was very helpful because I now understand:
+The script it provided was very helpful because it helped me understand:
 
 * The API I need to use is the table API and the table name to be used is called incident, thus the API call: POST /api/now/table/incident
 * The (minimal) payload I need to pass in the API call
 * The necessary headers
-* The response code expected if it worked: 201
+* The response code expected if it worked should be 201
 
 ## From event to incident
 
-Now that I understand how to create an incident, it would be good to think about what represents an incident within HPE GreenLake cloud. In my [previous tutorial](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/), I subscribed to audit log events (workspace loaded by user X, user Y logged out, user Z changed these settings…) but you most likely would not want to open an incident for each of these. First, they are not really incidents, and second, you don’t want to flood your incident table with inappropriate data, as real incidents might get lost. For this use case, I will use another event that might be triggered by the **Subscriptions Management** service in HPE GreenLake cloud when a subscription is expiring in 1, 30, 60, and 90 days. The event is called **Expiring Subscriptions**. The full description of this event can be found on the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public/catalog/subscriptions-unified-events-glcp-v1/paths/Expiring%20Subscriptions/post/).
+Now that I understand how to create an incident, it would be good to think about what represents an incident within HPE GreenLake cloud. In my [previous tutorial](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/), I subscribed to audit log events (workspace loaded by user X, user Y logged out, user Z changed these settings, etc.) but you most likely would not want to open an incident for each of these. First, they are not really incidents, and second, you don’t want to flood your incident table with inappropriate data, as real incidents might get lost. For this use case, I decided to use another event that could be triggered by the **Subscriptions Management** service in HPE GreenLake cloud when a subscription is expiring in 1, 30, 60, and 90 days. The event is called **Expiring Subscriptions**. The full description of this event can be found on the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public/catalog/subscriptions-unified-events-glcp-v1/paths/Expiring%20Subscriptions/post/).
 
 This can be considered an incident and could be added in ServiceNow incident table.
 
-The payload sent to the webhook handler when this event is triggered by the Subscriptions Management service, has the following format:
+The payload sent to the webhook handler when this event is triggered by the Subscriptions Management service has the following format:
 
 ```json
 {
@@ -114,7 +114,7 @@ The payload sent to the webhook handler when this event is triggered by the Subs
 }
 ```
 
-Now that I know what my webhook handler will receive as input and how I can open an incident in ServiceNow, I’ll get started.
+Now that I know what my webhook handler will receive as input and how I can open an incident in ServiceNow, I can get started.
 
 ## From code to no-code
 
@@ -126,7 +126,7 @@ The topmost branch was used to handle the initial security handshake. I will kee
 
 What I will do now is duplicate this scenario, delete the Google Sheets module, and replace it with another one called **HTTP Make a request**. Then I will link the new module to the Webhook response.
 
-The HTTP Make a request module that allows you to make any type of REST API call. It comes in very handy for integration use cases.
+The HTTP Make a request module allows you to make any type of REST API call. It comes in very handy for integration use cases.
 
 > > **Note**: Make.com also provides a native ServiceNow integration, but you need an Enterprise plan to use it, which I don’t have.
 
