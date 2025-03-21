@@ -7,7 +7,7 @@ description: HPE GreenLake Flex Solutions provide an advanced
 image: /img/greenlake/background-image-1.png
 width: large
 priority: 2
-active: false
+active: true
 tags:
   - hpe-greenlake-flex-solutions
 ---
