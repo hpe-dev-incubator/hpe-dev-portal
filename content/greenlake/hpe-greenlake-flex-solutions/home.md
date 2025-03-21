@@ -33,7 +33,7 @@ Hybrid observability, powered by [OpsRamp](https://www.hpe.com/us/en/opsramp.htm
 
 ## Learn from the experts
 
-### Introduction to OpsRamp, the HPE hybrid observability platform:
+### Introduction to OpsRamp, the HPE hybrid observability platform.
 
 In this video, Manjunath M, provides an overview of HPE's new hybrid observability offering as an integral part of the HPE GreenLake Flex Solutions.
 
@@ -54,8 +54,6 @@ In this video, you can discover, observe and optimize your entire hybrid IT envi
 * [HPE GreenLake Flex Solutions user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us)
 
 * [HPE GreenLake Flex Solutions briefcase](https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow)
-
-* [Demo of hybrid observability capabilities for HPE GreenLake Flex Solutions](https://salesdemos.ext.hpe.com/labs/1840)
 
 * [OpsRamp documentation](https://docs.opsramp.com/)
 
