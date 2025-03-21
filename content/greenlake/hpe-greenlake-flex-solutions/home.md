@@ -26,7 +26,7 @@ HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform 
 
 ## Bundled hybrid observability
 
-HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage non HPE GreenLake hardware and workloads, and public clouds. 
+HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking physical devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage logical resources such as virtual machines, containers and workloads running on the HPE GreenLake Flex Solutions hardware, and non HPE GreenLake hardware, and public clouds. 
 
 Hybrid observability, powered by [OpsRamp](https://www.hpe.com/us/en/opsramp.html) with an AI-powered analytics command center, simplifies, optimizes and consolidates infrastructure operations and minimizes downtime through intelligent event management and automated incident response. Hybrid observability capabilities integrate with customer’s IT Service Management (ITSM) tools.
 
