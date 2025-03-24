@@ -4,7 +4,7 @@ dateStart: 2025-03-19T11:01:17.432Z
 dateEnd: 2025-03-19T22:30:17.452Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn/
+link: https://www.youtube.com/watch?v=cAXwX3Yb62c&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE
