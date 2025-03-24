@@ -57,7 +57,7 @@ In this video, you can discover, observe and optimize your entire hybrid IT envi
 
 * [OpsRamp APIs and integration capabilities](https://developer.hpe.com/platform/hpe-opsramp/home/)
 
-* [OpsRamp documentation](https://docs.opsramp.com/)
+* [OpsRamp service on HPE GreenLake cloud documentation](https://glp.docs.opsramp.com/)
 
 
 ## Any questions about hybrid observability on HPE GreenLake Flex Solutions?
