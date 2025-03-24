@@ -5,6 +5,10 @@ date: 2025-03-24T16:40:57.510Z
 author: Adly Lakhdar
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - virtualization
+  - private cloud
+  - VM Essentials
 ---
 This is the first installment in a four-part series exploring the evolution of the intelligent private cloud. From the foundation provided through virtualization to AI-driven automation, each blog post will examine a critical aspect of building a modern, efficient, and scalable private cloud infrastructure.
 
