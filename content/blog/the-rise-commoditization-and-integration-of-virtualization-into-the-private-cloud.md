@@ -50,7 +50,7 @@ Let’s explore the HPE model a bit more, where open-core virtualization acts as
 
 It is worth noting that both virtualization and containerization share foundational similarities, leveraging the Linux kernel’s namespaces, cgroups, SELinux, AppArmor, iptables, systemd, and OverlayFS for isolation, security, and resource management. While virtualization relies on KVM (kernel module) with user-space QEMU, containerization uses Kubernetes, Docker, and Ceph in user space, built on the same Linux primitives.
 
-![Virtualization and containerization](/img/hand-drawn-k8s-larger.png "Virtualization and containerization")
+![Virtualization and containerization](/img/hand-drawn-k8s-larger-2.png "Virtualization and containerization")
 
 This approach allows efficient resource allocation and high-density application hosting on high-density servers. These technologies have now been fully commoditized at the platform level, ensuring seamless integration into private cloud environments.
 
