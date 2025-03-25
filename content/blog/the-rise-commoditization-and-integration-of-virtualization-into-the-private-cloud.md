@@ -3,7 +3,7 @@ title: The rise, commoditization, and integration of virtualization into the
   private cloud
 date: 2025-03-24T16:40:57.510Z
 author: Adly Lakhdar
-authorimage: /img/rise-of-virtualization-blogpost-192.jpg
+authorimage: /img/adly-picture-2-192.jpg
 disable: false
 tags:
   - virtualization
