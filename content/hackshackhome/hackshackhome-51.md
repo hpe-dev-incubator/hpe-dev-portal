@@ -1,7 +1,8 @@
 ---
 title: DayN+ - A new way to look at observability
+active: true
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn/
+path: https://hpe.zoom.us/webinar/register/3017430703559/WN_5Mos2c_qQNSxAdrhkGbvxw
 imageBackground: white
 description: "April 16, 2025: Join this session to learn how an effective
   observability practice integrates people, processes, and tools to foster
