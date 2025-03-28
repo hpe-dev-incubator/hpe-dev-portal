@@ -174,7 +174,7 @@ Another detail in the playbook that might need clarification is that the Test_DB
 
 The last few output lines of the playbook reveal that the database was deployed and tested properly.
 
-```
+```shell
 ...
 +---------+--------+
 | summary | result |
@@ -196,7 +196,7 @@ mariadb-legacy             : ok=15   changed=2    unreachable=0    failed=0    s
 
 Once the prerequisites have been installed, we can also inspect the hypervisor platform each VM is running on, to ensure what we’re doing is actually being executed where we expect it.
 
-```
+```shell
 $ ansible -m command all -b -a virt-what
 mariadb-legacy | CHANGED | rc=0 >>
 vmware
@@ -267,7 +267,7 @@ So, where does “dat-mariadbl-56480669” come from? It’s the storage array v
 
 Create the PVC and attach the PVC as a disk to the running KubeVirt VM.
 
-```
+```shell
 $ kubectl create -f pvc-clone.yaml
 ```
 
@@ -321,7 +321,7 @@ Once attached, a “migrate” playbook will mount the disk in inside the VM and
 
 Executing the playbook should reveal the test results and we can visually inspect the database is actually running on the KubeVirt VM.
 
-```
+```shell
 ...
 +---------+--------+
 | summary | result |
@@ -364,7 +364,7 @@ In the OKD UI, detach the volume and delete the PVC.
 
 ![](/img/detach-disk.png "Detach disk from VM")
 
-```
+```shell
 $ kubectl delete -f pvc-clone.yaml
 ```
 
@@ -394,13 +394,13 @@ spec:
 
 Create the PVC.
 
-```
+```shell
 $ kubectl create -f pvc-migrate.yaml
 ```
 
 Now, repeat the step within OKD to attach the PVC as a disk to the running VM. Once attached, run the “migrate” playbook.
 
-```
+```shell
 ...
 +---------+--------+
 | summary | result |
