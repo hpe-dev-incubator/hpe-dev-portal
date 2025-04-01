@@ -4,7 +4,7 @@ version: "1.0"
 description: HPE GreenLake Flex Solutions provide an advanced
   software-as-a-service platform and consumption-based solution that provides
   insights and controls to manage hybrid IT estate.
-image: /img/greenlake/dscc-icon-transparent.png
+image: /img/greenlake/background-image-1.png
 width: large
 priority: 2
 active: "true"
