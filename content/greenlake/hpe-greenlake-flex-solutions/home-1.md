@@ -43,6 +43,7 @@ h4 {
    font-size: 22px;
    margin-top: 20px;
    font-weight: bold;
+   white-space: nowrap;
 }
 a {
    color: #007BFF;
