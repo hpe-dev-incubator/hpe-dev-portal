@@ -12,6 +12,15 @@ tags:
   - hpe-greenlake-flex-solutions
 ---
 <style>
+body {
+   margin: 0;
+   padding: 0;
+}
+.container {
+   margin: 0 auto;
+   padding: 0 0px;
+   max-width: 100%;
+}
 li {
    font-size: 20px;
    line-height: 28px;
@@ -26,9 +35,10 @@ h3 {
    padding-bottom: 5px;
 }
 h4 {
-   color: #005A8C;
+   color:rgb(67, 67, 69);
    font-size: 22px;
    margin-top: 20px;
+   white-space: nowrap;
 }
 a {
    color: #007BFF;
@@ -43,10 +53,16 @@ blockquote {
    color: #555;
    border-left: 4px solid #007B55;
    padding-left: 15px;
-   margin: 20px 0;
+   margin: 10px 0;
+   background-color: #f1f1f1;
+   padding: 5px;
+   border-radius: 5px;
+   font-size: 12px;
+   line-height: 18px;
 }
 </style>
 
+<div class="container">
 HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform and consumption-based solution that provides insights and controls to manage hybrid IT estate, through a consistent cloud experience for all applications and data — on-premises and public clouds. HPE GreenLake Flex Solutions give customers the ability to choose where and how to place the workloads and data, and enable customers to monitor security, capacity, resource utilization, and costs.
 
 <div style="text-align: center; margin: 20px 0;">
@@ -97,3 +113,4 @@ In this video, you can discover, observe, and optimize your entire hybrid IT env
 ### Any Questions About Hybrid Observability on HPE GreenLake Flex Solutions?
 
 Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
+</div>
