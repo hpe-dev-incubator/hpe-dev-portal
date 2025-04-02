@@ -13,53 +13,87 @@ tags:
 ---
 <style>
 li {
-   font-size: 27px;
-   line-height: 33px;
+   font-size: 18px;
+   line-height: 28px;
    max-width: none;
+   margin-bottom: 10px;
+}
+h2 {
+   color: #007B55;
+   font-size: 28px;
+   margin-top: 30px;
+   border-bottom: 2px solid #007B55;
+   padding-bottom: 5px;
+}
+h3 {
+   color: #005A8C;
+   font-size: 22px;
+   margin-top: 20px;
+}
+a {
+   color: #007BFF;
+   text-decoration: none;
+   font-weight: bold;
+}
+a:hover {
+   text-decoration: underline;
+}
+blockquote {
+   font-style: italic;
+   color: #555;
+   border-left: 4px solid #007B55;
+   padding-left: 15px;
+   margin: 20px 0;
 }
 </style>
 
 HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform and consumption-based solution that provides insights and controls to manage hybrid IT estate, through a consistent cloud experience for all applications and data — on-premises and public clouds. HPE GreenLake Flex Solutions give customers the ability to choose where and how to place the workloads and data, and enable customers to monitor security, capacity, resource utilization, and costs.
 
-[Learn more about HPE GreenLake Flex Solutions](https://www.hpe.com/us/en/hpe-greenlake-flex-solutions.html)
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://www.hpe.com/us/en/hpe-greenlake-flex-solutions.html" style="background-color: #007B55; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Learn more about HPE GreenLake Flex Solutions</a>
+</div>
 
+## Bundled Hybrid Observability
 
-## Bundled hybrid observability
+HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking physical devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage logical resources such as virtual machines, containers, and workloads running on the HPE GreenLake Flex Solutions hardware, and non-HPE GreenLake hardware, and public clouds.
 
-HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking physical devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage logical resources such as virtual machines, containers and workloads running on the HPE GreenLake Flex Solutions hardware, and non HPE GreenLake hardware, and public clouds. 
+> Hybrid observability, powered by [OpsRamp](https://www.hpe.com/us/en/opsramp.html) with an AI-powered analytics command center, simplifies, optimizes, and consolidates infrastructure operations and minimizes downtime through intelligent event management and automated incident response. Hybrid observability capabilities integrate with customer’s IT Service Management (ITSM) tools.
 
-Hybrid observability, powered by [OpsRamp](https://www.hpe.com/us/en/opsramp.html) with an AI-powered analytics command center, simplifies, optimizes and consolidates infrastructure operations and minimizes downtime through intelligent event management and automated incident response. Hybrid observability capabilities integrate with customer’s IT Service Management (ITSM) tools.
+## Learn from the Experts
 
+### Introduction to OpsRamp, the HPE Hybrid Observability Platform
 
-## Learn from the experts
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://www.youtube.com/watch?v=3Jp4MbsNydM">
+    <img src="https://img.youtube.com/vi/3Jp4MbsNydM/hqdefault.jpg" alt="OpsRamp hybrid observability platform" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+  </a>
+</div>
 
-### Introduction to OpsRamp, the HPE hybrid observability platform
+In this video, Manjunath M provides an overview of HPE's new hybrid observability offering as an integral part of the HPE GreenLake Flex Solutions.
 
-In this video, Manjunath M, provides an overview of HPE's new hybrid observability offering as an integral part of the HPE GreenLake Flex Solutions.
+### Hybrid Observability – Discovery and Monitoring
 
-[![OpsRamp hybrid observability platform](https://img.youtube.com/vi/3Jp4MbsNydM/hqdefault.jpg)](https://www.youtube.com/watch?v=3Jp4MbsNydM)
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://www.youtube.com/watch?v=OL_NxwHUIIw">
+    <img src="https://img.youtube.com/vi/OL_NxwHUIIw/hqdefault.jpg" alt="OpsRamp hybrid observability – discovery and monitoring" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+  </a>
+</div>
 
-### Hybrid observability – discovery and monitoring
+In this video, you can discover, observe, and optimize your entire hybrid IT environment from the data center to the cloud.
 
-In this video, you can discover, observe and optimize your entire hybrid IT environment from the data center to the cloud.
+## Getting Started with Hybrid Observability Activation
 
-[![OpsRamp hybrid observability – discovery and monitoring](https://img.youtube.com/vi/OL_NxwHUIIw/hqdefault.jpg)]( https://www.youtube.com/watch?v=OL_NxwHUIIw)
-
-## Getting started with hybrid observability activation
-
-[Provisioning and setting up OpsRamp ](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html&docLocale=en_US)
+- [Provisioning and Setting Up OpsRamp](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html&docLocale=en_US)
 
 ## Resources
 
-* [HPE GreenLake Flex Solutions user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us)
+<ul>
+  <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us">HPE GreenLake Flex Solutions User Guide</a></li>
+  <li><a href="https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow">HPE GreenLake Flex Solutions Briefcase</a></li>
+  <li><a href="https://developer.hpe.com/platform/hpe-opsramp/home/">OpsRamp APIs and Integration Capabilities</a></li>
+  <li><a href="https://glp.docs.opsramp.com/">OpsRamp Service on HPE GreenLake Cloud Documentation</a></li>
+</ul>
 
-* [HPE GreenLake Flex Solutions briefcase](https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow)
+## Any Questions About Hybrid Observability on HPE GreenLake Flex Solutions?
 
-* [OpsRamp APIs and integration capabilities](https://developer.hpe.com/platform/hpe-opsramp/home/)
-
-* [OpsRamp service on HPE GreenLake cloud documentation](https://glp.docs.opsramp.com/)
-
-
-## Any questions about hybrid observability on HPE GreenLake Flex Solutions?
-
-Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
+Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
