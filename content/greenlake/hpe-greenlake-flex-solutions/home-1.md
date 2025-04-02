@@ -15,30 +15,34 @@ tags:
 body {
    margin: 0;
    padding: 0;
+   font-family: 'Arial', sans-serif;
+   background-color: #f9f9f9;
+   color: #333;
 }
 .container {
    margin: 0 auto;
-   padding: 0 0px;
-   max-width: 100%;
+   padding: 20px;
+   max-width: 1200px;
+   background-color: #fff;
+   border-radius: 10px;
 }
 li {
    font-size: 20px;
    line-height: 28px;
-   max-width: none;
    margin-bottom: 10px;
 }
 h3 {
    color: #007B55;
    font-size: 28px;
    margin-top: 30px;
-   border-bottom: 2px solid #007B55;
-   padding-bottom: 5px;
+   border-bottom: 3px solid #007B55;
+   padding-bottom: 10px;
 }
 h4 {
-   color:rgb(67, 67, 69);
+   color: #444;
    font-size: 22px;
    margin-top: 20px;
-   white-space: nowrap;
+   font-weight: bold;
 }
 a {
    color: #007BFF;
@@ -53,64 +57,91 @@ blockquote {
    color: #555;
    border-left: 4px solid #007B55;
    padding-left: 15px;
-   margin: 10px 0;
+   margin: 20px 0;
    background-color: #f1f1f1;
-   padding: 5px;
+   padding: 10px;
    border-radius: 5px;
-   font-size: 12px;
-   line-height: 18px;
+   font-size: 16px;
+   line-height: 24px;
+}
+.button {
+   display: inline-block;
+   background-color: #007B55;
+   color: white;
+   padding: 12px 24px;
+   border-radius: 5px;
+   text-decoration: none;
+   font-size: 16px;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+}
+.button:hover {
+   background-color: #005a3c;
+}
+.image-container {
+   text-align: center;
+   margin: 20px 0;
+}
+.video-container {
+   position: relative;
+   text-align: center;
+   margin: 20px 0;
+   max-width: 800px; /* Set a maximum width for the video container */
+   margin-left: auto; /* Center the container */
+   margin-right: auto;
+}
+.video-container iframe {
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   width: 80%; /* Ensure the iframe takes up the full width of the container */
+   height: 350px; /* Increase the height for better aspect ratio */
+}
+ul {
+   padding-left: 20px;
 }
 </style>
 
 <div class="container">
-HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform and consumption-based solution that provides insights and controls to manage hybrid IT estate, through a consistent cloud experience for all applications and data — on-premises and public clouds. HPE GreenLake Flex Solutions give customers the ability to choose where and how to place the workloads and data, and enable customers to monitor security, capacity, resource utilization, and costs.
+  <p>HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform and consumption-based solution that provides insights and controls to manage hybrid IT estate, through a consistent cloud experience for all applications and data — on-premises and public clouds. HPE GreenLake Flex Solutions give customers the ability to choose where and how to place the workloads and data, and enable customers to monitor security, capacity, resource utilization, and costs.</p>
 
 <div style="text-align: center; margin: 20px 0;">
   <a href="https://www.hpe.com/us/en/hpe-greenlake-flex-solutions.html" style="background-color: #007B55; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Learn more about HPE GreenLake Flex Solutions</a>
 </div>
 
-### Bundled Hybrid Observability
+  <h3>Bundled Hybrid Observability</h3>
+  <p>HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking physical devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage logical resources such as virtual machines, containers, and workloads running on the HPE GreenLake Flex Solutions hardware, and non-HPE GreenLake hardware, and public clouds.</p>
 
-HPE GreenLake Flex Solutions provide hybrid observability across compute, storage, networking physical devices that is an integral part of the HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand the hybrid observability capabilities to manage logical resources such as virtual machines, containers, and workloads running on the HPE GreenLake Flex Solutions hardware, and non-HPE GreenLake hardware, and public clouds.
+  <blockquote>
+    Hybrid observability, powered by <a href="https://www.hpe.com/us/en/opsramp.html">OpsRamp</a> with an AI-powered analytics command center, simplifies, optimizes, and consolidates infrastructure operations and minimizes downtime through intelligent event management and automated incident response. Hybrid observability capabilities integrate with customer’s IT Service Management (ITSM) tools.
+  </blockquote>
 
-> Hybrid observability, powered by [OpsRamp](https://www.hpe.com/us/en/opsramp.html) with an AI-powered analytics command center, simplifies, optimizes, and consolidates infrastructure operations and minimizes downtime through intelligent event management and automated incident response. Hybrid observability capabilities integrate with customer’s IT Service Management (ITSM) tools.
+  <h3>Learn from the Experts</h3>
 
-### Learn from the Experts
+  <h4>Introduction to OpsRamp, the HPE Hybrid Observability Platform</h4>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/3Jp4MbsNydM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <p>In this video, Manjunath M provides an overview of HPE's new hybrid observability offering as an integral part of the HPE GreenLake Flex Solutions.</p>
 
-#### Introduction to OpsRamp, the HPE Hybrid Observability Platform
+  <h4>Hybrid Observability – Discovery and Monitoring</h4>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/OL_NxwHUIIw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <p>In this video, you can discover, observe, and optimize your entire hybrid IT environment from the data center to the cloud.</p>
 
-<div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.youtube.com/watch?v=3Jp4MbsNydM">
-    <img src="https://img.youtube.com/vi/3Jp4MbsNydM/hqdefault.jpg" alt="OpsRamp hybrid observability platform" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-  </a>
-</div>
+  <h3>Getting Started with Hybrid Observability Activation</h3>
+  <ul>
+    <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html&docLocale=en_US">Provisioning and Setting Up OpsRamp</a></li>
+  </ul>
 
-In this video, Manjunath M provides an overview of HPE's new hybrid observability offering as an integral part of the HPE GreenLake Flex Solutions.
+  <h3>Resources</h3>
+  <ul>
+    <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us">HPE GreenLake Flex Solutions User Guide</a></li>
+    <li><a href="https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow">HPE GreenLake Flex Solutions Briefcase</a></li>
+    <li><a href="https://developer.hpe.com/platform/hpe-opsramp/home/">OpsRamp APIs and Integration Capabilities</a></li>
+    <li><a href="https://glp.docs.opsramp.com/">OpsRamp Service on HPE GreenLake Cloud Documentation</a></li>
+  </ul>
 
-#### Hybrid Observability – Discovery and Monitoring
-
-<div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.youtube.com/watch?v=OL_NxwHUIIw">
-    <img src="https://img.youtube.com/vi/OL_NxwHUIIw/hqdefault.jpg" alt="OpsRamp hybrid observability – discovery and monitoring" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-  </a>
-</div>
-
-In this video, you can discover, observe, and optimize your entire hybrid IT environment from the data center to the cloud.
-
-### Getting Started with Hybrid Observability Activation
-
-- [Provisioning and Setting Up OpsRamp](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html&docLocale=en_US)
-
-### Resources
-
-<ul>
-  <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us">HPE GreenLake Flex Solutions User Guide</a></li>
-  <li><a href="https://www.hpe.com/psnow/doc/a50010620enw?jumpid=in_pdfviewer-psnow">HPE GreenLake Flex Solutions Briefcase</a></li>
-  <li><a href="https://developer.hpe.com/platform/hpe-opsramp/home/">OpsRamp APIs and Integration Capabilities</a></li>
-  <li><a href="https://glp.docs.opsramp.com/">OpsRamp Service on HPE GreenLake Cloud Documentation</a></li>
-</ul>
-
-### Any Questions About Hybrid Observability on HPE GreenLake Flex Solutions?
-
-Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel. You can also email [hpedev@hpe.com](mailto:hpedev@hpe.com).
+  <h3>Any Questions About Hybrid Observability on HPE GreenLake Flex Solutions?</h3>
+  <p>Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the <a href="https://developer.hpe.com/slack-signup/">HPE Developer Community Slack Workspace</a> and start a discussion in our <a href="https://hpedev.slack.com/archives/C08K4GV7YN5">#hpe-greenlake-flex-observability</a> Slack channel. You can also email <a href="mailto:hpedev@hpe.com">hpedev@hpe.com</a>.</p>
 </div>
