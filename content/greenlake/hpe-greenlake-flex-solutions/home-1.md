@@ -86,15 +86,15 @@ blockquote {
    position: relative;
    text-align: center;
    margin: 20px 0;
-   max-width: 800px; /* Set a maximum width for the video container */
-   margin-left: auto; /* Center the container */
+   max-width: 800px;
+   margin-left: auto;
    margin-right: auto;
 }
 .video-container iframe {
    border-radius: 10px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   width: 80%; /* Ensure the iframe takes up the full width of the container */
-   height: 350px; /* Increase the height for better aspect ratio */
+   width: 80%;
+   height: 350px;
 }
 ul {
    padding-left: 20px;
