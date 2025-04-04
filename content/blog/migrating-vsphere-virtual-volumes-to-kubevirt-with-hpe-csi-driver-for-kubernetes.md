@@ -12,15 +12,15 @@ tags:
   - kubevirt
   - vmware
 ---
-When we talk about moving to the cloud and the advent repatriation there’s no denying that data has gravity. Sometimes we refer to this phenomenon as Hotel California. Without a doubt, this concept spring to mind when we think about migrating virtual machines (VMs) within our private cloud between hypervisors. Is your data captive by your legacy virtual infrastructure? The most likely answer we’ll get, is: -”It depends”.
+When we talk about moving to the cloud and the in the advent of cloud repatriation there’s no denying that data has gravity. Sometimes we refer to this phenomenon as "Hotel California" referencing the American rock band song by the Eagles about being held captive within a hotel. Without a doubt, this concept springs to mind when we think about migrating virtual machines (VMs) within our private cloud between hypervisors. Is your data being held captive by your legacy virtual infrastructure? The most likely answer is "It depends". 
 
-There are plenty of migration tools and options out there that will assist application owners to either copy data out, restore from a backup, or similar. This works great for small workloads with a handful of gigabytes and the downtime occurring while making the transaction isn’t very significant thus can be performed within existing Service Level Agreements (SLA).
+There are plenty of migration tools and options out there that will assist application owners to either copy data out, restore from a backup, or similar. This works great for small workloads with a handful of gigabytes. The downtime involved while making the transaction isn't very significant and can thus be performed within existing Service Level Agreements (SLA).
 
-In the scenario where we have a large virtual file server with a complex file structure of tiny files where everyone knows that copying or restoring the file structure alone would take days and incremental updates would take hours to traverse. How do we tackle this challenge?
+Consider the scenario where you have a large virtual file server with a complex file structure of tiny files where everyone knows that copying or restoring the file structure alone would take days and incremental updates would take hours to traverse. How do you tackle this challenge?
 
 ![](/img/intro.png "Migration workflow")
 
-In this blog we’ll revisit the concept of [Lift and Transform Apps with HPE CSI Driver for Kubernetes](https://developer.hpe.com/blog/lift-and-transform-apps-with-hpe-csi-driver-for-kubernetes/) and apply this same methodology migrating large data volumes from VMware vSphere to KubeVirt using native features of the HPE CSI Driver for Kubernetes with HPE Alletra Storage MP B10000.
+In this blog I’ll revisit the concept of [Lift and Transform Apps with HPE CSI Driver for Kubernetes](https://developer.hpe.com/blog/lift-and-transform-apps-with-hpe-csi-driver-for-kubernetes/) and I'll show you how to apply this same methodology in migrating large data volumes from VMware vSphere to KubeVirt using native features of the HPE CSI Driver for Kubernetes with HPE Alletra Storage MP B10000.
 
 The intermediary clones of the source volume that is used to test migration before cutover is what makes the solution compelling and very powerful. Iteratively testing the migration workflow and carefully planning the cutover will prevent mishaps and unnecessary downtime that might occur with error prone copy and restore procedures.
 
@@ -32,13 +32,13 @@ This blog will go through each relevant step in detail. There’s also a short d
 
 In this scenario we’ll work with a VM that uses a separate data volume for a MariaDB database. There’s one Fedora VM running on vSphere and one Fedora VM running on KubeVirt. A sample test database is being deployed, cloned and migrated where it’s easy to validate the contents of database from an application perspective at each checkpoint.
 
-For full disclosure, the Ansible playbooks are being provided in this blog to better describe each step in the migration workflow. Since each application and environment will be different for each step of the way, it’s assumed that automation workflows to conduct the migration will be written according to the application’s best practices.
+For full disclosure, Ansible playbooks are being provided in this blog post to better describe each step in the migration workflow. Since each application and environment will be different for each step of the way, it’s assumed that automation workflows to conduct the migration will be written according to the application’s best practices.
 
 KubeVirt is running on OKD 4.17 (KubeVirt v1.3.1 and Kubernetes v1.30) and has HPE CSI Driver for Kubernetes v2.5.2 installed.
 
 # Environment
 
-The Ansible inventory consists of two VMs. One grouped as “kubevirt” and one grouped as “legacy” to distinguish which VM the plays are executed on. Both share a “common” group to allow certain prerequisites to be fulfilled on both VMs.
+The Ansible inventory consists of two VMs; one grouped as “kubevirt” and one grouped as “legacy” to distinguish which VM the plays are executed on. Both share a “common” group to allow certain prerequisites to be fulfilled on both VMs.
 
 The entire migration workflow can easily be done with Ansible but certain steps are illustrated with the respective platform’s graphical user interfaces for demonstrative purposes.
 
@@ -194,7 +194,7 @@ mariadb-kubevirt           : ok=6    changed=1    unreachable=0    failed=0    s
 mariadb-legacy             : ok=15   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-Once the prerequisites have been installed, we can also inspect the hypervisor platform each VM is running on, to ensure what we’re doing is actually being executed where we expect it.
+Once the prerequisites have been installed, you can also inspect the hypervisor platform each VM is running on to ensure what you're doing is actually being executed where expected.
 
 ```shell
 $ ansible -m command all -b -a virt-what
@@ -207,13 +207,13 @@ kvm
 
 # Preparing for the first failure
 
-What is being described in this blog is a perfectly canned example. In reality, the first experiment always fails. Maybe even the second, and third. The point is that it should be non-disruptive and easy to recover from the failures to iteratively improve as the migration is taken across the finish line with as short downtime as possible. What happens before the cutover may take days and weeks of planning and risk free test execution.
+What is being described in this blog is a perfectly canned example. In reality, the first experiment always fails. Maybe even the second, and third. The point is that it should be non-disruptive and easy to recover from the failures to iteratively improve as the migration is taken across the finish line with as brief downtime as possible. What happens before the cutover may take days and weeks of planning and risk-free test execution.
 
 In the first iteration, the vSphere vVol needs to be cloned into a PersistentVolume (PV) using a Persistent Volume Claim (PVC). The PVC is then attached to the KubeVirt VM as a disk.
 
-PVC creation may rely on pre-provisioned “static” PVs but more commonly a StorageClass is used to dynamically provision the PV. To allow the PV to clone a pree-xisting volume on the storage array the HPE CSI Driver for Kubernetes needs to be supplied a parameter with the corresponding volume name.
+PVC creation may rely on pre-provisioned “static” PVs but more commonly a StorageClass is used to dynamically provision the PV. To allow the PV to clone a pre-existing volume on the storage array, the HPE CSI Driver for Kubernetes needs to be supplied a parameter with the corresponding volume name.
 
-The CSI driver supports a construct that allows Kubernetes users to supply their own values to StorageClass parameters called “allowOverrides”. In this exercise we need to craft a StorageClass that allows users to influence the “importVolumeName” (used for migration) and “importVolAsClone” (used for cloning).
+The CSI driver supports a construct that allows Kubernetes users to supply their own values to StorageClass parameters called “allowOverrides”. For this exercise, you'll need to craft a StorageClass that allows users to influence the “importVolumeName” (used for migration) and “importVolAsClone” (used for cloning).
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -275,7 +275,7 @@ Next, login to OKD.
 
 ![](/img/attach-disk.png "Attach disk to VM")
 
-Once attached, a “migrate” playbook will mount the disk in inside the VM and fire up the database and test it.
+Once attached, a “migrate” playbook will mount the disk inside the VM and fire up the database and test it.
 
 ```yaml
 ---
@@ -319,7 +319,7 @@ Once attached, a “migrate” playbook will mount the disk in inside the VM and
       seconds: 10
 ```
 
-Executing the playbook should reveal the test results and we can visually inspect the database is actually running on the KubeVirt VM.
+Executing the playbook should reveal the test results and you can see the database is actually running on the KubeVirt VM.
 
 ```shell
 ...
@@ -372,7 +372,7 @@ Next, let’s migrate the workload permanently.
 
 # Finalizing
 
-The last step involves simply shutting down the source vSphere VM to ensure the source volume isn’t accessed. Once the VM is properly shutdown. Create a PVC with the “importVolumeName” annotation to move the volume out of the vVol datastore and make it into a PV.
+The last step involves simply shutting down the source vSphere VM to ensure the source volume isn’t accessed. Once the VM is properly shut down, create a PVC with the “importVolumeName” annotation to move the volume out of the vVol datastore and make it into a PV.
 
 ```yaml
 apiVersion: v1
@@ -419,13 +419,13 @@ PLAY RECAP *********************************************************************
 mariadb-kubevirt           : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-We should see identical results as during the cloning procedure.
+You should see identical results as during the cloning procedure.
 
 Next, delete the source VM in vCenter and plan the next migration.
 
 # Learn more
 
-We’ve barely scratched the surface of the HPE CSI Driver for Kubernetes features with HPE Alletra Storage MP B10000. The “allowOverrides” construct along with “importVolAsClone” and “importVolumeName” lends itself to many different use cases where data migration is one of them. Importing a “foreign” volume to Kubernetes enables sophisticated DevOps processes where terabytes of data can be made available to developers, data analysts and testing frameworks using CI/CD pipelines.
+I’ve barely scratched the surface of the HPE CSI Driver for Kubernetes features with HPE Alletra Storage MP B10000. The “allowOverrides” construct along with “importVolAsClone” and “importVolumeName” lends itself to many different use cases where data migration is one of them. Importing a “foreign” volume to Kubernetes enables sophisticated DevOps processes where terabytes of data can be made available to developers, data analysts, and testing frameworks using CI/CD pipelines.
 
 Visit [scod.hpedev.io](http://scod.hpedev.io) to learn more about the HPE CSI Driver for Kubernetes and neighboring technologies. Sign up to the [HPE Developer Community Slack](https://developer.hpe.com/slack-signup/) to interact with HPE staff and technologists from customers and partners.
 
