@@ -1,5 +1,6 @@
 ---
 title: HPE Private Cloud AI Technical Demo
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/6017435873902/WN_KHkca-7_REajLE5Z-JvDfw
 imageBackground: white
