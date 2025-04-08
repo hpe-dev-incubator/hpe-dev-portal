@@ -5,7 +5,7 @@ date: 2025-04-21T15:00:00.000Z
 featuredBlog: false
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
-disable: false
+disable: true
 tags:
   - kubernetes
   - storage
