@@ -42,19 +42,20 @@ Supports files, object, NoSQL databases, and streams
 
 #### What's a data fabric and how does it work?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qi6sTvu8osk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![What's a data fabric and how does it work?](https://img.youtube.com/vi/qi6sTvu8osk/hqdefault.jpg)](https://youtu.be/qi6sTvu8osk)
 
 #### Conquer hybrid data challenges 
 
-<iframe width="560" height="315" src="https://youtu.be/UAzGahA5Cc0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Conquer hybrid data challenges](https://img.youtube.com/vi/UAzGahA5Cc0/hqdefault.jpg)](https://youtu.be/UAzGahA5Cc0)
 
 #### Practical Erasure Coding in a Data Fabric
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Practical Erasure Coding in a Data Fabric](https://img.youtube.com/vi/-6IBKLiOb_Q/hqdefault.jpg)](https://youtu.be/-6IBKLiOb_Q)
 
 #### HPE Data Fabric Software demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ufPMtrDPvf0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![HPE Data Fabric Software demo](https://img.youtube.com/vi/ufPMtrDPvf0/hqdefault.jpg)](https://youtu.be/ufPMtrDPvf0)
 
 To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
 
