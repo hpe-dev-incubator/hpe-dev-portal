@@ -549,31 +549,55 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
      \>> \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
      
  
-- **Tip #8: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
+- **Tip #8: Embed a YouTube video (HPE Approved video) or other website video in a blog or in Platform page:**
 
-    * _**YouTube video that has gone through the HPE Marketing Asset Publishing (MAP) process:**_
+   * _**YouTube video that has gone through the HPE Marketing Asset Publishing (MAP) process:**_
   
     To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
     
-   * Go to your YouTube video URL.
-   * Select ***"Share"*** option just underneath the video frame.
-   * Select ***"Embed"*** option.
-   * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
-   * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
+  * Go to your YouTube video URL.
+  * Select ***"Share"*** option just underneath the video frame.
+  * Select ***"Embed"*** option.
+  * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
+  * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
 
   * _**YouTube video that has NOT gone through the MAP process:**_
 
      To be compliant with the HPE legal policies, proceed as follows:
     
-       * Go to your YouTube video URL.
-       * Get the video ID (after "watch?v=" in the address bar).
-       * Use the Markdown syntax below to insert the clickable thumbnail image and link it to the YouTube video:
+  * Go to your YouTube video URL.
+  * Get the video ID (after "watch?v=" in the address bar).
+  * Use the Markdown syntax below to insert the clickable thumbnail image and link it to the YouTube video:
     
     \[\!\[Brief description of your video\]\(https://img.youtube.com/vi/Video-ID/hqdefault.jpg)](YouTube Video URL)
 
        For Example:
     
     \[\!\[Zerto for Kubernetes\]\(https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
+
+  * _**Other website video that has NOT gone through the MAP process:**_
+
+     To be compliant with the HPE legal policies, proceed as follows:
+    
+  * Insert an image to the post or platform page as per Tip #5 (Go to Rich Text mode in the CMS editor).
+    Then, toggle on Markdown mode in the CMS editor.
+    This will allow you to get the relative path of the image you want to insert.
+          
+  * Next, you can mix markdown and HTML if you are careful to include **empty lines** as here:
+
+       \<a href="https://example.com" target="_blank"\>
+         
+       \!\[My image\](logo.png)
+
+       \</a>
+
+  _For example:_
+
+\<a href="https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132" target="_blank"\>
+
+\!\[Simplify AI from Infrastructure to Model\](/img/simplify-ai-from-infrastructure-to-model-deployment-500-281.png)
+
+\</a>
     
 - **Tip #9: Inserting Horizontal separator:**
 
@@ -773,6 +797,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
   | **HPE OpsRamp**                    | hpe-opsramp |
+  | **HPE Private Cloud AI**           | hpe-private-cloud-ai |
   | **HPE SimpliVity**                 | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
