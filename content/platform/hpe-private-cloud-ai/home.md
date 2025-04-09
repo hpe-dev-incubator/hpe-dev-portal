@@ -32,15 +32,22 @@ HPE Private Cloud AI is a pre-configured, end-to-end solution for enterprise AI 
 
 # Technical Demos
 
-### [Simplify AI from Infrastructure to Model Deployment](https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132)
+### Simplify AI from Infrastructure to Model Deployment
 
 Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the complexities of AI infrastructure, streamlines data pipelines, and simplifies model deployment.
+
+<a href="https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132" target="_blank">
+
+![Simplify AI from Infrastructure to Model](/img/simplify-ai-from-infrastructure-to-model-deployment-500-281.png)
+
+</a>
+
 
 ### Simplified AI pipelines in minutes
 
 This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
 
-### Fast track innovation: how HPE simplifies model deployment 
+### Fast track innovation: how HPE simplifies model deployment
 
 See how HPE AI Essentials simplifies the creation of powerful data pipelines using Apache Airflow and Apache Spark. 
 
