@@ -20,21 +20,21 @@ Supports files, object, NoSQL databases, and streams
 * [Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
 * [Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
 
+To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
+
 [HPE Ezmeral Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
 [API Documentation](https://docs.datafabric.hpe.com/home/) for app development.
 
-
-
 - - -
 
-## Tutorials on GitHub
+## GitHub tutorials
 
-* [Music Catalog: REST and GraphQL tutorial ![](Github)](https://github.com/mapr-demos/mapr-music)[](https://github.com/mapr-demos/mapr-smart-home)
-* [Smart Home: IoT tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
-* [Ezmeral Data Fabric for Predictive Maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
-* [Customer 360 View ![](Github)](https://github.com/mapr-demos/customer360)
-* [Application for Processing Stock Market Trade Data ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
+* [Music catalog: REST and GraphQL tutorial ![](Github)](https://github.com/mapr-demos/mapr-music)[](https://github.com/mapr-demos/mapr-smart-home)
+* [Smart home: IoT tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
+* [Predictive maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
+* [Customer 360 view ![](Github)](https://github.com/mapr-demos/customer360)
+* [Stock market trade data processing ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
 
 - - -
 
@@ -42,22 +42,23 @@ Supports files, object, NoSQL databases, and streams
 
 #### What's a data fabric and how does it work?
 
-
 [![What's a data fabric and how does it work?](https://img.youtube.com/vi/qi6sTvu8osk/hqdefault.jpg)](https://youtu.be/qi6sTvu8osk)
-
-#### Conquer hybrid data challenges 
-
-[![Conquer hybrid data challenges](https://img.youtube.com/vi/UAzGahA5Cc0/hqdefault.jpg)](https://youtu.be/UAzGahA5Cc0)
-
-#### Practical Erasure Coding in a Data Fabric
-
-[![Practical Erasure Coding in a Data Fabric](https://img.youtube.com/vi/-6IBKLiOb_Q/hqdefault.jpg)](https://youtu.be/-6IBKLiOb_Q)
 
 #### HPE Data Fabric Software demo
 
 [![HPE Data Fabric Software demo](https://img.youtube.com/vi/ufPMtrDPvf0/hqdefault.jpg)](https://youtu.be/ufPMtrDPvf0)
 
-To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
+#### HPE Data Fabric Software chalk talk
+
+[![HPE Data Fabric Software demo](https://img.youtube.com/vi/tE91W3DQuNU/hqdefault.jpg)](https://www.youtube.com/watch?v=tE91W3DQuNU)
+
+#### Practical Erasure Coding in a Data Fabric
+
+[![Practical Erasure Coding in a Data Fabric](https://img.youtube.com/vi/-6IBKLiOb_Q/hqdefault.jpg)](https://youtu.be/-6IBKLiOb_Q)
+
+#### Conquer hybrid data challenges
+
+[![Conquer hybrid data challenges](https://img.youtube.com/vi/UAzGahA5Cc0/hqdefault.jpg)](https://youtu.be/UAzGahA5Cc0)
 
 - - -
 
