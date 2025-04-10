@@ -80,6 +80,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on Data Fabric?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7)-software channel.
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-data-fabric-software](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
 
 Not a Slack user? You can also ask your questions in our [Data Fabric Forum](https://hpe.com/forum/ezmeral).
