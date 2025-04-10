@@ -9,6 +9,7 @@ priority: 2
 active: false
 tags:
   - hpe-ezmeral-data-fabric
+  - MapR
 ---
 <style>
 li {
