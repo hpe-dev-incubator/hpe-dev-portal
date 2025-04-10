@@ -10,6 +10,14 @@ active: false
 tags:
   - hpe-ezmeral-data-fabric
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 HPE Data Fabric Software is an intelligent data plane delivering on the needs of the hybrid data lakehouse through radically simplified management, control, and governance for analytic and AI applications across all enterprise storage assets. HPE Data Fabric Software allows you to conquer today’s hybrid challenges by replacing multiple point products with a single solution optimized for hybrid data analytics. Data Fabric helps users access, manage, organize, and govern enterprise data, across a variety of formats, in a single, consistent, easy to use, edge to cloud data plane optimized for AI and analytics workloads. 
 
 Built-in industry-standard APIs, languages, and protocols increase productivity by preserving existing access mechanisms without low-value refactoring.
@@ -57,10 +65,6 @@ To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the
 
 [![Practical Erasure Coding in a Data Fabric](https://img.youtube.com/vi/-6IBKLiOb_Q/hqdefault.jpg)](https://youtu.be/-6IBKLiOb_Q)
 
-#### Conquer hybrid data challenges
-
-[![Conquer hybrid data challenges](https://img.youtube.com/vi/UAzGahA5Cc0/hqdefault.jpg)](https://youtu.be/UAzGahA5Cc0)
-
 - - -
 
 ## Workshops-on-Demand
@@ -76,6 +80,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on Data Fabric?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7)-software channel.
 
 Not a Slack user? You can also ask your questions in our [Data Fabric Forum](https://hpe.com/forum/ezmeral).
