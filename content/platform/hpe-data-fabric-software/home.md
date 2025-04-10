@@ -19,6 +19,7 @@ Supports files, object, NoSQL databases, and streams
 * [Data Fabric file store](https://docs.datafabric.hpe.com/70/MapROverview/File-Store.html#MapR-XD)
 * [Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
 * [Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
+* [Data Fabric streams](https://docs.datafabric.hpe.com/70/MapROverview/c_mapr_streams.html)
 
 To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
 
@@ -73,8 +74,8 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 - - -
 
-## Any questions on Ezmeral Data Fabric?
+## Any questions on Data Fabric?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
 
-Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
+Not a Slack user? You can also ask your questions in our [Data Fabric Forum](https://hpe.com/forum/ezmeral).
