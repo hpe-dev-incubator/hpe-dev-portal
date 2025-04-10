@@ -8,6 +8,7 @@ thumbnailimage: /img/ai-.jpg
 disable: false
 tags:
   - "HPE Private Cloud AI "
+  - hpe-private-cloud-ai
 ---
 The demand for AI applications that deliver accurate, contextually relevant insights from enterprise data is rapidly increasing. However, the challenge of integrating fragmented, often sensitive, data into generative models remains a significant hurdle. 
 
@@ -15,7 +16,7 @@ To solve this, HPE introduces knowledge bases in HPE AI Essentials Software, the
 
 ![](/img/abhi-picture-1.png "HPE AI Essentials workflow to automate connecting LLMs to enterprise data")
 
-HPE AI Essentials simplifies the implementation of RAG by automating the critical steps involved with connecting LLMs to enterprise data. Users retain control over LLM selection and embedding model choice, while the platform manages the underlying infrastructure. AI Essentials automatically handles the conversion of diverse data formats into vector embeddings and ensure efficient storage and retrieval through a managed vector database. This approach allows developers to focus on application logic, rather than the intricacies of RAG pipeline management. 
+HPE AI Essentials simplifies the implementation of RAG by automating the critical steps involved with connecting Large Language Modules (LLM) to enterprise data. Users retain control over LLM selection and embedding model choice, while the platform manages the underlying infrastructure. AI Essentials automatically handles the conversion of diverse data formats into vector embeddings and ensure efficient storage and retrieval through a managed vector database. This approach allows developers to focus on application logic, rather than the intricacies of RAG pipeline management. 
 
 The platform manages the creation, storage, maintenance, and updates of vector embeddings, the numerical representations of semantic textual data. This automation simplifies data synchronization, allowing users to efficiently update source data. HPE AI Essentials Software provides granular control over the RAG pipeline through configurable parameters for chunking, retrieval, and response generation. This enables data science professionals to tailor a model's processing and understanding to specific use cases, resulting in improved retrieval accuracy and response coherence. 
 
@@ -33,20 +34,18 @@ To support applications requiring sophisticated, data-driven workflows, knowledg
 
 ![](/img/abhi-picture-5.png "Code to programmatically access knowledge base via endpoints ")
 
+SUMMARY
 
-
-Summary 
-
-Leverage HPE AI Essentials knowledge bases to streamline the development of data-driven AI applications. The platform automates key RAG pipeline components, including vector embedding management and data synchronization, \
-reducing operational overhead. Data scientists can focus on application logic and customization, utilizing programmable endpoints and the interactive playground for efficient development. For implementation details and API integration, refer \
+Leverage HPE AI Essentials knowledge bases to streamline the development of data-driven AI applications. The platform automates key RAG pipeline components, including vector embedding management and data synchronization \
+reducing operational overhead. Data scientists can focus on application logic and customization, utilizing programmable endpoints and the interactive playground for efficient development. For implementation details and API integration, refer\
 to the technical resources listed below. 
 
 Learn more: \
-**HPE Private Cloud AI Documentation** \
+**HPE Private Cloud AI Documentation**\
 [Administration Guide](https://hpe.com/support/PCAIUserGuide) \
 [HPE AI Essentials Software ](https://www.hpe.com/support/AIEDocs)
 
 **Tutorials - HPE AI Essentials** \
-[GitHub ](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.7.0)
+[Tutorials for HPE AI Essentials on HPE Private Cloud AI](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie16hen_us&page=Tutorials/Tutorials/Tutorials.html)[](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.7.0)
 
 ***[Technical Demo Video](https://urldefense.com/v3/__https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132__;!!NpxR!mn3lYgJh7f-fQZSmH5dZl7Y7h2hZIeT3gKczgnHPwFlq--DE5DaUk6vl4NICDe4VVOxfEOHURxLpt2mLl-k1k1F3$)***
