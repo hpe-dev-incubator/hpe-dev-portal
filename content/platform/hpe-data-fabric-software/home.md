@@ -10,6 +10,7 @@ active: false
 tags:
   - hpe-ezmeral-data-fabric
   - MapR
+  - hpe-ezmeral
 ---
 <style>
 li {
