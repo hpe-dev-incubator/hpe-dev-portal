@@ -76,4 +76,4 @@ In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI ar
 
 # Any questions about HPE Private Cloud AI?
 
-Need help getting started with the HPE Private Cloud AI, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our #hpe-private-cloud-ai Slack channel.
+Need help getting started with the HPE Private Cloud AI, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-private-cloud-ai](https://hpedev.slack.com/archives/C08MBCD6ER5) Slack channel.
