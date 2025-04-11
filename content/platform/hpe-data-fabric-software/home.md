@@ -31,9 +31,9 @@ Supports files, object, NoSQL databases, and streams
 * [Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
 * [Data Fabric streams](https://docs.datafabric.hpe.com/70/MapROverview/c_mapr_streams.html)
 
-To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
+To learn more about HPE Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
 
-[HPE Ezmeral Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
+[HPE Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
 [API Documentation](https://docs.datafabric.hpe.com/home/) for app development.
 
@@ -71,7 +71,7 @@ To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the
 
 ## Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Data Fabric workshops are available today.
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Data Fabric workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
