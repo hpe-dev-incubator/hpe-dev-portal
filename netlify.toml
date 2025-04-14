@@ -1,7 +1,7 @@
 # example netlify.toml
 [build]
   command = "yarn build"
-  functions = "functions"
+  functions = "./functions"
   publish = "public"
 
 [context.deploy-preview.environment]
@@ -20,9 +20,11 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer"
     Feature-Policy = "microphone 'none'; geolocation 'none'"
+    cache-control = "max-age=0,no-cache,no-store,must-revalidate"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
+
 [[redirects]]
 from = "/blog/kk0p3Y0r5Yh7JrqoqQ2Z/mapr-database-spark-connector-with-secondary-indexes-support"
 to = "/blog/mapr-database-spark-connector-with-secondary-indexes-support"
