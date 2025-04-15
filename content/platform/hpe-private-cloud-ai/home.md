@@ -47,11 +47,13 @@ Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the com
 
 See how HPE AI Essentials simplifies the creation of powerful data pipelines using Apache Airflow and Apache Spark. 
 
-[![Simplify Data Pipelines:](https://img.youtube.com/vi/e0IUMJKpqGg/hqdefault.jpg)](https://www.youtube.com/watch?v=e0IUMJKpqGg)
+[![Simplify Data Pipelines](https://img.youtube.com/vi/e0IUMJKpqGg/hqdefault.jpg)](https://www.youtube.com/watch?v=e0IUMJKpqGg)
 
 ### Fast track innovation: how HPE simplifies model deployment
 
 This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
+
+[![Fast track innovation](https://img.youtube.com/vi/THeg2DwrF4c/hqdefault.jpg)](https://www.youtube.com/watch?v=THeg2DwrF4c)
 
 ### Building a generative AI foundation with HPE Private Cloud AI
 
