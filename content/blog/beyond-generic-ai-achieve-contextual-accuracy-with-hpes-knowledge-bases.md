@@ -52,5 +52,5 @@ Leverage HPE AI Essentials knowledge bases to streamline the development of data
 * **[Administration Guide](https://hpe.com/support/PCAIUserGuide)**
 * **[HPE AI Essentials Software ](https://www.hpe.com/support/AIEDocs)**
 * **[Tutorials for HPE AI Essentials on HPE Private Cloud AI](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie16hen_us&page=Tutorials/Tutorials/Tutorials.html)**
-* [**GitHub Tutorials in HPE AI Essentials Software ![](Github)**](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.7.0)
+* **[GitHub Tutorials in HPE AI Essentials Software ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.7.0)**
 * **[Technical Demo Video](https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132)**
