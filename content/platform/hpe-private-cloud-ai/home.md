@@ -43,9 +43,11 @@ Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the com
 </a>
 
 
-### Simplified AI pipelines in minutes
+### Simplify Data Pipelines: HPE AI Essentials Demo for Data Teams
 
 See how HPE AI Essentials simplifies the creation of powerful data pipelines using Apache Airflow and Apache Spark. 
+
+[![Simplify Data Pipelines:](https://img.youtube.com/vi/e0IUMJKpqGg/hqdefault.jpg)](https://www.youtube.com/watch?v=e0IUMJKpqGg)
 
 ### Fast track innovation: how HPE simplifies model deployment
 
