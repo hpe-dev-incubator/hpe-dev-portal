@@ -8,6 +8,7 @@ import {
   BlogCard,
   Content,
   Layout,
+  LayoutSideBar,
   Markdown,
   SEO,
   SectionHeader,
@@ -67,9 +68,10 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags } = post.frontmatter;
-  return (
-    <Layout title={siteTitle}>
+  const { title, description, tags, sidebar, useLayoutSideBar } = post.frontmatter;
+
+  const content =(
+    <>
       <SEO title={title} description={description || excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive">
@@ -126,7 +128,29 @@ function PlatformTemplate({ data }) {
           />
         </Box>
       </Box>
-    </Layout>
+    </>
+  )
+  return useLayoutSideBar ? (
+    <LayoutSideBar
+      title={siteTitle}
+      sidebarContent={
+        sidebar && (
+          <ul>
+            {sidebar.map((item, index) => (
+              <li key={index}>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    >
+      {content}
+    </LayoutSideBar>
+  ) : (
+    <Layout title={siteTitle}>
+    {content}
+  </Layout>
   );
 }
 
@@ -220,6 +244,11 @@ export const pageQuery = graphql`
         description
         image
         tags
+        sidebar {
+          label
+          href
+        }
+        useLayoutSideBar
       }
       fields {
         slug

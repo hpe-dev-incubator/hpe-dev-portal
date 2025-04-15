@@ -5,6 +5,7 @@ import Hero from './Hero';
 import Header from './Header';
 import HighlightedText from './HighlightedText';
 import Layout from './Layout';
+import LayoutSideBar from './LayoutSideBar';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
@@ -32,6 +33,7 @@ export {
   Hero,
   HighlightedText,
   Layout,
+  LayoutSideBar,
   SEO,
   Share,
   SocialMedia,
