@@ -1,6 +1,6 @@
 ---
 title: DayN+ - A new way to look at observability
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3017430703559/WN_5Mos2c_qQNSxAdrhkGbvxw
 imageBackground: white
