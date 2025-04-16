@@ -4,7 +4,7 @@ dateStart: 2025-04-15T22:01:37.826Z
 dateEnd: 2025-04-16T21:30:37.839Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/3017430703559/WN_5Mos2c_qQNSxAdrhkGbvxw
+link: https://developer.hpe.com/campaign/munch-and-learn/
 width: large
 ---
 ## DayN+ - A new way to look at observability
