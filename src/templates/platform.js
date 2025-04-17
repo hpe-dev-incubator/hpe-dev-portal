@@ -139,6 +139,15 @@ function PlatformTemplate({ data }) {
             {sidebar.map((item, index) => (
               <li key={index}>
                 <a href={item.href}>{item.label}</a>
+                {item.items && item.items.length > 0 && (
+                  <ul style={{ paddingLeft: '10px' }}>
+                    {item.items.map((subItem, subIndex) => (
+                      <li key={subIndex}>
+                        <a href={subItem.href}>{subItem.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -247,6 +256,10 @@ export const pageQuery = graphql`
         sidebar {
           label
           href
+          items {
+            label
+            href
+          }
         }
         useLayoutSideBar
       }
