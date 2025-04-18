@@ -12,6 +12,6 @@ description: "April 30, 2025: This technical meetup will delve into the HPE
   (MLIS) and AI Essentials Solution Accelerators."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 2
+priority: 1
 image: /img/event-meetups-newlogo-400x400.png
 ---
