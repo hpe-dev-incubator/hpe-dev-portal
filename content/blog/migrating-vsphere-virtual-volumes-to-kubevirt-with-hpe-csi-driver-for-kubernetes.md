@@ -1,11 +1,11 @@
 ---
 title: Migrating vSphere Virtual Volumes to KubeVirt with HPE CSI Driver for
   Kubernetes
-date: 2025-04-21T15:00:00.000Z
+date: 2025-04-22T15:04:21.386Z
 featuredBlog: false
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
-disable: true
+disable: false
 tags:
   - kubernetes
   - storage
@@ -24,9 +24,9 @@ In this blog I’ll revisit the concept of [Lift and Transform Apps with HPE CSI
 
 The intermediary clones of the source volume that is used to test migration before cutover is what makes the solution compelling and very powerful. Iteratively testing the migration workflow and carefully planning the cutover will prevent mishaps and unnecessary downtime that might occur with error prone copy and restore procedures.
 
-This blog will go through each relevant step in detail. There’s also a short demo on YouTube that walks through the contents described below for readers who prefer a more audio-visual learning experience.
+This blog will go through each relevant step in detail. There’s also a [short demo on YouTube](https://www.youtube.com/embed/5PYROAFVD-A?si=UBBOMb2FXdAgJuKi) that walks through the contents described below for readers who prefer a more audio-visual learning experience.
 
-**Note to reviewer:** A YouTube video will be embedded here once available. Note the requested publication date of 4/21/25
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5PYROAFVD-A?si=UBBOMb2FXdAgJuKi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Assumptions
 
