@@ -4,6 +4,9 @@ date: 2025-04-22T10:24:51.208Z
 author: Adly Lakhdar
 authorimage: /img/adly-picture-2-192.jpg
 disable: false
+tags:
+  - private cloud
+  - triple-o loop
 ---
 <style>
 li {
@@ -39,7 +42,7 @@ These elements operate not as standalone silos, but as a tightly integrated syst
 
 To visualize how these elements function within the architecture, imagine the Triple-O Loop converted into horizontal layers, with each mapped to a role in the private cloud stack:
 
-![Elements to the Private Cloud](/img/adly-lakhdar-aligning-elements-img2.png "Elements to the Private Cloud")
+<center><img src="/img/adly-lakhdar-aligning-elements-img2.png" width="479" height="382" alt="Elements to the Private Cloud" title="Elements to the Private Cloud"></center>
 
 * **Top:** Optimize layer – intelligence and control plane with AI and compliance logic.
 * **Middle:** Orchestrate layer – automation and policy enforcement.
@@ -76,12 +79,11 @@ The observation layer is crucial for maintaining system awareness. It gathers an
 
 The optimization layer leverages AI to fine-tune resources and improve overall cost, performance, sustainability, and compliance. By continuously analyzing data, AI algorithms can dynamically adjust resource allocation, identify inefficiencies, and implement improvements. This ensures that the cloud environment remains optimized and compliant with regulatory and sustainability standards.
 
-
-![Agentic AI - Intelligence That Acts](/img/adly-lakhdar-agenti-ai-img3.png "Agentic AI - Intelligence That Acts")
+<center><img src="/img/adly-lakhdar-agenti-ai-img3.png" width="590" height="668" alt="Agentic AI - Intelligence That Acts" title="Agentic AI - Intelligence That Acts"></center>
 
 In a Venn diagram representation, the three elements — **Orchestrate**, **Observe**, and **Optimize** — form layered capabilities that interact continuously across the private cloud stack. Signals from observability trigger automation via orchestration, and insights generated through optimization feed both layers to refine behavior over time. 
 
-At the center of the Venn diagram, where all three capabilities intersect, lies the autonomous, agentic platform—a zone of continuous feedback and intelligent action. Here, AI agents monitor, decide, and execute in real time, creating a living, learning system that adapts dynamically to workload, policy, and mission demands.
+At the center of the Venn diagram, where all three capabilities intersect, lies the autonomous, agentic platform — a zone of continuous feedback and intelligent action. Here, AI agents monitor, decide, and execute in real time, creating a living, learning system that adapts dynamically to workload, policy, and mission demands.
 
 ## The Outcome: The Intelligent Private Cloud
 
@@ -107,7 +109,4 @@ The Intelligent Private Cloud represents more than just infrastructure — it is
 This transformation is critical for organizations seeking to stay ahead in an increasingly complex and fast-paced digital landscape. By embracing the principles of the Intelligent Private Cloud, enterprises can achieve unprecedented levels of efficiency, agility, and resilience.
 
 In my next blog post, I’ll do a deep dive into observability and AI-powered insight and show you the power of OpsRamp as demonstrated within this architecture.
-
-
-
 
