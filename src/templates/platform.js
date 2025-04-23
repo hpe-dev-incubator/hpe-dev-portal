@@ -256,10 +256,6 @@ export const pageQuery = graphql`
         sidebar {
           label
           href
-          items {
-            label
-            href
-          }
         }
         useLayoutSideBar
       }
