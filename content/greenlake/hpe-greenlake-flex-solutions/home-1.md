@@ -217,7 +217,7 @@ ul {
         </a>
       </td>
       <td style="border: 1px solid black; padding: 8px;" rowspan="4">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared Documents/GLCP Onboarding Project/OpsRamp on GL Flex Solutions/Blog Posts/HPE OpsRamp setup observability-integration-monitoring-blog series-part 3-draft 1.0 (WIP).docx?d=w02bba4011d26471386415e705d24b1fb&csf=1&web=1&e=4U0vAR">
+        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-integration-monitoring-blog%20series-part%203-draft%201.1%20(WIP).docx?d=w4a8d701a74cd43e29723eaddb380ac84&csf=1&web=1&e=mXDbDi">
           Hybrid observability – Enabling HPE OpsRamp monitoring of HPE GreenLake Flex Solutions infrastructure
         </a>
       </td>
