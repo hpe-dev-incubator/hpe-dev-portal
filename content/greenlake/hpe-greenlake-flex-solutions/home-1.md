@@ -7,11 +7,6 @@ sidebar:
     href: "/greenlake/hpe-greenlake-flex-solutions/why-greenLake-flex-solutions"
   - label: "Getting Started"
     href: "#learn-from-experts"
-    items:
-      - label: "Blog Tutorials"
-        href: "#blog-tutorials"
-      - label: "Video Tutorials"
-        href: "#video-tutorials"
   - label: "Resources"
     href: "#resources"
   - label: "Contacts"
