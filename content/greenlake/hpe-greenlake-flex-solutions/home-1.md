@@ -1,5 +1,5 @@
 ---
-# title: HPE GreenLake Flex Solutions
+title: HPE GreenLake Flex Solutions
 sidebar:
   - label: "Overview"
     href: "#overview"
