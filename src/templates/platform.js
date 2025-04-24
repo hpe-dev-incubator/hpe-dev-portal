@@ -84,7 +84,7 @@ function PlatformTemplate({ data }) {
               /> */}
           </Box>
           <Content gap="medium" margin={{ vertical: 'large' }}>
-            <Heading margin="none">{title}</Heading>
+            {!useLayoutSideBar && <Heading margin="none">{title}</Heading>}
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {blogs.length > 0 && tags && (
               <SectionHeader title="Related Blogs" color="border">
@@ -135,20 +135,26 @@ function PlatformTemplate({ data }) {
       title={siteTitle}
       sidebarContent={
         sidebar && (
-          <ul>
+          <ul className="sidebar">
             {sidebar.map((item, index) => (
-              <li key={index}>
-                <a href={item.href}>{item.label}</a>
-                {item.items && item.items.length > 0 && (
-                  <ul style={{ paddingLeft: '10px' }}>
-                    {item.items.map((subItem, subIndex) => (
-                      <li key={subIndex}>
-                        <a href={subItem.href}>{subItem.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
+              item.separator ? (
+                <li key={index} className="separator">
+                  <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
+                </li>
+              ) : (
+                <li key={index}>
+                  <a href={item.href}>{item.label}</a>
+                  {item.items && item.items.length > 0 && (
+                    <ul style={{ paddingLeft: '10px' }}>
+                      {item.items.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                          <a href={subItem.href}>{subItem.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              )
             ))}
           </ul>
         )
@@ -256,6 +262,7 @@ export const pageQuery = graphql`
         sidebar {
           label
           href
+          separator
           items {
             label
             href

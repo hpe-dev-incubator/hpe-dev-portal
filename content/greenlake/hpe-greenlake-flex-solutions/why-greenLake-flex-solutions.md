@@ -2,6 +2,9 @@
 title: Why Hybrid Observability?
 version: "1.0"
 sidebar:
+  - label: "Back to Overview"
+    href: "/greenlake/hpe-greenlake-flex-solutions/home-1"  
+  - separator: true
   - label: "Optimize Costs and Utilization"
     href: "#1-optimize-costs-and-utilization"
   - label: "Assure Uptime and Performance"
@@ -12,7 +15,16 @@ sidebar:
     href: "#4-simplify-compliance-and-governance"
 useLayoutSideBar: true
 ---
-
+<style>
+  ul.sidebar > li {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin: 15px;
+    margin-left: 5px; 
+  }
+</style>
 ### 1. Optimize Costs and Utilization
 Optimize resource utilization and forecast future requirements for more accurate budgeting, and drive better cost efficiencies and predictability.
 - Capacity and usage analytics
