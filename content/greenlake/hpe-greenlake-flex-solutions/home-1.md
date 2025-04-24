@@ -7,6 +7,13 @@ sidebar:
     href: "/greenlake/hpe-greenlake-flex-solutions/why-greenLake-flex-solutions"
   - label: "Getting Started"
     href: "#learn-from-experts"
+    items:
+      - label: "Provisioning and activation"
+        href: "#provisioning-activation"
+      - label: "Configuring client settings and gateways"
+        href: "#client-settings-gateway-configs"
+      - label: "Monitoring, integration, and dashboards"
+        href: "#monitoring-dashboards"
   - label: "Resources"
     href: "#resources"
   - label: "Contacts"
@@ -145,103 +152,117 @@ ul {
 <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
   <thead>
     <tr>
-      <td style="border: 1px solid black; padding: 8px; text-align: left;">**Video Tutorials**</td>
-      <td style="border: 1px solid black; padding: 8px; text-align: left;">**Blog Tutorials**</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">**Video Tutorials**</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">**Blog Tutorials**</td>
     </tr>
   </thead>
   <tbody>
-    <!-- Step 1-4 -->
+    <tr id="provisioning-activation">
+      <td colspan="2" style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold; background-color: #f1f1f1;">
+        Provisioning and activation
+      </td>
+    </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%201%20-%20v2%20-%20Provision%20OpsRamp%20service%20in%20your%20workspace.mp4?csf=1&web=1&e=zq923b">
-          <img src="/img/stepsflex/step1.png" alt="Step 1 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step1.png" alt="Step 1 Image" style="width: 80px; height: auto;"><br>
           Step 1: Provisioning the HPE OpsRamp service in your workspace
         </a>
       </td>
-      <td style="border: 1px solid black; padding: 8px;" rowspan="4">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/_layouts/15/Doc.aspx?sourcedoc=%7BAB19BA45-F0AE-4C2B-B4A6-407F92B8A1BC%7D&file=HPE%20OpsRamp%20Onboarding%20and%20activation%20guide%20-%20Blog%20post-%20Draft%202.0%20-%20for%20Review.docx&action=default&mobileredirect=true">
           Hybrid observability – HPE OpsRamp service provisioning and activation for HPE GreenLake Flex Solutions
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%202%20-%20v3%20-%20Activate%20OpsRamp%20subscription%20key%20in%20your%20workspace.mp4?csf=1&web=1&e=v79rBK">
-          <img src="/img/stepsflex/step2.png" alt="Step 2 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step2.png" alt="Step 2 Image" style="width: 80px; height: auto;"><br>
           Step 2: Activate HPE OpsRamp subscription key in your workspace
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
-        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%203%20-%20v3%20-%20Assign%20OpsRamp%20access%20roles%20for%20desired%20users.mp4?csf=1&web=1&e=OIDKuJ">
-          <img src="/img/stepsflex/step3.png" alt="Step 3 Image" style="width: 100px;"><br>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
+        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%203%20-%20v3%20-%20Assign%20OpsRamp%20access%20roles%20for desired users.mp4?csf=1&web=1&e=OIDKuJ">
+          <img src="/img/stepsflex/step3.png" alt="Step 3 Image" style="width: 80px; height: auto;"><br>
           Step 3: Assign OpsRamp access roles for desired users
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%204%20-%20v2%20-%20Launch%20the%20OpsRamp%20service%20from%20your%20workspace.mp4?csf=1&web=1&e=7PVnZx">
-          <img src="/img/stepsflex/step4.png" alt="Step 4 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step4.png" alt="Step 4 Image" style="width: 80px; height: auto;"><br>
           Step 4: Launching the HPE OpsRamp service from your workspace
         </a>
       </td>
     </tr>
+    <tr id="client-settings-gateway-configs">
+      <td colspan="2" style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold; background-color: #f1f1f1;">
+        Configuring client settings and gateways
+      </td>
+    </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%205%20-%20Preparing%20the%20client-user%20settings%20in%20OpsRamp.mp4?csf=1&web=1&e=RibBPf">
-          <img src="/img/stepsflex/step5.png" alt="Step 5 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step5.png" alt="Step 5 Image" style="width: 80px; height: auto;"><br>
           Step 5: Preparing the client/user settings in HPE OpsRamp
         </a>
       </td>
-      <td style="border: 1px solid black; padding: 8px;" rowspan="2">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="2">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared Documents/GLCP Onboarding Project/OpsRamp on GL Flex Solutions/Blog Posts/HPE OpsRamp setup observability-initial setup-blog series-part 2-draft 1.0.docx?d=w96fc16610b304782a917089e9757e80c&csf=1&web=1&e=puzqRr">
           Hybrid observability – HPE OpsRamp initial configuration to enable discovery of HPE GreenLake Flex Solution infrastructure
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%206%20-%20v2%20-%20Configuring%20a%20Gateway%20in%20OpsRamp.mp4?csf=1&web=1&e=aZDEJQ">
-          <img src="/img/stepsflex/step6.png" alt="Step 6 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step6.png" alt="Step 6 Image" style="width: 80px; height: auto;"><br>
           Step 6: Configuring a Gateway in HPE OpsRamp
         </a>
       </td>
     </tr>
+    <tr id="monitoring-dashboards">
+      <td colspan="2" style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold; background-color: #f1f1f1;">
+        Monitoring, integration, and dashboards
+      </td>
+    </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%207.mp4">
-          <img src="/img/stepsflex/step6.png" alt="Step 7 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step6.png" alt="Step 7 Image" style="width: 80px; height: auto;"><br>
           Step 7: Agentless SSH integration and monitoring templates
         </a>
       </td>
-      <td style="border: 1px solid black; padding: 8px;" rowspan="4">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-integration-monitoring-blog%20series-part%203-draft%201.1%20(WIP).docx?d=w4a8d701a74cd43e29723eaddb380ac84&csf=1&web=1&e=mXDbDi">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
+        <a href="https://glp.docs.opsramp.com/">
           Hybrid observability – Enabling HPE OpsRamp monitoring of HPE GreenLake Flex Solutions infrastructure
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%208.mp4">
-          <img src="/img/stepsflex/step6.png" alt="Step 8 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step6.png" alt="Step 8 Image" style="width: 80px; height: auto;"><br>
           Step 8: Redfish integration
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%209.mp4">
-          <img src="/img/stepsflex/step6.png" alt="Step 9 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step6.png" alt="Step 9 Image" style="width: 80px; height: auto;"><br>
           Step 9: Storage integration
         </a>
       </td>
     </tr>
     <tr>
-      <td style="border: 1px solid black; padding: 8px;">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%2010.mp4">
-          <img src="/img/stepsflex/step6.png" alt="Step 10 Image" style="width: 100px;"><br>
+          <img src="/img/stepsflex/step6.png" alt="Step 10 Image" style="width: 80px; height: auto;"><br>
           Step 10: Creating a customized dashboard
         </a>
       </td>
