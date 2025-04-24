@@ -12,7 +12,7 @@ tags:
   - kubevirt
   - vmware
 ---
-When we talk about moving to the cloud and the in the advent of cloud repatriation there’s no denying that data has gravity. Sometimes we refer to this phenomenon as "Hotel California" referencing the American rock band song by the Eagles about being held captive within a hotel. Without a doubt, this concept springs to mind when we think about migrating virtual machines (VMs) within our private cloud between hypervisors. Is your data being held captive by your legacy virtual infrastructure? The most likely answer is "It depends". 
+When we talk about moving to the cloud and in the advent of cloud repatriation there’s no denying that data has gravity. Sometimes we refer to this phenomenon as "Hotel California" referencing the American rock band song by the Eagles about being held captive within a hotel. Without a doubt, this concept springs to mind when we think about migrating virtual machines (VMs) within our private cloud between hypervisors. Is your data being held captive by your legacy virtual infrastructure? The most likely answer is "It depends". 
 
 There are plenty of migration tools and options out there that will assist application owners to either copy data out, restore from a backup, or similar. This works great for small workloads with a handful of gigabytes. The downtime involved while making the transaction isn't very significant and can thus be performed within existing Service Level Agreements (SLA).
 
