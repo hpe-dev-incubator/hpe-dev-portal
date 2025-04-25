@@ -24,5 +24,3 @@ The Warranty Check API enables easy integration of HPE support search into the u
 
 ### API authentication and authorization
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3Jp4MbsNydM?si=XjBDbnwpYVzkRmS5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
