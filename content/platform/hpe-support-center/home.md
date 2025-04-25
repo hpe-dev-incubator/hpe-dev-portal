@@ -26,4 +26,4 @@ The Warranty Check API enables easy integration of HPE support search into the u
 
 [Authenticating against the API](https://warranty-check.redoc.ly/developer-portal/authentication/)
 
-
+[![Hybrid observability](https://img.youtube.com/vi/3Jp4MbsNydM/hqdefault.jpg)](https://www.youtube.com/watch?v=3Jp4MbsNydM)
