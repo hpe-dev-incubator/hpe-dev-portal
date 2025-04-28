@@ -115,9 +115,9 @@ ul {
   </div>
 
   <div class="video-container" style="flex: 1; max-width: 40%; min-width: 200px; text-align: center;">
-    <a href="https://www.youtube.com/watch?v=3Jp4MbsNydM" target="_blank">
-      <img src="https://img.youtube.com/vi/3Jp4MbsNydM/hqdefault.jpg" alt="HPE GreenLake Flex Solutions Video" style="width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    </a>
+      <a href="https://www.youtube.com/watch?v=3Jp4MbsNydM" target="_blank">
+        <img src="/img/stepsflex/main_video_img.png" alt="HPE GreenLake Flex Solutions Video" style="width: 80%; height: 200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+      </a>
   </div>
 </div>
 <div style="text-align: center; margin-top: -15px">
