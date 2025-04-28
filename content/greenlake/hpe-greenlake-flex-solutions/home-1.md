@@ -223,7 +223,7 @@ ul {
     </tr>
     <tr>
       <td style="border: 1px solid black; padding: 8px; text-align: center;">
-        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%207.mp4">
+        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%207%20-%20Agentless%20SSH%20integration%20and%20monitoring%20templates.mp4?csf=1&web=1&e=hgwNem">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 7 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 7: Agentless SSH integration and monitoring templates</span>
