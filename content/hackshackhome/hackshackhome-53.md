@@ -12,7 +12,7 @@ description: "May 21, 2025: Although IT sustainability is a top priority for
   dashboard featuring automated data feeds."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 2
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
 
