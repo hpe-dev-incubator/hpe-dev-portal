@@ -227,8 +227,8 @@ ul {
         </a>
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 7: Agentless SSH integration and monitoring templates</span>
       </td>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
-        <a href="https://glp.docs.opsramp.com/">
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">
+        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-integration-monitoring-agentless-ssh-blog%20series-part%203-draft%201.2-for%20review.docx?d=w4a8d701a74cd43e29723eaddb380ac84&csf=1&web=1&e=HB8UQb">
           Hybrid observability service – Enabling monitoring of agentless SSH-enabled system in HPE GreenLake Flex Solutions
         </a>
       </td>
@@ -239,6 +239,12 @@ ul {
           <img src="/img/stepsflex/video_img.jpg" alt="Step 8 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 8: Redfish Server integration and configuration</span>
+      </td>
+
+<td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="3">
+        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-physical-devices-blog%20series-part%204-draft%201.0%20(WIP).docx?d=w825e90fc45834d4abe2db993ac44fb1c&csf=1&web=1&e=HdF4Gt">
+          Hybrid observability service – Enabling monitoring of physical devices in HPE GreenLake Flex Solutions
+        </a>
       </td>
     </tr>
     <tr>
