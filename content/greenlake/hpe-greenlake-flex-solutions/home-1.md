@@ -106,7 +106,7 @@ ul {
 }
 </style>
 
-<h1 id='overview'>HPE GreenLake Flex Solutions</h1>
+<h1 id='overview'>Hybrid observability in HPE GreenLake Flex Solutions</h1>
 <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
   <div style="flex: 1; padding-right: 15px; min-width: 200px;">
     <p style="font-size: 22px;">
@@ -142,8 +142,8 @@ ul {
 <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
   <thead>
     <tr>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">\*\*Video Tutorials\*\*</td>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">\*\*Blog Tutorials\*\*</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">\\*\\*Video Tutorials\\*\\*</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">\\*\\*Blog Tutorials\\*\\*</td>
     </tr>
   </thead>
   <tbody>
