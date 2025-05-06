@@ -161,7 +161,7 @@ ul {
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/_layouts/15/Doc.aspx?sourcedoc=%7BAB19BA45-F0AE-4C2B-B4A6-407F92B8A1BC%7D&file=HPE%20OpsRamp%20Onboarding%20and%20activation%20guide%20-%20Blog%20post-%20Draft%202.0%20-%20for%20Review.docx&action=default&mobileredirect=true">
-          Hybrid observability – HPE OpsRamp service provisioning and activation for HPE GreenLake Flex Solutions
+          Hybrid observability service –  Provisioning and activation in HPE GreenLake Flex Solutions
         </a>
       </td>
     </tr>
@@ -203,7 +203,7 @@ ul {
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="2">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared Documents/GLCP Onboarding Project/OpsRamp on GL Flex Solutions/Blog Posts/HPE OpsRamp setup observability-initial setup-blog series-part 2-draft 1.0.docx?d=w96fc16610b304782a917089e9757e80c&csf=1&web=1&e=puzqRr">
-          Hybrid observability – HPE OpsRamp initial configuration to enable discovery of HPE GreenLake Flex Solution infrastructure
+          Hybrid observability service – Initial configuration to enable the discovery of resources in HPE GreenLake Flex Solutions 
         </a>
       </td>
     </tr>
@@ -229,7 +229,7 @@ ul {
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
         <a href="https://glp.docs.opsramp.com/">
-          Hybrid observability – Enabling HPE OpsRamp monitoring of HPE GreenLake Flex Solutions infrastructure
+          Hybrid observability service – Enabling monitoring of agentless SSH-enabled system in HPE GreenLake Flex Solutions
         </a>
       </td>
     </tr>
