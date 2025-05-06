@@ -1,32 +1,32 @@
 ---
-title: HPE GreenLake Flex Solutions
-sidebar:
-  - label: "Overview"
-    href: "#overview"
-  - label: "Getting Started"
-    href: "#learn-from-experts"
-    items:
-      - label: "Provisioning and activation"
-        href: "#provisioning-activation"
-      - label: "Configuring client settings and gateways"
-        href: "#client-settings-gateway-configs"
-      - label: "Monitoring, integration, and dashboards"
-        href: "#monitoring-dashboards"
-  - label: "Resources"
-    href: "#resources"
-  - label: "Contacts"
-    href: "#contact"
-useLayoutSideBar: true
-version: "1.0"
-description: HPE GreenLake Flex Solutions provide an advanced
-  software-as-a-service platform and consumption-based solution that provides
-  insights and controls to manage hybrid IT estate.
-image: /img/greenlake/background-image-1.png
 width: large
 priority: 2
 active: true
+useLayoutSideBar: true
+title: Hybrid observability in HPE GreenLake Flex Solutions
+version: "1.0"
+image: /img/greenlake/background-image-1.png
 tags:
   - hpe-greenlake-flex-solutions
+sidebar:
+  - label: Overview
+    href: "#overview"
+  - label: Getting Started
+    href: "#learn-from-experts"
+    items:
+      - label: Provisioning and activation
+        href: "#provisioning-activation"
+      - label: Configuring client settings and gateways
+        href: "#client-settings-gateway-configs"
+      - label: Monitoring, integration, and dashboards
+        href: "#monitoring-dashboards"
+  - label: Resources
+    href: "#resources"
+  - label: Contacts
+    href: "#contact"
+description: HPE GreenLake Flex Solutions provide an advanced
+  software-as-a-service platform and consumption-based solution that provides
+  insights and controls to manage hybrid IT estate.
 ---
 <style>
 li {
