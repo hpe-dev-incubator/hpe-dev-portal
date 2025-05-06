@@ -137,14 +137,13 @@ ul {
 </div>
 
   <h3 id="learn-from-experts">Getting Started</h3>
-  <p>Resources for Onboarding and Activating hybrid observability</p>
-
+  <p>Resources for onboarding, activating, and configuring the hybrid observability service</p>
 
 <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
   <thead>
     <tr>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">**Video Tutorials**</td>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">**Blog Tutorials**</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">\*\*Video Tutorials\*\*</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center;">\*\*Blog Tutorials\*\*</td>
     </tr>
   </thead>
   <tbody>
@@ -158,7 +157,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%201%20-%20v2%20-%20Provision%20OpsRamp%20service%20in%20your%20workspace.mp4?csf=1&web=1&e=zq923b">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 1 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 1: Provisioning the HPE OpsRamp service in your workspace</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 1: Provisioning the hybrid observability service in your workspace</span>
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/_layouts/15/Doc.aspx?sourcedoc=%7BAB19BA45-F0AE-4C2B-B4A6-407F92B8A1BC%7D&file=HPE%20OpsRamp%20Onboarding%20and%20activation%20guide%20-%20Blog%20post-%20Draft%202.0%20-%20for%20Review.docx&action=default&mobileredirect=true">
@@ -171,7 +170,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%202%20-%20v3%20-%20Activate%20OpsRamp%20subscription%20key%20in%20your%20workspace.mp4?csf=1&web=1&e=v79rBK">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 2 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 2: Activate HPE OpsRamp subscription key in your workspace</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 2: Activate hybrid observability  subscription key in your workspace</span>
       </td>
     </tr>
     <tr>
@@ -179,7 +178,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%203%20-%20v3%20-%20Assign%20OpsRamp%20access%20roles%20for desired users.mp4?csf=1&web=1&e=OIDKuJ">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 3 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 3: Assign OpsRamp access roles for desired users</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 3: Assign access roles for desired users</span>
       </td>
     </tr>
     <tr>
@@ -187,7 +186,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%204%20-%20v2%20-%20Launch%20the%20OpsRamp%20service%20from%20your%20workspace.mp4?csf=1&web=1&e=7PVnZx">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 4 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 4: Launching the HPE OpsRamp service from your workspace</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 4: Launching the hybrid observability service from your workspace</span>
       </td>
     </tr>
     <tr id="client-settings-gateway-configs">
@@ -200,7 +199,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%205%20-%20Preparing%20the%20client-user%20settings%20in%20OpsRamp.mp4?csf=1&web=1&e=RibBPf">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 5 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 5: Preparing the client/user settings in HPE OpsRamp</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 5: Preparing the client/user settings</span>
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="2">
         <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared Documents/GLCP Onboarding Project/OpsRamp on GL Flex Solutions/Blog Posts/HPE OpsRamp setup observability-initial setup-blog series-part 2-draft 1.0.docx?d=w96fc16610b304782a917089e9757e80c&csf=1&web=1&e=puzqRr">
@@ -213,7 +212,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%206%20-%20v2%20-%20Configuring%20a%20Gateway%20in%20OpsRamp.mp4?csf=1&web=1&e=aZDEJQ">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 6 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 6: Configuring a Gateway in HPE OpsRamp</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 6: Configuring a Gateway</span>
       </td>
     </tr>
     <tr id="monitoring-dashboards">
@@ -239,7 +238,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%208.mp4">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 8 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 8: Redfish integration</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 8: Redfish Server integration and configuration</span>
       </td>
     </tr>
     <tr>
@@ -247,7 +246,7 @@ ul {
         <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%209.mp4">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 9 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 9: Storage integration</span>
+        <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Step 9: Storage array integration and configuration</span>
       </td>
     </tr>
     <tr>
@@ -260,7 +259,6 @@ ul {
     </tr>
   </tbody>
 </table>
-
 
   <h3 id="resources">Additional Resources</h3>
   <ul>
