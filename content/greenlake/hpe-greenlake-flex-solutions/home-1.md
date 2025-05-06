@@ -142,8 +142,8 @@ ul {
 <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
   <thead>
     <tr>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">\\*\\*Video Tutorials\\*\\*</td>
-      <td style="border: 1px solid black; padding: 8px; text-align: center;">\\*\\*Blog Tutorials\\*\\*</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold;">Video Tutorials</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold;">Blog Tutorials</td>
     </tr>
   </thead>
   <tbody>
