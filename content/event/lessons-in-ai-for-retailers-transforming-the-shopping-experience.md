@@ -4,7 +4,7 @@ dateStart: 2025-05-13T22:01:47.026Z
 dateEnd: 2025-05-14T21:30:47.043Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://developer.hpe.com/campaign/get-real-with-ai-jam-series/
+link: https://hpe.zoom.us/webinar/register/5117468025974/WN_N_9zHDbIRlWfSAxC2ifj3g
 width: large
 ---
 ## Lessons in AI for retailers: Transforming the shopping experience
