@@ -9,6 +9,14 @@ tags:
   - edge
   - data gravity
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 > ***“Son, when I don’t have the data—people die.“***
 
 The room fell silent as a highly decorated Army colonel spoke about supporting frontline combat operations with real-time IT. His point landed hard: in the fog of war, data isn’t just a convenience—it’s a lifeline. Without it, decisions are delayed. And in combat, delays can cost lives.
