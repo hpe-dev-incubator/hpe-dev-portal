@@ -8,6 +8,8 @@ tags:
   - datacenter
   - edge
   - data gravity
+  - data
+  - AI
 ---
 <style>
 li {
