@@ -4,6 +4,10 @@ date: 2025-05-09T11:31:10.538Z
 author: Denis Vilfort
 authorimage: /img/denisvilfort_head_shot_2.png
 disable: false
+tags:
+  - datacenter
+  - edge
+  - data gravity
 ---
 > ***“Son, when I don’t have the data—people die.“***
 
