@@ -1,5 +1,5 @@
 ---
-title: "From Data Centers to Centers of Data: Navigating the Pull of Data Gravity"
+title: "From data centers to centers of data: Navigating the pull of data gravity"
 date: 2025-05-09T11:31:10.538Z
 author: Denis Vilfort
 authorimage: /img/denisvilfort_head_shot_2.png
@@ -33,7 +33,7 @@ But here’s the problem: traditional, centralized data center architectures can
 
 Today’s reality? **We’re generating too much data, too quickly, in too many places**. And that’s forcing us to rethink how, and where, we process it.
 
-**Enter: Data Gravity**
+**Enter: Data gravity**
 
 Data isn’t just growing—it’s anchoring itself, an effect referred to as ***data gravity***. Like a star with enough mass to pull planets into orbit, large datasets tend to attract everything around them: applications, services, even more data. And the larger the dataset, the harder—and more expensive—it becomes to move back to a centralized data center or public cloud availability zone for processing.
 
@@ -80,7 +80,7 @@ We need a new way to measure value in a data-driven world.
 
 **Try this:**
 
-***Data Mass/Processing Time = Business Value***
+***Data mass / Processing time = Business value***
 
 It’s not just about how much data you have—it’s about how quickly you can turn that data into decisions. And the infrastructure to support that transformation is finally here.
 
@@ -104,7 +104,7 @@ Too often, organizations treat all data the same, hoarding everything on an expe
 
 In other words: **keep your fast storage clean. Let cold data go**. Make room for what matters now.
 
-## Data Mass/Time to process X Probability of data reuse = Business Value
+## Data Mass / Time to process X Probability of data reuse = Business value
 
 For most data, the probability of data reuse declines exponentially over time. Fresh data generated now has a 100% chance of data use. But the same data set 60 days from now may have fallen to only a ten percent chance of data being accessed. This is a powerful insight.
 
