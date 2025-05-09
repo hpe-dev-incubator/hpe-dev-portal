@@ -23,7 +23,7 @@ The room fell silent as a highly decorated Army colonel spoke about supporting f
 
 It may sound extreme, but business leaders face a strikingly similar reality. When data is missing, late, or incomplete, decisions suffer. Opportunities are missed. Customers leave. Competitors surge ahead. Whether in warfare or in business, the equation remains simple: **data drives decisions—but only if it can be processed within time to matter**.
 
-In my [previous blog post](https://hybridcloud.hpecorp.net/blog/rise-of-distributed-enterprise), I described the rise of the distributed enterprise and how businesses are moving away from centralized data centers and embracing a model that brings technology closer to where value is created. In this post, I'll get into details about data gravity and the effect it has had on this shift.
+In my [previous blog post](https://developer.hpe.com/blog/the-rise-of-the-distributed-enterprise/), I described the rise of the distributed enterprise and how businesses are moving away from centralized data centers and embracing a model that brings technology closer to where value is created. In this post, I'll get into details about data gravity and the effect it has had on this shift.
 
 ## Ever expanding data—and why you can’t centralize your way out
 
@@ -38,8 +38,6 @@ Today’s reality? **We’re generating too much data, too quickly, in too many
 Data isn’t just growing—it’s anchoring itself, an effect referred to as ***data gravity***. Like a star with enough mass to pull planets into orbit, large datasets tend to attract everything around them: applications, services, even more data. And the larger the dataset, the harder—and more expensive—it becomes to move back to a centralized data center or public cloud availability zone for processing.
 
 Instead, the smarter, faster move is to **bring processing power to the data**, not the other way around.
-
-
 
 ![Data needed to make a business decision](https://hybridcloud.hpecorp.net/assets/data-needed-to-make-decisions.png "Data needed to make a business decision")
 
