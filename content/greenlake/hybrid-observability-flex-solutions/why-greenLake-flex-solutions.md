@@ -5,8 +5,6 @@ sidebar:
   - label: "Back to Overview"
     href: "/greenlake/hybrid-observability-flex-solutions/home"  
   - separator: true
-  - label: "Overview"
-    href: "#overview"  
   - label: "Optimize Costs and Utilization"
     href: "#1-optimize-costs-and-utilization"
   - label: "Assure Uptime and Performance"
