@@ -28,7 +28,7 @@ useLayoutSideBar: true
   }
 </style>
 <h1 id ="overview">Why Hybrid observability?</h1>
-IT operations teams need hybrid observability to gain unified visibility and insights across complex, distributed IT infrastructure environments. Hybrid observability enables faster issue detection and remediation, improved performance, and more efficient management. Hybrid observability within your GreenLake Flex solution is a powerful added-value service, delivered via an AI-powered SaaS-based application, to help your IT operations teams proactively ensure system performance and optimize infrastructure operating costs while improving process efficiencies.
+IT operations teams need hybrid observability to gain unified visibility and insights across complex, distributed IT infrastructure environments. Hybrid observability enables faster issue detection and remediation, improved performance, and more efficient management. Hybrid observability within your HPE GreenLake Flex solutions is a powerful added-value service, delivered via an AI-powered SaaS-based application, to help your IT operations teams proactively ensure system performance and optimize infrastructure operating costs while improving process efficiencies.
 
 ### 1. Optimize Costs and Utilization
 <div style="display: flex; align-items: flex-start; gap: 20px;">
