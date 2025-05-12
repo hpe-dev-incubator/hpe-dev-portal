@@ -4,7 +4,7 @@ dateStart: 2024-08-27T22:01:13.541Z
 dateEnd: 2024-08-28T21:59:13.556Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://www.youtube.com/watch?v=GpjCOrlYt0M&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=GpjCOrlYt0M&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## LLM finetuning for mere mortals

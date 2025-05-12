@@ -4,7 +4,7 @@ dateStart: 2024-11-05T23:01:42.730Z
 dateEnd: 2024-11-06T22:30:42.749Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://www.youtube.com/watch?v=7pGOYlA5eyI&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=7pGOYlA5eyI&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Implementing Your AI Breakthroughs Effectively - The Infrastructure to your AI
