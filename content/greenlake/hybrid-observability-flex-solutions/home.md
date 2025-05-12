@@ -130,7 +130,7 @@ ul {
       Hybrid observability – powered by HPE OpsRamp Software – comes standard for monitoring the compute, storage, and networking physical resources within your HPE GreenLake Flex Solutions. Customers can optionally purchase additional subscriptions to expand its capabilities across your hybrid environment – including virtual machines, containers, and workloads running on any manufacturer’s hardware.
   </p>
 <div style="text-align: center; margin: 20px 0;">
-  <a href="/greenlake/hpe-greenlake-flex-solutions/why-greenLake-flex-solutions" style="background-color: #01a982; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; target="_self>
+  <a href="/greenlake/hybrid-observability-flex-solutions/why-greenLake-flex-solutions" style="background-color: #01a982; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; target="_self>
     <strong>Why Hybrid Observability?</strong>
     <img src="/img/home/hpe-element.png" alt="HPE Element" style="height: 20px; width: auto;">
   </a>
