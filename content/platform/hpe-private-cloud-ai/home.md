@@ -64,9 +64,8 @@ In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI ar
 
 Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment.
 
-<a href="https://www.youtube.com/watch?v=5uRoHXD2Sks" target="_blank">
+[![HPE Private Cloud AI technical demo](https://img.youtube.com/vi/5uRoHXD2Sks/hqdefault.jpg)](https://www.youtube.com/watch?v=5uRoHXD2Sks)
 
-![HPE Private Cloud AI technical demo](/img/thumbnail-pcai-demo-500-281.png)
 
 # Resources
 
