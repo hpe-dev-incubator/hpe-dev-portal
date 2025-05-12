@@ -42,7 +42,6 @@ Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the com
 
 </a>
 
-
 ### Simplify Data Pipelines: HPE AI Essentials Demo for Data Teams
 
 See how HPE AI Essentials simplifies the creation of powerful data pipelines using Apache Airflow and Apache Spark. 
@@ -60,6 +59,13 @@ This demo showcases the built-in machine learning services that simplify and aut
 In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI architecture and infrastructure needed to deploy generative AI at enterprise scale.
 
 [![HPE Private Cloud AI architecture for GenAI](https://img.youtube.com/vi/AIG4-O9ZVRY/hqdefault.jpg)](https://www.youtube.com/watch?v=AIG4-O9ZVRY)
+
+### HPE Private Cloud AI technical demo
+
+Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment.
+
+[![HPE Private Cloud AI technical demo](https://img.youtube.com/vi/5uRoHXD2Sks/hqdefault.jpg)](https://www.youtube.com/watch?v=5uRoHXD2Sks)
+
 
 # Resources
 
@@ -80,4 +86,4 @@ In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI ar
 
 # Any questions about HPE Private Cloud AI?
 
-Need help getting started with the HPE Private Cloud AI, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [#hpe-private-cloud-ai](https://hpedev.slack.com/archives/C08MBCD6ER5) Slack channel.
+Need help getting started with the HPE Private Cloud AI, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-private-cloud-ai](https://hpedev.slack.com/archives/C08MBCD6ER5) Slack channel.
