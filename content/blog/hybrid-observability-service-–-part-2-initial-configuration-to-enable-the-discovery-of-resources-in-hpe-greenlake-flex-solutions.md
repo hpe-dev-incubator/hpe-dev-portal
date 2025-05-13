@@ -19,7 +19,7 @@ li {
 </style>
 
 
-In my previous blog post <hotlink to 1st blog post>, I covered the steps to provision and activate the hybrid observability service powered by HPE OpsRamp Software in a HPE GreenLake cloud workspace as part of the HPE GreenLake Flex Solutions. You must complete this initial step before configuring the hybrid observability service to enable the observability of your IT infrastructure resources.
+In [my previous blog post](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/), I covered the steps to provision and activate the hybrid observability service powered by HPE OpsRamp Software in a HPE GreenLake cloud workspace as part of the HPE GreenLake Flex Solutions. You must complete this initial step before configuring the hybrid observability service to enable the observability of your IT infrastructure resources.
 
 This is Part 2 of the blog series, and it explores the **initial configuration** of the hybrid observability service to **enable the discovery** of resources before they can be monitored, and metrics data collected from the resources. 
 As requirements to enable the discovery of physical resources included in your HPE GreenLake Flex Solutions contract, I’ll start setting up the hybrid observability service by:
