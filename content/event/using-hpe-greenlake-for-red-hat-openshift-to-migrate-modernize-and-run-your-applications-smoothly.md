@@ -5,7 +5,7 @@ dateStart: 2024-05-28T22:01:45.082Z
 dateEnd: 2024-05-29T21:59:45.112Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://www.youtube.com/watch?v=ScHOpRElCBE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=ScHOpRElCBE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Using HPE GreenLake for Red Hat OpenShift to migrate, modernize and run your applications smoothly

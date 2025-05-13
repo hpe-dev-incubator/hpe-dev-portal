@@ -1,6 +1,6 @@
 ---
 title: Missed a session? - Get the replay
-link: https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/playlist?list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 linkname: Watch now
 description: Browse our YouTube channel to view past technology talks.
 priority: 4

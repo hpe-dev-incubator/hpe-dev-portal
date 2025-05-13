@@ -4,7 +4,7 @@ dateStart: 2022-08-31T15:00:00.000Z
 dateEnd: 2022-08-31T16:00:00.000Z
 category: Virtual Event
 image: /img/Meetups_192_192.svg
-link: https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
+link: https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large
 ---
 ## OpenTelemetry: Getting Started and The Road to Production

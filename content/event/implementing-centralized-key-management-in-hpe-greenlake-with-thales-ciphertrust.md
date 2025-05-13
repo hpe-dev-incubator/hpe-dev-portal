@@ -5,7 +5,7 @@ dateStart: 2024-06-25T22:01:22.765Z
 dateEnd: 2024-06-26T21:59:22.829Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://www.youtube.com/watch?v=A77yVzNtIKs&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=A77yVzNtIKs&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Implementing Centralized Key Management in HPE GreenLake with Thales CipherTrust

@@ -157,9 +157,9 @@ In a highly distributed environment with diverse needs, cloud architects today a
 
   </div>
   <div class="column">
-    - [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+    - [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HewlettPackardEnterprise)
 
-    - [HPE GreenLake for Data Fabric](https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+    - [HPE GreenLake for Data Fabric](https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HewlettPackardEnterprise)
 
   </div>
 </div>
