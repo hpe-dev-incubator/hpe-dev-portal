@@ -1,12 +1,12 @@
 ---
 reverse: true
 author: " "
+category: Featured
 priority: 2
 active: true
 width: medium
 imageScale: 0.7
-title: HPE GreenLake API Portal
-category: Featured
+title: HPE GreenLake Developer Portal
 link: https://developer.greenlake.hpe.com/
 image: /img/home/HPE-GreenLake-Badge.png
 ---
