@@ -69,7 +69,7 @@ To create a new client account:
    * Select the **client account** from the list of clients. 
    * Click **Edit** button for the **ADDONS** section and enable the Add-ons. To learn more about the Add-ons, see the [HPE OpsRamp Hybrid Discovery and Monitoring documentation](https://glp.docs.opsramp.com/guides/component-model/#hybrid-discovery-and-monitoring).
 
-> **Note:** To enable client account Add-ons, make sure your HPE GreenLake Workspace details (name, address) do not contain any special characters. 
+> **Note:** To enable client account Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special characters. 
 
 ## Managing User Account
 
@@ -97,7 +97,7 @@ Resources need to be discovered before they can be monitored, and metrics collec
 
 With the hybrid observability service, you discover, monitor, and manage infrastructure resources (compute, storage, network) included in the HPE GreenLake Flex Solutions using an **agentless** method with a **gateway collector appliance** installed **within** your firewall environment. This appliance can be a virtual machine or a cloud-native application that runs on your own Kubernetes environment.
 
-To learn more about the gateway collector appliance installation and activation procedures, and deployment requirements, refer to the [HPE OpsRamp Platform documentation](ttps://glp.docs.opsramp.com/platform-features/).
+To learn more about the gateway collector appliance installation and activation procedures, and deployment requirements, refer to the [HPE OpsRamp Platform documentation](https://glp.docs.opsramp.com/platform-features/).
 
 There are two types of gateway collectors: 
 
