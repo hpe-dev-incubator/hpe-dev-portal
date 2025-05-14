@@ -18,7 +18,6 @@ li {
 }
 </style>
 
-
 In [my previous blog post](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/), I covered the steps to provision and activate the hybrid observability service powered by HPE OpsRamp Software in a HPE GreenLake cloud workspace as part of the HPE GreenLake Flex Solutions. You must complete this initial step before configuring the hybrid observability service to enable the observability of your IT infrastructure resources.
 
 This is Part 2 of the blog series, and it explores the **initial configuration** of the hybrid observability service to **enable the discovery** of resources before they can be monitored, and metrics data collected from the resources. 
@@ -33,12 +32,12 @@ In Part 3 of the blog series, I’ll explore how to enable the observability of 
 ## Creating a Client Account
 
 When the hybrid observability service powered by HPE OpsRamp is deployed in HPE GreenLake cloud by the **Workspace Administrator**, the service uses a **multi-tenant model** associated with a **partner account**. A partner account is the **master** tenant, including Clients who each have a client account. A Workspace Administrator is the user who created the workspace and has this role assigned by default, or invited users can get this role assigned by the Workspace Administrator.
- 
-In a multi-tenant model, a _client account_ is a tenant of a partner account. It represents a monitoring and management instance for an individual organization, a business unit, or a specific customer environment.
 
- > **Note:** By default, a _client account_ is created with the name of the HPE GreenLake workspace. You may want to create additional client accounts for an individual organization, business unit, or customer environment.
+In a multi-tenant model, a *client account* is a tenant of a partner account. It represents a monitoring and management instance for an individual organization, a business unit, or a specific customer environment.
 
-To start setting up the environment, log in to the service using an account provisioned with the _Partner Administrator_ role. The Workspace Administrator who provisioned the service in the HPE GreenLake cloud has this role assigned by default.  
+> **Note:** By default, a *client account* is created with the name of the HPE GreenLake workspace. You may want to create additional client accounts for an individual organization, business unit, or customer environment.
+
+To start setting up the environment, log in to the service using an account provisioned with the *Partner Administrator* role. The Workspace Administrator who provisioned the service in the HPE GreenLake cloud has this role assigned by default.  
 
 > **Note:** The other users with the OpsRamp Access role granted in the workspace will have the role GLP Invited Partner User assigned in the service.
 
@@ -46,34 +45,23 @@ To create a new client account:
 
 1. From the top navigation menu of HPE OpsRamp user interface, select **Setup > Setup**.
 
-[img 1]
+> **Note:** This feature will be made available under **Setup > Account** in an upcoming HPE OpsRamp release.
 
 2. Select **Clients** on the left navigation bar and click **+Add** to add a new client account. If this is the first client of your partner account, click **Create New**.
 
-[Img 2]
-
-> **Note:** This feature will be made available under **Setup > Account** in an upcoming HPE OpsRamp release.
-
-
-3. Enter the _Client Name_, _Address_, _Country_, and _Time Zone_. Contact email is also recommended. If you specify a client state, the length must be 3 characters maximum. Then click **Next**.
-
-[Img 3]
+3. Enter the *Client Name*, *Address*, *Country*, and *Time Zone*. Contact email is also recommended. If you specify a client state, the length must be 3 characters maximum. Then click **Next**.
 
 4. Keep the default selection for **Product Package** entries for Hybrid Discovery and Monitoring, Event and Incident Management, Remediation and Automation.
 
-[Img 5]
-
 5. Click **Finish**.
 
-6. Once the new client account is created, select the new client account from the list of **clients**.
-
-[Img 6]
+6. Once the new client account is created, select the new *client account* from the list of **Clients**.
 
 7. To see the new client and continue configuring the service, click **OpsRamp** icon on the upper left.
 
-> **Note:** Alternatively, you can log out from the service and log in again from your HPE GreenLake workspace, and then select the **Partner** domain for your organization. You should see the new client account, in our example, **DreamCompany**, on the list of clients. Select the client account to continue with the configuration of the hybrid observability service for the client account.
+> **Note:** Alternatively, you can log out from the service and log in again from your HPE GreenLake workspace, and then select the **Partner** domain for your organization. You should see the new client account, in our example, **DreamCompany**, on the list of clients. Select the *client account* to continue with the configuration of the hybrid observability service for the client account.
 
-[ Img 7]
+![Client Account](/img/opsramp-client-setup-img-6.png "Client Account")
 
 8. Enabling advanced add-ons for the client account, as per the client’s operational requirements, is recommended:
 
@@ -85,26 +73,22 @@ To create a new client account:
 
 ## Managing User Account
 
-The _Partner Administrator_ role is provided to the HPE GreenLake cloud user who provisioned the hybrid observability service in the workspace. Invited HPE GreenLake users with the _OpsRamp Access_ role granted in the workspace will have the role **GLP Invited Partner User** assigned in the service.
+The *Partner Administrator* role is provided to the HPE GreenLake cloud user who provisioned the hybrid observability service in the workspace. Invited HPE GreenLake users with the *OpsRamp Access* role granted in the workspace will have the role **GLP Invited Partner User** assigned in the service.
 
-1. When you log in to hybrid observability service user interface powered by HPE OpsRamp, ensure you have selected your partner organization on the top left menu.
+1. When you log in to hybrid observability service user interface powered by HPE OpsRamp, ensure you have selected your *partner organization* on the top left menu.
 
 2. From the top navigation menu, select **Setup > Account**.
 
-[Img 8]
-
 3. Select the **Users and Permissions** tile.
-
-[Img 9]
 
 4. Select the **Users** tile.
 
-5. Select an invited user who launched and logged in to the service to visualize the details description of the user and the roles. You will see the default role assigned to the user as **GLP Invited Partner User**. You can assign the role of Partner Administrator to an invited user.
+5. Select an invited user who launched and logged in to the service to visualize the details description of the user and the roles. You will see the default role assigned to the user as **GLP Invited Partner User**. You can assign the role of *Partner Administrator* to an invited user.
 
-In HPE GreenLake Flex Solutions, as _Partner Administrator_, you can manage accounts for your partner organization. You can create permissions sets, roles, user groups, and assign them to users who have been granted _OpsRamp Access_ role in your workspace and launched the hybrid observability service.
+In HPE GreenLake Flex Solutions, as *Partner Administrator*, you can manage accounts for your partner organization. You can create permissions sets, roles, user groups, and assign them to users who have been granted *OpsRamp Access* role in your workspace and launched the hybrid observability service.
 
-> **Note:** In HPE GreenLake Flex Solutions, you cannot assign roles to users at the client account level. 
-  
+> **Note:** In HPE GreenLake Flex Solutions, you cannot assign roles to users at the *client account* level. 
+
 To learn more about account management, refer to the [HPE OpsRamp Account Management documentation](https://glp.docs.opsramp.com/platform-features/feature-guides/account-management/).
 
 ## Installing and configuring a gateway collector appliance
@@ -135,7 +119,7 @@ There are two types of gateway collectors:
 
 4. Connectivity network protocol requirements: 
 
-[Img 10]
+![Network protocol requirements](/img/network-deployment-requirements.png "Network protocol requirements")
 
 * The outbound communication from the gateway collector appliance to the HPE OpsRamp platform is fully secured using a TLS 1.2 tunnel and TCP port 443 to securely transfer data from the gateway collector appliance to the HPE OpsRamp service.
 * SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the HPE OpsRamp SNMP documentation. 
@@ -150,30 +134,25 @@ You then proceed as follows to install the gateway collector appliance on your H
 
 2. In the top navigation menu, select **Setup > Account**, and click **Collector Profiles**.
 
-[Img 11]
-
 3. Click **+ADD** to create a gateway collector profile. The gateway collector profile page opens.
 
-[Img 12]
+![Add the gateway collector profile](/img/opsramp-gateway-install-img-2.png "Add the gateway collector profile")
 
 4. Enter a **Profile Name** and a **Description** for your gateway.
 
-[Img 13]
-
-5. Select a _Classic gateway_ or a _NextGen gateway_ image based on your environment. In our example, the **recommended NextGen gateway** is deployed. You can use an ISO (International Organization for Standardization) or OVA (Open Virtual Appliance) image to run the NextGen gateway on a VMware virtual machine. If you want to run the NextGen gateway in your **own Kubernetes environment**, select the **Cloud-Native Application (Installer)**.
+5. Select a *Classic gateway* or a *NextGen gateway* image based on your environment. In our example, the **recommended NextGen gateway** is deployed. You can use an ISO (International Organization for Standardization) or OVA (Open Virtual Appliance) image to run the NextGen gateway on a VMware virtual machine. If you want to run the NextGen gateway in your **own Kubernetes environment**, select the **Cloud-Native Application (Installer)**.
 
 Here, we install the NextGen gateway collector OVA as a virtual machine on a VMware ESXi server. 
 
-[Img 14]
+![Install NextGen gateway](/img/opsramp-gateway-install-img-4.png "Install NextGen gateway")
 
 > **Note:** You can click the ellipsis (…) of the selected virtual appliance to view the installation and activation instructions.   
 
-6. Click **Next**. The gateway profile is displayed. 
-
+6. Click **Next**. The gateway profile is displayed.
+ 
 7. Click the arrow to download the virtual appliance image in your environment.
 
-[Img 15]
-
+   ![Download the gateway file](/img/opsramp-gateway-install-img-5.png "Download the gateway file")
 8. Follow the **INSTALLATION** instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine. Summary of the installation steps:
 
    * Log in to vSphere.
@@ -196,23 +175,22 @@ Here, we install the NextGen gateway collector OVA as a virtual machine on a VMw
 
 > **Important note:** If you want to assign **a static IP address** to the gateway appliance, refer to the [HPE OpsRamp NextGen gateway installation documentation](https://glp.docs.opsramp.com/platform-features/nextgen-gateways/installation-nextgen-gateway/iso-based-installation/#step-3-update-hostname-and-install-kubernetes). Follow these steps before installing the Kubernetes cluster (step 3 above) on the gateway collector appliance. 
 
-[Img 17]
-
-The activation process will install the K3s Kubernetes cluster on the virtual machine with the main pod (_nextgen-gw-0_) where the gateway collector code runs, and the storage pod (_nextgen-gw-redis-master-0_). 
+The activation process will install the K3s Kubernetes cluster on the virtual machine with the main pod (*nextgen-gw-0*) where the gateway collector code runs, and the storage pod (*nextgen-gw-redis-master-0*). 
 
 When the gateway collector is installed and registered in your HPE OpsRamp service instance, go to **Setup > Account > Collector Profiles**. The status of the gateway collector appliance should be **CONNECTED**.
 
-[Img 18]
+![Gateway is connected](/img/opsramp-gateway-install-img-8.png "Gateway is connected")
 
 You can also navigate to **Infrastructure** tab and select **Resources > Gateway** or use the **recommended method**: **Infrastructure > Search > OTHERS > OpsRamp Gateway**, to visualize detailed information about the newly installed and registered gateway collector appliance.  
 
-[Img 19]
+![Gateway resources](/img/opsramp-gateway-install-img-9.png "Gateway resources")
 
 If you see the main pod (nextgen-gw-0) status as **Running** (color indication **green**), it means the NextGen gateway is running successfully.
 
 You can also navigate to **Dashboard > Classic Dashboard** to drill into infrastructure elements of the gateway collector appliance. The dashboard provides an overview of health, performance, and availability of resources and services. 
 
-[Img 20] 
+![Classic dashboard gateway resources status](/img/opsramp-gateway-install-img-10.png "Classic dashboard gateway resources status")
+
 
 > **Note:** The resource status for the NextGen Gateway Cluster and the NextGen Gateway Node are shown as **Undefined** (color indication **brown**). This is expected because no availability monitor is assigned to these two resources. To monitor the NextGen Gateway Node, you will need to assign a **cloned** version of the Global Monitoring Template **Agent G2 – Linux OS Performance Monitoring**. Refer to the next blog post <link to blog post part 3> to learn how to assign a Monitoring Template to a resource.
 
@@ -238,4 +216,4 @@ To resolve issues with HPE GreenLake Flex Solutions or hybrid observability serv
 2. Under **Help**, select **OpsRamp** or **HPE GreenLake Flex Solutions**.
 3. Click **Create New Case**. 
 
-If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
+If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [\#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
