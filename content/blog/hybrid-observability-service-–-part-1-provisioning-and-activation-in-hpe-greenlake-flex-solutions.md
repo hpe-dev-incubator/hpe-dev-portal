@@ -148,7 +148,7 @@ By default, Partner’s advanced monitoring **Add-ons** are not enabled. It is r
 
 > **Note:** This feature will be made available under **Setup > Account** in an upcoming HPE OpsRamp release.
 >
-> **Note:** To enable Partner’s Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special characters. 
+> **Note:** To enable Partner’s Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special character. 
 
 The hybrid observability in HPE GreenLake Flex Solutions uses a multi-tenant model. As a Partner Administrator, you can manage multiple client accounts, each client account representing an individual organization, business unit, or customer environment. You’ll start setting up your hybrid observability service by:
 
