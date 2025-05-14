@@ -123,3 +123,137 @@ There are two types of gateway collectors:
 > **Note:** Agent-based methods can also be used for the discovery of physical devices running Linux and Microsoft Windows Operating Systems. To learn more about agents, refer to the [HPE OpsRamp Agent documentation](https://glp.docs.opsramp.com/platform-features/agents/).
 
 ### Gateway Collector appliance prerequisites
+
+1. Ensure your HPE GreenLake Workspace details (name, address) do not contain any special character. 
+
+2. A **virtual environment** (a hypervisor or a Kubernetes environment) is required within your firewall environment. 
+
+3. The gateway collector appliance needs to be appropriately sized based on the monitored resource count. Refer to the following documentation:
+
+   * [Classic gateway collector appliance deployment sizing](https://glp.docs.opsramp.com/platform-features/gateways/gateway-deployment-requirements/#gateway-appliance). 
+   * [NextGen gateway collector appliance sizing](https://glp.docs.opsramp.com/platform-features/nextgen-gateways/installation-nextgen-gateway/#gateway-capacity-parameters).
+
+4. Connectivity network protocol requirements: 
+
+[Img 10]
+
+* The outbound communication from the gateway collector appliance to the HPE OpsRamp platform is fully secured using a TLS 1.2 tunnel and TCP port 443 to securely transfer data from the gateway collector appliance to the HPE OpsRamp service.
+* SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the HPE OpsRamp SNMP documentation. 
+* TCP port 3128 for a proxy connection: outbound communication from compute servers’ agent (Microsoft Windows OS and Linux OS) to the gateway collector appliance’s embedded proxy (if proxy is enabled in the gateway). See the HPE OpsRamp agent connectivity requirement documentation.
+* SSH and Windows Management Instrumentation (WMI) protocols are used to discover infrastructure devices.
+
+### Gateway collector appliance installation and activation procedure
+
+You then proceed as follows to install the gateway collector appliance on your HPE OpsRamp service environment:
+
+1. Select the **client account** you created in the previous step.
+
+2. In the top navigation menu, select **Setup > Account**, and click **Collector Profiles**.
+
+[Img 11]
+
+3. Click **+ ADD** to create a gateway collector profile. The gateway collector profile page opens.
+
+[Img 12]
+
+4. Enter a **Profile Name** and a **Description** for your gateway.
+
+[Img 13]
+
+5. Select a _Classic gateway_ or a _NextGen gateway_ image based on your environment. In our example, the **recommended NextGen gateway** is deployed. You can use an ISO (International Organization for Standardization) or OVA (Open Virtual Appliance) image to run the NextGen gateway on a VMware virtual machine. If you want to run the NextGen gateway in your **own Kubernetes environment**, select the **Cloud-Native Application (Installer)**.
+
+Here, we install the NextGen gateway collector OVA as a virtual machine on a VMware ESXi server. 
+
+[Img 14]
+
+> **Note:** You can click the ellipsis (…) of the selected virtual appliance to view the installation and activation instructions.   
+
+6. Click **Next**. The gateway profile is displayed: 
+
+  * Click the arrow to download the virtual appliance image in your environment.
+
+[Img 15]
+
+  * Follow the INSTALLATION instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine.
+
+[Img 16]
+
+**Summary of the installation steps:**
+
+     a. Log in to vSphere.
+
+     b. Deploy the OVF template on your ESXi server or cluster environment. Select the downloaded OVA file. 
+
+     c. Specify a unique name for the virtual machine and a location in your environment.
+
+     d. Select a compute resource such as an ESXi cluster, ESXi host, or a Resource Pool for the virtual machine.
+
+     e. Review the detailed information.
+
+     f. Select a datastore for the virtual machine and use the Thick Provision Lazy Zeroed disk format.
+
+     g. Select a destination Network for the virtual machine.
+
+     h. Verify the deployment settings and click FINISH to start creating the virtual machine in the hypervisor. 
+
+     i. Power on the virtual machine.
+
+* Next, once the virtual machine is deployed and powered on, apply the ACTIVATION instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway Pods in the Kubernetes cluster.
+
+The activation process will instruct you to:
+
+     a. Step 1 — Log in to the gateway collector appliance.
+
+     b. Step 2 — Set the hostname for the gateway collector appliance and change the default password. 
+
+     c. Step 3 — Install the K3s Kubernetes cluster on the gateway collector appliance.
+ 
+     d. Step 4 — Register the gateway collector appliance in the HPE OpsRamp platform.
+
+     e. Step 5 — Click FINISH when the Activation is completed.
+
+> **Important note:** If you want to assign **a static IP address** to the gateway appliance, refer to the [HPE OpsRamp NextGen gateway installation documentation](https://glp.docs.opsramp.com/platform-features/nextgen-gateways/installation-nextgen-gateway/iso-based-installation/#step-3-update-hostname-and-install-kubernetes). Follow these steps before installing the Kubernetes cluster (step 3 above) on the gateway collector appliance. 
+
+[Img 17]
+
+The activation process will install the K3s Kubernetes cluster on the virtual machine with the main pod (_nextgen-gw-0_) where the gateway collector code runs, and the storage pod (_nextgen-gw-redis-master-0_). 
+
+When the gateway collector is installed and registered in your HPE OpsRamp service instance, go to **Setup > Account > Collector Profiles**. The status of the gateway collector appliance should be **CONNECTED**.
+
+[Img 18]
+
+You can also navigate to **Infrastructure** tab and select **Resources > Gateway** or use the **recommended method**: **Infrastructure > Search > OTHERS > OpsRamp Gateway**, to visualize detailed information about the newly installed and registered gateway collector appliance.  
+
+[Img 19]
+
+If you see the main pod (nextgen-gw-0) status as **Running** (color indication **green**), it means the NextGen gateway is running successfully.
+
+You can also navigate to **Dashboard > Classic Dashboard** to drill into infrastructure elements of the gateway collector appliance. The dashboard provides an overview of health, performance, and availability of resources and services. 
+
+[Img 20] 
+
+> **Note:** The resource status for the NextGen Gateway Cluster and the NextGen Gateway Node are shown as **Undefined** (color indication **brown**). This is expected because no availability monitor is assigned to these two resources. To monitor the NextGen Gateway Node, you will need to assign a **cloned** version of the Global Monitoring Template **Agent G2 – Linux OS Performance Monitoring**. Refer to the next blog post <link to blog post part 3> to learn how to assign a Monitoring Template to a resource.
+
+## Whitelisting IP addresses to improve network access security
+
+HPE recommends restricting a specific set of IP addresses by whitelisting them within your firewall for outbound connection to the hybrid observability service in the cloud.  The whitelist is based on your regional deployment of HPE OpsRamp service in the HPE GreenLake workspace. See the [HPE OpsRamp Collector Whitelisted IP Addresses documentation](https://glp.docs.opsramp.com/support/reference/public-ip-addresses/). 
+
+## Summary
+
+This blog post helps you get started with the initial configuration of the hybrid observability service powered by HPE OpsRamp Software to enable the discovery of IT infrastructure devices included in HPE GreenLake Flex Solutions. 
+
+The initial setup consists of:
+
+1. Creating a tenant (client account) of the Partner account for your organization. 
+2. Managing HPE GreenLake users’ roles. 
+3. Installing and registering a gateway collector appliance, a prerequisite to enable the discovery and monitoring of physical devices.   
+
+Don’t miss part 3 of this blog series <link to part 3>, where I’ll further explore the integration set up activities to discover infrastructure resources, start monitoring resources and viewing metrics and alerts.  
+
+To resolve issues with HPE GreenLake Flex Solutions or hybrid observability service powered by HPE OpsRamp, contact the support team. While logged in to your HPE GreenLake workspace:
+
+1. Click **Help & Support**.
+2. Under **Help**, select **OpsRamp** or **HPE GreenLake Flex Solutions**.
+3. Click **Create New Case**. 
+
+If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
