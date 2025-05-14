@@ -83,10 +83,6 @@ blockquote {
 .button:hover {
    background-color: #005a3c;
 }
-.image-container {
-   text-align: center;
-   margin: 20px 0;
-}
 .video-container {
    position: relative;
    text-align: center;
@@ -95,20 +91,11 @@ blockquote {
    margin-left: auto;
    margin-right: auto;
 }
-.video-container iframe {
-   border-radius: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   width: 80%;
-   height: 350px;
-}
-ul {
-   padding-left: 20px;
-}
 </style>
 
 <h1 id='overview'>Hybrid observability in HPE GreenLake Flex Solutions</h1>
-<div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-  <div style="flex: 1; padding-right: 15px; min-width: 200px;">
+<div style="display: flex;">
+  <div style="flex: 1;">
     <p style="font-size: 22px;">
       HPE GreenLake Flex Solutions provide an advanced software-as-a-service platform and consumption-based solution that provides insights and controls to manage hybrid IT estate, through a consistent cloud experience for all applications and data — on-premises and public clouds. HPE GreenLake Flex Solutions give customers the ability to choose where and how to place the workloads and data, and enable customers to monitor security, capacity, resource utilization, and costs.
     </p>
