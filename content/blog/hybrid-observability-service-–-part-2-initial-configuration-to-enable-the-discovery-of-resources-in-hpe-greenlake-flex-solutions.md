@@ -168,49 +168,31 @@ Here, we install the NextGen gateway collector OVA as a virtual machine on a VMw
 
 > **Note:** You can click the ellipsis (…) of the selected virtual appliance to view the installation and activation instructions.   
 
-6. Click **Next**. The gateway profile is displayed: 
+6. Click **Next**. The gateway profile is displayed. 
 
-* Click the arrow to download the virtual appliance image in your environment.
+7. Click the arrow to download the virtual appliance image in your environment.
 
 [Img 15]
 
-* Follow the **INSTALLATION** instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine.
+8. Follow the **INSTALLATION** instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine. Summary of the installation steps:
 
-[Img 16]
+   * Log in to vSphere.
+   * Deploy the OVF template on your ESXi server or cluster environment. Select the downloaded OVA file. 
+   * Specify a unique name for the virtual machine and a location in your environment.
+   * Select a compute resource such as an ESXi cluster, ESXi host, or a Resource Pool for the virtual machine.
+   * Review the detailed information.
+   * Select a datastore for the virtual machine and use the Thick Provision Lazy Zeroed disk format.
+   * Select a destination Network for the virtual machine.
+   * Verify the deployment settings and click FINISH to start creating the virtual machine in the hypervisor. 
+   * Power on the virtual machine.
 
-**Summary of the installation steps:**
+9. Next, once the virtual machine is deployed and powered on, apply the **ACTIVATION** instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway pods in the Kubernetes cluster. The activation process will instruct you to:
 
-a. Log in to vSphere.
-
-b. Deploy the OVF template on your ESXi server or cluster environment. Select the downloaded OVA file. 
-
-c. Specify a unique name for the virtual machine and a location in your environment.
-
-d. Select a compute resource such as an ESXi cluster, ESXi host, or a Resource Pool for the virtual machine.
-
-e. Review the detailed information.
-
-f. Select a datastore for the virtual machine and use the Thick Provision Lazy Zeroed disk format.
-
-g. Select a destination Network for the virtual machine.
-
-h. Verify the deployment settings and click FINISH to start creating the virtual machine in the hypervisor. 
-
-i. Power on the virtual machine.
-
-Next, once the virtual machine is deployed and powered on, apply the **ACTIVATION** instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway pods in the Kubernetes cluster.
-
-The activation process will instruct you to:
-
-a. Step 1 — Log in to the gateway collector appliance.
-
-b. Step 2 — Set the hostname for the gateway collector appliance and change the default password. 
-
-c. Step 3 — Install the K3s Kubernetes cluster on the gateway collector appliance.
- 
-d. Step 4 — Register the gateway collector appliance in the HPE OpsRamp platform.
-
-e. Step 5 — Click FINISH when the Activation is completed.
+   * Step 1 — Log in to the gateway collector appliance.
+   * Step 2 — Set the hostname for the gateway collector appliance and change the default password. 
+   * Step 3 — Install the K3s Kubernetes cluster on the gateway collector appliance.
+   * Step 4 — Register the gateway collector appliance in the HPE OpsRamp platform.
+   * Step 5 — Click FINISH when the Activation is completed.
 
 > **Important note:** If you want to assign **a static IP address** to the gateway appliance, refer to the [HPE OpsRamp NextGen gateway installation documentation](https://glp.docs.opsramp.com/platform-features/nextgen-gateways/installation-nextgen-gateway/iso-based-installation/#step-3-update-hostname-and-install-kubernetes). Follow these steps before installing the Kubernetes cluster (step 3 above) on the gateway collector appliance. 
 
