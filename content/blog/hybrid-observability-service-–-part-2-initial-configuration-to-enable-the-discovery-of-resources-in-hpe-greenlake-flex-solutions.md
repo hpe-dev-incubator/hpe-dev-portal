@@ -174,7 +174,7 @@ Here, we install the NextGen gateway collector OVA as a virtual machine on a VMw
 
 [Img 15]
 
-* Follow the INSTALLATION instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine.
+* Follow the **INSTALLATION** instructions to install the gateway collector appliance as a virtual machine on the hypervisor. In our case example, our hypervisor is a VMware ESXi server. The OVA will install Ubuntu Linux Operating System in the virtual machine.
 
 [Img 16]
 
@@ -198,7 +198,7 @@ h. Verify the deployment settings and click FINISH to start creating the virtual
 
 i. Power on the virtual machine.
 
-* Next, once the virtual machine is deployed and powered on, apply the ACTIVATION instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway Pods in the Kubernetes cluster.
+Next, once the virtual machine is deployed and powered on, apply the **ACTIVATION** instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway pods in the Kubernetes cluster.
 
 The activation process will instruct you to:
 
