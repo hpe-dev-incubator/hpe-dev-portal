@@ -163,7 +163,7 @@ These steps will be explained in the subsequent blog posts of the series.
 
 This blog post helps you get started provisioning of the hybrid observability service powered by HPE OpsRamp Software and activating the subscription key in your HPE GreenLake cloud workspace. For more information about the provisioning of the service  and subscription key activation, check out the [HPE GreenLake Cloud User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html). 
 
-Stay tuned for my next post of the series, where I’ll delve into the hybrid observability service integration setup activities to **discover** infrastructure resources. 
+Stay tuned for [my next post of the series](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-2-initial-configuration-to-enable-the-discovery-of-resources-in-hpe-greenlake-flex-solutions/), where I’ll delve into the hybrid observability service integration setup activities to **discover** infrastructure resources. 
 
 I’ll create a tenant, also referred to as client account, for the Partner organization. I’ll also install and configure a gateway collector appliance as a prerequisite to enable the discovery of physical infrastructure devices included in the HPE GreenLake Flex Solutions contract.
 
