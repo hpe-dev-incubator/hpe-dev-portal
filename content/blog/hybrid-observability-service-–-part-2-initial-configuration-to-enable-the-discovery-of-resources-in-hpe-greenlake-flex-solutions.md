@@ -27,7 +27,7 @@ As requirements to enable the discovery of physical resources included in your H
 * Managing user accounts and permissions for your organization.
 * Installing and registering a **gateway collector appliance** in a virtual environment. 
 
-In Part 3 of the blog series, I’ll explore how to enable the observability of IT infrastructure devices included in the HPE GreenLake Flex Solutions by deploying integration modules and assigning monitoring configurations to a set of resources.
+In Part 3 <link to part 3> and Part 4 <Link to part 4> of the blog series, I’ll explore how to enable the observability of IT infrastructure devices included in the HPE GreenLake Flex Solutions by deploying integration modules and assigning monitoring configurations to a set of resources.
 
 ## Creating a Client Account
 
