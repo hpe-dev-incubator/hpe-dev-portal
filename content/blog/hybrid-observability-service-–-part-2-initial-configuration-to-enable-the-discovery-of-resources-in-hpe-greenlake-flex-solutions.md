@@ -208,7 +208,7 @@ The initial setup consists of:
 2. Managing HPE GreenLake users’ roles. 
 3. Installing and registering a gateway collector appliance, a prerequisite to enable the discovery and monitoring of physical devices.   
 
-Don’t miss part 3 of this blog series <link to part 3>, where I’ll further explore the integration set up activities to discover infrastructure resources, start monitoring resources and viewing metrics and alerts.  
+Don’t miss part 3 <link to Part 3> and Part 4 <Link to Part 4> of this blog series <link to part 3>, where I’ll further explore the integration set up activities to discover infrastructure resources, start monitoring resources and viewing metrics and alerts.  
 
 To resolve issues with HPE GreenLake Flex Solutions or hybrid observability service powered by HPE OpsRamp, contact the support team. While logged in to your HPE GreenLake workspace:
 
