@@ -138,13 +138,13 @@ Let’s see how to create a Monitoring Template and the methods to assign it to 
 
 The gateway collector appliance discovered the agentless SSH system. It will monitor the agentless SSH system using a Monitoring Template. Therefore, let’s select a Global Monitoring Template with a name that contains the word *gateway* and **clone** this template: 
 
-1. Select a client account.
+1. Select a **client account**.
 
 2. Go to **Setup > Setup > Monitoring > Templates** and click **Advanced**.
 
-3. Search for Scope *Global Templates* and enter *gateway* or *gateway - linux* as the Template Name. Then click **Search** at the bottom of the **Advanced** search.
-
 > **Note:** This feature will be made available under **Setup > Account > Monitoring** in an upcoming HPE OpsRamp releases.
+
+3. Search for Scope *Global Templates* and enter *gateway* or *gateway - linux* as the Template Name. Then click **Search** at the bottom of the **Advanced** search.
 
 ![Search Global Monitoring Template for gateway - linux](/img/agentless-ssh-monitoring-img1.png "Search Global Monitoring Template for gateway - linux")
 
@@ -154,7 +154,7 @@ The gateway collector appliance discovered the agentless SSH system. It will mon
 
 5. Select the **Template** checkbox. Click **Copy** to clone the template and click **Yes** to duplicate the template.
 
-6. Select the **client account**, give a **Name** to your template. Use the client account name in the *Template Name* to identify the template for a particular client account easily. Click **Save**.
+6. Select the **client account**, give a **Name** to your template. Use the client account name in the *Template Name* to identify the template for a particular client account easily. For example, _DreamCompany-Agentless-Linux-Performance_. Click **Save**.
 
 7. To list the Monitoring Templates for the *client account*, go to **Monitoring > Templates > Advanced Search >**, select **Client Templates** for the *Scope*. You can now customize the template to adjust some parameters such as the *tags*, metrics such as the **warning** or **critical thresholds**, and the **availability monitor** per your IT operational requirements.
 
@@ -203,7 +203,7 @@ Let’s walk you through the two methods to apply the Monitoring Template to a r
 
 6. Click **Save & Run Now** to assign the policy to the resources matching the filter criteria. The policy will apply to all resources that match the filter criteria you specified in the policy.
 
-7. After a few minutes, check the agentless SSH device in **Infrastructure > Search** and select the device to check the status and the metrics. The status should now be **UP** (color indication is green) and you can start visualizing the metrics.
+7. After a few minutes, check the agentless SSH device in **Infrastructure > Search** and select the device to check the status and the metrics. The status should now be **UP** (color indication is green) and you can start visualizing the metrics by navigating to METRICS tab.
 
 ![Check status and metrics of the SSH agentless device](/img/agentless-ssh-monitoring-img10.png "Check status and metrics of the SSH agentless device")
 
