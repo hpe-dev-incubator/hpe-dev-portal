@@ -53,7 +53,7 @@ There might be some scenarios where you need to define a Monitoring Template and
 
 > **Note:** You can check the Enable Global Policies option for the client account to automatically apply a Global Device Monitoring Policy, **if one exists**, for a resource such as the SSH-enabled system. In this post, I’ll explore how to discover the SSH-enabled system, create a monitoring template and assign it to the system to enable its monitoring.
 
-### Agentless discovery and monitoring of SSH-enabled devices
+## Agentless discovery and monitoring of SSH-enabled devices
 
 Let us start by deploying an Integration module and creating a Monitoring Template to discover and monitor an [agentless SSH-enabled system](https://glp.docs.opsramp.com/integrations/os/linux-os-agentless-discovery/).
 
@@ -61,7 +61,7 @@ The hybrid observability service supports agentless monitoring. Agentless monito
 
 The SSH Agentless Integration module discovers Linux/Unix-based systems **without installing an agent**, by securely connecting to the device over SSH via the gateway collector appliance. The Monitoring Template then needs to be assigned to the target agentless system for monitoring. 
 
-#### Requirements:
+### Requirements:
 
 * A gateway collector appliance is installed and registered.
 * The gateway collector appliance has network access (through SSH protocol – typically on port 22) to connect to the target Linux server.
@@ -69,7 +69,7 @@ The SSH Agentless Integration module discovers Linux/Unix-based systems **withou
 * SSH credentials (username and password) of the target machine. 
 * A Monitoring Template and Device Management Policy to monitor the target resource through the gateway collector appliance and collect data for monitoring the metrics and resource availability.
 
-#### Install the Linux agentless integration module in a client account
+### Install the Linux agentless integration module in a client account
 
 As Partner Administrator, let’s install an **agentless SSH Integration module** to discover an HPE ProLiant server added in the HPE GreenLake workspace devices inventory. This compute server runs the Linux operating system. The Linux OS agentless SSH Integration module facilitates agentless discovery of SSH-enabled devices using the gateway collector appliance. Here is the procedure:
 
@@ -126,7 +126,7 @@ As Partner Administrator, let’s install an **agentless SSH Integration module*
 
 14. Select the server's name to collect attributes of the Linux server device such as the _Operating System (CentOS)_, _Native type (Linux)_ and _Make (HPE)_. You will need this information in the next step to configure the filter criteria for the monitoring policy of the agentless system. 
 
-#### Define a monitoring template and assign it to agentless devices
+## Define a monitoring template and assign it to agentless devices
 
 When an agentless system is discovered through the gateway collector appliance using the appropriate Integration module, you need to define and apply a **Monitoring Template** for the gateway collector appliance to monitor the device for a specific client account.
 
@@ -137,6 +137,7 @@ The built-in Global Monitoring Templates are **not editable**. **Copy** an appro
 You can then manually assign the customized Monitoring Template to a particular resource, or via a **Device Management Policy** to automatically bind your Monitoring Template to the discovered agentless devices. 
 
 Let’s see how to create a Monitoring Template and the methods to assign it to the discovered agentless Linux device(s).
+
 The gateway collector appliance discovered the agentless SSH system. It will monitor the agentless SSH system using a Monitoring Template. Therefore, let’s select a Global Monitoring Template with a name that contains the word _gateway_ and **clone** this template: 
 
 1. Select a client account.
