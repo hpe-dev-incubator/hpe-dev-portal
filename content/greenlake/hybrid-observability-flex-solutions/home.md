@@ -147,7 +147,7 @@ blockquote {
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Part 1: Provisioning the hybrid observability service in your workspace</span>
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="4">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/_layouts/15/Doc.aspx?sourcedoc=%7BAB19BA45-F0AE-4C2B-B4A6-407F92B8A1BC%7D&file=HPE%20OpsRamp%20Onboarding%20and%20activation%20guide%20-%20Blog%20post-%20Draft%202.0%20-%20for%20Review.docx&action=default&mobileredirect=true">
+        <a href="https://deploy-preview-3048--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service –  Provisioning and activation in HPE GreenLake Flex Solutions
         </a>
       </td>
@@ -189,7 +189,7 @@ blockquote {
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Part 5: Preparing the client/user settings</span>
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;" rowspan="2">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared Documents/GLCP Onboarding Project/OpsRamp on GL Flex Solutions/Blog Posts/HPE OpsRamp setup observability-initial setup-blog series-part 2-draft 1.0.docx?d=w96fc16610b304782a917089e9757e80c&csf=1&web=1&e=puzqRr">
+        <a href="https://deploy-preview-3049--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-2-initial-configuration-to-enable-the-discovery-of-resources-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service – Initial configuration to enable the discovery of resources in HPE GreenLake Flex Solutions 
         </a>
       </td>
@@ -215,7 +215,7 @@ blockquote {
         <span style="display: block; margin: 0; font-size: 20px; font-weight: bold;">Part 7: Agentless SSH integration and monitoring templates</span>
       </td>
       <td style="border: 1px solid black; padding: 8px; text-align: center;">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-integration-monitoring-agentless-ssh-blog%20series-part%203-draft%201.2-for%20review.docx?d=w4a8d701a74cd43e29723eaddb380ac84&csf=1&web=1&e=HB8UQb">
+        <a href="https://deploy-preview-3050--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service – Enabling monitoring of agentless SSH-enabled system in HPE GreenLake Flex Solutions
         </a>
       </td>
