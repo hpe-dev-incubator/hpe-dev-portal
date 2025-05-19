@@ -209,9 +209,9 @@ Let’s walk you through the two methods to apply the Monitoring Template to a r
 
 ## Summary
 
-This blog post walked you through the steps to set up the hybrid observability service powered by HPE OpsRamp. With this service enabled, you can discover, monitor, and observe the health, performance, and availability of an agentless SSH-enabled system.
+This blog post walked you through the steps to set up the hybrid observability service powered by HPE OpsRamp for an agentless SSH-enabled server. With this integration service enabled, you can discover, monitor, and observe the health, performance, and availability of an agentless SSH-enabled system.
 
-In my last part <link to Part 4> of this blog series, I’ll dive into the observability of a physical server and a storage array as we continue the journey to set up the hybrid observability service to discover and monitor through dashboards, physical IT infrastructure devices included in the HPE GreenLake Flex Solutions contract.
+In my last part <link to Part 4> of this blog series, I’ll dive into the observability of a physical server and a storage array as we continue the journey to set up the hybrid observability service to discover and monitor, through dashboards, physical IT infrastructure devices included in the HPE GreenLake Flex Solutions contract.
 
 To resolve issues with HPE GreenLake Flex Solutions or hybrid observability service powered by HPE OpsRamp, contact the support team. While logged in to your HPE GreenLake workspace:
 
