@@ -115,7 +115,7 @@ As Partner Administrator, let’s install an **agentless SSH Integration module*
     * Select the gateway collector appliance to check the status of the agentless SSH integration module. The discovery status should be **Completed**.
     * Based on your discovery schedule, the value for the devices might be set to **0**. In this case, select the ellipsis (...) on the right and select **Discover** to discover the device manually.
     * Click **DONE**.
-    * Connect again to the SSH integration module and select the gateway collector appliance. You should see now a device discovered in **Devices** tab. If a device is not discovered, make sure you fulfilled the prerequisites: the gateway collector appliance is installed and registered successfully, and it can connect to the target Linux server. 
+    * Connect again to the SSH integration module and select the gateway collector appliance. You should see now a device discovered in **Devices** tab. If a device is not discovered, ensure the prerequisites are fulfilled: the gateway collector appliance is installed and registered successfully, and it can connect to the target agentless SSH-enabled server. 
     * Click on the **1** for the devices to visualize the resource information for the Linux server. Notice the status is **UNDEFINED** (color indication brown). The reason is that in our case, **no** default Global Monitoring Template is automatically assigned to an agentless SSH-enabled system. In the next step, you will define a monitoring template and assign it to the agentless device. 
 
 
