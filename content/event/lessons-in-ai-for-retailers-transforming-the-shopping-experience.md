@@ -4,7 +4,7 @@ dateStart: 2025-05-13T22:01:47.026Z
 dateEnd: 2025-05-14T21:30:47.043Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://hpe.zoom.us/webinar/register/5117468025974/WN_N_9zHDbIRlWfSAxC2ifj3g
+link: https://www.youtube.com/watch?v=_8gnUunB7bM&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Lessons in AI for retailers: Transforming the shopping experience
