@@ -213,6 +213,8 @@ This blog post walked you through the steps to set up the hybrid observability s
 
 In my last part <link to Part 4> of this blog series, I’ll dive into the observability of a physical server and a storage array as we continue the journey to set up the hybrid observability service to discover and monitor, through dashboards, physical IT infrastructure devices included in the HPE GreenLake Flex Solutions contract.
 
+There’s also a series of video tutorials on the [Hybrid observability in HPE GreenLake Flex Solutions landing page](https://developer.hpe.com/greenlake/hybrid-observability-flex-solutions/home/) that walks you through the contents described in this blog series for readers who prefer an audio-visual learning experience.
+
 To resolve issues with HPE GreenLake Flex Solutions or hybrid observability service powered by HPE OpsRamp, contact the support team. While logged in to your HPE GreenLake workspace:
 
 1. Click **Help & Support**.
