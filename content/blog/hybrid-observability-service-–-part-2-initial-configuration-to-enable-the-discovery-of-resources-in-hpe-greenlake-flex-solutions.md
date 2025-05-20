@@ -208,7 +208,7 @@ The initial setup consists of:
 2. Managing HPE GreenLake users’ roles. 
 3. Installing and registering a gateway collector appliance, a prerequisite to enable the discovery and monitoring of physical devices.   
 
-Don’t miss [part 3](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/) and [Part 4](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/) of this blog series <link to part 3>, where I’ll further explore the integration set up activities to discover infrastructure resources, start monitoring resources and viewing metrics and alerts.
+Don’t miss [part 3](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/) and [Part 4](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/) of this blog series, where I’ll further explore the integration set up activities to discover infrastructure resources, start monitoring resources and viewing metrics and alerts.
 
 There’s also a series of video tutorials on the [Hybrid observability in HPE GreenLake Flex Solutions landing page](https://developer.hpe.com/greenlake/hybrid-observability-flex-solutions/home/) that walks you through the contents described in this blog series for readers who prefer an audio-visual learning experience.  
 
