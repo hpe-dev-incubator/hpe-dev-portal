@@ -27,7 +27,7 @@ Continuing from the second part of this series, I’ll now explore:
 * How to deploy an integration module to discover an agentless SSH-enabled server running Linux as the operating system.
 * How to apply a monitoring template to _non SDK resources_ such as the agentless SSH resource to monitor it.
 
-In the last Part <link to Part 4> of the blog series, I’ll explore the observability of physical devices and their monitoring using dashboards to visualize the collected metrics in charts.
+In [the last Part](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/) of the blog series, I’ll explore the observability of physical devices and their monitoring using dashboards to visualize the collected metrics in charts.
 
 ## Applying integration modules and monitoring configuration to discover and monitor resources
 
@@ -211,7 +211,7 @@ Let’s walk you through the two methods to apply the Monitoring Template to a r
 
 This blog post walked you through the steps to set up the hybrid observability service powered by HPE OpsRamp for an agentless SSH-enabled server. With this integration service enabled, you can discover, monitor, and observe the health, performance, and availability of an agentless SSH-enabled system.
 
-In my last part <link to Part 4> of this blog series, I’ll dive into the observability of a physical server and a storage array as we continue the journey to set up the hybrid observability service to discover and monitor, through dashboards, physical IT infrastructure devices included in the HPE GreenLake Flex Solutions contract.
+In [my last part](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/) of this blog series, I’ll dive into the observability of a physical server and a storage array as we continue the journey to set up the hybrid observability service to discover and monitor, through dashboards, physical IT infrastructure devices included in the HPE GreenLake Flex Solutions contract.
 
 There’s also a series of video tutorials on the [Hybrid observability in HPE GreenLake Flex Solutions landing page](https://developer.hpe.com/greenlake/hybrid-observability-flex-solutions/home/) that walks you through the contents described in this blog series for readers who prefer an audio-visual learning experience.
 
