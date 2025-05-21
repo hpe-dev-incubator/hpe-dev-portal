@@ -119,12 +119,12 @@ There are two types of gateway collectors:
 
 4. Connectivity network protocol requirements: 
 
-![Network protocol requirements](/img/network-deployment-requirements.png "Network protocol requirements")
+   * The outbound communication from the gateway collector appliance to the HPE OpsRamp platform is fully secured using a TLS 1.2 tunnel and TCP port 443 to securely transfer data from the gateway collector appliance to the HPE OpsRamp service.
+   * SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the [HPE OpsRamp SNMP documentation](https://glp.docs.opsramp.com/integrations/network/snmp-discovery/). 
+   * TCP port 3128 for a proxy connection: outbound communication from compute servers’ agent (Microsoft Windows OS and Linux OS) to the gateway collector appliance’s embedded proxy (if proxy is enabled in the gateway). See the [HPE OpsRamp agent connectivity requirement documentation](https://glp.docs.opsramp.com/platform-features/agents/agent-reference/).
+   * SSH and Windows Management Instrumentation (WMI) protocols are used to discover infrastructure devices.
 
-* The outbound communication from the gateway collector appliance to the HPE OpsRamp platform is fully secured using a TLS 1.2 tunnel and TCP port 443 to securely transfer data from the gateway collector appliance to the HPE OpsRamp service.
-* SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the [HPE OpsRamp SNMP documentation](https://glp.docs.opsramp.com/integrations/network/snmp-discovery/). 
-* TCP port 3128 for a proxy connection: outbound communication from compute servers’ agent (Microsoft Windows OS and Linux OS) to the gateway collector appliance’s embedded proxy (if proxy is enabled in the gateway). See the [HPE OpsRamp agent connectivity requirement documentation](https://glp.docs.opsramp.com/platform-features/agents/agent-reference/).
-* SSH and Windows Management Instrumentation (WMI) protocols are used to discover infrastructure devices.
+![Network protocol requirements](/img/network-deployment-requirements.png "Network protocol requirements")
 
 ### Gateway collector appliance installation and activation procedure
 
