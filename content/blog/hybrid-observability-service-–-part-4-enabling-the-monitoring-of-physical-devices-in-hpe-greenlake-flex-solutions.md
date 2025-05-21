@@ -246,35 +246,32 @@ As a *partner administrator* you can create and manage dashboards. In this examp
 
 8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish - Server:     
 
-* Select **Build my own** tab.
-
-* In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
-
-* Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
-
-* Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
+   * Select **Build my own** tab.
+   * In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
+   * Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
+   * Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
 
 ![Metric tile](/img/create-dashboard-img7.png "Metric tile")
 
 ![Add a legend](/img/create-dashboard-img8.png "Add a legend")
 
-* In the **VISUALIZATION** section, you can specify a header for the tile. For example, *Avg CPU Utilization*. You can select **Line** or **Bar** as the graph type and its color. 
+9. In the **VISUALIZATION** section, you can specify a header for the tile. For example, *Avg CPU Utilization*. You can select **Line** or **Bar** as the graph type and its color. 
 
 ![Select header and graph for the metric tile](/img/create-dashboard-img9.png "Select header and graph for the metric tile")
 
-* You can also define **axis labels** for the chart and **thresholds**. Thresholds define **value ranges** for a metric and assign them a **color/status** (OK, Warning, Critical) to reflect performance or health. They help visually flag performance degradation or anomalies in the metrics and take corrective actions.
+10. You can also define **axis labels** for the chart and **thresholds**. Thresholds define **value ranges** for a metric and assign them a **color/status** (OK, Warning, Critical) to reflect performance or health. They help visually flag performance degradation or anomalies in the metrics and take corrective actions.
 
 ![Define axis labels and thresholds](/img/create-dashboard-img10.png "Define axis labels and thresholds")
 
-* Click **SAVE** or **CREATE** to save the tile.
+11. Click **SAVE** or **CREATE** to save the tile.
 
-9. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
+12. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
 
-10. To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
+13. To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
 
-11. To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
+14. To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
 
-12. You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
+15. You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
 
 Here is an example of a basic dashboard for monitoring the status of the Redfish - Server for the client account *DreamCompany*:
 
