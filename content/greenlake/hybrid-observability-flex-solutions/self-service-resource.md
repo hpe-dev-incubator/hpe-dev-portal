@@ -162,7 +162,7 @@ description: HPE GreenLake Flex Solutions provide an advanced
       </td>
 
 <td id="table-cell" rowspan="3">
-        <a href="https://hpe.sharepoint.com/:w:/r/teams/dcic/Shared%20Documents/GLCP%20Onboarding%20Project/OpsRamp%20on%20GL%20Flex%20Solutions/Blog%20Posts/HPE%20OpsRamp%20setup%20observability-physical-devices-blog%20series-part%204-draft%201.0%20(WIP).docx?d=w825e90fc45834d4abe2db993ac44fb1c&csf=1&web=1&e=HdF4Gt">
+        <a href="https://deploy-preview-3055--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service – Enabling monitoring of physical devices in HPE GreenLake Flex Solutions
         </a>
       </td>
