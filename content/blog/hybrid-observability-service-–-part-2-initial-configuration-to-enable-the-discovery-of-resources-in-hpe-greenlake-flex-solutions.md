@@ -29,17 +29,17 @@ As requirements to enable the discovery of physical resources included in your H
 
 In [Part 3](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/) and [Part 4](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/) of the blog series, I’ll explore how to enable the observability of IT infrastructure devices included in the HPE GreenLake Flex Solutions by deploying integration modules and assigning monitoring configurations to a set of resources.
 
-## Creating a Client Account
+## Creating a client account
 
-When the hybrid observability service powered by HPE OpsRamp is deployed in HPE GreenLake cloud by the **Workspace Administrator**, the service uses a **multi-tenant model** associated with a **partner account**. A partner account is the **master** tenant, including Clients who each have a client account. A Workspace Administrator is the user who created the workspace and has this role assigned by default, or invited users can get this role assigned by the Workspace Administrator.
+When the hybrid observability service powered by HPE OpsRamp is deployed in HPE GreenLake cloud by the **Workspace Administrator**, the service uses a **multi-tenant model** associated with a **partner account**. A partner account is the **master** tenant, including Clients who each have a *client account*. A Workspace Administrator is the user who created the workspace and has this role assigned by default, or invited users can get this role assigned by the Workspace Administrator.
 
 In a multi-tenant model, a *client account* is a tenant of a partner account. It represents a monitoring and management instance for an individual organization, a business unit, or a specific customer environment.
 
-> **Note:** By default, a *client account* is created with the name of the HPE GreenLake workspace. You may want to create additional client accounts for an individual organization, business unit, or customer environment.
+> **Note:** By default, a *client account* is created with the name of the HPE GreenLake workspace. You may want to create additional _client accounts_ for an individual organization, business unit, or customer environment.
 
-To start setting up the environment, log in to the service using an account provisioned with the *Partner Administrator* role. The Workspace Administrator who provisioned the service in the HPE GreenLake cloud has this role assigned by default.  
+To start setting up the environment, log in to the service using an account provisioned with the *Partner Administrator* role. The Workspace Administrator who provisioned the HPE OpsRamp service in the HPE GreenLake cloud has this role assigned by default.  
 
-> **Note:** The other users with the OpsRamp Access role granted in the workspace will have the role GLP Invited Partner User assigned in the service.
+> **Note:** The other users with the _OpsRamp Access_ role granted in the workspace will have the role _GLP Invited Partner User_ assigned in the service.
 
 To create a new client account:
 
@@ -71,7 +71,7 @@ To create a new client account:
 
 > **Note:** To enable client account Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special characters. 
 
-## Managing User Account
+## Managing user account
 
 The *Partner Administrator* role is provided to the HPE GreenLake cloud user who provisioned the hybrid observability service in the workspace. Invited HPE GreenLake users with the *OpsRamp Access* role granted in the workspace will have the role **GLP Invited Partner User** assigned in the service.
 
@@ -122,8 +122,8 @@ There are two types of gateway collectors:
 ![Network protocol requirements](/img/network-deployment-requirements.png "Network protocol requirements")
 
 * The outbound communication from the gateway collector appliance to the HPE OpsRamp platform is fully secured using a TLS 1.2 tunnel and TCP port 443 to securely transfer data from the gateway collector appliance to the HPE OpsRamp service.
-* SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the HPE OpsRamp SNMP documentation. 
-* TCP port 3128 for a proxy connection: outbound communication from compute servers’ agent (Microsoft Windows OS and Linux OS) to the gateway collector appliance’s embedded proxy (if proxy is enabled in the gateway). See the HPE OpsRamp agent connectivity requirement documentation.
+* SNMP: port 161 for outbound communication from the gateway collector appliance to the networking devices and on-premises infrastructure, and port 162 for inbound communication from networking devices to the gateway collector appliance. See the [HPE OpsRamp SNMP documentation](https://glp.docs.opsramp.com/integrations/network/snmp-discovery/). 
+* TCP port 3128 for a proxy connection: outbound communication from compute servers’ agent (Microsoft Windows OS and Linux OS) to the gateway collector appliance’s embedded proxy (if proxy is enabled in the gateway). See the [HPE OpsRamp agent connectivity requirement documentation](https://glp.docs.opsramp.com/platform-features/agents/agent-reference/).
 * SSH and Windows Management Instrumentation (WMI) protocols are used to discover infrastructure devices.
 
 ### Gateway collector appliance installation and activation procedure
