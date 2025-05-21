@@ -245,13 +245,15 @@ As a *partner administrator* you can create and manage dashboards. In this examp
    * You can set the font, the size, and the background color of the header.
    * Click **ADD TILE**. 
 
-8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish - Server:
+8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish - Server:     
 
-* Select **Build my own** tab.
-* In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
-* Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
+ * Select **Build my own** tab.  
+ * In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.  
+ * Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.  
+
 
 ![Metric tile](/img/create-dashboard-img7.png "Metric tile")
+
 
 * Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
 
