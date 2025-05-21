@@ -15,22 +15,12 @@ sidebar:
     href: "#4-simplify-compliance-and-governance"
 useLayoutSideBar: true
 ---
-<style>
-  ul.sidebar > li {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    margin: 15px;
-    margin-left: 5px; 
-  }
-</style>
 <h1 id ="overview">Why Hybrid observability?</h1>
 <p style="font-size: 22px;">
 IT operations teams need hybrid observability to gain unified visibility and insights across complex, distributed IT infrastructure environments. Hybrid observability enables faster issue detection and remediation, improved performance, and more efficient management. Hybrid observability within your HPE GreenLake Flex solutions is a powerful added-value service, delivered via an AI-powered SaaS-based application, to help your IT operations teams proactively ensure system performance and optimize infrastructure operating costs while improving process efficiencies.
 </p>
 
-### 1. Optimize Costs and Utilization
+<h3 id ="1-optimize-costs-and-utilization">1. Optimize Costs and Utilization?</h3>
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="font-size: 22px; line-height: 32px;">
     Optimize resource utilization and forecast future requirements for more accurate budgeting, and drive better cost efficiencies and predictability.
@@ -43,7 +33,7 @@ IT operations teams need hybrid observability to gain unified visibility and ins
     <img src="/img/stepsflex/capacity_insights.png" alt="Capacity Insights" style="width: 500px; height: auto;">
 </div>
 
-### 2. Assure Uptime and Performance
+<h3 id="2-assure-uptime-and-performance">2. Assure Uptime and Performance</h3>
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="font-size: 22px; line-height: 32px;">
     Rapidly identify issues and the potential impact on application experience. Move from reactive to proactive to quickly resolve incidents before they impact business performance.
@@ -58,7 +48,7 @@ IT operations teams need hybrid observability to gain unified visibility and ins
     <img src="/img/stepsflex/full_stack_observability.png" alt="Uptime and Performance" style="width: 500px; height: auto;">
 </div>
 
-### 3. Streamline IT Operations and Service Delivery
+<h3 id="3-streamline-it-operations-and-service-delivery">3. Streamline IT Operations and Service Delivery</h3>
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="font-size: 22px; line-height: 32px;">
     Policy-based automation of routine operational tasks leveraging AI and ML analytics. Focus your IT team on innovation and business-critical needs.
@@ -72,7 +62,7 @@ IT operations teams need hybrid observability to gain unified visibility and ins
     <img src="/img/stepsflex/AI_Insights.png" alt="IT Operations and Service Delivery" style="width: 500px; height: auto;">
 </div>
 
-### 4. Simplify Compliance and Governance
+<h3 id="4-simplify-compliance-and-governance">4. Simplify Compliance and Governance</h3>
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="font-size: 22px; line-height: 32px;">
     Mitigate risk and safeguard sensitive data by automating policy enforcement with compliance and regulatory requirements.

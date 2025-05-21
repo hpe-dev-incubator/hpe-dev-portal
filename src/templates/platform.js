@@ -60,7 +60,25 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
-
+function renderMenu(items) {
+  if (!items) return null;
+  return (
+    <ul className="sidebar">
+      {items.map((item, index) =>
+        item.separator ? (
+          <li key={index} className="separator">
+            <hr style={{ border: '1px solid #ccc', margin: '2px 0' }} />
+          </li>
+        ) : (
+          <li key={index}>
+            <a href={item.href}>{item.label}</a>
+            {item.items && item.items.length > 0 && renderMenu(item.items)}
+          </li>
+        )
+      )}
+    </ul>
+  );
+}
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
@@ -133,32 +151,7 @@ function PlatformTemplate({ data }) {
   return useLayoutSideBar ? (
     <LayoutSideBar
       title={siteTitle}
-      sidebarContent={
-        sidebar && (
-          <ul className="sidebar">
-            {sidebar.map((item, index) => (
-              item.separator ? (
-                <li key={index} className="separator">
-                  <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
-                </li>
-              ) : (
-                <li key={index}>
-                  <a href={item.href}>{item.label}</a>
-                  {item.items && item.items.length > 0 && (
-                    <ul style={{ paddingLeft: '10px' }}>
-                      {item.items.map((subItem, subIndex) => (
-                        <li key={subIndex}>
-                          <a href={subItem.href}>{subItem.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              )
-            ))}
-          </ul>
-        )
-      }
+      sidebarContent={sidebar && renderMenu(sidebar)}
     >
       {content}
     </LayoutSideBar>
