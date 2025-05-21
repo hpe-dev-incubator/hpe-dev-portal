@@ -246,6 +246,7 @@ As a *partner administrator* you can create and manage dashboards. In this examp
    * Click **ADD TILE**. 
 
 8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish - Server:
+
 * Select **Build my own** tab.
 * In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
 * Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
@@ -265,17 +266,16 @@ As a *partner administrator* you can create and manage dashboards. In this examp
 ![Define axis labels and thresholds](/img/create-dashboard-img10.png "Define axis labels and thresholds")
 
 * Click **SAVE** or **CREATE** to save the tile.
-<br />
 
-9. You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
+* To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
 
-10. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
+* To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
 
-11. To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
+* To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
 
-12. To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
+* You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
 
-13. Here is an example of a basic dashboard for monitoring the status of the Redfish Server for the client account *DreamCompany*:
+Here is an example of a basic dashboard for monitoring the status of the Redfish - Server for the client account *DreamCompany*:
 
 ![Example of dashboard to monitor Redfish - Server](/img/create-dashboard-img14.png "Example of dashboard to monitor Redfish - Server")
 
