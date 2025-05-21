@@ -102,7 +102,7 @@ Based on your IT operational requirements, you can clone and customize the Globa
 
 ### Getting a real-time view of the Redfish – Server components
 
-You can also explore **Topology Maps**, a visual representation of relationships and dependencies between your infrastructure resources. 
+You can also explore **Topology Maps**, a visual representation of relationships and dependencies between your infrastructure resources: 
 
 * Go to **Infrastructure > Topology Maps** and select your Redfish - Server. 
 * You can also select a resource for a sub-component of the Redfish - Server from **Infrastructure > Search > COMPUTE > Redfish – Server**. Click the ellipsis (…) at the top right and select **View Topology**.
@@ -247,13 +247,13 @@ As a *partner administrator* you can create and manage dashboards. In this examp
 
 8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish - Server:
 
-  * Select **Build my own** tab. 
-  * In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
-  * Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
+* Select **Build my own** tab. 
+* In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
+* Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
 
 ![Metric tile](/img/create-dashboard-img7.png "Metric tile")
 
-  * Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
+* Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
 
 ![](/img/create-dashboard-img8.png)
 
@@ -267,10 +267,11 @@ As a *partner administrator* you can create and manage dashboards. In this examp
 
 * Click **SAVE** or **CREATE** to save the tile.
 
+
 9. You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
 
 10. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
- 
+
 11. To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
 
 12. To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
