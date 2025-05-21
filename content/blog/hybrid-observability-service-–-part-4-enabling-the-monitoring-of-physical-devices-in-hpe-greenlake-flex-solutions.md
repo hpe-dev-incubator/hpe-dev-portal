@@ -38,7 +38,7 @@ The Redfish Server integration module installation process for an HPE compute se
 
 2. From the navigation bar go to **Setup > Account > Integrations**.
 
-3. Click **+ADD** to search for _Redfish_. 
+3. Click **+ADD** to search for *Redfish*. 
 
 4. Choose to install **Redfish – Server** by selecting **ADD**.
 
@@ -56,8 +56,8 @@ The Redfish Server integration module installation process for an HPE compute se
 
 > **Note:** Do not check the option **CLI Credentials** because it is only valid for HPE Edgeline servers.
 
-8. In **RESOURCE TYPE**, check **ALL** or specify the hardware components to be discovered.  
-
+8. In **RESOURCE TYPE**, check **ALL** or specify the hardware components to be discovered. 
+ 
 9. Define a **Discovery Schedule**. You can select an hourly, daily, weekly, or monthly schedule.
 
 10. Select **ADD** to save the configuration of the integration module. 
@@ -70,7 +70,6 @@ The Redfish Server integration module installation process for an HPE compute se
 
 13. The gateway collector appliance displays with the status **CONFIGURED** for the Redfish – Server integration module. After a few minutes, the status of the gateway collector appliance will change to **RUNNING**.
 
-
 ### Visualizing the components of the Redfish - Server
 
 After a few iterations of discovery and monitoring of the newly installed Redfish Server integration module:
@@ -79,16 +78,13 @@ After a few iterations of discovery and monitoring of the newly installed Redfis
 
 2. Select either **MANAGER** or **SYSTEM** or **LINUX** in **MORE** option to view the sub-components of the compute device and the monitoring status (color indication is green which means the elements are now monitored):
 
-[Img 1]
+![Visualizing the components of Redfish - Server](/img/integration-redfish-img7.png "Visualizing the components of Redfish - Server")
 
 When the hybrid observability service connects to a Redfish-enabled system, it typically discovers and maps multiple components as separate resources:
 
 * The **Manager** represents the baseboard management controller (BMC) — that is the iLO management controller of the HPE ProLiant server — used for out-of-band monitoring. The Hybrid observability service connects to the controller for inventory, control, and monitoring of the server hardware. 
-
 * The **physical server resource** to monitor system-level hardware such as the processor, memory, and network interfaces.
-
 * The **server with the operating system** (Linux in our example) detected via the agentless SSH integration module previously installed.
-
 
 ### Visualizing the metrics and monitoring templates
 
@@ -96,11 +92,11 @@ When the hybrid observability service connects to a Redfish-enabled system, it t
 
 2. Click on the **Metrics** tab to view the metric graphs. A graph is plotted for each metric that is enabled in the Monitoring Template automatically assigned to the sub-component.
 
-3. On the upper right side of the Metrics tab, click the **Settings** icon to view monitoring configuration, such as the monitored metrics, the thresholds, and the availability monitor. 
-
+3. On the upper right side of the Metrics tab, click the **Settings** icon to view monitoring configuration, such as the monitored metrics, the thresholds, and the availability monitor.
+ 
 4. Navigate to **ASSIGNED TEMPLATES** to see the global monitoring template(s) assigned to the sub-component of the Redfish – Server.  
 
-[Img 2]
+![Visualizing the metrics and monitoring templates](/img/integration-redfish-img7-bis2.png "Visualizing the metrics and monitoring templates")
 
 Based on your IT operational requirements, you can clone and customize the Global Monitoring Templates, then apply them to the Redfish - Server components as appropriate. Refer to [Part 3 of the series](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/) to learn how to clone and apply a monitoring template to a resource.
 
@@ -111,22 +107,20 @@ You can also explore **Topology Maps**, a visual representation of relationships
 * Go to **Infrastructure > Topology Maps** and select your Redfish Server. 
 * You can also select a resource for a sub-component of the Redfish - Server from **Infrastructure > Search > COMPUTE > Redfish – Server**. Click the ellipsis (…) at the top right and select **View Topology**.
 
-[Img 3]
+![Topology Maps for Redfish - Server](/img/integration-redfish-img8-bis.png "Topology Maps for Redfish - Server")
 
 When viewing **Topology Maps**, you can customize how much detail is shown and how deep the relationships go using **View Settings** (gear icon) on the top right and set the **Depth** and **Layout** options.
 
-[Img 4]
+![Depth and Layout of the Topology Map](/img/integration-redfish-img9.png "Depth and Layout of the Topology Map")
 
 The **depth** setting controls how many levels of relationships you see in the topology view, and the **Layout** defines how resources and their relationships are visually arranged on the screen:
 
-[Img 5]
+![Topology Map with depth and layout](/img/integration-redfish-img10.png "Topology Map with depth and layout")
+
 
 ### Visualizing monitoring data in a dashboard
 
 You can use the **dashboards** (classic dashboard and modern dashboard 2.0). A dashboard is a collection of widgets and tiles that present visualizations of your environment’s monitoring data, helping you gain a greater understanding of the state of the infrastructure.
-
- [Img 6]
-
 
 ## Discovering and monitoring of HPE Storage Array
 
@@ -140,8 +134,8 @@ Once discovered, storage monitors are **automatically** applied to the resource 
 
 The storage array integration module installation process is very similar to the Redfish – Server integration module: 
 
-1. Select the **client account**. 
-
+1. Select the **client account**.
+ 
 2. In the navigation bar, go to **Setup > Account > Integrations** and click **+ADD** to search for **Storage** category. 
 
 3. Choose to install **HPE Alletra MP/9000** by selecting **ADD**.
@@ -152,7 +146,7 @@ The storage array integration module installation process is very similar to the
    * The storage array type (Alletra MP or Alletra 9000).
    * Check the **Is Secure** checkbox.
    * Specify the **IP address/Host name** of the storage array that should be accessible from the gateway collector appliance. 
-   * Specify the **WSAPI port** (port 443) and **SSH port** (port 22). 
+   * Specify the **WSAPI port** (port 443) and **SSH port** (port 22).
 
 5. Select existing credentials that apply to the storage array or click **+ADD** to create the Credentials for the storage array account. Specify the credentials name, a description, the username, and password.
 
@@ -160,16 +154,16 @@ The storage array integration module installation process is very similar to the
 
    * **App Failure Notification** to be notified by an event or an alert when availability is impacted due to an issue within the Alletra MP storage environment.  
    * **Alert Polling** that allows HPE OpsRamp to check for and collect alerts generated by the storage array.  
-   * **API Timeouts** to define the maximum amount of time HPE OpsRamp will wait for a response from the storage array when making an API call to fetch data such as alerts, events, metrics, or device information. 
-
+   * **API Timeouts** to define the maximum amount of time HPE OpsRamp will wait for a response from the storage array when making an API call to fetch data such as alerts, events, metrics, or device information.
+ 
 7. In **RESOURCE TYPE**, check **ALL** or specify the hardware components to be discovered.
 
 8. The last step is to define a **Discovery Schedule**. You can select a minute, hourly, daily, weekly, or monthly schedule.
 
-9. Select **ADD** to save the configuration of the integration module. 
-
-10. Click **NEXT** and **select** a collector profile. That is, the gateway collector appliance that will be used to install the integration module and discover the storage array resource. 
-
+9. Select **ADD** to save the configuration of the integration module.
+ 
+10. Click **NEXT** and **select** a collector profile. That is, the gateway collector appliance that will be used to install the integration module and discover the storage array resource.
+ 
 11. Click **FINISH** to complete the installation of the integration module and initiate the resource discovery.
 
 12. The gateway collector appliance is displayed with the status **CONFIGURED** for the storage array integration module. After a few minutes, the status of the gateway collector appliance will change to **RUNNING**.
@@ -180,7 +174,7 @@ After a few iterations of discovery and monitoring of the newly installed storag
 
 Navigate to **Infrastructure > Search** and select **STORAGE > HPE Alletra MP/9000 Series** to check the monitoring status (color indication is green) of the storage array:
 
-[Img 7]
+![Visualizing the components of the storage array](/img/integration-alletramp-img5.png "Visualizing the components of the storage array")
 
 The **HPE Alletra Storage System** is the top-level resource being discovered and monitored. It refers to the entire managed storage array instance — a physical and logical collection of components that operate together to deliver enterprise-grade storage services. Components include controllers, disks, virtual storage pool, volumes, network interfaces, chassis, cache modules, and so on.
 
@@ -189,25 +183,22 @@ You can select each component of the storage array to visualize its monitoring s
 ### Checking the Monitoring Templates assigned to the storage array
 
 1. Select a component of the storage array to open the resource details page.
- 
+
 2. Click on the **Metrics** tab to view the metric graphs.
 
 3. On the upper right side of the **Metrics** tab, click the **Settings** icon to view monitoring configurations such as the monitored metrics, the thresholds, and the availability monitor.
- 
+
 4. Navigate to **ASSIGNED TEMPLATES** to see the global monitoring templates assigned to the component of the storage array.  
 
 Based on your IT operational requirements, you can clone the Global Monitoring Templates and customize them, then apply them to the storage array components as appropriate. 
 
 > **Important Note:** For the HPE Alletra MP/9000 storage, although a Global Monitoring Template is automatically applied to the **HPE Alletra Storage System** component, no availability monitor is assigned. This feature will be made available in an upcoming HPE OpsRamp release. Meanwhile, to enable monitoring of the storage system component, you need to clone the monitoring template assigned to the **HPE Alletra Storage System**. Then you must customize it to enable one or two availability monitors for the metrics that are more important for the resource. Refer to [part 3 of the series](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/) to learn how to clone and apply a monitoring template to a resource.
 
-
 ### Getting a real-time view of the storage array components
 
 You can explore **Topology Maps** to get a graphical, real-time view of the storage array components, their relationships, and dependencies. 
 
 Navigate to **Infrastructure > Search** and select the storage system, click the ellipsis (…) at the top right, and select **View Topology**. Use the **View Settings** (gear icon) on the top right to set the **Depth** and **Layout** of the graphical representation.
-
-[Img 8]
 
 Finally, you can use the dashboards (classic dashboard and modern dashboard 2.0) that represent monitoring data of your environment.
 
@@ -220,7 +211,7 @@ The purpose of using and creating customizable dashboards is to easily identify 
 You can choose from the classic dashboard or dashboard 2.0. HPE **recommends leveraging the modern dashboard 2.0** for its advanced capabilities.
 
 Dashboard 2.0 allows you to:
- 
+
 * Create a dashboard with common chart types for observability such as line charts, bar charts, value charts, list charts, gauge charts, honeycomb charts, or pie charts. 
 * Leverage a set of predefined, **curated** dashboards. They are pre-built, use-case-specific dashboards that give IT teams immediate visibility into key areas of IT operations without needing to build dashboards.
 * Group related dashboards by function, project, or team into the default collection (**My Dashboards**) or create a new collection.
@@ -232,7 +223,7 @@ To learn more about dashboards, see the [HPE OpsRamp Dashboards documentation](h
 
 ### Creating a dashboard
 
-As a _partner administrator_ you can create and manage dashboards. In this example, I’ll show you the sequence of steps to create a new dashboard 2.0 in the default collection for the client account _DreamCompany_ to monitor and manage the discovered Redfish Server. 
+As a *partner administrator* you can create and manage dashboards. In this example, I’ll show you the sequence of steps to create a new dashboard 2.0 in the default collection for the client account *DreamCompany* to monitor and manage the discovered Redfish Server. 
 
 1. Select the **client account**, navigate to **Dashboards**, and click **Dashboard**.
 
@@ -244,7 +235,7 @@ As a _partner administrator_ you can create and manage dashboards. In this examp
 
 5. Click **CREATE** to start designing the dashboard by adding tiles and widgets.
 
-[Img 9]
+![Creating a dashboard 2.0](/img/create-dashboard-img2.png "Creating a dashboard 2.0")
 
 6. Click **CREATE TILE** or **+** on the toolbar.
 
@@ -253,40 +244,40 @@ As a _partner administrator_ you can create and manage dashboards. In this examp
    * Select **Header** tab.
    * You can set the font, the size, and the background color of the header.
    * Click **ADD TILE**. 
- 
+
 8. Click **+** in the toolbar to add another tile. Here, I will add a **Metric** tile to visualize metrics coming from the Redfish Server.
 
-  * Select **Build my own** tab. 
-  * In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
-  * Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
+* Select **Build my own** tab. 
+* In the **DATA** section, click **+QUERY** and select the metric that is important for you. For example, I selected the **ComputeSystem Average CPU** and the **Line/Bar** chart. You can also select the duration over which the selected metric data is displayed and calculated, for example, last 1 hour or last 24 hours.
+* Optionally, you can define **filters and operations** to help refine what data is shown and how it’s calculated.
 
-[Img 10]
+![Metric tile](/img/create-dashboard-img7.png "Metric tile")
 
-   * Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the name and IP address of the resource from the list of options to identify the resource in the chart.
+* Click the optional **Legend** icon and enter **{{** in the **Query a Legend** field to see a list of options. For example, I specify the *name* and *IP address* of the resource from the list of options to identify the resource in the chart. Click **DONE.**
 
-[Img 11]
+![](/img/create-dashboard-img8.png)
 
-* In the **VISUALIZATION** section, you can specify a header for the tile. For example, _Avg CPU Utilization_. You can select **Line** or **Bar** as the graph type and its color. 
+* In the **VISUALIZATION** section, you can specify a header for the tile. For example, *Avg CPU Utilization*. You can select **Line** or **Bar** as the graph type and its color. 
 
-[Img 12]
+![Select header and graph for the metric tile](/img/create-dashboard-img9.png "Select header and graph for the metric tile")
 
 * You can also define **axis labels** for the chart and **thresholds**. Thresholds define **value ranges** for a metric and assign them a **color/status** (OK, Warning, Critical) to reflect performance or health. They help visually flag performance degradation or anomalies in the metrics and take corrective actions.
 
-[Img 13]
+![Define axis labels and thresholds](/img/create-dashboard-img10.png "Define axis labels and thresholds")
 
 * Click **SAVE** or **CREATE** to save the tile.
 
 9. You can add other tiles to the dashboard for additional metrics, resource tile, alert tile, and so on.
 
-10. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically. 
-
+10. To resize a tile, hover the mouse over the bottom-right corner of the tile in the dashboard. You will see a resize handle shown by a diagonal arrow. Click and drag the corner to increase or decrease the tile size both horizontally and vertically.
+ 
 11. To edit a tile, hover the mouse to the top right of the tile, click the ellipsis (…), and select **Edit**.
 
 12. To move a tile, hover the mouse over the top of the tile, and position the tile on your dashboard.
 
-13. Here is an example of a basic dashboard for monitoring the status of the Redfish Server for the client account _DreamCompany_:
+13. Here is an example of a basic dashboard for monitoring the status of the Redfish Server for the client account *DreamCompany*:
 
-[Img 14]
+![Example of dashboard to monitor Redfish - Server](/img/create-dashboard-img14.png "Example of dashboard to monitor Redfish - Server")
 
 ### Importing a dashboard
 
@@ -314,4 +305,4 @@ To resolve issues with HPE GreenLake Flex Solutions or HPE hybrid observability 
 2. Under **Help**, select **OpsRamp** or **HPE GreenLake Flex Solutions**.
 3. Click **Create New Case**. 
 
-If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
+If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [\#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
