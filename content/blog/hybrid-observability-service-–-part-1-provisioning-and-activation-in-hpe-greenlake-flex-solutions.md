@@ -163,7 +163,7 @@ There’s also a series of video tutorials on the [Hybrid observability in HPE G
 To resolve issues with HPE GreenLake Flex Solutions or hybrid observability service powered by HPE OpsRamp, contact the support team. While logged in to your HPE GreenLake workspace: 
 
 1. Click **Help & Support**.
-2. Under **Help**, select OpsRamp or HPE GreenLake Flex Solutions.
+2. Under **Help**, select **OpsRamp** or **HPE GreenLake Flex Solutions**.
 3. Click **Create New Case**.
 
 If you still have any questions regarding the hybrid observability service activation process, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [\#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel. We’re always here to help.
