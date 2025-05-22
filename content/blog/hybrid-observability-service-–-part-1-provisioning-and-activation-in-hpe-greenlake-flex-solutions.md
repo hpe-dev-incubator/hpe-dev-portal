@@ -47,7 +47,7 @@ To enable monitoring and observability of physical devices in HPE GreenLake Flex
 
 6. Install integration modules to discover physical resources and enable monitoring and management of these resources. 
 
-7. Apply monitoring configuration to manage the health and status of the discovered resources components.  
+7. Apply monitoring configuration to manage and track the health, performance, and availability status of the discovered resources components.  
 
 In this blog post it is assumed that you have created an HPE account and a workspace. You will then learn how to:
 
