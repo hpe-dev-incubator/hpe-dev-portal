@@ -31,13 +31,13 @@ In [Part 3](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%9
 
 ## Creating a client account
 
-When the hybrid observability service powered by HPE OpsRamp is deployed in HPE GreenLake cloud by the **Workspace Administrator**, the service uses a **multi-tenant model** associated with a **partner account**. A partner account is the **master** tenant, including Clients who each have a *client account*. A Workspace Administrator is the user who created the workspace and has this role assigned by default, or invited users can get this role assigned by the Workspace Administrator.
+When the hybrid observability service powered by HPE OpsRamp is deployed in HPE GreenLake cloud by the **Workspace Administrator**, the service uses a **multi-tenant model** associated with a **partner account**. A partner account is the **master** tenant, including Clients who each have a *client account*. A _Workspace Administrator_ is the user who created the workspace and has this role assigned by default, or invited users can get this role assigned by the _Workspace Administrator_.
 
 In a multi-tenant model, a *client account* is a tenant of a partner account. It represents a monitoring and management instance for an individual organization, a business unit, or a specific customer environment.
 
 > **Note:** By default, a *client account* is created with the name of the HPE GreenLake workspace. You may want to create additional _client accounts_ for an individual organization, business unit, or customer environment.
 
-To start setting up the environment, log in to the service using an account provisioned with the *Partner Administrator* role. The Workspace Administrator who provisioned the HPE OpsRamp service in the HPE GreenLake cloud has this role assigned by default.  
+To start setting up the environment, log in to the service using an account provisioned with the *Partner Administrator* role. The _Workspace Administrator_ who provisioned the HPE OpsRamp service in the HPE GreenLake cloud has this role assigned by default.  
 
 > **Note:** The other users with the _OpsRamp Access_ role granted in the workspace will have the role _GLP Invited Partner User_ assigned in the service.
 
@@ -69,7 +69,7 @@ To create a new client account:
    * Select the **client account** from the list of clients. 
    * Click **Edit** button for the **ADDONS** section and enable the Add-ons. To learn more about the Add-ons, see the [HPE OpsRamp Hybrid Discovery and Monitoring documentation](https://glp.docs.opsramp.com/guides/component-model/#hybrid-discovery-and-monitoring).
 
-> **Note:** To enable client account Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special characters. 
+> **Note:** To enable client account Add-ons, ensure your HPE GreenLake workspace details (name, address) do not contain any special characters. 
 
 ## Managing user account
 
@@ -108,7 +108,7 @@ There are two types of gateway collectors:
 
 ### Gateway Collector appliance prerequisites
 
-1. Ensure your HPE GreenLake Workspace details (name, address) do not contain any special character. 
+1. Ensure your HPE GreenLake workspace details (name, address) do not contain any special character. 
 
 2. A **virtual environment** (a hypervisor or a Kubernetes environment) is required within your firewall environment. 
 
@@ -160,9 +160,9 @@ Here, we install the NextGen gateway collector OVA as a virtual machine on a VMw
    * Specify a unique name for the virtual machine and a location in your environment.
    * Select a compute resource such as an ESXi cluster, ESXi host, or a Resource Pool for the virtual machine.
    * Review the detailed information.
-   * Select a datastore for the virtual machine and use the Thick Provision Lazy Zeroed disk format.
+   * Select a datastore for the virtual machine and use the _Thick Provision Lazy Zeroed_ disk format.
    * Select a destination Network for the virtual machine.
-   * Verify the deployment settings and click FINISH to start creating the virtual machine in the hypervisor. 
+   * Verify the deployment settings and click _FINISH_ to start creating the virtual machine in the hypervisor. 
    * Power on the virtual machine.
 
 9. Next, once the virtual machine is deployed and powered on, apply the **ACTIVATION** instructions to activate and register the gateway collector appliance on the virtual machine. The activation process takes a few minutes to complete installation of the Kubernetes cluster and activation of the gateway pods in the Kubernetes cluster. The activation process will instruct you to:
@@ -171,7 +171,7 @@ Here, we install the NextGen gateway collector OVA as a virtual machine on a VMw
    * Step 2 — Set the hostname for the gateway collector appliance and change the default password. 
    * Step 3 — Install the K3s Kubernetes cluster on the gateway collector appliance.
    * Step 4 — Register the gateway collector appliance in the HPE OpsRamp platform.
-   * Step 5 — Click FINISH when the Activation is completed.
+   * Step 5 — Click _FINISH_ when the Activation is completed.
 
 > **Important note:** If you want to assign **a static IP address** to the gateway appliance, refer to the [HPE OpsRamp NextGen gateway installation documentation](https://glp.docs.opsramp.com/platform-features/nextgen-gateways/installation-nextgen-gateway/iso-based-installation/#step-3-update-hostname-and-install-kubernetes). Follow these steps before installing the Kubernetes cluster (step 3 above) on the gateway collector appliance. 
 
@@ -192,7 +192,7 @@ You can also navigate to **Dashboard > Classic Dashboard** to drill into infrast
 ![Classic dashboard gateway resources status](/img/opsramp-gateway-install-img-10.png "Classic dashboard gateway resources status")
 
 
-> **Note:** The resource status for the NextGen Gateway Cluster and the NextGen Gateway Node are shown as **Undefined** (color indication **brown**). This is expected because no availability monitor is assigned to these two resources. To monitor the NextGen Gateway Node, you will need to assign a **cloned** version of the Global Monitoring Template **Agent G2 – Linux OS Performance Monitoring**. Refer to the next blog post <link to blog post part 3> to learn how to assign a Monitoring Template to a resource.
+> **Note:** The resource status for the _NextGen Gateway Cluster_ and the _NextGen Gateway Node_ are shown as **Undefined** (color indication **brown**). This is expected because no availability monitor is assigned to these two resources. To monitor the NextGen Gateway Node, you will need to assign a **cloned** version of the Global Monitoring Template **Agent G2 – Linux OS Performance Monitoring**. Refer to the next blog post <link to blog post part 3> to learn how to assign a Monitoring Template to a resource.
 
 ## Whitelisting IP addresses to improve network access security
 
