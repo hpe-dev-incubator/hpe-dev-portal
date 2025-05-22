@@ -39,26 +39,19 @@ To enable monitoring and observability of physical devices in HPE GreenLake Flex
    > **Note:** If you haven’t already set up your HPE account and workspace, refer to the [HPE GreenLake Cloud User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-497192AA-FDC2-49C5-B572-0D2F58A23745.html) to create them. 
 2. Ensure you receive the hybrid observability subscription key by email as part of the HPE GreenLake Flex Solutions contract.
 
-
 3. Provision and activate hybrid observability service on the HPE GreenLake workspace.
-
 
 4. Create a client account.
 
+5. Install a gateway collector appliance in a virtual environment as prerequisite to enable discovery of physical resources before they can be monitored.
 
-5. Install a gateway collector appliance in a virtual environment to enable discovery of physical resources.
+6. Install integration modules to discover physical resources and enable monitoring and management of these resources. 
 
-
-6. Install integration modules to discover physical resources. 
-
-
-7. Apply monitoring configuration to the discovered resources.  
-
-
+7. Apply monitoring configuration to manage the health and status of the discovered resources components.  
 
 In this blog post it is assumed that you have created an HPE account and a workspace. You will then learn how to:
 
-* Provision the hybrid observability service powered by HPE OpsRamp Software in the HPE GreenLake Workspace.
+* Provision the hybrid observability service powered by HPE OpsRamp Software in the HPE GreenLake workspace.
 * Activate the associated subscription key.
 * Assign appropriate access role to desired users in the HPE GreenLake workspace. 
 * Launch the hybrid observability service in HPE GreenLake Flex Solutions to begin your hybrid observability journey. 
@@ -69,7 +62,7 @@ In the subsequent blog posts of the series, I will walk you through setting up t
 
 To activate the hybrid observability service in HPE GreenLake Flex Solutions and the associated subscription key on your workspace, you need to:
 
-1. Provision the hybrid observability service powered by HPE OpsRamp Software in a desired region in your workspace using your HPE account with the Workspace Administrator role.
+1. Provision the hybrid observability service powered by HPE OpsRamp Software in a desired region in your workspace using your HPE account with the _Workspace Administrator_ role.
 
 
 2. Activate the subscription key for your workspace.
@@ -86,7 +79,7 @@ To activate the hybrid observability service in HPE GreenLake Flex Solutions and
 
 ### Step 1 – Provision the HPE OpsRamp Software service in your workspace
 
-Log in to your HPE GreenLake cloud workspace using your Workspace Administrator account. Provision the HPE OpsRamp Software to your workspace and select a deployment region. You can provision the HPE OpsRamp Software before adding the subscription key.
+Log in to your HPE GreenLake cloud workspace using your _Workspace Administrator_ account. Provision the HPE OpsRamp Software to your workspace and select a deployment region. You can provision the HPE OpsRamp Software before adding the subscription key.
 
 * Click **Services > Catalog**.
 
@@ -102,7 +95,7 @@ Log in to your HPE GreenLake cloud workspace using your Workspace Administrator 
 
 ### Step 2 – Activate the subscription key in your workspace
 
-As the Workspace Administrator, add the hybrid observability **subscription key** that you received via email for your workspace. A subscription key is needed to launch the service in your workspace:
+As the _Workspace Administrator_, add the hybrid observability **subscription key** that you received via email for your workspace. A subscription key is needed to launch the service in your workspace:
 
 * In your HPE GreenLake workspace, click **Services** and then **Service Subscriptions**.
 * Click **Add Service Subscription**. 
@@ -148,9 +141,9 @@ By default, Partner’s advanced monitoring **Add-ons** are not enabled. It is r
 
 > **Note:** This feature will be made available under **Setup > Account** in an upcoming HPE OpsRamp release.
 >
-> **Note:** To enable Partner’s Add-ons, ensure your HPE GreenLake Workspace details (name, address) do not contain any special character. 
+> **Note:** To enable Partner’s Add-ons, ensure your HPE GreenLake workspace details (name, address) do not contain any special character. 
 
-The hybrid observability in HPE GreenLake Flex Solutions uses a multi-tenant model. As a Partner Administrator, you can manage multiple client accounts, each client account representing an individual organization, business unit, or customer environment. You’ll start setting up your hybrid observability service by:
+The hybrid observability in HPE GreenLake Flex Solutions uses a multi-tenant model. As a _Partner Administrator_, you can manage multiple client accounts, each client account representing an individual organization, business unit, or customer environment. You’ll start setting up your hybrid observability service by:
 
 * Defining a client account. 
 * Assigning specific access roles to users. 
