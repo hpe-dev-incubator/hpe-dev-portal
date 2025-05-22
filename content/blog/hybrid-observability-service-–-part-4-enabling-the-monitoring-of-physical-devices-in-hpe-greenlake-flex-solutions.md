@@ -58,7 +58,7 @@ The Redfish Server integration module installation process for an HPE compute se
 
 8. In **RESOURCE TYPE**, check **ALL** or specify the hardware components to be discovered. 
 
-9. Define a **Discovery Schedule**. You can select an hourly, daily, weekly, or monthly schedule.
+9. Define a **Discovery Schedule**. You can select minutes, hourly, daily, weekly, or monthly schedule.
 
 10. Select **ADD** to save the configuration of the integration module. 
 
@@ -137,7 +137,7 @@ The storage array integration module installation process is very similar to the
 
 2. In the navigation bar, go to **Setup > Account > Integrations** and click **+ADD** to search for **Storage** category. 
 
-3. Choose to install **HPE Alletra MP/9000** by selecting **ADD**.
+3. Choose to install **HPE Alletra MP/9000 Series** by selecting **ADD**.
 
 4. Select the **application version** and select **+ADD** to input basic account information such as: 
 
@@ -226,7 +226,7 @@ As a *partner administrator* you can create and manage dashboards. In this examp
 
 1. Select the **client account**, navigate to **Dashboards**, and click **Dashboard**.
 
-2. Click the menu (**three stacked horizontal lines**), also referred to as hamburger icon, on the left side of the dashboard.
+2. Click the menu (**three stacked horizontal lines**), also referred to as _hamburger icon_, on the left side of the dashboard.
 
 3. Click **+CREATE DASHBOARD**.
 
