@@ -1,7 +1,7 @@
 ---
 title: "Hybrid observability service – Part 2: Initial configuration to enable
   the discovery of resources in HPE GreenLake Flex Solutions"
-date: 2025-05-22T15:34:55.184Z
+date: 2025-05-23T15:34:55.184Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
@@ -217,5 +217,3 @@ To resolve issues with HPE GreenLake Flex Solutions or hybrid observability serv
 1. Click **Help & Support**.
 2. Under **Help**, select **OpsRamp** or **HPE GreenLake Flex Solutions**.
 3. Click **Create New Case**. 
-
-If you still have any questions regarding the hybrid observability service configuration, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion on our [\#hpe-greenlake-flex-observability](https://hpedev.slack.com/archives/C08K4GV7YN5) Slack channel.
