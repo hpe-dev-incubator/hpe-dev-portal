@@ -101,7 +101,7 @@ As Partner Administrator, let’s install an **agentless SSH Integration module*
 
 8. In **PERFORM ACTIONS**, select the **Manage Device** checkbox.
 
-9. Next, define a **Discovery Schedule**. The schedule ensures that all resources and components inventory are in sync between the hybrid observability service and the agentless (SSH) server. You can select minutes, hourly, daily, weekly, or monthly schedule.
+9. Next, define a **Discovery Schedule**. The schedule ensures that all resources and components inventory are in sync between the hybrid observability service and the agentless (SSH) server. You can select hourly, daily, weekly, or monthly schedule.
 
 10. Now that all the configuration details are entered, select **ADD** to save the configuration of the integration module. 
 
