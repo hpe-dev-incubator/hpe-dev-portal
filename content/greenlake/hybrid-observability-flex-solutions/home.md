@@ -3,7 +3,7 @@ width: large
 priority: 2
 active: true
 useLayoutSideBar: true
-title: ACTIVATION & ONBOARDING of Hybrid observability in HPE GreenLake Flex Solutions
+title: Hybrid Observability in HPE GreenLake Flex Solutions
 version: "1.0"
 image: /img/greenlake/background-image-1.png
 tags:
@@ -148,7 +148,7 @@ li {
 }
 </style>
 
-<h1 id='overview'>Activation & Onboarding of Hybrid observability in HPE GreenLake Flex Solutions</h1>
+<h1 id='overview'>Activation & Onboarding of Hybrid Observability in HPE GreenLake Flex Solutions</h1>
   <p style="font-size: 22px;">
     Your HPE GreenLake Flex Solution gives you full access to the tools and intelligence inherent within HPE GreenLake cloud – bringing the cloud experience to all your IT so you can deploy and manage resources across your private and public clouds while retaining control of your data and flexibility over how you consume and manage your services.
   </p>
@@ -169,7 +169,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
 
   <h3 id="learn-from-experts">Getting Started</h3>
   <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of hybrid observability from HPE OpsRamp and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
-  <h4>Choose your activation and onboarding path:</h4>
+  <p style="font-size: 25px;">Choose your activation and onboarding path:</p>
   <div>
       <a href="#hpe-assisted" style="font-size: 22px; display: block; margin-bottom: 15px;">
           HPE-assisted
@@ -179,7 +179,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
       </a>
   </div>
 
-  <h3 id='hpe-assisted'>HPE-Assisted Activation and Onboarding</h3>
+  <h4 id='hpe-assisted'>HPE-Assisted Activation and Onboarding</h4>
 <p style="font-size: 24px;">Your HPE Account Service Manager (ASM) and a Global Support Remote specialist (GSR) are standing by to help guide your activation and onboarding process.</p>
 
 <div id="content-container" style="display: flex; align-items: flex-start; gap: 20px;">
@@ -201,7 +201,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
 </div>
 
 
-<h3 id='self-service-activation'>Self-service Activation and Onboarding</h3>
+<h4 id='self-service-activation'>Self-service Activation and Onboarding</h4>
 <p style="font-size: 24px;">Resources for onboarding, activating, and configuring the hybrid observability service</p>
 <table id="content-table">
   <thead>
