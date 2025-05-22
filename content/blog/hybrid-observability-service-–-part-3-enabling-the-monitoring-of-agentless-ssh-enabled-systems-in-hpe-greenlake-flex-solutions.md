@@ -1,7 +1,7 @@
 ---
 title: "Hybrid observability service – Part 3: Enabling the monitoring of
   agentless SSH-enabled systems in HPE GreenLake Flex Solutions"
-date: 2025-05-22T15:35:32.753Z
+date: 2025-05-24T15:35:32.753Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
