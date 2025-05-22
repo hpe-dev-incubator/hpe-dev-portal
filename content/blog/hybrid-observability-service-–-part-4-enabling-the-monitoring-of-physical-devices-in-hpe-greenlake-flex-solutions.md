@@ -1,7 +1,7 @@
 ---
 title: "Hybrid observability service – Part 4: Enabling the monitoring of
   physical devices in HPE GreenLake Flex Solutions"
-date: 2025-05-25T15:36:05.175Z
+date: 2025-05-27T15:36:05.175Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
