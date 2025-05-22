@@ -1,7 +1,7 @@
 ---
 title: "Hybrid observability service – Part 2: Initial configuration to enable
   the discovery of resources in HPE GreenLake Flex Solutions"
-date: 2025-05-22T15:34:55.184Z
+date: 2025-05-23T15:34:55.184Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
