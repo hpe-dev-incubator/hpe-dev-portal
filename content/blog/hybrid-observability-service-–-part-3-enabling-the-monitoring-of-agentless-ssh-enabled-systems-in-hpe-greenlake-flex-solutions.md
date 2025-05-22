@@ -75,7 +75,7 @@ As Partner Administrator, let’s install an **agentless SSH Integration module*
 
 1. To discover a compute resource, select the **client account**, then select **Setup** in the navigation bar, and select **Account** in the drop-down menu to navigate to the account details page.
 
-2. Select the **Integrations** tile to access the Integrations App store and click **+ADD** to display all the integration applications available for the client account. If this is your first integration module you want to install, click **+ADD** directly from the Integrations tile.
+2. Select the **Integrations** tile to access the Integrations App store and click **+ADD** to display all the integration applications available for the _client account_. If this is your first integration module you want to install, click **+ADD** directly from the Integrations tile.
 
 3. Filter the list of available integrations by a variety of **Categories** or use the **Search** feature. For agentless SSH-enabled devices, you can filter through category **OS** or in the Search field, type **SSH**.
 
@@ -92,8 +92,8 @@ As Partner Administrator, let’s install an **agentless SSH Integration module*
    * The credential name and a brief description. 
    * The authentication type (typically Password) and appropriate credentials (username and password).
    * The SSH port (typically port 22). 
-   * Check the box “Secure”.
-   * Finally, click ADD to create the SSH credential.  
+   * Check the box **Secure**.
+   * Finally, click **ADD** to create the SSH credential.  
 
 > **Note:** You can also select existing SSH credentials if one already exists and that applies to your resource.
 
@@ -154,9 +154,9 @@ The gateway collector appliance discovered the agentless SSH system. It will mon
 
 5. Select the **Template** checkbox. Click **Copy** to clone the template and click **Yes** to duplicate the template.
 
-6. Select the **client account**, give a **Name** to your template. Use the client account name in the *Template Name* to identify the template for a particular client account easily. For example, _DreamCompany-Agentless-Linux-Performance_. Click **Save**.
+6. Select the **client account**, give a **Name** to your template. Use the _client account_ name in the *Template Name* to identify the template for a particular client account easily. For example, _DreamCompany-Agentless-Linux-Performance_. Click **Save**.
 
-7. To list the Monitoring Templates for the *client account*, go to **Monitoring > Templates > Advanced Search >**, select **Client Templates** for the *Scope*. You can now customize the template to adjust some parameters such as the *tags*, metrics such as the **warning** or **critical thresholds**, and the **availability monitor** per your IT operational requirements.
+7. To list the Monitoring Templates for the *client account*, go to **Monitoring > Templates > Advanced Search**, select **Client Templates** for the *Scope*. You can now customize the template to adjust some parameters such as the *tags*, metrics such as the **warning** or **critical thresholds**, and the **availability monitor** per your IT operational requirements.
 
 8. To monitor the resource, enable an **Availability Monitor** for a metric (for example, *os.uptime*).
 
