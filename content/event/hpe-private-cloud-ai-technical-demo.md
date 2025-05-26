@@ -4,7 +4,7 @@ dateStart: 2025-04-29T22:01:02.364Z
 dateEnd: 2025-04-30T21:30:02.382Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups/
+link: https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## HPE Private Cloud AI Technical Demo
