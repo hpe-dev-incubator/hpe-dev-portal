@@ -36,7 +36,6 @@ description: HPE GreenLake Flex Solutions provide an advanced
    text-decoration: none;
    font-size: 16px;
    font-weight: bold;
-   transition: background-color 0.3s ease;
 }
 .action-button:hover {
    background-color: #005a3c;
@@ -99,12 +98,6 @@ li {
    font-size: 18px;
    line-height: 1.8;
 }
-
-#highlight {
-   font-weight: bold;
-   color: #005a3c;
-}
-
 .video-title {
    display: block;
    margin: 0;
@@ -171,9 +164,10 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
   <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of hybrid observability from HPE OpsRamp and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
   <p style="font-size: 25px;">Choose your activation and onboarding path:</p>
   <div>
-      <a href="#hpe-assisted" style="font-size: 22px; display: block; margin-bottom: 15px;">
+      <a href="#hpe-assisted" style="font-size: 22px;">
           HPE-assisted
       </a>
+      <br><br>
       <a href="#self-service-activation" style="font-size: 22px;">
           Self-service resources
       </a>
@@ -191,7 +185,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
       <li>Invite additional users from your IT operations team by using the Identity and Access Management (IAM) tool.</li>
       <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-9EDAAB42-9182-488D-A06F-6E8CB4BFAB60.html" target="_blank">Provision OpsRamp</a> in your HPE GreenLake cloud.</li>
       <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-7CDEB995-EAAB-4A2B-BC1F-2EB6F20B594B.html%23ariaid-title1" target="_blank">Specify the region</a> where you’d like your OpsRamp SaaS instance deployed.</li>
-      <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-46819916-2559-4A35-B10A-42E982026A6C.html" target="_blank">Launch OpsRamp using the subscription key</a>received within your welcome letter or from your ASM.</li>
+      <li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-46819916-2559-4A35-B10A-42E982026A6C.html" target="_blank">Launch OpsRamp using the subscription key</a> received within your welcome letter or from your ASM.</li>
       <li>A GSR will then be assigned to provide guidance through the onboarding and customization of your hybrid observability command center. This may include assistance with setting up gateways, auto-discovery and dashboarding, customizing monitoring templates and reports, as well as setting up patching, scripting and alert automation.</li>
     </ol>
   </div>
