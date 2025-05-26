@@ -224,7 +224,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
         <span class="video-title">Part 1: Provisioning the hybrid observability service in your workspace</span>
       </td>
       <td id="table-cell" rowspan="4">
-        <a href="https://deploy-preview-3048--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
+        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service –  Provisioning and activation in HPE GreenLake Flex Solutions
         </a>
       </td>
@@ -266,7 +266,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
         <span class="video-title">Part 5: Preparing the client/user settings</span>
       </td>
       <td id="table-cell" rowspan="2">
-        <a href="https://deploy-preview-3049--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-2-initial-configuration-to-enable-the-discovery-of-resources-in-hpe-greenlake-flex-solutions/">
+        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-2-initial-configuration-to-enable-the-discovery-of-resources-in-hpe-greenlake-flex-solutions/">
           Hybrid observability service – Initial configuration to enable the discovery of resources in HPE GreenLake Flex Solutions 
         </a>
       </td>
@@ -292,8 +292,8 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
         <span class="video-title">Part 7: Agentless SSH integration and monitoring templates</span>
       </td>
       <td id="table-cell">
-        <a href="https://deploy-preview-3050--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/">
-          Hybrid observability service – Enabling monitoring of agentless SSH-enabled system in HPE GreenLake Flex Solutions
+        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-3-enabling-the-monitoring-of-agentless-ssh-enabled-systems-in-hpe-greenlake-flex-solutions/">
+          Hybrid observability service – Enabling the monitoring of agentless SSH-enabled system in HPE GreenLake Flex Solutions
         </a>
       </td>
     </tr>
@@ -306,8 +306,8 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
       </td>
 
 <td id="table-cell" rowspan="3">
-        <a href="https://deploy-preview-3055--hpe-dev-portal.netlify.app/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/">
-          Hybrid observability service – Enabling monitoring of physical devices in HPE GreenLake Flex Solutions
+        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/">
+          Hybrid observability service – Enabling the monitoring of physical devices in HPE GreenLake Flex Solutions
         </a>
       </td>
     </tr>
