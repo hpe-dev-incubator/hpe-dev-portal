@@ -231,7 +231,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=7lBc9_2TC3s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1">
+        <a href="https://www.youtube.com/watch?v=7lBc9_2TC3s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 2 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 2: Activate hybrid observability  subscription key in your workspace</span>
@@ -239,7 +239,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=oinaiu1zeBo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=3&t=3s">
+        <a href="https://www.youtube.com/watch?v=oinaiu1zeBo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 3 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 3: Assign access roles for desired users</span>
@@ -247,7 +247,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=vviJ_2B_C_o&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=4">
+        <a href="https://www.youtube.com/watch?v=vviJ_2B_C_o&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 4 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 4: Launching the hybrid observability service from your workspace</span>
@@ -260,7 +260,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=4jYTVIbUAU4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=5">
+        <a href="https://www.youtube.com/watch?v=4jYTVIbUAU4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 5 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 5: Preparing the client/user settings</span>
@@ -273,7 +273,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=AtQCNt67SIA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1">
+        <a href="https://www.youtube.com/watch?v=AtQCNt67SIA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 6 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 6: Configuring a Gateway</span>
@@ -286,7 +286,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=JtiWrHUqzdk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=2">
+        <a href="https://www.youtube.com/watch?v=JtiWrHUqzdk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 7 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 7: Agentless SSH integration and monitoring templates</span>
@@ -299,7 +299,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=7E1-QvFdeE4&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=3">
+        <a href="https://www.youtube.com/watch?v=7E1-QvFdeE4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 8 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 8: Redfish Server integration and configuration</span>
@@ -313,7 +313,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%209.mp4">
+        <a href="https://www.youtube.com/watch?v=JpsGVEG_eVA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 9 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 9: Storage array integration and configuration</span>
@@ -321,7 +321,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://hpe.sharepoint.com/:v:/r/sites/HPEDeveloperCommunity-OpsRampFlex/Shared%20Documents/Video/Video%2010.mp4">
+        <a href="https://www.youtube.com/watch?v=6ahkkdmGsi8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
           <img src="/img/stepsflex/video_img.jpg" alt="Step 10 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
         <span class="video-title">Part 10: Creating a customized dashboard</span>
