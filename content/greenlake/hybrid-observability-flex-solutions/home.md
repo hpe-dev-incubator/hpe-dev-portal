@@ -162,16 +162,8 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
 
   <h3 id="learn-from-experts">Getting Started</h3>
   <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of hybrid observability from HPE OpsRamp and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
-  <p style="font-size: 25px;">Choose your activation and onboarding path:</p>
-  <div>
-      <a href="index.html#hpe-assisted" style="font-size: 22px;">
-          HPE-assisted
-      </a>
-      <br><br>
-      <a href="index.html/#self-service-activation" style="font-size: 22px;">
-          Self-service resources
-      </a>
-  </div>
+  <p style="font-size: 25px;">Choose between HPE-assisted or self-service activation and onboarding:</p>
+
 
   <h4 id='hpe-assisted'>HPE-Assisted Activation and Onboarding</h4>
 <p style="font-size: 24px;">Your HPE Account Service Manager (ASM) and a Global Support Remote specialist (GSR) are standing by to help guide your activation and onboarding process.</p>
@@ -341,4 +333,4 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
   </ul>
 
   <h3 id="contact">Any Questions About Hybrid Observability on HPE GreenLake Flex Solutions?</h3>
-  <p style="font-size: 22px;">Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">HPE Developer Community Slack Workspace</a> and start a discussion in our <a href="https://hpedev.slack.com/archives/C08K4GV7YN5" style="font-size: 22px;">#hpe-greenlake-flex-observability</a> Slack channel. You can also email <a href="mailto:hpedev@hpe.com" style="font-size: 22px;">hpedev@hpe.com</a>.</p>
+  <p style="font-size: 22px;">Need help getting started with the bundled hybrid observability on HPE GreenLake Flex Solutions? Join the <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">our Slack Workspace</a> and start a discussion in our <a href="https://hpedev.slack.com/archives/C08K4GV7YN5" style="font-size: 22px;">#hpe-greenlake-flex-observability</a> Slack channel. You can also email us at <a href="mailto:gsccitops@hpe.com" style="font-size: 22px;">gsccitops@hpe.com</a>.</p>
