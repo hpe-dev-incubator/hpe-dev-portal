@@ -164,11 +164,11 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
   <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of hybrid observability from HPE OpsRamp and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
   <p style="font-size: 25px;">Choose your activation and onboarding path:</p>
   <div>
-      <a href="#hpe-assisted" style="font-size: 22px;">
+      <a href="index.html#hpe-assisted" style="font-size: 22px;">
           HPE-assisted
       </a>
       <br><br>
-      <a href="#self-service-activation" style="font-size: 22px;">
+      <a href="index.html/#self-service-activation" style="font-size: 22px;">
           Self-service resources
       </a>
   </div>
@@ -193,7 +193,6 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     <img src="/img/stepsflex/assisted.png" alt="Activation and Onboarding Steps" style="max-width: 100%; height: auto; border-radius: 8px;">
   </div>
 </div>
-
 
 <h4 id='self-service-activation'>Self-service Activation and Onboarding</h4>
 <p style="font-size: 24px;">Resources for onboarding, activating, and configuring the hybrid observability service</p>
