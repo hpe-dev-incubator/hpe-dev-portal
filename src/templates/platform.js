@@ -8,6 +8,7 @@ import {
   BlogCard,
   Content,
   Layout,
+  LayoutSideBar,
   Markdown,
   SEO,
   SectionHeader,
@@ -59,7 +60,25 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
-
+function renderMenu(items) {
+  if (!items) return null;
+  return (
+    <ul className="sidebar">
+      {items.map((item, index) =>
+        item.separator ? (
+          <li key={index} className="separator">
+            <hr style={{ border: '1px solid #ccc', margin: '2px 0' }} />
+          </li>
+        ) : (
+          <li key={index}>
+            <a href={item.href}>{item.label}</a>
+            {item.items && item.items.length > 0 && renderMenu(item.items)}
+          </li>
+        )
+      )}
+    </ul>
+  );
+}
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
@@ -67,9 +86,10 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags } = post.frontmatter;
-  return (
-    <Layout title={siteTitle}>
+  const { title, description, tags, sidebar, useLayoutSideBar } = post.frontmatter;
+
+  const content =(
+    <>
       <SEO title={title} description={description || excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive">
@@ -82,7 +102,7 @@ function PlatformTemplate({ data }) {
               /> */}
           </Box>
           <Content gap="medium" margin={{ vertical: 'large' }}>
-            <Heading margin="none">{title}</Heading>
+            {!useLayoutSideBar && <Heading margin="none">{title}</Heading>}
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {blogs.length > 0 && tags && (
               <SectionHeader title="Related Blogs" color="border">
@@ -126,7 +146,19 @@ function PlatformTemplate({ data }) {
           />
         </Box>
       </Box>
-    </Layout>
+    </>
+  )
+  return useLayoutSideBar ? (
+    <LayoutSideBar
+      title={siteTitle}
+      sidebarContent={sidebar && renderMenu(sidebar)}
+    >
+      {content}
+    </LayoutSideBar>
+  ) : (
+    <Layout title={siteTitle}>
+    {content}
+  </Layout>
   );
 }
 
@@ -220,6 +252,16 @@ export const pageQuery = graphql`
         description
         image
         tags
+        sidebar {
+          label
+          href
+          separator
+          items {
+            label
+            href
+          }
+        }
+        useLayoutSideBar
       }
       fields {
         slug
