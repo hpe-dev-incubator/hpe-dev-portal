@@ -282,17 +282,17 @@ function Header() {
     />,
   );
 
-  // if (!userDetail) {
-  //   navLinks.push(
-  //     <Button
-  //       align="start"
-  //       key="os"
-  //       label="SIGN IN"
-  //       secondary
-  //       onClick={handleHPESignIn}
-  //     />,
-  //   );
-  // }
+  if (!userDetail) {
+    navLinks.push(
+      <Button
+        align="start"
+        key="os"
+        label="SIGN IN"
+        secondary
+        onClick={handleHPESignIn}
+      />,
+    );
+  }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink
