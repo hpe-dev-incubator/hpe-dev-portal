@@ -7,7 +7,6 @@ title: Hybrid Observability in HPE GreenLake Flex Solutions
 version: "1.0"
 image: /img/greenlake/background-image-1.png
 tags:
-  - hpe-greenlake-flex-solutions
   - hybrid-observability-flex-solutions
 sidebar:
   - label: Overview
