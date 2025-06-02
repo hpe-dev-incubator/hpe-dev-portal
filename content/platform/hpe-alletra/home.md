@@ -13,9 +13,17 @@ tags:
 ---
 Shed the complexity and silos inherent in conventional hybrid cloud environments with category-defining cloud-native data infrastructure that delivers a cloud operating and consumption experience wherever data lives. Stop managing infrastructure — and start simply accessing and utilizing it, as a service and on demand.
 
-- Get the agility of cloud — everywhere
-- Run any app — without compromise
-- Free your data across hybrid cloud
+* Get the agility of cloud — everywhere
+* Run any app — without compromise
+* Free your data across hybrid cloud
+
+# HPE Alletra Storage MP B10000 Web Service API v3
+
+The HPE Alletra Storage MP B10000 platform offers a rich set of REST APIs to manage the system configuration, provision storage, and run other administrative operations.  See the links below for additional information about the REST API and how to use them:
+
+* [HPE Alletra Storage MP B10000: Web Services API Developer Guide v3](<* *[https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide](https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide "https\://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide>)
+* [HPE Alletra Storage MP B10000: Web Services API Documentation](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/index.html)
+* [HPE Alletra Storage MP B10000: Web Services v3 OpenAPI specification](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/assets/openapi_wsapiv3_en-US.json)
 
 # Projects
 
@@ -25,28 +33,24 @@ Plugins, SDKs and documentation.
 
 A Container Storage Interface (CSI) Driver for Kubernetes. The HPE CSI Driver for Kubernetes allows you to use a Container Storage Provider to perform data management operations on storage resources.
 
-- [View the API documentation](https://developer.hpe.com/api/hpe-nimble-csp/)
-
-- [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
-
-- [Operator for Kubernetes](https://artifacthub.io/packages/olm/community-operators/hpe-csi-operator)
-
-- [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
-
-- [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
+* [View the API documentation](https://developer.hpe.com/api/hpe-nimble-csp/)
+* [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
+* [Operator for Kubernetes](https://artifacthub.io/packages/olm/community-operators/hpe-csi-operator)
+* [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
+* [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
 
 ## [Storage Container Orchestrator Documentation ![](Github)](https://github.com/hpe-storage/scod)
 
 The definitive source for end-user documentation using Kubernetes and neighboring partner ecosystems with HPE Alletra.
 
-- [Explore the SCOD portal](https://scod.hpedev.io/)
+* [Explore the SCOD portal](https://scod.hpedev.io/)
 
 ## [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
 
 A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
 
-- [Read the documentation](https://hpe-storage.github.io/array-exporter)
-- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+* [Read the documentation](https://hpe-storage.github.io/array-exporter)
+* [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
 # Workshops-on-Demand
 
@@ -57,9 +61,8 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
----
+- - -
 
 ## Any questions on HPE Alletra?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
-
