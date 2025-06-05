@@ -22,8 +22,7 @@ Shed the complexity and silos inherent in conventional hybrid cloud environments
 The HPE Alletra Storage MP B10000 platform offers a rich set of REST APIs to manage the system configuration, provision storage, and run other administrative operations.  See the links below for additional information about the REST API and how to use them:
 
 * [HPE Alletra Storage MP B10000: Web Services API Developer Guide v3](https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide)
-* [HPE Alletra Storage MP B10000: Web Services API Documentation](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/assets/index.html)
-* [HPE Alletra Storage MP B10000: Web Services v3 OpenAPI specification](/ws/api-spec)
+* [HPE Alletra Storage MP B10000: Web Services API Documentation and v3 OpenAPI specification](/ws/api-spec)
 
 # Projects
 
