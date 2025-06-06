@@ -2,7 +2,7 @@
 title: HPE GreenLake cloud integration with ServiceNow using webhooks
 date: 2025-06-06T14:45:12.273Z
 author: Chethan B.
-authorimage: /img/Avatar1.svg
+authorimage: /img/chethan.png
 disable: false
 tags:
   - webhooks
