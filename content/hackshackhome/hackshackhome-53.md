@@ -1,7 +1,7 @@
 ---
 title: "HPE Sustainability Insight Center: A Win for both Business and the
   Environment"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/5017449809168/WN_WQ9ZVgE7Rk2ATBKuBi9YzQ
 imageBackground: white
@@ -15,4 +15,3 @@ label: Register Now!
 priority: 2
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
-
