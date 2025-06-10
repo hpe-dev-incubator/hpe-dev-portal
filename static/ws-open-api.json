@@ -2,8 +2,8 @@
  "openapi": "3.1.1",
  "info": {
   "title": "WS-APIv3 Documentation",
-  "description": "The Web Services API v3 (WS-APIv3) provides a more flexible and powerful way to perform storage management tasks than the {productfull} Command Line Interface (CLI).\u003cbr\u003e Use WS-APIv3 to automate your management tasks for hosts, ports, volumes, and more.",
-  "version": "v3 2.6.0 (2025-04-29 14:40:35 UTC)",
+  "description": "The Web Services API v3 (WS-APIv3) provides a more flexible and powerful way to perform storage management tasks than the Command Line Interface (CLI).\u003cbr\u003e Use WS-APIv3 to automate your management tasks for hosts, ports, volumes, and more.",
+  "version": "v3 2.5.0 (2025-05-29 18:16:57 UTC)",
   "contact": {
    "name": "Hewlett Packard Enterprise",
    "email": "wsapi-dev@hpe.com"
@@ -2320,1369 +2320,6 @@
      }
     },
     "packageName": "sessions"
-   }
-  },
-  "/api/v3/dataprotection/application-servers": {
-   "get": {
-    "operationId": "ApplicationServerCOLLECTION",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Used to query collection of resources",
-    "description": "Returns all the resources that user has access to",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Collection of resources",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/applicationhost.ApplicationServer"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   },
-   "post": {
-    "operationId": "post /api/v3/dataprotection/application-servers",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Register new application server",
-    "description": "Register new application server",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "$ref": "#/components/schemas/applicationhost.RegisterApplicationServer"
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationhost"
-   }
-  },
-  "/api/v3/dataprotection/application-servers/{uid}": {
-   "delete": {
-    "operationId": "delete /api/v3/dataprotection/application-servers/{uid}",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Unregister an application server",
-    "description": "Unregister an application server identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "forceDelete",
-      "in": "path",
-      "description": "Force delete resource if set to true",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully removed"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationhost"
-   },
-   "get": {
-    "operationId": "ApplicationServerSINGLE",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Used to query a single resource",
-    "description": "Returns a single resource based on a UID, if the user has access to it",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Single resource",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/applicationhost.ApplicationServer"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   },
-   "patch": {
-    "operationId": "patch /api/v3/dataprotection/application-servers/{uid}",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Update an application server",
-    "description": "Update an application server identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/merge-patch+json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/merge-patch+json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/merge-patch+json": {
-       "schema": {
-        "$ref": "#/components/schemas/applicationhost.UpdateApplicationServer"
-       }
-      }
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully updated"
-     },
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationhost"
-   },
-   "post": {
-    "operationId": "post /api/v3/dataprotection/application-servers/{uid}",
-    "tags": [
-     "Data Protection Application Servers"
-    ],
-    "summary": "Perform operation on application Server",
-    "description": "Perform refresh operation on application server identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "$ref": "#/components/schemas/applicationhost.RefreshApplicationServer"
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationhost"
-   }
-  },
-  "/api/v3/dataprotection/applicationsets_backup": {
-   "get": {
-    "operationId": "ApplicationSetsBackupCOLLECTION",
-    "tags": [
-     "Data Protection Application Sets Backup"
-    ],
-    "summary": "Used to query collection of resources",
-    "description": "Returns all the resources that user has access to",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Collection of resources",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/applicationsets_backup.ApplicationSetsBackup"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   }
-  },
-  "/api/v3/dataprotection/applicationsets_backup/{uid}": {
-   "delete": {
-    "operationId": "delete /api/v3/dataprotection/applicationsets_backup/{uid}",
-    "tags": [
-     "Data Protection Application Sets Backup"
-    ],
-    "summary": "Description",
-    "description": "Description",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully removed"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationsets_backup"
-   },
-   "get": {
-    "operationId": "ApplicationSetsBackupSINGLE",
-    "tags": [
-     "Data Protection Application Sets Backup"
-    ],
-    "summary": "Used to query a single resource",
-    "description": "Returns a single resource based on a UID, if the user has access to it",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Single resource",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/applicationsets_backup.ApplicationSetsBackup"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   },
-   "patch": {
-    "operationId": "patch /api/v3/dataprotection/applicationsets_backup/{uid}",
-    "tags": [
-     "Data Protection Application Sets Backup"
-    ],
-    "summary": "Summary",
-    "description": "Description",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/merge-patch+json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/merge-patch+json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/merge-patch+json": {
-       "schema": {
-        "$ref": "#/components/schemas/applicationsets_backup.PatchApplicationSetsBackup"
-       }
-      }
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully updated"
-     },
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationsets_backup"
-   },
-   "post": {
-    "operationId": "post /api/v3/dataprotection/applicationsets_backup/{uid}",
-    "tags": [
-     "Data Protection Application Sets Backup Refresh"
-    ],
-    "summary": "Summary",
-    "description": "Description",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "sourceId",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "$ref": "#/components/schemas/applicationsets_backup.RefreshApplicationSetsBackup"
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "applicationsets_backup"
-   }
-  },
-  "/api/v3/dataprotection/backup-systems": {
-   "get": {
-    "operationId": "BackupSystemCOLLECTION",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Used to query collection of resources",
-    "description": "Returns all the resources that user has access to",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Collection of resources",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/storeonce.BackupSystem"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   },
-   "post": {
-    "operationId": "post /api/v3/dataprotection/backup-systems",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Register new backup system",
-    "description": "Register new backup system",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "$ref": "#/components/schemas/storeonce.RegisterBackupSystem"
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "storeonce"
-   }
-  },
-  "/api/v3/dataprotection/backup-systems/{uid}": {
-   "delete": {
-    "operationId": "delete /api/v3/dataprotection/backup-systems/{uid}",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Unregister a backup system",
-    "description": "Unregister a backup system identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "forceDelete",
-      "in": "path",
-      "description": "Force delete resource if set to true",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "cascadeDelete",
-      "in": "path",
-      "description": "Cascade delete request to associated resources if set to true",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully removed"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "storeonce"
-   },
-   "get": {
-    "operationId": "BackupSystemSINGLE",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Used to query a single resource",
-    "description": "Returns a single resource based on a UID, if the user has access to it",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "content": {
-      "application/json": {}
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Single resource",
-      "content": {
-       "application/json": {
-        "schema": {
-         "$ref": "#/components/schemas/storeonce.BackupSystem"
-        }
-       }
-      }
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     }
-    }
-   },
-   "patch": {
-    "operationId": "patch /api/v3/dataprotection/backup-systems/{uid}",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Update a backup system",
-    "description": "Update a backup system identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/merge-patch+json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/merge-patch+json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/merge-patch+json": {
-       "schema": {
-        "$ref": "#/components/schemas/storeonce.UpdateBackupSystem"
-       }
-      }
-     }
-    },
-    "responses": {
-     "200": {
-      "description": "Resource has been successfully updated"
-     },
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "403": {
-      "description": "Indicates the session token in the Authorization is valid, but the client was attempting to access a resource in violation of a security rule"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "storeonce"
-   },
-   "post": {
-    "operationId": "post /api/v3/dataprotection/backup-systems/{uid}",
-    "tags": [
-     "Data Protection StoreOnce Backup Systems"
-    ],
-    "summary": "Perform an operation on backup system",
-    "description": "Perform refresh operation on backup system identified by uid",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "uid",
-      "in": "path",
-      "description": "Unique identifier of the resource",
-      "required": true,
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "$ref": "#/components/schemas/storeonce.RefreshBackupSystem"
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "storeonce"
    }
   },
   "/api/v3/disks": {
@@ -7137,95 +5774,6 @@
     "packageName": "schedule"
    }
   },
-  "/api/v3/schedules/custom": {
-   "post": {
-    "operationId": "custom_actions /api/v3/schedules/custom",
-    "tags": [
-     "Activities"
-    ],
-    "summary": "Used to perform custom action",
-    "description": "Executes custom action on a resource\u003cbr\u003e Multiple custom actions can be defined.  Parameters in the body are optional",
-    "parameters": [
-     {
-      "name": "Authorization",
-      "in": "header",
-      "description": "This contains the WSAPI session key that was returned by the server after a successful user authentication request.\u003cbr\u003e See [RFC6749](https://tools.ietf.org/html/rfc6749) and [RFC6750](https://tools.ietf.org/html/rfc6750) for more information.",
-      "required": true,
-      "schema": {
-       "type": "string"
-      },
-      "example": "Authorization: Bearer 12920q019ks2920qkq412"
-     },
-     {
-      "name": "Content-Type",
-      "in": "header",
-      "description": "Acceptable format of the body. Must be set to following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "required": true,
-      "schema": {
-       "type": "string",
-       "default": "application/json"
-      }
-     },
-     {
-      "name": "Content-Length",
-      "in": "header",
-      "description": "The length of the content in bytes.",
-      "schema": {
-       "type": "string"
-      }
-     },
-     {
-      "name": "Accept",
-      "in": "header",
-      "description": "Acceptable client response formats. Must be one of the following:\u003cbr\u003e\u003cbr\u003e - application/json",
-      "schema": {
-       "type": "string"
-      }
-     }
-    ],
-    "requestBody": {
-     "required": true,
-     "content": {
-      "application/json": {
-       "schema": {
-        "oneOf": [
-         {
-          "$ref": "#/components/schemas/schedule.Rebalance_Schedules"
-         }
-        ]
-       }
-      }
-     }
-    },
-    "responses": {
-     "201": {
-      "description": "Resource has been successfully created, and the location of the new resource is returned in the Location header"
-     },
-     "202": {
-      "description": "Task to perform operation has been created, and the location of the new resource is returned in the Location header"
-     },
-     "400": {
-      "description": "Indicates the server did not understand the client request"
-     },
-     "401": {
-      "description": "Indicates the request was not properly Authenticated"
-     },
-     "404": {
-      "description": "Indicates the resource identified by the URI cannot be found"
-     },
-     "409": {
-      "description": "Indicates the OS has rejected the operation"
-     },
-     "500": {
-      "description": "Indicates an unexpected error has happened within the server. Server shall include more detailed explanation in the response body"
-     },
-     "542": {
-      "description": "Indicates an error occurred in the device while executing a CLI command.  The response body will contain the error message from the device."
-     }
-    },
-    "packageName": "schedule"
-   }
-  },
   "/api/v3/schedules/{uid}": {
    "delete": {
     "operationId": "delete /api/v3/schedules/{uid}",
@@ -7526,9 +6074,6 @@
          },
          {
           "$ref": "#/components/schemas/schedule.Resume_Schedule"
-         },
-         {
-          "$ref": "#/components/schemas/schedule.Run_Schedule_Now"
          }
         ]
        }
@@ -11802,215 +10347,6 @@
      }
     }
    },
-   "applicationhost.ApplicationServer": {
-    "type": "object",
-    "properties": {
-     "createdAt": {
-      "description": "Created At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "description": {
-      "description": "Description",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "Display Name",
-      "type": "string"
-     },
-     "generation": {
-      "description": "Generation",
-      "type": "integer",
-      "format": "int"
-     },
-     "inetAddress": {
-      "description": "Inet Address",
-      "type": "string"
-     },
-     "manufacturer": {
-      "description": "Manufacturer",
-      "type": "string"
-     },
-     "message": {
-      "description": "Message",
-      "type": "string"
-     },
-     "name": {
-      "description": "Name of the resource",
-      "type": "string"
-     },
-     "networkInterfaces": {
-      "description": "Network Interfaces",
-      "type": "array",
-      "items": {
-       "type": "object",
-       "properties": {
-        "address": {
-         "description": "Address",
-         "type": "string"
-        },
-        "name": {
-         "description": "Name of the resource",
-         "type": "string"
-        }
-       },
-       "title": "applicationhost.NetworkInterface"
-      }
-     },
-     "osInfo": {
-      "type": "object",
-      "properties": {
-       "buildVersion": {
-        "description": "Build Version",
-        "type": "string"
-       },
-       "name": {
-        "description": "Name of the resource",
-        "type": "string"
-       },
-       "releaseVersion": {
-        "description": "Release Version",
-        "type": "string"
-       }
-      },
-      "description": "OS Info",
-      "descriptionKey": "SCHEMA_OS_INFO",
-      "title": "OsInfo"
-     },
-     "platform": {
-      "description": "Platform",
-      "title": "applicationhost.PlatformType",
-      "enum": [
-       "WINDOWS",
-       "LINUX"
-      ],
-      "type": "string"
-     },
-     "state": {
-      "description": "State of the resource",
-      "title": "utils.State",
-      "enum": [
-       "OK",
-       "ERROR",
-       "DELETING",
-       "UPDATING",
-       "REFRESHING",
-       "UNSPECIFIED_STATE"
-      ],
-      "type": "string"
-     },
-     "status": {
-      "description": "Status",
-      "title": "utils.Status",
-      "enum": [
-       "OK_STATUS",
-       "ERROR_STATUS",
-       "WARNING_STATUS",
-       "UNSPECIFIED_STATUS"
-      ],
-      "type": "string"
-     },
-     "uid": {
-      "description": "Unique Identifier of the resource",
-      "type": "string"
-     },
-     "updatedAt": {
-      "description": "Updated At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "uri": {
-      "description": "URI of the resource",
-      "type": "string"
-     },
-     "username": {
-      "description": "Username",
-      "type": "string"
-     },
-     "virtual": {
-      "description": "Virtual",
-      "type": "boolean"
-     }
-    }
-   },
-   "applicationhost.RefreshApplicationServer": {
-    "type": "object",
-    "required": [
-     "action"
-    ],
-    "properties": {
-     "action": {
-      "description": "Action to be performed.",
-      "type": "string"
-     }
-    }
-   },
-   "applicationhost.RegisterApplicationServer": {
-    "type": "object",
-    "required": [
-     "inetAddress",
-     "username",
-     "password",
-     "displayName",
-     "platform"
-    ],
-    "properties": {
-     "description": {
-      "description": "A brief description of the application host as provided by the user during registration, max 255 chars",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "A user-friendly name to identify the application server",
-      "type": "string"
-     },
-     "inetAddress": {
-      "description": "An IP address or hostname or FQDN to address the host, max 255 chars",
-      "type": "string"
-     },
-     "password": {
-      "description": "Password used to access the application host",
-      "type": "string"
-     },
-     "platform": {
-      "description": "Platform running on the application host, Allowed: WINDOWS, LINUX",
-      "title": "applicationhost.PlatformType",
-      "enum": [
-       "WINDOWS",
-       "LINUX"
-      ],
-      "type": "string"
-     },
-     "username": {
-      "description": "Name of the user used to access the application host",
-      "type": "string"
-     }
-    }
-   },
-   "applicationhost.UpdateApplicationServer": {
-    "type": "object",
-    "properties": {
-     "description": {
-      "description": "A brief description of the application host as provided by the user during registration, max 255 chars",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "A user-friendly name to identify the application server",
-      "type": "string"
-     },
-     "inetAddress": {
-      "description": "An IP address or hostname or FQDN to address the host, max 255 chars",
-      "type": "string"
-     },
-     "password": {
-      "description": "Password used to access the application host",
-      "type": "string"
-     },
-     "username": {
-      "description": "Name of the user used to access the application host",
-      "type": "string"
-     }
-    }
-   },
    "applicationset.ApplicationSet": {
     "type": "object",
     "properties": {
@@ -12790,308 +11126,6 @@
     "properties": {
      "host": {
       "description": "Host or host set name to be unexported from. Host set name should start with \"set:\"",
-      "type": "string"
-     }
-    }
-   },
-   "applicationsets_backup.ApplicationSetsBackup": {
-    "type": "object",
-    "properties": {
-     "backupSetsInfo": {
-      "description": "Backup Sets Info",
-      "type": "array",
-      "items": {
-       "type": "object",
-       "properties": {
-        "mountState": {
-         "description": "Mount State",
-         "type": "string"
-        },
-        "mountedHostsIqn": {
-         "description": "Mounted Hosts IQN",
-         "type": "array",
-         "items": {
-          "description": "",
-          "type": "string"
-         }
-        },
-        "objectCount": {
-         "description": "Object Count",
-         "type": "integer",
-         "format": "int32"
-        },
-        "sizeInBytes": {
-         "description": "Size in Bytes",
-         "type": "integer",
-         "format": "int64"
-        },
-        "sourceCopyInfo": {
-         "type": "object",
-         "properties": {
-          "copyType": {
-           "description": "Copy Type",
-           "type": "string"
-          },
-          "name": {
-           "description": "Name",
-           "type": "string"
-          },
-          "scsiIdentifier": {
-           "description": "SCSI Identifier",
-           "type": "string"
-          },
-          "uid": {
-           "description": "UID",
-           "type": "string"
-          }
-         },
-         "description": "Source Copy Info",
-         "descriptionKey": "SCHEMA_NEO_SOURCE_COPY_INFO",
-         "title": "SourceCopyInfo"
-        },
-        "sourceVolumeInfo": {
-         "type": "object",
-         "properties": {
-          "name": {
-           "description": "Name",
-           "type": "string"
-          },
-          "scsiIdentifier": {
-           "description": "SCSI Identifier",
-           "type": "string"
-          },
-          "uid": {
-           "description": "UID",
-           "type": "string"
-          }
-         },
-         "description": "Source Volume Info",
-         "descriptionKey": "SCHEMA_NEO_SOURCE_VOLUME_INFO",
-         "title": "SourceVolumeInfo"
-        },
-        "uid": {
-         "description": "UID",
-         "type": "string"
-        }
-       },
-       "title": "applicationsets_backup.BackupSetInfo"
-      }
-     },
-     "backupSystemInfo": {
-      "type": "object",
-      "properties": {
-       "name": {
-        "description": "Name",
-        "type": "string"
-       },
-       "serialNumber": {
-        "description": "Serial Number",
-        "type": "string"
-       },
-       "uid": {
-        "description": "UID",
-        "type": "string"
-       }
-      },
-      "description": "Backup System Info",
-      "descriptionKey": "SCHEMA_NEO_BACKUP_SYSTEM_INFO",
-      "title": "BackupSystemInfo"
-     },
-     "backupType": {
-      "description": "Backup Type",
-      "type": "string"
-     },
-     "consistency": {
-      "description": "Consistency",
-      "type": "string"
-     },
-     "created_at": {
-      "description": "Created At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "creationTime": {
-      "description": "Creation Time",
-      "type": "string"
-     },
-     "description": {
-      "description": "Description",
-      "type": "string"
-     },
-     "expirationTime": {
-      "description": "Expiration Time",
-      "type": "string"
-     },
-     "generation": {
-      "description": "Generation",
-      "type": "integer",
-      "format": "int64"
-     },
-     "message": {
-      "description": "Message",
-      "type": "string"
-     },
-     "mountState": {
-      "description": "Mount State",
-      "type": "string"
-     },
-     "mountedHostsIqn": {
-      "description": "Mounted Hosts IQN",
-      "type": "array",
-      "items": {
-       "description": "",
-       "type": "string"
-      }
-     },
-     "name": {
-      "description": "Name",
-      "type": "string"
-     },
-     "retentionTime": {
-      "description": "Retention Time",
-      "type": "string"
-     },
-     "schedulesInfo": {
-      "description": "Schedules Info",
-      "type": "array",
-      "items": {
-       "type": "AnyType"
-      }
-     },
-     "sourceCopyInfo": {
-      "type": "object",
-      "properties": {
-       "copyType": {
-        "description": "Copy Type",
-        "type": "string"
-       },
-       "name": {
-        "description": "Name",
-        "type": "string"
-       },
-       "scsiIdentifier": {
-        "description": "SCSI Identifier",
-        "type": "string"
-       },
-       "uid": {
-        "description": "UID",
-        "type": "string"
-       }
-      },
-      "description": "Source Copy Info",
-      "descriptionKey": "SCHEMA_NEO_SOURCE_COPY_INFO",
-      "title": "SourceCopyInfo"
-     },
-     "sourceSnapshotSetInfo": {
-      "type": "object",
-      "properties": {
-       "name": {
-        "description": "Name",
-        "type": "string"
-       },
-       "uid": {
-        "description": "UID",
-        "type": "string"
-       }
-      },
-      "description": "Source Snapshot Set Info",
-      "descriptionKey": "SCHEMA_NEO_SOURCE_SNAPSHOT_SET_INFO",
-      "title": "SourceSnapshotSetInfo"
-     },
-     "sourceVolumeSetInfo": {
-      "type": "object",
-      "properties": {
-       "name": {
-        "description": "Name",
-        "type": "string"
-       },
-       "uid": {
-        "description": "UID",
-        "type": "string"
-       }
-      },
-      "description": "Source Volume Set Info",
-      "descriptionKey": "SCHEMA_NEO_SOURCE_VOLUME_SET_INFO",
-      "title": "SourceVolumeSetInfo"
-     },
-     "state": {
-      "description": "State",
-      "type": "string"
-     },
-     "status": {
-      "description": "Status",
-      "type": "string"
-     },
-     "storesInfo": {
-      "type": "object",
-      "properties": {
-       "id": {
-        "description": "ID",
-        "type": "integer",
-        "format": "int"
-       },
-       "name": {
-        "description": "Name",
-        "type": "string"
-       },
-       "type": {
-        "description": "Type",
-        "type": "string"
-       }
-      },
-      "description": "Stores Info",
-      "descriptionKey": "SCHEMA_NEO_STORES_INFO",
-      "title": "StoreInfo"
-     },
-     "uid": {
-      "description": "UID",
-      "type": "string"
-     },
-     "updated_at": {
-      "description": "Updated At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "uri": {
-      "description": "URI",
-      "type": "string"
-     }
-    }
-   },
-   "applicationsets_backup.PatchApplicationSetsBackup": {
-    "type": "object",
-    "required": [
-     "name"
-    ],
-    "properties": {
-     "description": {
-      "description": "brief description of the Volume sets Group backup, max 255 chars",
-      "type": "string"
-     },
-     "expireSecs": {
-      "description": "Expiration value specified for backup",
-      "type": "integer",
-      "format": "uint64"
-     },
-     "name": {
-      "description": "A user-friendly name to identify Volume sets Group backup, max 255 chars",
-      "type": "string"
-     },
-     "retainSecs": {
-      "description": "Retention value specified for backup",
-      "type": "integer",
-      "format": "uint64"
-     }
-    }
-   },
-   "applicationsets_backup.RefreshApplicationSetsBackup": {
-    "type": "object",
-    "required": [
-     "action"
-    ],
-    "properties": {
-     "action": {
-      "description": "Action to be performed on the backup, allowed value REFRESH",
       "type": "string"
      }
     }
@@ -19655,7 +17689,7 @@
       "type": "string"
      },
      "allTimeZoneRegions": {
-      "description": "List of all time zone rgeions",
+      "description": "List of all time zone regions",
       "type": "array",
       "items": {
        "type": "object",
@@ -19673,7 +17707,7 @@
       }
      },
      "allTimeZonesByOffset": {
-      "description": "List of tinezones by hour offset from UTC",
+      "description": "List of timezones by hour offset from UTC",
       "type": "array",
       "items": {
        "type": "object",
@@ -19745,7 +17779,7 @@
       "type": "boolean"
      },
      "hwmodel": {
-      "description": "Hardware mdoel name for branding",
+      "description": "Hardware model name for branding",
       "type": "string"
      },
      "hwproduct": {
@@ -19812,7 +17846,7 @@
         "type": "string"
        },
        "order": {
-        "description": "An array of severity ordered by the notificat severity:  An array of number: 0 - Fatal, 1 - Critical, 2 - Major, 3 - Minor, 4 - Degraded, 5 - Info, 6 - Debug",
+        "description": "An array of severity ordered by the notificate severity:  An array of number: 0 - Fatal, 1 - Critical, 2 - Major, 3 - Minor, 4 - Degraded, 5 - Info, 6 - Debug",
         "type": "array",
         "items": {
          "type": "integer",
@@ -19820,7 +17854,7 @@
         }
        }
       },
-      "description": "List of Notification serverities",
+      "description": "List of Notification severities",
       "descriptionKey": "SCHEMA_SERVERINFO_NOTIFICATIONSERVERITIES",
       "title": "*contacts.NotificationSeverities"
      },
@@ -20276,7 +18310,7 @@
        "type": "object",
        "properties": {
         "enablePeer": {
-         "description": "Inidicates if the port is enabled for peer persistence",
+         "description": "Indicates if the port is enabled for peer persistence",
          "type": "boolean"
         },
         "label": {
@@ -20373,7 +18407,7 @@
          "type": "object",
          "properties": {
           "enablePeer": {
-           "description": "Inidicates if the port is enabled for peer persistence",
+           "description": "Indicates if the port is enabled for peer persistence",
            "type": "boolean"
           },
           "label": {
@@ -20579,7 +18613,7 @@
     ],
     "properties": {
      "enablePeer": {
-      "description": "Inidicates if the port is enabled for peer persistence",
+      "description": "Indicates if the port is enabled for peer persistence",
       "type": "boolean"
      },
      "label": {
@@ -21356,7 +19390,7 @@
           "type": "string"
          }
         },
-        "description": "Link Layer Discoverty Protocol Data",
+        "description": "Link Layer Discovery Protocol Data",
         "descriptionKey": "SCHEMA_PORT_LLDPD",
         "title": "*port.LLDPInfo"
        },
@@ -21369,7 +19403,7 @@
         "type": "string"
        },
        "peerEnabled": {
-        "description": "Inidicates if the port is enabled for peer persistence",
+        "description": "Indicates if the port is enabled for peer persistence",
         "type": "boolean"
        },
        "sendTargetGroupTag": {
@@ -21540,7 +19574,7 @@
           "type": "string"
          }
         },
-        "description": "Link Layer Discoverty Protocol Data",
+        "description": "Link Layer Discovery Protocol Data",
         "descriptionKey": "SCHEMA_PORT_LLDPD",
         "title": "*port.LLDPInfo"
        },
@@ -23574,10 +21608,6 @@
         "description": "Failure of tasks created with 'no_alert' will not generate alert if the task fails.",
         "type": "boolean"
        },
-       "norebalance": {
-        "description": "Do not rebalance this schedule when nobalance is true. Also, this option is not allowed with schedules using the interval option",
-        "type": "boolean"
-       },
        "readOnly": {
         "description": "Read/write access provided while creating appset snapshot",
         "type": "boolean"
@@ -24405,10 +22435,6 @@
       "description": "Failure of tasks created with 'no_alert' will not generate alert if the task fails.",
       "type": "boolean"
      },
-     "norebalance": {
-      "description": "Do not rebalance this schedule when nobalance is true. Also, this option is not allowed with schedules using the interval option",
-      "type": "boolean"
-     },
      "readOnly": {
       "description": "Read/write access provided while creating appset snapshot",
       "type": "boolean"
@@ -24496,7 +22522,7 @@
            "type": "object",
            "properties": {
             "rmSyncPeriod": {
-             "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+             "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
              "type": "boolean"
             },
             "syncPeriodSecs": {
@@ -24677,7 +22703,7 @@
          "type": "object",
          "properties": {
           "rmSyncPeriod": {
-           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
            "type": "boolean"
           },
           "syncPeriodSecs": {
@@ -24788,7 +22814,7 @@
          "type": "object",
          "properties": {
           "rmSyncPeriod": {
-           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
            "type": "boolean"
           },
           "syncPeriodSecs": {
@@ -24899,7 +22925,7 @@
            "type": "object",
            "properties": {
             "rmSyncPeriod": {
-             "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+             "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
              "type": "boolean"
             },
             "syncPeriodSecs": {
@@ -25017,7 +23043,7 @@
          "type": "object",
          "properties": {
           "rmSyncPeriod": {
-           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
            "type": "boolean"
           },
           "syncPeriodSecs": {
@@ -25132,7 +23158,7 @@
          "type": "object",
          "properties": {
           "rmSyncPeriod": {
-           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
            "type": "boolean"
           },
           "syncPeriodSecs": {
@@ -25324,10 +23350,6 @@
        },
        "noalert": {
         "description": "Failure of tasks created with 'no_alert' will not generate alert if the task fails.",
-        "type": "boolean"
-       },
-       "norebalance": {
-        "description": "Do not rebalance this schedule when nobalance is true. Also, this option is not allowed with schedules using the interval option",
         "type": "boolean"
        },
        "readOnly": {
@@ -26293,7 +24315,7 @@
          "type": "object",
          "properties": {
           "rmSyncPeriod": {
-           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronizaiton period is set.",
+           "description": "Enables (true) or disables (false) resetting the syncPeriod time to 0 (zero). If false, and the syncPeriod value is positive, the synchronization period is set.",
            "type": "boolean"
           },
           "syncPeriodSecs": {
@@ -26771,10 +24793,6 @@
       "description": "Failure of tasks created with 'no_alert' will not generate alert if the task fails.",
       "type": "boolean"
      },
-     "norebalance": {
-      "description": "Do not rebalance this schedule when nobalance is true. Also, this option is not allowed with schedules using the interval option",
-      "type": "boolean"
-     },
      "runonce": {
       "description": "The task will only run once, at the specified time.",
       "type": "boolean"
@@ -26838,10 +24856,6 @@
       "description": "Failure of tasks created with 'no_alert' will not generate alert if the task fails.",
       "type": "boolean"
      },
-     "norebalance": {
-      "description": "Do not rebalance this schedule when nobalance is true. Also, this option is not allowed with schedules using the interval option",
-      "type": "boolean"
-     },
      "year": {
       "description": "Year that a scheduled task will execute.",
       "type": "string"
@@ -26856,32 +24870,9 @@
      "dayofweek": "*"
     }
    },
-   "schedule.Rebalance_Schedules": {
-    "type": "rebalance",
-    "fullType": "schedule.",
-    "required": [
-     "action"
-    ],
-    "properties": {
-     "action": {
-      "description": "Must be set to: rebalance",
-      "type": "string"
-     },
-     "parameters": {
-      "description": "Action parameters",
-      "type": "AnyType"
-     }
-    },
-    "description": "Attempt to limit the number of schedules running per minute by changing the schedule times of any schedules that allow rebalance",
-    "descriptionKey": "SCHEDULE_REBALANCE_DESCRIPTION",
-    "title": "rebalance",
-    "example": {
-     "action": "rebalance"
-    }
-   },
    "schedule.Resume_Schedule": {
     "type": "resume_schedule",
-    "fullType": "schedule.",
+    "fullType": "schedule.Schedule",
     "required": [
      "action"
     ],
@@ -26891,8 +24882,145 @@
       "type": "string"
      },
      "parameters": {
-      "description": "Action parameters",
-      "type": "AnyType"
+      "type": "object",
+      "properties": {
+       "command": {
+        "description": "The CLI command scheduled.",
+        "type": "string"
+       },
+       "dayofmonth": {
+        "description": "Day of month that a scheduled task will execute. Allowed values are * or 1-31.",
+        "type": "string"
+       },
+       "dayofweek": {
+        "description": "Day of the week that a scheduled task will execute. Allowed values are 0-6. Sunday is 0.",
+        "type": "string"
+       },
+       "displayname": {
+        "type": "object",
+        "properties": {
+         "args": {
+          "description": "Array of optional parameters to be used when formatting the text",
+          "type": "array",
+          "items": {
+           "type": "AnyType"
+          }
+         },
+         "default": {
+          "description": "Text in the default language",
+          "type": "string"
+         },
+         "key": {
+          "description": "Key of the message in the i18n catalog",
+          "type": "string"
+         }
+        },
+        "description": "Name to be used for display purposes",
+        "descriptionKey": "SCHEMA_DISPLAYNAME",
+        "title": "*utils.I18nValue"
+       },
+       "domain": {
+        "description": "Domain that the resource belongs to",
+        "type": "string"
+       },
+       "hour": {
+        "description": "Hour that a scheduled task will execute. Allowed values are * or 0-23.",
+        "type": "string"
+       },
+       "id": {
+        "description": "Numeric ID of the resource",
+        "type": "integer",
+        "format": "int64"
+       },
+       "interval": {
+        "description": "Interval that a scheduled task will execute. Allowed values are  15-1440.",
+        "type": "string"
+       },
+       "isalertenabled": {
+        "description": "Whether the schedule will generate an alert if it could not run.",
+        "type": "boolean"
+       },
+       "ispaused": {
+        "description": "Whether the schedule has been paused.",
+        "type": "boolean"
+       },
+       "issystemtask": {
+        "description": "Whether the schedule is a system created one.",
+        "type": "boolean"
+       },
+       "minute": {
+        "description": "Minute that a scheduled task will execute. Allowed values are 0-59.",
+        "type": "string"
+       },
+       "month": {
+        "description": "Month that a scheduled task will execute. Allowed values are * or 1-12.",
+        "type": "string"
+       },
+       "name": {
+        "description": "Name of the resource",
+        "type": "string"
+       },
+       "nextruntime": {
+        "description": "The next time a schedule will run.",
+        "type": "integer",
+        "format": "int64"
+       },
+       "scheduledtaskname": {
+        "type": "object",
+        "properties": {
+         "args": {
+          "description": "Array of optional parameters to be used when formatting the text",
+          "type": "array",
+          "items": {
+           "type": "AnyType"
+          }
+         },
+         "default": {
+          "description": "Text in the default language",
+          "type": "string"
+         },
+         "key": {
+          "description": "Key of the message in the i18n catalog",
+          "type": "string"
+         }
+        },
+        "description": "Name of the scheduled task",
+        "descriptionKey": "SCHEMA_SCHED_TASK",
+        "title": "*utils.I18nValue"
+       },
+       "status": {
+        "description": "Whether the task is active or has been suspended.",
+        "title": "status.Enum",
+        "enum": [
+         "SCHED_ACTIVE",
+         "SCHED_SUSPENDED",
+         "SCHED_UNKNOWN"
+        ],
+        "type": "string"
+       },
+       "systemWWN": {
+        "description": "WWN of the array",
+        "type": "string"
+       },
+       "taskTags": {
+        "description": "A list of tags used to filter tasks from resource updates",
+        "type": "string"
+       },
+       "uid": {
+        "description": "Unique Identifier of the resource",
+        "type": "string"
+       },
+       "uri": {
+        "description": "URI of the resource",
+        "type": "string"
+       },
+       "user": {
+        "description": "The user that created the schedule.",
+        "type": "string"
+       }
+      },
+      "description": "Parameters for a custom action",
+      "descriptionKey": "SCHEMA_CUSTOM_ACTION_PROPS"
      }
     },
     "description": "Used to resume a schedule",
@@ -26902,36 +25030,9 @@
      "action": "resume_schedule"
     }
    },
-   "schedule.Run_Schedule_Now": {
-    "type": "run_now",
-    "fullType": "schedule.",
-    "required": [
-     "action"
-    ],
-    "properties": {
-     "action": {
-      "description": "Must be set to: run_now",
-      "type": "string"
-     },
-     "parameters": {
-      "description": "Action parameters",
-      "type": "AnyType"
-     }
-    },
-    "description": "Used to run a schedule now",
-    "descriptionKey": "SCHEDULE_RUN_NOW_DESCRIPTION",
-    "title": "run_now",
-    "example": {
-     "action": "run_now"
-    }
-   },
    "schedule.Schedule": {
     "type": "object",
     "properties": {
-     "charSubstitution": {
-      "description": "Whether the schedule is required to use character substitution",
-      "type": "boolean"
-     },
      "command": {
       "description": "The CLI command scheduled.",
       "type": "string"
@@ -26984,11 +25085,6 @@
       "description": "Interval that a scheduled task will execute. Allowed values are  15-1440.",
       "type": "string"
      },
-     "intervaloffset": {
-      "description": "An integer offset to the interval",
-      "type": "integer",
-      "format": "int64"
-     },
      "isalertenabled": {
       "description": "Whether the schedule will generate an alert if it could not run.",
       "type": "boolean"
@@ -27017,10 +25113,6 @@
       "description": "The next time a schedule will run.",
       "type": "integer",
       "format": "int64"
-     },
-     "rebalance": {
-      "description": "This schedule is will not be rebelanced when nobalance is true",
-      "type": "boolean"
      },
      "scheduledtaskname": {
       "type": "object",
@@ -27071,10 +25163,6 @@
       "description": "URI of the resource",
       "type": "string"
      },
-     "useNetworkNode": {
-      "description": "Whether the schedule is required to run on the network active node",
-      "type": "boolean"
-     },
      "user": {
       "description": "The user that created the schedule.",
       "type": "string"
@@ -27083,7 +25171,7 @@
    },
    "schedule.Suspend_Schedule": {
     "type": "suspend_schedule",
-    "fullType": "schedule.",
+    "fullType": "schedule.Schedule",
     "required": [
      "action"
     ],
@@ -27093,8 +25181,145 @@
       "type": "string"
      },
      "parameters": {
-      "description": "Action parameters",
-      "type": "AnyType"
+      "type": "object",
+      "properties": {
+       "command": {
+        "description": "The CLI command scheduled.",
+        "type": "string"
+       },
+       "dayofmonth": {
+        "description": "Day of month that a scheduled task will execute. Allowed values are * or 1-31.",
+        "type": "string"
+       },
+       "dayofweek": {
+        "description": "Day of the week that a scheduled task will execute. Allowed values are 0-6. Sunday is 0.",
+        "type": "string"
+       },
+       "displayname": {
+        "type": "object",
+        "properties": {
+         "args": {
+          "description": "Array of optional parameters to be used when formatting the text",
+          "type": "array",
+          "items": {
+           "type": "AnyType"
+          }
+         },
+         "default": {
+          "description": "Text in the default language",
+          "type": "string"
+         },
+         "key": {
+          "description": "Key of the message in the i18n catalog",
+          "type": "string"
+         }
+        },
+        "description": "Name to be used for display purposes",
+        "descriptionKey": "SCHEMA_DISPLAYNAME",
+        "title": "*utils.I18nValue"
+       },
+       "domain": {
+        "description": "Domain that the resource belongs to",
+        "type": "string"
+       },
+       "hour": {
+        "description": "Hour that a scheduled task will execute. Allowed values are * or 0-23.",
+        "type": "string"
+       },
+       "id": {
+        "description": "Numeric ID of the resource",
+        "type": "integer",
+        "format": "int64"
+       },
+       "interval": {
+        "description": "Interval that a scheduled task will execute. Allowed values are  15-1440.",
+        "type": "string"
+       },
+       "isalertenabled": {
+        "description": "Whether the schedule will generate an alert if it could not run.",
+        "type": "boolean"
+       },
+       "ispaused": {
+        "description": "Whether the schedule has been paused.",
+        "type": "boolean"
+       },
+       "issystemtask": {
+        "description": "Whether the schedule is a system created one.",
+        "type": "boolean"
+       },
+       "minute": {
+        "description": "Minute that a scheduled task will execute. Allowed values are 0-59.",
+        "type": "string"
+       },
+       "month": {
+        "description": "Month that a scheduled task will execute. Allowed values are * or 1-12.",
+        "type": "string"
+       },
+       "name": {
+        "description": "Name of the resource",
+        "type": "string"
+       },
+       "nextruntime": {
+        "description": "The next time a schedule will run.",
+        "type": "integer",
+        "format": "int64"
+       },
+       "scheduledtaskname": {
+        "type": "object",
+        "properties": {
+         "args": {
+          "description": "Array of optional parameters to be used when formatting the text",
+          "type": "array",
+          "items": {
+           "type": "AnyType"
+          }
+         },
+         "default": {
+          "description": "Text in the default language",
+          "type": "string"
+         },
+         "key": {
+          "description": "Key of the message in the i18n catalog",
+          "type": "string"
+         }
+        },
+        "description": "Name of the scheduled task",
+        "descriptionKey": "SCHEMA_SCHED_TASK",
+        "title": "*utils.I18nValue"
+       },
+       "status": {
+        "description": "Whether the task is active or has been suspended.",
+        "title": "status.Enum",
+        "enum": [
+         "SCHED_ACTIVE",
+         "SCHED_SUSPENDED",
+         "SCHED_UNKNOWN"
+        ],
+        "type": "string"
+       },
+       "systemWWN": {
+        "description": "WWN of the array",
+        "type": "string"
+       },
+       "taskTags": {
+        "description": "A list of tags used to filter tasks from resource updates",
+        "type": "string"
+       },
+       "uid": {
+        "description": "Unique Identifier of the resource",
+        "type": "string"
+       },
+       "uri": {
+        "description": "URI of the resource",
+        "type": "string"
+       },
+       "user": {
+        "description": "The user that created the schedule.",
+        "type": "string"
+       }
+      },
+      "description": "Parameters for a custom action",
+      "descriptionKey": "SCHEMA_CUSTOM_ACTION_PROPS"
      }
     },
     "description": "Used to suspend a schedule",
@@ -27492,7 +25717,7 @@
       "type": "object",
       "properties": {
        "preupgradewarn": {
-        "description": "When set to true, a warning wil stop the installation with status FAILED_WITH_WARN or COMPLETED_WITH_WARN, depending on when the warning occurs. \u003cbr\u003e Setting this to false will allow the update to proceed with warnings. (By default, the value will be true, and warnings will halt an update.)",
+        "description": "When set to true, a warning will stop the installation with status FAILED_WITH_WARN or COMPLETED_WITH_WARN, depending on when the warning occurs. \u003cbr\u003e Setting this to false will allow the update to proceed with warnings. (By default, the value will be true, and warnings will halt an update.)",
         "type": "boolean"
        }
       },
@@ -27734,7 +25959,7 @@
     "type": "object",
     "properties": {
      "preupgradewarn": {
-      "description": "When set to true, a warning wil stop the installation with status FAILED_WITH_WARN or COMPLETED_WITH_WARN, depending on when the warning occurs. \u003cbr\u003e Setting this to false will allow the update to proceed with warnings. (By default, the value will be true, and warnings will halt an update.)",
+      "description": "When set to true, a warning will stop the installation with status FAILED_WITH_WARN or COMPLETED_WITH_WARN, depending on when the warning occurs. \u003cbr\u003e Setting this to false will allow the update to proceed with warnings. (By default, the value will be true, and warnings will halt an update.)",
       "type": "boolean"
      }
     }
@@ -27831,259 +26056,6 @@
        "uid": "eefe90f783ca6f4fe1a7f31698b70ebf",
        "uri": "/api/v3/softwareupdate/softwarestatus/eefe90f783ca6f4fe1a7f31698b70ebf"
       }
-     }
-    }
-   },
-   "storeonce.BackupSystem": {
-    "type": "object",
-    "properties": {
-     "createdAt": {
-      "description": "Created At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "description": {
-      "description": "Description",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "Display Name",
-      "type": "string"
-     },
-     "fibreChannelInitiators": {
-      "description": "Fibrechannel initiators",
-      "type": "array",
-      "items": {
-       "type": "object",
-       "properties": {
-        "fcid": {
-         "description": "FCID",
-         "type": "string"
-        },
-        "iSCSIInitiatorName": {
-         "description": "IScsi initiator name",
-         "type": "string"
-        },
-        "id": {
-         "description": "Numeric ID of the resource",
-         "type": "integer",
-         "format": "int"
-        },
-        "onLine": {
-         "description": "Online",
-         "type": "boolean"
-        },
-        "wwnn": {
-         "description": "WWNN",
-         "type": "string"
-        },
-        "wwpn": {
-         "description": "WWPN",
-         "type": "string"
-        }
-       },
-       "title": "storeonce.FibreChannelInitiator"
-      }
-     },
-     "firmwareVersion": {
-      "description": "Firmware version",
-      "type": "string"
-     },
-     "generation": {
-      "description": "Generation",
-      "type": "integer",
-      "format": "int"
-     },
-     "inetAddress": {
-      "description": "Inet Address",
-      "type": "string"
-     },
-     "message": {
-      "description": "Message",
-      "type": "string"
-     },
-     "name": {
-      "description": "Name of the resource",
-      "type": "string"
-     },
-     "serialNumber": {
-      "description": "The hardware serial number",
-      "type": "string"
-     },
-     "state": {
-      "description": "State of the resource",
-      "title": "utils.State",
-      "enum": [
-       "OK",
-       "ERROR",
-       "DELETING",
-       "UPDATING",
-       "REFRESHING",
-       "UNSPECIFIED_STATE"
-      ],
-      "type": "string"
-     },
-     "status": {
-      "description": "Status",
-      "title": "utils.Status",
-      "enum": [
-       "OK_STATUS",
-       "ERROR_STATUS",
-       "WARNING_STATUS",
-       "UNSPECIFIED_STATUS"
-      ],
-      "type": "string"
-     },
-     "stores": {
-      "description": "Stores",
-      "type": "array",
-      "items": {
-       "type": "object",
-       "properties": {
-        "id": {
-         "description": "Numeric ID of the resource",
-         "type": "integer",
-         "format": "int"
-        },
-        "message": {
-         "description": "Message",
-         "type": "string"
-        },
-        "name": {
-         "description": "Name of the resource",
-         "type": "string"
-        },
-        "state": {
-         "description": "State of the resource",
-         "title": "utils.State",
-         "enum": [
-          "OK",
-          "ERROR",
-          "DELETING",
-          "UPDATING",
-          "REFRESHING",
-          "UNSPECIFIED_STATE"
-         ],
-         "type": "string"
-        },
-        "status": {
-         "description": "Status",
-         "title": "utils.Status",
-         "enum": [
-          "OK_STATUS",
-          "ERROR_STATUS",
-          "WARNING_STATUS",
-          "UNSPECIFIED_STATUS"
-         ],
-         "type": "string"
-        },
-        "type": {
-         "description": "Type",
-         "title": "storeonce.StoresType",
-         "enum": [
-          "CATALYST_STORE",
-          "CLOUD_BANK_STORE",
-          "UNSPECIFIED_STORE_TYPE"
-         ],
-         "type": "string"
-        }
-       },
-       "title": "storeonce.Store"
-      }
-     },
-     "type": {
-      "description": "Type",
-      "title": "storeonce.Type",
-      "enum": [
-       "DATA_PROTECTION_PLATFORM",
-       "STOREONCE"
-      ],
-      "type": "string"
-     },
-     "uid": {
-      "description": "Unique Identifier of the resource",
-      "type": "string"
-     },
-     "updatedAt": {
-      "description": "Updated At",
-      "type": "time.Time",
-      "Array": false
-     },
-     "uri": {
-      "description": "URI of the resource",
-      "type": "string"
-     },
-     "username": {
-      "description": "Username",
-      "type": "string"
-     }
-    }
-   },
-   "storeonce.RefreshBackupSystem": {
-    "type": "object",
-    "required": [
-     "action"
-    ],
-    "properties": {
-     "action": {
-      "description": "Action",
-      "type": "string"
-     }
-    }
-   },
-   "storeonce.RegisterBackupSystem": {
-    "type": "object",
-    "required": [
-     "inetAddress",
-     "username",
-     "password",
-     "displayName"
-    ],
-    "properties": {
-     "description": {
-      "description": "A brief description of the Backup Systems as provided by the user during registration, max 255 chars",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "A user-friendly name to identify the Backup System",
-      "type": "string"
-     },
-     "inetAddress": {
-      "description": "An IP address or Backup System or FQDN to address the backup system, max 255 chars",
-      "type": "string"
-     },
-     "password": {
-      "description": "Password used to access the Backup Systems",
-      "type": "string"
-     },
-     "username": {
-      "description": "Name of the user used to access the Backup Systems",
-      "type": "string"
-     }
-    }
-   },
-   "storeonce.UpdateBackupSystem": {
-    "type": "object",
-    "properties": {
-     "description": {
-      "description": "A brief description of the Backup Systems as provided by the user during registration, max 255 chars",
-      "type": "string"
-     },
-     "displayName": {
-      "description": "A user-friendly name to identify the Backup System",
-      "type": "string"
-     },
-     "inetAddress": {
-      "description": "An IP address or Backup System or FQDN to address the backup system, max 255 char",
-      "type": "string"
-     },
-     "password": {
-      "description": "Password used to access the Backup Systems",
-      "type": "string"
-     },
-     "username": {
-      "description": "Name of the user used to access the Backup Systems",
-      "type": "string"
      }
     }
    },
@@ -28852,7 +26824,7 @@
       "title": "*shared.Calendar"
      },
      "instances": {
-      "description": "Miantenance instance",
+      "description": "Maintenance instance",
       "type": "integer",
       "format": "uint64"
      },
@@ -28906,7 +26878,7 @@
     "type": "object",
     "properties": {
      "HFMDusage": {
-      "description": "Bandwidth usaged by High Frequency Metric Data",
+      "description": "Bandwidth usage by High Frequency Metric Data",
       "type": "integer",
       "format": "int64"
      },
@@ -28922,7 +26894,7 @@
       "type": "object",
       "properties": {
        "hwmodel": {
-        "description": "Hardware mdoel name for branding",
+        "description": "Hardware model name for branding",
         "type": "string"
        },
        "hwproduct": {
@@ -29086,7 +27058,7 @@
            "title": "*shared.Calendar"
           },
           "id": {
-           "description": "The Id of the licenese",
+           "description": "The Id of the license",
            "type": "integer",
            "format": "int64"
           },
@@ -29130,7 +27102,7 @@
            "title": "*shared.Calendar"
           },
           "id": {
-           "description": "The Id of the licenese",
+           "description": "The Id of the license",
            "type": "integer",
            "format": "int64"
           },
@@ -29171,7 +27143,7 @@
           "title": "*shared.Calendar"
          },
          "id": {
-          "description": "The Id of the licenese",
+          "description": "The Id of the license",
           "type": "integer",
           "format": "int64"
          },
@@ -29233,7 +27205,7 @@
            "title": "*shared.Calendar"
           },
           "id": {
-           "description": "The Id of the licenese",
+           "description": "The Id of the license",
            "type": "integer",
            "format": "int64"
           },
@@ -29287,7 +27259,7 @@
          "title": "*shared.Calendar"
         },
         "instances": {
-         "description": "Miantenance instance",
+         "description": "Maintenance instance",
          "type": "integer",
          "format": "uint64"
         },
@@ -30014,7 +27986,7 @@
         "type": "string"
        }
       },
-      "description": "Time when the task hs finished",
+      "description": "Time when the task has finished",
       "descriptionKey": "SCHEMA_TASK_FINISHTIME",
       "title": "*shared.Calendar"
      },
@@ -30332,7 +28304,7 @@
       "type": "boolean"
      },
      "keyUsage": {
-      "description": "Key usages asssigned to the certificate",
+      "description": "Key usages assigned to the certificate",
       "type": "string"
      },
      "pem": {
@@ -31306,71 +29278,6 @@
       "description": "Size of volume in MiB",
       "type": "integer",
       "format": "int64"
-     }
-    }
-   },
-   "vmprotectiongroups.CreateVMPGRequestBody": {
-    "type": "object",
-    "required": [
-     "name",
-     "hypervisorManagerUid",
-     "vmProtectionGroupType",
-     "assetsCategory",
-     "consistencyLevel"
-    ],
-    "properties": {
-     "assets": {
-      "description": "Captures the list of assets that would be part of the protection group. Concorde provided asset identifier",
-      "type": "array",
-      "items": {
-       "description": "",
-       "type": "string"
-      }
-     },
-     "assetsCategory": {
-      "description": "The type of the protected assets, for now only VirtualMachine is supported. In the future, we may support other types like Datastore, Allowed: VIRTUAL_MACHINE",
-      "title": "vmprotectiongroups.AssetsCategory",
-      "enum": [
-       "VIRTUAL_MACHINE"
-      ],
-      "type": "string"
-     },
-     "consistencyLevel": {
-      "description": "Consistency level of the virtual machine protection group. For now, only Resource level consistency is supported. In the future, we may support other levels like Group, Allowed: VIRTUAL_MACHINE",
-      "title": "vmprotectiongroups.ConsistencyLevel",
-      "enum": [
-       "RESOURCE"
-      ],
-      "type": "string"
-     },
-     "description": {
-      "description": "User provided brief description of the Protection Group, max 255 chars",
-      "type": "string"
-     },
-     "dynamicMembers": {
-      "description": "Tags associated with the Protection Group. Tag identifier",
-      "type": "array",
-      "items": {
-       "description": "",
-       "type": "string"
-      }
-     },
-     "hypervisorManagerUid": {
-      "description": "UID string uniquely identifying the hypervisor manager",
-      "type": "string"
-     },
-     "name": {
-      "description": "A user-friendly name to identify Virtual Machine Protection Group, max 255 chars",
-      "type": "string"
-     },
-     "vmProtectionGroupType": {
-      "description": "The type of the Protection Group. Custom is a collection of individual assets. Dynamic is a collection of tags, the virtual machines that are assigned the tags are part of the group, Allowed: CUSTOM, DYNAMIC",
-      "title": "vmprotectiongroups.VmProtectionGroupType",
-      "enum": [
-       "CUSTOM",
-       "DYNAMIC"
-      ],
-      "type": "string"
      }
     }
    },
@@ -32832,7 +30739,7 @@
       "format": "float64"
      },
      "reducibleReduceSaveMb": {
-      "description": "Recucibile reductions savings in Mb",
+      "description": "Reducible reductions savings in Mb",
       "type": "integer",
       "format": "int64"
      },
