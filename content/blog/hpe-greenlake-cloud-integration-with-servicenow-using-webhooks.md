@@ -301,10 +301,9 @@ This step will allow you to trigger notifications in ServiceNow so one can easil
 
    ![Example of endpoint](/img/servicenoew-webhook-note1.jpg "Example of endpoint")
 
-> It should look like: https://<dev-instance>.service-now.com/<Resource path>
-> For example: https://dev111111.service-now.com/api/1762185/unified_events/webhook1
+> It should look like:
 
-![Finding the endpoint URL](/img/servicenow-webhook-blog-10399983-7080-49e4-9fb6-9257e60aeeb5.jpeg "Finding the endpoint URL")
+![Finding the endpoint URL](/img/servicenoew-webhook-note1.jpg "Finding the endpoint URL")
 
 2. Once all the steps have been completed, call the webhook from Postman or copy the below CURL and paste it in a terminal. Make sure to change the --location url of your instance.
 
