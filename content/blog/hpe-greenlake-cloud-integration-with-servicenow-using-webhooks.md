@@ -299,8 +299,10 @@ This step will allow you to trigger notifications in ServiceNow so one can easil
 
 1. Get the webhook endpoint. To get the Resource path, navigate to Scripted Rest API then search with created REST API name:
 
-It should look like: https://<dev-instance>.service-now.com/<Resource path>
-For example: https://dev111111.service-now.com/api/1762185/unified_events/webhook1
+   ![Example of endpoint](/img/servicenoew-webhook-note1.jpg "Example of endpoint")
+
+> It should look like: https://<dev-instance>.service-now.com/<Resource path>
+> For example: https://dev111111.service-now.com/api/1762185/unified_events/webhook1
 
 ![Finding the endpoint URL](/img/servicenow-webhook-blog-10399983-7080-49e4-9fb6-9257e60aeeb5.jpeg "Finding the endpoint URL")
 
@@ -309,7 +311,6 @@ For example: https://dev111111.service-now.com/api/1762185/unified_events/webhoo
 ```shell
 curl --location 'https://<dev instance>.service-now.com/api/1762185/unified_events/webhook1' \
 --header 'Content-Type: application/json' \
---header 'Cookie: BIGipServerpool_dev226204=2760023818.50240.0000; JSESSIONID=735ACA9CE6CA60EE6630654A273A8C5B; glide_node_id_for_js=aedb2cb28299a6f6f2f37d40a1ccd6e0a130002a3ae9db669d5165d8d3340ea5; glide_user_route=glide.d93c2abbe87ef6afc3ca04fcff1ae755' \
 --data '{
   "name": "Grills",
   "status": "SOLD",
