@@ -8,6 +8,14 @@ tags:
   - webhooks
   - hpe-greenlake-cloud
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 [ServiceNow](https://servicenow.com/), as a third-party platform, provides robust capabilities to develop custom webhook handlers that can directly receive and process external events in real time. These webhook handlers can be easily integrated with HPE GreenLake webhooks, allowing for smooth communication between systems. This flexibility enables teams to automate a wide range of workflows and trigger specific actions based on customer-defined requirements. By enabling seamless integration with other tools and services, this feature significantly enhances operational efficiency, reduces manual intervention, and ensures faster response to critical business events. Below are the steps to set up ServiceNow, develop a webhook handler, and integrate with the HPE GreenLake unified events framework to receive real-time events.
 
 ## Optional step 1: Login and setup of a ServiceNow instance
@@ -297,11 +305,9 @@ This step will allow you to trigger notifications in ServiceNow so one can easil
 
 ## Step 5: Call the webhook and test it with ServiceNow
 
-1. Get the webhook endpoint. To get the Resource path, navigate to Scripted Rest API then search with created REST API name:
+1. Get the webhook endpoint. To get the Resource path, navigate to Scripted Rest API then search with created REST API name.
 
-   ![Example of endpoint](/img/servicenoew-webhook-note1.jpg "Example of endpoint")
-
-> It should look like:
+It should look like:
 
 ![Finding the endpoint URL](/img/servicenoew-webhook-note1.jpg "Finding the endpoint URL")
 
