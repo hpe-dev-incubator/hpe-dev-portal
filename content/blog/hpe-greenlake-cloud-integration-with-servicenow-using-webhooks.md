@@ -44,7 +44,7 @@ li {
 
 ![Registering a scripted REST API handler](/img/servicenow-webhook-blog-cfb0ec5a-f2f3-4982-bf02-361f5efe9d73.jpeg "Registering a scripted REST API handler")
 
-5. Paste the code snippet below in the Script section of the above created record (Change the secret in line 144).
+1. Paste the code snippet below in the Script section of the above created record (Change the secret in line 144). More info on challenge request [here](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/webhooks/#webhook-verification)
 
 ```python
 // Code Snippet for GreenLake Webhook handler
