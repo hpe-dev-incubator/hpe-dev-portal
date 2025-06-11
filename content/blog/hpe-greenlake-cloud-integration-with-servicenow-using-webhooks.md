@@ -20,7 +20,7 @@ li {
 
 ## Optional step 1: Login and setup of a ServiceNow instance
 
-> Note: You can ignore Step 1 if you already have a ServicesNow instance.
+> *Note: You can ignore Step 1 if you already have a ServicesNow instance.*
 
 1. Create a ServiceNow developer instance in ServiceNow using the following link: https://signon.service-now.com/
 2. After signing in, click on the Request Instance found at the top right corner of the screen.
@@ -44,7 +44,9 @@ li {
 
 ![Registering a scripted REST API handler](/img/servicenow-webhook-blog-cfb0ec5a-f2f3-4982-bf02-361f5efe9d73.jpeg "Registering a scripted REST API handler")
 
-1. Paste the code snippet below in the Script section of the above created record (Change the secret in line 144). More info on challenge request [here](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/webhooks/#webhook-verification)
+5. Paste the code snippet below in the Script section of the above created record (Change the secret in line 144). 
+
+> *Note: To better understand the code below, which implements the verification challenge sent to the ServiceNow handler by HPE GreenLake cloud, refer to the documentation page [here](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/webhooks/#webhook-verification) or the following [blog post](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/).*
 
 ```python
 // Code Snippet for GreenLake Webhook handler
