@@ -20,11 +20,11 @@ Shed the complexity and silos inherent in conventional hybrid cloud environments
 # HPE Alletra Storage MP B10000 Web Service API v3
 
 The HPE Alletra Storage MP B10000 platform offers a rich set of REST APIs to manage the system configuration, provision storage, and run other administrative operations.  See the links below for additional information about the REST API and how to use them:  
-Join the [#hpe-alletra-b10k-api](https://hpedev.slack.com/archives/C08URLVQRRR) on HPEDEV Slack Workspace to start a discussion.
 
 * [HPE Alletra Storage MP B10000: Web Services API Developer Guide v3](https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide)
 * [HPE Alletra Storage MP B10000: Web Services API Documentation and v3 OpenAPI specification](/ws/api-spec)
 * [HPE Alletra Storage MP B10000 Web Services API v3 FAQ](https://www.hpe.com/psnow/doc/a00148521enw)
+* [Join the HPE DEV slack channel #hpe-alletra-b10k-api to start a discussion](https://hpedev.slack.com/archives/C08URLVQRRR)
 
 # Projects
 
@@ -66,4 +66,4 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on HPE Alletra?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
+Join the [HPE DEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
