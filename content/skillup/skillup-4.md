@@ -7,7 +7,7 @@ description: Unlock unlimited access to strategically curated training on HPE
   confidently.
 disable: false
 priority: 6
-image: /img/hpe-digital-learner.jpg
+image: /img/encourage_sustainable_business_2c_1600_0_72_rgb.jpg
 ---
 Unlock unlimited access to strategically curated training on HPE technologies, IT, business, and power skills.
 Learn continuously. Lead confidently.
