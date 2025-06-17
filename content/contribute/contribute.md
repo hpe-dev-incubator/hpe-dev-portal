@@ -20,7 +20,7 @@ templateCards:
 
 - Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE Developer External Contributor Guide</a> regarding the Content Management System (CMS). 
 
-- Connect to our Content Management System to fork our repository and start working on your blog.
+- Click **Start Now** button to connect to our Content Management System to fork our repository and start working on your blog.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
