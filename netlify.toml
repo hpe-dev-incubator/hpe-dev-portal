@@ -9,7 +9,7 @@
 [context.staging.environment] # 'staging' is a branch name
   GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "http://ec2-34-204-205-112.compute-1.amazonaws.com:8021"
 [context.testing.environment]
-  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "http://ec2-54-226-58-109.compute-1.amazonaws.com:8021"
+  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://ec2-54-226-58-109.compute-1.amazonaws.com:8021"
 
 # Secure website with browser security headers
 [[headers]]
