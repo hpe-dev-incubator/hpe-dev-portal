@@ -277,15 +277,17 @@ You need to create an API token to use HEC via its API. You can do this from:
 
 **2.**    Select **New token.** Use this token to update the Python handler script line
 
-Picture 1
+![Data inputs settings ](/img/dccf7431-b83b-4799-a795-25bccc7637db.png "Data inputs settings ")
 
 Your final configuration should look like this:
 
-Picture 2
+
+
+![HEC final configuration ](/img/03af2f59-ab50-443b-ae93-90d274738317.png "HEC final configuration ")
 
 Verify your global settings so that they match the following:
 
-Picture 3
+![Global settings](/img/310bb0be-5363-428a-99a2-5f64bef2ca8a.png "Global settings")
 
 This allows you to get your HEC endpoint, which is used in the Python handler to create an incident based on the HPE GreenLake event received via the webhook. The URL of the endpoint should look like this:
 
