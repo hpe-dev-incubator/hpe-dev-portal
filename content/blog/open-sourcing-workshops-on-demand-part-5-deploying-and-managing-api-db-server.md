@@ -74,10 +74,10 @@ It provides:
   * Users compliancy
   * Security Management
 
-#### Backend server preparation:
+#### API-DB server preparation:
 
-B﻿efore cloning the backend repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
+B﻿efore cloning the install repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
 ##### Prerequesites:
 
-In order to setup the backend server, you will need:
+In order to setup the api-db server, you will need:
