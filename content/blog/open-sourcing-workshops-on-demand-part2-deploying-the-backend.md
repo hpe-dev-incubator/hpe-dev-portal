@@ -56,16 +56,13 @@ Here's a quick look at what can be found in each:
 
 * This provide examples for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
 
- 
-
 **Note**: T﻿here are now 7 repositories available for now. 
-
-
 
 ![](/img/wod-blogserie2-2repos.png "Workshops-on-Demand repositories")
 
 It provides:
 
+* An Installer allowing you to install either Backend, Api-DB server, or Frontend using a single line of command.
 * A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find here. 
 * A postfix server used for the procmail API 
 * An Ansible engine to allow automation 
@@ -86,7 +83,7 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 
 In order to setup the backend server, you will need:
 
-* A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
+* A fresh OS install on physical / virtualized server running Ubuntu 24.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`   
 
 **Note**: In order to support 100 concurrent users, you need:    
@@ -99,11 +96,11 @@ We are currently using an HPE ProLiant DL360 Gen10 server on our different produ
 
 When done with OS installation and preparation
 
-* From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first.
+* From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the wod-install repo first.
 
 ```shellsession
-install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
-install$ cd wod-backend/
+install$ git clone https://github.com/Workshops-on-Demand/wod-install.git
+install$ cd wod-install/
 ```
 
 * Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
@@ -277,6 +274,11 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
  S﻿ee the example below for a backend server.  
 
 ### B﻿ackend installation process:
+
+The installation process is handled by a dedicated repo : wod-install. This repo needs to be cloned on every single machine  constituting the wod architecture.
+
+The wod installer allows through a single command to install either a backend, an api-db server, or a frontend.
+
 
 [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself. T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
 
