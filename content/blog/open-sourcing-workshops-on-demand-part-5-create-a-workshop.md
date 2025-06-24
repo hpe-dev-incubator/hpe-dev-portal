@@ -1,11 +1,11 @@
 ---
-title: "Open sourcing Workshops-on-Demand - Part 5: Create new workshops"
+title: "Open sourcing Workshops-on-Demand - Part 6: Create new workshops"
 date: 2023-07-24T10:43:53.548Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 ---
-I﻿n this new article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. I already covered most of the infrastructure part that supports the workshops. In my previous posts, I already covered setting up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
+I﻿n this new article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. I already covered most of the infrastructure parts that support the workshops. In my previous posts, I covered setting up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
 
 # O﻿verview
 
@@ -23,15 +23,12 @@ In this post, I won't focus on the subject selection process. I'll leave that to
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-
-
 What is a workshop? What do you need to develop ?
 
 L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined what is needed:
 
 * A﻿ set of notebooks that will be used by the student:
-
- * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
+* Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
 A workshop should contain at least :
 
@@ -42,7 +39,6 @@ A workshop should contain at least :
 * LICENCE.MD
 * A pictures folder (if any screenshot is required in lab instructions)
 * A README.md (0-ReadMeFirst.ipynb in md format)
-
 
 To make the workshop compliant to our platform, Matt just needs to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called **wod.yml**.
 
@@ -80,7 +76,6 @@ replayLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-C
 
 the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
 
-
 ![](/img/wod-db-go-1.png "Workshop's fields in the Database.")
 ![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
 
@@ -109,25 +104,14 @@ The following fields are required by the infrastructure. And I will work as the 
 * **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
 * **beta:** Not implemented yet :-)
 * **AlternateLocation:** future development. The purpose is to allow automation of the relocation of a workshop in case of primary location's failure
-
+* **ReplayLink:** YouTube link of the recorded video to be used as a replay
+* **Replayid:** This ID is used to link the correct video with the associated workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
+* **MonoAppliance:** Some workshops require a single dedicated appliance
+* **MultiAppliance:** Some workshops require multiple sdedicated appliances
 
 *N﻿ote:* B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
-
-I﻿n the **Replay table**:
-
-![](/img/wod-db-go-3.png)
-
-* **ID:** This ID is used to link the correct video with the associated workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
-* **Avatar:**  This is the link to the presenter 's picture that will be displayed on the workshop's tile on the registration portal
-* **D﻿escription:** Same description as the one available in the workshop's table entry
-* **P﻿resenter:** Name of the presenter
-* **Role:** Role of the presenter (the workshop developer in fact: Solution Architect, Fullstack Developer, etc...)
-* **V﻿ideoLink:** YouTube link of the recorded video to be used as a replay
-* **W﻿orkshopId:** ID of the workshop linked to the video
-* **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal
-
 
 As I continue this series, I will explore two scenarios. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
 
@@ -151,7 +135,6 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
 5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
 6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
-
 
 A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
 
@@ -210,13 +193,13 @@ Whenever all the scripts are functional and that the necessary actions have been
 
 Testing the workshop: 
 
-  * one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
+* one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
 
-    ```
-    dev@dev3:~$ wod-test-action.sh
-    Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
-    ACTION is mandatory
-    ```
+  ```
+  dev@dev3:~$ wod-test-action.sh
+  Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
+  ACTION is mandatory
+  ```
 
 `Note: The available trace under ~/.mail/from will detail the different steps of the action and allow you to troubelshoot any issue.`
 
