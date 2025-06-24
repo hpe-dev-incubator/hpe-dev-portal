@@ -334,3 +334,4 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
 
   <h3 id="contact">Any Questions About Hybrid Observability in HPE GreenLake Flex Solutions?</h3>
   <p style="font-size: 22px;">Need help getting started with the bundled hybrid observability in HPE GreenLake Flex Solutions? Join our <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">Slack Workspace</a> and start a discussion in our <a href="https://hpedev.slack.com/archives/C08K4GV7YN5" style="font-size: 22px;">#hpe-greenlake-flex-observability</a> Slack channel. You can also email us at <a href="mailto:gsccitops@hpe.com" style="font-size: 22px;">gsccitops@hpe.com</a>.</p>
+
