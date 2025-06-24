@@ -19,6 +19,8 @@ tags:
 
 I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced the project and how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. I also described to you the management of this backend server. This is what is often referred to as Day2 operations. I plan now to explain how to deploy and manage the API-DB server.
 
+The api-db server provides an open API 3.0 based api used to manage the Workshops-on-Demand project. it also provides a Database hosting the different status of participants, workshops, students.
+
 The following image is describing the different interactions existing between the different components of the wod architecture.
 
 ![](/img/howto-wod-1.png "WOD Architecture")
@@ -185,9 +187,13 @@ Postgres adminer:
 
 in order to access the postgres adminer console: browse to either the internal or external (if any) IP Address on port 8083
 
-![]( "Postgres Adminer console login")
+![](/img/screenshot-2025-06-24-at-15.35.58.png "Postgres Adminer console login")
 
-Using teh console, the admin can update the relevant tables manually. However, we now recommand you leverage our scripts that will take care of updating the relevant data automatically.
+Using the console, the admin can update the relevant tables manually. 
+
+![](/img/screenshot-2025-06-24-at-15.38.11.png "Postgres DB Workshops table")
+
+However, we now recommand you leverage our scripts that will take care of updating the relevant data automatically.
 
 Let's start with a simple example: 
 
