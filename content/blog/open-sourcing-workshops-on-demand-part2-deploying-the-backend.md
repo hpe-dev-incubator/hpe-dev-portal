@@ -36,6 +36,10 @@ Here's a quick look at what can be found in each:
 
 * You can test them live at <https://hackshack.hpedev.io/workshops>
 
+**[w﻿od-install](https://github.com/Workshops-on-Demand/wod-install):** Installer part of the Workshops-on-Demand project.
+
+**[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshops-on-Demand setup. 
+
 **[w﻿od-frontend](https://github.com/Workshops-on-Demand/wod-frontend):** Frontend part of the Workshops-on-Demand project.
 
 * Based on NGINX and NodeJS technologies, it provides the participtants' Registration Portal used to enable booking of the workshops.
@@ -46,15 +50,19 @@ Here's a quick look at what can be found in each:
 
 **[w﻿od-private](https://github.com/Workshops-on-Demand/wod-private):** Example Private configuration for Workshops-on-Demand (WoD).
 
-* This provide an example for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
+**[w﻿od-frontend-private](https://github.com/Workshops-on-Demand/wod-frontend-private):** Private Frontend part of the Workshops-on-Demand project.
 
-**[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshops-on-Demand setup.  
+**[w﻿od-api-db-private](https://github.com/Workshops-on-Demand/wod-api-db-private):** Workshops-on-Demand registration portal application
 
-**Note**: T﻿here are only 3 repositories available for now. The missing 2 will show up later.
+* This provide examples for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
+
+ 
+
+**Note**: T﻿here are now 7 repositories available for now. 
 
 
 
-![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
+![](/img/wod-blogserie2-2repos.png "Workshops-on-Demand repositories")
 
 It provides:
 
