@@ -8,6 +8,13 @@ tags:
   - hpe_greenlake_cloud
   - webhooks
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
 # Overview
 
 This guide shows you how to connect HPE GreenLake webhooks with [Splunk](https://www.splunk.com/). Splunk is a data platform that collects, indexes, and analyzes machine-generated data to provide insights for various purposes, including security monitoring, IT operations, and business analytics. When the two are connected, you will be able to see your HPE GreenLake events through Splunk for improved data monitoring and analysis.
