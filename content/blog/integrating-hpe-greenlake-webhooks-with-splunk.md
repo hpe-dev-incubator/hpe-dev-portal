@@ -15,33 +15,33 @@ li {
    max-width: none;
 }
 </style>
-# Overview
+## Overview
 
 This guide shows you how to connect HPE GreenLake webhooks with [Splunk](https://www.splunk.com/). Splunk is a data platform that collects, indexes, and analyzes machine-generated data to provide insights for various purposes, including security monitoring, IT operations, and business analytics. When the two are connected, you will be able to see your HPE GreenLake events through Splunk for improved data monitoring and analysis.
 
-# What you’ll learn
+## What you’ll learn
 
 * How to set up Splunk to receive data from HPE GreenLake
 * How to handle HPE GreenLake's security requirements
 * How to build a helper app that makes everything work together
 * How to test and monitor your setup
 
-# Overview of Splunk HTTP Event Collector (HEC)
+## Overview of Splunk HTTP Event Collector (HEC)
 
 The [HTTP Event Collector (HEC)](https://dev.splunk.com/enterprise/docs/devtools/httpeventcollector/) is a Splunk feature that lets you send data and application events to a Splunk deployment over the HTTP and Secure HTTP (HTTPS) protocols. HEC uses a token-based authentication model. You can generate a token and then configure a logging library or HTTP client with the token to send data to HEC in a specific format.
 
-## Key features of HEC
+### Key features of HEC
 
 * Token-based authentication: Each token has a unique value, which is a 128-bit number that is represented as a 32-character globally unique identifier (GUID)
 * Secure communication: Supports both HTTP and HTTPS protocols for data transmission
 * API key support: Provides secure authentication mechanisms that align perfectly with HPE GreenLake's security requirements
 * Flexible data formats: Accepts both JSON-formatted events and raw text data
 
-# Overview of HPE GreenLake webhooks
+## Overview of HPE GreenLake webhooks
 
 [HPE GreenLake webhooks](https://developer.greenlake.hpe.com/docs/greenlake/services/event/public/webhooks/) facilitate automated, real-time communication between HPE GreenLake cloud services and an external service of your choosing. For example, a webhook could notify your IT Operation Management platform when a new audit log is created, or when subscriptions are about to expire. A getting started guide to HPE GreenLake webhooks is available [here](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/).
 
-## HPE GreenLake webhook security features:
+### HPE GreenLake webhook security features:
 
 HPE GreenLake implements robust security measures to ensure webhook authenticity:
 
@@ -65,15 +65,15 @@ Challenge Request Example:
 }
 ```
 
-# Challenges and solutions
+## Challenges and solutions
 
 The primary challenge in integrating HPE GreenLake webhooks with Splunk HEC lies in the webhook verification process. The destination must read the value from the challengeRequest field and create an HMAC SHA-256 hash, using the webhook secret as salt and the challengeRequest value as a string to hash. When successful, the destination responds with a JSON object with the format {"verification": "CREATED_HASH"} and a HTTP 200 OK status.
 
-## A challenge
+### A challenge
 
 Splunk's HEC endpoint is designed for data ingestion and doesn't natively support the  challenge-response mechanism required by HPE GreenLake webhooks. HEC expects to receive event data directly and cannot handle the initial verification handshake.
 
-## The solution
+### The solution
 
 This is where [Splunk's custom REST endpoints](https://dev.splunk.com/enterprise/docs/devtools/customrestendpoints/) capability becomes invaluable. A custom REST endpoint is a developer-defined endpoint and associated handler that lets you build out the Splunk REST API to meet your specific needs. We can create a custom endpoint handler that:
 
@@ -82,7 +82,7 @@ This is where [Splunk's custom REST endpoints](https://dev.splunk.com/enterprise
 3. Responds appropriately to complete the verification
 4. Forwards validated event data to HEC for ingestion
 
-# Custom REST endpoints in Splunk
+## Custom REST endpoints in Splunk
 
 Splunk's custom REST endpoints provide powerful extensibility for scenarios exactly like ours. You use a custom endpoint to add a special feature that Splunk doesn't have built-in, like, in our case, handling the unique secret handshake from HPE GreenLake.
 
@@ -92,24 +92,25 @@ Key benefits of our integration:
 * Custom logic implementation: Handler code implements HPE GreenLake's specific validation requirements
 * Centralized management: Provides a single endpoint for webhook management
 
-# Where to configure the endpoint handler: Splunk Enterprise vs Splunk Cloud
+## Where to configure the endpoint handler: Splunk Enterprise vs Splunk Cloud
 
 Splunk Enterprise is the self-hosted version that an organization deploys and manages on its own infrastructure, either on-premises (on-prem) or in a private cloud.
 
 Splunk Cloud Platform is the Software as a Service (SaaS) offering, where the Splunk platform is hosted, managed, and maintained by Splunk.
 
-## For Splunk Enterprise
+### For Splunk Enterprise
 
 You can install and configure the endpoint handler directly on your Splunk Enterprise instance by placing it in the etc/apps/ directory and following the steps in this guide. Splunk Enterprise supports custom REST endpoints out of the box.
 
-For Splunk Cloud\
+### For Splunk Cloud
+
 [Splunk Cloud has extra security controls](https://docs.splunk.com/Documentation/SplunkCloud/latest/RESTTUT/RESTandCloud), so you might need to take additional steps to allow your helper to communicate with the Splunk REST API.
 
-# Sample Python app for validation
+## Sample Python handler
 
 Let's create a custom REST endpoint handler in Python to handle the HPE GreenLake webhook validation and forwards events to Splunk HEC, once validated.
 
-## Directory structure
+### Directory structure
 
 `splunk_hpe_webhook_app/
 ├── bin/
@@ -120,7 +121,7 @@ Let's create a custom REST endpoint handler in Python to handle the HPE GreenLak
 └── metadata/
 └── default.meta`
 
-## Python handler (bin/hpe_webhook_handler.py)
+### Python handler (bin/hpe_webhook_handler.py)
 
 ```python
 import os
@@ -231,9 +232,9 @@ class HPEWebhookHandler(BaseRestHandler):
     	self.response.write(json.dumps({"error": message}))
 ```
 
-## Configuration files
+### Configuration files
 
-### default/restmap.conf
+#### default/restmap.conf
 
 `[script:hpe_webhook_handler]`
 `match = /hpe/webhook`
@@ -246,20 +247,20 @@ class HPEWebhookHandler(BaseRestHandler):
 `passHttpHeaders = true`
 `passHttpCookies = false`
 
-### default/web.conf
+#### default/web.conf
 
 `[expose:hpe_webhook_handler]
 pattern = hpe/webhook
 methods = POST`
 
-### metadata/default.meta
+#### metadata/default.meta
 
 `[restmap/hpe_webhook_handler]
 export = system
 [views]
 export = system`
 
-# Configuring Splunk HTTP Event Collector (HEC)
+## Configuring Splunk HTTP Event Collector (HEC)
 
 You need to create an API token to use HEC via its API. You can do this from:
 
@@ -283,7 +284,7 @@ This allows you to get your HEC endpoint, which is used in the Python handler to
 
  Don’t forget to modify the Python handler (shown above) line 7 accordingly.
 
-# Final integration flow
+## Final integration flow
 
 The complete integration flow works as follows:
 
@@ -310,7 +311,7 @@ The complete integration flow works as follows:
 `Events         Challenge             Verify        Ingest    Analyze`
 `               Response              Signature     Data      Visualize`
 
-# Benefits of this architecture
+## Benefits of this architecture
 
 Security: The custom endpoint handler ensures only validated, authentic events reach your Splunk environment.
 
@@ -320,7 +321,7 @@ Scalability: The solution can handle multiple webhook types and route them to di
 
 Monitoring: All webhook interactions are logged within Splunk for troubleshooting and monitoring.
 
-# Testing and deployment
+## Testing and deployment
 
 Testing the integration
 
@@ -334,7 +335,7 @@ Testing the integration
 3. Challenge validation: Monitor Splunk logs to ensure the challenge request is handled correctly.
 4. Event flow testing: Trigger test events from HPE GreenLake and verify they appear in your Splunk index.
 
-# Conclusion
+## Conclusion
 
 Integrating HPE GreenLake webhooks with Splunk via HTTP Event Collector presents unique challenges due to the webhook verification requirements, but Splunk's custom REST endpoints capabilities provide an elegant solution. Such integration offers several key benefits:
 
