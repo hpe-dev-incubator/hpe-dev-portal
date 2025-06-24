@@ -2,7 +2,7 @@
 title: "Integrating HPE GreenLake webhooks with Splunk "
 date: 2025-06-24T11:34:04.977Z
 author: Vandewilly Silva
-authorimage: /img/Avatar1.svg
+authorimage: https://ca.slack-edge.com/E01LD9FH0JZ-U05UA6N7KH6-6b8619b87acd-512
 disable: false
 tags:
   - hpe_greenlake_cloud
@@ -15,6 +15,7 @@ li {
    max-width: none;
 }
 </style>
+
 ## Overview
 
 This guide shows you how to connect HPE GreenLake webhooks with [Splunk](https://www.splunk.com/). Splunk is a data platform that collects, indexes, and analyzes machine-generated data to provide insights for various purposes, including security monitoring, IT operations, and business analytics. When the two are connected, you will be able to see your HPE GreenLake events through Splunk for improved data monitoring and analysis.
@@ -112,14 +113,16 @@ Let's create a custom REST endpoint handler in Python to handle the HPE GreenLak
 
 ### Directory structure
 
-`splunk_hpe_webhook_app/
+```markdown
+splunk_hpe_webhook_app/
 ├── bin/
 │   └── hpe_webhook_handler.py
 ├── default/
 │   ├── restmap.conf
 │   └── web.conf
 └── metadata/
-└── default.meta`
+└── default.meta
+```
 
 ### Python handler (bin/hpe_webhook_handler.py)
 
@@ -236,29 +239,35 @@ class HPEWebhookHandler(BaseRestHandler):
 
 #### default/restmap.conf
 
-`[script:hpe_webhook_handler]`
-`match = /hpe/webhook`
-`script = hpe_webhook_handler.py`
-`scripttype = persist`
-`handler = hpe_webhook_handler.HPEWebhookHandler`
-`requireAuthentication = false`
-`output_modes = json`
-`passPayload = true`
-`passHttpHeaders = true`
-`passHttpCookies = false`
+```markdown
+[script:hpe_webhook_handler]
+match = /hpe/webhook
+script = hpe_webhook_handler.py
+scripttype = persist
+handler = hpe_webhook_handler.HPEWebhookHandler
+requireAuthentication = false
+output_modes = json
+passPayload = true
+passHttpHeaders = true
+passHttpCookies = false
+```
 
 #### default/web.conf
 
-`[expose:hpe_webhook_handler]
+```markdown
+[expose:hpe_webhook_handler]
 pattern = hpe/webhook
 methods = POST`
+```
 
 #### metadata/default.meta
 
-`[restmap/hpe_webhook_handler]
+```markdown
+[restmap/hpe_webhook_handler]
 export = system
 [views]
 export = system`
+```
 
 ## Configuring Splunk HTTP Event Collector (HEC)
 
@@ -292,7 +301,7 @@ The complete integration flow works as follows:
 
 * Deploy the custom Splunk endpoint handler using the above HPE webhook handler Python script.
 * Make sure to set HEC token and webhook secret in the Python script.
-* Register the webhook handler URL with HPE GreenLake: <https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook>
+* Register the webhook handler URL with HPE GreenLake: [`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)``
 
 > Note: See [this blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) to learn how to register a new webhook handler in HPE GreenLake
 
@@ -306,10 +315,7 @@ The complete integration flow works as follows:
 
 4. Data flow diagram
 
-`HPE GreenLake → Custom REST Endpoint → Validation → HEC → Splunk Index`
-`↓                 ↓                     ↓            ↓         ↓`
-`Events         Challenge             Verify        Ingest    Analyze`
-`               Response              Signature     Data      Visualize`
+![Data flow diagram](/img/diagram.jpg "Data flow diagram")
 
 ## Benefits of this architecture
 
@@ -327,9 +333,11 @@ Testing the integration
 
 1. Verify custom endpoint: Test your custom REST endpoint using curl:
 
-`curl -X POST `[`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)` \`
+```shell
+`curl -X POST`[`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)`\`
 `-H "Content-Type: application/json" \`
 `-d '{"type": "test.event", "data": {"message": "Hello Splunk"}}'`
+```
 
 2. Webhook registration: Register your webhook with HPE GreenLake using the custom endpoint URL.
 3. Challenge validation: Monitor Splunk logs to ensure the challenge request is handled correctly.
