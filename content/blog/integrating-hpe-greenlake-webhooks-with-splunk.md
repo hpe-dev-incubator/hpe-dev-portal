@@ -293,7 +293,9 @@ This allows you to get your HEC endpoint, which is used in the Python handler to
 
  Don’t forget to modify the Python handler (shown above) line 7 accordingly.
 
-3. Generate an API key (Splunk session key) 
+### Generate an Splunk REST API key 
+
+In order to use the custom REST endpoint in Splunk, you need to get an API key which HPE GreenLake will use to authenticate against Splunk when setiing up the webhook and sending events. You can use the following cURL command to generate a key.
 
 ```shell
 curl -k https://your-splunk-instance:8089/services/auth/login \
@@ -322,9 +324,13 @@ The complete integration flow works as follows:
 
 * Deploy the custom Splunk endpoint handler using the above HPE webhook handler Python script.
 * Make sure to set the HEC endpoint in the Python script (line 13)
-* Make sure to set the API key (Splunk session key) in the Python script (line 14)
+* Make sure to set the Splunk HEC API token in the Python script (line 14)
 * Make sure to set the HPE GreenLake webhook secret in the Python script (line 15)
-* Register the webhook handler URL with HPE GreenLake: [`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)``
+* Register the webhook handler URL with HPE GreenLake:
+
+  * URL of handler[`: Uttps://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)``
+  * Set the same secret key as we setup in the Python handler (line 15)
+  * Use API as Authentication type and set the API key to the Splunk REST API Key generated in the section above. 
 
 > Note: See [this blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) to learn how to register a new webhook handler in HPE GreenLake
 
