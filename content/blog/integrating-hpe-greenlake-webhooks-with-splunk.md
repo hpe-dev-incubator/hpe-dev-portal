@@ -275,13 +275,11 @@ You need to create an API token to use HEC via its API. You can do this from:
 
 1.    **Settings > Data Inputs > HTTP Event Collector**
 
-**2.**    Select **New token.** Use this token to update the Python handler script line
+2.    Select **New token.** Use this token to update the Python handler script line
 
 ![Data inputs settings ](/img/dccf7431-b83b-4799-a795-25bccc7637db.png "Data inputs settings ")
 
 Your final configuration should look like this:
-
-
 
 ![HEC final configuration ](/img/03af2f59-ab50-443b-ae93-90d274738317.png "HEC final configuration ")
 
@@ -295,6 +293,27 @@ This allows you to get your HEC endpoint, which is used in the Python handler to
 
  Don’t forget to modify the Python handler (shown above) line 7 accordingly.
 
+3. Generate an API key (Splunk session key) 
+
+```shell
+curl -k https://your-splunk-instance:8089/services/auth/login \
+     --data-urlencode username=YOUR_USERNAME \
+     --data-urlencode 'password=YOUR_PASSWORD’
+```
+
+The response will be:
+
+```
+<response>
+  <sessionKey>YOUR_SESSION_KEY</sessionKey>
+  <messages>
+    <msg code=""></msg>
+  </messages>
+</response>
+```
+
+ 
+
 ## Final integration flow
 
 The complete integration flow works as follows:
@@ -302,7 +321,9 @@ The complete integration flow works as follows:
 1. Initial setup
 
 * Deploy the custom Splunk endpoint handler using the above HPE webhook handler Python script.
-* Make sure to set HEC token and webhook secret in the Python script.
+* Make sure to set the HEC endpoint in the Python script (line 13)
+* Make sure to set the API key (Splunk session key) in the Python script (line 14)
+* Make sure to set the HPE GreenLake webhook secret in the Python script (line 15)
 * Register the webhook handler URL with HPE GreenLake: [`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)``
 
 > Note: See [this blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) to learn how to register a new webhook handler in HPE GreenLake
