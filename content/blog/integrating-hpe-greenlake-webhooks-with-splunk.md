@@ -107,7 +107,7 @@ You can install and configure the endpoint handler directly on your Splunk Enter
 
 [Splunk Cloud has extra security controls](https://docs.splunk.com/Documentation/SplunkCloud/latest/RESTTUT/RESTandCloud), so you might need to take additional steps to allow your helper to communicate with the Splunk REST API.
 
-## Generate an Splunk REST API key 
+## Generate an Splunk REST API key
 
 In order to use the custom REST endpoint in Splunk, you need to get an API key which HPE GreenLake will use to authenticate against Splunk when initially setting up the webhook and sending events. You can use the following cURL command to generate a key.
 
@@ -119,7 +119,7 @@ curl -k https://your-splunk-instance:8089/services/auth/login \
 
 The response will be:
 
-```
+```json
 <response>
   <sessionKey>YOUR_SESSION_KEY</sessionKey>
   <messages>
@@ -127,6 +127,7 @@ The response will be:
   </messages>
 </response>
 ```
+
 ## Sample Python handler
 
 Let's create a custom REST endpoint handler in Python to handle the HPE GreenLake webhook validation and forwards events to Splunk HEC, once validated.
