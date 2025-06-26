@@ -324,7 +324,7 @@ The complete integration flow works as follows:
 * Make sure to set the HPE GreenLake webhook secret in the Python script (line 15)
 * Register the webhook handler URL with HPE GreenLake:
 
-  * URL of handler[`: Uttps://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)``
+  * URL of handler: [`ttps://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)
   * Set the same secret key as we setup in the Python handler (line 15)
   * Use API as Authentication type and set the API key to the Splunk REST API Key generated in the section above. 
 
