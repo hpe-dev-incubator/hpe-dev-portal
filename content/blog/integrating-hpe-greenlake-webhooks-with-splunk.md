@@ -318,34 +318,34 @@ The complete integration flow works as follows:
 
 1. Initial setup
 
-* Deploy the custom Splunk endpoint handler using the above HPE webhook handler Python script.
-* Make sure to set the HEC endpoint in the Python script (line 13)
-* Make sure to set the Splunk HEC API token in the Python script (line 14)
-* Make sure to set the HPE GreenLake webhook secret in the Python script (line 15)
-* Register the webhook handler URL with HPE GreenLake:
+   * Deploy the custom Splunk endpoint handler using the above HPE webhook handler Python script.
+   * Make sure to set the HEC endpoint in the Python script (line 13)
+   * Make sure to set the Splunk HEC API token in the Python script (line 14)
+   * Make sure to set the HPE GreenLake webhook secret in the Python script (line 15)
+   * Register the webhook handler URL with HPE GreenLake:
 
-  * URL of handler: [`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)
-  * Set the same secret key as we setup in the Python handler (line 15)
-  * Use API as Authentication type and set the API key to the Splunk REST API Key generated in the section above. 
+      * URL of handler: [`https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook`](https://your-splunk-instance:8089/servicesNS/-/your_app/hpe/webhook)
+      * Set the same secret key as we setup in the Python handler (line 15)
+      * Use API as Authentication type and set the API key to the Splunk REST API Key generated in the section above. 
 
 > Note: See [this blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) to learn how to register a new webhook handler in HPE GreenLake
 
 2. Webhook handler verification process
 
-  * HPE GreenLake sends a verification challenge to your custom endpoint.
-  * The custom REST handler receives the challenge and validates it using HMAC SHA-256.
-  * The handler responds with the computed verification hash.
-  * HPE GreenLake confirms the webhook and marks it as active.
+   * HPE GreenLake sends a verification challenge to your custom endpoint.
+   * The custom REST handler receives the challenge and validates it using HMAC SHA-256.
+   * The handler responds with the computed verification hash.
+   * HPE GreenLake confirms the webhook and marks it as active.
 
 3. Event processing flow
 
-  * HPE GreenLake sends event data to the custom handler endpoint.
-  * The custom REST handler validates the HMAC signature. 
-  * The handler forwards validated events to HEC.
-  * Splunk HEC ingests the data for analysis and visualization.
+   * HPE GreenLake sends event data to the custom handler endpoint.
+   * The custom REST handler validates the HMAC signature. 
+   * The handler forwards validated events to HEC.
+   * Splunk HEC ingests the data for analysis and visualization.
 
 4. Data flow diagram
-
+ 
 ![Data flow diagram](/img/diagram.jpg "Data flow diagram")
 
 ## Benefits of this architecture
