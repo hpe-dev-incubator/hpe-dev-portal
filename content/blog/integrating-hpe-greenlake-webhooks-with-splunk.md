@@ -331,6 +331,7 @@ The complete integration flow works as follows:
 > Note: See [this blog](https://developer.hpe.com/blog/getting-started-with-the-hpe-greenlake-cloud-eventing-framework/) to learn how to register a new webhook handler in HPE GreenLake
 
 2. Webhook handler verification process
+
 3. Event processing flow
 
 * HPE GreenLake sends event data to the custom handler endpoint.
