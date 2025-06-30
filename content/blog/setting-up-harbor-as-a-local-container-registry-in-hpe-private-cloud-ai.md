@@ -7,27 +7,33 @@ disable: false
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-### HPE Private Cloud AI
+A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, GitHub / GitLab Container Registry, and JFrog Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
+
+
+
+This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local registry, organizations gain faster image access, reduced reliance on external networks, enhanced security posture, and a tailored environment that aligns with compliance and governance needs.
+
+## HPE Private Cloud AI
 
 [HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, including selecting the right LLM models, hosting and deploying them effectively. Beyond these concerns, it empowers organizations to manage AI adoption and deployment independently, providing access to a curated selection of pre-built NVIDIA NIM LLM models and integrating a suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science. 
 With HPE Machine Learning Inference Software (MLIS) prepackaged in PCAI, customers can seamlessly establish and oversee the entire AI service deployment while maintaining full control throughout the process. Through the PCAI Import Framework, customers can incorporate their own applications or third-party tools and frameworks into PCAI, managing them alongside pre-installed applications to meet their specific requirements. 
 
 This blog post shows you the detailed process how to easily deploy the open-source Harbor to PCAI using its Import Framework. Harbor can be configured to be used as a local container registry in PCAI. With a list of features provided in Harbor such as policies, RBAC, security scanner and image singing, 
 
-### Prerequisites
+## Prerequisites
 
 Before starting, make sure you have the following:
 
-* The [Docker Engine](https://docs.docker.com/engine/install/), and *docker* CLI included by default in Docker Engine
+* The [Docker Engine](https://docs.docker.com/engine/install/), version 28.1.1 or later, and *docker* CLI included by default in Docker Engine
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster in HPE Private Cloud AI
 
-### Harbor
+## Harbor
 
 Harbor is an open-source container registry for cloud native environments like Kubernetes (K8s). It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
 
 The following sections start first showing the process to deploy Harbor into PCAI using its Import Framework. It then describes the process to create a private project and a list of users with different role permissions . pushing the image to this project using the Harbor credentials. Harbor can be used as a local image registry in PCAI that ensures the images in both secure and well-managed. 
 
-#### Harbor Deployment via PCAI Import Framework
+1. Harbor Deployment via PCAI Import Framework
 
 The Harbor Helm charts have been available from GitHub repo at https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor. Based on the latest Helm charts from the official [Harbor site](https://helm.goharbor.io/harbor-1.17.0.tgz), a few required YAML manifest files, together with changes to the values.yaml, have been added to be easily deployed into HPE PCAI. 
 
@@ -39,7 +45,7 @@ Using the created Helm charts, Harbor can be easily deployed into PCAI via its I
 
 ![](/img/import-harbor.png)
 
-#### Harbor UI Access via its endpoint
+2. Harbor UI access via its endpoint
 
 After Harbor is installed through PCAI Import Framework, there is an *Imported* Harbor tile being added under *Tools & Frameworks*. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net* is configured. 
 
@@ -73,7 +79,7 @@ In addition to the default admin user, these two newly created users have been a
 
 Please refer to [Harbor Managing Users](https://goharbor.io/docs/2.13.0/administration/managing-users/) for the detailed permissions in each role. In order to more focus on image pushing process and application deployment from Harbor, the project will use its default *admin* user. As a best practice in production environment, it’s highly recommended to set up users with different role assignments in Harbor. 
 
-#### Pushing Images to Harbor Registry
+3. Pushing Images to Harbor Registry
 
 You can push your images using the following steps:
 
@@ -156,8 +162,6 @@ https://docs.docker.com/go/credential-store/
 
 Login Succeeded
 
-
-
 $ docker images
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 $ docker pull harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
@@ -173,13 +177,12 @@ Digest: sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157425b25e
 Status: Downloaded newer image for harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
 harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
 
-
 $ docker images
 REPOSITORY                                               TAG       IMAGE ID       CREATED        SIZE
 harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a   2 months ago   192MB
 ```
 
-### Application Deployment using Harbor Registry
+## Application Deployment using Harbor Registry
 
 With images being pushed to Harbor registry, let’s try to deploy the application to PCAI using the same Import Framework and demonstrate pulling images from the local Harbor repository. 
 
