@@ -1,7 +1,7 @@
 ---
 title: "HPE Compute Ops Management APIs and the DevOps ecosystem: Updates and
   developer tools"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8917459351405/WN_bWsoUYA-QBu3QjvyM6QCxQ
 imageBackground: white
@@ -13,3 +13,4 @@ label: Register Now!
 priority: 3
 image: /img/event-meetups-newlogo-400x400.png
 ---
+
