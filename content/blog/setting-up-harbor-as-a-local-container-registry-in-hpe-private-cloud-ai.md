@@ -1,0 +1,366 @@
+---
+title: Setting up Harbor as a local container registry in HPE Private Cloud AI
+date: 2025-06-30T15:31:53.670Z
+author: Guoping Jia
+authorimage: /img/guoping.png
+disable: false
+---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
+### HPE Private Cloud AI
+
+[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, including selecting the right LLM models, hosting and deploying them effectively. Beyond these concerns, it empowers organizations to manage AI adoption and deployment independently, providing access to a curated selection of pre-built NVIDIA NIM LLM models and integrating a suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science. 
+With HPE Machine Learning Inference Software (MLIS) prepackaged in PCAI, customers can seamlessly establish and oversee the entire AI service deployment while maintaining full control throughout the process. Through the PCAI Import Framework, customers can incorporate their own applications or third-party tools and frameworks into PCAI, managing them alongside pre-installed applications to meet their specific requirements. 
+
+This blog post shows you the detailed process how to easily deploy the open-source Harbor to PCAI using its Import Framework. Harbor can be configured to be used as a local container registry in PCAI. With a list of features provided in Harbor such as policies, RBAC, security scanner and image singing, 
+
+### Prerequisites
+
+Before starting, make sure you have the following:
+
+* The [Docker Engine](https://docs.docker.com/engine/install/), and *docker* CLI included by default in Docker Engine
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster in HPE Private Cloud AI
+
+### Harbor
+
+Harbor is an open-source container registry for cloud native environments like Kubernetes (K8s). It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
+
+The following sections start first showing the process to deploy Harbor into PCAI using its Import Framework. It then describes the process to create a private project and a list of users with different role permissions . pushing the image to this project using the Harbor credentials. Harbor can be used as a local image registry in PCAI that ensures the images in both secure and well-managed. 
+
+#### Harbor Deployment via PCAI Import Framework
+
+The Harbor Helm charts have been available from GitHub repo at https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor. Based on the latest Helm charts from the official [Harbor site](https://helm.goharbor.io/harbor-1.17.0.tgz), a few required YAML manifest files, together with changes to the values.yaml, have been added to be easily deployed into HPE PCAI. 
+
+persistence.persistentVolumeClaim.registry.size = 500G
+
+Using the created Helm charts, Harbor can be easily deployed into PCAI via its Import Framework:
+
+![](/img/pcai-import-framework.png)
+
+![](/img/import-harbor.png)
+
+#### Harbor UI Access via its endpoint
+
+After Harbor is installed through PCAI Import Framework, there is an *Imported* Harbor tile being added under *Tools & Frameworks*. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net* is configured. 
+
+![](/img/harbor-deployment.png)
+
+Either copying the endpoint and pointing it in the browser, or simply clicking *Open*, the Harbor login page is loaded:
+
+![](/img/harbor-login.png)
+
+Using the default Harbor *admin* user credentials, you can log into Harbor projects page:
+
+![](/img/harbor-ui.png)
+
+#### Harbor Project per Customer
+
+Harbor manages images through projects. By default, there is a public project *library* pre-created. You need create your project by clicking *+ NEW PRORJECT*:
+
+![](/img/create-project.png)
+
+The preconfigured *admin* user is the default member to each project with *Project Admin* role. 
+
+![](/img/admin-member.png)
+
+There are two new users, *pcai-developer*, & *pcai-admin*, have been created: 
+
+![](/img/two-users-harbor.png)
+
+In addition to the default admin user, these two newly created users have been added as members to the project *demo* with *Developer* and *Maintainer*, respectively. The user *pcai-developer* has read and write privileges for the project, while *pcai-admin* has elevated permissions including the ability to scan images, view replication jobs and delete images. 
+
+![](/img/project-member.png)
+
+Please refer to [Harbor Managing Users](https://goharbor.io/docs/2.13.0/administration/managing-users/) for the detailed permissions in each role. In order to more focus on image pushing process and application deployment from Harbor, the project will use its default *admin* user. As a best practice in production environment, it’s highly recommended to set up users with different role assignments in Harbor. 
+
+#### Pushing Images to Harbor Registry
+
+You can push your images using the following steps:
+
+* *Login to Harbor registry*
+
+Login to Harbor registry in Docker client by running the command with the user *pcai-admin* credentials:
+
+```shell
+$ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
+Username: pcai-developer
+Password:
+
+WARNING! Your credentials are stored unencrypted in '/home/guoping/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+```
+
+If you get any certificate error when trying to login from your Linux client, you can edit the file */etc/docker/daemon.json* to add the line below:
+
+```shell
+{
+  "insecure-registries" : [" harbor.ingress.pcai0104.ld7.hpecolo.net "]
+}
+```
+
+You need to run *'systemctl daemon-reload'* and restart the *docker* service after you edit the file */etc/docker/daemon.json*.
+
+* *Tag an existing image*
+
+Instead of building a Docker image using a Dockerfile, we pull a sample nginx image from DockerHub and tag it with the harbor registry URL and project name: 
+
+```shell
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
+pcaidemo/cfe-nginx   v0.1.0    1e5f3c5b981a   2 months ago   192MB
+
+$ docker tag pcaidemo/cfe-nginx:v0.1.0 harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+
+$ docker images
+REPOSITORY                                               TAG       IMAGE ID       CREATED        SIZE
+pcaidemo/cfe-nginx                                       v0.1.0    1e5f3c5b981a   2 months ago   192MB
+harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a   2 months ago   192MB
+```
+
+* *Pushing the image to Harbor registry*
+
+Push the image to the Harbor registry by running the command:
+
+```shell
+$ docker push harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+The push refers to repository [harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx]
+7e893c1b6ee8: Pushed
+463308bed0c9: Pushed
+4197a611afec: Pushed
+3e96162769d5: Pushed
+892e805f6f4f: Pushed
+626ab8a5d57b: Pushed
+7fb72a7d1a8e: Pushed
+v0.1.0: digest: sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157425b25e size: 1778
+```
+
+* *Verifying the image from Harbor registry* 
+
+The image *cfe-nginx* is showing up under *Repositories* tab of the project *demo*:
+
+![](/img/demo-project.png)
+
+Login to Harbor registry with the user *pcai-developer*, then pull the image from the harbor registry:
+
+```shell
+$ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
+Username: pcai-developer
+Password:
+
+WARNING! Your credentials are stored unencrypted in '/home/guoping/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+
+
+
+$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+$ docker pull harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+v0.1.0: Pulling from demo/cfe-nginx
+b895f377d09e: Already exists
+3b00567da964: Pull complete
+56b81cfa547d: Pull complete
+1bc5dc8b475d: Pull complete
+979e6233a40a: Pull complete
+d2a7ba8dbfee: Pull complete
+32e44235e1d5: Pull complete
+Digest: sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157425b25e
+Status: Downloaded newer image for harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+
+
+$ docker images
+REPOSITORY                                               TAG       IMAGE ID       CREATED        SIZE
+harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a   2 months ago   192MB
+```
+
+### Application Deployment using Harbor Registry
+
+With images being pushed to Harbor registry, let’s try to deploy the application to PCAI using the same Import Framework and demonstrate pulling images from the local Harbor repository. 
+
+The Helm charts of the sample Nginx application has been available from GitHub repo at https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart
+The *values.yaml* of the sample Helm charts includes the Harbor access credentials for the user *pcai-developer*. The Secret resource *harbor* is created and it’s used for *imagePullSecrets* for pulling images from Harbor.  
+
+```shell
+image:
+  repository: harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v0.1.0"
+
+imagePullSecrets: 
+  - name: harbor
+
+imageCredentials:
+  registry: harbor.ingress.pcai0104.ld7.hpecolo.net
+  username: pcai-developer
+  password: PCAIDev12345
+  email: glcs.cfe@hpe.com
+```
+
+![](/img/nginx-deployment.png)
+
+![](/img/nginx-ui.png)
+
+Typing the following command to check the CFE Nginx deployment in the namespace *nginx*:
+
+```shell
+# k get all -n nginx
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/nginx-chart-546476cd99-2nqzz   1/1     Running   0          6s
+
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/nginx-chart   ClusterIP   10.99.78.114   <none>        80/TCP    6s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-chart   1/1     1            1           6s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-chart-546476cd99   1         1         1       6s
+[root@ez-master01 ~]# k describe pod/nginx-chart-546476cd99-2nqzz -n nginx
+Name:             nginx-chart-546476cd99-2nqzz
+Namespace:        nginx
+Priority:         0
+Service Account:  default
+Node:             scs04.pcai0104.ld7.hpecolo.net/172.18.41.111
+Start Time:       Sat, 28 Jun 2025 14:17:36 +0000
+Labels:           app=nginx-chart
+                  app.kubernetes.io/instance=nginx-chart
+                  app.kubernetes.io/name=nginx-chart
+                  hpe-ezua/app=nginx-chart
+                  hpe-ezua/ezlicense.vcpu=approved
+                  hpe-ezua/type=vendor-service
+                  pod-template-hash=546476cd99
+Annotations:      cni.projectcalico.org/containerID: 8861453a40a4a5aaaa98dab8ee00689f2917353746e0e2f4d66b7022157d7def
+                  cni.projectcalico.org/podIP: 10.224.217.20/32
+                  cni.projectcalico.org/podIPs: 10.224.217.20/32
+                  policies.kyverno.io/last-applied-patches:
+                    set-scheduler-for-hpe-ezua-app-service-user-or-vendor-pods.assign-custom-scheduler-for-ezua-user-vendor-pods.kyverno.io: replaced
+                      /spec/schedulerName
+Status:           Running
+IP:               10.224.217.20
+IPs:
+  IP:           10.224.217.20
+Controlled By:  ReplicaSet/nginx-chart-546476cd99
+Init Containers:
+  web-content:
+    Container ID:  containerd://a9c4826017ef0103e18729e67d1681dbf383ab1acf32330ddc12abc6f38fc0af
+    Image:         busybox
+    Image ID:      docker.io/library/busybox@sha256:f85340bf132ae937d2c2a763b8335c9bab35d6e8293f70f606b9c6178d84f42b
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+      echo "<h1>This is <font color=blue>CFE Nginx app</font> deployed to HPE PCAI using the Nginx image from Harbor registry!</h1>" > /webdata/index.html
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Sat, 28 Jun 2025 14:17:38 +0000
+      Finished:     Sat, 28 Jun 2025 14:17:38 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-nxqwk (ro)
+      /webdata from webdata (rw)
+Containers:
+  nginx-chart:
+    Container ID:   containerd://d5b813d8b2e6c2432b2d2e6ac0a7124b6cc108dc5fe7460ce121db5f9115cac2
+    Image:          harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
+    Image ID:       harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx@sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157425b25e
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sat, 28 Jun 2025 14:17:39 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  128Mi
+    Requests:
+      cpu:        100m
+      memory:     128Mi
+    Environment:  <none>
+    Mounts:
+      /usr/share/nginx/html from webdata (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-nxqwk (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  webdata:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:
+    SizeLimit:  <unset>
+  kube-api-access-nxqwk:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                         Message
+  ----    ------     ----   ----                         -------
+  Normal  Scheduled  2m18s  scheduler-plugins-scheduler  Successfully assigned nginx/nginx-chart-546476cd99-2nqzz to scs04.pcai0104.ld7.hpecolo.net
+  Normal  Pulling    2m18s  kubelet                      Pulling image "busybox"
+  Normal  Pulled     2m17s  kubelet                      Successfully pulled image "busybox" in 860ms (860ms including waiting)
+  Normal  Created    2m17s  kubelet                      Created container web-content
+  Normal  Started    2m17s  kubelet                      Started container web-content
+  Normal  Pulling    2m16s  kubelet                      Pulling image "harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0"
+  Normal  Pulled     2m16s  kubelet                      Successfully pulled image "harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0" in 377ms (377ms including waiting)
+  Normal  Created    2m16s  kubelet                      Created container nginx-chart
+  Normal  Started    2m16s  kubelet                      Started container nginx-chart 
+```
+
+From the same namespace *nginx*, the secrete *harbor* has been created with the type *kubernetes.io/dockerconfigjson* :
+
+```shell
+# k get secret harbor -n nginx
+NAME     TYPE                             DATA   AGE
+harbor   kubernetes.io/dockerconfigjson   1      3m41s
+```
+
+This harbor secret is used when pulling the image from the Harbor registry’s private project *demo* during CFE Nginx application deployment:
+
+```shell
+# kubectl describe pod/nginx-chart-5cf7969fd4-ct9hw -n nginx
+Name:             nginx-chart-5cf7969fd4-ct9hw
+Namespace:        nginx
+…
+…
+Events:
+  Type    Reason     Age   From                         Message
+  ----    ------     ----  ----                         -------
+  Normal  Scheduled  15s   scheduler-plugins-scheduler  Successfully assigned nginx/nginx-chart-5cf7969fd4-ct9hw to scs04.pcai0104.ld7.hpecolo.net
+  Normal  Pulling    14s   kubelet                      Pulling image "harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0"
+  Normal  Pulled     14s   kubelet                      Successfully pulled image "harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0" in 302ms (302ms including waiting)
+  Normal  Created    14s   kubelet                      Created container nginx-chart
+  Normal  Started    13s   kubelet                      Started container nginx-chart
+```
+
+![](/img/harbor-audit.png)
+
+### Conclusion
+
+This blog post offers you a comprehensive guide on how to deploy Harbor to HPE Private Cloud AI and set it up as a local container image registry. By creating a private project, customers can push their Docker image into this local registry. 
+
+Harbor is not just an image registry. It provides security and vulnerability analysis and content signing and validation features to ensure images are scanned and free from vulnerabilities. Organizations have choices to set up users, scan the image and deploy their applications to avoid using any third party container registries like Docker Hub, GitHub container registry, or using cloud providers like Azure Container Registry (ACR), Amazon Elastic Contianer Registry (ECR) or Google Cloud Container Registry (GCR), etc.
+This can be used by an organization for hosting the container images for their native cloud applications. To match their security regulation and ….
+
+As of now, HPE Private Cloud AI doesn’t have a service for container registry. By deploying Harbor via PCAI Import Framework, 
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud for AI and get more ideas on how you can use it in your everyday operations.
