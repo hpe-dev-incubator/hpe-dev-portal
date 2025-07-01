@@ -18,9 +18,7 @@ This blog post shows you the detailed process how to easily deploy the open-sour
 
 ## Prerequisites
 
-Before starting, make sure you have the following:
-
-* The [Docker Engine](https://docs.docker.com/engine/install/), version 28.1.1 or later, and *docker* CLI included by default in Docker Engine
+Before starting, make sure you have the [Docker Engine](https://docs.docker.com/engine/install/), version 28.1.1 or later, and *docker* CLI included by default in Docker Engine
 
 The following sections demonstrate detailed application deployment using the *kubectl* CLI tool with the *kubeconfig* to access the K8s cluster in PCAI. Note that accessing the cluster via *kubectl* is generally not required.
 
