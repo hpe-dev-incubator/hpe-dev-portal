@@ -5,11 +5,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 ---
-<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
-
 A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, GitHub / GitLab Container Registry, and JFrog Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
-
-
 
 This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local registry, organizations gain faster image access, reduced reliance on external networks, enhanced security posture, and a tailored environment that aligns with compliance and governance needs.
 
@@ -25,7 +21,8 @@ This blog post shows you the detailed process how to easily deploy the open-sour
 Before starting, make sure you have the following:
 
 * The [Docker Engine](https://docs.docker.com/engine/install/), version 28.1.1 or later, and *docker* CLI included by default in Docker Engine
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster in HPE Private Cloud AI
+
+The following sections demonstrate detailed application deployment using the *kubectl* CLI tool with the *kubeconfig* to access the K8s cluster in PCAI. Note that accessing the cluster via *kubectl* is generally not required.
 
 ## Harbor
 
