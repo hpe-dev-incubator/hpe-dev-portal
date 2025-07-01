@@ -11,22 +11,23 @@ This blog post describes the process of deploying *Harbor* and setting it up as 
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, including selecting the right LLM models, hosting and deploying them effectively. Beyond these concerns, it empowers organizations to manage AI adoption and deployment independently, providing access to a curated selection of pre-built NVIDIA NIM LLM models and integrating a suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science. 
-With HPE Machine Learning Inference Software (MLIS) prepackaged in PCAI, customers can seamlessly establish and oversee the entire AI service deployment while maintaining full control throughout the process. Through the PCAI Import Framework, customers can incorporate their own applications or third-party tools and frameworks into PCAI, managing them alongside pre-installed applications to meet their specific requirements. 
+[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science. 
 
-This blog post shows you the detailed process how to easily deploy the open-source Harbor to PCAI using its Import Framework. Harbor can be configured to be used as a local container registry in PCAI. With a list of features provided in Harbor such as policies, RBAC, security scanner and image singing, 
+The Import Framework in PCAI further enhances falxibility by enabling customers to integrat their own applications or third-party solutions alongside pre-installed components, accommodaating a wide range of enterprise-specific use cases. 
+
+This blog post guides you through the step-by-step process of deploying the open-source Harbor into PCAI using the Import Framework. Once deployed and configuredc, Harbor can serve as a local container registry within PCAI. With key features such as policy management, role-based access control (RBAC), security scanning, and image singing, Harbor strengthens container lifecycle security and governance. 
 
 ## Prerequisites
 
-Before starting, make sure you have the [Docker Engine](https://docs.docker.com/engine/install/), version 28.1.1 or later, and *docker* CLI included by default in Docker Engine
+Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI.
 
-The following sections demonstrate detailed application deployment using the *kubectl* CLI tool with the *kubeconfig* to access the K8s cluster in PCAI. Note that accessing the cluster via *kubectl* is generally not required.
+The following sections detail application deployment using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
 ## Harbor
 
-Harbor is an open-source container registry for cloud native environments like Kubernetes (K8s). It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
+Harbor is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
 
-The following sections start first showing the process to deploy Harbor into PCAI using its Import Framework. It then describes the process to create a private project and a list of users with different role permissions . pushing the image to this project using the Harbor credentials. Harbor can be used as a local image registry in PCAI that ensures the images in both secure and well-managed. 
+The following sections describe in detail how to deploy Harbor into PCAI using the Import Framework. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using Harbor credentials. Used as a local image registry witin PCAI, Harbor helps ensure your container images remain secure and well governed. 
 
 1. Harbor Deployment via PCAI Import Framework
 
