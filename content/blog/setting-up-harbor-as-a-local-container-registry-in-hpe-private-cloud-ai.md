@@ -281,9 +281,8 @@ The *Logs* page of *Harbor* registry contains all the audit logs about project a
 
 ### Conclusion
 
-This blog post offers you a comprehensive guide on how to deploy *Harbor* to HPE Private Cloud AI and set it up as a local container registry. By creating a private *Harbor* project and adding users with the appropriate roles, customers can push their images into this registry and pull them for their application deployment.
+In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
 
-Harbor is not just a container registry. It provides security and vulnerability analysis and content signing and validation features to ensure images are scanned and free from vulnerabilities. Organizations have choices to set up users, scan the image and deploy their applications to avoid using any third party container registries like Docker Hub, GitHub container registry, or using cloud providers like Azure Container Registry (ACR), Amazon Elastic Contianer Registry (ECR) or Google Cloud Container Registry (GCR), etc.
-This can be used by an organization for hosting the container images for their native cloud applications. To match their security regulation and ….
+More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory reuiqments. 
 
-Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud for AI and get more ideas on how you can use it in your everyday operations.
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
