@@ -29,7 +29,7 @@ The following sections detail application deployment using the *kubectl* CLI and
 
 *Harbor* is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
 
-The following sections describe in detail how to deploy *Harbor* into PCAI using the *Import Framework*. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using *Harbor* credentials. Used as a local image registry witin PCAI, *Harbor* helps ensure your container images remain secure and well governed. 
+The following sections describe in detail how to deploy *Harbor* into PCAI using the *Import Framework*. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using *Harbor* credentials. Used as a local image registry within PCAI, *Harbor* helps ensure your container images remain secure and well governed. 
 
 ### Harbor deployment via PCAI *Import Framework*
 
@@ -281,8 +281,8 @@ The *Logs* page of *Harbor* registry contains all the audit logs about project a
 
 ### Conclusion
 
-In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
+In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
 
-More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory reuiqments. 
+More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory requirements. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
