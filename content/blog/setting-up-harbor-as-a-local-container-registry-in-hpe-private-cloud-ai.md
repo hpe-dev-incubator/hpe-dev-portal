@@ -33,23 +33,41 @@ The following sections describe in detail how to deploy *Harbor* into PCAI using
 
 ### Harbor Deployment via PCAI *Import Framework*
 
-The *Harbor* Helm charts have been available from GitHub repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). Based on the latest Helm charts from the official [Harbor site](https://helm.goharbor.io/harbor-1.17.0.tgz), a few required YAML manifest files, together with changes to the values.yaml, have been added to be easily deployed into HPE PCAI. In particular, we increase the *Harbor* registry size from the default *5G* to *500G*:
+Based on the latest Helm charts from the official [*Harbor* site](https://helm.goharbor.io/harbor-1.17.0.tgz), the following required YAML manifest files have been added:
+
+* *virtualService.yaml*: an Istio *VirtualService* configuration file to define routing rules for incoming requests.
+* *kyverno-cluster-policy*: a Kyverno *ClusterPolicy* file to add the required labels to the deployment.
+
+The default *values.yaml* file has been also updated with the following contents:
+
+* appended an *ezua* section to define the *Istio Gateway* and expose a service endpoint: 
 
 ```bash
-persistence.persistentVolumeClaim.registry.size = 500G
+      ezua:
+
+        virtualService:
+          endpoint: "harbor.${DOMAIN_NAME}"
+          istioGateway: "istio-system/ezaf-gateway"
 ```
 
-Using the created Helm charts, *Harbor* can be easily deployed into PCAI via its *Import Framework*:
+* increased the *Harbor* registry size from the default *5G* to *500G*:
+
+```bash
+      persistence.persistentVolumeClaim.registry.size = 500G
+```
+
+The updated *Harbor* Helm charts have been available from GitHub repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor).  
+Using updated Helm charts, *Harbor* can be easily deployed into PCAI via the *Import Framework*:
 
 ![](/img/import-harbor.png)
 
 2. Harbor UI access via its endpoint
 
-After Harbor is installed through PCAI *Import Framework*, there is an **Imported** *Harbor* tile being added under *Tools & Frameworks*. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net* is configured. 
-
+After *Harbor* is installed through PCAI *Import Framework*, an **Imported** *Harbor* tile is added to *Tools & Frameworks*, under *Data Science* tab. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, has been configured and exposed for *Harbor* access. 
+ 
 ![](/img/harbor-deployment.png)
 
-Simply clicking *Open* button, or copying the endpoint and pointing it in the browser, the *Harbor* login page is loaded:
+Simply clicking *Open* button, or copying the endpoint URL to the browser, the *Harbor* login page shows up in a new window:
 
 ![](/img/harbor-login.png)
 
@@ -57,19 +75,17 @@ Using the default Harbor *admin* user credentials, you can log into *Harbor* pro
 
 ![](/img/harbor-ui.png)
 
-By default, there is a public project *library* pre-created.
+#### Harbor project and user creation
 
-#### Harbor Project per Customer
-
-Harbor manages images through projects. You need create your project by clicking *+ NEW PRORJECT*:
+*Harbor* manages container images through projects. A project contains all image repositories of an application. Images cannot be pushed to *Harbor* before a project is created. By default, there is a public project *library* pre-created. You can create your project by clicking *+ NEW PRORJECT*:
 
 ![](/img/create-project.png)
 
-The preconfigured *admin* user is the default member to each project with *Project Admin* role. 
+You should always create a private project to restrict any user to pull images from the project. You can further add quota to limit project usage of registry capacity. The *demo* project is created using the default unlimited (-1) quota.
 
-![](/img/admin-member.png)
+You can then create users and add them as the members to a project using RBAC. 
 
-There are two new users, *pcai-developer*, & *pcai-admin*, have been created: 
+Two users, *pcai-developer*, & *pcai-admin*, are created: 
 
 ![](/img/two-users-harbor.png)
 
