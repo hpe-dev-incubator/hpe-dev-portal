@@ -56,51 +56,53 @@ Additionally, the default *values.yaml* file has been modified with the followin
       persistence.persistentVolumeClaim.registry.size = 500G
 ```
 
-These updates are reflected in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be seamlessly deployed into PCAI using the *Import Framework*:
+These updates are implemented in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be seamlessly deployed into PCAI using the *Import Framework*:
 
 ![](/img/import-harbor.png)
 
 ### Harbor UI access via its endpoint
 
-After *Harbor* is installed through PCAI *Import Framework*, an **Imported** *Harbor* tile is added to *Tools & Frameworks*, under *Data Science* tab. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, has been configured and exposed for *Harbor* access. 
+After *Harbor* is deployed via the PCAI *Import Framework*, an **Imported** *Harbor* tile appears under *Tools & Frameworks* on the *Data Science* tab. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, is automatically configured and exposed, providing access to *Harbor*. 
  
 ![](/img/harbor-deployment.png)
 
-Simply clicking *Open* button, or copying the endpoint URL to the browser, the *Harbor* login page shows up in a new window:
+Click the *Open* button, or paste the endpoint URL into your browser, to launch the *Harbor* login page:
 
 ![](/img/harbor-login.png)
 
-Using the default Harbor *admin* user credentials, you can log into *Harbor* projects page:
+From there, you can log into *Harbor* projects page using the default *admin* user credentials:
 
 ![](/img/harbor-ui.png)
 
 ### Harbor project and user creation
 
-*Harbor* manages container images through projects. A project contains all image repositories of an application. Images cannot be pushed to *Harbor* before a project is created. By default, there is a public project *library* pre-created. You can create your project by clicking *+ NEW PRORJECT*:
+*Harbor* manages container images through projects, each of which hosts the image repositories for your application. Before pushing images to *Harbor*, a project must first be created. A default public project named *library* is pre-created, but new projects can be created by clicking *+ NEW PRORJECT*:
 
 ![](/img/create-project.png)
 
-You should always create a private project to restrict any user to pull images from the *Harbor* project. The private project *demo* is created using the default unlimited (**-1**) quota. However, you can add quota, e.g., *500G*, to limit project usage of registry capacity, in your production setup.
+For security, it's recommended to create *private* projects to restrict unauthorized images pulls. In this blog post, a private project named *demo* is created with an unlimited quota (**-1**). In production environments, setting a defined quota, e.g., *500G*, can help manage registry storage usage.
 
-You can then create users and add them as the members to a project using RBAC. 
+Next, users can be created and assigned to projects using role-based access control (RBAC). 
 
-In this section, two users, *pcai-developer*, & *pcai-admin*, are created: 
+Two users, *pcai-developer*, & *pcai-admin*, are created: 
 
 ![](/img/two-users-harbor.png)
 
-In addition to the default admin user, these two newly created users have been added as members to the project *demo* with the role *Developer* and *Maintainer*, respectively. The user *pcai-developer* has read and write privileges for the project, while *pcai-admin* has elevated permissions including the ability to scan images, view replication jobs and delete images. 
+These users, along with the default *admin* user, are added to the project *demo* with distinct roles:
+* *pcai-developer* has **Developer** role (with read/write access to project)
+* *pcai-admin* is assigned the **Maintainer** role, with extended privileges including image scanning, replication job visibility and image deletion 
 
 ![](/img/project-member.png)
 
-Please refer to [Harbor Managing Users](https://goharbor.io/docs/2.13.0/administration/managing-users/) for the detailed permissions in each role. As a best practice in production environment, it’s highly recommended to set up users with different role assignments in *Harbor*. 
+For a detailed breakdown of each role's capabilities, refer to the official [Harbor Managing Users page](https://goharbor.io/docs/2.13.0/administration/managing-users/). As a best practice, production deployments should enforce role separation to maintain security and operational clarity in *Harbor*. 
 
 ### Pushing Images to Harbor Registry
 
-With the project and users created, you can now push the container images using the following steps:
+With the project and users set up, you're ready to push the container images to *Harbor* by following these steps:
 
-* *Log into Harbor registry*
+* *Log in to Harbor registry*
 
-Log into *Harbor* registry from the Docker client by running the command using the user *pcai-admin* credentials:
+Use the Docker client to authenticate with the *Harbor* registry using the *pcai-admin* user credentials, by running the following command :
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
@@ -114,7 +116,7 @@ https://docs.docker.com/go/credential-store/
 Login Succeeded
 ```
 
-If you get any certificate error when trying to log in from your Linux client, you can edit the file */etc/docker/daemon.json* to add the line below, by replacing the *Harbor* registry URL with your own one. 
+If you get any certificate error when logging in from a Linux client, update the file */etc/docker/daemon.json* by adding the following entry, replacing the *Harbor* registry URL with your own: 
 
 ```shell
 {
@@ -122,11 +124,16 @@ If you get any certificate error when trying to log in from your Linux client, y
 }
 ```
 
-You need to run *'systemctl daemon-reload'* and restart the *docker* service after you edit the file */etc/docker/daemon.json*.
+After making this change, reload the daemon and resart the Docker service:
+
+```shell
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
+```
 
 * *Tag an existing image*
 
-Instead of building a Docker image using a Dockerfile, we pull a sample nginx image, *'pcaidemo/cfe-nginx'*, from *DockerHub* and tag it with the *Harbor* registry URL and project name: 
+Rather than building a Docker image from a Dockerfile, we'll pull the sample CFE Nginx image, *'pcaidemo/cfe-nginx'*, from *DockerHub* and tag it with the *Harbor* registry URL and project name: 
 
 ```shell
 $ docker images
@@ -143,7 +150,7 @@ harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a 
 
 * *Pushing the image to Harbor registry*
 
-Push the image to the Harbor registry by running the command:
+Push the image to the *Harbor* registry by running the following command:
 
 ```shell
 $ docker push harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx:v0.1.0
@@ -160,11 +167,11 @@ v0.1.0: digest: sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157
 
 * *Verifying the image from Harbor registry* 
 
-The image *cfe-nginx* is showing up under *Repositories* tab of the *harbor* project *demo*:
+From the *Harbor* UI, the image *cfe-nginx* appears under *Repositories* tab of the *demo* project:
 
 ![](/img/demo-project.png)
 
-Log into *Harbor* registry as the user *pcai-developer*, then pull the image from the harbor registry:
+Log in to the *Harbor* registry as the *pcai-developer* user, then pull the image *cfe-nginx* from the registry. The image downloads successfully, confirming that the user has appropriate access and the *Harbor* registry is functioning as expected.
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
@@ -199,10 +206,9 @@ harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a 
 
 ## Application deployment using Harbor registry
 
-With images being pushed to *Harbor* registry, let’s try to deploy the application to PCAI using the same *Import Framework* and demonstrate pulling images from the *Harbor* registry. 
+With the container images pushed to the *Harbor* registry, the next step is to deploy the application to PCAI using the same *Import Framework*, demonstrating how to pull images from *Harbor*. 
 
-The Helm charts of the sample Nginx application has been available from GitHub repository [nginx-chart](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). In addition to the *virtualService* and Kyverno *ClusterPolicy* YAML manifest files, the *values.yaml* of the sample Helm charts includes the *imageCredentials* section to provide the *Harbor* access credentials for the user *pcai-developer*. The *imagePullSecrets* uses the Secret resource *harbor*, which is created as part of deployment, for   
-for pulling images from *Harbor* registry.
+The Helm charts of the sample Nginx application are available from GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). Alongside the required *virtualService* and Kyverno *ClusterPolicy* YAML files, the *values.yaml* file includes the *imageCredentials* section that specifies the *Harbor* access credentials for the *pcai-developer* user. It also references the *imagePullSecrets* field that uses the Secret resource *harbor*, which is created during deployment, to securely pull container images from the *Harbor* registry.
 
 ```shell
 image:
@@ -221,15 +227,15 @@ imageCredentials:
   email: glcs.cfe@hpe.com
 ```
 
-Using this sample Helm charts, the CFE Nginx application can be easily deployed to PCAI using the *Import Framework*. An **Imported** *Nginx* tile shows up under *Tools & Framework*, with its virtual service endpoint: 
+Using the provided sample Helm charts, the CFE Nginx application can be easily deployed to PCAI via the *Import Framework*. After deployment, an **Imported** *Nginx* tile appears under *Tools & Framework*, along with its configured virtual service endpoint: 
 
 ![](/img/nginx-deployment.png)
 
-By clicking *Open* button, you land to the CFE Nginx page:
+Clicking the *Open* button launches the CFE Nginx main page:
 
 ![](/img/nginx-ui.png)
 
-The CFE Nginx application is deployed to the namespace *nginx* in the K8s cluster. If you have access to the cluster, type the following command to see the deployment:
+The CFE Nginx application is deployed to the namespace *nginx* in the K8s cluster. If you have access to the cluster, you can verify the deployment by running the following command:
 
 ```shell
 # kubectl get all -n nginx
@@ -246,14 +252,14 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-chart-546476cd99   1         1         1       6s
 ```
 
-From the namespace *nginx*, the secrete *harbor* with the type *dockerconfigjson* is created. This secret is used when pulling the image from the *Harbor* registry’s private project *demo* during CFE Nginx application deployment:
+Within the *nginx* namespace , a *harbor* secret of type *dockerconfigjson* is created. This secret is used to authenticate and pull images from the *demo*’ private project in the *Harbor* registry during the deployment of the CFE Nginx application:
 
 ```shell
 # kubectl get secret harbor -n nginx
 NAME     TYPE                             DATA   AGE
 harbor   kubernetes.io/dockerconfigjson   1      3m41s
 ```
-Type the following command, you can see the image *cfe-nginx* with tag *v0.1.0* is pulling from the *Harbor* registry:
+Type the following command to observe the *cfe-nginx* image, tagged *v0.1.0*, being pulled from the *Harbor* registry:
 
 ```shell
 [root@ez-master01 ~]# k describe pod/nginx-chart-546476cd99-2nqzz -n nginx
@@ -274,7 +280,7 @@ Events:
   Normal  Created    2m16s  kubelet                      Created container nginx-chart
   Normal  Started    2m16s  kubelet                      Started container nginx-chart 
 ```
-The *Logs* page of *Harbor* registry contains all the audit logs about project and user creation, image push and pull operations, etc. 
+The *Logs* page of the *Harbor* UI provides a comprehensive audit trail, capturing key activities such as project and user creation, as well as image push and pull operations: 
 
 ![](/img/harbor-audit.png)
 
