@@ -124,7 +124,7 @@ If you get any certificate error when logging in from a Linux client, update the
 }
 ```
 
-After making this change, reload the daemon and resart the Docker service:
+After making this change, reload the daemon and restart the Docker service:
 
 ```shell
 $ sudo systemctl daemon-reload
@@ -252,7 +252,7 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-chart-546476cd99   1         1         1       6s
 ```
 
-Within the *nginx* namespace , a *harbor* secret of type *dockerconfigjson* is created. This secret is used to authenticate and pull images from the *demo*’ private project in the *Harbor* registry during the deployment of the CFE Nginx application:
+Within the *nginx* namespace , a Secret named *harbor* of type *dockerconfigjson* is created. This secret is used to authenticate and pull images from the *demo* private project in the *Harbor* registry during the deployment of the CFE Nginx application:
 
 ```shell
 # kubectl get secret harbor -n nginx
