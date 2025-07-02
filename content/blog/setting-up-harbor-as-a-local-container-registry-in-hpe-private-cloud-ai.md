@@ -11,53 +11,57 @@ This blog post describes the process of deploying *Harbor* and setting it up as 
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science. 
+[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*. 
 
-The Import Framework in PCAI further enhances falxibility by enabling customers to integrat their own applications or third-party solutions alongside pre-installed components, accommodaating a wide range of enterprise-specific use cases. 
+The *Import Framework* in PCAI further enhances flexibility by enabling customers to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases. 
 
-This blog post guides you through the step-by-step process of deploying the open-source Harbor into PCAI using the Import Framework. Once deployed and configuredc, Harbor can serve as a local container registry within PCAI. With key features such as policy management, role-based access control (RBAC), security scanning, and image singing, Harbor strengthens container lifecycle security and governance. 
+![](/img/pcai-import-framework.png)
+
+This blog post guides you through the step-by-step process of deploying the open-source *Harbor* into PCAI using the *Import Framework*. Once deployed and configured, *Harbor* can serve as a local container registry within PCAI. With key features such as policy management, role-based access control (RBAC), security scanning, and image signing, *Harbor* strengthens container lifecycle security and governance. 
 
 ## Prerequisites
 
-Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI.
+Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI, which will used for building and pushing images.
 
 The following sections detail application deployment using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
 ## Harbor
 
-Harbor is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
+*Harbor* is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
 
-The following sections describe in detail how to deploy Harbor into PCAI using the Import Framework. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using Harbor credentials. Used as a local image registry witin PCAI, Harbor helps ensure your container images remain secure and well governed. 
+The following sections describe in detail how to deploy *Harbor* into PCAI using the *Import Framework*. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using *Harbor* credentials. Used as a local image registry witin PCAI, *Harbor* helps ensure your container images remain secure and well governed. 
 
-1. Harbor Deployment via PCAI Import Framework
+### Harbor Deployment via PCAI *Import Framework*
 
-The Harbor Helm charts have been available from GitHub repo at https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor. Based on the latest Helm charts from the official [Harbor site](https://helm.goharbor.io/harbor-1.17.0.tgz), a few required YAML manifest files, together with changes to the values.yaml, have been added to be easily deployed into HPE PCAI. 
+The *Harbor* Helm charts have been available from GitHub repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). Based on the latest Helm charts from the official [Harbor site](https://helm.goharbor.io/harbor-1.17.0.tgz), a few required YAML manifest files, together with changes to the values.yaml, have been added to be easily deployed into HPE PCAI. In particular, we increase the *Harbor* registry size from the default *5G* to *500G*:
 
+```bash
 persistence.persistentVolumeClaim.registry.size = 500G
+```
 
-Using the created Helm charts, Harbor can be easily deployed into PCAI via its Import Framework:
-
-![](/img/pcai-import-framework.png)
+Using the created Helm charts, *Harbor* can be easily deployed into PCAI via its *Import Framework*:
 
 ![](/img/import-harbor.png)
 
 2. Harbor UI access via its endpoint
 
-After Harbor is installed through PCAI Import Framework, there is an *Imported* Harbor tile being added under *Tools & Frameworks*. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net* is configured. 
+After Harbor is installed through PCAI *Import Framework*, there is an **Imported** *Harbor* tile being added under *Tools & Frameworks*. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net* is configured. 
 
 ![](/img/harbor-deployment.png)
 
-Either copying the endpoint and pointing it in the browser, or simply clicking *Open*, the Harbor login page is loaded:
+Simply clicking *Open* button, or copying the endpoint and pointing it in the browser, the *Harbor* login page is loaded:
 
 ![](/img/harbor-login.png)
 
-Using the default Harbor *admin* user credentials, you can log into Harbor projects page:
+Using the default Harbor *admin* user credentials, you can log into *Harbor* projects page:
 
 ![](/img/harbor-ui.png)
 
+By default, there is a public project *library* pre-created.
+
 #### Harbor Project per Customer
 
-Harbor manages images through projects. By default, there is a public project *library* pre-created. You need create your project by clicking *+ NEW PRORJECT*:
+Harbor manages images through projects. You need create your project by clicking *+ NEW PRORJECT*:
 
 ![](/img/create-project.png)
 
