@@ -5,7 +5,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 ---
-A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, GitHub / GitLab Container Registry, and JFrog Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
+A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, *GitHub* / *GitLab* Container Registry, and *JFrog* Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
 
 This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local registry, organizations gain faster image access, reduced reliance on external networks, enhanced security posture, and a tailored environment that aligns with compliance and governance needs.
 
@@ -23,7 +23,7 @@ This blog post guides you through the step-by-step process of deploying the open
 
 Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI, which will used for building and pushing images.
 
-The following sections detail application deployment using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
+The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
 ## Harbor
 
@@ -33,14 +33,14 @@ The following sections describe in detail how to deploy *Harbor* into PCAI using
 
 ### Harbor deployment via PCAI *Import Framework*
 
-Based on the latest Helm charts from the official [*Harbor* site](https://helm.goharbor.io/harbor-1.17.0.tgz), the following required YAML manifest files have been added under *templates/ezua/*:
+Based on the latest Helm charts from the official [*Harbor* site](https://helm.goharbor.io/harbor-1.17.0.tgz), the following YAML manifest files have been added under *templates/ezua/* directory:
 
-* *virtualService.yaml*: an Istio *VirtualService* configuration file to define routing rules for incoming requests.
-* *kyverno-cluster-policy*: a Kyverno *ClusterPolicy* file to add the required labels to the deployment.
+* *virtualService.yaml*: Defines an Istio *VirtualService* to configure routing rules for incoming requests.
+* *kyverno-cluster-policy*: A Kyverno *ClusterPolicy* that automatically adds required labels to the deployment.
 
-The default *values.yaml* file has been also updated with the following contents:
+Additionally, the default *values.yaml* file has been modified with the following updates:
 
-* appended an *ezua* section to define the *Istio Gateway* and expose a service endpoint: 
+* introduced an *ezua* section to configure the *Istio Gateway* and expose a service endpoint: 
 
 ```bash
       ezua:
@@ -50,14 +50,13 @@ The default *values.yaml* file has been also updated with the following contents
           istioGateway: "istio-system/ezaf-gateway"
 ```
 
-* increased the *Harbor* registry size from the default *5G* to *500G*:
+* expanded *Harbor* registry storage from the default *5G* to *500G*:
 
 ```bash
       persistence.persistentVolumeClaim.registry.size = 500G
 ```
 
-The updated *Harbor* Helm charts have been available from GitHub repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor).  
-Using updated Helm charts, *Harbor* can be easily deployed into PCAI via the *Import Framework*:
+These updates are reflected in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be seamlessly deployed into PCAI using the *Import Framework*:
 
 ![](/img/import-harbor.png)
 
@@ -279,7 +278,7 @@ The *Logs* page of *Harbor* registry contains all the audit logs about project a
 
 ![](/img/harbor-audit.png)
 
-### Conclusion
+## Conclusion
 
 In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
 
