@@ -37,7 +37,7 @@ LLMs are great at “saying” things… but they don’t do anything.
 
 On their own, LLMs are like brilliant thinkers without hands — capable of deep analysis, but unable to act in the real world.
 
-<center><img src="/img/llms.png" width="600" height="359" alt="LLM Evolution" title="LLM Evolution"></center>
+<center><img src="/img/llms.png" width="600" height="550" alt="LLM Evolution" title="LLM Evolution"></center>
 
 ## Phase 2: LLMs + Tools — Giving the Brain Some Hands
 
