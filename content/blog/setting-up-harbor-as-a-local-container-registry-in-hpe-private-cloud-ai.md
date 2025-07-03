@@ -40,7 +40,7 @@ Based on the latest Helm charts from the official [*Harbor* site](https://helm.g
 
 Additionally, the default *values.yaml* file has been modified with the following updates:
 
-* introduced an *ezua* section to configure the *Istio Gateway* and expose a service endpoint: 
+* introduced an *ezua* section to configure the *Istio Gateway* and expose the endpoint: 
 
 ```bash
       ezua:
@@ -56,13 +56,13 @@ Additionally, the default *values.yaml* file has been modified with the followin
       persistence.persistentVolumeClaim.registry.size = 500G
 ```
 
-These updates are implemented in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be seamlessly deployed into PCAI using the *Import Framework*:
+These updates are implemented in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be easily deployed into PCAI using the *Import Framework*:
 
 ![](/img/import-harbor.png)
 
 ### Harbor UI access via its endpoint
 
-After *Harbor* is deployed via the PCAI *Import Framework*, an **Imported** *Harbor* tile appears under *Tools & Frameworks* on the *Data Science* tab. A virtual service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, is automatically configured and exposed, providing access to *Harbor*. 
+After *Harbor* is deployed via the PCAI *Import Framework*, an **Imported** *Harbor* tile appears under *Tools & Frameworks* on the *Data Science* tab. A service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, is automatically configured and exposed, providing access to *Harbor*. 
  
 ![](/img/harbor-deployment.png)
 
