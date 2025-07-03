@@ -327,6 +327,7 @@ One outstanding feature that comes standard with HPE GreenLake Flex Solutions is
     <ul>
       <li><a href="https://www.youtube.com/watch?v=qH93yD5KSL8&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF">No More Blind Spots: How eBPF Transforms Observability</a></li>
       <li><a href="https://www.youtube.com/watch?v=VnKSnf7G4-4&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF">From log files to AI insights: The 60-year evolution of observability and AIOps</a></li>
+      <li><a href="https://www.youtube.com/watch?v=nDa_NQPbbVY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">DayN+ : A new way to look at observability</a></li>
     </ul>
   </li>
   </ul>
