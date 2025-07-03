@@ -9,6 +9,14 @@ tags:
   - Gen AI
   - LLM
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 AI has come a long way from simply finishing our sentences. Today, it’s not just generating content — it’s actively solving problems, making decisions, and executing complex tasks. This blog kicks off a 10-part series where we trace that incredible journey — from basic generative models to fully autonomous agents. Along the way, we’ll unpack the key shifts, architectures, and mindsets that shaped this evolution.
 
 Inspired by a Medium post by Dinesh R, this piece reimagines and expands on the original with a human-first lens and practical clarity.
