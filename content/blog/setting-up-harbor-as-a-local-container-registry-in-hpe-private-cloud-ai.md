@@ -7,13 +7,13 @@ disable: false
 ---
 A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, *GitHub* / *GitLab* Container Registry, and *JFrog* Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
 
-This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local registry, organizations gain faster image access, reduced reliance on external networks, enhanced security posture, and a tailored environment that aligns with compliance and governance needs.
+This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local container registry, organizations gain faster image access, reduced dependence on external networks, improved security, and a tailored registry environment that aligns with internal compliance and governance needs.
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*. 
+[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*. 
 
-The *Import Framework* in PCAI further enhances flexibility by enabling customers to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases. 
+The *Import Framework* in PCAI further enhances flexibility by enabling organizations to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases. 
 
 ![](/img/pcai-import-framework.png)
 
@@ -21,7 +21,7 @@ This blog post guides you through the step-by-step process of deploying the open
 
 ## Prerequisites
 
-Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI, which will used for building and pushing images.
+Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI, which will be used for building and pushing images.
 
 The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
@@ -80,11 +80,9 @@ From there, you can log into *Harbor* projects page using the default *admin* us
 
 ![](/img/create-project.png)
 
-For security, it's recommended to create *private* projects to restrict unauthorized images pulls. In this blog post, a private project named *demo* is created with an unlimited quota (**-1**). In production environments, setting a defined quota, e.g., *500G*, can help manage registry storage usage.
+To enhance security, it's recommended to create *private* projects in *Harbor* to prevent unauthorized images pulls. In this blog post, a private project named *demo* is created with an unlimited quota (**-1**). For production environments, applying a defined quota, e.g., *200G*, can help manage registry storage capacity more effectively.
 
-Next, users can be created and assigned to projects using role-based access control (RBAC). 
-
-Two users, *pcai-developer*, & *pcai-admin*, are created: 
+After creating the project, users can be created and assigned to projects using role-based access control (RBAC). In this blog post, two sample users, *pcai-developer*, & *pcai-admin*, are created: 
 
 ![](/img/two-users-harbor.png)
 
@@ -96,7 +94,7 @@ These users, along with the default *admin* user, are added to the project *demo
 
 For a detailed breakdown of each role's capabilities, refer to the official [Harbor Managing Users page](https://goharbor.io/docs/2.13.0/administration/managing-users/). As a best practice, production deployments should enforce role separation to maintain security and operational clarity in *Harbor*. 
 
-### Pushing Images to Harbor Registry
+### Pushing images to Harbor registry
 
 With the project and users set up, you're ready to push the container images to *Harbor* by following these steps:
 
@@ -106,7 +104,7 @@ Use the Docker client to authenticate with the *Harbor* registry using the *pcai
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
-Username: pcai-developer
+Username: pcai-admin
 Password:
 
 WARNING! Your credentials are stored unencrypted in '/home/guoping/.docker/config.json'.
@@ -148,7 +146,7 @@ pcaidemo/cfe-nginx                                       v0.1.0    1e5f3c5b981a 
 harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a   2 months ago   192MB
 ```
 
-* *Pushing the image to Harbor registry*
+* *Push the image to Harbor registry*
 
 Push the image to the *Harbor* registry by running the following command:
 
@@ -165,13 +163,13 @@ The push refers to repository [harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-
 v0.1.0: digest: sha256:114dff0fc8ee3d0200c3a12c60e3e2b79d0920dd953175ecb78a0b157425b25e size: 1778
 ```
 
-* *Verifying the image from Harbor registry* 
+* *Verify the image from Harbor registry* 
 
 From the *Harbor* UI, the image *cfe-nginx* appears under *Repositories* tab of the *demo* project:
 
 ![](/img/demo-project.png)
 
-Log in to the *Harbor* registry as the *pcai-developer* user, then pull the image *cfe-nginx* from the registry. The image downloads successfully, confirming that the user has appropriate access and the *Harbor* registry is functioning as expected.
+From  the Docker client, log in to the *Harbor* registry as the *pcai-developer* user, then pull the image *cfe-nginx* from the registry. The image downloads successfully, confirming that the user has appropriate access and the *Harbor* registry is functioning as expected.
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
@@ -208,7 +206,7 @@ harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a 
 
 With the container images pushed to the *Harbor* registry, the next step is to deploy the application to PCAI using the same *Import Framework*, demonstrating how to pull images from *Harbor*. 
 
-The Helm charts of the sample Nginx application are available from GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). Alongside the required *virtualService* and Kyverno *ClusterPolicy* YAML files, the *values.yaml* file includes the *imageCredentials* section that specifies the *Harbor* access credentials for the *pcai-developer* user. It also references the *imagePullSecrets* field that uses the Secret resource *harbor*, which is created during deployment, to securely pull container images from the *Harbor* registry.
+The Helm charts of the sample *CFE Nginx* application are available from *GitHub* repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). Alongside the required *virtualService* and Kyverno *ClusterPolicy* YAML files, the *values.yaml* file includes the *imageCredentials* section that specifies the *Harbor* access credentials for the *pcai-developer* user. It also references the *imagePullSecrets* field that uses the Secret resource *harbor*, which is created during deployment, to securely pull container images from the *Harbor* registry.
 
 ```shell
 image:
@@ -227,15 +225,15 @@ imageCredentials:
   email: glcs.cfe@hpe.com
 ```
 
-Using the provided sample Helm charts, the CFE Nginx application can be easily deployed to PCAI via the *Import Framework*. After deployment, an **Imported** *Nginx* tile appears under *Tools & Framework*, along with its configured virtual service endpoint: 
+Using the provided sample Helm charts, the *CFE Nginx* application can be easily deployed to PCAI via the *Import Framework*. After deployment, an **Imported** *Nginx* tile appears under *Tools & Framework*, along with its configured service endpoint: 
 
 ![](/img/nginx-deployment.png)
 
-Clicking the *Open* button launches the CFE Nginx main page:
+Clicking the *Open* button launches the *CFE Nginx* main page:
 
 ![](/img/nginx-ui.png)
 
-The CFE Nginx application is deployed to the namespace *nginx* in the K8s cluster. If you have access to the cluster, you can verify the deployment by running the following command:
+The *CFE Nginx* application is deployed to the namespace *'nginx'* in the K8s cluster. If you have access to the cluster, you can verify the deployment by running the following command:
 
 ```shell
 # kubectl get all -n nginx
@@ -252,14 +250,14 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-chart-546476cd99   1         1         1       6s
 ```
 
-Within the *nginx* namespace , a Secret named *harbor* of type *dockerconfigjson* is created. This secret is used to authenticate and pull images from the *demo* private project in the *Harbor* registry during the deployment of the CFE Nginx application:
+Within the *'nginx'* namespace , a Secret named *'harbor'*, of type *dockerconfigjson*, is created. This secret is used to authenticate and pull images from the *Harbor* registry during the deployment of the *CFE Nginx* application:
 
 ```shell
 # kubectl get secret harbor -n nginx
 NAME     TYPE                             DATA   AGE
 harbor   kubernetes.io/dockerconfigjson   1      3m41s
 ```
-Type the following command to observe the *cfe-nginx* image, tagged *v0.1.0*, being pulled from the *Harbor* registry:
+Type the following command to observe the *cfe-nginx* image, tagged *v0.1.0*, being pulled from the *demo* private project in *Harbor* registry:
 
 ```shell
 [root@ez-master01 ~]# k describe pod/nginx-chart-546476cd99-2nqzz -n nginx
