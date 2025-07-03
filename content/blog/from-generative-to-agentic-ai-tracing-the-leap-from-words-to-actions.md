@@ -4,6 +4,10 @@ date: 2025-07-03T10:33:21.361Z
 author: DINESH R SINGH
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - Agentic AI
+  - Gen AI
+  - LLM
 ---
 AI has come a long way from simply finishing our sentences. Today, it’s not just generating content — it’s actively solving problems, making decisions, and executing complex tasks. This blog kicks off a 10-part series where we trace that incredible journey — from basic generative models to fully autonomous agents. Along the way, we’ll unpack the key shifts, architectures, and mindsets that shaped this evolution.
 
@@ -13,9 +17,7 @@ Inspired by a Medium post by Dinesh R, this piece reimagines and expands on the 
 
 Whether you're an AI developer, tech leader, or just curious about where all this is headed — welcome. Let’s dive in.
 
- 
-
-Phase 1: LLMs — The Linguistic Powerhouse
+## Phase 1: LLMs — The Linguistic Powerhouse
 
 Large Language Models (LLMs) like GPT, DeepSeek, QWEN, and LLaMA burst onto the scene with one incredible skill — understanding and generating human language. These models are trained on massive datasets and excel at:
 
@@ -30,12 +32,9 @@ LLMs are great at “saying” things… but they don’t do anything.
 On their own, LLMs are like brilliant thinkers without hands — capable of deep analysis, but unable to act in the real world.
 
 
+<img src="/img/llms.png" width="600" height="359" alt="LLM Evolution" title="LLM Evolution">
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfDUaVyFs2kJS1mIZ2TKI1SeN1MRxmZKK984v8k7DZ1B-XBn_Yj4WW0Yx8nkpmaj5QgQPIiv-DQTFRRoqK6jheixYa--gRFjjpwHtjIdF4UpoLGNwdFuvEPPCQif4dlgAFdOjE3eQ?key=72e2y4xD4no2X6I3Sjft0Q)
-
- 
-
-Phase 2: LLMs + Tools — Giving the Brain Some Hands
+## Phase 2: LLMs + Tools — Giving the Brain Some Hands
 
 The next leap came when developers began connecting LLMs with external tools — APIs, plugins, databases, and custom workflows. This simple but powerful integration gave models the ability to:
 
@@ -45,15 +44,13 @@ The next leap came when developers began connecting LLMs with external tools —
 
 This expanded what AI could do. Suddenly, the models weren’t just conversational — they became useful assistants.
 
-But there was still a problem:
+**But there was still a problem:**
 
 Tool-based systems are fragile. APIs break, schemas change, and workflows can become unreliable.
 
 Think of it like giving a brain a set of hands — but the hands don’t always listen, or worse, they change shape every other week.
 
- 
-
-Phase 3: LLMs + Agents — The Rise of Agentic AI
+## Phase 3: LLMs + Agents — The Rise of Agentic AI
 
 This is where things get truly exciting.
 
@@ -69,19 +66,15 @@ In essence, AI stops being reactive and starts becoming proactive. These agents 
 
 This isn’t just a better assistant — it’s the early form of AI co-workers.
 
- 
-
-TL;DR Breakdown
+**TL;DR Breakdown**
 
 * LLMs = Great with words, but passive
 * LLMs + Tools = Adds capabilities, but brittle and manual
 * LLMs + Agents = Autonomous systems that think, plan, and act
 
-We’ve moved from “talking AI” to “doing AI.”
+**We’ve moved from “talking AI” to “doing AI.”**
 
- 
-
-Conclusion
+## Conclusion
 
 The shift from generative to agentic AI is more than just a technical upgrade — it’s a philosophical turning point in how we think about artificial intelligence. We’re no longer training machines to just converse with us; we’re teaching them to collaborate, adapt, and even take initiative. Agentic AI is the foundation for everything from self-operating software agents to autonomous business logic.
 
