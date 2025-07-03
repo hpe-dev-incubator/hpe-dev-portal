@@ -1,9 +1,17 @@
 ---
 title: Setting up Harbor as a local container registry in HPE Private Cloud AI
-date: 2025-06-30T15:31:53.670Z
+date: 2025-07-03T07:21:44.007Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - HPE Private Cloud AI
+  - Harbor
+  - Kubernetes
+  - Container Registry
+  - DockerHub
+  - Local Container Registry
+  - Docker
 ---
 A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, *GitHub* / *GitLab* Container Registry, and *JFrog* Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
 
