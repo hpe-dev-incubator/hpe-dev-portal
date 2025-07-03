@@ -12,34 +12,39 @@ tags:
   - DockerHub
   - Local Container Registry
   - Docker
+  - hpe-private-cloud-ai
 ---
+
+
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 A container registry serves as a centralized system for storing and managing container images. In today’s fast-paced containerized application development landscape, speed, security and control over container workflows using a robust container registry are critical. While both cloud-based container registries, such as Google Container Registry (*GCR*), Azure Container Registry (*ACR*), and Amazon Elastic Container Registry (*ECR*), and third-party services like *DockerHub*, *GitHub* / *GitLab* Container Registry, and *JFrog* Container Registry, offer convenience, organizations often face challenges with latency, external dependencies, and security compliance constraints. 
 
 This blog post describes the process of deploying *Harbor* and setting it up as a local container registry within *HPE Private Cloud AI*. By using *Harbor* as a local container registry, organizations gain faster image access, reduced dependence on external networks, improved security, and a tailored registry environment that aligns with internal compliance and governance needs.
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://www.hpe.com/us/en/private-cloud-ai.html) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*. 
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*. 
 
-The *Import Framework* in PCAI further enhances flexibility by enabling organizations to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases. 
+The *Import Framework* in HPE PCAI further enhances flexibility by enabling organizations to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases. 
 
 ![](/img/pcai-import-framework.png)
 
-This blog post guides you through the step-by-step process of deploying the open-source *Harbor* into PCAI using the *Import Framework*. Once deployed and configured, *Harbor* can serve as a local container registry within PCAI. With key features such as policy management, role-based access control (RBAC), security scanning, and image signing, *Harbor* strengthens container lifecycle security and governance. 
+This blog post guides you through the step-by-step process of deploying the open-source *Harbor* into HPE PCAI using the *Import Framework*. Once deployed and configured, *Harbor* can serve as a local container registry within HPE PCAI. With key features such as policy management, role-based access control (RBAC), security scanning, and image signing, *Harbor* strengthens container lifecycle security and governance. 
 
 ## Prerequisites
 
 Before starting, make sure that [Docker Engine](https://docs.docker.com/engine/install/), version *28.1.1* or later, is installed, including the default *docker* CLI, which will be used for building and pushing images.
 
-The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
+The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the HPE PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
 ## Harbor
 
 *Harbor* is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.  
 
-The following sections describe in detail how to deploy *Harbor* into PCAI using the *Import Framework*. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using *Harbor* credentials. Used as a local image registry within PCAI, *Harbor* helps ensure your container images remain secure and well governed. 
+The following sections describe in detail how to deploy *Harbor* into HPE PCAI using the *Import Framework*. You will learn how to create a private project, create users and assign them with specific role permissions, and push images using *Harbor* credentials. Used as a local image registry within HPE PCAI, *Harbor* helps ensure your container images remain secure and well governed. 
 
-### Harbor deployment via PCAI *Import Framework*
+### Harbor deployment via HPE PCAI *Import Framework*
 
 Based on the latest Helm charts from the official [*Harbor* site](https://helm.goharbor.io/harbor-1.17.0.tgz), the following YAML manifest files have been added under *templates/ezua/* directory:
 
@@ -64,13 +69,13 @@ Additionally, the default *values.yaml* file has been modified with the followin
       persistence.persistentVolumeClaim.registry.size = 500G
 ```
 
-These updates are implemented in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be easily deployed into PCAI using the *Import Framework*:
+These updates are implemented in the revised *Harbor* Helm charts, available in the *GitHub* repository [*pcai-helm-examples*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/harbor). With these customizations, *Harbor* can be easily deployed into HPE PCAI using the *Import Framework*:
 
 ![](/img/import-harbor.png)
 
 ### Harbor UI access via its endpoint
 
-After *Harbor* is deployed via the PCAI *Import Framework*, an **Imported** *Harbor* tile appears under *Tools & Frameworks* on the *Data Science* tab. A service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, is automatically configured and exposed, providing access to *Harbor*. 
+After *Harbor* is deployed via the HPE PCAI *Import Framework*, an **Imported** *Harbor* tile appears under *Tools & Frameworks* on the *Data Science* tab. A service endpoint, e.g., *https://harbor.ingress.pcai0104.ld7.hpecolo.net*, is automatically configured and exposed, providing access to *Harbor*. 
  
 ![](/img/harbor-deployment.png)
 
@@ -212,7 +217,7 @@ harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a 
 
 ## Application deployment using Harbor registry
 
-With the container images pushed to the *Harbor* registry, the next step is to deploy the application to PCAI using the same *Import Framework*, demonstrating how to pull images from *Harbor*. 
+With the container images pushed to the *Harbor* registry, the next step is to deploy the application to HPE PCAI using the same *Import Framework*, demonstrating how to pull images from *Harbor*. 
 
 The Helm charts of the sample *CFE Nginx* application are available from *GitHub* repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). Alongside the required *virtualService* and Kyverno *ClusterPolicy* YAML files, the *values.yaml* file includes the *imageCredentials* section that specifies the *Harbor* access credentials for the *pcai-developer* user. It also references the *imagePullSecrets* field that uses the Secret resource *harbor*, which is created during deployment, to securely pull container images from the *Harbor* registry.
 
@@ -233,7 +238,7 @@ imageCredentials:
   email: glcs.cfe@hpe.com
 ```
 
-Using the provided sample Helm charts, the *CFE Nginx* application can be easily deployed to PCAI via the *Import Framework*. After deployment, an **Imported** *Nginx* tile appears under *Tools & Framework*, along with its configured service endpoint: 
+Using the provided sample Helm charts, the *CFE Nginx* application can be easily deployed to HPE PCAI via the *Import Framework*. After deployment, an **Imported** *Nginx* tile appears under *Tools & Framework*, along with its configured service endpoint: 
 
 ![](/img/nginx-deployment.png)
 
@@ -294,6 +299,6 @@ The *Logs* page of the *Harbor* UI provides a comprehensive audit trail, capturi
 
 In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
 
-More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory requirements. 
+More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into HPE PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory requirements. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
