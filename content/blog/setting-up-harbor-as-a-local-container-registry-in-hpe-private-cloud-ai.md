@@ -89,7 +89,7 @@ From there, you can log into *Harbor* projects page using the default *admin* us
 
 ### Harbor project and user creation
 
-*Harbor* manages container images through projects, each of which hosts the image repositories for your application. Before pushing images to *Harbor*, a project must first be created. A default public project named *library* is pre-created, but new projects can be created by clicking *+ NEW PRORJECT*:
+*Harbor* manages container images through projects, each of which hosts the image repositories for your application. Before pushing images to *Harbor*, a project must first be created. A default public project named *library* is pre-created, but new projects can be created by clicking *+ NEW PROJECT*:
 
 ![](/img/create-project.png)
 
@@ -100,7 +100,7 @@ After creating the project, users can be created and assigned to projects using 
 ![](/img/two-users-harbor.png)
 
 These users, along with the default *admin* user, are added to the project *demo* with distinct roles:
-* *pcai-developer* has **Developer** role (with read/write access to project)
+* *pcai-developer* has the **Developer** role (with read/write access to project)
 * *pcai-admin* is assigned the **Maintainer** role, with extended privileges including image scanning, replication job visibility and image deletion 
 
 ![](/img/project-member.png)
@@ -113,7 +113,7 @@ With the project and users set up, you're ready to push the container images to 
 
 * *Log in to Harbor registry*
 
-Use the Docker client to authenticate with the *Harbor* registry using the *pcai-admin* user credentials, by running the following command :
+Use the Docker client to authenticate with the *Harbor* registry using the *pcai-admin* user credentials by running the following command :
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
@@ -144,7 +144,7 @@ $ sudo systemctl restart docker
 
 * *Tag an existing image*
 
-Rather than building a Docker image from a Dockerfile, we'll pull the sample CFE Nginx image, *'pcaidemo/cfe-nginx'*, from *DockerHub* and tag it with the *Harbor* registry URL and project name: 
+Rather than building a Docker image from a Dockerfile, pull the sample CFE Nginx image, *'pcaidemo/cfe-nginx'*, from *DockerHub* and tag it with the *Harbor* registry URL and project name: 
 
 ```shell
 $ docker images
@@ -182,7 +182,7 @@ From the *Harbor* UI, the image *cfe-nginx* appears under *Repositories* tab of 
 
 ![](/img/demo-project.png)
 
-From  the Docker client, log in to the *Harbor* registry as the *pcai-developer* user, then pull the image *cfe-nginx* from the registry. The image downloads successfully, confirming that the user has appropriate access and the *Harbor* registry is functioning as expected.
+From  the Docker client, log in to the *Harbor* registry as the *pcai-developer* user, then pull the image *cfe-nginx* from the registry. The image should download successfully, confirming that the user has appropriate access and the *Harbor* registry is functioning as expected.
 
 ```shell
 $ docker login harbor.ingress.pcai0104.ld7.hpecolo.net
@@ -217,7 +217,7 @@ harbor.ingress.pcai0104.ld7.hpecolo.net/demo/cfe-nginx   v0.1.0    1e5f3c5b981a 
 
 ## Application deployment using Harbor registry
 
-With the container images pushed to the *Harbor* registry, the next step is to deploy the application to HPE PCAI using the same *Import Framework*, demonstrating how to pull images from *Harbor*. 
+With the container images pushed to the *Harbor* registry, the next step is to deploy the application to HPE PCAI using the same *Import Framework*. It will demonstrate how to pull images from *Harbor*. 
 
 The Helm charts of the sample *CFE Nginx* application are available from *GitHub* repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/nginx-chart). Alongside the required *virtualService* and Kyverno *ClusterPolicy* YAML files, the *values.yaml* file includes the *imageCredentials* section that specifies the *Harbor* access credentials for the *pcai-developer* user. It also references the *imagePullSecrets* field that uses the Secret resource *harbor*, which is created during deployment, to securely pull container images from the *Harbor* registry.
 
@@ -297,7 +297,7 @@ The *Logs* page of the *Harbor* UI provides a comprehensive audit trail, capturi
 
 ## Conclusion
 
-In this blog post, we explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
+In this blog post, I explored how to deploy *Harbor* to HPE Private Cloud AI and configure it as a local container registry. By setting up a private *Harbor* project and assigning user roles, organizations can securely manage, push and pull container images tailored to their application needs. 
 
 More than just a container registry, *Harbor* strengthens security with built-in vulnerability scanning, image signing, and content trust features, ensuring only verified, compliant images are used across deployments. With *Harbor* integrated into HPE PCAI, organizations can confidently host container images internally, eliminating the need for external registries. The local container registry offers greater control over image provenance and aligns more effectively with organization security policies and regulatory requirements. 
 
