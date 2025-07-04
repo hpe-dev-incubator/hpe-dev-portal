@@ -1,5 +1,5 @@
 ---
-title: "From Generative to Agentic AI: Tracing the Leap from Words to Actions"
+title: "From generative to agentic AI: Tracing the leap from words to actions"
 date: 2025-07-03T10:33:21.361Z
 author: DINESH R SINGH
 authorimage: /img/dinesh-192x192.jpg
