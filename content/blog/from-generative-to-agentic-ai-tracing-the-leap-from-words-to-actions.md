@@ -17,7 +17,7 @@ li {
 }
 </style>
 
-AI has come a long way from simply finishing our sentences. Today, it’s not just generating content — it’s actively solving problems, making decisions, and executing complex tasks. This blog kicks off a 10-part series where we trace that incredible journey — from basic generative models to fully autonomous agents. Along the way, we’ll unpack the key shifts, architectures, and mindsets that shaped this evolution.
+AI has come a long way from simply finishing our sentences. Today, it’s not just generating content — it’s actively solving problems, making decisions, and executing complex tasks. This blog post kicks off a 10-part series where I'II trace that incredible journey — from basic generative models to fully autonomous agents. Along the way, I’ll unpack the key shifts, architectures, and mindsets that shaped this evolution.
 
 Inspired by a [Medium post by Dinesh R,](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-65de72254a86) this piece reimagines and expands on the original with a human-first lens and practical clarity.
 
@@ -81,6 +81,6 @@ This isn’t just a better assistant — it’s the early form of AI co-workers.
 
 ## Conclusion
 
-The shift from generative to agentic AI is more than just a technical upgrade — it’s a philosophical turning point in how we think about artificial intelligence. We’re no longer training machines to just converse with us; we’re teaching them to collaborate, adapt, and even take initiative. Agentic AI is the foundation for everything from self-operating software agents to autonomous business logic.
+The shift from generative to agentic AI is more than just a technical upgrade — it’s a philosophical turning point in how I think about artificial intelligence. We’re no longer training machines to just converse with us; we’re teaching them to collaborate, adapt, and even take initiative. Agentic AI is the foundation for everything from self-operating software agents to autonomous business logic.
 
 In the next part of this series, we’ll peel back the curtain on how agentic architectures actually work — the brains behind the autonomy. Until then, consider this: the next time you interact with an AI, it may not just be listening… it may already be planning your next move.
