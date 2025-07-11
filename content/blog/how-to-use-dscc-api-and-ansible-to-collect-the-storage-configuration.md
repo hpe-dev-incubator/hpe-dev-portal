@@ -12,15 +12,11 @@ Capturing the current storage configuration in order to verify it against best p
 
  After learning that the playbooks for the DSCC are not well maintained, I needed to find a different way to capture the configuration data of all arrays of the HPE Customer Technology Center in Böblingen. The <!--StartFragment--> [](https://github.com/HewlettPackard/hpe3par_ansible_module) [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file)<!--EndFragment--> would require to connect to each array individually and does not provide a complete capture of the array configuration. Hence it is not a solution to my current problem. A way forward would be to use the HPE Data Services Cloud Console and the corresponding Data Services REST API (the basics are already discussed in previous blogs on the HPE developer network: <!--StartFragment-->[Data Services on the HPE GreenLake platform | HPE Developer Portal ](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)<!--EndFragment-->). The Data Services REST API offers a complete list of commands that can be issued on the DSCC. 
 
-The configuration of a storage system would include the configuration data of the storage system itself, the details of the configured volumes of an storage array, the host group and the host details. The first step of gathering the configuration information would be to get a list of storage arrays connected to the Data Services Cloud Console. Once you do have the list, you can go and gather details of each storage array. The Data Services REST API is supporting the data gathering by supplying with every array a list of associated links, that refer to controller, disk etc. information of this array. An example of REST API call response is given below:
+The configuration of a storage system would include the configuration data of the storage system itself, the details of the configured volumes of an storage array, the host group and the host details. The first step of gathering the configuration information would be to get a list of storage arrays connected to the Data Services Cloud Console. Once you do have the list, you can go and gather details of each storage array. The [Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/) is supporting the data gathering by supplying with every array a list of associated links, that refer to controller, disk etc. information of this array. An example of REST API call response is given below:
 
 ![](/img/getstoragesystems.png "Get Storage System")
 
-The complete workflow of the DSCC data capturing is shown in the following flow diagram. First the list of connected storage arrays is compiled and stored in a dictionary. Next the playbook will loop through the storage array dictionary in order to capture the details of each connected storage array (this includes looping through all associated links of a storage array and the gathering of all volumes that are defined on the storage array). Afterwards the host group and host details are captured and stored too. 
-
-![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
-
-Now in order to be independent of any python library (or the lack of updates to a python library) I have decided to use Ansible built-in functionality to create the DSCC capture playbooks. The basic tasks that are used by the playbooks are on one hand the DSCC REST API call using the ansible.builtin.uri function and as a special call variant the retrieval of the DSCC access token - special in terms of the URI used to get the access token. 
+Now in order to be independent of any python library (or the lack of updates to a python library) I have decided to use Ansible built-in functionality to create the DSCC capture playbooks. The basic tasks that are used by the playbooks are on one hand the DSCC REST API call using the ansible.builtin.uri function and as a special call variant, the retrieval of the DSCC access token - special in terms of the URI used to get the access token. 
 
 # Basic tasks
 
@@ -58,9 +54,13 @@ Once you do have your client id and client secret, you can generate an access to
 
 ## DSCC REST API call
 
+A DSCC REST API call can be with and without a request body and can have multiple responses depending on the actual API call. Nevertheless, it is good practice to build a modular code approach that uses a generalized REST API call to access the Data Services Cloud Console. The generalized DSCC REST API call is has as parameters:
 
+* requestUri (as mentioned in the <!--StartFragment-->[](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)[Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/)[](https://console-us1.data.cloud.hpe.com/doc/api/v1/)<!--EndFragment-->) 
+* request method (GET, POST, DELETE, PUT)
+* request body (optional)
 
-
+ and is shown in the following code block:
 
 ```
 - name: Include encrypted vars
@@ -129,11 +129,15 @@ Once you do have your client id and client secret, you can generate an access to
   when: status not in ['200', '201', '202','401']
 ```
 
-
-
-
+You can see, that it first retrieves the stored access token, then checks that the method and the request URI is available. Next it issues the API call either with or without a call body before the possible response status is checked and the call response is set. 
 
 # System Configuration capture 
+
+The complete workflow of the DSCC data capturing is shown in the following flow diagram. First the list of connected storage arrays is compiled and stored in a dictionary. Next the playbook will loop through the storage array dictionary in order to capture the details of each connected storage array (this includes looping through all associated links of a storage array and the gathering of all volumes that are defined on the storage array). Afterwards the host group and host details are captured and stored too. 
+
+![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
+
+This system configuration capture flow chart can now be implemented using the above mentioned basic task in combination with the correct request URIs and request bodies. You can see in the example below, that the playbook first gets the list of storage arrays (request uri: /api/v1/storage-systems) and if the command returns a status code of 401 (i.e. unauthorized access) it repeats the same call after retrieving a refreshed access token (that is the difference between the DSCC-API-Call.yaml and the DSCC-API-401.yaml playbook).  After successfully retrieving the system list, a system dictionary is populated first, followed by looping through the dictionary (Loop-Systems.yml playbook) and storing the system configuration information. Afterwards, the host group and hosts details are retrieved and stored. 
 
 ```
  hosts: localhost
@@ -184,7 +188,7 @@ Once you do have your client id and client secret, you can generate an access to
     ansible.builtin.copy:
       content: "{{ response.json | to_nice_json }}"
       dest: "../Outputs/hostGroups.json"
-      mode: '0644'
+      mode: '0600'
     when: response.json is defined
   
   - name: Get Hosts
@@ -194,11 +198,13 @@ Once you do have your client id and client secret, you can generate an access to
     ansible.builtin.copy:
       content: "{{ response.json | to_nice_json }}"
       dest: "../Outputs/hosts.json"
-      mode: '0644'
+      mode: '0600'
     when: response.json is defined 
 ```
 
-Used Playbook hierarchy:
+The Loop-Systems.yaml playbook retrieves the storage system details and loops for each system through all the associated links of this array. I.e. you do get a complete capture of the storage array configuration. The captured data is stored in multiple files with the naming structure: **SystemName.associatedLink-Keyname.json.** 
+
+The Ansible playbooks used to capture the system configuration are:
 
 * Capture-Systems.yaml
 
@@ -207,5 +213,11 @@ Used Playbook hierarchy:
   * Loop-Systems.yaml
 
     * Loop-Links.yaml
+    * GetAllSystemVolumes.yaml
+  * GetAllHosts.yaml
 
-Playbooks currently stored at: <https://github.com/tbeha/DSCC-Ansible>
+In order to keep this blog readable and not code overloaded only pa few of the playbooks used are shown, but all playbooks (and even some more) can be retrieved on Github at: [https://github.com/tbeha/DSCC-Ansible.](https://github.com/tbeha/DSCC-Ansible)
+
+# Conclusion
+
+It is possible to use Ansible playbooks to capture the storage array configuration using the the HPE Data Services Cloud Console REST API and built-in  Ansible functions. Having the storage array captured in one or multiple JSON-files is  leading to an obvious next step: use the captured configuration information to automate the redeployment of a storage array. This is one of my planned next activities. Stay tuned to the [HPE Developer Portal](https://developer.hpe.com/) for more.
