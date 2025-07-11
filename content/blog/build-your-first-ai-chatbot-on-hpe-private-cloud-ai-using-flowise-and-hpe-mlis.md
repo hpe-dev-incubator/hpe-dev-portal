@@ -72,7 +72,7 @@ After deployment, Flowise will appear as a tile under *Tools & Frameworks / Data
 
 Click the *Open* button on the *Flowise* Tile, or click on the *Endpoint* URL to launch the Flowise login page. Setup the credentials and login.
 
-![](/img/flowise-home-7-10-2025.jpg)
+![](/img/flowise-home-7-11-2025.jpg)
 
 - - -
 
@@ -140,17 +140,15 @@ The LLM is now deployed and can be accessed using the 'Endpoint', and correspond
 
 
 
+## Create AI Chatbot in Flowise
+
+Use Flowise's drag-and-drop interface to design your chatbot’s conversational flow. Integrate with HPE MLIS by adding an LLM node and configuring it to use the MLIS inference endpoint.
+
+* **Add New Chatflow:**
+
+  ![](/img/chatflow-1.jpg)
 
 
-
-
-
-
-
-
-Use FlowiseAI’s drag-and-drop interface to design your chatbot’s conversational flow. Integrate with HPE MLIS by adding an LLM node and configuring it to use the MLIS inference endpoint.
-
-* **Add Data Sources:** Connect to internal databases or APIs as needed.
 * **Configure LLM Node:** Set the endpoint to your deployed MLIS service.
 * **Test the Flow:** Use the built-in chat preview to validate responses.
 
