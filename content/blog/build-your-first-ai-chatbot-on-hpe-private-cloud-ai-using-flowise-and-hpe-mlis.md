@@ -78,7 +78,19 @@ Click the *Open* button on the *Flowise* Tile, or click on the *Endpoint* URL to
 
 ## Deploy a LLM in HPE MLIS
 
-### 1. Access the FlowiseAI UI
+HPE MLIS is accessed by clicking on 'HPE MLIS' tile in *Tools & Frameworks / Data Engineering* tab.
+
+![](/img/mlis.jpg)
+
+To deploy a pre-packaged LLM(Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and 'Deployments'. 
+
+
+
+### 1. Add 'Registry'
+
+Add a new registry of type 'NGC', which can be used to access pre-packaged LLMs. 
+
+![](/img/mlis-registry.jpg)
 
 After deployment, access FlowiseAI via the configured endpoint (e.g., `https://chatbot.ingress.pcai0104.ld7.hpecolo.net`). Log in with your admin credentials.
 
