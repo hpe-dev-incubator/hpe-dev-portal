@@ -1,0 +1,124 @@
+---
+title: Build your first AI Chatbot on 'HPE Private Cloud AI' using Flowise and
+  HPE MLIS
+date: 2025-07-11T13:38:06.049Z
+author: Santosh Nagaraj
+authorimage: /img/santosh-picture-192.jpg
+disable: false
+---
+In today’s AI-driven landscape, conversational interfaces are transforming how organizations interact with users and automate workflows. Building a secure, scalable, and customizable chatbot solution requires robust infrastructure and flexible AI tooling. HPE Private Cloud AI (PCAI) provides a powerful platform for deploying and managing AI workloads, while Flowise and HPE MLIS (Machine Learning Inference Software) offer the tools to rapidly build, deploy, and manage chatbots powered by large language models (LLMs).
+
+This blog post walks you through deploying Flowise on HPE PCAI to build a modern chatbot solution. By leveraging these technologies, organizations can accelerate chatbot development, ensure data privacy, and maintain full control over their AI lifecycle.
+
+## HPE Private Cloud AI
+
+[HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*.
+
+HPE Machine Learning Inference Software is a user-friendly solution designed to simplify and control the deployment, management, and monitoring of machine learning (ML) models, including LLMs, at any scale.
+
+HPE PCAI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (including HPE MLIS), and a flexible *Import Framework,* that enables organizations *to* deploy their own applications or third-party solutions like FlowiseAI. 
+
+![](/img/importframework.jpg)
+
+## What is Flowise?
+
+[Flowise](https://flowiseai.com/) is an open source generative AI development platform for building AI Agents and LLM workflows. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. Flowise provides modular building blocks for you to build any agentic systems, from simple compositional workflows to autonomous agents.
+
+## Deploying Flowise on HPE PCAI via *Import Framework*
+
+### 1. Prepare the Helm Charts
+
+Obtain the helm chart for Flowise v5.1.1 from [artifacthub.io](https://artifacthub.io/packages/helm/cowboysysop/flowise). Following changes to the helm chart are needed to deploy it on HPE PCAI.
+
+Add the following YAML manifest files to *templates/ezua/* directory:
+
+* *virtualService.yaml*: Defines an Istio *VirtualService* to configure routing rules for incoming requests. 
+* *kyverno.yaml*: A Kyverno *ClusterPolicy* that automatically adds required labels to the deployment.
+
+Updates to *values.yaml* file
+
+* Set resource request/limits.
+* Update the PVC size
+* Add the following *'ezua'* section to configure the *Istio Gateway* and expose the endpoint.
+
+```
+ezua:
+  virtualService:
+    endpoint: "flowise.${DOMAIN_NAME}"
+    istioGateway: "istio-system/ezaf-gateway"
+```
+
+Reference document for 'Import Framework' [Prerequisites.](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html)
+
+These updates are implemented in the revised *Flowise* Helm charts, is available in the *GitHub* repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/flowise)With these customizations, *Flowise* can now be deployed on HPE PCAI using '*Import Framework*'
+
+### 2. Deploy Flowise via Import Framework
+
+Use the Import Framework in HPE PCAI to deploy Flowise.
+
+![](/img/flowise-deploy-1.jpg)
+
+![](/img/flowise-deploy-2.jpg)
+
+![](/img/flowise-deploy-3.jpg)
+
+![](/img/flowise-deploy-4.jpg)
+
+### 3. Access Flowise UI via its Endpoint
+
+After deployment, Flowise will appear as a tile under *Tools & Frameworks / Data Engineering* tab.
+
+![](/img/flowsie-deployed.jpg)
+
+Click the *Open* button on the *Flowise* Tile, or click on the *Endpoint* URL to launch the Flowise login page. Setup the credentials and login.
+
+![](/img/flowise-home-7-10-2025.jpg)
+
+- - -
+
+## Deploy a LLM in HPE MLIS
+
+### 1. Access the FlowiseAI UI
+
+After deployment, access FlowiseAI via the configured endpoint (e.g., `https://chatbot.ingress.pcai0104.ld7.hpecolo.net`). Log in with your admin credentials.
+
+### 2. Build Your Chatbot Flow
+
+Use FlowiseAI’s drag-and-drop interface to design your chatbot’s conversational flow. Integrate with HPE MLIS by adding an LLM node and configuring it to use the MLIS inference endpoint.
+
+* **Add Data Sources:** Connect to internal databases or APIs as needed.
+* **Configure LLM Node:** Set the endpoint to your deployed MLIS service.
+* **Test the Flow:** Use the built-in chat preview to validate responses.
+
+### 3. Secure and Govern Access
+
+Leverage HPE PCAI’s RBAC and network policies to restrict access to the chatbot and underlying data sources. Use MLIS monitoring features to track model usage and performance.
+
+- - -
+
+## Pushing Custom Chatbot Images (Optional)
+
+If you customize FlowiseAI or build your own chatbot container, push the image to your local Harbor registry:
+
+```bash
+docker build -t harbor.ingress.pcai0104.ld7.hpecolo.net/demo/flowiseai-chatbot:v1 .
+docker push harbor.ingress.pcai0104.ld7.hpecolo.net/demo/flowiseai-chatbot:v1
+```
+
+Update your Helm chart to use the new image.
+
+- - -
+
+## Deploying the Chatbot Application
+
+With FlowiseAI and MLIS configured, deploy your chatbot application to HPE PCAI using the Import Framework. The chatbot will be accessible via its endpoint, ready to serve users across your organization.
+
+Monitor usage and performance through the FlowiseAI and MLIS dashboards. Use PCAI’s audit logs for compliance and troubleshooting.
+
+- - -
+
+## Conclusion
+
+By combining FlowiseAI’s intuitive chatbot builder with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to rapidly develop, deploy, and govern conversational AI solutions. This integrated approach ensures data privacy, operational control, and scalability for enterprise chatbot deployments.
+
+Stay tuned to the HPE Developer Community blog for more guides and best practices on leveraging HPE PCAI for your AI
