@@ -82,7 +82,7 @@ HPE MLIS is accessed by clicking on 'HPE MLIS' tile in *Tools & Frameworks / Dat
 
 ![](/img/mlis.jpg)
 
-To deploy a pre-packaged LLM(Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and 'Deployments'. 
+To deploy a pre-packaged LLM(Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and create 'Deployments'. 
 
 
 
@@ -92,9 +92,61 @@ Add a new registry of type 'NGC', which can be used to access pre-packaged LLMs.
 
 ![](/img/mlis-registry.jpg)
 
-After deployment, access FlowiseAI via the configured endpoint (e.g., `https://chatbot.ingress.pcai0104.ld7.hpecolo.net`). Log in with your admin credentials.
 
-### 2. Build Your Chatbot Flow
+
+### 2. Add 'Packaged Model'
+
+Create a new Packaged Model by clicking 'Add new model' tab, and fill-in the details as shown in screen shots. 
+
+![](/img/package-model-1.jpg)
+
+Choose the 'Registry' created in the previous step, and select 'meta/llama-3.1-8b-instruct' for 'NGC Supported Models'
+
+![](/img/package-model-2.jpg)
+
+Set the right resources required for the model, either by choosing the in-built 'Resource Template' or, 'Custom' as shown below.
+
+![](/img/package-model-3.jpg)
+
+![](/img/package-model-4.jpg)
+
+Newly created packaged model appears in the UI.
+
+![](/img/package-model-final.jpg)
+
+
+
+### 3. Create 'Deployment'
+
+Using the 'packaged Model' created in previous step, create a new deployment by clicking on 'Create new deployment'
+
+![](/img/deployment-1.jpg)
+
+Give a name to the 'Deployment' and choose the 'Packaged Model' created in the previous step.
+
+![](/img/deployment-2.jpg)
+
+![](/img/deployment-3.jpg)
+
+Set 'Auto scaling' as required. In this example, we have used 'fixed-1' template.
+
+![](/img/deployment-4.jpg)
+
+![](/img/deployment-5.jpg)
+
+The LLM is now deployed and can be accessed using the 'Endpoint', and corresponding 'API Token'.
+
+![](/img/deployment-6.jpg)
+
+
+
+
+
+
+
+
+
+
 
 Use FlowiseAI’s drag-and-drop interface to design your chatbot’s conversational flow. Integrate with HPE MLIS by adding an LLM node and configuring it to use the MLIS inference endpoint.
 
