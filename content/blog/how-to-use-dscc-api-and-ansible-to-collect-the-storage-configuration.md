@@ -26,9 +26,9 @@ Now in order to be independent of any python library (or the lack of updates to 
 
 ## Retrieving a DSCC access token
 
-The steps to first generate the client Id and the client secret used to access the DSCC REST API was already described in a blog on the HPE Developer Portal:  <!--StartFragment--> [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)<!--EndFragment-->.
+The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a blog on the HPE Developer Portal:  <!--StartFragment--> [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)<!--EndFragment-->. 
 
-Once you do have your client id and client secret, you can generate an access token that is valid for two hours. 
+Once you do have your client id and client secret, you can generate an access token, that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console - you will have the empowerment on the REST API as the user that is linked with the client id and secret used to create the access token. Hence, it is best practice to store the client id and secret in a secure place. The below code example had the client credentials stored in the credentials.yml file, that was encrypted using ansible-vault. The current Ansible playbook stores the access token in a file that grants access only to the current user (hence, the access mode 600 for this file) to avoid misuse of the retrieved access token. 
 
 ```
 - name: Include encrypted vars
@@ -53,10 +53,14 @@ Once you do have your client id and client secret, you can generate an access to
   ansible.builtin.copy:
     content: "{{ token }}"
     dest: 'vars/token.txt'
-    mode: "0644"
+    mode: "0600"
 ```
 
 ## DSCC REST API call
+
+
+
+
 
 ```
 - name: Include encrypted vars
@@ -123,6 +127,75 @@ Once you do have your client id and client secret, you can generate an access to
   ansible.builtin.set_fact:
     response: ""
   when: status not in ['200', '201', '202','401']
+```
+
+
+
+
+
+# System Configuration capture 
+
+```
+ hosts: localhost
+  vars:
+    method: "GET"
+
+  tasks:
+  - name: DSCC API Call GET storage systems
+    vars:
+      request_uri: "/api/v1/storage-systems" 
+    ansible.builtin.include_tasks:
+      file: DSCC-API-Call.yaml
+
+  - name: Retry the command if status 401
+    vars:
+      request_uri: "/api/v1/storage-systems" 
+    ansible.builtin.include_tasks:
+      file: DSCC-API-401.yaml
+    when: status == '401'
+
+  - name: Set Systems
+    ansible.builtin.set_fact:
+      systems: "{{ response.json['items'] }}"
+    when: status in ['200', '201']
+
+  - name: Initialize Storage system dictionary if not defined
+    ansible.builtin.set_fact:
+      storage_systems: "{{ storage_systems | default({}) }}"
+  - name: Create StorageSystems Dictionary
+    ansible.builtin.set_fact:
+      storage_systems: "{{ storage_systems | combine({item.name: {'id': item.id, 'resourceUri': item.resourceUri}}) }}"
+    with_items: "{{ systems }}"
+
+  - name: Loop Systems
+    vars: 
+    ansible.builtin.include_tasks:
+      file: Loop-Systems.yaml
+    with_dict: "{{storage_systems}}"
+    loop_control:
+      loop_var: my_system
+  
+  - name: Get HostGroups
+    vars:
+      request_uri: "/api/v1/host-initiator-groups"
+    ansible.builtin.include_tasks:
+      file: DSCC-API-Call.yaml    
+  - name: Store the HostGroups
+    ansible.builtin.copy:
+      content: "{{ response.json | to_nice_json }}"
+      dest: "../Outputs/hostGroups.json"
+      mode: '0644'
+    when: response.json is defined
+  
+  - name: Get Hosts
+    ansible.builtin.include_tasks:
+      file: GetAllHosts.yaml
+  - name: Store the Hosts
+    ansible.builtin.copy:
+      content: "{{ response.json | to_nice_json }}"
+      dest: "../Outputs/hosts.json"
+      mode: '0644'
+    when: response.json is defined 
 ```
 
 Used Playbook hierarchy:
