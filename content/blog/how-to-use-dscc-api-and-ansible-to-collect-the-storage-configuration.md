@@ -30,7 +30,7 @@ In order to be independent of any Python library (or the lack of updates to a Py
 
 ## Retrieving a DSCC access token
 
-The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a post on the HPE Developer Community blog:  [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). 
+The steps to first generate the client ID and the client secret used to access the DSCC REST API was already described in a post on the HPE Developer Community blog:  [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). 
 
 Once you have your client ID and client secret, you can generate an access token that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console, as it identifies you as the user that is linked with the client ID and secret to create the access token.  Hence, it is best practice to store the client ID and secret in a secure place. 
 
