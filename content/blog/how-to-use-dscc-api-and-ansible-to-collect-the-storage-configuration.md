@@ -149,7 +149,7 @@ The complete workflow of the DSCC data capturing is shown in the following flow 
 
 This system configuration capture flow chart can now be implemented using the above mentioned basic task in combination with the correct request URIs and request bodies. You can see in the example below, that the playbook first gets the list of storage arrays (request uri: /api/v1/storage-systems) and if the command returns a status code of 401 (i.e. unauthorized access) it repeats the same call after retrieving a refreshed access token (that is the difference between the DSCC-API-Call.yaml and the DSCC-API-401.yaml playbook).  After successfully retrieving the system list, a system dictionary is populated first, followed by looping through the dictionary (Loop-Systems.yml playbook) and storing the system configuration information. Afterwards, the host group and hosts details are retrieved and stored. 
 
-```
+```yaml
  hosts: localhost
   vars:
     method: "GET"
@@ -212,7 +212,7 @@ This system configuration capture flow chart can now be implemented using the ab
     when: response.json is defined 
 ```
 
-The Loop-Systems.yaml playbook retrieves the storage system details and loops for each system through all the associated links of this array. I.e. you do get a complete capture of the storage array configuration. The captured data is stored in multiple files with the naming structure: **SystemName.associatedLink-Keyname.json.** 
+The Loop-Systems.yaml playbook retrieves the storage system details and loops for each system through all the associated links of this array, providing you with a complete capture of the storage array configuration. The captured data is stored in multiple files with the naming structure: **SystemName.associatedLink-Keyname.json.** 
 
 The Ansible playbooks used to capture the system configuration are:
 
@@ -226,8 +226,8 @@ The Ansible playbooks used to capture the system configuration are:
     * GetAllSystemVolumes.yaml
   * GetAllHosts.yaml
 
-In order to keep this blog readable and not code overloaded only pa few of the playbooks used are shown, but all playbooks (and even some more) can be retrieved on Github at: [https://github.com/tbeha/DSCC-Ansible.](https://github.com/tbeha/DSCC-Ansible)
+In order to keep this blog readable and not code overloaded only a few of the playbooks used are shown, but all playbooks (and even some more) can be retrieved on Github at: [https://github.com/tbeha/DSCC-Ansible.](https://github.com/tbeha/DSCC-Ansible)
 
 # Conclusion
 
-It is possible to use Ansible playbooks to capture the storage array configuration using the the HPE Data Services Cloud Console REST API and built-in  Ansible functions. Having the storage array captured in one or multiple JSON-files is  leading to an obvious next step: use the captured configuration information to automate the redeployment of a storage array. This is one of my planned next activities. Stay tuned to the [HPE Developer Portal](https://developer.hpe.com/) for more.
+It is possible to use Ansible playbooks to capture the storage array configuration using the HPE Data Services Cloud Console REST API and built-in  Ansible functions. Having the storage array captured in one or multiple JSON-files is  leading to an obvious next step: use the captured configuration information to automate the redeployment of a storage array. This is one of my planned next activities. Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/) for more.
