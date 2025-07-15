@@ -8,7 +8,7 @@ disable: false
 tags:
   - data-services-on-the-hpe-greenlake-platform
 ---
-
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style> 
 
 Capturing the current storage configuration to verify it against best practices or configuration rules is something that customer request regularly. If the customer uses Ansible as their automation platform, the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file) can be used to create and delete hosts, volumes etc., but it is not really a solution for gathering the complete configuration. 
 
