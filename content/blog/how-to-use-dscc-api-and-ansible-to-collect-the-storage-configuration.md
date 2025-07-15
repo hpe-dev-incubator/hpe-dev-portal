@@ -1,6 +1,6 @@
 ---
 title: How to use the DSCC API and Ansible to collect a storage configuration
-date: 2025-08-01T09:15:57.315Z
+date: 2025-07-15T12:18:34.895Z
 priority: -1
 author: Dr. Thomas Beha
 authorimage: /img/tb07112025.png
