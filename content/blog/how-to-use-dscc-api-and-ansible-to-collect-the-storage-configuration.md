@@ -218,6 +218,8 @@ The Loop-Systems.yaml playbook retrieves the storage system details and loops fo
 
 The Ansible playbooks used to capture the system configuration are:
 
+
+
 * Capture-Systems.yaml
 
   * DSCC-API-Call.yaml
@@ -227,6 +229,8 @@ The Ansible playbooks used to capture the system configuration are:
     * Loop-Links.yaml
     * GetAllSystemVolumes.yaml
   * GetAllHosts.yaml
+
+
 
 In order to keep this blog readable and not code overloaded only a few of the playbooks used are shown, but all playbooks (and even some more) can be retrieved on Github at: [https://github.com/tbeha/DSCC-Ansible.](https://github.com/tbeha/DSCC-Ansible)
 
