@@ -12,27 +12,27 @@ tags:
 
 Capturing the current storage configuration to verify it against best practices or configuration rules is something that customer request regularly. If the customer uses Ansible as their automation platform, the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file) can be used to create and delete hosts, volumes etc., but it is not really a solution for gathering the complete configuration. 
 
-Furthermore, this module uses the WSAPI of individual Alletra storage systems. The HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems, evn those that might be distributed across multiple sites. Through a single location, the DSCC would be able to the data of all storage systems. 
+Furthermore, this module uses the WSAPI of individual Alletra storage systems. The HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems, even those that might be distributed across multiple sites. Through a single location, the DSCC would be able to get the data of all storage systems. 
 
-[Ansible playbooks for the DSCC](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) were discussed in one of the previous HPE developer blogs. The playbooks offer fact gatherings for storage systems, hosts and volumes. However, once you dig into the details, you will find that the modules have not been updated for  more than two years,  and do not support the HPE Alletra MP B10000 storage array. In this blog post, I will discuss a possible approach for DSCC data gathering using Ansible built-in functionality to overcome the lack of continuous playbook development.
+[Ansible playbooks for the DSCC](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) were discussed in one of the previous HPE Developer Community blogs. The playbooks offer fact gatherings for storage systems, hosts and volumes. However, once you dig into the details, you will find that the modules have not been updated for  more than two years,  and do not support the HPE Alletra MP B10000 storage array. In this blog post, I will discuss a possible approach for DSCC data gathering using Ansible built-in functionality to overcome the lack of continuous playbook development.
 
 # Capture the storage system configuration
 
-Upon learning tht the playbooks for the DSCC were not well maintained, I looked for a different way to capture the configuration data of all arrays of the HPE Customer Technology Center in Böblingen. The [](https://github.com/HewlettPackard/hpe3par_ansible_module) [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file) requires one to connect to each array individually and does not provide a complete capture of the array configuration. Hence it is not a solution to the problem. A way forward would be to use the HPE Data Services Cloud Console and the corresponding Data Services REST API (the basics are already discussed in previous posts on the HPE Developer Community blog: [Data Services on the HPE GreenLake platform | HPE Developer Portal ](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)). The Data Services REST API offers a complete list of commands that can be issued on the DSCC. 
+Upon learning that the playbooks for the DSCC were not well maintained, I looked for a different way to capture the configuration data of all arrays of the HPE Customer Technology Center in Böblingen. The [](https://github.com/HewlettPackard/hpe3par_ansible_module) [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file) requires one to connect to each array individually and does not provide a complete capture of the array configuration. Hence it is not a solution to the problem. A way forward would be to use the HPE Data Services Cloud Console and the corresponding Data Services REST API (the basics are already discussed in previous posts on the HPE Developer Community blog: [Data Services on the HPE GreenLake platform | HPE Developer Portal )](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/). The Data Services REST API offers a complete list of commands that can be issued on the DSCC. 
 
 The configuration of a storage system generally includes the configuration data of the storage system itself, the details of the configured volumes of a storage array, the host group and the host details. The first step of gathering the configuration information would be to get a list of storage arrays connected to the Data Services Cloud Console. Once you have the list, you can go and gather details of each storage array. The [Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/) is supporting the data gathering by supplying with every array a list of associated links, that refer to controller, disk etc. information of this array. An example of REST API call response is given below:
 
-![](/img/getstoragesystems.png "Get Storage System")
+![](/img/getstoragesystems.png "Get Storage System API call")
 
-In order to be independent of any Python library (or the lack of updates to a Python library), I have decided to use Ansible's built-in functionality to create the DSCC capture playbooks. The basic tasks that are used by the playbooks are on the DSCC REST API call using the ansible.builtin.uri function and as a special call variant, the retrieval of the DSCC access token (which is special in terms of the URI used to get the access token). 
+In order to be independent of any Python library (or the lack of updates to a Python library), I have decided to use Ansible's built-in functionality to create the DSCC capture playbooks. The basic tasks that are used by the playbooks are the DSCC REST API call using the ansible.builtin.uri function and as a special call variant, the retrieval of the DSCC access token (which is special in terms of the URI used to get the access token). 
 
 # Basic tasks
 
 ## Retrieving a DSCC access token
 
-The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a post on the HPE Developer Community blog:  [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). 
+The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a post on the HPE Developer Community blog:  [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). 
 
-Once you have your client id and client secret, you can generate an access token that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console, as it identifies you as the user that is linked with the client ID and secret to create the access token.  Hence, it is best practice to store the client id and secret in a secure place. 
+Once you have your client ID and client secret, you can generate an access token that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console, as it identifies you as the user that is linked with the client ID and secret to create the access token.  Hence, it is best practice to store the client ID and secret in a secure place. 
 
 The below code example had the client credentials stored in the credentials.yml file, that was encrypted using ansible-vault. The current Ansible playbook stores the access token in a file that grants access only to the current user (hence, the access mode 600 for this file) to avoid misuse of the retrieved access token. 
 
@@ -66,13 +66,9 @@ The below code example had the client credentials stored in the credentials.yml 
 
 A DSCC REST API call can be with and without a request body and can have multiple responses depending on the actual API call. Nevertheless, it is good practice to build a modular code approach that uses a generalized REST API call to access the Data Services Cloud Console. The generalized DSCC REST API call, shown in the following code block, has its parameters:
 
-
-
 * requestUri (as mentioned in [](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)[Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) 
 * request method (Get, Post, Delete, Put)
 * request body (optional)
-
-
 
 ```yaml
 - name: Include encrypted vars
@@ -218,8 +214,6 @@ The Loop-Systems.yaml playbook retrieves the storage system details and loops fo
 
 The Ansible playbooks used to capture the system configuration are:
 
-
-
 * Capture-Systems.yaml
 
   * DSCC-API-Call.yaml
@@ -229,8 +223,6 @@ The Ansible playbooks used to capture the system configuration are:
     * Loop-Links.yaml
     * GetAllSystemVolumes.yaml
   * GetAllHosts.yaml
-
-
 
 In order to keep this blog readable and not code overloaded only a few of the playbooks used are shown, but all playbooks (and even some more) can be retrieved on Github at: [https://github.com/tbeha/DSCC-Ansible.](https://github.com/tbeha/DSCC-Ansible)
 
