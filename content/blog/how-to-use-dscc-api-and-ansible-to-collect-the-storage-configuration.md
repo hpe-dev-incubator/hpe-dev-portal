@@ -37,10 +37,10 @@ Once you have your client id and client secret, you can generate an access token
 The below code example had the client credentials stored in the credentials.yml file, that was encrypted using ansible-vault. The current Ansible playbook stores the access token in a file that grants access only to the current user (hence, the access mode 600 for this file) to avoid misuse of the retrieved access token. 
 
 ```yaml
-- name: Include encrypted vars
+— name: Include encrypted vars
   include_vars: credentials.yml
 
-- name: Get Access Token
+— name: Get Access Token
   ansible.builtin.uri:
     url: "{{ sso_url }}"
     headers:
@@ -51,11 +51,11 @@ The below code example had the client credentials stored in the credentials.yml 
     validate_certs: false
   register: oauth_response
 
-- name: Define header
+— name: Define header
   ansible.builtin.set_fact:
     token: "Bearer {{ oauth_response.json.access_token }}"
 
-- name: Store Token
+— name: Store Token
   ansible.builtin.copy:
     content: "{{ token }}"
     dest: 'vars/token.txt'
