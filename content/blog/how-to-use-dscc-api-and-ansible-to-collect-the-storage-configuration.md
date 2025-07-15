@@ -139,13 +139,13 @@ A DSCC REST API call can be with and without a request body and can have multipl
 
 You can see, that it first retrieves the stored access token, then checks that the method and the request URI is available. Next it issues the API call either with or without a call body before the possible response status is checked and the call response is set. 
 
-# System Configuration capture
+# System configuration capture
 
-The complete workflow of the DSCC data capturing is shown in the following flow diagram. First the list of connected storage arrays is compiled and stored in a dictionary. Next the playbook will loop through the storage array dictionary in order to capture the details of each connected storage array (this includes looping through all associated links of a storage array and the gathering of all volumes that are defined on the storage array). Afterwards the host group and host details are captured and stored too. 
+The complete workflow of the DSCC data capture is shown in the following flow diagram. First, the list of connected storage arrays is compiled and stored in a dictionary. Next, the playbook will loop through the storage array dictionary in order to capture the details of each connected storage array (this includes looping through all associated links of a storage array and the gathering of all volumes that are defined on the storage array). Afterwards, the host group and host details are also captured and stored. 
 
 ![](/img/capturestorage-flowdiagram.png "Capture Storage System Flow Diagram")
 
-This system configuration capture flow chart can now be implemented using the above mentioned basic task in combination with the correct request URIs and request bodies. You can see in the example below, that the playbook first gets the list of storage arrays (request uri: /api/v1/storage-systems) and if the command returns a status code of 401 (i.e. unauthorized access) it repeats the same call after retrieving a refreshed access token (that is the difference between the DSCC-API-Call.yaml and the DSCC-API-401.yaml playbook).  After successfully retrieving the system list, a system dictionary is populated first, followed by looping through the dictionary (Loop-Systems.yml playbook) and storing the system configuration information. Afterwards, the host group and hosts details are retrieved and stored. 
+This system configuration capture flow chart can now be implemented using the above mentioned basic task in combination with the correct request URIs and request bodies. You can see in the example below that the playbook first gets the list of storage arrays (request uri: /api/v1/storage-systems). If the command returns a status code of 401 (i.e. unauthorized access), it repeats the same call after retrieving a refreshed access token (this is the difference between the DSCC-API-Call.yaml and the DSCC-API-401.yaml playbook).  After successfully retrieving the system list, a system dictionary is populated first, followed by looping through the dictionary (Loop-Systems.yml playbook) and storing the system configuration information. Afterwards, the host group and hosts details are retrieved and stored. 
 
 ```yaml
  hosts: localhost
