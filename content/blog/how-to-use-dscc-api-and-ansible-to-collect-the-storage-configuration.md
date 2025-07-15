@@ -8,6 +8,8 @@ disable: false
 tags:
   - data-services-on-the-hpe-greenlake-platform
 ---
+
+
 Capturing the current storage configuration to verify it against best practices or configuration rules is something that customer request regularly. If the customer uses Ansible as their automation platform, the [HPE 3PAR Ansible module](https://github.com/HewlettPackard/hpe3par_ansible_module?tab=readme-ov-file) can be used to create and delete hosts, volumes etc., but it is not really a solution for gathering the complete configuration. 
 
 Furthermore, this module uses the WSAPI of individual Alletra storage systems. The HPE Data Services Cloud Console (DSCC) would be the better option to collect storage configuration data of multiple systems, evn those that might be distributed across multiple sites. Through a single location, the DSCC would be able to the data of all storage systems. 
@@ -28,11 +30,13 @@ In order to be independent of any Python library (or the lack of updates to a Py
 
 ## Retrieving a DSCC access token
 
-The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a blog on the HPE Developer Portal:  <!--StartFragment--> [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)<!--EndFragment-->. 
+The steps to first generate the client id and the client secret used to access the DSCC REST API was already described in a post on the HPE Developer Community blog:  [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console  ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). 
 
-Once you do have your client id and client secret, you can generate an access token, that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console - you will have the empowerment on the REST API as the user that is linked with the client id and secret used to create the access token. Hence, it is best practice to store the client id and secret in a secure place. The below code example had the client credentials stored in the credentials.yml file, that was encrypted using ansible-vault. The current Ansible playbook stores the access token in a file that grants access only to the current user (hence, the access mode 600 for this file) to avoid misuse of the retrieved access token. 
+Once you have your client id and client secret, you can generate an access token that is valid for two hours. This access token will allow you to issue REST API calls to the Data Services Cloud Console, as it identifies you as the user that is linked with the client ID and secret to create the access token.  Hence, it is best practice to store the client id and secret in a secure place. 
 
-```
+The below code example had the client credentials stored in the credentials.yml file, that was encrypted using ansible-vault. The current Ansible playbook stores the access token in a file that grants access only to the current user (hence, the access mode 600 for this file) to avoid misuse of the retrieved access token. 
+
+```yaml
 - name: Include encrypted vars
   include_vars: credentials.yml
 
@@ -60,15 +64,15 @@ Once you do have your client id and client secret, you can generate an access to
 
 ## DSCC REST API call
 
-A DSCC REST API call can be with and without a request body and can have multiple responses depending on the actual API call. Nevertheless, it is good practice to build a modular code approach that uses a generalized REST API call to access the Data Services Cloud Console. The generalized DSCC REST API call is has as parameters:
+A DSCC REST API call can be with and without a request body and can have multiple responses depending on the actual API call. Nevertheless, it is good practice to build a modular code approach that uses a generalized REST API call to access the Data Services Cloud Console. The generalized DSCC REST API call has its parameters:
 
-* requestUri (as mentioned in the <!--StartFragment-->[](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)[Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/)[](https://console-us1.data.cloud.hpe.com/doc/api/v1/)<!--EndFragment-->) 
+* requestUri (as mentioned in the [](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)[Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) 
 * request method (GET, POST, DELETE, PUT)
 * request body (optional)
 
  and is shown in the following code block:
 
-```
+```yaml
 - name: Include encrypted vars
   include_vars: vars/credentials.yml
 
