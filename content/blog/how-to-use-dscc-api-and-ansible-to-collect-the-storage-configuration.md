@@ -67,7 +67,7 @@ The below code example had the client credentials stored in the credentials.yml 
 A DSCC REST API call can be with and without a request body and can have multiple responses depending on the actual API call. Nevertheless, it is good practice to build a modular code approach that uses a generalized REST API call to access the Data Services Cloud Console. The generalized DSCC REST API call has its parameters:
 
 * requestUri (as mentioned in the [](https://developer.hpe.com/greenlake/data-services-on-the-hpe-greenlake-platform/home/)[Data Services REST API](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) 
-* request method (GET, POST, DELETE, PUT)
+* request method (Get, Post, Delete, Put)
 * request body (optional)
 
  and is shown in the following code block:
