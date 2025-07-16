@@ -37,3 +37,33 @@ LLMs are great at “saying” things… but they don’t do anything.
 On their own, LLMs are like brilliant thinkers without hands — capable of deep analysis, but unable to act in the real world.
 
 <center><img src="/img/picture1-dinesh.png" width="957" height="273" alt="Test" title="Test"></center>
+
+
+
+![Test](/img/picture1-dinesh.png "Test")
+
+
+
+```yaml
+---
+# A sample yaml file
+company: spacelift
+domain:
+ - devops
+ - devsecops
+tutorial:
+  - yaml:
+      name: "YAML Ain't Markup Language"
+      type: awesome
+      born: 2001
+  - json:
+      name: JavaScript Object Notation
+      type: great
+      born: 2001
+  - xml:
+      name: Extensible Markup Language
+      type: good
+      born: 1996
+author: omkarbirade
+published: true
+```
