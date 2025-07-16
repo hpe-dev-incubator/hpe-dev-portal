@@ -1,8 +1,8 @@
 ---
 title: "From Generative to Agentic AI: Tracing the Leap from Words to Actions"
 date: 2025-07-03T10:34:13.174Z
-author: Dinesh
-authorimage: /img/Avatar1.svg
+author: Denis Choukroun
+authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
 tags:
   - Agentic Ai
