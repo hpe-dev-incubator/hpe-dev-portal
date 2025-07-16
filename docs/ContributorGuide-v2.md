@@ -524,7 +524,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\" title=\"brief description for the image\"\>\</center\>
 
 
-        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
+        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The image will be rendered in the Preview of the post and also once published. The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
 
         >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google. Adding a _Title_ will help make your image collateral more accessible for people with visual impairments and help them understand pictures content.  
 
@@ -609,7 +609,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks ***\`\`\`*** before and after the code block to include code block snippets in your blog post.
 
-    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language. If you do not find an appropriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
+    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language **(Field Settings --> MODE)**. If you do not find an appropriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
 
     -   Make sure to insert a line break before and after a code block snippet
 
