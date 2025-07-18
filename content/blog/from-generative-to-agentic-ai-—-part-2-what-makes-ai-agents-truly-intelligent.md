@@ -5,7 +5,22 @@ date: 2025-07-09T04:15:26.181Z
 author: DINESH R SINGH
 authorimage: /img/dinesh-192-192.jpg
 disable: false
+tags:
+  - "AI Agents "
+  - Agentic Frameworks
+  - Agno
+  - Autogen
+  - Langchain
+  - Enterprise Agents
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 In the first part of this series, we explored the shift from passive large language models to more capable, action-oriented AI. Now, we take a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
 
 Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
