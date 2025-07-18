@@ -25,10 +25,9 @@ In the first part of this series, we explored the shift from passive large langu
 
 Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
 
-
 <center><img src="/img/screenshot-2025-07-18-at-4.10.42 pm.png" width="500" height="542" alt="AI Agnet Framework" title="AI Agnet Framework"></center>
 
-## What Are AI Agents?
+## What are AI Agents?
 
 An AI agent is not just something that responds to prompts — it’s something that takes initiative. Unlike traditional LLMs, which generate output only when asked, agents can independently decide what actions to take, how to take them, and when to stop.
 
@@ -41,7 +40,7 @@ Here’s what makes an agent different:
 
 In essence, an AI agent behaves more like a virtual assistant capable of doing actual work — not just holding a conversation.
 
-## The Agent Workflow: Think → Plan → Act → Respond
+## The Agent workflow: Think → Plan → Act → Respond
 
 The heart of an agentic system lies in this continuous loop:
 
@@ -52,7 +51,7 @@ Respond: Finally, it summarizes or communicates the results — or loops back to
 
 This cycle allows agents to operate with minimal human intervention, even on complex, multi-step workflows.
 
-## Real-World Impact: How Agents Are Already Changing Industries
+## Real-World impact: How Agents are already changing industries
 
 **Healthcare:** AI agents can retrieve patient history, summarize medical notes, and monitor for critical conditions, aiding doctors in real-time.
 
@@ -64,7 +63,7 @@ This cycle allows agents to operate with minimal human intervention, even on com
 
 These are not theoretical applications — they are happening right now, streamlining operations and reducing bottlenecks across the board.
 
-## Agents + Tools = Real-World Superpowers
+## Agents + Tools = Real-World superpowers
 
 What truly empowers agents is their ability to interface with tools. Think of APIs, web services, internal databases, scripts, and even IoT systems. These integrations allow agents to interact with the real world, not just the digital one.
 
@@ -76,7 +75,7 @@ For example:
 
 When agents are connected to tools, they don’t just think — they execute.
 
-## Why We Need AI Agents
+## Need of AI Agents
 
 The value of AI agents lies in their ability to scale thinking into action:
 
@@ -96,7 +95,6 @@ If you're ready to build with agents, here are the top frameworks that developer
 * LangChain
 * Autogen by Microsoft
 
-
 | Framework             | What it does                                       | GitHub Link                                                   | ⭐ Stars |
 | --------------------- | -------------------------------------------------- | ------------------------------------------------------------- | ------- |
 | **AGNO (Phidata)**    | Build fast, multi-modal agents (text + images)     | [AGNO GitHub](https://github.com/phidatahq/phidata)           | ⭐ 21.5k |
@@ -105,11 +103,9 @@ If you're ready to build with agents, here are the top frameworks that developer
 | **LangChain Agents**  | Powerful and flexible agent toolkit for developers | [LangChain GitHub](https://github.com/langchain-ai/langchain) | ⭐ 104k  |
 | **Microsoft Autogen** | Build multi-agent systems that work together       | [Autogen GitHub](https://github.com/microsoft/autogen)        | ⭐ 42k   |
 
-
-
 Each offers a different approach — some focus on chaining tasks, others on autonomy and memory. Together, they make it easier than ever to bring agentic AI to life.
 
-**Conclusion**
+## **Conclusion**
 
 AI agents are no longer a futuristic idea — they’re here, and they’re transforming how work gets done. By combining decision-making, planning, and tool usage, agents represent the leap from intelligent text generation to intelligent action. They’re bridging the gap between knowing what needs to be done and actually doing it.
 
