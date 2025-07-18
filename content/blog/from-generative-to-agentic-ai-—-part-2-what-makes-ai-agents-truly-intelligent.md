@@ -6,13 +6,11 @@ author: DINESH R SINGH
 authorimage: /img/dinesh-192-192.jpg
 disable: false
 ---
-## Introduction
-
 In the first part of this series, we explored the shift from passive large language models to more capable, action-oriented AI. Now, we take a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
 
-This blog is inspired by a Medium article written by Dinesh R. It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
+Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
 
-Medium : <https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0>
+
 
 ## What Are AI Agents?
 
@@ -26,8 +24,6 @@ Here’s what makes an agent different:
 * It can break down large tasks into smaller, manageable steps and complete them autonomously.
 
 In essence, an AI agent behaves more like a virtual assistant capable of doing actual work — not just holding a conversation.
-
-
 
 ## The Agent Workflow: Think → Plan → Act → Respond
 
@@ -84,21 +80,12 @@ If you're ready to build with agents, here are the top frameworks that developer
 * LangChain
 * Autogen by Microsoft
 
-|     |     |     |     |
-| --- | --- | --- | --- |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-
 Each offers a different approach — some focus on chaining tasks, others on autonomy and memory. Together, they make it easier than ever to bring agentic AI to life.
 
 **Conclusion**
 
 AI agents are no longer a futuristic idea — they’re here, and they’re transforming how work gets done. By combining decision-making, planning, and tool usage, agents represent the leap from intelligent text generation to intelligent action. They’re bridging the gap between knowing what needs to be done and actually doing it.
 
-In Part 3 of this series, we’ll dig deeper into the architecture behind agentic systems — what components make them tick, how memory and feedback loops work, and how they can scale. If you're building the future or just trying to understand it, you're in the right place.
+In Part 3 of this series, I'll dig deeper into the architecture behind agentic systems — what components make them tick, how memory and feedback loops work, and how they can scale. If you're building the future or just trying to understand it, you're in the right place.
 
 Until then, keep watching the space where AI stops being a helper… and becomes a doer
