@@ -10,7 +10,8 @@ In the first part of this series, we explored the shift from passive large langu
 
 Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
 
-![AI Agnet Framework](/img/screenshot-2025-07-18-at-4.10.42 pm.png "AI Agnet Framework")
+
+<center><img src="/img/screenshot-2025-07-18-at-4.10.42 pm.png" width="500" height="542" alt="AI Agnet Framework" title="AI Agnet Framework"></center>
 
 ## What Are AI Agents?
 
