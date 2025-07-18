@@ -45,9 +45,9 @@ In essence, an AI agent behaves more like a virtual assistant capable of doing a
 
 The heart of an agentic system lies in this continuous loop:
 
-Think: It starts with understanding the objective or problem at hand.\
-Plan: Based on that understanding, it creates a strategy — often a sequence of steps.\
-Act: It then begins executing the plan, calling tools, retrieving data, or initiating actions.\
+Think: It starts with understanding the objective or problem at hand.
+Plan: Based on that understanding, it creates a strategy — often a sequence of steps.
+Act: It then begins executing the plan, calling tools, retrieving data, or initiating actions.
 Respond: Finally, it summarizes or communicates the results — or loops back to continue solving.
 
 This cycle allows agents to operate with minimal human intervention, even on complex, multi-step workflows.
@@ -95,6 +95,7 @@ If you're ready to build with agents, here are the top frameworks that developer
 * AGNO
 * LangChain
 * Autogen by Microsoft
+
 
 | Framework             | What it does                                       | GitHub Link                                                   | ⭐ Stars |
 | --------------------- | -------------------------------------------------- | ------------------------------------------------------------- | ------- |
