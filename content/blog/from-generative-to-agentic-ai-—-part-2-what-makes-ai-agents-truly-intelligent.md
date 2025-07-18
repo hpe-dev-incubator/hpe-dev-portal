@@ -80,6 +80,16 @@ If you're ready to build with agents, here are the top frameworks that developer
 * LangChain
 * Autogen by Microsoft
 
+| Framework             | What it does                                       | GitHub Link                                                   | ⭐ Stars |
+| --------------------- | -------------------------------------------------- | ------------------------------------------------------------- | ------- |
+| **AGNO (Phidata)**    | Build fast, multi-modal agents (text + images)     | [AGNO GitHub](https://github.com/phidatahq/phidata)           | ⭐ 21.5k |
+| **Auto-GPT**          | The first viral agent that automates tasks         | [Auto-GPT GitHub](https://github.com/Torantulino/Auto-GPT)    | ⭐ 174k  |
+| **BabyAGI**           | Agents that manage task lists autonomously         | [BabyAGI GitHub](https://github.com/yoheinakajima/babyagi)    | ⭐ 21.2k |
+| **LangChain Agents**  | Powerful and flexible agent toolkit for developers | [LangChain GitHub](https://github.com/langchain-ai/langchain) | ⭐ 104k  |
+| **Microsoft Autogen** | Build multi-agent systems that work together       | [Autogen GitHub](https://github.com/microsoft/autogen)        | ⭐ 42k   |
+
+
+
 Each offers a different approach — some focus on chaining tasks, others on autonomy and memory. Together, they make it easier than ever to bring agentic AI to life.
 
 **Conclusion**
