@@ -144,7 +144,7 @@ Use Flowise's drag-and-drop interface to design your chatbot’s conversational 
 
 ![](/img/chatflow-1.jpg)
 
-Save the Chatflow with a name, "AI Chatbot" and add the following nodes, making the connections shown in the screenshot.
+Save the Chatflow using the name "AI Chatbot" and add the following nodes, making the connections shown in the screenshot.
 
 * **Chat Models (Chat NVIDIA NIM):** Set Deployment 'Endpoint' from HPE MLIS as 'Base Path', corresponding 'Model Name' and 'API Key' from HPE MLIS for 'Connect Credential'.
 * **Memory (Buffer Window Memory):** Set appropriate 'Size'.
@@ -152,13 +152,13 @@ Save the Chatflow with a name, "AI Chatbot" and add the following nodes, making 
 
 ![](/img/chatflow-2.jpg)
 
-AI Chatbot is now ready! You may quickly test it by clicking the 'chat' icon on top right corner of the screen.
+Your new AI Chatbot is now ready! You may quickly test it by clicking the chat icon on the top right corner of the screen.
 
 ![](/img/chatflow-3.jpg)
 
 ### Accessing AI Chatbot from external applications
 
-Flowise provides an API Endpoint for the Chatbot, with multiple ways of integrating it with your applications. Also, you may explore multiple configurations that are available to enhance the chatbot. 
+Flowise provides an API endpoint for the chatbot, with multiple ways of integrating it with your applications. Also, you may explore multiple configurations that are available to enhance the chatbot. 
 
 ![](/img/chatflow-4.jpg)
 
@@ -166,4 +166,4 @@ Flowise provides an API Endpoint for the Chatbot, with multiple ways of integrat
 
 By combining Flowise’s intuitive chatbot builder with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to rapidly develop, deploy, and govern conversational AI solutions. This integrated approach ensures data privacy, operational control, and scalability for enterprise chatbot deployments.
 
-Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging 'HPE Private Cloud AI' for your AI.
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
