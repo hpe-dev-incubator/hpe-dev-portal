@@ -4,6 +4,11 @@ date: 2025-07-21T10:34:35.011Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
+tags:
+  - Agentic AI
+  - Generative AI
+  - "Agents Mode "
+  - Agents Communications
 ---
 <style>
 li {
