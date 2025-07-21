@@ -4,6 +4,11 @@ date: 2025-07-21T10:04:38.579Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
+tags:
+  - "Language Agents "
+  - MultiLingual Application
+  - Multilingual
+  - Multi Language Agents
 ---
 <style>
 li {
