@@ -17,7 +17,7 @@ This blog post walks you through deploying Flowise on HPE PCAI to build a modern
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA NIM* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*.
+[HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA Inference Microservices (NIM)* LLMs, along with a powerful suite of AI tools and frameworks for *Data Engineering*, *Analytics*, and *Data Science*.
 
 HPE Machine Learning Inference Software is a user-friendly solution designed to simplify and control the deployment, management, and monitoring of machine learning (ML) models, including LLMs, at any scale.
 
@@ -87,17 +87,13 @@ HPE MLIS is accessed by clicking on 'HPE MLIS' tile in *Tools & Frameworks / Dat
 
 ![](/img/mlis.jpg)
 
-To deploy a pre-packaged LLM(Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and create 'Deployments'. 
-
-
+To deploy a pre-packaged LLM (Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and create 'Deployments'. 
 
 ### 1. Add 'Registry'
 
-Add a new registry of type 'NGC', which can be used to access pre-packaged LLMs. 
+Add a new registry of type 'NVIDIA GPU Cloud' (NGC), which can be used to access pre-packaged LLMs. 
 
 ![](/img/mlis-registry.jpg)
-
-
 
 ### 2. Add 'Packaged Model'
 
@@ -118,8 +114,6 @@ Set the right resources required for the model, either by choosing the in-built 
 Newly created packaged model appears in the UI.
 
 ![](/img/package-model-final.jpg)
-
-
 
 ### 3. Create 'Deployment'
 
@@ -142,8 +136,6 @@ Set 'Auto scaling' as required. In this example, we have used 'fixed-1' template
 The LLM is now deployed and can be accessed using the 'Endpoint', and corresponding 'API Token'.
 
 ![](/img/deployment-6.jpg)
-
-
 
 ## Create AI Chatbot in Flowise
 
