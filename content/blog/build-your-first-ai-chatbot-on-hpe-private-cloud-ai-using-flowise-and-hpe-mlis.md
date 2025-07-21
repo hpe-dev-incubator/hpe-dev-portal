@@ -28,7 +28,7 @@ HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (in
 
 [Flowise](https://flowiseai.com/) is an open source generative AI development platform for building AI Agents and LLM workflows. It provides a visual interface for designing conversational flows, integrating data sources, and connecting to various LLM endpoints. Flowise provides modular building blocks for you to build any agentic systems, from simple compositional workflows to autonomous agents.
 
-## Deploying Flowise on HPE PCAI via *Import Framework*
+## Deploying Flowise via import framework
 
 ### 1. Prepare the Helm Charts
 
