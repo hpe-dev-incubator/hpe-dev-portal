@@ -198,7 +198,7 @@ Looking for multi-agent orchestration with Ollama?
 * Streaming LLM outputs
 * Agent-task dependencies and coordination
 
-\## Final Summary
+## Final Summary
 
 By combining AGNO, Ollama, and LLaMA3, developers can build fully private Agentic AI systems that:
 
