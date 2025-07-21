@@ -65,7 +65,7 @@ Ensure you're using an AGNO-compatible environment such as autogen_py_3_11_11, a
 
 ### 2. Sample playground.py Script
 
-```
+```python
 import os
 from agno.agent import Agent
 from agno.models.ollama import Ollama
@@ -78,7 +78,7 @@ os.environ\['AGNO_MONITOR'] = 'true'  # Enable session tracking
 
 ### Define a news reporter agent
 
-```
+```python
 agent = Agent(
 
 model=Ollama(id="llama3.2", provider="Ollama"),
@@ -92,26 +92,26 @@ markdown=True
 
 ### (Optional) Test agent locally before serving
 
-```
+```python
 agent.print_response("Tell me about a breaking news story from New York.", stream=True)
 ```
 
 #### Create playground app
 
-```
+```python
 app = Playground(agents=agent).get_app()
 ```
 
 \### Launch local playground
 
-```
+```python
 if __name__ == "__main__":
 serve_playground_app("playground:app", reload=True)
 ```
 
 Access Your Hosted Agent
 
-```
+```python
 #After running:
 python playground.py
 
@@ -124,7 +124,7 @@ You now have a fully interactive Agentic AI service — complete with memory, to
 
 Want to host multiple agents with different skills, roles, or tools?
 
-```
+```python
  app = Playground(agents=team.members).get_app() 
 ```
 
@@ -141,7 +141,7 @@ Perfect for multi-agent collaboration, delegation, or workflows.
 
 #### AGNO includes built-in monitoring:
 
-```
+```python
 os.environ\['AGNO_MONITOR'] = 'true' 
 ```
 
