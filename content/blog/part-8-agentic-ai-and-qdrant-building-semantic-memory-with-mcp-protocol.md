@@ -9,6 +9,14 @@ tags:
   - Agentic AI
   - Generative AI
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 As Agentic AI systems evolve from reactive language models to structured thinkers, a new challenge emerges — how do we give these agents memory? Not just logs or files, but real, searchable memory that understands context. Enter Qdrant and the Model Context Protocol (MCP) — a modular pairing that brings semantic search and knowledge storage to agent workflows.
 
 [Inspired by my Medium post](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-8-agentic-ai-mcp-281567e26838), this article explores how MCP standardizes interactions between intelligent agents and vector databases like Qdrant. By enabling seamless storage and retrieval of embeddings, agents can now “remember” useful information and leverage it in future reasoning.
