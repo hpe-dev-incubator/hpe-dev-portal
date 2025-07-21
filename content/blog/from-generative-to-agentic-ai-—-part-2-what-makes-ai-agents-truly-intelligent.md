@@ -20,7 +20,7 @@ li {
 }
 </style>
 
-In the first part of this series, we explored the shift from passive large language models to more capable, action-oriented AI. Now, we take a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
+In the [first part of this series](https://developer.hpe.com/blog/from-generative-to-agentic-ai-tracing-the-leap-from-words-to-actions/), we explored the shift from passive large language models to more capable, action-oriented AI. Now, we take a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
 
 Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
 
@@ -43,10 +43,10 @@ In essence, an AI agent behaves more like a virtual assistant capable of doing a
 
 The heart of an agentic system lies in this continuous loop:
 
-Think: It starts with understanding the objective or problem at hand.
-Plan: Based on that understanding, it creates a strategy — often a sequence of steps.
-Act: It then begins executing the plan, calling tools, retrieving data, or initiating actions.
-Respond: Finally, it summarizes or communicates the results — or loops back to continue solving.
+**Think :** It starts with understanding the objective or problem at hand.
+**Plan :** Based on that understanding, it creates a strategy — often a sequence of steps.
+**Act :** It then begins executing the plan, calling tools, retrieving data, or initiating actions.
+**Respond :** Finally, it summarizes or communicates the results — or loops back to continue solving.
 
 This cycle allows agents to operate with minimal human intervention, even on complex, multi-step workflows.
 
