@@ -1,5 +1,5 @@
 ---
-title: "Part 8: Agentic AI and Qdrant: Building Semantic Memory with MCP Protocol"
+title: "Part 8: Agentic AI and Qdrant: Building semantic Memory with MCP protocol"
 date: 2025-07-21T10:50:25.839Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -35,7 +35,7 @@ This is solved by wrapping Qdrant inside an MCP server, giving agents a semantic
 
 ### Architecture Overview
 
-```
+```cwl
 [LLM Agent]
     |
     |-- [MCP Client]
@@ -60,13 +60,13 @@ Imagine an AI assistant answering support queries.
 
 ### Step 1: Launch Qdrant MCP Server
 
-```
+```cwl
 export COLLECTION_NAME="support-tickets"
 export QDRANT_LOCAL_PATH="./qdrant_local_db"
 export EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2"
 ```
 
-```
+```cwl
 uvx mcp-server-qdrant --transport sse
 ```
 
@@ -78,7 +78,7 @@ uvx mcp-server-qdrant --transport sse
 
 ### Step 2: Connect the MCP Client
 
-```
+```python
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 async def main():
@@ -93,7 +93,7 @@ server_params = StdioServerParameters(
 )
 ```
 
-```
+```python
 async with stdio_client(server_params) as (read, write):
      async with ClientSession(read, write) as session:
          await session.initialize()
@@ -101,13 +101,13 @@ async with stdio_client(server_params) as (read, write):
          print(tools)
 ```
 
-```
+```cwl
 Expected Output: Lists tools like qdrant-store, qdrant-find
 ```
 
 ### Step 3: Ingest a New Memory
 
-```
+```python
 ticket_info = "Order #1234 was delayed due to heavy rainfall in transit zone."
 result = await session.call_tool("qdrant-store", arguments={
 "information": ticket_info,
@@ -119,7 +119,7 @@ This stores an embedded version of the text in Qdrant.
 
 ### Step 4: Perform a Semantic Search
 
-```
+```python
 query = "Why was order 1234 delayed?"
 search_response = await session.call_tool("qdrant-find", arguments={
 "query": "order 1234 delay"
@@ -128,7 +128,7 @@ search_response = await session.call_tool("qdrant-find", arguments={
 
 ## Example Output:
 
-```
+```cwl
 [
   {
 "content": "Order #1234 was delayed due to heavy rainfall in transit zone.",
@@ -139,7 +139,7 @@ search_response = await session.call_tool("qdrant-find", arguments={
 
 ### Step 5: Use with LLM
 
-```
+```python
 import openai
 context = "\n".join(\[r["content"] for r in search_response])
 prompt = f"""
@@ -156,8 +156,9 @@ messages=[{"role": "user", "content": prompt}]
 print(response\["choices"]\[0]\["message"]\["content"])
 ```
 
-```
-Final Answer:
+### Final Answer:
+
+```cwl
 "Order #1234 was delayed due to heavy rainfall in the transit zone."
 ```
 
