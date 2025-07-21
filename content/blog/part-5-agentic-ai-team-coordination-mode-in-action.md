@@ -1,5 +1,5 @@
 ---
-title: "Part 5: Agentic AI: Team Coordination Mode in Action"
+title: "Part 5: Agentic AI: Team Coordination Mode in action"
 date: 2025-07-21T07:24:24.522Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -45,7 +45,7 @@ Let’s examine a professional-grade configuration of a New York Times-style edi
 
 ### Imports
 
-```
+```python
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
 from agno.team.team import Team
@@ -55,7 +55,7 @@ from agno.tools.read import Newspaper4kTools
 
 ### Searcher Agent
 
-```
+```python
 searcher = Agent(
     name="Searcher",
     role="Searches the top URLs for a topic",
@@ -71,7 +71,7 @@ searcher = Agent(
 
 ### Writer Agent
 
-```
+```python
 writer = Agent(
     name="Writer",
     role="Writes a high-quality article",
@@ -89,7 +89,7 @@ writer = Agent(
 
 ### Editor Team (Manager Agent in Coordinate Mode)
 
-```
+```python
 editor = Team(
     name="Editor",
     mode="coordinate",
@@ -111,7 +111,7 @@ editor = Team(
 
 ### Running the Team
 
-```
+```python
 Method 1: Print output directly
 editor.print_response("Write an article about latest developments in AI.")
 
@@ -134,7 +134,7 @@ response = editor.run("Write an article about latest developments in AI.")
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=\\\[...]</code></td>
+      <td><code>members=\\\\[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
@@ -156,7 +156,7 @@ response = editor.run("Write an article about latest developments in AI.")
 
 Adding success_criteria helps agents align their efforts with measurable outcomes.
 
-```
+```python
 strategy_team = Team(
     members=[market_analyst, competitive_analyst, strategic_planner],
     mode="coordinate",
