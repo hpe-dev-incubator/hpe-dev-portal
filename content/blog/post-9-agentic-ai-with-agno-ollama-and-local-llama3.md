@@ -5,8 +5,6 @@ author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
 ---
-
-
 <style>
 li {
    font-size: 27px;
@@ -48,21 +46,19 @@ Once running, it exposes a REST API at http://localhost:11434, compatible with O
 Official site: [ollama.com](https://ollama.com)
 
 ```
-
 Install and Run Ollama
 
-\# Mac
+# Mac
 
 brew install ollama
 
-\# Linux
+# Linux
 
 curl -fsSL https://ollama.com/install.sh | sh
 
-\# Run a model
+# Run a model
 
 ollama run llama3
-
 ```
 
 This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints that work with both synchronous and streaming chat.
@@ -72,7 +68,6 @@ This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints
 Let’s build a storytelling agent using AGNO connected to Ollama.
 
 ```
-
 from agno.agent import Agent
 
 from agno.models.ollama import Ollama
@@ -92,6 +87,29 @@ agent.print_response("Tell me about a breaking news story from New York.", strea
 
 ## Parameters
 
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead style="background-color:#f2f2f2">
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>model=Ollama(...)</code></td>
+      <td>Connects to a local LLaMA model via Ollama</td>
+    </tr>
+    <tr>
+      <td><code>description</code></td>
+      <td>Agent personality and behavior</td>
+    </tr>
+    <tr>
+      <td><code>markdown=True</code></td>
+      <td>Outputs markdown-formatted content</td>
+    </tr>
+  </tbody>
+</table>
+
 ## No Framework? No Problem.
 
 Frameworks like AGNO offer orchestration, but what if you're running in:
@@ -106,17 +124,16 @@ Here’s how to build a raw agent pipeline using just:
 * DuckDuckGo search for tool use
 * Custom prompt logic
 
-## Full Python Agent Pipeline
+## Full python Agent pipeline
 
 ```
-
 from ollama import Client
 
 from duckduckgo_search import DDGS
 
 ollama_client = Client(host='http://localhost:11434')
 
-#### Tool: Web search via DuckDuckGo
+### Tool: Web search via DuckDuckGo
 
 def duckduckgo_search(query, max_results=5):
 
@@ -124,10 +141,10 @@ with DDGS() as ddgs:
 
      return \[r for r in ddgs.text(query, region="wt-wt", safesearch="off", max_results=max_results)]
 ```
+
 ### Pipeline logic
 
 ```
-
 def agent_pipeline(user_input):
 
 if "what" in user_input.lower() or "happening" in user_input.lower():
@@ -171,25 +188,48 @@ response = ollama_client.chat(
 print("\n\[Agent Response]:")
 
 print(response\['message']\['content'])
-
 ```
 
-### Example Outputs
+### Example outputs
 
 ```
 agent_pipeline("What's happening in New York?")
 
 agent_pipeline("Tell me a joke.")
-
 ```
 
-```
-## Breakdown of Components
+## Breakdown of components
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead style="background-color:#f2f2f2">
+    <tr>
+      <th>Component</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>LLM Backend</code></td>
+      <td>Ollama running LLaMA 3.2 locally</td>
+    </tr>
+    <tr>
+      <td><code>Tool</code></td>
+      <td>DuckDuckGo search for real-time info</td>
+    </tr>
+    <tr>
+      <td><code>Orchestration</code></td>
+      <td>Custom Python logic</td>
+    </tr>
+    <tr>
+      <td><code>Agentic Behavior</code></td>
+      <td>Manual Think → Act → Reflect implementation</td>
+    </tr>
+  </tbody>
+</table>
 
 This pattern gives you full control with zero cloud dependency — and forms the base for private AI workflows.
-```
 
-## Pro Tip
+## Pro tip
 
 Looking for multi-agent orchestration with Ollama?
 
@@ -199,7 +239,7 @@ Looking for multi-agent orchestration with Ollama?
 * Streaming LLM outputs
 * Agent-task dependencies and coordination
 
-## Final Summary
+## Final summary
 
 By combining AGNO, Ollama, and LLaMA3, developers can build fully private Agentic AI systems that:
 
