@@ -1,5 +1,5 @@
 ---
-title: "Part 3: Model Context Protocol (MCP): The Protocol That Powers AI Agents"
+title: "Part 3: Model Context Protocol (MCP): The protocol that powers AI Agents"
 date: 2025-07-18T14:23:55.595Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -20,7 +20,7 @@ li {
 }
 </style>
 
-As AI agents grow beyond text generation into autonomous problem-solvers, a new challenge emerges — communication. Not between humans and AI, but between AI and the vast world of services, APIs, databases, and tools. That’s where **MCP (Model Context Protocol)** steps in.
+As AI agents grow beyond text generation into autonomous problem-solvers, a new challenge emerges — communication. Not between humans and AI, but between AI and the vast world of services, APIs, databases, and tools. That’s where **Model Context Protocol (MCP)** steps in.
 
 Inspired by [my post on medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-3-mcp-model-context-f026578ff0dd), this blog demystifies the MCP standard — reinterpreted with clarity, depth, and real-world relevance to help you understand how AI agents actually get things done.
 If LLMs are the brains, MCP is the nervous system connecting them to the real world. Let’s unpack how this protocol makes agentic AI functional, contextual, and enterprise-ready.
@@ -128,8 +128,6 @@ This turns the agent into a **situationally aware operator**, not just a command
   </tbody>
 </table>
 
-
-
 ## Real-World applications of MCP
 
 1. **Faster Integrations**
@@ -141,10 +139,7 @@ This turns the agent into a **situationally aware operator**, not just a command
 4. **Cross-Agent Compatibility**
    Build a tool once, and any MCP-compliant agent can use it. No more agent-specific wrappers.
 
-
-
 ### **Case Study: Qdrant with MCP**
-
 
 **Qdrant** is a vector database used for semantic search. Here’s how it operates under MCP:
 
@@ -155,10 +150,7 @@ This turns the agent into a **situationally aware operator**, not just a command
 
 This is vector search integrated into an agentic loop — not just storage, but intelligence.
 
-
-
 ### Case Study: PostgreSQL with MCP
-
 
 A **Postgres MCP Server** might expose methods such as:
 
@@ -187,8 +179,6 @@ These players are shaping a plug-and-play AI world where tools and agents speak 
 
 MCP is more than a technical standard — it's a **philosophy of interoperability** for the agentic era. It shifts AI from being a passive responder to an active participant in real-world systems. With MCP, agents don’t just have the ability to talk — they gain the **power to think, act, adapt, and connect** meaningfully.
 
+As we continue this series, [the next chapter](https://developer.hpe.com/blog/part-3-the-rise-of-agentic-ai-and-the-power-of-the-agno-framework/) will spotlight a top Agentic AI framework and reveal how it uses MCP to orchestrate intelligent, autonomous workflows across environments.
 
-As we continue this series, the next chapter will spotlight a top Agentic AI framework and reveal how it uses MCP to orchestrate intelligent, autonomous workflows across environments.
-
-> #### 
-> If you’re building with AI — or planning to — MCP is the connective tissue you can’t afford to ignore
+> If you’re building with AI — or planning to — MCP is the connective tissue you can’t afford to ignore.
