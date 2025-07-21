@@ -1,5 +1,5 @@
 ---
-title: "Part 7: How Collaborative Teams of Agents Unlock New Intelligence"
+title: "Part 7: How Collaborative Teams of Agents unlock new intelligence"
 date: 2025-07-21T10:34:35.011Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -45,7 +45,7 @@ Each returns findings from their ecosystem, which the coordinator blends into a 
 
 ### 1. Import modules & tools
 
-```import
+```python
 from textwrap import dedent
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
@@ -62,7 +62,7 @@ Each agent is built for platform-specific intelligence gathering.
 
 ### Reddit Agent
 
-```
+```python
 reddit_researcher = Agent(
 name="Reddit Researcher",
 role="Research a topic on Reddit",
@@ -75,7 +75,7 @@ instructions=dedent("""You are a Reddit researcher..."""),
 
 ### HackerNews Agent
 
-```
+```python
 hackernews_researcher = Agent(
 name="HackerNews Researcher",
 model=OpenAIChat("gpt-4o"),
@@ -88,7 +88,7 @@ instructions=dedent("""You are a HackerNews researcher..."""),
 
 ### Academic Agent
 
-```
+```python
 academic_paper_researcher = Agent(
 name="Academic Paper Researcher",
 model=OpenAIChat("gpt-4o"),
@@ -101,7 +101,7 @@ instructions=dedent("""You are an academic researcher..."""),
 
 ## Twitter - X Agent
 
-```
+```python
 twitter_researcher = Agent(
 name="Twitter Researcher",
 model=OpenAIChat("gpt-4o"),
@@ -115,7 +115,7 @@ instructions=dedent("""You are a Twitter researcher..."""),
 
 ### 3. Define the Team
 
-```
+```python
 agent_team = Team(
 name="Discussion Team",
 mode="collaborate",
@@ -144,7 +144,7 @@ show_members_responses=True,
 
 ### 4. Running the Discussion
 
-```
+```python
 if __name__ == "__main__":
 
 asyncio.run(
@@ -158,7 +158,7 @@ asyncio.run(
 
 ### Example output
 
-```
+```python
 * Reddit: Focus on project-building and freeCodeCamp
 * HackerNews: Start with Python and open-source
 * Academia: Reinforce with spaced repetition and mentorship
@@ -170,7 +170,7 @@ asyncio.run(
 
 ## Pro Tip: Run Agents in parallel
 
-```
+```python
 asyncio.run(
 
 agent_team.print_response(
@@ -181,8 +181,6 @@ agent_team.print_response(
 ```
 
 Using asyncio ensures agents work simultaneously, which dramatically boosts speed and output quality—especially in research-heavy or time-sensitive use cases.
-
-
 
 ## Final thought's
 
