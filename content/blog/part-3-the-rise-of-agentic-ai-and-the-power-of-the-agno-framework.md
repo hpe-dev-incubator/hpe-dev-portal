@@ -1,5 +1,5 @@
 ---
-title: "Part 4: The Rise of Agentic AI and the Power of the AGNO Framework"
+title: "Part 4: The rise of Agentic AI and the power of the AGNO framework"
 date: 2025-07-21T07:02:23.813Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -48,7 +48,7 @@ This evolution from reactive chatbots to proactive agents is redefining automati
 * **Streaming support** using protocols like MCP
 * **Workflow visualization** and agent team configurations
 
-🔗 GitHub: [AGNO Framework](https://github.com/phidatahq/agno)
+🔗 GitHub: [AGNO Framework](https://github.com/agno-agi/agno)
 
 ## **Agents, Tools, and Teams — The Building Blocks**
 
@@ -87,7 +87,7 @@ A central agent assigns and manages sub-tasks across specialized agents.
 * Aggregates results and presents final outcomes
 * Ideal for hierarchical workflows
 
-> *Will be explored in depth in Part 5.*
+> *[Will be explored in depth in Part 5.](https://developer.hpe.com/blog/part-5-agentic-ai-team-coordination-mode-in-action/)*
 
 ### **Router Mode**
 
@@ -96,7 +96,7 @@ Tasks are automatically routed to the most appropriate agent based on query type
 * Lightweight and fast
 * Common in chatbots, support desks, or multi-skill assistants
 
-> *Detailed breakdown coming in Part 6.*
+> *[Detailed breakdown coming in Part 6.](https://developer.hpe.com/blog/part-6-agentic-ai-teams-in-router-mode-multilingual-routing-with-agno/)*
 
 ### **Collaborator Mode**
 
@@ -106,7 +106,7 @@ Agents collaborate dynamically, sharing knowledge and decisions.
 * Encourages creative and collective output
 * Useful in research, design, or planning systems
 
-> *Deep dive ahead in Part 7.*
+> *[Deep dive ahead in Part 7.](https://developer.hpe.com/blog/part-7-how-collaborative-teams-of-agents-unlock-new-intelligence/)*
 
 <center><img src="/img/screenshot-2025-07-21-at-12.46.13 pm.png" width="600" height="550" alt="Pro Insight: Langmanus — A Complementary Framework" title="Pro Insight: Langmanus — A Complementary Framework"></center>
 
@@ -136,4 +136,4 @@ GitHub: [Langmanus Repository](https://github.com/langmanus/langmanus)
 
 These agents aren’t just smarter — they’re collaborative, modular, and capable of evolving with the task at hand. As more organizations adopt these systems, the future of automation will belong not to static scripts, but to dynamic agents working in harmony.
 
-> **Up next in Part 5:** We’ll dive deep into **Coordinator Mode** and how AGNO orchestrates multi-agent task flows like a seasoned project manager.
+> **[Up next in Part 5:](https://developer.hpe.com/blog/part-5-agentic-ai-team-coordination-mode-in-action/)** We’ll dive deep into **Coordinator Mode** and how AGNO orchestrates multi-agent task flows like a seasoned project manager.
