@@ -100,14 +100,11 @@ german_agent = Agent(
  
 
  
-
-
 ```
 
 ### Step 2: Create the Router Team
 
 ```
-
 from agno.team.team import Team
 
 multi_language_team = Team(
@@ -138,14 +135,10 @@ multi_language_team = Team(
 ### Step 3: Run Multilingual Examples
 
 ```
-
-
 multi_language_team.print_response("How are you?", stream=True)         # English
 multi_language_team.print_response("你好吗？", stream=True)              # Chinese
 multi_language_team.print_response("お元気ですか?", stream=True)         # Japanese
 multi_language_team.print_response("Comment allez-vous?", stream=True) # French
-
-
 ```
 
 ### Output:
@@ -157,11 +150,38 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
 [French Agent]: Je vais bien, merci. Et vous ?
 ```
 
-
-
 <center><img src="/img/screenshot-2025-07-21-at-3.38.47 pm.png" width="600" height="550" alt="Agent Mode Parameters" title="Agent Mode Parameters"></center>
 
 ## Key Parameters Explained
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead style="background-color:#f2f2f2">
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>mode="route"</code></td>
+      <td>Instructs the team to act as a switchboard, not an executor</td>
+    </tr>
+    <tr>
+      <td><code>show_members_responses=True</code></td>
+      <td>Displays individual agent replies for traceability</td>
+    </tr>
+    <tr>
+      <td><code>instructions\[]</code></td>
+      <td>Core router logic: detect language, enforce exclusivity, manage fallbacks</td>
+    </tr>
+    <tr>
+      <td><code>model=OpenAIChat(...)</code></td>
+      <td>Backbone LLM used by the router team for input analysis</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 ## Why Router Mode Works
 
