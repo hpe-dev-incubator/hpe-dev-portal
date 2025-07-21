@@ -10,13 +10,21 @@ tags:
   - Agentic AI
   - AI Agents
 ---
-One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized agents work together to fulfill complex goals. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
+One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized **agents work together to fulfill complex goals**. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
 
 [Inspired by my Medium post.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-5-agentic-ai-a-2d6651c9cc5c)
 
 <center><img src="/img/screenshot-2025-07-21-at-12.57.22 pm.png" width="600" height="550" alt="LLM Mode" title="LLM Mode"></center>
 
-## What Are Agentic AI Teams?
+## What are Agentic AI Teams?
 
 An Agentic Team is a structured collection of AI agents, each performing a specific role with autonomy and tool access. Teams can include roles like:
 
@@ -25,7 +33,7 @@ An Agentic Team is a structured collection of AI agents, each performing a speci
 * Translator: Converts content across languages
 * Planner: Organizes execution based on goals
 
-### In Coordinate Mode:
+### In Coordinate mode:
 
 * A Team Manager Agent directs the flow of tasks
 * Individual agents handle sub-tasks independently
@@ -126,7 +134,7 @@ response = editor.run("Write an article about latest developments in AI.")
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=\\[...]</code></td>
+      <td><code>members=\\\[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
@@ -144,7 +152,7 @@ response = editor.run("Write an article about latest developments in AI.")
   </tbody>
 </table>
 
-## Pro Tip: Define Success Criteria
+## Pro Tip: Define success criteria
 
 Adding success_criteria helps agents align their efforts with measurable outcomes.
 
@@ -164,9 +172,6 @@ response = strategy_team.run(
 This ensures agents not only act — but act with strategic purpose and direction.
 
 <center><img src="/img/screenshot-2025-07-21-at-12.57.44 pm.png" width="600" height="550" alt="Agentic AI Parameters" title="Agentic AI Parameters"></center>
-
-
-
 
 ## Conclusion
 
