@@ -132,7 +132,7 @@ Set 'Auto scaling' as required. In this example, we have used 'fixed-1' template
 
 ![](/img/deployment-5.jpg)
 
-The LLM is now deployed and can be accessed using the 'Endpoint', and corresponding 'API Token'.
+The LLM is now deployed and can be accessed using the endpoint and corresponding API token.
 
 ![](/img/deployment-6.jpg)
 
