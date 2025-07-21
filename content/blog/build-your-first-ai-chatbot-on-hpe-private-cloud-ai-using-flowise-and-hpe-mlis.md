@@ -120,13 +120,13 @@ Using the packaged model created in the previous step, create a new deployment b
 
 ![](/img/deployment-1.jpg)
 
-Give a name to the 'Deployment' and choose the 'Packaged Model' created in the previous step.
+Give a name to the deployment and choose the packaged model created in the previous step.
 
 ![](/img/deployment-2.jpg)
 
 ![](/img/deployment-3.jpg)
 
-Set 'Auto scaling' as required. In this example, we have used 'fixed-1' template.
+Set auto scaling as required. In this example, we have used 'fixed-1' template.
 
 ![](/img/deployment-4.jpg)
 
@@ -144,7 +144,7 @@ Use Flowise's drag-and-drop interface to design your chatbot’s conversational 
 
 ![](/img/chatflow-1.jpg)
 
-Save the Chartflow with a name, 'AI Chatbot' and add the following 'Nodes' and make the connections as shown in the screenshot.
+Save the Chatflow with a name, "AI Chatbot" and add the following nodes, making the connections shown in the screenshot.
 
 * **Chat Models (Chat NVIDIA NIM):** Set Deployment 'Endpoint' from HPE MLIS as 'Base Path', corresponding 'Model Name' and 'API Key' from HPE MLIS for 'Connect Credential'.
 * **Memory (Buffer Window Memory):** Set appropriate 'Size'.
