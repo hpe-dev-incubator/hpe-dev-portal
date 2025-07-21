@@ -32,7 +32,7 @@ HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (in
 
 ### 1. Prepare the Helm charts
 
-Obtain the helm chart for Flowise v5.1.1 from [artifacthub.io](https://artifacthub.io/packages/helm/cowboysysop/flowise). Following changes to the helm chart are needed to deploy it on HPE PCAI.
+Obtain the Helm chart for Flowise v5.1.1 from [artifacthub.io](https://artifacthub.io/packages/helm/cowboysysop/flowise). Following changes to the Helm chart are needed to deploy it on HPE Private Cloud AI.
 
 Add the following YAML manifest files to *templates/ezua/* directory:
 
