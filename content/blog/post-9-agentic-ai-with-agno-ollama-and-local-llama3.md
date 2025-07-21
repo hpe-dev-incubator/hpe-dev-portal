@@ -1,5 +1,5 @@
 ---
-title: "Post 9 : Agentic AI with AGNO, Ollama, and local LLaMA3"
+title: "Part 9 : Agentic AI with AGNO, Ollama, and local LLaMA3"
 date: 2025-07-21T11:12:57.626Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -35,7 +35,7 @@ One of AGNO’s core strengths is modularity — it can interface with any LLM p
 * Mistral
 * Ollama (local)
 
-This makes it possible to define agents using LLaMA 3, Mistral, or Gemma without cloud dependencies — while maintaining the full Agentic AI loop:**Think → Plan → Act → Reflect**
+This makes it possible to define agents using LLaMA 3, Mistral, or Gemma without cloud dependencies — while maintaining the full Agentic AI loop: **Think → Plan → Act → Reflect**
 
 ## What is Ollama?
 
@@ -45,7 +45,7 @@ Once running, it exposes a REST API at http://localhost:11434, compatible with O
 
 Official site: [ollama.com](https://ollama.com)
 
-```
+```python
 Install and Run Ollama
 
 # Mac
@@ -67,7 +67,7 @@ This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints
 
 Let’s build a storytelling agent using AGNO connected to Ollama.
 
-```
+```python
 from agno.agent import Agent
 
 from agno.models.ollama import Ollama
@@ -126,7 +126,7 @@ Here’s how to build a raw agent pipeline using just:
 
 ## Full python Agent pipeline
 
-```
+```python
 from ollama import Client
 
 from duckduckgo_search import DDGS
@@ -144,7 +144,7 @@ with DDGS() as ddgs:
 
 ### Pipeline logic
 
-```
+```python
 def agent_pipeline(user_input):
 
 if "what" in user_input.lower() or "happening" in user_input.lower():
@@ -192,7 +192,7 @@ print(response\['message']\['content'])
 
 ### Example outputs
 
-```
+```python
 agent_pipeline("What's happening in New York?")
 
 agent_pipeline("Tell me a joke.")
