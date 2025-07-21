@@ -81,55 +81,38 @@ writer = Agent(
 
 ### Editor Team (Manager Agent in Coordinate Mode)
 
+```
 editor = Team(
-
-name="Editor",
-
-mode="coordinate",
-
-model=OpenAIChat("gpt-4o"),
-
-members=\[searcher, writer],
-
-description="You are a senior NYT editor coordinating the team.",
-
-instructions=[
-
-     "Delegate research to the search agent.",
-
-     "Delegate drafting to the writer.",
-
-     "Review, proofread, and enhance the final article.",
-
-     "Maintain NYT-level quality, structure, and tone."
-
-],
-
-add_datetime_to_instructions=True,
-
-send_team_context_to_members=True,
-
-show_members_responses=True,
-
-markdown=True,
-
+    name="Editor",
+    mode="coordinate",
+    model=OpenAIChat("gpt-4o"),
+    members=[searcher, writer],
+    description="You are a senior NYT editor coordinating the team.",
+    instructions=[
+        "Delegate research to the search agent.",
+        "Delegate drafting to the writer.",
+        "Review, proofread, and enhance the final article.",
+        "Maintain NYT-level quality, structure, and tone."
+    ],
+    add_datetime_to_instructions=True,
+    send_team_context_to_members=True,
+    show_members_responses=True,
+    markdown=True,
 )
+```
 
-- - -
+## Running the Team
 
- Running the Team
-
+```
 Method 1: Print output directly
-
 editor.print_response("Write an article about latest developments in AI.")
 
 Method 2: Get raw result
-
-python
-
-CopyEdit
-
 response = editor.run("Write an article about latest developments in AI.")
+
+```
+
+
 
 - - -
 
