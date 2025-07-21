@@ -5,8 +5,6 @@ author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
 ---
-
-
 One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized agents work together to fulfill complex goals. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
 
 Inspired by a Medium post by Dinesh R
@@ -22,89 +20,66 @@ An Agentic Team is a structured collection of AI agents, each performing a speci
 * Translator: Converts content across languages
 * Planner: Organizes execution based on goals
 
-In Coordinate Mode:
+### In Coordinate Mode:
 
 * A Team Manager Agent directs the flow of tasks
 * Individual agents handle sub-tasks independently
 * Final results are reviewed, refined, and unified by the manager
 
-- - -
-
-AGNO Framework: Coordinating a Multi-Agent Content Team
+## AGNO Framework: Coordinating a Multi-Agent Content Team
 
 Let’s examine a professional-grade configuration of a New York Times-style editorial team, where search, writing, and editorial review are handled by distinct agents.
 
-Imports
+### Imports
 
+```
 from agno.agent import Agent
-
 from agno.models.openai import OpenAIChat
-
 from agno.team.team import Team
-
 from agno.tools.search import DuckDuckGoTools
-
 from agno.tools.read import Newspaper4kTools
 
-- - -
+```
 
-Searcher Agent
 
+
+### Searcher Agent
+
+```
 searcher = Agent(
-
-name="Searcher",
-
-role="Searches the top URLs for a topic",
-
-instructions=[
-
-     "Generate 3 search terms for a topic.",
-
-     "Search the web and return 10 high-quality, relevant URLs.",
-
-     "Prioritize credible sources, suitable for the New York Times."
-
-],
-
-tools=\[DuckDuckGoTools()],
-
-add_datetime_to_instructions=True,
-
+    name="Searcher",
+    role="Searches the top URLs for a topic",
+    instructions=[
+        "Generate 3 search terms for a topic.",
+        "Search the web and return 10 high-quality, relevant URLs.",
+        "Prioritize credible sources, suitable for the New York Times."
+    ],
+    tools=[DuckDuckGoTools()],
+    add_datetime_to_instructions=True,
 )
 
-- - -
+```
 
-Writer Agent
+### Writer Agent
 
+```
 writer = Agent(
-
-name="Writer",
-
-role="Writes a high-quality article",
-
-description="Senior NYT writer tasked with long-form editorial content.",
-
-instructions=[
-
-     "Read all articles using \`read_article\`.",
-
-     "Write a structured, engaging article of at least 15 paragraphs.",
-
-     "Support arguments with factual citations and ensure clarity.",
-
-     "Never fabricate facts or plagiarize content."
-
-],
-
-tools=\[Newspaper4kTools()],
-
-add_datetime_to_instructions=True,
-
+    name="Writer",
+    role="Writes a high-quality article",
+    description="Senior NYT writer tasked with long-form editorial content.",
+    instructions=[
+        "Read all articles using `read_article`.",
+        "Write a structured, engaging article of at least 15 paragraphs.",
+        "Support arguments with factual citations and ensure clarity.",
+        "Never fabricate facts or plagiarize content."
+    ],
+    tools=[Newspaper4kTools()],
+    add_datetime_to_instructions=True,
 )
 
-- - -
+```
 
-Editor Team (Manager Agent in Coordinate Mode)
+### Editor Team (Manager Agent in Coordinate Mode)
 
 editor = Team(
 
@@ -173,7 +148,7 @@ Key Parameters Explained
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=\\[...]</code></td>
+      <td><code>members=\\\[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
