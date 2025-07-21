@@ -52,13 +52,13 @@ ezua:
     istioGateway: "istio-system/ezaf-gateway"
 ```
 
-Reference document for 'Import Framework' [Prerequisites.](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html)
+Here's the [reference document](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie18hen_us&page=ManageClusters/importing-applications.html) for the import framework prerequisites.
 
-These updates are implemented in the revised *Flowise* Helm charts, is available in the *GitHub* repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/flowise)With these customizations, *Flowise* can now be deployed on HPE PCAI using '*Import Framework*'
+These updates are implemented in the revised Flowise Helm charts, and are available in the GitHub repository [ai-solution-eng/frameworks. ](https://github.com/ai-solution-eng/frameworks/tree/main/flowise)With these customizations, *Flowise* can now be deployed on HPE Private Cloud AI using *Import Framework.*
 
-### 2. Deploy Flowise via Import Framework
+### 2. Deploy Flowise via the import framework
 
-Use the Import Framework in HPE PCAI to deploy Flowise.
+Use the Import Framework in HPE Private Cloud AI to deploy Flowise.
 
 ![](/img/flowise-deploy-1.jpg)
 
