@@ -1,5 +1,5 @@
 ---
-title: "Model Context Protocol (MCP): The Protocol That Powers AI Agents"
+title: "Part 3: Model Context Protocol (MCP): The Protocol That Powers AI Agents"
 date: 2025-07-18T14:23:55.595Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
