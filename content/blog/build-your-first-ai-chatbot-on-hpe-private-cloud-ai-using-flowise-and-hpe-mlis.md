@@ -82,11 +82,11 @@ Click the *Open* button on the *Flowise* Tile, or click on the *Endpoint* URL to
 
 ## Deploy a LLM in HPE MLIS
 
-HPE MLIS is accessed by clicking on 'HPE MLIS' tile in *Tools & Frameworks / Data Engineering* tab.
+HPE MLIS is accessed by clicking on *HPE MLIS* tile in *Tools & Frameworks / Data Engineering* tab.
 
 ![](/img/mlis.jpg)
 
-To deploy a pre-packaged LLM (Meta/Llama3-8b-instruct) in HPE MLIS, Add 'Registry', 'Packaged models' and create 'Deployments'. 
+To deploy a pre-packaged LLM (Meta/Llama3-8b-instruct) in HPE MLIS, you need to know how to add a registry, a packaged model, and how to create deployments.
 
 ### 1. Add 'Registry'
 
