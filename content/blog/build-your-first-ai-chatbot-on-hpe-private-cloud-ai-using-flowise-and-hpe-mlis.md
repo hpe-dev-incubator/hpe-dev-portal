@@ -88,19 +88,19 @@ HPE MLIS is accessed by clicking on *HPE MLIS* tile in *Tools & Frameworks / Dat
 
 To deploy a pre-packaged LLM (Meta/Llama3-8b-instruct) in HPE MLIS, you need to know how to add a registry, a packaged model, and how to create deployments.
 
-### 1. Add 'Registry'
+### 1. Adding a registry
 
-Add a new registry of type 'NVIDIA GPU Cloud' (NGC), which can be used to access pre-packaged LLMs. 
+You'll first want to add a new registry called "NGC", which refers to NVIDIA GPU Cloud. This can be used to access pre-packaged LLMs.
 
 ![](/img/mlis-registry.jpg)
 
-### 2. Add 'Packaged Model'
+### 2. Adding a packaged model
 
-Create a new Packaged Model by clicking 'Add new model' tab, and fill-in the details as shown in screen shots. 
+Create a new packaged model by clicking the *Add New Model* tab. Fill in the details as shown in the below screen shots.
 
 ![](/img/package-model-1.jpg)
 
-Choose the 'Registry' created in the previous step, and select 'meta/llama-3.1-8b-instruct' for 'NGC Supported Models'
+Choose the registry created in the previous step and select 'meta/llama-3.1-8b-instruct' for the *NGC Supported Models*
 
 ![](/img/package-model-2.jpg)
 
