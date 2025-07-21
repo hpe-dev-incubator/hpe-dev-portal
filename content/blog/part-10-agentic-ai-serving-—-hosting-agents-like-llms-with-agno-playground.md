@@ -24,7 +24,7 @@ We’re all familiar with model serving — deploying LLMs like GPT, LLaMA, or M
 
 This is the essence of Agentic AI Serving using the AGNO Framework — a next-gen architecture where agents are hosted, monitored, and interacted with like full applications.
 
-> [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-9-agentic-ai-agno-74d74cd0d9f3)
+> [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-10-agentic-ai-33a7ff1dd010)
 
 #### This guide covers:
 
