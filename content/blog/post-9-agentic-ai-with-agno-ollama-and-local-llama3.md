@@ -1,5 +1,5 @@
 ---
-title: "Post 9 : Agentic AI with AGNO, Ollama, and Local LLaMA3"
+title: "Post 9 : Agentic AI with AGNO, Ollama, and local LLaMA3"
 date: 2025-07-21T11:12:57.626Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
