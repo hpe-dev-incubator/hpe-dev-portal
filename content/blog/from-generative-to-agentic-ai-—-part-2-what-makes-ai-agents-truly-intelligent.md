@@ -1,5 +1,5 @@
 ---
-title: "Part 2: What Makes AI Agents Truly Intelligent"
+title: "Part 2: What makes AI Agents truly intelligent"
 date: 2025-07-09T04:15:26.181Z
 author: DINESH R SINGH
 authorimage: /img/dinesh-192-192.jpg
@@ -108,6 +108,6 @@ Each offers a different approach — some focus on chaining tasks, others on aut
 
 AI agents are no longer a futuristic idea — they’re here, and they’re transforming how work gets done. By combining decision-making, planning, and tool usage, agents represent the leap from intelligent text generation to intelligent action. They’re bridging the gap between knowing what needs to be done and actually doing it.
 
-In Part 3 of this series, I'll dig deeper into the architecture behind agentic systems — what components make them tick, how memory and feedback loops work, and how they can scale. If you're building the future or just trying to understand it, you're in the right place.
+[In Part 3 of this series,](https://developer.hpe.com/blog/model-context-protocol-mcp-the-protocol-that-powers-ai-agents/) I'll dig deeper into the architecture behind agentic systems — what components make them tick, how memory and feedback loops work, and how they can scale. If you're building the future or just trying to understand it, you're in the right place.
 
 Until then, keep watching the space where AI stops being a helper… and becomes a doer
