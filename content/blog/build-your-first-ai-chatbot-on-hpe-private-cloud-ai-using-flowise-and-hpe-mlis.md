@@ -104,7 +104,7 @@ Choose the registry created in the previous step and select 'meta/llama-3.1-8b-i
 
 ![](/img/package-model-2.jpg)
 
-Set the right resources required for the model, either by choosing the in-built 'Resource Template' or, 'Custom' as shown below.
+Set the right resources required for the model. Do this by choosing from either a built-in template or "custom" in the *Resource Template* section.
 
 ![](/img/package-model-3.jpg)
 
@@ -114,9 +114,9 @@ Newly created packaged model appears in the UI.
 
 ![](/img/package-model-final.jpg)
 
-### 3. Create 'Deployment'
+### 3. Creating deployments
 
-Using the 'packaged Model' created in previous step, create a new deployment by clicking on 'Create new deployment'
+Using the packaged model created in the previous step, create a new deployment by clicking on *Create new deployment.*
 
 ![](/img/deployment-1.jpg)
 
