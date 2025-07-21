@@ -5,6 +5,8 @@ author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
 ---
+
+
 <style>
 li {
    font-size: 27px;
@@ -45,7 +47,7 @@ Once running, it exposes a REST API at http://localhost:11434, compatible with O
 
 Official site: [ollama.com](https://ollama.com)
 
-\`\``
+```
 
 Install and Run Ollama
 
@@ -61,7 +63,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 ollama run llama3
 
-\`\``
+```
 
 This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints that work with both synchronous and streaming chat.
 
@@ -69,7 +71,7 @@ This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints
 
 Let’s build a storytelling agent using AGNO connected to Ollama.
 
-\`\``
+```
 
 from agno.agent import Agent
 
@@ -86,11 +88,9 @@ markdown=True
 )
 
 agent.print_response("Tell me about a breaking news story from New York.", stream=True)\
-\`\``
+```
 
 ## Parameters
-
-
 
 ## No Framework? No Problem.
 
@@ -108,6 +108,8 @@ Here’s how to build a raw agent pipeline using just:
 
 ## Full Python Agent Pipeline
 
+```
+
 from ollama import Client
 
 from duckduckgo_search import DDGS
@@ -121,10 +123,10 @@ def duckduckgo_search(query, max_results=5):
 with DDGS() as ddgs:
 
      return \[r for r in ddgs.text(query, region="wt-wt", safesearch="off", max_results=max_results)]
-
+```
 ### Pipeline logic
 
-\`\``
+```
 
 def agent_pipeline(user_input):
 
@@ -170,23 +172,22 @@ print("\n\[Agent Response]:")
 
 print(response\['message']\['content'])
 
-\`\``
+```
 
-\### Example Outputs
+### Example Outputs
 
-\`\``
-
+```
 agent_pipeline("What's happening in New York?")
 
 agent_pipeline("Tell me a joke.")
 
-\`\``
+```
 
+```
 ## Breakdown of Components
 
-
-
 This pattern gives you full control with zero cloud dependency — and forms the base for private AI workflows.
+```
 
 ## Pro Tip
 
