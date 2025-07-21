@@ -4,6 +4,10 @@ date: 2025-07-21T11:12:57.626Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
+tags:
+  - DuckDuckGo
+  - Agentic AI
+  - Generative AI
 ---
 <style>
 li {
