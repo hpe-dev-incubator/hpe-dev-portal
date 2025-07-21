@@ -47,9 +47,9 @@ Imagine a chatbot that receives queries in different languages. Router Mode enab
 
 We’ll define a set of language-specific agents and create a routing team that delegates accordingly.
 
-#### Step 1: Define Language Agents
+#### Step 1: Define language Agents
 
-```
+```python
 from agno.agent import Agent
 from agno.models.anthropic import Claude
 from agno.models.deepseek import DeepSeek
@@ -104,7 +104,7 @@ german_agent = Agent(
 
 ### Step 2: Create the Router Team
 
-```
+```python
 from agno.team.team import Team
 
 multi_language_team = Team(
@@ -134,7 +134,7 @@ multi_language_team = Team(
 
 ### Step 3: Run Multilingual Examples
 
-```
+```python
 multi_language_team.print_response("How are you?", stream=True)         # English
 multi_language_team.print_response("你好吗？", stream=True)              # Chinese
 multi_language_team.print_response("お元気ですか?", stream=True)         # Japanese
@@ -143,7 +143,7 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
 
 ### Output:
 
-```
+```python
 [English Agent]: I'm doing great! How can I help you today?
 [Chinese Agent]: 我很好，谢谢你的关心。你呢？
 [Japanese Agent]: 元気です。あなたはお元気ですか？
@@ -171,7 +171,7 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
       <td>Displays individual agent replies for traceability</td>
     </tr>
     <tr>
-      <td><code>instructions\[]</code></td>
+      <td><code>instructions\\[]</code></td>
       <td>Core router logic: detect language, enforce exclusivity, manage fallbacks</td>
     </tr>
     <tr>
@@ -180,8 +180,6 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
     </tr>
   </tbody>
 </table>
-
-
 
 ## Why Router Mode works
 
