@@ -4,12 +4,18 @@ date: 2025-07-21T07:24:24.522Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
 disable: false
+tags:
+  - LLM
+  - Generative AI
+  - Agentic AI
+  - AI Agents
 ---
 One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized agents work together to fulfill complex goals. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
 
 Inspired by a Medium post by Dinesh R
 
 ![](/img/screenshot-2025-07-21-at-12.57.22 pm.png)
+
 
 ## What Are Agentic AI Teams?
 
@@ -101,7 +107,7 @@ editor = Team(
 )
 ```
 
-## Running the Team
+### Running the Team
 
 ```
 Method 1: Print output directly
@@ -109,14 +115,9 @@ editor.print_response("Write an article about latest developments in AI.")
 
 Method 2: Get raw result
 response = editor.run("Write an article about latest developments in AI.")
-
 ```
 
-
-
-- - -
-
-Key Parameters Explained
+### Key Parameters Explained
 
 <table>
   <thead style="background-color:#f2f2f2">
@@ -131,7 +132,7 @@ Key Parameters Explained
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=\\\[...]</code></td>
+      <td><code>members=[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
@@ -149,33 +150,23 @@ Key Parameters Explained
   </tbody>
 </table>
 
-Pro Tip: Define Success Criteria
+## Pro Tip: Define Success Criteria
 
 Adding success_criteria helps agents align their efforts with measurable outcomes.
 
-python
-
-CopyEdit
-
+```
 strategy_team = Team(
-
-members=\[market_analyst, competitive_analyst, strategic_planner],
-
-mode="coordinate",
-
-name="Strategy Team",
-
-description="A team that develops strategic recommendations",
-
-success_criteria="Produce actionable strategic recommendations supported by market and competitive analysis",
-
+    members=[market_analyst, competitive_analyst, strategic_planner],
+    mode="coordinate",
+    name="Strategy Team",
+    description="A team that develops strategic recommendations",
+    success_criteria="Produce actionable strategic recommendations supported by market and competitive analysis",
 )
-
 response = strategy_team.run(
-
-"Develop a market entry strategy for our new AI-powered healthcare product"
-
+    "Develop a market entry strategy for our new AI-powered healthcare product"
 )
+
+```
 
 This ensures agents not only act — but act with strategic purpose and direction.
 
@@ -183,10 +174,9 @@ This ensures agents not only act — but act with strategic purpose and directio
 
 AI-generated content may be incorrect.](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeozc8krAlw2Fv3tJ0XA0UQ0mWQHg18re_uMmiOQWm74S61dPhbmt2CHkPE3K3yrKonk1wILiSRsOIWzE-eqBEfSQ7y1uEkEL0Ss5_7JPxfLLogREgJg9yyTVemIED2SxNkc69T?key=H68knZDq8LPblpx1flSBtQ)
 
-- - -
 
-Conclusion
+## Conclusion
 
-Coordinate Mode in Agentic AI exemplifies intelligent task distribution, where specialized agents work under centralized leadership to deliver complex, high-quality outputs. The AGNO Framework simplifies this orchestration through agent roles, tool integration, and goal alignment — enabling scalable, auditable AI workflows.
+Coordinate Mode in Agentic AI exemplifies intelligent task distribution, where specialized agents work under centralized leadership to deliver complex, high-quality outputs. The AGNO Framework simplifies this orchestration through agent roles, tool integration, and goal alignment **—** **enabling scalable, auditable AI workflows.**
 
-From editorial pipelines to business strategy engines, multi-agent coordination is redefining how work gets done — autonomously, intelligently, and collaboratively.
+From editorial pipelines to business strategy engines, multi-agent coordination is redefining how work gets done **— autonomously, intelligently, and collaboratively.**
