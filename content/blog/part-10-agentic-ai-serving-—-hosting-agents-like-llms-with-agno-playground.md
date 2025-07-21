@@ -72,8 +72,8 @@ from agno.models.ollama import Ollama
 from agno.playground import Playground, serve_playground_app
 
 # Set environment variables
-os.environ\['AGNO_API_KEY'] = 'ag-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\**-U'
-os.environ\['AGNO_MONITOR'] = 'true'  # Enable session tracking
+os.environ['AGNO_API_KEY'] = 'ag-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\**-U'
+os.environ['AGNO_MONITOR'] = 'true'  # Enable session tracking
 ```
 
 ### Define a news reporter agent
@@ -102,7 +102,7 @@ agent.print_response("Tell me about a breaking news story from New York.", strea
 app = Playground(agents=agent).get_app()
 ```
 
-\### Launch local playground
+### Launch local playground
 
 ```python
 if __name__ == "__main__":
