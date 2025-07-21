@@ -24,7 +24,7 @@ This method is especially effective in scenarios requiring multilingual or domai
 
 [Inspired by my Medium post.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-6-agentic-ai-a-39714050857b)
 
-## Router Mode: What It Is ?
+## Router Mode: What it is  ?
 
 In Router Mode, the team acts like a switchboard, rather than executing tasks itself. Its core responsibility is to:
 
@@ -35,7 +35,7 @@ In Router Mode, the team acts like a switchboard, rather than executing tasks it
 
 <center><img src="/img/screenshot-2025-07-21-at-3.38.34 pm.png" width="600" height="550" alt="Route Mode" title="Route Mode"></center>
 
-### Use Case: Multilingual Chat Support
+### Use Case: Multilingual chat support
 
 Imagine a chatbot that receives queries in different languages. Router Mode enables:
 
@@ -43,7 +43,7 @@ Imagine a chatbot that receives queries in different languages. Router Mode enab
 * Delegation to language-specific agents (e.g., Japanese, French, German)
 * Fallback messages for unsupported languages
 
-### Implementation: AGNO Framework Setup
+### Implementation: AGNO framework setup
 
 We’ll define a set of language-specific agents and create a routing team that delegates accordingly.
 
@@ -152,7 +152,7 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
 
 <center><img src="/img/screenshot-2025-07-21-at-3.38.47 pm.png" width="600" height="550" alt="Agent Mode Parameters" title="Agent Mode Parameters"></center>
 
-## Key Parameters Explained
+## Key parameters explained
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
   <thead style="background-color:#f2f2f2">
@@ -183,7 +183,7 @@ multi_language_team.print_response("Comment allez-vous?", stream=True) # French
 
 
 
-## Why Router Mode Works
+## Why Router Mode works
 
 * Context-awareness: Inputs are analyzed for language, not just keywords
 * Agent exclusivity: Each agent strictly operates in its assigned language
