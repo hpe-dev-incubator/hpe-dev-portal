@@ -12,10 +12,9 @@ tags:
 ---
 One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized agents work together to fulfill complex goals. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
 
-Inspired by a Medium post by Dinesh R
+[Inspired by my Medium post.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-5-agentic-ai-a-2d6651c9cc5c)
 
-![](/img/screenshot-2025-07-21-at-12.57.22 pm.png)
-
+<center><img src="/img/screenshot-2025-07-21-at-12.57.22 pm.png" width="600" height="550" alt="LLM Mode" title="LLM Mode"></center>
 
 ## What Are Agentic AI Teams?
 
@@ -44,10 +43,7 @@ from agno.models.openai import OpenAIChat
 from agno.team.team import Team
 from agno.tools.search import DuckDuckGoTools
 from agno.tools.read import Newspaper4kTools
-
 ```
-
-
 
 ### Searcher Agent
 
@@ -63,7 +59,6 @@ searcher = Agent(
     tools=[DuckDuckGoTools()],
     add_datetime_to_instructions=True,
 )
-
 ```
 
 ### Writer Agent
@@ -82,7 +77,6 @@ writer = Agent(
     tools=[Newspaper4kTools()],
     add_datetime_to_instructions=True,
 )
-
 ```
 
 ### Editor Team (Manager Agent in Coordinate Mode)
@@ -132,7 +126,7 @@ response = editor.run("Write an article about latest developments in AI.")
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=[...]</code></td>
+      <td><code>members=\\[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
@@ -165,14 +159,13 @@ strategy_team = Team(
 response = strategy_team.run(
     "Develop a market entry strategy for our new AI-powered healthcare product"
 )
-
 ```
 
 This ensures agents not only act — but act with strategic purpose and direction.
 
-![A screenshot of a computer
+<center><img src="/img/screenshot-2025-07-21-at-12.57.44 pm.png" width="600" height="550" alt="Agentic AI Parameters" title="Agentic AI Parameters"></center>
 
-AI-generated content may be incorrect.](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeozc8krAlw2Fv3tJ0XA0UQ0mWQHg18re_uMmiOQWm74S61dPhbmt2CHkPE3K3yrKonk1wILiSRsOIWzE-eqBEfSQ7y1uEkEL0Ss5_7JPxfLLogREgJg9yyTVemIED2SxNkc69T?key=H68knZDq8LPblpx1flSBtQ)
+
 
 
 ## Conclusion
