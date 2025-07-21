@@ -1,6 +1,5 @@
 ---
-title: "From Generative to Agentic AI — Part 2: What Makes AI Agents Truly
-  Intelligent"
+title: "Part 2: What Makes AI Agents Truly Intelligent"
 date: 2025-07-09T04:15:26.181Z
 author: DINESH R SINGH
 authorimage: /img/dinesh-192-192.jpg
