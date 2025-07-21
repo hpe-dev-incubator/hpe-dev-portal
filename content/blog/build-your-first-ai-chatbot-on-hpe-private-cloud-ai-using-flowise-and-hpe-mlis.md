@@ -58,7 +58,7 @@ These updates are implemented in the revised Flowise Helm charts, and are avai
 
 ### 2. Deploy Flowise via the import framework
 
-Use the Import Framework in HPE Private Cloud AI to deploy Flowise.
+Use the import framework in HPE Private Cloud AI to deploy Flowise.
 
 ![](/img/flowise-deploy-1.jpg)
 
@@ -68,7 +68,7 @@ Use the Import Framework in HPE Private Cloud AI to deploy Flowise.
 
 ![](/img/flowise-deploy-4.jpg)
 
-### 3. Access Flowise UI via its Endpoint
+### 3. Access Flowise UI via its endpoint
 
 After deployment, Flowise will appear as a tile under *Tools & Frameworks / Data Engineering* tab.
 
