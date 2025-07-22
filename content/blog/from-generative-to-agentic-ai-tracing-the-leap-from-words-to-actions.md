@@ -36,11 +36,7 @@ LLMs are great at “saying” things… but they don’t do anything.
 
 On their own, LLMs are like brilliant thinkers without hands — capable of deep analysis, but unable to act in the real world.
 
-
-
 ![Test](/img/picture1-dinesh.png "Test")
-
-
 
 ```yaml
 ---
@@ -67,3 +63,18 @@ published: true
 ```
 
 <center><img src="/img/picture1-dinesh.png" width="957" height="273" alt="Test" title="Test"></center>
+
+
+
+```json
+"openapi": "3.1.0",
+  "info": {
+    "title": "HPE GreenLake API for Audit Logs",
+    "description": "The HPE GreenLake Audit Log Service offers a collection of RESTful APIs for publishing audit logs and querying both application-specific and overall platform logs.",
+    "license": {
+      "name": "HPE License",
+      "url": "https://www.hpe.com/us/en/software/licensing.html"
+    },
+    "version": "v1"
+  }
+```
