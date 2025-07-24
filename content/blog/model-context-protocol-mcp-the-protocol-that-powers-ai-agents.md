@@ -145,23 +145,23 @@ Whether you're an AI developer, tech enthusiast, or enterprise looking to superc
 4. **Cross-agent compatibility**
    Build a tool once, and any MCP-compliant agent can use it. No more agent-specific wrappers.
 
-### **Case Study: Qdrant with MCP**
+### **Case study: Qdrant with MCP**
 
 **Qdrant** is a vector database used for semantic search. Here’s how it operates under MCP:
 
-* MCP Server exposes a tool like semantic_search(query: str)
-* Agent calls: semantic_search("incident policy")
-* Qdrant streams back relevant documents in real-time
-* The agent uses those documents as dynamic context to reason or respone
+1. MCP server exposes a tool like semantic_search(query: str).
+2. Agent calls: semantic_search("incident policy").
+3. Qdrant streams back relevant documents in real-time.
+4. The agent uses those documents as dynamic context to reason or response.
 
 This is vector search integrated into an agentic loop — not just storage, but intelligence.
 
-### Case Study: PostgreSQL with MCP
+### Case study: PostgreSQL with MCP
 
 A **Postgres MCP Server** might expose methods such as:
 
-* get_sales(region: str, quarter: str)
-* run_query(sql: str)
+* get_sales(region: str, quarter: str).
+* run_query(sql: str).
 
 An agent could now answer a prompt like:
 
@@ -171,7 +171,7 @@ The Postgres MCP Server abstracts the SQL, safely executes it, and returns clean
 
 **Leading startups driving MCP adoption**
 
-While Part 8 will go deeper into startup ecosystems, here are some notable names building or supporting MCP infrastructure:
+While **Part 8** will go deeper into startup ecosystems, here are some notable names in the industry who are building or supporting MCP infrastructure:
 
 * Qdrant
 * LangChain
@@ -185,6 +185,6 @@ These players are shaping a plug-and-play AI world where tools and agents speak 
 
 MCP is more than a technical standard — it's a **philosophy of interoperability** for the agentic era. It shifts AI from being a passive responder to an active participant in real-world systems. With MCP, agents don’t just have the ability to talk — they gain the **power to think, act, adapt, and connect** meaningfully.
 
-As we continue this series, [the next chapter](https://developer.hpe.com/blog/part-3-the-rise-of-agentic-ai-and-the-power-of-the-agno-framework/) will spotlight a top Agentic AI framework and reveal how it uses MCP to orchestrate intelligent, autonomous workflows across environments.
+As we continue this series, [the next chapter](https://developer.hpe.com/blog/part-4-the-rise-of-agentic-ai-and-the-power-of-the-agno-framework/) will spotlight a top Agentic AI framework and reveal how it uses MCP to orchestrate intelligent, autonomous workflows across environments.
 
-> If you’re building with AI — or planning to — MCP is the connective tissue you can’t afford to ignore.
+> *If you’re building with AI — or planning to — MCP is the connective tissue you can’t afford to ignore.*
