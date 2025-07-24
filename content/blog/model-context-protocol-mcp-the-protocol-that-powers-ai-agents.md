@@ -1,5 +1,5 @@
 ---
-title: "Part 3: Model Context Protocol (MCP): The protocol that powers AI Agents"
+title: "Part 3: Model Context Protocol (MCP): The protocol that powers AI agents"
 date: 2025-07-18T14:23:55.595Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -22,7 +22,7 @@ li {
 
 As AI agents grow beyond text generation into autonomous problem-solvers, a new challenge emerges — communication. Not between humans and AI, but between AI and the vast world of services, APIs, databases, and tools. That’s where **Model Context Protocol (MCP)** steps in.
 
-Inspired by [my post on medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-3-mcp-model-context-f026578ff0dd), this blog demystifies the MCP standard — reinterpreted with clarity, depth, and real-world relevance to help you understand how AI agents actually get things done.
+Inspired by [my post on medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-3-mcp-model-context-f026578ff0dd), this blog post demystifies the MCP standard — reinterpreted with clarity, depth, and real-world relevance to help you understand how AI agents actually get things done.
 If LLMs are the brains, MCP is the nervous system connecting them to the real world. Let’s unpack how this protocol makes agentic AI functional, contextual, and enterprise-ready.
 
 <center><img src="/img/mcp1.png" width="600" height="550" alt="MCP Arch" title="MCP Arch"></center>
@@ -41,11 +41,11 @@ That’s the essence of MCP. It removes ambiguity, reduces dependency on ad hoc 
 
 ## The building blocks of MCP
 
-MCP is composed of three major components:
+MCP is comprised of three major components:
 
-* MCP Client: Resides inside the AI agent and is responsible for making requests.
-* MCP Server: Wraps around external tools or services and handles incoming requests.
-* MCP Protocol: Uses JSON-RPC over transport layers like:
+* MCP client: Resides inside the AI agent and is responsible for making requests.
+* MCP server: Wraps around external tools or services and handles incoming requests.
+* MCP protocol: Uses JSON-RPC over transport layers like:
 
   * Standard IO for local service calls
   * Server-Sent Events (SSE) for remote or network-based integrations.
@@ -56,14 +56,14 @@ MCP is composed of three major components:
 
 Here’s a simplified view of the interaction:
 
-1. The agent asks its MCP Client to perform a task.
-2. The MCP Client sends a well-formed JSON-RPC request to the MCP Server.
-3. The MCP Server either:
+1. The agent asks its MCP client to perform a task.
+2. The MCP client sends a well-formed JSON-RPC request to the MCP server.
+3. The MCP server either:
 
-   1. Executes a tool (e.g., semantic_search)
-   2. Fetches data (e.g., a file or DB record)
-   3. Returns a structured prompt (e.g., a Q&A template)
-4. The MCP Server streams back results or updates.
+   * Executes a tool (e.g., semantic_search)
+   * Fetches data (e.g., a file or DB record)
+   * Returns a structured prompt (e.g., a Q&A template)
+4. The MCP server streams back results or updates.
 5. The agent uses this data to reflect, re-plan, or execute the next step.
 
 This architecture ensures that AI agents don’t just interact with data — they do so with awareness and strategy.
@@ -74,10 +74,16 @@ What separates MCP from basic APIs is its inclusion of **meta-context and reflec
 
 * **Meta-Context:** Includes user role, session history, intent, and environment details.
 * **Reflection:** Agents can evaluate responses. If a query fails, they can retry with a better approach.
-* **Context-Aware Tools:** MCP Servers can use meta-data to dynamically tailor responses.
+* **Context-Aware Tools:** MCP servers can use meta-data to dynamically tailor responses.
 * **Tool Discovery:** Agents can ask, “What tools are available right now?” and adjust plans accordingly.
 
 This turns the agent into a **situationally aware operator**, not just a command runner.
+
+## The race of MCP
+
+Curious about the groundbreaking ***startups racing to develop the next wave of MCP*** (Model Context Protocol) servers? In this roundup, we highlight the most innovative players redefining how AI agents access, interact with, and orchestrate information across tools, databases, financial platforms, and more. For each startup, you’ll find a brief overview of their core technology, real-world use cases, and direct links to explore their solutions further.
+
+Whether you're an AI developer, tech enthusiast, or enterprise looking to supercharge your workflows, discover how these emerging MCP platforms are shaping the future of AI-driven connectivity—unlocking seamless integrations and unprecedented automation across industries.
 
 <table>
   <thead style="background-color:#f2f2f2">
