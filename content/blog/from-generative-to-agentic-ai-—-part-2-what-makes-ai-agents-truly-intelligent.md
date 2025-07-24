@@ -1,5 +1,5 @@
 ---
-title: "Part 2: What makes AI Agents truly intelligent"
+title: "Part 2: What makes AI agents truly intelligent"
 date: 2025-07-09T04:15:26.181Z
 author: DINESH R SINGH
 authorimage: /img/dinesh-192-192.jpg
@@ -20,13 +20,13 @@ li {
 }
 </style>
 
-In the [first part of this series](https://developer.hpe.com/blog/from-generative-to-agentic-ai-tracing-the-leap-from-words-to-actions/), we explored the shift from passive large language models to more capable, action-oriented AI. Now, we take a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
+In the [first part of this series](https://developer.hpe.com/blog/from-generative-to-agentic-ai-tracing-the-leap-from-words-to-actions/), I discussed the shift from passive large language models to more capable, action-oriented AI. Now, I will provide a closer look at what actually powers this transformation — the concept of the AI agent. Far from being just an advanced chatbot, an agent is a structured system that can understand, plan, execute, and respond — much like a real-world assistant, only faster and smarter.
 
-Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), It builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
+Inspired by [my post on Medium](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-2-agentic-ai-74dcf045aff0), this post builds upon the original work with added clarity, practical examples, and a more conversational tone to help you truly grasp how agentic AI is reshaping automation across industries.
 
-<center><img src="/img/screenshot-2025-07-18-at-4.10.42 pm.png" width="500" height="542" alt="AI Agnet Framework" title="AI Agnet Framework"></center>
+<center><img src="/img/screenshot-2025-07-18-at-4.10.42 pm.png" width="500" height="542" alt="AI agnet Framework" title="AI agnet Framework"></center>
 
-## What are AI Agents?
+## What are AI agents?
 
 An AI agent is not just something that responds to prompts — it’s something that takes initiative. Unlike traditional LLMs, which generate output only when asked, agents can independently decide what actions to take, how to take them, and when to stop.
 
@@ -39,52 +39,52 @@ Here’s what makes an agent different:
 
 In essence, an AI agent behaves more like a virtual assistant capable of doing actual work — not just holding a conversation.
 
-## The Agent workflow: Think → Plan → Act → Respond
+## The agent workflow: Think → Plan → Act → Respond
 
 The heart of an agentic system lies in this continuous loop:
 
-**Think :** It starts with understanding the objective or problem at hand.
-**Plan :** Based on that understanding, it creates a strategy — often a sequence of steps.
-**Act :** It then begins executing the plan, calling tools, retrieving data, or initiating actions.
-**Respond :** Finally, it summarizes or communicates the results — or loops back to continue solving.
+* **Think :** It starts with understanding the objective or problem at hand.
+* **Plan :** Based on that understanding, it creates a strategy — often a sequence of steps.
+* **Act :** It then begins executing the plan, calling tools, retrieving data, or initiating actions.
+* **Respond :** Finally, it summarizes or communicates the results — or loops back to continue solving.
 
 This cycle allows agents to operate with minimal human intervention, even on complex, multi-step workflows.
 
-## Real-World impact: How Agents are already changing industries
+## Real-world impact: How agents are already changing industries
 
 **Healthcare:** AI agents can retrieve patient history, summarize medical notes, and monitor for critical conditions, aiding doctors in real-time.
 
 **Finance:** Agents can analyze markets, detect fraud, and automate reporting — operating at speeds no human team could match.
 
-**Customer Support**: Instead of generic replies, agents can pull data from CRM systems, open service tickets, or resolve technical issues directly.
+**Customer support**: Instead of generic replies, agents can pull data from CRM systems, open service tickets, or resolve technical issues directly.
 
 **IT and DevOps:** Agents are now monitoring systems, fixing bugs, deploying updates — all without waiting on a human operator.
 
 These are not theoretical applications — they are happening right now, streamlining operations and reducing bottlenecks across the board.
 
-## Agents + Tools = Real-World superpowers
+## Agents + Tools = Real-world superpowers
 
 What truly empowers agents is their ability to interface with tools. Think of APIs, web services, internal databases, scripts, and even IoT systems. These integrations allow agents to interact with the real world, not just the digital one.
 
 For example:
 
-* Google Maps or Search APIs
-* CRM and ERP databases
-* Automation scripts for cloud platforms or internal workflows
+* Google Maps or Search APIs.
+* CRM and ERP databases.
+* Automation scripts for cloud platforms or internal workflows.
 
 When agents are connected to tools, they don’t just think — they execute.
 
-## Need of AI Agents
+## Need for AI agents
 
 The value of AI agents lies in their ability to scale thinking into action:
 
-* They automate entire workflows — not just single responses
-* They handle decision-making on the fly
-* They adapt to changing inputs and data
-* They reduce repetitive manual work across industries
-* They can collaborate as multi-agent teams to solve broader, interconnected problems
+* They automate entire workflows — not just single responses.
+* They handle decision-making on the fly.
+* They adapt to changing inputs and data.
+* They reduce repetitive manual work across industries.
+* They can collaborate as multi-agent teams to solve broader, interconnected problems.
 
-## Top 5 Frameworks to Build AI Agents
+## Top 5 frameworks to build AI agents
 
 If you're ready to build with agents, here are the top frameworks that developers swear by:
 
