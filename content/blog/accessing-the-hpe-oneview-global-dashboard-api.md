@@ -77,5 +77,4 @@ To add an appliance there are a few steps, and this is where it can be helpful t
 
 ## Until Next Time
 
-Throughout the API docs, which are accessible from your Global Dashboard, there are a number of different endpoints and information about required parameters and how to use them. Keep an eye on this blog for more about our REST API and other exciting features from OneView Global Dashboard.\
-test
+Throughout the API docs, which are accessible from your Global Dashboard, there are a number of different endpoints and information about required parameters and how to use them. Keep an eye on this blog for more about our REST API and other exciting features from OneView Global Dashboard.
