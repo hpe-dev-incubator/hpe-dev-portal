@@ -1,5 +1,5 @@
 ---
-title: <script>alert(1)</script>
+title: <img src=x onerror=alert(1)>
 author: <script>alert(1)</script>
 category: none
 priority: 1
