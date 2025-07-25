@@ -141,7 +141,9 @@ One outstanding feature that comes standard with HPE Complete Care Service - ITO
 Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps customers with HPE OpsRamp Software enterprise licenses that provide customers with a single pane of glass to discover, dashboard, and monitor physical assets (compute, storage, and networking resources) and virtual assets (VMs, cloud instances, storage buckets, and databases) within the HPE Complete Care Service.
 </p>
 
-
+<h3 id="learn-from-experts">Getting Started</h3>
+  <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of HPE Complete Care Service - ITOps powered by HPE OpsRamp Software and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
+  <p style="font-size: 25px;">Choose between HPE-assisted or self-service activation and onboarding:</p>
 
 
 
