@@ -158,6 +158,58 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
 
 <h4 id='self-service-activation'>Self-service Activation and Onboarding</h4>
 <p style="font-size: 24px;">Resources for onboarding, activating, and configuring the HPE Complete Care Service - ITOps:</p>
+<table id="content-table">
+  <thead>
+    <tr>
+      <td id="table-header-cell">Video Tutorials</td>
+      <td id="table-header-cell">Blog Tutorials</td>
+    </tr>
+  </thead>
+<tbody>
+    <tr id="provisioning-activation">
+      <td colspan="2" id="section-title">
+        Activation and Onboarding
+      </td>
+    </tr>
+<tr>
+      <td id="table-cell">
+        <a href="https://www.youtube.com/watch?v=HFRDexDyr88&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/video_img.jpg" alt="Step 1 Image" style="width: 120px; height: 75px; margin: 0;">
+        </a>
+        <span class="video-title">Part 1: Provisioning the hybrid observability service in your workspace</span>
+      </td>
+      <td id="table-cell" rowspan="4">
+        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
+          Hybrid observability service –  Provisioning and activation in HPE GreenLake Flex Solutions
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td id="table-cell">
+        <a href="https://www.youtube.com/watch?v=7lBc9_2TC3s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/video_img.jpg" alt="Step 2 Image" style="width: 120px; height: 75px; margin: 0;">
+        </a>
+        <span class="video-title">Part 2: Activate hybrid observability  subscription key in your workspace</span>
+      </td>
+    </tr>
+    <tr>
+      <td id="table-cell">
+        <a href="https://www.youtube.com/watch?v=oinaiu1zeBo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/video_img.jpg" alt="Step 3 Image" style="width: 120px; height: 75px; margin: 0;">
+        </a>
+        <span class="video-title">Part 3: Assign access roles for desired users</span>
+      </td>
+    </tr>
+    <tr>
+      <td id="table-cell">
+        <a href="https://www.youtube.com/watch?v=vviJ_2B_C_o&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/video_img.jpg" alt="Step 4 Image" style="width: 120px; height: 75px; margin: 0;">
+        </a>
+        <span class="video-title">Part 4: Launching the hybrid observability service from your workspace</span>
+      </td>
+    </tr>
+</tbody>
+</table>
 
 <h3 id="additional-resources">Additional Resources</h3>
   <ul>
