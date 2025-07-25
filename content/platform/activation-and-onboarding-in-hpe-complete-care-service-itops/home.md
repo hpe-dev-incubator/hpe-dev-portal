@@ -179,7 +179,7 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
         <span class="video-title">Part 1: Configuring a Gateway</span>
       </td>
       <td id="table-cell" rowspan="4">
-        <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
+        <a href="https://developer.hpe.com/blog/self-activation-and-onboarding-in-hpe-complete-care-service-%E2%80%93-itops/">
           Self-activation and onboarding in HPE Complete Care Service - ITOps
         </a>
       </td>
