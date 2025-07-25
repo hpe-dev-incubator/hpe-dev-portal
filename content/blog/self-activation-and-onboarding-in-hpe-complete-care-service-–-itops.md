@@ -39,7 +39,7 @@ Once you get your HPE OpsRamp Software command center instance, for a **self-act
 
 1. Installing a gateway collector appliance in a virtual environment as a prerequisite to enable discovery of systems and resources before they can be monitored.
 
-2. Installing integration modules to discover, monitor and manage agentless SSH-enabled resource and physical compute device.
+2. Installing integration modules to discover, monitor and manage agentless SSH-enabled resources and physical compute devices.
 
 3. Creating and customizing modern dashboards to easily identify anomalies and troubleshoot issues quickly.
 
