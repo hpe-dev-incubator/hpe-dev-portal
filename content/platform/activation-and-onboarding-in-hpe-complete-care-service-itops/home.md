@@ -177,4 +177,4 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
   </ul>
 
 <h3 id="contact">Any Questions About HPE Complete Care Service - ITOps?</h3>
-  <p style="font-size: 22px;">Need help getting started with the observability service in HPE Complete Care Service - ITOps? Join our <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">Slack Workspace</a> and start a discussion in our <Slack channel to be defined> Slack channel. You can also email us at <a href="mailto:gsccitops@hpe.com" style="font-size: 22px;">gsccitops@hpe.com</a>.</p>
+  <p style="font-size: 22px;">Need help getting started with the observability service in HPE Complete Care Service - ITOps? Join our <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">Slack Workspace</a> and start a discussion in our (Slack channel to be defined) Slack channel. You can also email us at <a href="mailto:gsccitops@hpe.com" style="font-size: 22px;">gsccitops@hpe.com</a>.</p>
