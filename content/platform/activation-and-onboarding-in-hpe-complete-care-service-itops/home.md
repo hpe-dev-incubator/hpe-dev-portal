@@ -173,39 +173,39 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
     </tr>
 <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=HFRDexDyr88&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
-          <img src="/img/stepsflex/video_img.jpg" alt="Step 1 Image" style="width: 120px; height: 75px; margin: 0;">
+        <a href="https://www.youtube.com/watch?v=c0ZmdwACq2A&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/CCITOps-video1.png" alt="Step 1 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span class="video-title">Part 1: Provisioning the hybrid observability service in your workspace</span>
+        <span class="video-title">Part 1: Configuring a Gateway</span>
       </td>
       <td id="table-cell" rowspan="4">
         <a href="https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-1-provisioning-and-activation-in-hpe-greenlake-flex-solutions/">
-          Hybrid observability service –  Provisioning and activation in HPE GreenLake Flex Solutions
+          Self-activation and onboarding in HPE Complete Care Service - ITOps
         </a>
       </td>
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=7lBc9_2TC3s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
-          <img src="/img/stepsflex/video_img.jpg" alt="Step 2 Image" style="width: 120px; height: 75px; margin: 0;">
+        <a href="https://www.youtube.com/watch?v=a1GVV-b9hCI&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/CCITOps-video2.png" alt="Step 2 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span class="video-title">Part 2: Activate hybrid observability  subscription key in your workspace</span>
+        <span class="video-title">Part 2: Agentless SSH integration and monitoring templates</span>
       </td>
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=oinaiu1zeBo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
-          <img src="/img/stepsflex/video_img.jpg" alt="Step 3 Image" style="width: 120px; height: 75px; margin: 0;">
+        <a href="https://www.youtube.com/watch?v=htZwkW-zG00&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/CCITOps-video3.png" alt="Step 3 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span class="video-title">Part 3: Assign access roles for desired users</span>
+        <span class="video-title">Part 3: Redfish Server integration and configuration</span>
       </td>
     </tr>
     <tr>
       <td id="table-cell">
-        <a href="https://www.youtube.com/watch?v=vviJ_2B_C_o&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
-          <img src="/img/stepsflex/video_img.jpg" alt="Step 4 Image" style="width: 120px; height: 75px; margin: 0;">
+        <a href="https://www.youtube.com/watch?v=MPTq-3EA60E&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">
+          <img src="/img/stepsflex/CCITOps-video4.png" alt="Step 4 Image" style="width: 120px; height: 75px; margin: 0;">
         </a>
-        <span class="video-title">Part 4: Launching the hybrid observability service from your workspace</span>
+        <span class="video-title">Part 4: Creating a customized dashboard</span>
       </td>
     </tr>
 </tbody>
