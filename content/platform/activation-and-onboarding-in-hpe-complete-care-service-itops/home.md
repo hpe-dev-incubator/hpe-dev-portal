@@ -155,3 +155,26 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
       <li>TBD – Any information around any additional setup or the custom URL, etc?</li>
       <li>A GSR will then be assigned to provide guidance through the onboarding and customization of your HPE Complete Care Service - ITOps command center. This may include assistance with setting up gateways, auto-discovery and dashboarding, customizing monitoring templates and reports, as well as setting up patching, scripting and alert automation.</li>
     </ol>
+
+<h4 id='self-service-activation'>Self-service Activation and Onboarding</h4>
+<p style="font-size: 24px;">Resources for onboarding, activating, and configuring the HPE Complete Care Service - ITOps:</p>
+
+<h3 id="additional-resources">Additional Resources</h3>
+  <ul>
+   <li><a href="https://developer.hpe.com/platform/hpe-opsramp/home/">HPE OpsRamp APIs and Integration Capabilities</a></li>
+    <li><a href="https://docs.opsramp.com/">HPE OpsRamp Software documentation</a></li>
+    <li><a href="https://www.youtube.com/watch?v=p0uA79qnLuk">HPE Complete Care Service - ITOps video</a></li>
+    <li><a href="https://www.hpe.com/psnow/doc/a00134891enw">HPE Complete Care Service - ITOps Solution Brief</a></li>
+    <li><a href="https://www.hpe.com/us/en/collaterals/collateral.a50009342enw.html">HPE Complete Care Service - ITOps Contractual Support Service.</a></li>
+<li>
+    <strong>Webinar replays</strong>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=qH93yD5KSL8&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF">No More Blind Spots: How eBPF Transforms Observability</a></li>
+      <li><a href="https://www.youtube.com/watch?v=VnKSnf7G4-4&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF">From log files to AI insights: The 60-year evolution of observability and AIOps</a></li>
+      <li><a href="https://www.youtube.com/watch?v=nDa_NQPbbVY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY">DayN+ : A new way to look at observability</a></li>
+    </ul>
+  </li>
+  </ul>
+
+<h3 id="contact">Any Questions About HPE Complete Care Service - ITOps?</h3>
+  <p style="font-size: 22px;">Need help getting started with the observability service in HPE Complete Care Service - ITOps? Join our <a href="https://developer.hpe.com/slack-signup/" style="font-size: 22px;">Slack Workspace</a> and start a discussion in our <Slack channel to be defined> Slack channel. You can also email us at <a href="mailto:gsccitops@hpe.com" style="font-size: 22px;">gsccitops@hpe.com</a>.</p>
