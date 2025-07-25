@@ -145,7 +145,10 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
   <p style="font-size: 22px;">Direct your IT operations teams to the activation and onboarding resources on this page to start taking full advantage today. You’ll quickly recognize the value of HPE Complete Care Service - ITOps powered by HPE OpsRamp Software and want to expand its functionality throughout your hybrid environment – including virtual machines, containers and workloads running on any manufacturer’s hardware.</p>
   <p style="font-size: 25px;">Choose between HPE-assisted or self-service activation and onboarding:</p>
 
+<h4 id='hpe-assisted'>HPE-Assisted Activation and Onboarding</h4>
+<p style="font-size: 24px;">Your HPE Account Service Manager (ASM) and a Global Support Remote specialist (GSR) are standing by to help guide your activation and onboarding process.</p>
 
-
-
+<div id="content-container" style="display: flex; align-items: flex-start; gap: 20px;">
+  <div id="text-content" style="flex: 2;">
+    <p style="font-size: 22px;">Please engage your HPE Account Service Manager (ASM) to guide you through the following steps:</p>
 
