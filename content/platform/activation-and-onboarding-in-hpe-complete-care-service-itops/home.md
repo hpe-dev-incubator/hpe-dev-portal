@@ -150,5 +150,9 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
 
 <div id="content-container" style="display: flex; align-items: flex-start; gap: 20px;">
   <div id="text-content" style="flex: 2;">
+    <p style="font-size: 22px;">After your hardware has been installed and configured in your environment, engage your HPE Account Service Manager (ASM) to guide you through the following steps:</p>
+
+<div id="content-container" style="display: flex; align-items: flex-start; gap: 20px;">
+  <div id="text-content" style="flex: 2;">
     <p style="font-size: 22px;">Please engage your HPE Account Service Manager (ASM) to guide you through the following steps:</p>
 
