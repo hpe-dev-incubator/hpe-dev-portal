@@ -1,5 +1,5 @@
 ---
-title: "Part 5: Agentic AI: Team Coordination Mode in action"
+title: "Part 5: Agentic AI: Team coordination mode in action"
 date: 2025-07-21T07:24:24.522Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -18,28 +18,28 @@ li {
 }
 </style>
 
-One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized **agents work together to fulfill complex goals**. In this edition, we explore Coordinate Mode using the AGNO Framework — a design where a Team Manager delegates, supervises, and integrates the contributions of each agent.
+One of the most transformative patterns in Agentic AI is team-based orchestration — a collaborative approach where specialized **agents work together to fulfill complex goals**. In this edition, we explore coordinate mode using the AGNO framework — a design where a team manager delegates, supervises, and integrates the contributions of each agent.
 
 [Inspired by my Medium post.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-5-agentic-ai-a-2d6651c9cc5c)
 
 <center><img src="/img/screenshot-2025-07-21-at-12.57.22 pm.png" width="600" height="550" alt="LLM Mode" title="LLM Mode"></center>
 
-## What are Agentic AI Teams?
+## What are agentic AI teams?
 
-An Agentic Team is a structured collection of AI agents, each performing a specific role with autonomy and tool access. Teams can include roles like:
+An agentic team is a structured collection of AI agents, each performing a specific role with autonomy and tool access. Teams can include roles like:
 
 * Researcher: Finds and filters relevant data
 * Writer: Synthesizes content with tone and structure
 * Translator: Converts content across languages
 * Planner: Organizes execution based on goals
 
-### In Coordinate mode:
+### In Coordinate Mode:
 
-* A Team Manager Agent directs the flow of tasks
+* A team manager Agent directs the flow of tasks
 * Individual agents handle sub-tasks independently
 * Final results are reviewed, refined, and unified by the manager
 
-## AGNO Framework: Coordinating a Multi-Agent Content Team
+## AGNO Framework: Coordinating a multi-agent content team
 
 Let’s examine a professional-grade configuration of a New York Times-style editorial team, where search, writing, and editorial review are handled by distinct agents.
 
@@ -53,7 +53,7 @@ from agno.tools.search import DuckDuckGoTools
 from agno.tools.read import Newspaper4kTools
 ```
 
-### Searcher Agent
+### Searcher agent
 
 ```python
 searcher = Agent(
@@ -69,7 +69,7 @@ searcher = Agent(
 )
 ```
 
-### Writer Agent
+### Writer agent
 
 ```python
 writer = Agent(
@@ -87,7 +87,7 @@ writer = Agent(
 )
 ```
 
-### Editor Team (Manager Agent in Coordinate Mode)
+### Editor team (Manager agent in Coordinate Mode)
 
 ```python
 editor = Team(
@@ -109,7 +109,7 @@ editor = Team(
 )
 ```
 
-### Running the Team
+### Running the team
 
 ```python
 Method 1: Print output directly
@@ -119,7 +119,7 @@ Method 2: Get raw result
 response = editor.run("Write an article about latest developments in AI.")
 ```
 
-### Key Parameters Explained
+### Key parameters explained
 
 <table>
   <thead style="background-color:#f2f2f2">
@@ -134,7 +134,7 @@ response = editor.run("Write an article about latest developments in AI.")
       <td>Enables structured delegation and task flow</td>
     </tr>
     <tr>
-      <td><code>members=\\\\[...]</code></td>
+      <td><code>members=\\\\\[...]</code></td>
       <td>Assigns role-specific agents</td>
     </tr>
     <tr>
@@ -152,9 +152,9 @@ response = editor.run("Write an article about latest developments in AI.")
   </tbody>
 </table>
 
-## Pro Tip: Define success criteria
+## Pro tip: Define success criteria
 
-Adding success_criteria helps agents align their efforts with measurable outcomes.
+Adding success criteria helps agents align their efforts with measurable outcomes.
 
 ```python
 strategy_team = Team(
@@ -175,6 +175,6 @@ This ensures agents not only act — but act with strategic purpose and directio
 
 ## Conclusion
 
-Coordinate Mode in Agentic AI exemplifies intelligent task distribution, where specialized agents work under centralized leadership to deliver complex, high-quality outputs. The AGNO Framework simplifies this orchestration through agent roles, tool integration, and goal alignment **—** **enabling scalable, auditable AI workflows.**
+Coordinate Mode in Agentic AI exemplifies intelligent task distribution, where specialized agents work under centralized leadership to deliver complex, high-quality outputs. The AGNO framework simplifies this orchestration through agent roles, tool integration, and goal alignment **—** **enabling scalable, auditable AI workflows.**
 
 From editorial pipelines to business strategy engines, multi-agent coordination is redefining how work gets done **— autonomously, intelligently, and collaboratively.**
