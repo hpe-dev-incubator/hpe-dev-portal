@@ -1,11 +1,12 @@
 ---
-title: Configure iSUT and AMS for vLCM-Based Firmware Updates on Gen 12 Servers
+title: How to Configure iSUT and AMS for vLCM-Based Firmware Updates on HPE
+  Gen12 Servers (High Security Mode)
 date: 2025-10-01T14:30:17.312Z
 author: Vijayakannan M
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-# How to Configure iSUT and AMS for vLCM-Based Firmware Updates on HPE Gen12 Servers (High Security Mode)
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure **iSUT** (Intelligent System Update Tool) and **AMS** (Agentless Management Service) for **vSphere Lifecycle Manager (vLCM)** based firmware updates. Unlike previous generations, configuration via the vLCM Pre-Check page is not available in these modes due to credential requirements. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
 
@@ -30,7 +31,9 @@ Application accounts are service accounts in iLO 7, used by host applications (l
 sut appaccount create -u <ilo_username> -p <ilo_password>
 ```
 
-**Alternatively, to provide iLO credentials directly (not recommended for production):**
+**Alternatively, To proceed without creating an application account, provide the iLO credentials using the following CLI command:**
+
+
 
 ```shell
 sut -set ilousername=<ilo_username> ilopassword=<ilo_password>
@@ -80,13 +83,6 @@ amsdCli appaccount create -u <ilo_username> -p <ilo_password>
 3. In the left panel, go to **Cluster > Configure > HPE Server Hardware**.
 4. On the **vLCM Pre-Check** panel, check the **iSUT mode** and **AMS state**.
 5. Refresh the page and confirm both statuses are **green**.
-
-- - -
-
-## **Best Practices**
-
-* **Use application accounts** instead of direct credentials for better security.
-* **Regularly verify** AMS and iSUT status before updates.
 
 - - -
 
