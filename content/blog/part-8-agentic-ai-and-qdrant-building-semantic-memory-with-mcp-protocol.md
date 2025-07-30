@@ -23,9 +23,7 @@ This is where tools like **Qdrant** and the **Model Context Protocol (MCP)** com
 \
 [Inspired by my Medium post](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-8-agentic-ai-mcp-281567e26838), this article explores how **MCP**, the **Model Context Protocol**—a kind of connective tissue between LLMs and external tools or data sources—**standardizes interactions** between intelligent agents and vector databases like **Qdrant**. By enabling seamless storage and retrieval of embeddings, agents can now “remember” useful information and leverage it in future reasoning.
 
-Let’s walk through the full architecture and code implementation of this cutting-edge pattern.
-
-
+Let’s walk through the full architecture and code implementation of this cutting-edge combination.
 
 ## LLMs + MCP + Database = Thoughtful Agentic AI
 
@@ -33,11 +31,11 @@ In Agentic AI, a language model doesn’t just generate — it thinks, acts, and
 
 Think of MCP as a “USB interface” for AI — it lets agents plug into tools like Qdrant, APIs, or structured databases using a consistent protocol.
 
-Qdrant itself is a high-performance vector database — capable of powering semantic search, knowledge retrieval, and long-term memory for AI agents. However, direct integration with agents can be messy and non-standardized.
+Qdrant itself is a high-performance vector database — capable of powering semantic search, knowledge retrieval, and acting as long-term memory for AI agents. However, direct integration with agents can be messy and non-standardized.
 
 This is solved by wrapping Qdrant inside an MCP server, giving agents a semantic API they can call like a function.
 
-### Architecture Overview
+### Architecture overview
 
 ```cwl
 [LLM Agent]
@@ -52,15 +50,18 @@ This is solved by wrapping Qdrant inside an MCP server, giving agents a semantic
 [Qdrant Vector DB]
 ```
 
-### Use Case: Support Ticket Memory for AI Assistants
+### Use case: Support ticket memory for AI assistants
 
 Imagine an AI assistant answering support queries.
 
 * It doesn't have all answers built-in.
 * But it has semantic memory from prior support logs stored in Qdrant.
-* It uses qdrant-find to semantically retrieve similar issues and then formulates a contextual response.
+* It uses qdrant-find to semantically retrieve similar issues .
+* It then formulates a contextual response.
 
-## Step-by-Step Implementation
+
+
+## Step-by-step implementation
 
 ### Step 1: Launch Qdrant MCP Server
 
@@ -74,7 +75,7 @@ export EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2"
 uvx mcp-server-qdrant --transport sse
 ```
 
-## Key Parameters:
+## Key parameters:
 
 * COLLECTION_NAME: Name of the Qdrant collection
 * QDRANT_LOCAL_PATH: Local vector DB storage path
@@ -109,7 +110,7 @@ async with stdio_client(server_params) as (read, write):
 Expected Output: Lists tools like qdrant-store, qdrant-find
 ```
 
-### Step 3: Ingest a New Memory
+### Step 3: Ingest a new memory
 
 ```python
 ticket_info = "Order #1234 was delayed due to heavy rainfall in transit zone."
@@ -121,7 +122,7 @@ result = await session.call_tool("qdrant-store", arguments={
 
 This stores an embedded version of the text in Qdrant.
 
-### Step 4: Perform a Semantic Search
+### Step 4: Perform a semantic search
 
 ```python
 query = "Why was order 1234 delayed?"
@@ -130,7 +131,7 @@ search_response = await session.call_tool("qdrant-find", arguments={
 })
 ```
 
-## Example Output:
+### Example output:
 
 ```cwl
 [
@@ -157,16 +158,16 @@ response = openai.ChatCompletion.create(
 model="gpt-3.5-turbo",
 messages=[{"role": "user", "content": prompt}]
 )
-print(response\["choices"]\[0]\["message"]\["content"])
+print(response["choices"][0]["message"]["content"])
 ```
 
-### Final Answer:
+### Final answer:
 
 ```cwl
 "Order #1234 was delayed due to heavy rainfall in the transit zone."
 ```
 
-## Parameter Reference
+## Parameter reference
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
   <thead style="background-color:#f2f2f2">
@@ -205,7 +206,7 @@ print(response\["choices"]\[0]\["message"]\["content"])
   </tbody>
 </table>
 
-## Pro Tip: Chain MCP servers
+## Pro tip: Chain MCP servers
 
 You can deploy multiple MCP servers for different tools and plug them into agent workflows:
 
@@ -213,9 +214,9 @@ You can deploy multiple MCP servers for different tools and plug them into agent
 * google-search for web data
 * postgres-query for structured facts
 
-Then orchestrate it all using Agentic AI Teams to perform high-level, multi-tool reasoning.
+Then, orchestrate it all using Agentic AI Teams to perform high-level, multi-tool reasoning.
 
-## Final Thought
+## Final thoughts
 
 By pairing Qdrant with MCP, Agentic AI gains powerful, semantic memory — a critical enabler of contextual understanding and long-term knowledge retention. This pattern abstracts the complexity of vector DBs behind a unified protocol, empowering agents to think, recall, and act without manual data plumbing.
 
