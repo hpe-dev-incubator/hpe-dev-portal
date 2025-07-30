@@ -1,5 +1,5 @@
 ---
-title: "Part 8: Agentic AI and Qdrant: Building semantic Memory with MCP protocol"
+title: "Part 8: Agentic AI and Qdrant: Building semantic memory with MCP protocol"
 date: 2025-07-21T10:50:25.839Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -17,13 +17,17 @@ li {
 }
 </style>
 
-As Agentic AI systems evolve from reactive language models to structured thinkers, a new challenge emerges — how do we give these agents memory? Not just logs or files, but real, searchable memory that understands context. Enter Qdrant and the Model Context Protocol (MCP) — a modular pairing that brings semantic search and knowledge storage to agent workflows.
+As **Agentic AI** systems evolve from reactive language models into structured thinkers, a new challenge emerges: **how do we give these agents memory?** Not just basic logs or static files, but real, **searchable memory** that understands and adapts to context over time.
 
-[Inspired by my Medium post](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-8-agentic-ai-mcp-281567e26838), this article explores how MCP standardizes interactions between intelligent agents and vector databases like Qdrant. By enabling seamless storage and retrieval of embeddings, agents can now “remember” useful information and leverage it in future reasoning.
+This is where tools like **Qdrant** and the **Model Context Protocol (MCP)** come in—a modular pairing that brings semantic search and long-term knowledge storage into agent workflows. Together, they enable agents to not only recall relevant information but to reason across past experiences, making **Agentic AI** systems more intelligent, adaptive, and human-like in their decision-making.\
+\
+[Inspired by my Medium post](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-8-agentic-ai-mcp-281567e26838), this article explores how **MCP**, the **Model Context Protocol**—a kind of connective tissue between LLMs and external tools or data sources—**standardizes interactions** between intelligent agents and vector databases like **Qdrant**. By enabling seamless storage and retrieval of embeddings, agents can now “remember” useful information and leverage it in future reasoning.
 
 Let’s walk through the full architecture and code implementation of this cutting-edge pattern.
 
-## Why this matters: Agentic AI + MCP
+
+
+## LLMs + MCP + Database = Thoughtful Agentic AI
 
 In Agentic AI, a language model doesn’t just generate — it thinks, acts, and reflects using external tools. That’s where MCP comes in.
 
