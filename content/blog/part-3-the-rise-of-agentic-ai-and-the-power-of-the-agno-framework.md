@@ -15,7 +15,7 @@ li {
 
 As artificial intelligence continues its rapid evolution, a new frontier has emerged — Agentic AI. This paradigm moves us beyond passive, prompt-based LLMs and into an era where AI doesn’t just respond — **it thinks, plans, acts, and collaborates.**
 
-Building on insights Inspired by [my post on Medium,](https://dineshr1493.medium.com/agentic-ai-framework-a4df29a8fc62) this guide explores what Agentic AI truly is, why it matters, and how modern frameworks like AGNO (formerly Phidata) are enabling intelligent agent-based systems that work autonomously in real-world settings.
+Building on insights inspired by [my post on Medium,](https://dineshr1493.medium.com/agentic-ai-framework-a4df29a8fc62) this guide explores what Agentic AI truly is, why it matters, and how modern frameworks like AGNO (formerly Phidata) are enabling intelligent agent-based systems that work autonomously in real-world settings.
 
 Let’s step into the mechanics of intelligent agents and discover how they’re transforming how work gets done.
 
@@ -38,19 +38,19 @@ This evolution from reactive chatbots to proactive agents is redefining automati
 
 **AGNO** is an open-source framework purpose-built to create modular, autonomous AI agents that **think, plan, act, and adapt**. It’s one of the most advanced and flexible toolkits for building ***real-world Agentic AI systems.***
 
-**Core Capabilities:**
+**Core capabilities:**
 
 * **Contextual reasoning** through logic chains
 * **Task planning and delegation**
 * **Tool invocation** (APIs, databases, automation systems)
 * **Result reflection** for improved decisions
 * **Multi-agent orchestration** at scale
-* **Streaming support** using protocols like MCP
+* **Streaming support** using protocols like Model Context Protocol (MCP)
 * **Workflow visualization** and agent team configurations
 
 🔗 GitHub: [AGNO Framework](https://github.com/agno-agi/agno)
 
-## **Agents, Tools, and Teams — The Building Blocks**
+## **Agents, tools, and teams — The building blocks**
 
 ### **1. Agents**
 
@@ -69,42 +69,45 @@ Agents in AGNO use **tools** to interact with the real world. These can be:
 * Custom internal services (e.g., CRMs, file systems)
 * Processing modules (e.g., calculators, formatters)
 
-### **3.Teams**
+### **3. Teams**
 
 Agents can collaborate through structured **team modes** for complex, multi-faceted workflows.
 
-## **Modes of Teamwork in AGNO**
+## **Modes of teamwork in AGNO**
 
-Modes are the means how agents communicate with each other I will be walking you through few common modes of Agents communictaion. 
+Modes are the means by which agents communicate with each other I will be walking you through few common modes of agents communication. 
 
 <center><img src="/img/screenshot-2025-07-21-at-12.45.57 pm.png" width="600" height="550" alt="Modes of Teamwork in AGNO" title="Modes of Teamwork in AGNO"></center>
 
 ### **Coordinator Mode**
 
-A central agent assigns and manages sub-tasks across specialized agents.
+In **Coordinator Mode**, a central agent takes charge of assigning and managing sub-tasks across a network of specialized agents. Think of it like a project manager in a team—delegating responsibilities, tracking progress, and assembling the final output.
 
-* Acts as an orchestrator
-* Aggregates results and presents final outcomes
-* Ideal for hierarchical workflows
+* **Acts as an orchestrator**, breaking down complex goals into manageable parts
+* **Delegates tasks** to the most capable agents based on their expertise
+* **Aggregates results** and presents a unified final outcome
+* **Excels in hierarchical workflows**, such as multi-step reasoning, multi-stage content generation, or structured decision-making pipelines
+
+This mode becomes particularly powerful when tasks require sequencing, prioritization, or dependency handling across multiple agents.
 
 > *[Will be explored in depth in Part 5.](https://developer.hpe.com/blog/part-5-agentic-ai-team-coordination-mode-in-action/)*
 
 ### **Router Mode**
 
-Tasks are automatically routed to the most appropriate agent based on query type.
+In **Router Mode**, tasks are automatically routed to the most appropriate agent based on the type, language, or domain of the query—without requiring manual intervention.
 
-* Lightweight and fast
-* Common in chatbots, support desks, or multi-skill assistants
+* **Lightweight and fast**: It doesn’t require the central agent to deeply understand or process the query itself. Instead, it acts like a traffic controller—quickly identifying what the query is about and directing it to the right specialized agent. This makes it highly efficient, especially in high-volume environments.
+* **Common in chatbots, support desks, and multi-skilled assistants**: For example, in a multilingual support bot, Router Mode can detect the language of a user query and route it to an agent that handles that language. Or it might detect whether a question is about billing, tech support, or product features and send it to the corresponding expert agent.
 
 > *[Detailed breakdown coming in Part 6.](https://developer.hpe.com/blog/part-6-agentic-ai-teams-in-router-mode-multilingual-routing-with-agno/)*
 
 ### **Collaborator Mode**
 
-Agents collaborate dynamically, sharing knowledge and decisions.
+In **Collaborator Mode**, agents work together dynamically—**sharing knowledge, negotiating decisions, and contributing their perspectives**—to reach a common goal. Unlike Router or Coordinator modes, this pattern embraces simultaneous or iterative agent interactions that mirror how real-world teams brainstorm, refine ideas, or co-develop solutions.
 
-* Best for consensus-driven tasks
-* Encourages creative and collective output
-* Useful in research, design, or planning systems
+* **Best for consensus-driven tasks**, where multiple viewpoints or skills need to be considered
+* **Ideal for creative and collective output**, such as writing, strategy development, or decision support
+* **Common in research, design, and system planning**, where exploration, feedback, and iteration are essential
 
 > *[Deep dive ahead in Part 7.](https://developer.hpe.com/blog/part-7-how-collaborative-teams-of-agents-unlock-new-intelligence/)*
 
