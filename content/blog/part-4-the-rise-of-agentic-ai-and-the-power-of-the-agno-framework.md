@@ -75,7 +75,7 @@ Agents can collaborate through structured **team modes** for complex, multi-face
 
 ## **Modes of teamwork in AGNO**
 
-Modes are the means by which agents communicate with each other I will be walking you through few common modes of agents communication. 
+Modes are the means by which agents communicate with each other I will be walking you through few common modes of agents communication.
 
 <center><img src="/img/screenshot-2025-07-21-at-12.45.57 pm.png" width="600" height="550" alt="Modes of Teamwork in AGNO" title="Modes of Teamwork in AGNO"></center>
 
