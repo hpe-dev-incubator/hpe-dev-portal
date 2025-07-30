@@ -1,6 +1,6 @@
 ---
 title: Configure iSUT and AMS for vLCM-Based Firmware Updates on Gen 12 Servers
-date: 2025-09-30T15:17:17.312Z
+date: 2025-10-01T14:30:17.312Z
 author: Vijayakannan M
 authorimage: /img/Avatar1.svg
 disable: false
