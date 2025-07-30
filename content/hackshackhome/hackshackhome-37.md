@@ -1,6 +1,6 @@
 ---
 title: Vendor-Neutral GPU Programming in Chapel
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/5117177053996/WN_ojVy9LR_QHSCGxeg21rj7A
 imageBackground: white
@@ -11,6 +11,6 @@ description: "July 31, 2024: Writing programs on modern computers requires
   how you can get involved in our open-source work and our future plans. "
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 1
 image: /img/event-meetups-newlogo-400x400.png
 ---

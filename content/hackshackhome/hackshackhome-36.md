@@ -1,7 +1,7 @@
 ---
 title: Implementing Centralized Key Management in HPE GreenLake with Thales
   CipherTrust
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/1417138793298/WN_7xmqIRnXTSyAWsnvPoU1cg
 imageBackground: white
@@ -16,4 +16,3 @@ label: Register Now!
 priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
-

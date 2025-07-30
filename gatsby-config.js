@@ -239,25 +239,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-108944070-6',
-        head: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-          '357693145', // Google Analytics / GA
-        ],
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
-        },
-      },
-    },
     // {
     //   resolve: 'gatsby-plugin-adobe-launch-hpe',
     //   options: {
@@ -425,12 +406,13 @@ module.exports = {
           "ilo-restful-api",
           "Redfish",
           "hpe-ezmeral",
-          "data-services-cloud-console",
           "determined-ai",
           "cray",
           "swarm-learning",
           "dragonhpc",
-          "hpe-nonstop"
+          "hpe-nonstop",
+          "hpe-opsramp",
+          "morpheus"
           ]}}}, sort: {frontmatter: {date: DESC}}) {
             nodes {
               id
@@ -472,7 +454,6 @@ module.exports = {
     paginatedCollection('opensource-blog-posts', 'opensource'),
     paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral'),
     paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
-    paginatedCollection('data-fabric-posts', 'hpe-ezmeral-data-fabric'),
     paginatedCollection('greenlake-posts', 'hpe-greenlake'),
     paginatedCollection('chapel-posts', 'chapel'),
     paginatedCollection('grommet-posts', 'grommet'),
@@ -496,7 +477,8 @@ module.exports = {
     paginatedCollection('swarm-posts', 'swarm-learning'),
     paginatedCollection('dragonhpc-posts', 'dragonhpc'),
     paginatedCollection('hpe-nonstop-posts', 'hpe-nonstop'),
-    paginatedCollection('dscc-posts', 'data-services-cloud-console'),
+    paginatedCollection('hpe-opsramp-posts', 'hpe-opsramp'),
+    paginatedCollection('morpheus-posts', 'morpheus'),
     {
       resolve: 'gatsby-plugin-paginated-collection',
       options: {
@@ -561,6 +543,7 @@ module.exports = {
           { name: 'path', store: true },
           { name: 'sourceInstanceName', store: true },
           { name: 'author', store: true },
+          {name: 'externalLink',store:true}
         ],
         filterNodes: (node) => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
@@ -583,6 +566,7 @@ module.exports = {
                   )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
             author: (node) => node.frontmatter.author,
+            externalLink:(node)=> node.frontmatter.externalLink
           },
         },
       },

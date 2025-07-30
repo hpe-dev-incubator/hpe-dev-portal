@@ -30,6 +30,7 @@ function Blog({ data, location }) {
   /* eslint-disable no-unused-vars */
   const [index, setIndex] = useState(0);
   const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
+  const [isActiveTab, setIsActiveTab] = useState(false);
   /* eslint-disable no-unused-vars */
 
   useEffect(() => {
@@ -43,6 +44,9 @@ function Blog({ data, location }) {
   }, [location]);
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const activeTab = queryParams.get('activeTab');
+    if (activeTab) setIsActiveTab(true);
     const scrollPosition = blogPosition;
 
     if (scrollPosition) {
@@ -54,7 +58,7 @@ function Blog({ data, location }) {
         });
       }, 100);
     }
-  }, [blogPosition]);
+  }, [blogPosition, isActiveTab]);
 
   return (
     <Layout title={siteTitle}>
@@ -73,7 +77,7 @@ function Blog({ data, location }) {
           <ButtonLink primary label="Get Started" to="/contribute" />
         </Box>
       </PageDescription>
-      {featuredposts && featuredposts.length > 0 && (
+      {featuredposts && featuredposts.length > 0 && !isActiveTab && (
         <SectionHeader title="Featured Blogs">
           <FeaturedBlogCard
             key={featuredposts[0].node.id}
@@ -353,56 +357,6 @@ export const pageQuery = graphql`
         id
       }
     }
-    dsccBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          tags: { eq: "data-services-cloud-console" }
-          disable: { ne: true }
-        }
-      }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      totalCount
-    }
-    dsccBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "dscc-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    dataFabricBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          tags: { in: ["hpe-ezmeral-data-fabric", "MapR"] }
-          disable: { ne: true }
-        }
-      }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      totalCount
-    }
-    dataFabricBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "data-fabric-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     alletraBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -549,6 +503,50 @@ export const pageQuery = graphql`
     }
     hpeNonstopBlogs: paginatedCollectionPage(
       collection: { name: { eq: "hpe-nonstop-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    hpeOpsRampBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-opsramp" }, disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      totalCount
+    }
+    hpeOpsRampBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "hpe-opsramp-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    hpeMorpheusBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "morpheus" }, disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      totalCount
+    }
+    hpeMorpheusBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "morpheus-posts" } }
       index: { eq: 0 }
     ) {
       nodes

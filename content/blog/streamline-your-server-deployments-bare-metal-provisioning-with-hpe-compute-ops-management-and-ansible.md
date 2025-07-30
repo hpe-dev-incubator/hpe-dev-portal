@@ -127,15 +127,17 @@ Dive into this series of videos showcasing the seamless bare metal operation acr
 
 ### Windows Server Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/A6RD6nIAFmw?si=_kEqBAsVx20nvONy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Automatic Windows server](https://img.youtube.com/vi/A6RD6nIAFmw/hqdefault.jpg)](https://www.youtube.com/watch?v=A6RD6nIAFmw)
 
 ### RHEL 9.3 Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/6_o8yB4cvag?si=OGQob5dNNF28rTF-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Automatic RHEL Bare Metal](https://img.youtube.com/vi/6_o8yB4cvag/hqdefault.jpg)](https://www.youtube.com/watch?v=6_o8yB4cvag)
 
 ### VMware ESXi  Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/_ySgROdd_Bw?si=CSzCklbTeRzaRtFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Automatic ESX Bare Metal](https://img.youtube.com/vi/_ySgROdd_Bw/hqdefault.jpg)](https://www.youtube.com/watch?v=_ySgROdd_Bw)
+
+<br />
 
 Join me on my [GitHub repository](https://github.com/jullienl/HPE-COM-baremetal), where a wealth of information awaits you in the README file. Learn how to effectively utilize this project, from cloning it into your environment to commencing with its use, and witness the ways it can streamline your bare metal provisioning workflow.
 

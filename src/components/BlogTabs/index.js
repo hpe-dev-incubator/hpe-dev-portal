@@ -61,16 +61,15 @@ function BlogTabs({ data, columns }) {
       setIndex(activeBlogTab);
       setPlatform(true);
     }
+    const queryParams = new URLSearchParams(window.location.search);
+    const tab = queryParams.get('activeTab');
+    if (tab) setIndex(+tab);
   }, [platformData, openSourceData, activeBlogTab]);
 
   const platforms = {
     ezmeralBlogs: {
       label: 'HPE Ezmeral Software',
       count: data?.ezmeralBlogsCount?.totalCount || 0,
-    },
-    dataFabricBlogs: {
-      label: 'HPE Ezmeral Data Fabric',
-      count: data?.dataFabricBlogsCount?.totalCount || 0,
     },
     projectDataMapBlogs: {
       label: 'Project Data Map',
@@ -104,10 +103,6 @@ function BlogTabs({ data, columns }) {
       label: 'iLO RESTful API',
       count: data?.iloBlogsCount?.totalCount || 0,
     },
-    dsccBlogs: {
-      label: 'Data Service Cloud Console',
-      count: data?.dsccBlogsCount?.totalCount || 0,
-    },
     crayBlogs: {
       label: 'HPE Cray Programming Environment',
       count: data?.crayBlogsCount?.totalCount || 0,
@@ -123,6 +118,14 @@ function BlogTabs({ data, columns }) {
     hpeNonstopBlogs: {
       label: 'HPE NonStop',
       count: data?.hpeNonstopBlogsCount?.totalCount || 0,
+    },
+    hpeOpsRampBlogs: {
+      label: 'HPE OpsRamp',
+      count: data?.hpeOpsRampBlogsCount?.totalCount || 0,
+    },
+    hpeMorpheusBlogs: {
+      label: 'HPE Morpheus',
+      count: data?.hpeMorpheusBlogsCount?.totalCount || 0,
     },
   };
 
@@ -406,7 +409,6 @@ BlogTabs.propTypes = {
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
     spiffeBlogsCount: PropTypes.objectOf(PropTypes.number),
     kubeDirectorBlogsCount: PropTypes.objectOf(PropTypes.number),
-    dataFabricBlogsCount: PropTypes.objectOf(PropTypes.number),
     greenlakeBlogsCount: PropTypes.objectOf(PropTypes.number),
     chapelBlogsCount: PropTypes.objectOf(PropTypes.number),
     grommetBlogsCount: PropTypes.objectOf(PropTypes.number),
@@ -421,11 +423,12 @@ BlogTabs.propTypes = {
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
     determinedBlogsCount: PropTypes.objectOf(PropTypes.number),
     smartSimBlogsCount: PropTypes.objectOf(PropTypes.number),
-    dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     crayBlogsCount: PropTypes.objectOf(PropTypes.number),
     swarmBlogsCount: PropTypes.objectOf(PropTypes.number),
     dragonhpcBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
+    hpeOpsRampBlogsCount: PropTypes.objectOf(PropTypes.number),
+    hpeMorpheusBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({

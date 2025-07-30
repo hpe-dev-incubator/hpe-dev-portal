@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 20 Sep, 2023
+**Version 2.1** - 6 Feb, 2025
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
@@ -48,16 +48,16 @@ Please contact [HPE Developer Team](mailto:hpedev@hpe.com?subject=Support%20for%
 
 HPE Developer portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with [GitHub](https://guides.github.com/) for version control and collaboration.
    * **[Gatsby](https://www.gatsbyjs.com/)** is an open source framework based on [ReactJS](https://reactjs.org/) that helps developers quickly build websites and apps.
-   * **[Netlify](https://www.netlify.com/)** (_a web developer platform and web hosting infrastructure_) hosts the Content Management System (CMS) to edit the website content. Netlify CMS allows you to create, edit and preview contributions (for example a new blog post, a new event card or platform page updates). Netlify CMS also opens a GitHub Pull Request (PR) as a method of submitting your contribution for HPE Developer team to review your contribution and conduct an editorial review before its publication.
-   * **[AWS Amplify](https://aws.amazon.com/amplify/)** (_a web hosting infrastructure and a framework platform for building secure and scalable web applications_) hosts the front end of the HPE Developer website [developer.hpe.com](https://developer.hpe.com). It provides the deploy previews for each commit to the GitHub repository.
+   * **[Netlify](https://www.netlify.com/)** (_a web developer platform and web hosting infrastructure_) hosts the Content Management System (CMS) to edit the website content. Netlify CMS allows you to create, edit and preview contributions (for example a new blog post, a new event card or platform page updates). Netlify CMS also opens a GitHub Pull Request (PR) as a method of submitting your contribution for HPE Developer team to review your contribution and conduct an editorial review before its publication. It provides the deploy previews for each commit to the GitHub repository.
+   * **[AWS Amplify](https://aws.amazon.com/amplify/)** (_a web hosting infrastructure and a framework platform for building secure and scalable web applications_) hosts the front end of the HPE Developer website [developer.hpe.com](https://developer.hpe.com). 
 
 Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE Developer website whenever HPE Developer team pulls in your contributions and merges them into the master branch in GitHub.
 
 
 ## Getting started
 
-1.  Make sure you are connected to **your personal GitHub account**. If you
-    don't have an account, you can create one now [here](https://github.com/join).
+1.  Make sure you are connected to **your GitHub account**. If you
+    don't have an account, you can create one now [here](https://github.com/signup).
 
 2.  Open the [HPE Developer Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
@@ -524,7 +524,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\" title=\"brief description for the image\"\>\</center\>
 
 
-        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
+        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The image will be rendered in the Preview of the post and also once published. The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
 
         >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google. Adding a _Title_ will help make your image collateral more accessible for people with visual impairments and help them understand pictures content.  
 
@@ -549,15 +549,56 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
      \>> \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
      
  
-- **Tip #8: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
+- **Tip #8: Embed a YouTube video (HPE Approved video) or other website video in a blog or in Platform page:**
 
+   * _**YouTube video that has gone through the HPE Marketing Asset Publishing (MAP) process:**_
+  
     To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
-    * Go to your YouTube video URL
-    * Select ***"Share"*** option just underneath the video frame
-    * Select ***"Embed"*** option
-    * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
-    * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
+    
+  * Go to your YouTube video URL.
+  * Select ***"Share"*** option just underneath the video frame.
+  * Select ***"Embed"*** option.
+  * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
+  * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
 
+  * _**YouTube video that has NOT gone through the MAP process:**_
+
+     To be compliant with the HPE legal policies, proceed as follows:
+    
+  * Go to your YouTube video URL.
+  * Get the video ID (after "watch?v=" in the address bar).
+  * Use the Markdown syntax below to insert the clickable thumbnail image and link it to the YouTube video:
+    
+    \[\!\[Brief description of your video\]\(https://img.youtube.com/vi/Video-ID/hqdefault.jpg)](YouTube Video URL)
+
+       For Example:
+    
+    \[\!\[Zerto for Kubernetes\]\(https://img.youtube.com/vi/EIQcOIcbBwU/hqdefault.jpg)](https://www.youtube.com/watch?v=EIQcOIcbBwU)
+
+  * _**Other website video that has NOT gone through the MAP process:**_
+
+     To be compliant with the HPE legal policies, proceed as follows:
+    
+  * Insert an image to the post or platform page as per Tip #5 (Go to Rich Text mode in the CMS editor).
+    Then, toggle on Markdown mode in the CMS editor.
+    This will allow you to get the relative path of the image you want to insert.
+          
+  * Next, you can mix markdown and HTML if you are careful to include **empty lines** as here:
+
+       \<a href="https://example.com" target="_blank"\>
+         
+       \!\[My image\](logo.png)
+
+       \</a>
+
+  _For example:_
+
+\<a href="https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132" target="_blank"\>
+
+\!\[Simplify AI from Infrastructure to Model\](/img/simplify-ai-from-infrastructure-to-model-deployment-500-281.png)
+
+\</a>
+    
 - **Tip #9: Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
@@ -568,7 +609,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks ***\`\`\`*** before and after the code block to include code block snippets in your blog post.
 
-    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language. If you do not find an appropriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
+    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language **(Field Settings --> MODE)**. If you do not find an appropriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
 
     -   Make sure to insert a line break before and after a code block snippet
 
@@ -737,11 +778,13 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
-  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-platform |
+  | **HPE GreenLake cloud**            | hpe-greenlake-cloud |
+  | **HPE GreenLake platform**         | hpe-greenlake-platform |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Data Services on the HPE GreenLake platform** | data-services-on-the-hpe-greenlake-platform |
+  | **Hybrid observability in HPE GreenLake Flex Solutions** | hybrid-observability-flex-solutions |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment; or cray; or CPE |
@@ -754,12 +797,14 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE NonStop**                    | hpe-nonstop |
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
+  | **HPE OpsRamp**                    | hpe-opsramp |
+  | **HPE Private Cloud AI**           | hpe-private-cloud-ai |
   | **HPE SimpliVity**                 | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
+  | **Morpheus**                       | morpheus |
   | **SmartSim**                       | smartsim    |
   | **Zerto**                          | zerto   |
-  | **Project Data Map**               | project-data-map |
   | **KubeDirector**                   | kubedirector |
   | **HPE Swarm Learning**             | swarm-learning |
   | **open-source software**           | opensource |

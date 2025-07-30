@@ -17,7 +17,50 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-Updated: March 6, 2024
+<style>
+.warning-box {
+    background-color: #fff3cd; /* Light yellow background */
+    /* border: 2px solid #ffeb3b; /* Yellow border */
+    color: #856404; /* Dark text color for contrast */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px 0; /* Margin for spacing */
+    width: 80%; /* Width of the rectangle */
+    max-width: 600px; /* Maximum width of the rectangle */
+    margin-left: auto; /* Center the rectangle horizontally */
+    margin-right: auto; /* Center the rectangle horizontally */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
+}
+
+.warning-box p {
+    margin: 0; /* Remove default margin from the paragraph */
+    font-weight: bold; /* Bold text */
+}
+
+.warning-box a {
+    color: blue; /* Change the color of the link */
+    text-decoration: none; /* Remove the underline */
+    /*font-style: italic; /* Make the text italic */
+    /*font-weight: bold; /* Make the text bold */
+        }
+</style>
+
+Updated: December 10, 2024
+
+<div class="warning-box">
+    <p>
+    NOTE:
+    </p>
+    <p>
+    Due to the deprecation of the
+    <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated" target="_blank">SmartStorageConfig</a> data model and the adoption of the <a href="https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish%C2%AE-device-enablement-standard/" target="_blank">PLDM for RDE</a> standard by HPE iLO and storage
+    device providers, this blog post is deprecated.
+    </p>
+    <p>
+    Refer to the <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/#storage-data-models" target="_blank">Storage data models</a> documentation section for up to date information concerning Redfish storage management.
+    </p>
+</div>
+
 
 ## Introduction
 
@@ -26,8 +69,6 @@ Integrated Lights-Out (<a href="https://www.hpe.com/info/ilo" target="_blank">iL
 In HPE ProLiant and Synergy Gen10 servers, HPE iLO 5 introduced the management of storage controllers via its graphical user interface and via the <a href="https://www.dmtf.org/standards/redfish" target="_blank">Redfish</a> RESTful API standard. Although <a href="https://www.youtube.com/channel/UCIZhrIYcNh3wHLiY4ola5ew/search?query=logicaldrive"  target="_blank">videos</a> already exist that cover the graphical user interface, I wanted to address this feature with a pure Redfish API approach, bypassing the <a href="https://github.com/HewlettPackard/python-redfish-utility/releases/latest" target="_blank">iLOrest interface tool</a> and its `SmartController` macro commands.
 
 In this article you start by learning how to cleanup and prepare a SmartRAID (SR) storage Controller for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones.
-
-**NOTE**: The HPE proprietary `SmartStorageConfig` introduced with HPE iLO 5 has been <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated" target="_blank">deprecated</a> in iLO 6 based servers (Gen11) in favor of the standard <a href="https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/" target="_blank">DMTF storage model<a>. For backward compatibility, HPE iLO 5 implements both models.
 
 ## Foreword
 

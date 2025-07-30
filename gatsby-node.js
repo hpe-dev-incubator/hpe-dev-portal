@@ -12,6 +12,16 @@ const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
 const setPagination = (queryResult) => {
+  if (
+    !queryResult ||
+    !queryResult.data ||
+    !queryResult.data.paginatedCollection ||
+    !queryResult.data.paginatedCollection.id
+  ) {
+    throw new Error(
+      'Invalid query result: paginatedCollection or id is missing',
+    );
+  }
   const collection = queryResult.data.paginatedCollection;
   const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
   fs.mkdirSync(dir, { recursive: true });
@@ -147,9 +157,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const spiffeQueryResult = await graphql(
     paginatedCollectionQuery('spiffe-blog-posts'),
   );
-  const dataFabricQueryResult = await graphql(
-    paginatedCollectionQuery('data-fabric-posts'),
-  );
   const greenLakeQueryResult = await graphql(
     paginatedCollectionQuery('greenlake-posts'),
   );
@@ -181,7 +188,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const determinedQueryResult = await graphql(
     paginatedCollectionQuery('determined-ai-posts'),
   );
-  const dsccQueryResult = await graphql(paginatedCollectionQuery('dscc-posts'));
   const projectDataMapQueryResult = await graphql(
     paginatedCollectionQuery('project-data-map-posts'),
   );
@@ -214,6 +220,14 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('hpe-nonstop-posts'),
   );
 
+  // const hpeOpsrampQueryResult = await graphql(
+  //   paginatedCollectionQuery('hpe-opsramp'),
+  // );
+
+  // const hpeMorpheusQueryResult = await graphql(
+  //   paginatedCollectionQuery('morpheus'),
+  // );
+
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
   );
@@ -222,7 +236,6 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(openSourceQueryResult);
   setPagination(ezmeralRuntimeQueryResult);
   setPagination(spiffeQueryResult);
-  setPagination(dataFabricQueryResult);
   setPagination(greenLakeQueryResult);
   setPagination(chapelQueryResult);
   setPagination(grommetQueryResult);
@@ -234,7 +247,6 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(oneviewDashboardQueryResult);
   setPagination(iloQueryResult);
   setPagination(determinedQueryResult);
-  setPagination(dsccQueryResult);
   setPagination(projectDataMapQueryResult);
   // setPagination(zertoQueryResult);
   setPagination(arubaQueryResult);
@@ -245,6 +257,8 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(swarmQueryResult);
   setPagination(dragonhpcQueryResult);
   setPagination(hpeNonStopQueryResult);
+  // setPagination(hpeOpsrampQueryResult);
+  // setPagination(hpeMorpheusQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(`

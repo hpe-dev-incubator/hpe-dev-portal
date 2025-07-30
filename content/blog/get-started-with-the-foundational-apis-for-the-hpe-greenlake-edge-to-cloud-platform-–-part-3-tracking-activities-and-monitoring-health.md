@@ -1,6 +1,6 @@
 ---
-title: "Get started with the foundational APIs for the HPE GreenLake
-  edge-to-cloud platform – Part 3: Tracking activities and monitoring health"
+title: "Get started with the foundational APIs for the HPE GreenLake platform –
+  Part 3: Tracking activities and monitoring health"
 date: 2024-02-02T10:38:42.333Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
@@ -10,6 +10,8 @@ tags:
   - hpe-greenlake-platform
   - API
 ---
+**Editor's note:** This blog post series may refer to older release of the HPE GreenLake platform APIs. For information about the current release of the HPE GreenLake service APIs, please visit the [HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/).
+
 This is part three of a blog series that showcases the capabilities of the APIs for common HPE GreenLake platform services using a real customer scenario, displaying it from the perspective of a user of the platform, such as an IT administrator. 
 
 Continuing on from the [second part of this series](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/), where I had put on my IT administrator’s hat for a ***Standard Enterprise*** workspace, I will now explore the set of REST API calls used for tracking activities in the workspace and monitoring the overall health of HPE services and HPE products in the workspace.

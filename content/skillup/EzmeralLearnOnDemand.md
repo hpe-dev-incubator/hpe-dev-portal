@@ -5,6 +5,7 @@ linkname: Learn more
 description: "Take on-demand technical courses covering key topics in AL/ML,
   Apache Spark, data security, HPE Data Fabric, swarm learning, developer
   essentials, NiFi – ETL, and more. Always free.  "
+disable: true
 priority: 5
 image: /img/platforms/EzmeralLearnondemand.png
 ---

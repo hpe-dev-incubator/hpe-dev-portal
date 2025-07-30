@@ -1,8 +1,8 @@
 ---
-title: HPE GreenLake edge-to-cloud platform scripting fundamentals
+title: HPE GreenLake cloud scripting fundamentals
 date: 2024-01-24T09:51:57.270Z
-featuredBlog: true
-priority: 2
+featuredBlog: false
+priority: 15
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 disable: false
@@ -23,13 +23,13 @@ ol li{
 }
 </style>
 
-## What are the HPE GreenLake edge-to-cloud platform APIs  
+## What are the HPE GreenLake cloud APIs  
 
-The foundational APIs for common HPE GreenLake platform services allow IT administrators and IT operators to programmatically operate and manage users and resources in an HPE GreenLake platform workspace.   
+The foundational APIs for common HPE GreenLake cloud services allow IT administrators and IT operators to programmatically operate and manage users and resources in an HPE GreenLake cloud workspace.   
 
 This set of APIs for common platform services includes APIs for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
-> > *Note: The [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
+> > *Note: The [HPE GreenLake cloud documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake cloud services, as well as sample requests and responses.*   
 
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
@@ -37,19 +37,19 @@ This set of APIs for common platform services includes APIs for workspace manage
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 2: Configuring and managing a workspace](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/)
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 3: Tracking activities and monitoring health](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/)
 
-In this blog post here, I will explore the usage of the HPE GreenLake platform APIs one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
+In this blog post here, I will explore the usage of the HPE GreenLake cloud APIs one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
 
 ## Let’s pick a use case
 
 Let’s say I’d like to check what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
 
-![Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform](/img/don-picture.png "Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform")
+![Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake cloud](/img/don-picture.png "Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake cloud")
 
-> Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform
+> Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake cloud
 
-For reference, I can also check the content of this audit log in the HPE GreenLake console, under the Manage Workspace tab. 
+For reference, I can also check the content of this audit log in the HPE GreenLake cloud console, under the Manage Workspace tab. 
 
-![Figure 2: Audit log in HPE GreenLake platform console](/img/auditlogui.jpg "Figure 2: Audit log in HPE GreenLake platform console")
+![Figure 2: Audit log in HPE GreenLake cloud console](/img/auditlogui.jpg "Figure 2: Audit log in HPE GreenLake cloud console")
 
 > Figure 2: Audit log in HPE GreenLake platform console
 
@@ -66,13 +66,13 @@ Let’s look at the steps necessary to accomplish this. 
 
 ## Give me a token, my friend!
 
-The HPE GreenLake platform console provides a way to create API client credentials (up to 5 per workspace) in the form of a Client ID and a Client Secret pair, which, in turn, I am going to use to generate a session token.
+The HPE GreenLake cloud console provides a way to create API client credentials (up to 5 per workspace) in the form of a Client ID and a Client Secret pair, which, in turn, I am going to use to generate a session token.
 
-> > *Note: To make REST API calls to HPE GreenLake platform APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake platform APIs, check out the [Configuring API client credentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake edge-to-cloud platform user guide.*
+> > *Note: To make REST API calls to HPE GreenLake cloud APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake cloud APIs, check out the [Configuring API client credentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake cloud APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake cloud user guide.*
 
 My script will prompt for these two values (**client_id** and **client_secret**) and will make sure that **client_secret** is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
 
-From the HPE GreenLake console, I’ve learned that the cURL command to get a session token is: 
+From the HPE GreenLake cloud console, I’ve learned that the cURL command to get a session token is: 
 
 ```markdown
 curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
@@ -82,7 +82,7 @@ curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
 --data-urlencode 'client_secret='<CLIENTSECRET>'
 ```
 
-You can see this in the API section of the Manage Workspace screen of the HPE GreenLake console shown below: 
+You can see this in the API section of the Manage Workspace screen of the HPE GreenLake cloud console shown below: 
 
 ![Figure 3: API access management page](/img/apiaccess.jpg "Figure 3: API access management page")
 
@@ -111,13 +111,13 @@ The response provides an access token of type “Bearer” with a time to live o
 According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:
 
 ```markdown
-GET /audit-log/v1beta1/logs
+GET /audit-log/v1/logs
 ```
 
 I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following parameter: 
 
 ```markdown
-GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
+GET /audit-log/v1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
 ```
 
 > > *Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)* 
@@ -235,7 +235,7 @@ do 
 I can now call the API with the right authorization header and set the filter parameter, **startTime** greater than the computed date: 
 
 ```shell
-http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$d'" \ 
+http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'$d'" \ 
 --header 'Accept: application/json' \ 
 --header "Authorization: $access_token")
 ```
@@ -371,7 +371,7 @@ Here, you’ll see that I can leverage exceptions that PowerShell supports: 
 
 ```powershell
     try { 
-        $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
+        $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
     } 
     catch { 
         write-host "Error calling the API or token has expired!" 
@@ -498,7 +498,7 @@ my_headers = { 
         'accept': 'application/json', 
         'Authorization': my_token, 
     } 
-    my_url = "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'" + date + "'" 
+    my_url = "https://global.api.greenlake.hpe.com/audit-log/v1/logs?filter=startTime%20ge%20'" + date + "'" 
 
 # Fetch audit logs since last minute 
     response = requests.get(url=my_url, headers=my_headers) 
@@ -560,8 +560,8 @@ Error calling the API or token has expired!
 
 ## What’s next? 
 
-The next step for the HPE GreenLake APIs is to provide language specific SDK, which would provide better handling in PowerShell and Python, with stronger type checking and exception handling. In the meantime, I have shown you through this blog post that it is already possible to integrate with HPE GreenLake platform using the most popular scripting languages. You can get the source code for these scripts from [our community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling).
+The next step for the HPE GreenLake cloud APIs is to provide language specific SDK, which would provide better handling in PowerShell and Python, with stronger type checking and exception handling. In the meantime, I have shown you through this blog post that it is already possible to integrate with HPE GreenLake cloud using the most popular scripting languages. You can get the source code for these scripts from [our community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling).
 
-If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that lets you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
+If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that lets you play with the HPE GreenLake cloud APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
 
-If you still have any questions regarding the HPE GreenLake platform APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
+If you still have any questions regarding the HPE GreenLake cloud APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.

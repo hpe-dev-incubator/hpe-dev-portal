@@ -18,7 +18,7 @@ The new portal now offers great ways to [engage](https://developer.hpe.com/commu
 
 <center><img src="/img/hpedev-website.png" width="800" height=455" alt="portal benefits"></center>
 
-One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
+One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
 
 Another reason for the site revamp was to implement a better back-end content management system. From the outside, you might not notice this much, but if you’ve written blog posts for us this year, you’ve undoubtedly noticed the improved method for submitting your posts and the ability to manage them through GitHub.
 

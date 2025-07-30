@@ -19,7 +19,7 @@ export default function HTML(props) {
         <meta name="robots" content="follow, index" />
         <meta name="segment" content="corporate" />
         <meta name="target_country" content="ww" />
-        <meta name="web_section_id" content="R11852" />
+        <meta name="web_section_id" content="R12362" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
