@@ -13,7 +13,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure **iSUT** (Intelligent System Update Tool) and **AMS** (Agentless Management Service) for **vSphere Lifecycle Manager (vLCM)** based firmware updates. Unlike previous generations, configuration via the vLCM Pre-Check page is not available in these modes due to credential requirements. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
+HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure **iSUT** (Intelligent System Update Tool) and **AMS** (Agentless Management Service) for **vSphere Lifecycle Manager (vLCM)** based firmware updates. Unlike previous generations, configuration through the **HPE OneView for VMware vCenter** (OV4VC) and **HPE Compute Ops Management plug-in for VMware vCenter** (COM4VC) vLCM Pre-Check page is not available in these modes, as iLO credentials are now required. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
 
 - - -
 
@@ -38,8 +38,6 @@ sut appaccount create -u <ilo_username> -p <ilo_password>
 
 **Alternatively, To proceed without creating an application account, provide the iLO credentials using the following CLI command:**
 
-
-
 ```shell
 sut -set ilousername=<ilo_username> ilopassword=<ilo_password>
 ```
@@ -61,7 +59,7 @@ sut -set mode=AutoDeploy
 For VMware environments, create the AMS application account:
 
 ```shell
-amsdCli appaccount create -u <ilo_username> -p <ilo_password>
+/opt/amsdv/bin/amsdCli appaccount create -u <iLO_username> -p <iLO_password>
 ```
 
 - - -
