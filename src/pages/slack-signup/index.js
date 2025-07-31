@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 // import '../../css/style.css';
 import Swal from 'sweetalert2';
 import { Box, Image, Button, TextInput, Text } from 'grommet';
@@ -8,7 +8,7 @@ import { Layout, SEO } from '../../components';
 import { AppContext } from '../../providers/AppProvider';
 
 const image = '/images/hero-pic.png';
-const buttonstyle = {
+const buttonStyle = {
   backgroundColor: '#dcdcdc',
   borderRadius: '100px',
   align: 'center',
@@ -17,93 +17,71 @@ const buttonstyle = {
   fontFamily: 'sans-serif',
 };
 export default function Slacksignup() {
+  const slackInviteApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/slack/invite`;
   const { user: userDetails } = useContext(AppContext);
-  const [email, setemail] = useState(userDetails?.email || '');
-  const onsubmit = (evt) => {
+  const [email, setEmail] = useState(userDetails?.email || '');
+
+  const onsubmit = async (evt) => {
     evt.preventDefault();
-    if (email) {
-      const doInvite = () => {
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('token', process.env.GATSBY_SLACK_TOKEN);
-        formData.append('set_active', true);
-        return fetch(process.env.GATSBY_SLACK_INVITE_URL, {
-          method: 'POST',
-          body: formData,
-          json: true,
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            if (res.ok) {
-              const el = document.createElement('div');
-              el.innerHTML = `Please check <b> ${email}</b> 
-                              for an invite from slack`;
-              Swal.fire({
-                title: 'SUCCESS !',
-                html: el,
-                icon: 'success',
-              });
-            } else {
-              let { error } = res;
-              if (error === 'already_invited' || error === 'already_in_team') {
-                const el = document.createElement('div');
-                el.innerHTML =
-                  "It seems like you are already member of our slack.<br>Visit <a href=https://hpedev.slack.com target='_blank' > <b> HPE Developer Community</b></a> on slack";
-                Swal.fire({
-                  title: 'Success',
-                  html: el,
-                  icon: 'success',
-                });
-              } else if (error === 'already_in_team_invited_user') {
-                const l = document.createElement('div');
-                l.innerHTML = `Please check again <b style="font-size:large;" > ${email} </b> for an invite from Slack.<br>Visit <a href=https://developer.hpe.com/ target="_blank"> HPE Developer Community</a>`;
-                Swal.fire({
-                  title: 'It seems like we already sent you our slack invite',
-                  html: l,
-                  icon: 'info',
-                });
-              } else {
-                if (error === 'invalid_email') {
-                  error = 'The email you entered is an invalid email.';
-                } else if (error === 'invalid_auth') {
-                  error =
-                    'Something has gone wrong. Please' +
-                    ' contact a system administrator.';
-                }
-                Swal.fire({
-                  title: 'Error',
-                  html: error,
-                  icon: 'error',
-                });
-              }
-            }
-          })
-          .catch((err) => {
-            Swal.fire({
-              title: 'Error !',
-              html: err,
-              icon: 'error',
-            });
-          });
-      }; // end of doInvite
-      doInvite();
-    } // end of if statement
-    else {
-      const errMsg = [];
-      if (!email) {
-        errMsg.push('your email is required');
-      }
+
+    if (!email) {
       Swal.fire({
-        html: `Failed! ${errMsg.join(' and ')}.`,
+        html: `Failed! your email is required.`,
         icon: 'info',
       });
+      return;
     }
-    setTimeout(() => {
-      setemail('');
-    }, 2500);
+
+    try {
+      const response = await fetch(slackInviteApi, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const res = await response.json();
+
+      if (response.ok) {
+        Swal.fire({
+          title: 'Success!',
+          html: `Please check <b>${email}</b> for an invite from Slack.`,
+          icon: 'success',
+        });
+      } else {
+        const { error } = res;
+
+        let htmlContent = '';
+        if (error === 'already_invited' || error === 'already_in_team') {
+          htmlContent = `It looks like you're already a member. Visit <a href="https://hpedev.slack.com" target="_blank"><b>HPE Developer Community</b></a> on Slack.`;
+        } else if (error === 'already_in_team_invited_user') {
+          htmlContent = `An invite was already sent to <b>${email}</b>. Please check your inbox.<br>Visit <a href="https://developer.hpe.com/" target="_blank">HPE Developer Community</a>.`;
+        } else if (error === 'invalid_email') {
+          htmlContent = 'The email you entered is invalid.';
+        } else {
+          htmlContent =
+            error || 'Something went wrong. Please try again later.';
+        }
+
+        Swal.fire({
+          title: 'Slack Invite Info',
+          html: htmlContent,
+          icon: 'info',
+        });
+      }
+    } catch (err) {
+      Swal.fire({
+        title: 'Error!',
+        html: err.message || 'Unknown error occurred.',
+        icon: 'error',
+      });
+    } finally {
+      setTimeout(() => {
+        setEmail('');
+      }, 2500);
+    }
   };
-  const handlechange = (event) => {
-    setemail(event.target.value);
+  const handleChange = (event) => {
+    setEmail(event.target.value);
   };
   return (
     <Layout>
@@ -151,7 +129,7 @@ export default function Slacksignup() {
                 placeholder="example@my.com"
                 value={email}
                 name="email"
-                onChange={handlechange}
+                onChange={handleChange}
                 style={{ position: 'relative', marginLeft: '-10px' }}
                 required
                 plain
@@ -192,9 +170,9 @@ export default function Slacksignup() {
         align="center"
         style={{ marginTop: '-120px' }}
       >
-        <Button label="50+ Channels" style={buttonstyle} />
-        <Button label="Over 4,000 members" style={buttonstyle} />
-        <Button label="6 Years+ Community" style={buttonstyle} />
+        <Button label="50+ Channels" style={buttonStyle} />
+        <Button label="Over 4,000 members" style={buttonStyle} />
+        <Button label="6 Years+ Community" style={buttonStyle} />
       </Box>
     </Layout>
   );
