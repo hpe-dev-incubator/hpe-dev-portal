@@ -1,6 +1,6 @@
 ---
-title: How to Configure iSUT and AMS for vLCM-Based Firmware Updates on HPE
-  Gen12 Servers (High Security Mode)
+title: How to configure iSUT and AMS for vLCM-Based firmware updates on HPE
+  Gen12 servers (High Security Mode)
 date: 2025-10-01T02:30:17.312Z
 author: Vijayakannan M
 authorimage: /img/Avatar1.svg
@@ -9,20 +9,29 @@ tags:
   - OV4VC
   - VLCM
   - COM4VC
-  - HPE OneView
+  - hpe-oneview
+  - HPE Gen12
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure **iSUT** (Intelligent System Update Tool) and **AMS** (Agentless Management Service) for **vSphere Lifecycle Manager (vLCM)** based firmware updates. Unlike previous generations, configuration through the **HPE OneView for VMware vCenter** (OV4VC) and **HPE Compute Ops Management plug-in for VMware vCenter** (COM4VC) vLCM Pre-Check page is not available in these modes, as iLO credentials are now required. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
+
+
+In this blog post, I’ll show you how to configure iSUT and AMS to enable vLCM-based firmware updates on HPE Gen12 servers.
+
+
+
+HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure Intelligent System Update Tool (**iSUT**) and Agentless Management Service (**AMS**) for vSphere Lifecycle Manager **(vLCM)** based firmware updates. 
+
+Unlike previous generations, configuration through the HPE OneView for VMware vCenter (**OV4VC**) and HPE Compute Ops Management plug-in for VMware vCenter (**COM4VC**) vLCM Pre-Check page is not available in these modes, as iLO credentials are now required. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
 
 - - -
 
 ## **Prerequisites**
 
-* HPE Gen12 server with iLO 7
-* vSphere environment with vLCM enabled
-* iLO credentials with sufficient privileges
-* Access to server CLI (SSH or local console)
+* HPE Gen12 server with iLO 7.
+* vSphere environment with vLCM enabled.
+* iLO credentials with sufficient privileges.
+* Access to server CLI (SSH or local console).
 
 - - -
 
@@ -36,7 +45,7 @@ Application accounts are service accounts in iLO 7, used by host applications (l
 sut appaccount create -u <ilo_username> -p <ilo_password>
 ```
 
-**Alternatively, To proceed without creating an application account, provide the iLO credentials using the following CLI command:**
+**Alternatively, to proceed without creating an application account, provide the iLO credentials using the following CLI command:**
 
 ```shell
 sut -set ilousername=<ilo_username> ilopassword=<ilo_password>
