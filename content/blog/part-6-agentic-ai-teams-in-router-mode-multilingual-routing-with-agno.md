@@ -32,7 +32,7 @@ This method is especially effective in scenarios requiring multilingual or domai
 
 ## Router Mode: What it is?
 
-In Router Mode, rather than executing tasks itself, the team acts like a switchboard, rather than executing tasks itself. Its core responsibility is to:
+In Router Mode, the team acts like a switchboard, rather than executing tasks itself. Its core responsibility is to:
 
 * Analyze user input
 * Detect the appropriate context (e.g., language)
