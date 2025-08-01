@@ -14,24 +14,20 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
+HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure Intelligent System Update Tool **(iSUT)** and Agentless Management Service **(AMS)** for vSphere Lifecycle Manager **(vLCM)** based firmware updates. 
 
+Unlike previous generations, configuration through the HPE OneView for VMware vCenter **(OV4VC)** and HPE Compute Ops Management plug-in for VMware vCenter **(COM4VC)** vLCM Pre-Check page is not available in these modes, as iLO credentials are now required. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
 
 In this blog post, I’ll show you how to configure iSUT and AMS to enable vLCM-based firmware updates on HPE Gen12 servers.
-
-
-
-HPE Gen12 servers introduce enhanced security by supporting only High Security modes (SecureStandard, CNSA, FIPS). This impacts how you configure Intelligent System Update Tool (**iSUT**) and Agentless Management Service (**AMS**) for vSphere Lifecycle Manager **(vLCM)** based firmware updates. 
-
-Unlike previous generations, configuration through the HPE OneView for VMware vCenter (**OV4VC**) and HPE Compute Ops Management plug-in for VMware vCenter (**COM4VC**) vLCM Pre-Check page is not available in these modes, as iLO credentials are now required. Instead, you must manually configure AMS and iSUT by creating an application account and providing valid HPE iLO credentials.
 
 - - -
 
 ## **Prerequisites**
 
-* HPE Gen12 server with iLO 7.
-* vSphere environment with vLCM enabled.
-* iLO credentials with sufficient privileges.
-* Access to server CLI (SSH or local console).
+* HPE Gen12 server with iLO 7
+* vSphere environment with vLCM enabled
+* iLO credentials with sufficient privileges
+* Access to server CLI (SSH or local console)
 
 - - -
 
@@ -75,20 +71,20 @@ For VMware environments, create the AMS application account:
 
 ## **Step 4: Verify Application Account in iLO**
 
-1. Open the **iLO GUI**.
-2. Navigate to **iLO Settings** > **User Management** > **Users**.
-3. Select **Application Account**.
-4. Confirm the application account details are present.
+1. Open the **iLO GUI**
+2. Navigate to **iLO Settings** > **User Management** > **Users**
+3. Select **Application Account**
+4. Confirm the application account details are present
 
 - - -
 
-## **Step 5: Check AMS Status in iLO GUI**
+## **Step 5: Check AMS status in iLO GUI**
 
 * Ensure AMS status is reported as **Available** in the iLO GUI.
 
 - - -
 
-## **Step 6: Verify iSUT and AMS Status in vSphere**
+## **Step 6: Verify iSUT and AMS status in vSphere**
 
 1. Log in to **VMware vSphere**.
 2. Select the required **cluster** and click the **Configure** tab.
