@@ -1,7 +1,7 @@
 ---
 title: How to configure iSUT and AMS for vLCM-Based firmware updates on HPE
   Gen12 servers (High Security Mode)
-date: 2025-10-01T02:30:17.312Z
+date: 2025-08-04T10:04:54.573Z
 author: Vijayakannan M
 authorimage: /img/Avatar3.svg
 disable: false
