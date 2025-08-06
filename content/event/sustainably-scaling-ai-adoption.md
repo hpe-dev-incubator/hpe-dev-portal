@@ -4,7 +4,7 @@ dateStart: 2025-08-05T22:01:09.909Z
 dateEnd: 2025-08-06T21:30:09.928Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://hpe.zoom.us/webinar/register/9517531042113/WN_O_2B4IPEQumabnEX9SDQaw
+link: https://developer.hpe.com/campaign/get-real-with-ai-jam-series/
 width: large
 ---
 ## Sustainably Scaling AI Adoption
