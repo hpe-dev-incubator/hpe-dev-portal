@@ -108,6 +108,8 @@ On the cluster details page, the **Actions** menu provides a list of supported d
 
 * **View and download Kube config**
 
+![](/img/view-kubeconfig-menu.png)
+
 Click *View Kube Config* to show the Kube config content of the MKS cluster. 
 
 ![](/img/view-kubeconfig.png)
@@ -122,7 +124,7 @@ In K8s, adding new workers to an existing cluster involves setting up self-regis
 
 In MKS, this operation is easily supported via the **Actions** menu. To begin adding a new worker to the MKS cluster, simply click **Add VMware Kubernetes Worker** and follow the steps outlined below:
 
-![](/img/cluster-add-worker.png)
+![](/img/add-worker.png)
 
 1. Specify *NAME* and the optional *DESCRIPTION*:
 
@@ -146,7 +148,11 @@ Click the *Nodes* tab, the new worker 'new-mks-worker' shows in the node list.
 
 K8s follows a frequent release cycle, every 4 months on average, to ensure stability, innovation and timely security updates. While upgrading a K8s cluster is crucial for maintaining security, performance, and access to the latest features, it remains a complex and demanding task. The upgrade process presents significant challenges, including managing scale and complexity, minimizing downtime risks, and handling substantial operational overhead that can span weeks and require coordination across multiple teams.
 
-In MKS, upgrading the cluster is straightforward using the **Actions** menu. To initiate the process, click **Upgrade Cluster**. This opens the *UPGRADE CLUSTER* pop-up, where you see the list of supported versions available for upgrade:
+In MKS, upgrading the cluster is straightforward using the **Actions** menu. To initiate the process, click **Upgrade Cluster**. 
+
+![](/img/upgrade-cluster-menu.png)
+
+This opens the *UPGRADE CLUSTER* pop-up, where you see the list of supported versions available for upgrade:
 
 ![](/img/upgrade-cluster.png)
 
@@ -166,7 +172,11 @@ Under **Control** tab from the cluster *mks-demo*, deploy a sample application '
 
 * **Deploy applications via Run Workload**
 
-Click *Run Workload* from **Actions** of the cluster *mks-demo*, and provide the following *Deployment* YAML file to *CUSTOM SPEC* to deploy the same *nginx-demo* application to the namespace *default*:
+Click *Run Workload* from **Actions** of the cluster *mks-demo*
+
+![](/img/run-workload-menu.png)
+
+Provide the following *Deployment* YAML file to *CUSTOM SPEC* to deploy the same *nginx-demo* application to the namespace *default*:
 
 ```shell
 apiVersion: apps/v1
