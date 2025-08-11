@@ -27,13 +27,13 @@ As Agentic AI evolves, the need for local, private, and flexible inference becom
 * Running LLaMA 3.2 locally with minimal setup
 * Connecting Ollama with AGNO framework
 * Building an offline agent pipeline using only Python
-* Why this empowers fully private, offline, and customizable AI deployments
+* How this empowers fully private, offline, and customizable AI deployments
 
-## AGNO Meets Local LLMs via Ollama
+## AGNO Meets local LLMs via Ollama
 
 One of AGNO’s core strengths is modularity — it can interface with any LLM provider, including:
 
-* OpenAI (gpt-4o, gpt-3.5)
+* OpenAI (GPT4o, GPT-3.5)
 * Claude (3.5 Sonnet, Haiku)
 * DeepSeek
 * Mistral
@@ -43,11 +43,11 @@ This makes it possible to define agents using LLaMA 3, Mistral, or Gemma without
 
 ## What is Ollama?
 
-Ollama is a local inference server that can run transformer models on CPU or GPU. It supports major open-source LLMs like LLaMA, Mistral, DeepSeek, QWEN, and Gemma.
+Ollama is a local inference server that can run transformer models on a CPU or GPU. It supports major open-source LLMs like LLaMA, Mistral, DeepSeek, QWEN, and Gemma.
 
-Once running, it exposes a REST API at http://localhost:11434, compatible with OpenAI-style inference.
+Once running, it exposes a REST API at `http://localhost:11434`, compatible with OpenAI-style inference.
 
-Official site: [ollama.com](https://ollama.com)
+You can find more information on this at Ollama's official site: [ollama.com](https://ollama.com)
 
 ```python
 Install and Run Ollama
@@ -65,9 +65,9 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama run llama3
 ```
 
-This downloads and launches LLaMA 3.2 locally. Once active, it exposes endpoints that work with both synchronous and streaming chat.
+Running the code above downloads and launches LLaMA 3.2 locally. Once active, Ollama exposes endpoints that work with both synchronous and streaming chat.
 
-## AGNO + Ollama: Agent Example
+## AGNO + Ollama: An example of how to use them together to build an agent
 
 Let’s build a storytelling agent using AGNO connected to Ollama.
 
@@ -114,7 +114,7 @@ agent.print_response("Tell me about a breaking news story from New York.", strea
   </tbody>
 </table>
 
-## No Framework? No Problem.
+## No framework? No problem.
 
 Frameworks like AGNO offer orchestration, but what if you're running in:
 
@@ -128,7 +128,7 @@ Here’s how to build a raw agent pipeline using just:
 * DuckDuckGo search for tool use
 * Custom prompt logic
 
-## Full python Agent pipeline
+## Full Python agent pipeline
 
 ```python
 from ollama import Client
@@ -243,7 +243,7 @@ Looking for multi-agent orchestration with Ollama?
 * Streaming LLM outputs
 * Agent-task dependencies and coordination
 
-## Final summary
+## Final thoughts
 
 By combining AGNO, Ollama, and LLaMA3, developers can build fully private Agentic AI systems that:
 
