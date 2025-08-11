@@ -63,7 +63,7 @@ The agent contains the logic — tools, reasoning, goals, and memory — and can
 
 Ensure you're using an AGNO-compatible environment such as autogen_py_3_11_11, and that Ollama or OpenAI is accessible.
 
-### 2. Sample playground.py Script
+### 2. Sample playground.py script
 
 ```python
 import os
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 serve_playground_app("playground:app", reload=True)
 ```
 
-Access Your Hosted Agent
+Access your hosted agent
 
 ```python
 #After running:
@@ -120,7 +120,7 @@ https://app.agno.com/playground/chat?endpoint=localhost:7777&agent=<your-agent-i
 
 You now have a fully interactive Agentic AI service — complete with memory, tools, and autonomy — accessible via browser.
 
-### Bonus: Team Agent serving
+### Bonus: Team agent serving
 
 Want to host multiple agents with different skills, roles, or tools?
 
