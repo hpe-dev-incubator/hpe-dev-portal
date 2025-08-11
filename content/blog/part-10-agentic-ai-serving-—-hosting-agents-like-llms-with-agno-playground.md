@@ -1,5 +1,5 @@
 ---
-title: "Part 10: Agentic AI Serving — Hosting Agents like LLMs with AGNO Playground"
+title: "Part 10: Agentic AI Serving — Hosting agents like LLMs with AGNO Playground"
 date: 2025-07-21T11:54:31.427Z
 author: Dinesh R Singh
 authorimage: /img/dinesh-192-192.jpg
@@ -24,7 +24,7 @@ We’re all familiar with model serving — deploying LLMs like GPT, LLaMA, or M
 
 This is the essence of Agentic AI Serving using the AGNO Framework — a next-gen architecture where agents are hosted, monitored, and interacted with like full applications.
 
-> [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-10-agentic-ai-33a7ff1dd010)
+> You can learn more about it by reading [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-10-agentic-ai-33a7ff1dd010)
 
 #### This guide covers:
 
