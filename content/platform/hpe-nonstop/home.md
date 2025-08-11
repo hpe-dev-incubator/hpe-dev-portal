@@ -18,10 +18,6 @@ HPE NonStop is a platform that runs some of the world’s most exciting workload
 
 [![HPE NonStop NS8](https://img.youtube.com/vi/M5vq2OxwTDI/hqdefault.jpg)](https://www.youtube.com/watch?v=M5vq2OxwTDI)
 
-#### HPE NonStop SQL Cloud Edition
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5b-h20SduTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ## Resources
 
 [HPE NonStop Home Page](https://www.hpe.com/us/en/servers/nonstop.html)
