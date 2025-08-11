@@ -21,11 +21,11 @@ As Agentic AI evolves, the need for local, private, and flexible inference becom
 
 > [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-9-agentic-ai-agno-74d74cd0d9f3)
 
-### In this walkthrough, we explore:
+### In this walkthrough, I explore:
 
 * What is Ollama and how it powers local LLMs
 * Running LLaMA 3.2 locally with minimal setup
-* Connecting Ollama with AGNO Framework
+* Connecting Ollama with AGNO framework
 * Building an offline agent pipeline using only Python
 * Why this empowers fully private, offline, and customizable AI deployments
 
