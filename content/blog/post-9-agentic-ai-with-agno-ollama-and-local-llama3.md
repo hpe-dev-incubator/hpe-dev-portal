@@ -19,7 +19,7 @@ li {
 
 As Agentic AI evolves, the need for local, private, and flexible inference becomes critical. Frameworks like AGNO provide orchestration, but the ability to plug in LLMs running locally is what sets the next-gen agentic stack apart.
 
-> [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-9-agentic-ai-agno-74d74cd0d9f3)
+> You can learn more about it by reading [My post on Medium.](https://dineshr1493.medium.com/all-you-need-to-know-about-the-evolution-of-generative-ai-to-agentic-ai-part-9-agentic-ai-agno-74d74cd0d9f3)
 
 ### In this walkthrough, I explore:
 
