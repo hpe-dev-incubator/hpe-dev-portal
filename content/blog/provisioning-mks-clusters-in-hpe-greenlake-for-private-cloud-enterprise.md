@@ -16,9 +16,9 @@ In this blog post, I will guide you through the process of provisioning an MKS c
 
 ## Overview
 
-[HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake.html) is a fully managed Infrastructure as a Service (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
+[HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
 
-Through deep integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE GreenLake PCE delivers a unified self-service interface for provisioning virtual machines (VMs), containers, and application deployments, all governed by role-based access control (RBAC). This integration now enables support for the MKS feature, allowing users to deploy and manage K8s clusters with built-in automation and observability tools. 
+Through deep integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE GreenLake PCE delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the MKS feature, allowing users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
 
 HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
 
@@ -26,79 +26,81 @@ HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that supp
 
 Before starting, make sure you have the following:
 
-* Access to HPE GreenLake PCE tenant with '*Private Cloud Tenant Owner'* role, allowing administrative actions in the **Virtual Machines** service 
-* Have HPE Morpheus Enterprise running version 8.0.5 or later
-* Have MKS feature enabled in HPE GreenLake PCE, confirmed by the presence of the **Clusters** menu under **Infrastructure**:
+* Access to HPE GreenLake PCE tenant with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service 
+* HPE Morpheus Enterprise running version 8.0.5 or later
+* MKS feature being enabled in HPE GreenLake PCE, confirmed by the presence of the *Clusters* menu under _**Infrastructure**_:
 
 ![](/img/mks-feature.png)
 
 ## Provision an MKS cluster
 
-To start provisioning an MKS cluster, navigate to HPE GreenLake PCE and click *Launch Service Console* from the *Virtual Machines* page. In the Service Console, click *Infrastructure* and select *Clusters*. 
+To start provisioning an MKS cluster, navigate to HPE GreenLake PCE and click *Launch Service Console* from the _**Virtual Machines**_ service page. In the Service Console, click *Infrastructure* and select *Clusters*. 
 
 ![](/img/add-cluster.png)
 
-On the *CLUSTERS* page, click *+Add Cluster* to initiate MKS cluster provisioning. Then follow the steps outlined below.
+In the *CLUSTERS* table, click **+Add Cluster** to initiate MKS cluster provisioning. Then follow the steps outlined below.
 
-1. Select cluster type
+1. **Choose cluster type**
 
-In the *CREATE CLUSTER* wizard, select *KUBERNETES CLUSTER* as the *Cluster Type*, then click *Next* to proceed.
+In the *CREATE CLUSTER* wizard, select _**KUBERNETES CLUSTER**_ as the *Cluster Type*, then click _**Next**_ to proceed.
 
 ![](/img/cluster-type.png)
 
-2. Select group
+2. **Select group**
 
-Choose a *GROUP*, such as *Customer Department B*:
+Choose *GROUP*, such as _**Customer Department B**_:
 
 ![](/img/cluster-group.png)
 
-3. Specify cluster name
+3. **Specify cluster name**
 
-Enter the *CLUSTER NAME*, and optionally provide a *RESOURCE NAME*, *DESCRIPTION*, and *LABELS*:
+Enter *CLUSTER NAME* as _**mks-demo**_, and optionally specify *RESOURCE NAME*, *DESCRIPTION*, and *LABELS*:
 
 ![](/img/cluster-name.png)
 
-4. Select cluster layout and configure the master
+4. **Select cluster layout & configure master**
 
 Select *LAYOUT* and *PLAN*, configure *VOLUMES*, and choose the appropriate *NETWORKS*:
 
 ![](/img/cluster-config.png)
 
-For demonstration purpose, the *'MKS Kubernetes 1.31 Cluster on Ubuntu 22.04'* is selected. This cluster layout provisons an MKS cluster using a single master with K8s version 1.31. 
+For demonstration purpose, the _**'MKS Kubernetes 1.31 Cluster on Ubuntu 22.04'**_ is selected. This cluster layout provisons an MKS cluster using a single master with K8s version *1.31*. 
 
-**Important:** The *POD CIDR* and *SERVICE CIDR* define the internal IP ranges by routers to K8s Pods and Services. To prevent conflicts, ensure these CIDRs are distinct from the network settings.
+**Important:** The *POD CIDR* and *SERVICE CIDR* define the internal IP ranges by routers to K8s *Pods* and *Services*. To prevent conflicts, ensure these CIDRs are distinct from the network settings.
 
-5. Configure worker
+5. **Configure worker**
 
 Specify *NUMBER OF WORKERS*, along with *PLAN*, *VOLUMES*, and *NETWORKS*. You may retain the default settings or re-use the values previously configured for the master node.
 
 ![](/img/cluster-worker.png)
 
-6. Review cluster details
+6. **Review cluster details**
 
-Once you skip the automation settings, the cluster review page appears:
+Skip the step for automation settings, then the cluster review page appears:
 
 ![](/img/cluster-review.png)
 
-Click *Complete* button to begin provisioning the MKS cluster:
+Click _**Complete**_ button to begin provisioning the MKS cluster:
 
 ![](/img/cluster-provisioning.png)
 
 ## Verify MKS Cluster
 
-After a few minutes, the MKS cluster *mks-demo* is created with the specified cluster layout, i.e., *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04*. 
+After a few minutes, the cluster _**mks-demo**_ is created using the specified cluster layout: *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04*. 
 
 ![](/img/cluster-status.png)
 
 ## Access MKS Cluster
 
-Click on the cluster *mks-demo* to view its details under the *Summary* tab:
+Click the _**mks-demo**_ cluster to view its details under the *Summary* tab:
 
 ![](/img/cluster-details.png)
 
-Navigate to the *Control* tab and enter the command *kubectl get nodes* to display the node information of the MKS cluster:
+Navigate to the *Control* tab and run the command *'kubectl get nodes'* to view the cluster's node information:
 
 ![](/img/cluster-nodes.png)
+
+In line with the cluster type, *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04.*, the **mks-demo** cluster consists of one master node and three worker nodes.
 
 ## Supported day-to-day operations
 
@@ -161,6 +163,8 @@ After *Apply*, it starts upgrading the cluster to the new version.
 ![](/img/upgrading-cluster.png)
 
 After a few minutes, the cluster status updates to  **Ok**, displaying its layout as *MKS Kubernetes 1.32 Cluster on Ubuntu 22.04*:
+
+![](/img/upgraded-cluster.png)
 
 ## Deploy applications
 
