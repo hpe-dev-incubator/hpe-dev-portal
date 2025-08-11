@@ -10,6 +10,8 @@ tags:
   - "HPE Morpheus Enterprise "
   - Morpheus Kubernetes Services
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 [HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake.html) can now enable the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software]((https://www.hpe.com/us/en/morpheus-enterprise-software.html)). With HPE GreenLake PCE, now in its *Beta* phase with MKS feature enabled, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
 
 In this blog post, I will guide you through the process of provisioning an MKS cluster in HPE GreenLake PCE, followed by essential post-deployment-tasks, including downloading the *kubeconfig* file, upgrading the K8s cluster version, scaling cluster with additional workers, deploying applications via running workflows, and ultimately, deleting the MKS cluster when needed. 
@@ -84,13 +86,13 @@ Click _**Complete**_ button to begin provisioning the MKS cluster:
 
 ![](/img/cluster-provisioning.png)
 
-## Verify MKS Cluster
+## Verify MKS cluster
 
 After a few minutes, the cluster _**mks-demo**_ is created using the specified cluster layout: *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04*. 
 
 ![](/img/cluster-status.png)
 
-## Access MKS Cluster
+## Access MKS cluster
 
 Click the _**mks-demo**_ cluster to view its details under the *Summary* tab:
 
@@ -102,7 +104,7 @@ Navigate to the *Control* tab and run the command *'kubectl get nodes'* to view 
 
 In line with the cluster type, *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04.*, the **mks-demo** cluster consists of one master node and three worker nodes.
 
-## Streamline daily cluster operations
+## Run daily cluster operations
 
 From the provisioned MKS cluster, the **Actions** menu provides a curated set of supported operations that simplify and streamline day-to-day cluster management. From downloading kubeconfig to scaling the cluster and performing upgrade, these built-in actions help automate key cluster operations, making cluster administration faster, easier and more consistent. 
 
