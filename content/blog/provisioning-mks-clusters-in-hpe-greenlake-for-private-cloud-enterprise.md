@@ -102,21 +102,25 @@ Navigate to the *Control* tab and run the command *'kubectl get nodes'* to view 
 
 In line with the cluster type, *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04.*, the **mks-demo** cluster consists of one master node and three worker nodes.
 
-## Supported day-to-day operations
+## Streamline daily cluster operations
 
-On the cluster details page, the **Actions** menu provides a list of supported day-to-day operations for managing the cluster lifecycle:
+From the provisioned MKS cluster, the **Actions** menu provides a curated set of supported operations that simplify and streamline day-to-day cluster management. From downloading kubeconfig to scaling the cluster and performing upgrade, these built-in actions help automate key cluster operations, making cluster administration faster, easier and more consistent. 
 
 ![](/img/cluster-actions.png)
 
-* **View and download Kube config**
+The following sections explore how to perform these day-to-day cluster operations.
+
+* **View and download kube config**
+
+From the cluster *mkd-demo*, click _**Actions**_:
 
 ![](/img/view-kubeconfig-menu.png)
 
-Click *View Kube Config* to show the Kube config content of the MKS cluster. 
+Click _**View Kube Config**_ to show the Kube config content of the MKS cluster. 
 
 ![](/img/view-kubeconfig.png)
 
-Save the Kube config content to a file. This file can then be used with the *kubectl* CLI or the *Helm* tool to access the MKS cluster and deploy applications using either YAML menifest files or Helm charts. 
+Save the Kube config content to a file. This file can then be used with the *kubectl* CLI or the *Helm* tool to access the MKS cluster and deploy applications using either YAML menifests or Helm charts. 
 
 ![](/img/kubectl-console.png)
 
@@ -124,25 +128,35 @@ Save the Kube config content to a file. This file can then be used with the *kub
 
 In K8s, adding new workers to an existing cluster involves setting up self-registration, provisioning VM instances, and integrating them into the cluster. This process can be time-consuming and often demands custom automation scripts to streamline the workflow.
 
-In MKS, this operation is easily supported via the **Actions** menu. To begin adding a new worker to the MKS cluster, simply click **Add VMware Kubernetes Worker** and follow the steps outlined below:
+In MKS, this operation is supported by simply clicking **Actions**:
 
 ![](/img/add-worker.png)
+
+Click **Add VMware Kubernetes Worker** to begin adding new workers to the cluster. Then follow the steps outlined below:
 
 1. Specify *NAME* and the optional *DESCRIPTION*:
 
 ![](/img/cluster-add-worker-name.png)
 
-2. Select *PLAN* and set up *VOLUMES*, *NETWORKS*. 
+2. Select *PLAN* and configure *VOLUMES* and *NETWORKS*: 
 
 ![](/img/cluster-add-worker-config.png)
 
-If you want to add multiple workers at once, simply set the desired value in the **NUBMER OF WORKERS** field. 
+If you want to add multiple workers at once, set the desired value in the **NUBMER OF WORKERS** field. 
 
-After reviewing the worker configuration, click *Complete* to begin provisioning new VM instances. These will be automatically added to the MKS cluster as new workers. 
+3. Review worker details
+
+Skip the step for automation settings, then the worker review page appears:
+
+![](/img/cluster-add-worker-review.png)
+
+Click **Complete** to begin provisioning new VM instances and adding them to the cluster as new workers. 
 
 ![](/img/cluster-new-worker-adding.png)
 
-Click the *Nodes* tab, the new worker 'new-mks-worker' shows in the node list.
+4. Verify new worker
+
+Click the cluster's **Nodes** tab to check the new worker *'new-mks-worker'* is listed in the node list:
 
 ![](/img/cluster-new-worker.png)
 
@@ -150,37 +164,39 @@ Click the *Nodes* tab, the new worker 'new-mks-worker' shows in the node list.
 
 K8s follows a frequent release cycle, every 4 months on average, to ensure stability, innovation and timely security updates. While upgrading a K8s cluster is crucial for maintaining security, performance, and access to the latest features, it remains a complex and demanding task. The upgrade process presents significant challenges, including managing scale and complexity, minimizing downtime risks, and handling substantial operational overhead that can span weeks and require coordination across multiple teams.
 
-In MKS, upgrading the cluster is straightforward using the **Actions** menu. To initiate the process, click **Upgrade Cluster**. 
+In MKS, upgrading the cluster is supported by clicking **Actions**:
 
 ![](/img/upgrade-cluster-menu.png)
 
-This opens the *UPGRADE CLUSTER* pop-up, where you see the list of supported versions available for upgrade:
+Click **Upgrade Cluster** to open the *UPGRADE CLUSTER* pop-up: list of supported versions available for upgrade:
 
 ![](/img/upgrade-cluster.png)
 
-After *Apply*, it starts upgrading the cluster to the new version.
+Select the supported version *1.32.7* then click _**Apply**_ to start upgrading the cluster:
 
 ![](/img/upgrading-cluster.png)
 
-After a few minutes, the cluster status updates to  **Ok**, displaying its layout as *MKS Kubernetes 1.32 Cluster on Ubuntu 22.04*:
+After a few minutes, the cluster status updates to _**Ok**_, displaying its cluster layout as *MKS Kubernetes 1.32 Cluster on Ubuntu 22.04*:
 
 ![](/img/upgraded-cluster.png)
 
 ## Deploy applications
 
-* **Deploy applications under Control tab**
+After downloading the kubeconfig file as outlined earlier, you can easily deploy applications to the MKS cluster using the *kubectl* CLI or *Helm*. This section walks you through deploying applications using the built-in features available from the provisioned MKS cluster in the *Service Console*.
 
-Under **Control** tab from the cluster *mks-demo*, deploy a sample application 'nginx-demo' to the namespace *app-demo* by running the command *kubectl create deployment nginx-demo --image=nginx --namespace app-demo*.
+* **Deploy applications under cluster's *Control* tab**
+
+Under **Control** tab from the cluster _**mks-demo**_, deploy a sample application 'nginx-demo' to the namespace *app-demo* by running the commands *'kubectl create namespace app-demo'* and *'kubectl create deployment nginx-demo --image=nginx --namespace app-demo'*.
 
 ![](/img/kubectl-create-deploy.png)
 
-* **Deploy applications via Run Workload**
+* **Deploy applications via *Run Workload* under *Actions* menu**
 
-Click *Run Workload* from **Actions** of the cluster *mks-demo*
+Click **Run Workload** from the cluster's **Actions** menu:
 
 ![](/img/run-workload-menu.png)
 
-Provide the following *Deployment* YAML file to *CUSTOM SPEC* to deploy the same *nginx-demo* application to the namespace *default*:
+Define the following *Deployment* YAML in *CUSTOM SPEC* to deploy the *'nginx-demo'* application to the *'default'* namespace:
 
 ```shell
 apiVersion: apps/v1
@@ -206,12 +222,12 @@ spec:
 
 ![](/img/run-workload.png)
 
-Type *'kubectl get all -n default'* to verify the application *nginx-demo* is deployed to the namespace *default*:
+Run *'kubectl get all -n default'* to confirm that the *nginx-demo* has been deployed to the *default* namespace:
 
 ![](/img/get-workload.png)
 
 ## Conclusion
 
-This blog post provided a step-by-step guide to provisioning an MKS cluster within the HPE GreenLake PCE environment using the enabled MKS Beta feature. By selecting from a list of pre-configured MKS cluster layouts, you can quickly deploy your MKS cluster with the expected cluster type and the desired K8s cluster version. After cluster provisioning, adding additional workers is as simple as clicking the button from the *Actions* menu. You can also upgrade your MKS cluser to a newer K8s version by following up the same streamlined process. 
+This blog post provided a step-by-step guide to provisioning an MKS cluster using the MKS Beta feature within the HPE GreenLake PCE environment. By selecting from a list of pre-configured MKS cluster layouts, you can quickly deploy an MKS cluster with your preferred cluster type and K8s cluster version. Once provisioned, adding more workers is as simple as clicking the button from the cluster's *Actions* menu. Cluster upgrading to a newer K8s version follows the same streamlined process. This makes cluster administration more efficient, consistent, and user-friendly.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake PCE and get more ideas on how you can use it in your everyday operations.
