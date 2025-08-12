@@ -29,8 +29,9 @@ HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that supp
 Before starting, make sure you have the following:
 
 * Access to HPE GreenLake PCE tenant with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service 
+* Group named *'CFE Department B Group'* and network *'Green-Net'* already created
 * HPE Morpheus Enterprise running version 8.0.5 or later
-* MKS feature being enabled in HPE GreenLake PCE, confirmed by the presence of the *Clusters* menu under _**Infrastructure**_:
+* MKS feature enabled in HPE GreenLake PCE, confirmed by the presence of the *Clusters* menu under _**Infrastructure**_:
 
 ![](/img/mks-feature.png)
 
