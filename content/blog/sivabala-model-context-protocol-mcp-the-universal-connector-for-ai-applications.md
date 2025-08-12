@@ -1,6 +1,5 @@
 ---
-title: "SivaBala-Model Context Protocol (MCP): The Universal Connector for AI
-  Applications"
+title: "Model Context Protocol (MCP): The Universal Connector for AI Applications"
 date: 2025-08-12T02:00:38.774Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
