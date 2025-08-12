@@ -20,10 +20,10 @@ This blog post provides a detailed step-to-step guide on how to deploy a Kuberne
 
 ## Prerequisites
 
-1. Access to GLC tenant with appropriate Role assignment to perform administrative tasks in the Virtual Machines Service, i.e. 'Private Cloud Tenant
-   Owner'.
-2. A User Group, e.g., 'CFE Department B Group', has been created
-3. Ensure some network, e.g., *Green-Net*, has been created.
+Before starting, make sure you have the following:
+
+* Access to HPE GreenLake PCE tenant with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service 
+* Group named *'CFE Department B Group'* and network *'Green-Net'* already created
 
 ## Add Ansible integration
 
