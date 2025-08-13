@@ -11,10 +11,11 @@ tags:
   - Morpheus Kubernetes Services
   - kubectl
   - helm
+  - morpheus
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-[HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake.html) can now enable the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software]((https://www.hpe.com/us/en/morpheus-enterprise-software.html)). With HPE GreenLake PCE, now in its *Beta* phase with MKS feature enabled, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
+[HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake.html) can now enable the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software](https://www.hpe.com/us/en/morpheus-enterprise-software.html). With HPE GreenLake PCE, now in its *Beta* phase with MKS feature enabled, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
 
 In this blog post, I will guide you through the process of provisioning an MKS cluster in HPE GreenLake PCE, followed by essential post-deployment-tasks, including downloading the *kubeconfig* file, scaling cluster with additional workers, upgrading the K8s cluster version,  deploying applications via running workflows, and ultimately, deleting the MKS cluster when needed. 
 
@@ -65,13 +66,13 @@ Enter *CLUSTER NAME* as *'mks-demo'*, and optionally specify *RESOURCE NAME*, *D
 
 4. **Select cluster layout & configure master**
 
-Select *LAYOUT* and *PLAN*, configure *VOLUMES*, and choose the appropriate *NETWORKS*, such as *'Green-Segment'*::
+Select *LAYOUT* and *PLAN*, configure *VOLUMES*, and choose the appropriate *NETWORKS*, such as *'Green-Segment'*:
 
 ![](/img/cluster-config.png)
 
 For demonstration purpose, the _**'MKS Kubernetes 1.31 Cluster on Ubuntu 22.04'**_ is selected. This cluster layout provisons an MKS cluster using a single master with K8s version *1.31*. 
 
-**Important:** The *POD CIDR* and *SERVICE CIDR* define the internal IP ranges by routers to K8s *Pods* and *Services*. To prevent conflicts, ensure these CIDRs are distinct from the network settings.
+**Important:** The Classless Inter-Domain Routing (CIDR) for the *POD* and *SERVICE* define the internal IP ranges by routers to K8s *Pods* and *Services*. To prevent conflicts, ensure these CIDRs are distinct from the network settings.
 
 5. **Configure worker**
 
@@ -81,7 +82,7 @@ Specify *NUMBER OF WORKERS*, along with *PLAN*, *VOLUMES*, and *NETWORKS*. You m
 
 6. **Review cluster details**
 
-Skip the step for automation settings, then the cluster review page appears:
+Skip the step for **Automation** settings, then the cluster review page appears:
 
 ![](/img/cluster-review.png)
 
@@ -151,7 +152,7 @@ If you want to add multiple workers at once, set the desired value in the *NUMBE
 
 3. Review worker details
 
-Skip the step for automation settings, then the worker review page appears:
+Skip the step for **Automation** settings, then the worker review page appears:
 
 ![](/img/cluster-add-worker-review.png)
 
