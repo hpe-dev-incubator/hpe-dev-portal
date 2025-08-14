@@ -1,5 +1,5 @@
 ---
-title: "Part 11: Agentic AI vs AI Agent"
+title: "Part 11: Agentic AI vs AI agent"
 date: 2025-08-11T08:48:18.066Z
 priority: -2
 author: Dinesh R Singh
@@ -24,7 +24,7 @@ li {
 
 Artificial Intelligence (AI) is evolving rapidly, and two terms — Agentic AI and AI Agent — are increasingly appearing in business strategy documents, technical roadmaps, and boardroom discussions. While they sound similar, they represent distinct concepts with different implications for enterprise strategy, operations, and innovation.
 
-For business leaders and senior managers, understanding the distinction is not just academic — it can determine whether an AI initiative scales effectively, integrates seamlessly into your operations, and delivers measurable ROI.
+For business leaders and senior managers, understanding the distinction is not just academic — it can determine whether an AI initiative scales effectively, integrates seamlessly into your operations, and delivers measurable Return on investment (ROI).
 
 ### This article breaks down Agentic AI vs AI Agent with:
 
@@ -75,7 +75,7 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
   * Agent B applies regulatory rules
   * Agent C drafts compliance reports
   * Orchestrator Agent manages workflows and escalations
-* An industrial repair assistant that autonomously diagnoses, orders parts, and schedules technicians
+* An industrial repair assistant that autonomously diagnoses, orders parts, and schedules technicians.
 
 **Quick Analogy:**
 
@@ -121,14 +121,14 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
     <tr>
       <td><strong>Examples of Frameworks</strong></td>
       <td>Rasa, Botpress, Dialogflow</td>
-      <td>LangChain Agents, AutoGPT, BabyAGI, Agno Framework</td>
+      <td>LangChain Agents, AutoGPT, BabyAGI, AGNO Framework</td>
     </tr>
   </tbody>
 </table>
 
-## 3. Business Use Cases
+## 3. Business use cases
 
-### 3.1 AI Agent Use Cases
+### 3.1 AI Agent use cases
 
 * **Customer Support Bots** – Provide FAQs and simple troubleshooting
 * **Automated Trading Systems** – Execute trades based on pre-defined signals
@@ -136,7 +136,7 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
 
 **Business Impact:**Quick to deploy, lower cost, but limited in complexity and scope.
 
-### 3.2 Agentic AI Use Cases
+### 3.2 Agentic AI use cases
 
 * **Regulatory Compliance Automation** – Multiple agents scan, analyze, summarize, and report
 * **Healthcare Assistants** – Agents for symptoms checking, scheduling, and generating discharge summaries
@@ -144,49 +144,49 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
 
 **Business Impact:**Higher complexity but greater ROI potential through process automation at scale.
 
-## 4. Strategic Considerations for Business Leaders
+## 4. Strategic considerations for business leaders
 
-### 4.1 When to Use an AI Agent
+### 4.1 When to use an AI agent
 
 * You have a **clear, narrow task**
 * The process is **repeatable with predictable inputs/outputs**
 * ROI needs to be realized quickly with low implementation risk
 
-### 4.2 When to Use Agentic AI
+### 4.2 When to use Agentic AI
 
 * Multiple complex workflows need **coordination**
 * There is **uncertainty and variability** in the environment
 * Long-term scalability and adaptability are priorities
 
-**Case Example:**\
+**Case example:**\
 A bank could deploy:
 
 * **AI Agent:** To answer customer queries about loan status
 * **Agentic AI:** To orchestrate fraud detection, compliance checks, and customer communication in an integrated way
 
-## 5. Risks, Challenges, and Governance
+## 5. Risks, challenges, and governance
 
-### 5.1 AI Agent Risks
+### 5.1 AI agent risks
 
 * **Overfitting to narrow tasks**
 * Limited scalability
 * Vulnerable to changing business requirements
 
-### 5.2 Agentic AI Risks
+### 5.2 Agentic AI risks
 
 * **Complexity** in orchestration
 * Higher **cost of development and maintenance**
 * **AI hallucinations** amplified if orchestration lacks guardrails
 * Governance challenges (data security, compliance, ethics)
 
-**Mitigation Strategies:**
+**Mitigation strategies:**
 
 * **Guardrails**: NeMo Guardrails, policy frameworks
 * **Auditability**: Maintain decision logs
 * **Ethics**: Align with corporate AI principles
 * **Testing**:Continuous evaluation under real-world conditions
 
-## 6. Technology Enablers
+## 6. Technology enablers
 
 * **For AI Agents:**
 
@@ -196,18 +196,18 @@ A bank could deploy:
 
   * LangChain multi-agent orchestration
   * AutoGPT & BabyAGI architectures
-  * Agno Framework (for enterprise-grade agent teams)
+  * AGNO Framework (for enterprise-grade agent teams)
   * Vector databases (Qdrant, Milvus)
   * LLMs (GPT-4, Claude, LLaMA variants)
 
-## 7. Future Trends
+## 7. Future trends
 
 * **Hybrid Systems** – AI Agents enhanced with Agentic AI orchestration
 * **Industry-Specific Agent Ecosystems** – Pre-built for finance, healthcare, logistics
 * **Agent Marketplaces** – Plug-and-play agents that integrate into orchestrators
 * **Integration with IoT & Edge AI –** Enabling real-time decision-making in physical environments
 
-## 8. Decision Framework for Leaders
+## 8. Decision framework for leaders
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
   <thead style="background-color:#f2f2f2">
@@ -265,4 +265,4 @@ By aligning your choice with business strategy and technical capability, you pos
 1. Russell, S., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach. Pearson.
 2. LangChain Documentation – https://docs.langchain.com
 3. Auto-GPT – <https://github.com/Torantulino/Auto-GPT>
-4. Agno Framework – https://agno.ai
+4. AGNO Framework – https://agno.ai
