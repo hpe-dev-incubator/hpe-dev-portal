@@ -165,25 +165,27 @@ Let me offer a simple analogy to bring clarity to the difference between an AI a
 
 A bank could deploy:
 
-* **AI Agent:** To answer customer queries about loan status
+* **AI agent:** To answer customer queries about loan status
 * **Agentic AI:** To orchestrate fraud detection, compliance checks, and customer communication in an integrated way
 
 ## 5. Risks, challenges, and governance
 
 ### 5.1 AI agent risks
 
-* **Overfitting to narrow tasks**
+* Overfitting to narrow tasks
 * Limited scalability
 * Vulnerable to changing business requirements
 
 ### 5.2 Agentic AI risks
 
-* **Complexity** in orchestration
-* Higher **cost of development and maintenance**
-* **AI hallucinations** amplified if orchestration lacks guardrails
+* Complexity in orchestration
+* Higher cost of development and maintenance
+* AI hallucinations amplified if orchestration lacks guardrails
 * Governance challenges (data security, compliance, ethics)
 
 **Mitigation strategies:**
+
+To reduce the potential risks and challenges identified, the following strategies can be implemented. Each one is aimed at ensuring operational resilience, improving outcomes, and minimizing negative impacts
 
 * **Guardrails**: NeMo Guardrails, policy frameworks
 * **Auditability**: Maintain decision logs
@@ -192,11 +194,15 @@ A bank could deploy:
 
 ## 6. Technology enablers
 
-* **For AI Agents:**
+* **For AI agents:**
+
+  When deploying AI Agents, the following mitigation strategies help ensure reliable, safe, and efficient performance within their defined scope
 
   * Rasa, Dialogflow, Botpress
   * Domain-specific ML models
 * **For Agentic AI:**
+
+  Agentic AI systems operate with greater autonomy and complexity, so their mitigation strategies should account for adaptability, multi-step reasoning, and integration across multiple systems:
 
   * LangChain multi-agent orchestration
   * AutoGPT & BabyAGI architectures
@@ -206,10 +212,10 @@ A bank could deploy:
 
 ## 7. Future trends
 
-* **Hybrid Systems** – AI Agents enhanced with Agentic AI orchestration
-* **Industry-Specific Agent Ecosystems** – Pre-built for finance, healthcare, logistics
-* **Agent Marketplaces** – Plug-and-play agents that integrate into orchestrators
-* **Integration with IoT & Edge AI –** Enabling real-time decision-making in physical environments
+* **Hybrid Systems:** AI agents enhanced with Agentic AI orchestration
+* **Industry-Specific Agent Ecosystems:** Pre-built for finance, healthcare, logistics
+* **Agent Marketplaces:**  Plug-and-play agents that integrate into orchestrators
+* **Integration with IoT & Edge AI:** Enabling real-time decision-making in physical environments
 
 ## 8. Decision framework for leaders
 
@@ -257,9 +263,9 @@ A bank could deploy:
 
 ## 9. Conclusion
 
-The choice between **AI Agent** and **Agentic AI** is not binary — many enterprises will deploy both. The key is **understanding the maturity of your AI roadmap**, your operational complexity, and your scalability ambitions.
+The choice between **AI agent** and **Agentic AI** is not binary — many enterprises will deploy both. The key is **understanding the maturity of your AI roadmap**, your operational complexity, and your scalability ambitions.
 
-* **AI Agents** are quick wins for automation
+* **AI agents** are quick wins for automation
 * **Agentic AI** is a long-term strategic play for transformation
 
 By aligning your choice with business strategy and technical capability, you position your organization to move from isolated AI successes to enterprise-wide AI transformation.
