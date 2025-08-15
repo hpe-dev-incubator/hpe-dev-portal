@@ -1,5 +1,5 @@
 ---
-title: "Part 11: Agentic AI vs AI agent"
+title: "Part 11: Agentic AI versus AI agent"
 date: 2025-08-11T08:48:18.066Z
 priority: -2
 author: Dinesh R Singh
@@ -23,11 +23,11 @@ li {
 
 ## Introduction
 
-Artificial Intelligence (AI) is evolving rapidly, and two terms — Agentic AI and AI Agent — are increasingly appearing in business strategy documents, technical roadmaps, and boardroom discussions. While they sound similar, they represent distinct concepts with different implications for enterprise strategy, operations, and innovation.
+Artificial Intelligence (AI) is evolving rapidly, and two terms — Agentic AI and AI agent — are increasingly appearing in business strategy documents, technical roadmaps, and boardroom discussions. While they sound similar, they represent distinct concepts with different implications for enterprise strategy, operations, and innovation.
 
 For business leaders and senior managers, understanding the distinction is not just academic — it can determine whether an AI initiative scales effectively, integrates seamlessly into your operations, and delivers measurable Return on investment (ROI).
 
-### This article breaks down Agentic AI vs AI Agent with:
+### This article breaks down Agentic AI vs AI agent with:
 
 * Clear definitions and conceptual differences
 * Technical underpinnings
@@ -37,11 +37,11 @@ For business leaders and senior managers, understanding the distinction is not j
 * Future trends
 * References for deeper exploration
 
-## 1. Defining the Terms
+## 1. Defining the terms
 
-### 1.1 AI Agent
+### 1.1 AI agent
 
-An **AI Agent is a single, autonomous software program** that perceives an environment, makes decisions, and takes actions toward a defined goal, often within a narrow domain.
+An **AI agent is a single, autonomous software program** that perceives an environment, makes decisions, and takes actions toward a defined goal, often within a narrow domain.
 
 **Key characteristics:**
 
@@ -58,7 +58,7 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
 
 ### 1.2 Agentic AI
 
-**Agentic AI** is a **system of multiple AI agents orchestrated to work collaboratively**, often with **dynamic planning, self-reflection, and multi-step reasoning** capabilities. It moves beyond isolated automation toward **goal-oriented, adaptive, and multi-role AI-driven ecosystems.**
+**Agentic AI** is a system of multiple AI agents orchestrated to work collaboratively, often with dynamic planning, self-reflection, and multi-step reasoning capabilities. It moves beyond isolated automation toward goal-oriented, adaptive, and multi-role AI-driven ecosystems.
 
 **Key characteristics:**
 
@@ -78,12 +78,14 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
   * Orchestrator Agent manages workflows and escalations
 * An industrial repair assistant that autonomously diagnoses, orders parts, and schedules technicians.
 
-**Quick Analogy:**
+**Quick analogy:**
+
+Let me offer a simple analogy to bring clarity to the difference between an AI agent and Agentic AI.
 
 * **AI Agent** = A skilled individual employee
 * **Agentic AI =** A **self-managed, multi-skilled team** with a project manager, analysts, and doers — all AI-driven
 
-## 2. Technical Architecture Differences
+## 2. Technical architecture differences
 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
   <thead style="background-color:#f2f2f2">
@@ -120,30 +122,30 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
       <td>Connects to multiple tools, APIs, data sources</td>
     </tr>
     <tr>
-      <td><strong>Examples of Frameworks</strong></td>
+      <td><strong>Examples of frameworks</strong></td>
       <td>Rasa, Botpress, Dialogflow</td>
-      <td>LangChain Agents, AutoGPT, BabyAGI, AGNO Framework</td>
+      <td>LangChain Agents, AutoGPT, BabyAGI, AGNO framework</td>
     </tr>
   </tbody>
 </table>
 
 ## 3. Business use cases
 
-### 3.1 AI Agent use cases
+### 3.1 AI agent use cases
 
-* **Customer Support Bots** – Provide FAQs and simple troubleshooting
-* **Automated Trading Systems** – Execute trades based on pre-defined signals
-* **HR Chatbots** – Answer leave policy questions
+* **Customer support bots** – Provide FAQs and simple troubleshooting
+* **Automated trading systems** – Execute trades based on pre-defined signals
+* **HR chatbots** – Answer leave policy questions
 
 **Business Impact:**Quick to deploy, lower cost, but limited in complexity and scope.
 
 ### 3.2 Agentic AI use cases
 
-* **Regulatory Compliance Automation** – Multiple agents scan, analyze, summarize, and report
-* **Healthcare Assistants** – Agents for symptoms checking, scheduling, and generating discharge summaries
-* **Complex Industrial Troubleshooting** – Agents for diagnostics, parts ordering, repair instructions
+* **Regulatory compliance automation** – Multiple agents scan, analyze, summarize, and report
+* **Healthcare assistants** – Agents for symptoms checking, scheduling, and generating discharge summaries
+* **Complex industrial troubleshooting** – Agents for diagnostics, parts ordering, repair instructions
 
-**Business Impact:**Higher complexity but greater ROI potential through process automation at scale.
+**Business impact:** Higher complexity but greater ROI potential through process automation at scale.
 
 ## 4. Strategic considerations for business leaders
 
@@ -159,7 +161,8 @@ An **AI Agent is a single, autonomous software program** that perceives an envir
 * There is **uncertainty and variability** in the environment
 * Long-term scalability and adaptability are priorities
 
-**Case example:**\
+**Case example:**
+
 A bank could deploy:
 
 * **AI Agent:** To answer customer queries about loan status
