@@ -8,7 +8,6 @@ thumbnailimage: null
 disable: false
 tags:
   - Agentic AI
-  - "AI agents "
   - LLM Framework
   - LLM
   - Private aI
