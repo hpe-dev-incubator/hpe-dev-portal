@@ -271,7 +271,7 @@ By aligning your choice with business strategy and technical capability, you pos
 
 ## References
 
-1. Russell, S., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach. Pearson.
+1. Russell, S., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach. Pearson. https://www.pearson.com/en-us/subject-catalog/p/artificial-intelligence‑a‑modern‑approach/P200000003500/9780137505135
 2. LangChain Documentation – https://docs.langchain.com
-3. Auto-GPT – <https://github.com/Torantulino/Auto-GPT>
-4. AGNO Framework – https://agno.ai
+3. Auto-GPT – https://github.com/Torantulino/Auto-GPT[](https://github.com/Torantulino/Auto-GPT)
+4. AGNO Framework – https://docs.agno.com/introduction
