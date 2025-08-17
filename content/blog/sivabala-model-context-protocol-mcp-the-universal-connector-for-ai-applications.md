@@ -1,7 +1,7 @@
 ---
-title: "Model Context Protocol (MCP): The Universal Connector for AI Applications"
+title: "Model Context Protocol (MCP): The universal connector for AI applications"
 date: 2025-08-12T02:00:38.774Z
-featuredBlog: true
+featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/balaprofilephoto.png
 disable: false
