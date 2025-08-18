@@ -4,7 +4,7 @@ dateStart: 2025-08-05T22:01:09.909Z
 dateEnd: 2025-08-06T21:30:09.928Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://www.youtube.com/watch?v=57rExoX0xaY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
+link: https://www.youtube.com/watch?v=AmL_k-I6dSY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Sustainably Scaling AI Adoption
