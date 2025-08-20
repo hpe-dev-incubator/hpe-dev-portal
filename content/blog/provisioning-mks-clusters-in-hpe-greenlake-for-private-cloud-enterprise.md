@@ -13,16 +13,18 @@ tags:
   - helm
   - morpheus
   - hpe-private-cloud-enterprise
+  - HPE GreenLake Central
+  - HPE GreenLake Flex Solutions
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake.html) now includes the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software](https://www.hpe.com/us/en/morpheus-enterprise-software.html). With HPE Private Cloud Enterprise, now in its *Beta* phase with MKS feature, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
+[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) now includes the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software](https://www.hpe.com/us/en/morpheus-enterprise-software.html). With HPE Private Cloud Enterprise, now in its *Beta* phase with MKS feature, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
 
 In this blog post, I will guide you through the process of provisioning an MKS cluster in HPE Private Cloud Enterprise, followed by key post-deployment tasks. These include downloading the *kubeconfig* file, scaling the cluster by adding worker nodes, upgrading the K8s cluster version,  deploying applications via running workflows, and finally, deleting the MKS cluster when it's no longer needed. 
 
 ## Overview
 
-[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
+[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
 
 Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
 
@@ -39,7 +41,7 @@ Ensure that the following prerequisites are fulfilled:
 
 ## Provisioning an MKS cluster
 
-1. Log in to HPE GreenLake Central using the URL *https://client.greenlake.hpe.com*.
+1. Log in to [HPE GreenLake Central](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html), also known as HPE GreenLake Flex Solutions, using the URL *https://client.greenlake.hpe.com*.
 
 2. Locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
 
