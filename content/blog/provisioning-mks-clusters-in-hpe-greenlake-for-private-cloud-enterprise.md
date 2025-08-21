@@ -11,9 +11,7 @@ tags:
   - Morpheus Kubernetes Services
   - kubectl
   - helm
-  - morpheus
   - hpe-private-cloud-enterprise
-  - HPE GreenLake Central
   - HPE GreenLake Flex Solutions
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
@@ -34,52 +32,67 @@ HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that supp
 
 Ensure that the following prerequisites are fulfilled:
 
-* Access to an HPE Private Cloud Enterprise tenant with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service. 
+* Access to an HPE Private Cloud Enterprise workspace with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
 * The group named *'Customer Department B'* and the network *'Green-Segment'* have already been created.
 * HPE Morpheus Enterprise running version 8.0.5 or higher.
-* The MKS feature is enabled in HPE Private Cloud Enterprise. You can confirm the presence of the *Clusters* menu from _**Infrastructure**_ tab.
+* The MKS feature is enabled in HPE Private Cloud Enterprise. You can confirm the presence of the *Clusters* menu from ***Infrastructure*** tab.
 
 ## Provisioning an MKS cluster
 
-1. Log in to [HPE GreenLake Central](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html), also known as HPE GreenLake Flex Solutions, using the URL *https://client.greenlake.hpe.com*.
+1. Log in to HPE GreenLake Cloud at *https://common.cloud.hpe.com/*.
+2. Locate an HPE Private Cloud Enterprise workspace and click ***Go to Workspace***.
 
-2. Locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
+![](/img/workspace.png)
 
-![](/img/service-card.png)
+3. From the *Getting Started* screen, click ***Find Services***. (If you've already launched HPE GreenLake Flex Solutions, the service will appear under *Recent Services*, from which you can click ***Launch***, then skip to the step *6* below.)
 
-3. Click _**Launch HPE Morpheus Enterprise**_. The Morpheus Dashboard screen (**Operations** > **Dashboard**) displays.
+![](/img/get-started.png)
+
+4. From the *Services Catalog*, enter *'HPE GreenLake Flex Solutions'*. Click the ***HPE GreenLake Flex Solutions*** Workloads result.
+
+![](/img/service-catalog.png)
+
+5. From the Workloads ***Overview*** tab, click ***Launch*** to open the HPE GreenLake Flex Solutions. 
+
+![](/img/launch-glc.png)
+
+6. From the Cloud Services _**Dashboard**_, locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
+
+![](/img/launch-morpheus.png)
+
+7. Click ***Launch HPE Morpheus Enterprise***. The Morpheus Dashboard screen (**Operations** > **Dashboard**) displays.
 
 ![](/img/morpheus-dashboard.png)
 
-4. In the *Service Console*, click _**Infrastructure**_ and select *Clusters*. 
+8. In the *Service Console*, click ***Infrastructure*** and select *Clusters*. 
 
 ![](/img/mks-feature.png)
 
-5. From the clusters screen, click _**+Add Cluster**_ to initiate MKS cluster provisioning. 
+9. From the clusters screen, click ***+Add Cluster*** to initiate MKS cluster provisioning. 
 
 ![](/img/add-cluster.png)
 
-5.1 **Choose cluster type**
+9.1 **Choose cluster type**
 
-In the *CREATE CLUSTER* panel, select *'KUBERNETES CLUSTER'* as the *Cluster Type* and click _**Next**_.
+In the *CREATE CLUSTER* panel, select *'KUBERNETES CLUSTER'* as the *Cluster Type* and click ***Next***.
 
 ![](/img/cluster-type.png)
 
-5.2 **Select a group**
+9.2 **Select a group**
 
-Select a group, for example, *'Customer Department B'* and click _**Next**_.
+Select a group, for example, *'Customer Department B'* and click ***Next***.
 
 ![](/img/cluster-group.png)
 
-5.3 **Specify the cluster name**
+9.3 **Specify the cluster name**
 
-Enter *CLUSTER NAME* as *'mks-demo'*, and optionally specify *RESOURCE NAME*, *DESCRIPTION*, and *LABELS*. Click _**Next**_.
+Enter *CLUSTER NAME* as *'mks-demo'*, and optionally specify *RESOURCE NAME*, *DESCRIPTION*, and *LABELS*. Click ***Next***.
 
 ![](/img/cluster-name.png)
 
-5.4 **Select cluster layout & configure master**
+9.4 **Select cluster layout & configure master**
 
-Select *LAYOUT* and *PLAN*, configure *VOLUMES*, and select the *NETWORKS*, such as *'Green-Segment'*. Click _**Next**_.
+Select *LAYOUT* and *PLAN*, configure *VOLUMES*, and select the *NETWORKS*, such as *'Green-Segment'*. Click ***Next***.
 
 ![](/img/cluster-config.png)
 
@@ -87,19 +100,19 @@ NOTE: For demonstration purpose, the *'MKS Kubernetes 1.31 Cluster on Ubuntu 22.
 
 **Important:** The Classless Inter-Domain Routing (CIDR) for the *POD* and *SERVICE* define the internal IP ranges by routers to K8s *Pods* and *Services*. To prevent conflicts, ensure these CIDRs are distinct from the network settings.
 
-5.5 **Configure worker**
+9.5 **Configure worker**
 
-Specify *NUMBER OF WORKERS*, along with *PLAN*, *VOLUMES*, and *NETWORKS*. You may retain the default settings or reuse the values previously configured for the master. Click _**Next**_.
+Specify *NUMBER OF WORKERS*, along with *PLAN*, *VOLUMES*, and *NETWORKS*. You may retain the default settings or reuse the values previously configured for the master. Click ***Next***.
 
 ![](/img/cluster-worker.png)
 
-5.6 **Review cluster details**
+9.6 **Review cluster details**
 
 Skip this step for **Automation** settings. The cluster review screen displays.
 
 ![](/img/cluster-review.png)
 
-Click _**Complete**_. The MKS cluster provisioning process initiates. 
+Click ***Complete***. The MKS cluster provisioning process initiates. 
 
 ![](/img/cluster-provisioning.png)
 
@@ -111,11 +124,11 @@ Approximately after a few minutes, the cluster *'mks-demo'* is created using the
 
 ## Access MKS cluster
 
-Click the *'mks-demo'* cluster to view its details from the _**Summary**_ tab.
+Click the *'mks-demo'* cluster to view its details from the ***Summary*** tab.
 
 ![](/img/cluster-details.png)
 
-Navigate to the _**Control**_ tab and run the command *'kubectl get nodes'* to view the cluster's node information.
+Navigate to the ***Control*** tab and run the command *'kubectl get nodes'* to view the cluster's node information.
 
 ![](/img/cluster-nodes.png)
 
@@ -123,7 +136,7 @@ In line with the cluster type, *MKS Kubernetes 1.31 Cluster on Ubuntu 22.04*, th
 
 ## Run daily cluster operations
 
-From the provisioned MKS cluster, the _**Actions**_ menu provides a curated set of supported operations that simplify and streamline day-to-day cluster management. From downloading kubeconfig to scaling the cluster and performing upgrade, these built-in actions help automate key cluster operations, making cluster administration faster, easier, and more consistent. 
+From the provisioned MKS cluster, the ***Actions*** menu provides a curated set of supported operations that simplify and streamline day-to-day cluster management. From downloading kubeconfig to scaling the cluster and performing upgrade, these built-in actions help automate key cluster operations, making cluster administration faster, easier, and more consistent. 
 
 ![](/img/cluster-actions.png)
 
@@ -131,11 +144,11 @@ The following sections explore how to perform these day-to-day cluster operation
 
 * **View and download kube config**
 
-From the *'mks-demo'* cluster, click _**Actions**_.
+From the *'mks-demo'* cluster, click ***Actions***.
 
 ![](/img/view-kubeconfig-menu.png)
 
-Click _**View Kube Config**_ to view the Kube config of the cluster. 
+Click ***View Kube Config*** to view the Kube config of the cluster. 
 
 ![](/img/view-kubeconfig.png)
 
@@ -147,11 +160,11 @@ Save the Kube config content to a file. For example, *'mks-demo.kubeconfig'* on 
 
 In K8s, adding new workers to an existing cluster involves setting up self-registration, provisioning VM instances, and integrating them into the cluster. This process can be time-consuming and often demands custom automation scripts to streamline the workflow.
 
-From the MKS screen, navigate to a cluster and click _**Actions**_.
+From the MKS screen, navigate to a cluster and click ***Actions***.
 
 ![](/img/add-worker.png)
 
-Click _**Add VMware Kubernetes Worker**_ to initiate adding new worker to the cluster. 
+Click ***Add VMware Kubernetes Worker*** to initiate adding new worker to the cluster. 
 
 1. Enter *NAME* and an optional brief *DESCRIPTION*.
 
@@ -169,13 +182,13 @@ Skip this step for **Automation** settings. The worker review screen displays.
 
 ![](/img/cluster-add-worker-review.png)
 
-Click _**Complete**_ to initiate provisioning new VM instances and adding them to the cluster as new workers. 
+Click ***Complete*** to initiate provisioning new VM instances and adding them to the cluster as new workers. 
 
 ![](/img/cluster-new-worker-adding.png)
 
 4. Verify new worker.
 
-Navigate to the _**Nodes**_ tab to check the new worker *'new-mks-worker'* is listed in the node list.
+Navigate to the ***Nodes*** tab to check the new worker *'new-mks-worker'* is listed in the node list.
 
 ![](/img/cluster-new-worker.png)
 
@@ -183,19 +196,19 @@ Navigate to the _**Nodes**_ tab to check the new worker *'new-mks-worker'* is li
 
 K8s follows a frequent release cycle, every 4 months on average, to ensure stability, innovation, and timely security updates. While upgrading a K8s cluster is crucial for maintaining security, performance, and access to the latest features, it remains a complex and demanding task. The upgrade process presents significant challenges, including managing scale and complexity, minimizing downtime risks, and handling substantial operational overhead that can span weeks and require coordination across multiple teams.
 
-From the MKS screen, navigate to a cluster and click _**Actions**_.
+From the MKS screen, navigate to a cluster and click ***Actions***.
 
 ![](/img/upgrade-cluster-menu.png)
 
-Click _**Upgrade Cluster**_. The *UPGRADE CLUSTER* screen displays the list of supported versions available for upgrade.
+Click ***Upgrade Cluster***. The *UPGRADE CLUSTER* screen displays the list of supported versions available for upgrade.
 
 ![](/img/upgrade-cluster.png)
 
-Select version *1.32.7* and click _**Apply**_ to initiate upgrading the cluster.
+Select version *1.32.7* and click ***Apply*** to initiate upgrading the cluster.
 
 ![](/img/upgrading-cluster.png)
 
-Approximately after a few minutes, the cluster status updates to _**Ok**_ and displays its cluster layout as *'MKS Kubernetes 1.32 Cluster on Ubuntu 22.04'*.
+Approximately after a few minutes, the cluster status updates to ***Ok*** and displays its cluster layout as *'MKS Kubernetes 1.32 Cluster on Ubuntu 22.04'*.
 
 ![](/img/upgraded-cluster.png)
 
@@ -205,7 +218,7 @@ After downloading the kubeconfig file as outlined earlier, you can easily deploy
 
 * **Deploy applications from the cluster's *Control* tab**
 
-Under _**Control**_ tab of the *'mks-demo'* cluster, deploy a sample application *'nginx-demo'* to the namespace *'app-demo'* by running the commands *'kubectl create namespace app-demo'* and *'kubectl create deployment nginx-demo --image=nginx --namespace app-demo'*.
+Under ***Control*** tab of the *'mks-demo'* cluster, deploy a sample application *'nginx-demo'* to the namespace *'app-demo'* by running the commands *'kubectl create namespace app-demo'* and *'kubectl create deployment nginx-demo --image=nginx --namespace app-demo'*.
 
 ![](/img/kubectl-create-deploy.png)
 
@@ -215,7 +228,7 @@ From the *'mks-demo'* cluster screen, select **Actions** > **Run Workload**.
 
 ![](/img/run-workload-menu.png)
 
-Define the following *Deployment* YAML in *CUSTOM SPEC* and click _**Apply**_. It will deploy the *'nginx-demo'* application to the *'default'* namespace.
+Define the following *Deployment* YAML in *CUSTOM SPEC* and click ***Apply***. It will deploy the *'nginx-demo'* application to the *'default'* namespace.
 
 ```shell
 apiVersion: apps/v1
@@ -241,7 +254,7 @@ spec:
 
 ![](/img/run-workload.png)
 
-Run the following command from the cluster's _**Control**_ tab to confirm the *'nginx-demo'* has been deployed successfully to the *default* namespace.
+Run the following command from the cluster's ***Control*** tab to confirm the *'nginx-demo'* has been deployed successfully to the *default* namespace.
 
 ```shell
 kubectl get all -n default
