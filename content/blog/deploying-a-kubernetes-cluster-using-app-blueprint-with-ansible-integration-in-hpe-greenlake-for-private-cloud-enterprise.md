@@ -11,8 +11,11 @@ tags:
   - HPE Morpheus Enterprise
   - App Blueprints
   - Ansible
+  - Ansible integration
+  - hpe-private-cloud-enterprise
+  - HPE GreenLake Flex Solutions
 ---
-[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) now includes the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters directly through [HPE Morpheus Enterprise software](https://www.hpe.com/us/en/morpheus-enterprise-software.html). With HPE Private Cloud Enterprise, now in its *Beta* phase with MKS feature, customers can take advantage of streamlined MKS cluster provisioning using predefined cluster layouts, making it easier to launch and manage their containerized workloads.
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 This blog post provides a detailed step-to-step guide on how to deploy a Kubernetes (K8s) cluster using app blueprint with Ansible integration in [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html).
 
@@ -24,22 +27,63 @@ Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en
 
 HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
 
-## Overview
-
-[HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
-
-Through deep integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE GreenLake PCE delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). 
-
-HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
-
 ## Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
-* Access to an HPE Private Cloud Enterprise tenant with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service. 
+* Access to an HPE Private Cloud Enterprise workspace with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the _**Virtual Machines**_ service. 
 * The group named *'CFE Department B Group'* and the network *'Green-Net'* have already been created.
 
-## Add Ansible integration
+## Access to HPE Private Cloud Enterprise
+
+1. Log in to HPE GreenLake Cloud at *https://common.cloud.hpe.com/*.
+
+
+2. Locate an HPE Private Cloud Enterprise workspace and click ***Go to Workspace***.
+
+
+
+![](/img/workspace.png)
+
+
+
+3. From the *Getting Started* screen, click ***Find Services***. (If you've already launched HPE GreenLake Flex Solutions, the service will appear under *Recent Services*, from which you can click ***Launch***, then skip to the step *6* below.)
+
+
+
+![](/img/get-started.png)
+
+
+
+4. From the *Services Catalog*, enter *'HPE GreenLake Flex Solutions'*. Click the ***HPE GreenLake Flex Solutions*** Workloads result.
+
+
+
+![](/img/service-catalog.png)
+
+
+
+5. From the Workloads ***Overview*** tab, click ***Launch*** to open the HPE GreenLake Flex Solutions. 
+
+
+
+![](/img/launch-glc.png)
+
+
+
+6. From the Cloud Services _**Dashboard**_, locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
+
+
+
+![](/img/launch-morpheus.png)
+
+
+
+7. Click ***Launch HPE Morpheus Enterprise***. The Morpheus Dashboard screen (**Operations** > **Dashboard**) displays.
+
+
+
+![](/img/morpheus-dashboard.png)
 
 1. Log in to [HPE GreenLake Central](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html), also known as HPE GreenLake Flex Solutions, using the URL *https://client.greenlake.hpe.com*.
 
@@ -52,6 +96,7 @@ Ensure that the following prerequisites are fulfilled:
 ![](/img/morpheus-dashboard.png)
 
 
+## Add Ansible integration
 
 ![](/img/k8s-ansible-intg.png)
 
@@ -61,9 +106,11 @@ Ensure that the following prerequisites are fulfilled:
 
 \| ANSIBLE GIT URL | https://github.com/guoping/alansible-kBs.git |
 
-## Create tasks and workflows
+## Create app blueprint
 
-### Create a task for K8s master
+### tasks and workflows
+
+#### Create a task for K8s master
 
 1. Navigate to **Library** -> **Automation** -> *Tasks tab*
 2. **+ADD**
@@ -71,7 +118,7 @@ Ensure that the following prerequisites are fulfilled:
 
 ![](/img/k8s-master-task.png)
 
-### Create a workflow for K8s master
+#### Create a workflow for K8s master
 
 1. Navigate to **Library** -> **Automation** -> *Workflows Tab*
 2. **+ADD** -> *Provisioning Workflow*
@@ -79,7 +126,7 @@ Ensure that the following prerequisites are fulfilled:
 
 ![](/img/k8s-master-workflow.png)
 
-### Create a task for K8s worker
+#### Create a task for K8s worker
 
 1. Navigate to **Library** -> **Automation** -> *Tasks tab*
 2. **+ADD**
@@ -89,7 +136,7 @@ Ensure that the following prerequisites are fulfilled:
 
 ![](/img/k8s-worker-task.png)
 
-### Create a workflow for K8s worker
+#### Create a workflow for K8s worker
 
 1. Navigate to **Library** -> **Automation** -> *Workflows Tab*
 2. **+ADD** -> *Provisioning Workflow*
