@@ -85,17 +85,6 @@ Ensure that the following prerequisites are fulfilled:
 
 ![](/img/morpheus-dashboard.png)
 
-1. Log in to [HPE GreenLake Central](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html), also known as HPE GreenLake Flex Solutions, using the URL *https://client.greenlake.hpe.com*.
-
-2. Locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
-
-![](/img/service-card.png)
-
-3. Click _**Launch HPE Morpheus Enterprise**_. The Morpheus Dashboard screen (**Operations** > **Dashboard**) displays.
-
-![](/img/morpheus-dashboard.png)
-
-
 ## Add Ansible integration
 
 ![](/img/k8s-ansible-intg.png)
