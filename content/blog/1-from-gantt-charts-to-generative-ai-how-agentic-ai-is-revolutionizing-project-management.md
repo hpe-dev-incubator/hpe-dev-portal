@@ -49,7 +49,7 @@ Think of it as hiring a **junior project manager** who works 24/7, never forgets
 
 A circular diagram showing Agents → Scheduling, Risk, Communication → Central PM Dashboard.
 
-![](/img/1.2.png)
+<center><img src="/img/1.2.png" width="600" height="550" alt="Scheduling agent" title="Scheduling agent"></center>
 
 ## Section 2: How Agents Automate Planning & Scheduling
 
@@ -67,7 +67,7 @@ One of the biggest pain points for PMs is the constant back-and-forth of schedul
 
 A workflow diagram: Task Creation → Skill Match → Agent Assignment → Auto Reminders → Status Updates → Plan Adjustments.
 
-![](/img/1.3.png)
+<center><img src="/img/1.3.png" width="600" height="550" alt="Automate planning" title="Automate planning"></center>
 
 ## **Section 3: Real-Time Risk Detection & Mitigation**
 
@@ -83,7 +83,7 @@ Risk registers are often dusty spreadsheets updated once a week. By the time ris
 
 Side-by-side infographic: Traditional Risk Management (manual, reactive) vs. AI-Driven Risk Management (predictive, proactive).
 
-![](/img/chatgpt-image-aug-27-2025-10_54_16-pm.png)
+<center><img src="/img/chatgpt-image-aug-27-2025-10_54_16-pm.png" width="600" height="550" alt="Real time risk" title="Real time risk"></center>
 
 ## Section 4: Examples in Complex, Multi-Team Projects
 
@@ -98,7 +98,7 @@ The larger and more complex the project, the more powerful Agentic AI becomes.
 
 An ecosystem diagram showing multiple agents (Scheduling Agent, Risk Agent, Communication Agent) feeding into a unified **AI-Powered PM Dashboard.**
 
-![](/img/chatgpt-image-aug-27-2025-10_55_40-pm.png)
+<center><img src="/img/chatgpt-image-aug-27-2025-10_55_40-pm.png" width="600" height="550" alt="Multi team project chart" title="Multi team project chart"></center>
 
 ## Conclusion: AI PM as the Next Career Superpower
 
@@ -112,4 +112,4 @@ In fact, PMs who embrace Agentic AI are positioning themselves as the **next gen
 
 A futuristic PM at a dashboard with agents working in the background, symbolizing partnership between human leadership and AI execution.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdk_55Xd32gAj0z-AzyUUMAOQkBOLuZ7FUJW0soGd4Zmkk1puH8kVas-XsYCvu0E3ojEJNdzUbckjeIEVEVKUgPnFAkU8-e12QX2fqJNRElHePg1_qC_fnG1TJ9Lj4rvkXFdEei?key=z_lOZkM5tlq2aj13XK-_Xw)
+<center><img src="/img/g-2.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
