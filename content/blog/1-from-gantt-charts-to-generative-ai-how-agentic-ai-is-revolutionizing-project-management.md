@@ -1,6 +1,6 @@
 ---
-title: "1.\tFrom Gantt Charts to Generative AI: How Agentic AI is
-  Revolutionizing Project Management"
+title: "Gen AI for PM Series - Part 1: From Gantt Charts to Generative AI: How
+  Agentic AI is Revolutionizing Project Management"
 date: 2025-08-27T15:04:35.590Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
