@@ -7,7 +7,19 @@ authorimage: /img/blog-image.jpeg
 disable: false
 tags: []
 ---
-# From Gantt Charts to Generative AI: How Agentic AI is Revolutionizing Project Management
+<style>
+
+li {
+
+   font-size: 27px;
+
+   line-height: 33px;
+
+   max-width: none;
+
+}
+
+</style>
 
 ## **Introduction: From Static Plans to Intelligent Partners**
 
@@ -19,7 +31,7 @@ Today, a new paradigm is emerging. **Agentic AI** — intelligent agents that ad
 
 **Example**: A split-screen illustration showing Traditional Gantt Chart → Manual Updates → Bottlenecked PM vs. Agentic AI Dashboard → Real-Time Updates → Autonomous Adjustments.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdc9uxqfeTW1z5dttti_zB5fmXtl-ohHlHiwIn-6GhlLAeG-vzW_2wLGZT-1SUzyCKsrVt1zAqkLhJvBrFMAPTzNgDpN8exlCOKm5ZYAo83jBVtr9t4RXsPiUZ1WhGKuzJCYiYD?key=z_lOZkM5tlq2aj13XK-_Xw)
+<center><img src="/img/g-1.png" width="600" height="550" alt="Gantt Chart" title="Gantt Chart"></center>
 
 ## **Section 1: What is Agentic AI?**
 
