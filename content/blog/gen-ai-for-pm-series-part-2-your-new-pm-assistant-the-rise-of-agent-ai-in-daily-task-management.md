@@ -6,7 +6,19 @@ author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
 disable: false
 ---
+<style>
 
+li {
+
+   font-size: 27px;
+
+   line-height: 33px;
+
+   max-width: none;
+
+}
+
+</style>
 
 # Intro: The Endless Cycle of Updates
 
@@ -18,7 +30,7 @@ This is the reality of traditional project management — too much **manual over
 
 An overwhelmed PM surrounded by emails and sticky notes (left) vs. a calm PM with an AI assistant dashboard updating tasks automatically (right).
 
-![](/img/2-1-.png)
+<center><img src="/img/2-1-.png" width="600" height="550" alt="Overloaded with Tasks" title="Overloaded with Tasks"></center>
 
 ## Section 1: Agent AI for Task Allocation and Reminders
 
