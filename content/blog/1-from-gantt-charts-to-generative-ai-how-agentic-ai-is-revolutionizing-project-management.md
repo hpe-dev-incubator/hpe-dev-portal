@@ -1,12 +1,19 @@
 ---
-title: "Gen AI for PM Series - Part 1: From Gantt Charts to Generative AI: How
-  Agentic AI is Revolutionizing Project Management"
+title: "1.\tFrom Gantt Charts to Generative AI: How Agentic AI is
+  Revolutionizing Project Management"
 date: 2025-08-27T15:04:35.590Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
 disable: false
-tags: []
+tags:
+  - Agentic AI
+  - Project Manager
+  - Scurm Master
+  - Gen AI for PM
+  - Gantt chart
 ---
+![]()
+
 <style>
 
 li {
@@ -31,7 +38,7 @@ Today, a new paradigm is emerging. **Agentic AI** — intelligent agents that ad
 
 **Example**: A split-screen illustration showing Traditional Gantt Chart → Manual Updates → Bottlenecked PM vs. Agentic AI Dashboard → Real-Time Updates → Autonomous Adjustments.
 
-<center><img src="/img/g-1.png" width="600" height="550" alt="Gantt Chart" title="Gantt Chart"></center>
+<center><img src="/img/g1.png" width="600" height="550" alt="Gantt chart" title="Gantt chart"></center>
 
 ## **Section 1: What is Agentic AI?**
 
@@ -49,7 +56,7 @@ Think of it as hiring a **junior project manager** who works 24/7, never forgets
 
 A circular diagram showing Agents → Scheduling, Risk, Communication → Central PM Dashboard.
 
-<center><img src="/img/1.2.png" width="600" height="550" alt="Scheduling agent" title="Scheduling agent"></center>
+<center><img src="/img/g2.png" width="600" height="550" alt="Scheduling agent" title="Scheduling agent"></center>
 
 ## Section 2: How Agents Automate Planning & Scheduling
 
@@ -67,7 +74,7 @@ One of the biggest pain points for PMs is the constant back-and-forth of schedul
 
 A workflow diagram: Task Creation → Skill Match → Agent Assignment → Auto Reminders → Status Updates → Plan Adjustments.
 
-<center><img src="/img/1.3.png" width="600" height="550" alt="Automate planning" title="Automate planning"></center>
+<center><img src="/img/g3.png" width="600" height="550" alt="Automate planning" title="Automate planning"></center>
 
 ## **Section 3: Real-Time Risk Detection & Mitigation**
 
@@ -83,22 +90,22 @@ Risk registers are often dusty spreadsheets updated once a week. By the time ris
 
 Side-by-side infographic: Traditional Risk Management (manual, reactive) vs. AI-Driven Risk Management (predictive, proactive).
 
-<center><img src="/img/chatgpt-image-aug-27-2025-10_54_16-pm.png" width="600" height="550" alt="Real time risk" title="Real time risk"></center>
+<center><img src="//img/g4.png" width="600" height="550" alt="Real-time risk" title="Real-time risk"></center>
 
 ## Section 4: Examples in Complex, Multi-Team Projects
 
 The larger and more complex the project, the more powerful Agentic AI becomes.
 
-* **Global Product Launch**\
+* **Global Product Launch**
   Marketing, supply chain, and engineering must align across time zones. AI agents track dependencies, flag misalignments, and ensure simultaneous readiness.
-* **Software Development at Scale**\
+* **Software Development at Scale**
   Agents monitor sprint velocity, bug queues, and release schedules. If delays in one module impact another, the AI re-prioritizes tasks automatically.
-* **Healthcare Facility Rollout**\
+* **Healthcare Facility Rollout**
   Compliance checks, vendor schedules, and training sessions are intertwined. AI ensures compliance tasks are met and automates approval escalations.
 
 An ecosystem diagram showing multiple agents (Scheduling Agent, Risk Agent, Communication Agent) feeding into a unified **AI-Powered PM Dashboard.**
 
-<center><img src="/img/chatgpt-image-aug-27-2025-10_55_40-pm.png" width="600" height="550" alt="Multi team project chart" title="Multi team project chart"></center>
+<center><img src="/img/g5.png" width="600" height="550" alt="Multi team project chart" title="Multi team project chart"></center>
 
 ## Conclusion: AI PM as the Next Career Superpower
 
@@ -112,4 +119,4 @@ In fact, PMs who embrace Agentic AI are positioning themselves as the **next gen
 
 A futuristic PM at a dashboard with agents working in the background, symbolizing partnership between human leadership and AI execution.
 
-<center><img src="/img/g-2.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
+<center><img src="/img/g6.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
