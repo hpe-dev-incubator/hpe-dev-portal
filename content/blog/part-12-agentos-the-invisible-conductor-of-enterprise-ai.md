@@ -48,7 +48,7 @@ For the past two decades, enterprises have ridden the waves of digital transform
 
 These modes gave enterprises glimpses of what AI teamwork could look like. But in practice, enterprises quickly ran into scaling problems: lack of governance, resource wastage, compliance risks, and integration hurdles.
 
-**AgentOS was born to solve this.**\
+**AgentOS was born to solve this.**
 It is not just a tool. It is the operating system for agents, enabling enterprises to manage, orchestrate, and scale agent ecosystems responsibly.
 
 Just as operating systems defined enterprise computing, and Android/iOS defined enterprise mobility, **AgentOS defines the enterprise era of agentic intelligence.**
@@ -61,7 +61,6 @@ Agentic AI is powerful, but it operates at the task level. AgentOS operates at t
 
 # Agentic AI vs AgentOS Capabilities
 
-# Agentic AI vs AgentOS Capabilities
 
 <table style="border-collapse: collapse; width: 100%; text-align: left; background: linear-gradient(135deg, #f0f8ff, #e6f7ff); border: 2px solid #0073e6;">
   <thead>
@@ -229,10 +228,10 @@ AgentOS is the infrastructure that ensures agents aren’t just clever individua
 
 ## Closing Thought
 
-The future of enterprise AI is not about isolated copilots or one-off pilots.\
+The future of enterprise AI is not about isolated copilots or one-off pilots.
 It is about **agent ecosystems functioning as digital colleagues,** transforming how businesses operate.
 
-Agentic AI introduced task-level coordination.\
+Agentic AI introduced task-level coordination.
 AgentOS delivers system-wide orchestration, governance, and scalability.
 
 For enterprises, AgentOS is not a passing trend. It is the **technology that will stay,** advancing year after year, as fundamental as the operating systems that run our laptops and servers today.
