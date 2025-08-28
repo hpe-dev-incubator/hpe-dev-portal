@@ -61,44 +61,46 @@ Agentic AI is powerful, but it operates at the task level. AgentOS operates at t
 
 # Agentic AI vs AgentOS Capabilities
 
-<table style="border-collapse: collapse; width: 100%; text-align: left; background: linear-gradient(135deg, #f0f8ff, #e6f7ff);">
+# Agentic AI vs AgentOS Capabilities
+
+<table style="border-collapse: collapse; width: 100%; text-align: left; background: linear-gradient(135deg, #f0f8ff, #e6f7ff); border: 2px solid #0073e6;">
   <thead>
     <tr style="background-color: #0073e6; color: white;">
-      <th style="padding: 10px; border: 1px solid #ccc;"><b>Capability</b></th>
-      <th style="padding: 10px; border: 1px solid #ccc;"><b>Agentic AI Modes (Coordination / Collaboration / Routing)</b></th>
-      <th style="padding: 10px; border: 1px solid #ccc;"><b>AgentOS (Enterprise-Grade)</b></th>
+      <th style="padding: 12px; font-weight: bold; text-align: left;">Capability</th>
+      <th style="padding: 12px; font-weight: bold; text-align: left;">Agentic AI Modes (Coordination / Collaboration / Routing)</th>
+      <th style="padding: 12px; font-weight: bold; text-align: left;">AgentOS (Enterprise-Grade)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Coordination</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Agents communicate on a shared task</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Orchestration across thousands of agents simultaneously</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Coordination</b></td>
+      <td style="padding: 10px;">Agents communicate on a shared task</td>
+      <td style="padding: 10px;">Orchestration across thousands of agents simultaneously</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Collaboration</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Agents divide work and merge results</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Workflow automation integrated with ERP, CRM, and APIs</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Collaboration</b></td>
+      <td style="padding: 10px;">Agents divide work and merge results</td>
+      <td style="padding: 10px;">Workflow automation integrated with ERP, CRM, and APIs</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Routing</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Routes tasks to relevant agents</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Policy-driven routing with compliance and audit</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Routing</b></td>
+      <td style="padding: 10px;">Routes tasks to relevant agents</td>
+      <td style="padding: 10px;">Policy-driven routing with compliance and audit</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Scalability</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Limited to agent clusters or workflows</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Enterprise-wide scale with cross-departmental coverage</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Scalability</b></td>
+      <td style="padding: 10px;">Limited to agent clusters or workflows</td>
+      <td style="padding: 10px;">Enterprise-wide scale with cross-departmental coverage</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Resource Management</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Task-level optimization</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Enterprise-grade compute allocation, GPU scheduling, cost optimization</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Resource Management</b></td>
+      <td style="padding: 10px;">Task-level optimization</td>
+      <td style="padding: 10px;">Enterprise-grade compute allocation, GPU scheduling, cost optimization</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ccc; background-color:#f9f9f9;"><b>Governance</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Minimal logs at agent level</td>
-      <td style="padding: 8px; border: 1px solid #ccc;">Centralized compliance, execution history, and audit trails</td>
+      <td style="padding: 10px; background-color:#f9f9f9;"><b>Governance</b></td>
+      <td style="padding: 10px;">Minimal logs at agent level</td>
+      <td style="padding: 10px;">Centralized compliance, execution history, and audit trails</td>
     </tr>
   </tbody>
 </table>
@@ -149,8 +151,8 @@ A future enterprise boardroom operates like this:
 
 Without AgentOS, each agent works in isolation — outputs fragmented across dashboards.
 
-With AgentOS, they function as a team under enterprise governance.\
-A CXO can simply ask: “Can we close this deal profitably within compliance?”\
+With AgentOS, they function as a team under enterprise governance. 
+A CXO can simply ask: “Can we close this deal profitably within compliance?” 
 AgentOS synthesizes the inputs, runs checks, allocates compute, and produces a clear, enterprise-ready answer.
 
  
@@ -235,7 +237,7 @@ AgentOS delivers system-wide orchestration, governance, and scalability.
 
 For enterprises, AgentOS is not a passing trend. It is the **technology that will stay,** advancing year after year, as fundamental as the operating systems that run our laptops and servers today.
 
-> The real question for enterprise leaders is not “Should we adopt AgentOS?”\
+> The real question for enterprise leaders is not “Should we adopt AgentOS?”
 > It is ***“How fast can we adopt AgentOS to stay competitive in the AI-driven future?”***
 >
 >
