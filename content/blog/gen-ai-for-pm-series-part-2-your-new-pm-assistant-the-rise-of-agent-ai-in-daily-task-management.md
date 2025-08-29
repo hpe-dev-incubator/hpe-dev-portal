@@ -1,11 +1,21 @@
 ---
-title: "Gen AI for PM series - Part 2 Your New PM Assistant: The Rise of Agent
-  AI in Daily Task Management"
+title: "Gen AI for PM series - Part 2 Your new PM assistant: The rise of Agent
+  AI in daily task management"
 date: 2025-08-27T17:39:15.085Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
 disable: false
+tags:
+  - AI agent
+  - Agentic AI
+  - Scrum master
+  - AI project Manager
+  - Project Manager
+  - Daily Task Management
+  - Task Management
 ---
+![]()
+
 <style>
 
 li {
@@ -30,7 +40,7 @@ This is the reality of traditional project management — too much **manual over
 
 An overwhelmed PM surrounded by emails and sticky notes (left) vs. a calm PM with an AI assistant dashboard updating tasks automatically (right).
 
-<center><img src="/img/2-1-.png" width="600" height="550" alt="Overloaded with Tasks" title="Overloaded with Tasks"></center>
+<center><img src="/img/p1.png" width="600" height="550" alt="Task allocation" title="Task allocation"></center>
 
 ## Section 1: Agent AI for Task Allocation and Reminders
 
@@ -46,7 +56,7 @@ Allocating tasks sounds simple, but in practice, it’s a juggling act. You need
 
 **A flowchart**: Task Creation → Skill Match → Agent Assignment → Auto Reminder → Status Update.
 
-![]()
+<center><img src="/img/p2.png" width="600" height="550" alt="AI Task allocation" title="AI Task allocation"></center>
 
 ## Section 2: Natural Language Updates → Auto Task Adjustments
 
@@ -64,4 +74,59 @@ Instead of PMs manually updating Jira boards or rescheduling, the AI listens, in
 
 A **chat bubble illustration**: “Task Blocked” → AI icon → Auto-adjusted timeline + alert notifications.
 
-![]()
+<center><img src="/img/p3.png" width="600" height="550" alt="NL Auto task" title="NL Auto task"></center>
+
+## Section 3: Reducing Human Error in Task Tracking
+
+Manual task tracking is messy. People forget to update boards, mark things “done” that aren’t done, or miss dependencies. These errors snowball into delays, missed deadlines, and finger-pointing.
+
+Agent AI tackles this by:
+
+* **Auto-syncing across tools** – Updates in Jira, Asana, Trello, or email are reflected everywhere instantly.
+* **Error detection** – If a task is marked complete but the code hasn’t been merged, AI raises a flag.
+* **Audit trails** – Every update is logged for transparency and compliance.
+
+**Example**: Without AI, a QA engineer closes a ticket marked “passed,” but the bug reappears in staging. AI catches the mismatch and reopens the task, preventing the issue from being reported late in production.
+
+Side-by-side: Manual tracking (errors, mismatches, confusion) vs. AI-powered tracking (real-time sync, error detection, audit logs).
+
+<center><img src="/img/p4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
+
+## Section 4: Case Study – 20% Time Saved in Sprint Management
+
+At a mid-sized software company, the PM team adopted an AI task assistant to manage sprint planning and daily updates.
+
+**The results after three months:**
+
+* **20% reduction in sprint management time** (less manual backlog grooming, fewer status check-ins).
+* **30% fewer status meetings** (updates auto-logged by AI).
+* **Higher developer satisfaction** (less time spent on admin, more on building features).
+
+**Example**: Instead of three 1-hour sprint syncs per week, the team only needed one. The AI managed the other updates asynchronously, saving the PMs nearly 8 hours per month.
+
+A bar graph showing sprint management time before vs. after AI adoption (20% saved).
+
+<center><img src="/img/p5.png" width="600" height="550" alt="Sprint Management" title="Sprint Management"></center>
+
+## Conclusion: PMs Can Focus on Leadership, Not Micromanagement
+
+Here’s the truth: AI isn’t coming to replace project managers. It’s coming to liberate them.
+
+By offloading repetitive work like task allocation, reminders, and updates, PMs can finally focus on the work that matters most:
+
+* Motivating teams
+* Driving strategy
+* Building relationships
+* Guiding projects toward meaningful outcomes
+
+The next generation of PMs won’t be remembered as task chasers — they’ll be celebrated as **strategic leaders powered by intelligent AI assistants**.
+
+## Key Takeaway
+
+**Agent AI eliminates the “where are we on this?” emails, replacing them with real-time, self-updating project visibility.**
+
+A PM smiling at a futuristic AI dashboard, while “agents” in the background handle scheduling, reminders, and risk monitoring.
+
+![](/img/p6.png)
+
+<center><img src="/img/p6.png" width="600" height="550" alt="Futuristic AI dashboard" title="Futuristic AI dashboard"></center>
