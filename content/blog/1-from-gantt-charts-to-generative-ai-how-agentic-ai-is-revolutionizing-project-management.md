@@ -26,7 +26,7 @@ li {
 
 </style>
 
-## **Introduction: From Static Plans to Intelligent Partners**
+## **Introduction: From static plans to intelligent partners**
 
 Picture this: You’re a project manager (PM) juggling deadlines, budget limits, and a flood of emails. You’ve got your trusted Gantt chart open, but within hours, it’s already outdated. A supplier delay changes Task A, which cascades into Tasks B and C, and suddenly your neat timeline looks like spaghetti. Sound familiar?
 
@@ -56,7 +56,7 @@ A circular diagram showing Agents → Scheduling, Risk, Communication → Centra
 
 <center><img src="/img/g2.png" width="600" height="550" alt="Scheduling agent" title="Scheduling agent"></center>
 
-## Section 2: How Agents Automate Planning & Scheduling
+## Section 2: How agents automate planning & scheduling
 
 One of the biggest pain points for PMs is the constant back-and-forth of scheduling.
 
@@ -74,7 +74,7 @@ A workflow diagram: Task Creation → Skill Match → Agent Assignment → Auto 
 
 <center><img src="/img/g3.png" width="600" height="550" alt="Automate planning" title="Automate planning"></center>
 
-## **Section 3: Real-Time Risk Detection & Mitigation**
+## **Section 3: Real-Time risk detection & mitigation**
 
 Risk registers are often dusty spreadsheets updated once a week. By the time risks surface, it’s usually too late.
 
@@ -90,7 +90,7 @@ Side-by-side infographic: Traditional Risk Management (manual, reactive) vs. AI-
 
 <center><img src="/img/g4.png" width="600" height="550" alt="Real-time risk" title="Real-time risk"></center>
 
-## Section 4: Examples in Complex, Multi-Team Projects
+## Section 4: Examples in complex, multi-team projects
 
 The larger and more complex the project, the more powerful Agentic AI becomes.
 
@@ -105,7 +105,7 @@ An ecosystem diagram showing multiple agents (Scheduling Agent, Risk Agent, Comm
 
 <center><img src="/img/g5.png" width="600" height="550" alt="Multi team project chart" title="Multi team project chart"></center>
 
-## Conclusion: AI PM as the Next Career Superpower
+## Conclusion: AI PM as the next career superpower
 
 Will Agentic AI replace project managers? Absolutely not. Just like spreadsheets didn’t replace accountants, Agentic AI won’t replace PMs. Instead, it **augments their role** — handling the repetitive grunt work so PMs can focus on **strategy, leadership, and creativity**.
 
