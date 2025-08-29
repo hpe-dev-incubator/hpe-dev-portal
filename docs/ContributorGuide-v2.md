@@ -56,8 +56,8 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 ## Getting started
 
-1.  Make sure you are connected to **your GitHub account**. If you
-    don't have an account, you can create one now [here](https://github.com/signup).
+1.  Make sure you are connected to **your PERSONAL GitHub account**. If you
+    don't have a **personal** GitHub account, you can create one now [here](https://github.com/signup).
 
 2.  Open the [HPE Developer Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
