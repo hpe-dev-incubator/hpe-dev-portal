@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 6 Feb, 2025
+**Version 2.1** - 29 Aug, 2025
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
@@ -33,8 +33,6 @@
 This guide is intended for anyone interested in contributing to the [HPE
 DEV Community](https://hpedev.io). The document covers how to
 contribute a new blog or how to update a platform page.
-
-**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
 The process described in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
