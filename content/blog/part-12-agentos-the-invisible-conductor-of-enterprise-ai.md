@@ -35,7 +35,9 @@ Enter **AgentOS**: the conductor that turns fragmented AI tools into a well-orch
 For the past two decades, enterprises have ridden the waves of digital transformation through multiple stages of AI:
 
 1. **Traditional AI** – Predictive, rule-based systems solving narrow problems.
+
 2. **Generative AI** – Large language models that produce text, code, and content.
+
 3. **Agentic AI** – Autonomous helpers reasoning, planning, and acting. Agentic AI even introduced modes like:
 
    * **Coordination Mode –** Agents interact to accomplish a shared task.
