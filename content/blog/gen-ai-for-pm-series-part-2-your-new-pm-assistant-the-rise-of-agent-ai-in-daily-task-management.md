@@ -125,6 +125,4 @@ The next generation of PMs won’t be remembered as task chasers — they’ll b
 
 A PM smiling at a futuristic AI dashboard, while “agents” in the background handle scheduling, reminders, and risk monitoring.
 
-![](/img/p6.png)
-
 <center><img src="/img/p6.png" width="600" height="550" alt="Futuristic AI dashboard" title="Futuristic AI dashboard"></center>
