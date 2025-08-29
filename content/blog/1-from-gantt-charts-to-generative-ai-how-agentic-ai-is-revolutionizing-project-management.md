@@ -1,6 +1,6 @@
 ---
-title: "Gen AI for PM series- Part 1: From Gantt Charts to Generative AI: How
-  Agentic AI is Revolutionizing Project Management"
+title: "Gen AI for PM series- Part 1: From Gantt charts to Generative AI: How
+  Agentic AI is revolutionizing project management"
 date: 2025-08-27T15:04:35.590Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
@@ -32,7 +32,7 @@ li {
 
 ## **Introduction: From Static Plans to Intelligent Partners**
 
-Picture this: You’re a project manager juggling deadlines, budget limits, and a flood of emails. You’ve got your trusted Gantt chart open, but within hours, it’s already outdated. A supplier delay changes Task A, which cascades into Tasks B and C, and suddenly your neat timeline looks like spaghetti. Sound familiar?
+Picture this: You’re a project manager (PM) juggling deadlines, budget limits, and a flood of emails. You’ve got your trusted Gantt chart open, but within hours, it’s already outdated. A supplier delay changes Task A, which cascades into Tasks B and C, and suddenly your neat timeline looks like spaghetti. Sound familiar?
 
 For decades, project management has relied on **static tools** — from sticky notes on whiteboards to spreadsheets and Gantt charts. They’ve helped PMs visualize tasks and dependencies, but they’re fundamentally **snapshots in time**. The moment reality shifts, the tools fall behind, and project managers are left manually updating and chasing information.
 
