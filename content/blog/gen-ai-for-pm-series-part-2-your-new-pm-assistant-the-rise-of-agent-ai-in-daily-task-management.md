@@ -14,8 +14,6 @@ tags:
   - Daily Task Management
   - Task Management
 ---
-![]()
-
 <style>
 
 li {
