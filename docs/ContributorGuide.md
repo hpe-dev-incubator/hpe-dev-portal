@@ -30,6 +30,8 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 3-part blog article:
 <https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi>
 
+**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
+
 Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for
 more support.
 
