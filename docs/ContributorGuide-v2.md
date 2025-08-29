@@ -780,8 +780,8 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE GreenLake**                  | hpe-greenlake |
   | **HPE GreenLake cloud**            | hpe-greenlake-cloud |
   | **HPE GreenLake platform**         | hpe-greenlake-platform |
-  | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
-  | **HPE Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise; and hpe-private-cloud-enterprise |
+  | **HPE Compute Ops Management**     | hpe-greenlake-for-compute-ops-management; and hpe-compute-ops-management |
+  | **HPE Private Cloud Enterprise**   | hpe-greenlake-for-private-cloud-enterprise; and hpe-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Data Services on the HPE GreenLake platform** | data-services-on-the-hpe-greenlake-platform |
   | **Hybrid observability in HPE GreenLake Flex Solutions** | hybrid-observability-flex-solutions |
