@@ -28,7 +28,7 @@ li {
 
 </style>
 
-# Intro: The Endless Cycle of Updates
+# Intro: The endless cycle of updates
 
 If you’ve ever been a project manager, you know the drill. You open your inbox in the morning, and it’s flooded with updates: “Task delayed,” “Waiting for approval,” “Who’s picking this up?” Then come the Slack pings, calendar invites, and those dreaded status meetings.
 
@@ -40,7 +40,7 @@ An overwhelmed PM surrounded by emails and sticky notes (left) vs. a calm PM wit
 
 <center><img src="/img/p1.png" width="600" height="550" alt="Task allocation" title="Task allocation"></center>
 
-## Section 1: Agent AI for Task Allocation and Reminders
+## Section 1: Agent AI for task allocation and reminders
 
 Allocating tasks sounds simple, but in practice, it’s a juggling act. You need to balance skills, availability, deadlines, and workload. Traditionally, that means spreadsheets, endless emails, and lots of guesswork.
 
@@ -56,7 +56,7 @@ Allocating tasks sounds simple, but in practice, it’s a juggling act. You need
 
 <center><img src="/img/p2.png" width="600" height="550" alt="AI Task allocation" title="AI Task allocation"></center>
 
-## Section 2: Natural Language Updates → Auto Task Adjustments
+## Section 2: Natural language updates → Auto task adjustments
 
 One of the most exciting aspects of Agent AI is its ability to understand **plain human language.**
 
@@ -74,7 +74,7 @@ A **chat bubble illustration**: “Task Blocked” → AI icon → Auto-adjusted
 
 <center><img src="/img/p3.png" width="600" height="550" alt="NL Auto task" title="NL Auto task"></center>
 
-## Section 3: Reducing Human Error in Task Tracking
+## Section 3: Reducing human error in task tracking
 
 Manual task tracking is messy. People forget to update boards, mark things “done” that aren’t done, or miss dependencies. These errors snowball into delays, missed deadlines, and finger-pointing.
 
@@ -90,7 +90,7 @@ Side-by-side: Manual tracking (errors, mismatches, confusion) vs. AI-powered tra
 
 <center><img src="/img/p4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
 
-## Section 4: Case Study – 20% Time Saved in Sprint Management
+## Section 4: Case Study – 20% time saved in sprint management
 
 At a mid-sized software company, the PM team adopted an AI task assistant to manage sprint planning and daily updates.
 
@@ -106,7 +106,7 @@ A bar graph showing sprint management time before vs. after AI adoption (20% sav
 
 <center><img src="/img/p5.png" width="600" height="550" alt="Sprint Management" title="Sprint Management"></center>
 
-## Conclusion: PMs Can Focus on Leadership, Not Micromanagement
+## Conclusion: PMs can Focus on leadership, not micromanagement
 
 Here’s the truth: AI isn’t coming to replace project managers. It’s coming to liberate them.
 
