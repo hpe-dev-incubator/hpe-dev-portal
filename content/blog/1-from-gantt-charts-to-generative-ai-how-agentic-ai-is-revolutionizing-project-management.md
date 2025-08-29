@@ -12,10 +12,6 @@ tags:
   - Gen AI for PM
   - Gantt chart
 ---
-![]()
-
-![]()
-
 <style>
 
 li {
