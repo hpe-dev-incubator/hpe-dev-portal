@@ -14,6 +14,8 @@ tags:
 ---
 ![]()
 
+![]()
+
 <style>
 
 li {
@@ -90,7 +92,7 @@ Risk registers are often dusty spreadsheets updated once a week. By the time ris
 
 Side-by-side infographic: Traditional Risk Management (manual, reactive) vs. AI-Driven Risk Management (predictive, proactive).
 
-<center><img src="//img/g4.png" width="600" height="550" alt="Real-time risk" title="Real-time risk"></center>
+<center><img src="/img/g4.png" width="600" height="550" alt="Real-time risk" title="Real-time risk"></center>
 
 ## Section 4: Examples in Complex, Multi-Team Projects
 
@@ -119,4 +121,4 @@ In fact, PMs who embrace Agentic AI are positioning themselves as the **next gen
 
 A futuristic PM at a dashboard with agents working in the background, symbolizing partnership between human leadership and AI execution.
 
-<center><img src="/img/g6.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
+<center><img src="/img/g7.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
