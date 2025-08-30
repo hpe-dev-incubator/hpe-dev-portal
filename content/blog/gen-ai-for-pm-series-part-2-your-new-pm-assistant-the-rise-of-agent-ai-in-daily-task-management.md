@@ -38,7 +38,7 @@ This is the reality of traditional project management — too much **manual over
 
 An overwhelmed PM surrounded by emails and sticky notes (left) vs. a calm PM with an AI assistant dashboard updating tasks automatically (right).
 
-<center><img src="/img/p1.png" width="600" height="550" alt="Task allocation" title="Task allocation"></center>
+<center><img src="/img/ai-1.png" width="600" height="550" alt="Task allocation" title="Task allocation"></center>
 
 ## Section 1: Agent AI for task allocation and reminders
 
@@ -54,7 +54,7 @@ Allocating tasks sounds simple, but in practice, it’s a juggling act. You need
 
 **A flowchart**: Task Creation → Skill Match → Agent Assignment → Auto Reminder → Status Update.
 
-<center><img src="/img/p2.png" width="600" height="550" alt="AI Task allocation" title="AI Task allocation"></center>
+<center><img src="/img/ai-2.png" width="600" height="550" alt="AI Task allocation" title="AI Task allocation"></center>
 
 ## Section 2: Natural language updates → Auto task adjustments
 
@@ -72,7 +72,7 @@ Instead of PMs manually updating Jira boards or rescheduling, the AI listens, in
 
 A **chat bubble illustration**: “Task Blocked” → AI icon → Auto-adjusted timeline + alert notifications.
 
-<center><img src="/img/p3.png" width="600" height="550" alt="NL Auto task" title="NL Auto task"></center>
+<center><img src="/img/ai-3.png" width="600" height="550" alt="NL Auto task" title="NL Auto task"></center>
 
 ## Section 3: Reducing human error in task tracking
 
@@ -88,7 +88,7 @@ Agent AI tackles this by:
 
 Side-by-side: Manual tracking (errors, mismatches, confusion) vs. AI-powered tracking (real-time sync, error detection, audit logs).
 
-<center><img src="/img/p4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
+<center><img src="img/ai-4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
 
 ## Section 4: Case Study – 20% time saved in sprint management
 
@@ -104,7 +104,7 @@ At a mid-sized software company, the PM team adopted an AI task assistant to man
 
 A bar graph showing sprint management time before vs. after AI adoption (20% saved).
 
-<center><img src="/img/p5.png" width="600" height="550" alt="Sprint Management" title="Sprint Management"></center>
+<center><img src="/img/ai-5.png" width="600" height="550" alt="Sprint Management" title="Sprint Management"></center>
 
 ## Conclusion: PMs can Focus on leadership, not micromanagement
 
@@ -125,4 +125,4 @@ The next generation of PMs won’t be remembered as task chasers — they’ll b
 
 A PM smiling at a futuristic AI dashboard, while “agents” in the background handle scheduling, reminders, and risk monitoring.
 
-<center><img src="/img/p6.png" width="600" height="550" alt="Futuristic AI dashboard" title="Futuristic AI dashboard"></center>
+<center><img src="/img/ai-6.png" width="600" height="550" alt="Futuristic AI dashboard" title="Futuristic AI dashboard"></center>
