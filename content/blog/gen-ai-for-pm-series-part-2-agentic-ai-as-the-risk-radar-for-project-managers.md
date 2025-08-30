@@ -1,5 +1,5 @@
 ---
-title: Gen AI for PM series- Part 2 Agentic AI as the risk radar for project managers
+title: Gen AI for PM series- Part 3 Agentic AI as the risk radar for project managers
 date: 2025-08-30T06:16:53.938Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
