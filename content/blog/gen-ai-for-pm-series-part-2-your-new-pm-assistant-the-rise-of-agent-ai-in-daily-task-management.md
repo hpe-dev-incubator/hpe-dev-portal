@@ -88,7 +88,7 @@ Agent AI tackles this by:
 
 Side-by-side: Manual tracking (errors, mismatches, confusion) vs. AI-powered tracking (real-time sync, error detection, audit logs).
 
-<center><img src="img/ai-4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
+<center><img src="/img/ai-4.png" width="600" height="550" alt="Reducing error" title="Reducing error"></center>
 
 ## Section 4: Case Study – 20% time saved in sprint management
 
