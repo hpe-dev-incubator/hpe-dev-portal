@@ -123,4 +123,4 @@ In fact, PMs who embrace Agentic AI are positioning themselves as the **next gen
 
 The visualization below captures this idea: a **futuristic project manager at a unified AI-powered dashboard**, with supporting agents feeding their insights in real time. It symbolizes the partnership between **human leadership** and **AI execution**, where the manager focuses on strategic decisions while the agents handle executional intelligence.
 
-<center><img src="/img/g7.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
+<center><img src="/img/picture-1.png" width="600" height="550" alt="Futuristic PM" title="Futuristic PM"></center>
