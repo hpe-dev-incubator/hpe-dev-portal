@@ -1,5 +1,5 @@
 ---
-title: Gen AI for PM series- Part 4 Multi-Agent systems for multi-stakeholder projects
+title: Multi-agent systems for multi-stakeholder projects
 date: 2025-08-30T06:50:31.006Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
@@ -52,7 +52,7 @@ Think of it this way: Instead of one AI tool doing everything, you have multiple
 
 It’s like moving from a single Swiss Army knife to a team of expert specialists — each focused, each efficient, and each accountable.
 
-**Example**: In a construction project, a Resource Agent monitors workforce schedules, a Finance Agent tracks cost overruns, and a Compliance Agent ensures safety requirements are met. Together, they keep the project moving without endless manual updates.
+**Consider this example**: In a construction project, a Resource Agent monitors workforce schedules, a Finance Agent tracks cost overruns, and a Compliance Agent ensures safety requirements are met. Together, they keep the project moving without endless manual updates.
 
 A circular diagram showing multiple agents (Finance, Resource, Communication) → feeding into a central **PM Dashboard**.
 
@@ -86,7 +86,7 @@ One of the biggest pain points in multi-stakeholder projects is **information la
 * Dependencies update automatically in connected dashboards.
 * Stakeholders see the latest info without needing to ask.
 
-**Example**: In a global product launch:
+**Consider this example**: In a global product launch:
 
 * Finance updates ad spend forecasts → Finance Agent updates Marketing instantly.
 * Engineering delays a feature by one week → Resource Agent updates the timeline, and Communication Agent informs all stakeholders.
@@ -107,7 +107,7 @@ With multi-agent systems, **transparency is built-in:**
 * Agents generate concise, role-specific updates.
 * PMs only call meetings for strategic discussions, not routine updates.
 
-**Example:** A weekly 2-hour cross-department sync shrinks into a 20-minute strategic review. Why? Because agents have already updated budgets, tasks, and dependencies in real time.
+**Consider this example:** A weekly 2-hour cross-department sync shrinks into a 20-minute strategic review. Why? Because agents have already updated budgets, tasks, and dependencies in real time.
 
 A before/after graphic: Before – 2-hour meeting with messy notes; After – 20-min strategic session with AI-prepared insights.
 
@@ -119,10 +119,8 @@ Multi-agent systems don’t just automate tasks — they transform how knowledge
 
 For PMs, this means less time chasing updates and more time focusing on leadership, strategy, and outcomes. For stakeholders, it means the right information, in the right format, at the right time.
 
-### Key Takeaway
+### Key takeaway
 
 **Each stakeholder gets the right update, at the right time — thanks to multi-agent systems.**
-
-A final illustration of a confident PM standing at a digital dashboard, with Finance, Resource, and Communication Agents working in the background.
 
 <center><img src="/img/4.6.png" width="600" height="550" alt="PM future dashboard" title="PM future dashboard"></center>
