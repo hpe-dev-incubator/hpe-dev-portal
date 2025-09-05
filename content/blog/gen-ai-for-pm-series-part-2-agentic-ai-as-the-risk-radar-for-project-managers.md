@@ -19,11 +19,13 @@ li {
 
 </style>
 
-## *Part 3 of our Gen AI for PM series*
-
-## Why risk management is still manual in many orgs
+*Part 3 of our **Gen AI for PM series***
 
 ### Intro
+
+Just as pilots rely on a radar to detect turbulence before it hits, project managers can now rely on **Agentic AI as their risk radar**. Instead of waiting for issues to surface in weekly reviews or status meetings, the AI continuously scans project data, **predicting risks early and raising alerts**. This proactive approach ensures that managers can address problems before they escalate, keeping projects on course and stakeholders informed.
+
+**Why risk management is still manual in many orgs**
 
 Risk management is one of the most critical responsibilities of a project manager — yet in many organizations, it’s still a manual, reactive process.
 
