@@ -26,7 +26,11 @@ li {
 
 </style>
 
-## **Introduction: From static plans to intelligent partners**
+## *Part 1 of our Gen AI for PM series*
+
+## **From static plans to intelligent partners**
+
+### Intro
 
 Picture this: You’re a project manager (PM) juggling deadlines, budget limits, and a flood of emails. You’ve got your trusted Gantt chart open, but within hours, it’s already outdated. A supplier delay changes Task A, which cascades into Tasks B and C, and suddenly your neat timeline looks like spaghetti. Sound familiar?
 
