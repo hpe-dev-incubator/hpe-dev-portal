@@ -27,11 +27,15 @@ li {
 
 </style>
 
-# Intro: The endless cycle of updates
+# *Part 2 of our Gen AI for PM series*
 
-If you’ve ever been a project manager, you know the drill. You open your inbox in the morning, and it’s flooded with updates: “Task delayed,” “Waiting for approval,” “Who’s picking this up?” Then come the Slack pings, calendar invites, and those dreaded status meetings.
+# The endless cycle of updates
 
-By lunchtime, you’ve spent more time **chasing information** than making decisions. And still, you find yourself sending the same email you’ve typed a hundred times before: “Where are we on this?”
+### **Intro:**
+
+Project managers juggle endless moving parts—status updates, task assignments, shifting priorities, and the constant chase for clarity. Too often, valuable time is wasted just piecing together information, instead of driving decisions forward.
+
+This is where **Agentic AI** begins to change the game: by streamlining updates, automating repetitive follow-ups, and surfacing the insights you need, right when you need them.
 
 This is the reality of traditional project management — too much **manual overhead**, not enough time for leadership. But things are changing. With **Agentic AI**, task management is no longer a reactive grind. It’s becoming **proactive, automated, and intelligent**.
 
