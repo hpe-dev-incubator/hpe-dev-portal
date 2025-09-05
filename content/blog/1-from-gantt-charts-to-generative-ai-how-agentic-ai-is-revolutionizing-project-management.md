@@ -26,11 +26,15 @@ li {
 
 </style>
 
-## *Part 1 of our Gen AI for PM series*
+*Part 1 of our **Gen AI for PM series***
 
-## **From static plans to intelligent partners**
+## **Intro**
 
-### Intro
+For decades, project managers have relied on **Gantt charts** and other static tools to track timelines and dependencies. While these methods provided structure, they often struggled to keep pace with the speed and complexity of modern projects. Enter **Generative AI and Agentic AI**—a leap forward that transforms project management from reactive tracking to **proactive intelligence**.
+
+Agentic AI doesn’t just visualize timelines; it continuously analyzes data, predicts risks, reallocates resources, and even recommends next best actions. This shift marks a new era where project managers move beyond manual monitoring and become **strategic leaders**, supported by AI-driven insights that keep projects adaptive, resilient, and future-ready.
+
+**From static plans to intelligent partners**
 
 Picture this: You’re a project manager (PM) juggling deadlines, budget limits, and a flood of emails. You’ve got your trusted Gantt chart open, but within hours, it’s already outdated. A supplier delay changes Task A, which cascades into Tasks B and C, and suddenly your neat timeline looks like spaghetti. Sound familiar?
 
