@@ -19,7 +19,11 @@ li {
 
 </style>
 
-## Intro: Why risk management is still manual in many orgs
+## *Part 3 of our Gen AI for PM series*
+
+## Why risk management is still manual in many orgs
+
+### Intro
 
 Risk management is one of the most critical responsibilities of a project manager — yet in many organizations, it’s still a manual, reactive process.
 
