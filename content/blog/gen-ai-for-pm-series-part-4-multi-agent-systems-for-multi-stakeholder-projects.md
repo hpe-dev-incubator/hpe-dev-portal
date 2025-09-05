@@ -27,11 +27,15 @@ li {
 
 </style>
 
-## *Part 4 of our Gen AI for PM series*
+*Part 4 of our **Gen AI for PM series***
 
-## Coordinating across departments is chaotic
+## Intro
 
-### Intro
+Large projects often involve multiple stakeholders, each with different priorities, risks, and information needs. Managing all of these moving parts with a single tool or process quickly becomes overwhelming. This is where **multi-agent systems** come in.
+
+By assigning specialized AI agents to handle distinct responsibilities such as scheduling, compliance, risk management, or communication projects can scale more smoothly. Each agent works autonomously within its domain but shares insights with others, creating a **coordinated ecosystem** that adapts to stakeholder demands in real time. For project managers, this means fewer blind spots, faster responses, and better alignment across diverse teams.
+
+**Coordinating across departments is chaotic**
 
 If you’ve ever managed a cross-department project, you know how messy things can get. Finance is tracking budgets in spreadsheets. Engineering is sprinting toward deadlines in Jira. Marketing is waiting for updates before they can launch campaigns. And operations? They’re buried in vendor calls.
 
