@@ -27,7 +27,11 @@ li {
 
 </style>
 
-## Intro: Coordinating across departments is chaotic
+## *Part 4 of our Gen AI for PM series*
+
+## Coordinating across departments is chaotic
+
+### Intro
 
 If you’ve ever managed a cross-department project, you know how messy things can get. Finance is tracking budgets in spreadsheets. Engineering is sprinting toward deadlines in Jira. Marketing is waiting for updates before they can launch campaigns. And operations? They’re buried in vendor calls.
 
@@ -58,17 +62,17 @@ A circular diagram showing multiple agents (Finance, Resource, Communication) �
 
 <center><img src="/img/4.2.png" width="600" height="550" alt="PM dashboard" title="PM dashboard"></center>
 
-## Section 2: Role-Based agents in action
+## Section 2: Role-based agents in action
 
 Let’s break down some of the most useful role-based agents:
 
-* **Finance Agent** – Tracks spending vs. budget in real time, sends alerts if costs exceed thresholds, and shares instant updates with stakeholders.
+* **Finance agent** – Tracks spending vs. budget in real time, sends alerts if costs exceed thresholds, and shares instant updates with stakeholders.
 
   * Scenario: A procurement request pushes spend 5% over budget. The Finance Agent flags it, informs the Resource Agent, and updates the PM automatically.
-* **Resource Agent** – Balances workloads, reallocates tasks when someone is overbooked, and ensures skills are matched to priorities.
+* **Resource agent** – Balances workloads, reallocates tasks when someone is overbooked, and ensures skills are matched to priorities.
 
   * Scenario: A key engineer is on sick leave. The Resource Agent shifts their tasks to the next available developer, updates Jira, and notifies the team.
-* **Communication Agent** – Tailors updates for each stakeholder group without flooding inboxes.
+* **Communication agent** – Tailors updates for each stakeholder group without flooding inboxes.
 
   * Scenario: Instead of a giant status email, the Communication Agent sends Finance a budget snapshot, Marketing a timeline update, and the PM a summary dashboard.
 
