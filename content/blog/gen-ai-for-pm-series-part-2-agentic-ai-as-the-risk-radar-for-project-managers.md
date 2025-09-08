@@ -4,6 +4,11 @@ date: 2025-08-30T06:16:53.938Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
 disable: false
+tags:
+  - Project manager
+  - Scrum master
+  - Gen AI for PM
+  - Risk management
 ---
 <style>
 
