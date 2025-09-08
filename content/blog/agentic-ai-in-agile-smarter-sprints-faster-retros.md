@@ -4,6 +4,11 @@ date: 2025-09-05T15:29:28.334Z
 author: Dinesh R Singh, Nisha Rajput, Varsha Shekhawat
 authorimage: /img/blog-image.jpeg
 disable: false
+tags:
+  - Agile
+  - Project manager
+  - Scrum master
+  - Agile coach
 ---
 <style>
 
