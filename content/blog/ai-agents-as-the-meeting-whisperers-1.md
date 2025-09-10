@@ -60,3 +60,53 @@ The picture below shows how AI turns meeting conversations directly into structu
 This workflow demonstrates how AI eliminates the need for manual note-taking and follow-up tracking, giving project managers a single, reliable source of truth after every meeting.
 
 <center><img src="/img/7.2.png" width="600" height="550" alt="Real-time note" title="Real-time note"></center>
+
+### Section 2: Auto-generating follow-up tasks
+
+We’ve all been there: someone says, *“I’ll check the budget tomorrow,”* and then… it’s forgotten. Unless the PM follows up, the task vanishes into thin air.
+
+**AI agents prevent this by**
+
+* Converting natural-language commitments into structured tasks.
+* Adding deadlines automatically based on context.
+* Sending reminders so nothing slips.
+
+**As an example:** During a vendor negotiation, someone says, *“I’ll send the updated proposal by Friday.”* The AI agent creates a task, assigns it to the vendor lead, and sends a reminder on Thursday. No PM chasing required.
+
+The flow chart below shows how AI can transform casual spoken commitments into actionable tasks. When a team member makes a **verbal commitment**, for example, “I’ll send the report tomorrow” the system’s **AI detection** picks it up. From there, it automatically **creates a task** in the project management system and sets a **reminder**, ensuring the promise doesn’t get lost in conversation.
+
+This flow helps project managers capture important actions without relying on manual note-taking or memory, keeping accountability strong and projects moving forward.
+
+<center><img src="/img/7.3.png" width="600" height="550" alt="Auto-generating task" title="Auto-generating task"></center>
+
+### Section 3: Sentiment and engagement analysis in meetings
+
+Not all meeting insights are about tasks. Sometimes the tone of the conversation matters more than the words.
+
+**AI agents analyze sentiment and engagement**
+
+* Flagging if a team sounds disengaged or stressed.
+* Generating word clouds of recurring themes (e.g., “delays,” “handoffs,” “QA”).
+* Helping PMs spot morale or alignment issues early.
+
+**As an example:** In a cross-team sync, AI reports: *“Marketing expressed repeated concern about engineering handoffs”* and highlights it visually. That insight helps the PM address friction before it festers.
+
+The dashboard below shows how AI makes meeting insights more visual and actionable. A **sentiment chart** breaks down team mood into **positive, neutral, and negative tones**, helping leaders quickly sense the overall atmosphere. Alongside it, a **word cloud** highlights the most frequently mentioned terms—like “deadlines,” “QA,” or “communication”—so recurring themes stand out at a glance.
+
+Together, these visuals turn meeting discussions into structured intelligence, making it easier to identify concerns, celebrate wins, and take targeted follow-up actions.
+
+<center><img src="/img/7.4.png" width="600" height="550" alt="AI meeting" title="AI meeting"></center>
+
+### Section 4: Meeting-free decision-making culture
+
+The real power of AI meeting agents isn’t just in better notes — it’s in **fewer meetings**.
+
+When updates, tasks, and risks are captured automatically, you don’t need 10 weekly check-ins. Half of them can be replaced by AI-generated summaries. The remaining meetings can focus on **strategic decisions, not status updates**.
+
+**As an example**: A software team cuts their weekly syncs from 10 to 5. Instead of rehashing status updates, they review AI-prepared summaries and spend meetings on problem-solving.
+
+The illustration below shows how AI meeting summaries can dramatically reduce the time spent in meetings. In the **“Before” view**, project managers sit through around **10 meetings per week**, often just to gather updates. In the **“After” view**, with AI generating clear, reliable summaries, the number of meetings drops to **5 per week**, freeing up time for deeper work while keeping everyone equally (or even better) informed.
+
+This comparison makes it clear: **AI doesn’t just make meetings smarter—it helps cut them in half.**
+
+<center><img src="/img/7.5.png" width="600" height="550" alt="Decision-making culture" title="Decision-making culture"></center>
