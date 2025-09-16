@@ -27,21 +27,21 @@ li {
 
 </style>
 
-*Part 4 of our **Gen AI for PM series***
+\*Part 4 of our **Gen AI for PM series***
 
 ## Intro
 
 Large projects often involve multiple stakeholders, each with different priorities, risks, and information needs. Managing all of these moving parts with a single tool or process quickly becomes overwhelming. This is where **multi-agent systems** come in.
 
-By assigning specialized AI agents to handle distinct responsibilities such as scheduling, compliance, risk management, or communication projects can scale more smoothly. Each agent works autonomously within its domain but shares insights with others, creating a **coordinated ecosystem** that adapts to stakeholder demands in real time. For project managers, this means fewer blind spots, faster responses, and better alignment across diverse teams.
+By assigning specialized AI agents to handle distinct responsibilities, such as scheduling, compliance, risk management, or communication, projects can scale more smoothly. Each agent works autonomously within its domain but shares insights with others, creating a **coordinated ecosystem** that adapts to stakeholder demands in real time. For project managers, this means fewer blind spots, faster responses, and better alignment across diverse teams.
 
 **Coordinating across departments is chaotic**
 
 If you’ve ever managed a cross-department project, you know how messy things can get. Finance is tracking budgets in spreadsheets. Engineering is sprinting toward deadlines in Jira. Marketing is waiting for updates before they can launch campaigns. And operations? They’re buried in vendor calls.
 
-What ties it all together? Usually, it’s the project manager stuck in the middle — drowning in emails, calendar invites, and status requests.
+What ties it all together? Usually, it’s the project manager(PM) stuck in the middle — drowning in emails, calendar invites, and status requests.
 
-This **chaos of coordination** is where **multi-agent systems** step in. Instead of a single PM being the communication bottleneck, digital agents act like specialized assistants, each handling a slice of responsibility and keeping everyone aligned.
+This **coordination chaos** is where **multi-agent systems** step in. Instead of a single PM being the communication bottleneck, digital agents act like specialized assistants, each handling a slice of responsibility and keeping everyone aligned.
 
 A cartoon-style illustration of a PM juggling multiple balls labeled Finance, Engineering, Marketing, Operations — beside them, AI agents smoothly passing the same balls around in sync.
 
@@ -53,10 +53,10 @@ So, what is multi-agent collaboration?
 
 Think of it this way: Instead of one AI tool doing everything, you have multiple AI agents, each with a defined role, working together like a team. They:
 
-* Collect data from their respective domains
-* Communicate findings automatically
-* Coordinate actions with other agents
-* Keep the PM in the loop with summaries, not overload
+* Collect data from their respective domains.
+* Communicate findings automatically.
+* Coordinate actions with other agents.
+* Keep the PM in the loop with summaries, not overload.
 
 It’s like moving from a single Swiss Army knife to a team of expert specialists — each focused, each efficient, and each accountable.
 
@@ -94,7 +94,7 @@ One of the biggest pain points in multi-stakeholder projects is **information la
 * Dependencies update automatically in connected dashboards.
 * Stakeholders see the latest info without needing to ask.
 
-**Consider this example**: In a global product launch:
+**In a global product launch:**
 
 * Finance updates ad spend forecasts → Finance Agent updates Marketing instantly.
 * Engineering delays a feature by one week → Resource Agent updates the timeline, and Communication Agent informs all stakeholders.
