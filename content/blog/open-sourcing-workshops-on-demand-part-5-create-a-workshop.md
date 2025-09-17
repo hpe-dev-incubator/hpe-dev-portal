@@ -29,6 +29,7 @@ L﻿et's imagine that you plan to create a new workshop on a topic on which you 
 
 * A﻿ set of notebooks that will be used by the student:
 * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
+* A student range for the workshop.
 
 A workshop should contain at least :
 
@@ -39,10 +40,11 @@ A workshop should contain at least :
 * LICENCE.MD
 * A pictures folder (if any screenshot is required in lab instructions)
 * A README.md (0-ReadMeFirst.ipynb in md format)
+* A wod.yml
 
 To make the workshop compliant to our platform, Matt just needs to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called **wod.yml**.
 
-Matt could leverage a simple **wod.yml** file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no?
+Matt can leverage a simple **wod.yml** file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no? Moreover, the same script that will create the workshop entry in the ddatabase can also be sused to update it.
 
 Here is an example of such a file:
 
@@ -113,13 +115,9 @@ The following fields are required by the infrastructure. And I will work as the 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
-As I continue this series, I will explore two scenarios. In the first one, I will create a simple workshop that does not require any infrastructure but the JupyterHub itself. Then, in a second phase, I will go through a more complex workshop creation process that will cover most of the possible cases I can think of.
+As Matt will create a simple workshop that does not require any infrastructure but the JupyterHub itself. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
-# S﻿imple workshop example:
-
- As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
-
-A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
+A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks on a dev env / staging env:
 
 ### O﻿n the backend server:
 
@@ -135,6 +133,16 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
 5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
 6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
+
+### O﻿n the api-db server:
+
+Connect to the api-db server 
+As wodadmin user: 
+* Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
+* Move to wod-api-db/scripts directory
+* Update the database by running the wod-update-db.sh script.
+
+This is will update the Database workshops table with the new workshop's entry.
 
 A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
 
