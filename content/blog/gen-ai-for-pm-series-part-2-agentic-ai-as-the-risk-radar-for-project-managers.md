@@ -24,7 +24,7 @@ li {
 
 </style>
 
-*Part 3 of our **Gen AI for PM series***
+\*Part 3 of our **Gen AI for PM series***
 
 ### Intro
 
@@ -58,11 +58,11 @@ The illustration below shows how the AI dashboard works in real time. Multiple d
 
 <center><img src="/img/3.2.png" width="600" height="550" alt="Multiple data streams" title="Multiple data streams"></center>
 
-## Section 2: Predictive alerts for delays or overspending
+## Section 2: Predictive alerts for delays or budgetary overruns
 
 Detecting risks is useful. But predicting them? That’s a game-changer.
 
-Agentic AI uses **predictive analytics** to forecast delays and overspending before they happen:
+Agentic AI uses **predictive analytics** to forecast delays and overspends before they happen:
 
 * If the sprint velocity trend suggests the team won’t finish the backlog, the AI warns the PM early.
 * If spending on cloud infrastructure grows faster than expected, the AI projects budget overrun for the quarter.
