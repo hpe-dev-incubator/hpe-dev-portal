@@ -28,7 +28,7 @@ li {
 
 ### Intro
 
-Just as pilots rely on a radar to detect turbulence before it hits, project managers can now rely on **Agentic AI as their risk radar**. Instead of waiting for issues to surface in weekly reviews or status meetings, the AI continuously scans project data, **predicting risks early and raising alerts**. This proactive approach ensures that managers can address problems before they escalate, keeping projects on course and stakeholders informed.
+Just as pilots rely on a radar to detect turbulence before it hits, project managers (PMs) can now rely on **Agentic AI as their risk radar**. Instead of waiting for issues to surface in weekly reviews or status meetings, the AI agent continuously scans project data, **predicting risks early and raising alerts**. This proactive approach ensures that project managers (PMs) can address problems before they escalate, keeping projects on course and stakeholders informed.
 
 **Why risk management is still manual in many orgs**
 
@@ -100,7 +100,7 @@ Agentic AI doesn’t replace PMs — it augments them.
 
 **As an example**: An AI agent alerts that overspending is likely in a marketing campaign. The AI suggests reducing ad spend in underperforming channels. But the PM knows the client values brand visibility over efficiency, so they adjust strategy to meet both the AI’s warning and the client’s preferences.
 
-The decision-tree diagram below show how decision-making is shared between AI and human project managers. The AI first **scans data**, then **predicts outcomes**, and finally **recommends actions**. At that point, the **project manager makes the final decision**, combining AI-driven insights with human judgment. This loop ensures faster, smarter, and more reliable project decisions.
+The decision-tree diagram below shows how decision-making is shared between AI and human project managers. The AI first **scans data**, then **predicts outcomes**, and finally **recommends actions**. At that point, the **project manager makes the final decision**, combining AI-driven insights with human judgment. This loop ensures faster, smarter, and more reliable project decisions.
 
 <center><img src="/img/3.5.png" width="600" height="550" alt="AI & Human decision making" title="AI & Human decision making"></center>
 
