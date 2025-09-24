@@ -74,6 +74,7 @@ With Agentic AI:
 
 The chart below shows how AI can make burndown charts more insightful. Instead of only showing completed work against the original plan, the chart includes a red dotted line that projects a likely delay based on current progress. This proactive signal gives teams an early warning so they can adjust resources, scope, or priorities before the milestone is missed.
 
+
 <center><img src="/img/5.3.png" width="600" height="550" alt="Burndown chart" title="Burndown chart"></center>
 
 ### Section 3: Instant retro summaries with AI sentiment analysis
