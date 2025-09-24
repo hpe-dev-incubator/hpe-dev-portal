@@ -138,7 +138,10 @@ With multi-agent systems, **transparency is built-in:**
 
 **Consider this example:** A weekly 2-hour cross-department sync shrinks into a 20-minute strategic review. Why? Because agents have already updated budgets, tasks, and dependencies in real time.
 
-A before/after graphic: Before – 2-hour meeting with messy notes; After – 20-min strategic session with AI-prepared insights.
+This graphic illustrates the productivity shift that **AI meeting support brings**:
+
+* **Before:** A typical project meeting lasts two hours, with messy handwritten or scattered digital notes. Action items often get lost, follow-ups are inconsistent, and team members leave with different interpretations of what was decided.
+* **After:** With AI agents in place, the same meeting takes just 20 minutes. The AI captures the discussion in real time, generates a clear summary, assigns owners to tasks, and even prioritizes next steps. The result is a **strategic, focused session** where everyone leaves aligned — without the fatigue of long, unstructured meetings.
 
 <center><img src="/img/4.7.png" width="600" height="550" alt="Transparency overload" title="Transparency overload"></center>
 
