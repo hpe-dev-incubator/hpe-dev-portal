@@ -24,7 +24,7 @@ li {
 
 </style>
 
-Part 6 of our \*\*Gen AI for PM series
+Part 6 of our ***Gen AI for PM series***
 
 Intro
 
@@ -32,7 +32,7 @@ Imagine a single screen where every moving part of your project comes together�
 
 Rather than juggling spreadsheets, dashboards, and status meetings, project managers gain a central hub powered by intelligent agents. Each agent watches a different dimension of the project—tracking schedules, scanning for risks, analyzing sentiment, or monitoring budgets—and feeds insights into one unified view. The result is a real-time command center that helps managers move from reacting to problems to proactively steering projects toward success.
 
-PM dashboards vs. Intelligent command centers
+**PM dashboards vs. Intelligent command centers**
 
 Every project manager knows the struggle fifteen browser tabs open, dashboards from five different tools, Slack buzzing with updates, and a Gantt chart that was outdated yesterday. Traditional dashboards are useful, but they’re static snapshots they show you what happened, not what’s about to happen.
 
