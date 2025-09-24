@@ -103,6 +103,7 @@ Agentic AI doesn’t replace PMs — it augments them.
 
 The decision-tree diagram below shows how decision-making is shared between AI and human project managers. The AI first **scans data**, then **predicts outcomes**, and finally **recommends actions**. At that point, the **project manager makes the final decision**, combining AI-driven insights with human judgment. This loop ensures faster, smarter, and more reliable project decisions.
 
+
 <center><img src="/img/3.5.png" width="600" height="550" alt="AI & Human decision making" title="AI & Human decision making"></center>
 
 ## Conclusion: Risk management shifts from reactive to proactive
