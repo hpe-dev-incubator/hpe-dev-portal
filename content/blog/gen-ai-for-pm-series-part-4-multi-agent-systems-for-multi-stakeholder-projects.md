@@ -91,7 +91,13 @@ Let’s break down some of the most useful role-based agents:
 
   * Scenario: Instead of a giant status email, the Communication Agent sends Finance a budget snapshot, Marketing a timeline update, and the PM a summary dashboard.
 
-An infographic with three “agent cards” (Finance Agent, Resource Agent, Communication Agent) → arrows flowing into stakeholders (PM, Finance Team, Engineers, Marketing).
+This image shows how **different AI agents act as specialized assistants** for various project needs and how their insights flow directly to the right stakeholders:
+
+* **Finance Agent** → Tracks budgets, expenses, and forecasts. Its updates flow to the **Project Manager** and **Finance Team**, ensuring they always know where the money is going.
+* **Resource Agent** → Balances workloads, predicts availability, and flags bottlenecks. Its insights go to the **Engineers** and **PM**, helping optimize who works on what and when.
+* **Communication Agent** → Monitors updates from meetings, emails, and chat tools. It delivers structured updates to the **Marketing Team** and other stakeholders, cutting through noise and ensuring everyone stays aligned.
+
+At the center of it all is the **Project Manager**, who no longer has to manually chase updates. Instead, each stakeholder gets the **right information at the right time**, automatically delivered through these AI agents.
 
 <center><img src="/img/4.3.png" width="600" height="550" alt="AI agent" title="AI agent"></center>
 
