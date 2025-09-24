@@ -24,7 +24,7 @@ li {
 
 </style>
 
-\*Part 3 of our **Gen AI for PM series***
+Part 3 of our ***Gen AI for PM series***
 
 ### Intro
 
@@ -42,7 +42,7 @@ But what if risks didn’t sneak up on you? What if you had a radar system scann
 
 The comparison below highlights the difference between **traditional** and **AI-driven** risk management. On the left, project managers manually review risks during weekly check-ins—often discovering issues only after they’ve already caused delays. On the right, AI systems continuously monitor project data, providing **predictive alerts** so risks are identified early and corrective action can be taken before they escalate.
 
-<center><img src="/img/3.1.png" width="600" height="550" alt="Risk management" title="Risk management"></center>
+<center><img src="/img/3.1.png" width="600" height="550" alt="Data anomalies" title="Data anomalies"></center>
 
 ## Section 1: How AI agents scan project data for anomalies
 
