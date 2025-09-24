@@ -24,15 +24,15 @@ li {
 
 </style>
 
-**\***Part 6 of our **Gen AI for PM series***
+Part 6 of our \*\*Gen AI for PM series
 
-## Intro
+Intro
 
-Imagine a single screen where every moving part of your project comes together—tasks, risks, resources, and communications—all continuously monitored by AI. That’s the vision behind the **Agentic AI command center**.
+Imagine a single screen where every moving part of your project comes together—tasks, risks, resources, and communications—all continuously monitored by AI. That’s the vision behind the Agentic AI command center.
 
-Rather than juggling spreadsheets, dashboards, and status meetings, project managers gain a **central hub powered by intelligent agents**. Each agent watches a different dimension of the project—tracking schedules, scanning for risks, analyzing sentiment, or monitoring budgets—and feeds insights into one unified view. The result is a **real-time command center that helps managers move from reacting to problems to proactively steering projects toward success**.
+Rather than juggling spreadsheets, dashboards, and status meetings, project managers gain a central hub powered by intelligent agents. Each agent watches a different dimension of the project—tracking schedules, scanning for risks, analyzing sentiment, or monitoring budgets—and feeds insights into one unified view. The result is a real-time command center that helps managers move from reacting to problems to proactively steering projects toward success.
 
-**PM dashboards vs. Intelligent command centers**
+PM dashboards vs. Intelligent command centers
 
 Every project manager knows the struggle fifteen browser tabs open, dashboards from five different tools, Slack buzzing with updates, and a Gantt chart that was outdated yesterday. Traditional dashboards are useful, but they’re static snapshots they show you what happened, not what’s about to happen.
 
@@ -108,7 +108,7 @@ By mapping out the likely outcomes of each option, the system gives managers the
 
 <center><img src="/img/6.4.png" width="600" height="550" alt="AI decision support" title="AI decision support"></center>
 
-### Section 4: Security and Audit Logs for Compliance
+### Section 4: Security and audit logs for compliance
 
 In industries like finance, healthcare, and government, compliance is just as important as delivery. The AI command center builds **compliance into the workflow**:
 
