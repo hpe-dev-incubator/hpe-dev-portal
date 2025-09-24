@@ -48,7 +48,8 @@ The comparison below highlights the difference between **traditional** and **AI-
 
 Unlike human PMs who can only process limited information at a time, **AI agents never sleep**. They monitor all project data streams — tasks, budgets, communications, even IoT data in some industries — to spot anomalies.
 
-* **In software development**: Agents monitor sprint velocity, backlog size, and code check-ins. If velocity drops suddenly, they flag it.
+**In software development**: Agents monitor sprint velocity, backlog size, and code check-ins. If velocity drops suddenly, they flag it.
+
 * **In supply chain projects**: Agents track supplier updates and logistics data. If a shipment is late, they predict downstream impact immediately.
 * **In construction**: Agents monitor workforce schedules and equipment usage, alerting when resources fall below thresholds.
 
