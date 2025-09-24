@@ -32,7 +32,7 @@ Agile teams thrive on speed, collaboration, and adaptability—but even the best
 
 By acting as a smart co-pilot, Agent AI can automatically **analyze sprint progress, flag blockers in real time, and suggest adjustments** to keep velocity high. When the sprint ends, it can instantly pull together **retrospective insights**—highlighting what worked, what slowed the team down, and how to improve next time. The result: smarter sprints and faster retros, giving teams more time to focus on building rather than chasing updates.
 
-**Agile is Great — But Still Needs Better Data Flow**
+**Agile is great — but still needs better data flow**
 
 Agile has transformed how teams build products. Short sprints, daily stand-ups, and constant feedback loops keep teams adaptive and focused. But let’s be honest — even the most disciplined Agile teams still wrestle with messy data flow.
 
@@ -97,7 +97,7 @@ The illustration below shows how retrospectives become more **data-driven and ac
 
 ### Section 4: Backlog prioritization with AI recommendations
 
-A bloated backlog is every PM’s nightmare. Hundreds of tickets, each marked “important,” but limited sprint capacity.
+A bloated backlog is every PM’s nightmare. It often contains hundreds of tickets, each marked as “important,” while the team has only limited sprint capacity to handle them.
 
 Agentic AI helps by **ranking backlog items** based on:
 
@@ -108,15 +108,15 @@ Agentic AI helps by **ranking backlog items** based on:
 
 **As an example**: Instead of arguing over priorities, the AI generates a ranked list:
 
-1. Fix Payment Gateway Bug (high impact, high urgency)
-2. Optimize API Response Time (medium effort, high impact)
-3. Redesign Landing Page (low effort, medium impact)
+1. Fix payment gateway bug (high impact, high urgency)
+2. Optimize API response time (medium effort, high impact)
+3. Redesign landing page (low effort, medium impact)
 
-The picture below shows how the backlog transforms into a **clear, data-backed roadmap** with the help of Agentic AI. Each item in the backlog is automatically assigned a **priority score,** for example, 95/100 or 80/100 based on factors like impact, urgency, and dependencies. This gives teams a transparent way to see what matters most, align on priorities, and focus their effort where it delivers the greatest value.
+The picture below shows how the backlog transforms into a **clear, data-backed roadmap** with the help of Agentic AI. Each item in the backlog is automatically assigned a **priority score,** e.g ., 95/100 or 80/100, based on factors like impact, urgency, and dependencies. This gives teams a transparent way to see what matters most, align on priorities, and focus their effort where it delivers the greatest value.
 
 <center><img src="/img/5.5.png" width="600" height="550" alt="Backlog" title="Backlog"></center>
 
-**Conclusion: Agile meets intelligence**
+### **Conclusion: Agile meets intelligence**
 
 Agile taught us to work smarter, not harder. But even Agile struggles when data is fragmented or delayed.
 
