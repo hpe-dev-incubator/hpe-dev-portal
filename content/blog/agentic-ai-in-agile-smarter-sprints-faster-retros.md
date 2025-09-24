@@ -42,6 +42,7 @@ Agile gives us the right philosophy, but execution still demands better visibili
 
 The below side-by-side comparison shows the shift from traditional sprint planning to AI-enhanced sprint planning. On the left, sticky notes and a messy board represent the manual, error-prone process that often leaves teams overwhelmed. On the right, a clean digital board powered by Agentic AI provides real-time updates, capacity forecasts, and smarter tracking—helping teams plan with confidence and adapt quickly.
 
+
 <center><img src="/img/5.1.png" width="600" height="550" alt="Sprint Planning" title="Sprint Planning"></center>
 
 ### Section 1: Sprint planning with Agentic AI forecasting
