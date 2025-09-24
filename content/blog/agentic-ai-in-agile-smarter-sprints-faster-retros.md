@@ -22,7 +22,9 @@ li {
 
 }
 
-</style>Part 5 of our ***Gen AI for PM series***
+</style>
+
+Part 5 of our ***Gen AI for PM series***
 
 ## Intro
 
