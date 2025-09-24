@@ -38,9 +38,9 @@ Agile has transformed how teams build products. Short sprints, daily stand-ups, 
 
 Burndown charts lag behind reality because updates are manual. Sprint retrospectives sometimes feel like therapy sessions without data to back insights. Backlogs balloon into chaos, with “top priority” items buried under noise.
 
-Agile gives us the right philosophy, but execution still demands better visibility, accuracy, and speed. That’s where Agentic AI steps in — not as a replacement for Scrum Masters or PMs, but as a co-pilot that keeps Agile teams lean, data-driven, and one step ahead.
+Agile gives us the right philosophy, but execution still demands better visibility, accuracy, and speed. That’s where Agentic AI steps in — not as a replacement for scrum masters or project manager (PMs), but as a co-pilot that keeps Agile teams lean, data-driven, and one step ahead.
 
-The side-by-side comparison shows the shift from traditional sprint planning to AI-enhanced sprint planning. On the left, sticky notes and a messy board represent the manual, error-prone process that often leaves teams overwhelmed. On the right, a clean digital board powered by Agentic AI provides real-time updates, capacity forecasts, and smarter tracking—helping teams plan with confidence and adapt quickly.
+The below side-by-side comparison shows the shift from traditional sprint planning to AI-enhanced sprint planning. On the left, sticky notes and a messy board represent the manual, error-prone process that often leaves teams overwhelmed. On the right, a clean digital board powered by Agentic AI provides real-time updates, capacity forecasts, and smarter tracking—helping teams plan with confidence and adapt quickly.
 
 <center><img src="/img/5.1.png" width="600" height="550" alt="Sprint Planning" title="Sprint Planning"></center>
 
@@ -50,11 +50,11 @@ Sprint planning is part science, part guessing game. Teams estimate velocity, bu
 
 **Agentic AI changes the game** by forecasting sprint outcomes with remarkable accuracy:
 
-* It analyzes **historical sprint velocity**.
+* Analyzes **historical sprint velocity**.
 * Considers **team availability** (holidays, PTO, workload).
 * Factors in **complexity of tasks** (based on past data).
 
-**As an example**: Instead of debating whether the team can handle 40 story points, an AI agent predicts, “Based on past 6 sprints and current workload, your realistic capacity is 32 points.” Suddenly, sprint planning shifts from guesswork to data-backed decisions.
+**As an example**: Instead of debating whether the team can handle 40 story points, an AI agent predicts, “Based on the past 6 sprints and current workload, your realistic capacity is 32 points.” Suddenly, sprint planning shifts from guesswork to data-backed decisions.
 
 The illustration below shows how Agentic AI can make sprint planning smarter. On the sprint board, the AI overlay highlights the **predicted sprint capacity is 32 points** giving teams a clear forecast of what can realistically be completed. This proactive insight helps prevent overcommitment and ensures more reliable sprint outcomes.
 
@@ -72,7 +72,7 @@ With Agentic AI:
 
 **Consider this example**: Mid-sprint, an AI agent detects that only 20% of tasks are complete halfway through the timeline. It pings the Scrum Master with: “At this rate, sprint completion probability is 60%. Recommend re-scoping backlog.”
 
-The chart below shows how AI can make burndown charts more insightful. Instead of only showing completed work against the original plan, the chart includes a red dotted line that projects a likely delay based on current progress. This proactive signal gives teams early warning so they can adjust resources, scope, or priorities before the milestone is missed.
+The chart below shows how AI can make burndown charts more insightful. Instead of only showing completed work against the original plan, the chart includes a red dotted line that projects a likely delay based on current progress. This proactive signal gives teams an early warning so they can adjust resources, scope, or priorities before the milestone is missed.
 
 <center><img src="/img/5.3.png" width="600" height="550" alt="Burndown chart" title="Burndown chart"></center>
 
