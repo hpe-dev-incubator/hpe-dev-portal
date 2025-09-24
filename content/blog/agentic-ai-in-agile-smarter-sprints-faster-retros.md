@@ -58,6 +58,7 @@ Sprint planning is part science, part guessing game. Teams estimate velocity, bu
 
 The illustration below shows how Agentic AI can make sprint planning smarter. On the sprint board, the AI overlay highlights the **predicted sprint capacity is 32 points** giving teams a clear forecast of what can realistically be completed. This proactive insight helps prevent overcommitment and ensures more reliable sprint outcomes.
 
+
 <center><img src="/img/5.2.png" width="600" height="550" alt="Sprint board" title="Sprint board"></center>
 
 ### Section 2: Automated burndown tracking
