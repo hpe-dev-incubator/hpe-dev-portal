@@ -27,7 +27,7 @@ li {
 
 </style>
 
-\*Part 4 of our **Gen AI for PM series***
+Part 4 of our **Gen AI for PM series**
 
 ## Intro
 
