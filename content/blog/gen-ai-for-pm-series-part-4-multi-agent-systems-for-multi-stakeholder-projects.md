@@ -118,7 +118,11 @@ One of the biggest pain points in multi-stakeholder projects is **information la
 
 No “Monday catch-up” required — the project updates itself.
 
-A flow diagram showing: Finance Agent updates budget → Communication Agent sends timeline update → Marketing notified instantly.
+This flow diagram demonstrates how **Agentic AI streamlines cross-team updates automatically**:
+
+1. **Finance Agent updates the budget** → Whenever there’s a change in cost or resource usage, the Finance Agent instantly logs it.
+2. **Communication Agent sends a timeline update** → The Communication Agent translates the finance change into a project impact update (e.g., “Timeline adjusted by 2 days”).
+3. **Marketing notified instantly** → Instead of waiting for a weekly sync or status meeting, the Marketing team gets the update in real time, ensuring they can adjust campaigns or customer communications without delay.
 
 <center><img src="/img/4.4.png" width="600" height="550" alt="Cross team update" title="Cross team update"></center>
 
