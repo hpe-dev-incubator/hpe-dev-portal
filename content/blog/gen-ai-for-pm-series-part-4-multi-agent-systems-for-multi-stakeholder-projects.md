@@ -27,7 +27,7 @@ li {
 
 </style>
 
-Part 4 of our **Gen AI for PM series**
+Part 4 of our ***Gen AI for PM series***
 
 ## Intro
 
@@ -43,7 +43,12 @@ What ties it all together? Usually, it’s the project manager(PM) stuck in the 
 
 This **coordination chaos** is where **multi-agent systems** step in. Instead of a single PM being the communication bottleneck, digital agents act like specialized assistants, each handling a slice of responsibility and keeping everyone aligned.
 
-A cartoon-style illustration of a PM juggling multiple balls labeled Finance, Engineering, Marketing, Operations — beside them, AI agents smoothly passing the same balls around in sync.
+The image compares two scenarios of project management:
+
+* **Left side (“Without AI agents”)**\
+  A project manager (PM) is overwhelmed, juggling multiple responsibilities at once Finance, Engineering, Marketing, and Operations. This represents the traditional challenge of keeping all stakeholders aligned manually.
+* **Right side (“With Agentic AI”)**\
+  Instead of juggling, AI agents work together seamlessly. Each ball (Finance, Engineering, Marketing, Operations) is smoothly passed around by specialized AI agents, with the PM overseeing rather than micromanaging.
 
 <center><img src="/img/4.1.png" width="600" height="550" alt="Multiple department projects" title="Multiple department projects"></center>
 
@@ -62,7 +67,13 @@ It’s like moving from a single Swiss Army knife to a team of expert specialist
 
 **Consider this example**: In a construction project, a Resource Agent monitors workforce schedules, a Finance Agent tracks cost overruns, and a Compliance Agent ensures safety requirements are met. Together, they keep the project moving without endless manual updates.
 
-A circular diagram showing multiple agents (Finance, Resource, Communication) → feeding into a central **PM Dashboard**.
+The **circular diagram** you mentioned is a way to visualize how **Agentic AI creates a connected ecosystem** around a project manager’s dashboard:
+
+* **Finance Agent** → Feeds budget updates, cost forecasts, and expense alerts directly into the dashboard.
+* **Resource Agent** → Monitors workload distribution, capacity, and availability of team members, updating the dashboard in real time.
+* **Communication Agent** → Pulls in updates from team channels, emails, or tools like Slack and pushes them to the dashboard as structured insights.
+
+At the center sits the **PM Dashboard** — the single source of truth where the project manager can see **all three streams of intelligence combined**.
 
 <center><img src="/img/4.2.png" width="600" height="550" alt="PM dashboard" title="PM dashboard"></center>
 
