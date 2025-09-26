@@ -88,6 +88,6 @@ The HPE Complete Care Service – ITOps, powered by HPE OpsRamp Software, discov
 
 This blog post walked you through the sequence of steps, leveraging a series of video tutorials, for a self-activation of the HPE Complete Care Service – ITOps command center instance. This set of videos goes through the setup of the HPE OpsRamp Software command center to discover, monitor, and observe the health, performance, and availability of resources through a gateway collector appliance, and creation of a modern dashboard 2.0. 
 
-For the HPE-assisted activation and onboarding of the HPE Complete Care Service – ITOps, refer to the [HPE Complete Care Service – ITOps landing page](https://developer.hpe.com/platform/activation-and-onboarding-in-hpe-complete-care-service-itops/home/).  
+For **the HPE-assisted activation and onboarding of the HPE Complete Care Service – ITOps**, refer to the [HPE Complete Care Service – ITOps landing page](https://developer.hpe.com/platform/activation-and-onboarding-in-hpe-complete-care-service-itops/home/).  
 
 To resolve issues with HPE Complete Care Service – ITOps command center instance, contact the HPE support team. Refer to the [HPE Contractual Support service documentation](https://www.hpe.com/us/en/collaterals/collateral.a50009342enw.html) for detailed information. 
