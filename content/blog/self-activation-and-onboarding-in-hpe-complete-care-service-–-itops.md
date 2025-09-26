@@ -6,6 +6,7 @@ authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
 tags:
   - activation-and-onboarding-in-hpe-complete-care-service-itops
+  - hpe-complete-care-itops
 ---
 <style>
 li {
