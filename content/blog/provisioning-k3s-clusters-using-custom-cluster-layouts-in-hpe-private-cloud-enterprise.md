@@ -10,9 +10,8 @@ disable: false
 
 
 
-The use case K104 demonstrates how to create a MKS cluster using a custom cluster layout. By leveraging various Morpheus components like *Node Type*, *Cluster Layout*, Automation *Task* and *Workflow*, a lightweight K8s distribution, *K3s*, has been selected and deployed into MKS as a sample K8s cluster.
+The blog post demonstrates how to create an K3s cluster using a custom cluster layout in HPE Private Cloud Enterprise. By leveraging various Morpheus components like *Node Type*, *Cluster Layout*, Automation *Task* and *Workflow*, a lightweight K8s distribution, *K3s*, has been selected and deployed into MKS as a sample K8s cluster.
 
-These instructions have been tailored for the HPE GreenLake Tenant "*HPE GreenLake Hosted Trial TR1*"
 
 
 
