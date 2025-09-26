@@ -4,6 +4,9 @@ date: 2023-07-24T10:43:53.548Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
+tags:
+  - Workshops-on-Demand
+  - Open Source
 ---
 I﻿n this new article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. I already covered most of the infrastructure parts that support the workshops. In my previous posts, I covered setting up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
 
@@ -23,7 +26,7 @@ In this post, I won't focus on the subject selection process. I'll leave that to
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-What is a workshop? What do you need to develop ?
+What is a workshop? What do you need to develop?
 
 L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined what is needed:
 
