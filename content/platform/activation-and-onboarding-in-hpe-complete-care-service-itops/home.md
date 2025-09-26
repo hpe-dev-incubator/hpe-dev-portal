@@ -5,7 +5,7 @@ description: Activation and Onboarding in HPE Complete Care Service ITOps
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 1
-active: false
+active: true
 tags:
   - hpe-complete-care-itops
   - activation-and-onboarding-in-hpe-complete-care-service-itops
