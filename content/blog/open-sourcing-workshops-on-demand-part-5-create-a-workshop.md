@@ -131,11 +131,11 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 * Validating the changes by testing a new backend install process
 * Pushing the changes to the github repo
 
-2. ##### Create a user for the workshop developer on the test/dev and staging backend servers
-3. ##### Provide to the developer the necessary information to connect to the test/dev and staging backend servers
-4. ##### Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
-5. ##### Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
-6. ##### When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
+2. Create a user for the workshop developer on the test/dev and staging backend servers
+3. Provide to the developer the necessary information to connect to the test/dev and staging backend servers
+4. Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
+5. Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
+6. When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
 
 ### O﻿n the api-db server:
 
@@ -152,17 +152,17 @@ A﻿s the developer of the Workshops-on-Demand content, Matt had to perform seve
 
 ### O﻿n the backend server:
 
-1. ##### Log on to the backend server and clone the notebook repo in his home folder, or as explained earlier, fork the repo on his laptop and work from there
-2. ##### Create a new branch for his workshop following the naming convention defined with the admin
-3. ##### L﻿everage the template provided by me to build up the content of his workshop
-4. ##### T﻿est the workshop locally on his laptop or on the dev server leveraging the `wod-test-action.sh` script
-5. ##### T﻿est the workshop using the staging registration portal
-6. ##### W﻿hen all tests are green, create a pull request to merge content with the master repo
+1. Log on to the backend server and clone the notebook repo in his home folder, or as explained earlier, fork the repo on his laptop and work from there
+2. Create a new branch for his workshop following the naming convention defined with the admin
+3. L﻿everage the template provided by me to build up the content of his workshop
+4. T﻿est the workshop locally on his laptop or on the dev server leveraging the `wod-test-action.sh` script
+5. T﻿est the workshop using the staging registration portal
+6. W﻿hen all tests are green, create a pull request to merge content with the master repo
 
 A﻿s an admin, I would need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
 
-1. ##### Log on to the backend server as wodadmin and update the notebook repository.
-2. ##### R﻿un a wod-deliver to update the relevant backend server.
+1. Log on to the backend server as wodadmin and update the notebook repository.
+2. R﻿un a wod-deliver to update the relevant backend server.
 
    ```
    git remote update
