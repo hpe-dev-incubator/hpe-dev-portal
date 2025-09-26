@@ -140,36 +140,45 @@ Following up the same process to create a workflow for K8s worker:
 
 ![](/img/k8s-app-blueprint-tier-name.png)
 
-4. 5. Click on + (next to *CFE-K8s-Ubuntu*)
-6. Select *Tier Name* as *App*Click on + (next to *CFE-K8s-Ubuntu*)
-6. Select *Tier Name* as *App*
-![](/img/k8s-app-vmware-config.png)
+4. Click on 'App' and edit its CONFIGURATION with NAME as 'CFE-K8s-master' and BOOT ORDER as '0'.
 
+![](/img/k8s-app-blueprint-master-config.png)
+
+5. Click on + again (next to *CFE-K8s-Ubuntu*) and select 'Tier Name' as *App*. Then lick on 'App' and edit its CONFIGURATION with NAME as 'CFE-K8s-worker' and BOOT ORDER as '1'. 
+
+![](/img/k8s-app-blueprint-worker-config.png)
+
+Under *Connected Tiers*, it shows 'CFE-K8s-master' is selected.
+
+6. Click on + (next to *CFE-K8s-master*) and select *vmware*.
+
+![](/img/k8s-app-blueprint-vmware.png)
+
+7. Click on + (next to *vmware*) and select 'Group', 'Cloud' and 'Environment'. Click **Add config**.
+
+![](/img/k8s-app-blueprint-vmware-config.png)
+
+
+8. Click the config and configure K8s master instance settings:
 
 ![](/img/k8s-app-blueprint-master.png)
 
-
-![](/img/k8s-app-blueprint-auto-master.png)
-
-
-![](/img/k8s-app-vmware-config.png)
-
-
+9. Repeat step 6 to 8 to configure K8s worker instance settings.
 
 ![](/img/k8s-app-blueprint-worker.png)
 
-
-
-![](/img/k8s-app-blueprint-auto-worker.png)
-
-
+10. Click **Complete**. The final app blueprint structure and configuration display.
 
 ![](/img/k8s-app-blueprint-final.png)
 
+11. Click **Save** to save the app bleuprint.
+
 ## Deploy a K8s cluster
 
+You can provision an K8s cluster using the created app blueprint 'CFE-K8s-Ubuntu' by taking up the following steps:
+
 1. Navigate to **Provisioning** -> **Apps**
-2. \| Select CFE-K8S-UBUNTU -> NEXT |
+2. Click **+Add** and select the blueprint 'CFE-K8S-UBUNTU. Click **Next**.
 
 ![](/img/k8s-app-template.png)
 
