@@ -78,8 +78,11 @@ replayLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-C
 
 the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
 
-![](/img/wod-db-go-1.png "Workshop's fields in the Database.")
-![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
+![](/img/wod-db-go-1.png "GO 101 Workshop DB screenshot")
+
+
+
+![](/img/wod-db-go-2.png "GO 101 Workshop DB screenshot")
 
 As a contributor, Matt should be able to provide all the following details.
 
@@ -138,6 +141,7 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 Connect to the api-db server 
 As wodadmin user: 
+
 * Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
 * Move to wod-api-db/scripts directory
 * Update the database by running the wod-update-db.sh script.
