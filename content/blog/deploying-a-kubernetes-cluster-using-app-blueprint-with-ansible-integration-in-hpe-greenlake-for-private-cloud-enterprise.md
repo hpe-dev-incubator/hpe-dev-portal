@@ -1,5 +1,5 @@
 ---
-title: Deploying a Kubernetes cluster using app blueprint with Ansible
+title: Provisioning Kubernetes clusters using app blueprint with Ansible
   integration in HPE Private Cloud Enterprise
 date: 2025-08-12T07:25:49.461Z
 author: Guoping Jia
@@ -87,65 +87,62 @@ Ensure that the following prerequisites are fulfilled:
 
 ## Add Ansible integration
 
+1. From Morpheus Dashboard screen, navigate to **Administration** > **Integrations**
+
+![](/img/morpheus-intg.png)
+
+2. Click **+NEW INTEGRATION** and select -> **Automation** -> *Ansible*
+
+![](/img/morpheus-ansible-intg.png)
+
+3. Enter NAME as 'cfe-ansible-k8s' and specify ANSIBLE GIT URL, DEFAULT BRANCH, PLAYBOOKS PATH, ROLES PATH, GROUP VARAIABLES PATH, DESCRIPTION, and HOST VARIABLES PATH. Click **SAVE CHANGES**.
+
 ![](/img/k8s-ansible-intg.png)
 
-1. Navigate to **Administration** > **Integrations**
-2. **+NEW INTEGRATION** -> **Automation** -> *Ansible*
-3. Name: *cfe-ansible-k8s*
+We use our sample Ansible playbooks from [GitHub repo](https://github.com/guoping/ansible-k8s.git) to provision an K8s cluster with single master and worker node using the native K8s distribution.
 
-\| ANSIBLE GIT URL | https://github.com/guoping/alansible-kBs.git |
+## Create tasks and workflows
 
-## Create app blueprint
+### Create tasks for K8s master and worker
 
-### tasks and workflows
-
-#### Create a task for K8s master
-
-1. Navigate to **Library** -> **Automation** -> *Tasks tab*
-2. **+ADD**
-3. Name: *cfe-k8s-master*
+1. Navigate to **Library** -> **Automation** -> *Tasks tab* and click **+ADD**.
+3. Enter NAME as 'cfe-k8s-master' and select TYPE as *Ansible Playbook*. Then specify ANSIBLE REPO as 'cfe-ansible-k8s' and PLAYBOOK as 'master.yml'. Click **SAVE CHANGES**.
 
 ![](/img/k8s-master-task.png)
 
-#### Create a workflow for K8s master
-
-1. Navigate to **Library** -> **Automation** -> *Workflows Tab*
-2. **+ADD** -> *Provisioning Workflow*
-3. Name: *cfe-k8s-master*
-
-![](/img/k8s-master-workflow.png)
-
-#### Create a task for K8s worker
-
-1. Navigate to **Library** -> **Automation** -> *Tasks tab*
-2. **+ADD**
-3. Name: *cfe-k8s-worker*
-4. TYPE: *Ansible Playbook*
-5. Ansible Repo : *cfe-ansible-k8s*
+Following up the same process to create a task for K8s worker:
 
 ![](/img/k8s-worker-task.png)
 
-#### Create a workflow for K8s worker
+### Create workflows for K8s master and worker
 
 1. Navigate to **Library** -> **Automation** -> *Workflows Tab*
-2. **+ADD** -> *Provisioning Workflow*
-3. Name: *cfe-k8s-worker*
-4. Description: *CFE K8s worker workflow*
+2. Click **+ADD** and select *Provisioning Workflow*.
+
+![](/img/morpheus-workflow.png)
+
+3. Enter NAME as 'cfe-k8s-master' and select PLATFORM as *Linux*. Then search and select the task 'cfe-k8s-master' Click **SAVE CHANGES**.
+
+![](/img/k8s-master-workflow.png)
+
+Following up the same process to create a workflow for K8s worker:
 
 ![](/img/k8s-worker-workflow.png)
 
-## Create app blueprint for K8s cluster
+## Create app blueprint
 
-1. Navigate to **Library** -> **Blueprints** -> *App Blueprints Tab*
-2. **+ADD**
-3. New Blueprint Summary
+1. Navigate to **Library** -> **Blueprints** -> *App Blueprints Tab* and click **+ADD**.
+2. Enter NAME as 'CEF-K8s-Ubuntu' and select TYPE as *Morpheus*. Click **Next**.
 
 ![](/img/k8s-app-blueprint-summary.png)
 
+3. Click on + (next to 'CFE-K8s-Ubuntu') and select 'Tier Name' as *App*
 
 ![](/img/k8s-app-blueprint-tier-name.png)
 
-
+4. 5. Click on + (next to *CFE-K8s-Ubuntu*)
+6. Select *Tier Name* as *App*Click on + (next to *CFE-K8s-Ubuntu*)
+6. Select *Tier Name* as *App*
 ![](/img/k8s-app-vmware-config.png)
 
 
