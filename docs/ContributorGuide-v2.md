@@ -783,6 +783,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Data Services on the HPE GreenLake platform** | data-services-on-the-hpe-greenlake-platform |
   | **Hybrid observability in HPE GreenLake Flex Solutions** | hybrid-observability-flex-solutions |
+  | **HPE Complete Care ITOps** | activation-and-onboarding-in-hpe-complete-care-service-itops |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment; or cray; or CPE |
