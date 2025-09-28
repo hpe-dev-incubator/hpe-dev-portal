@@ -11,10 +11,17 @@ disable: false
 
 ![](/img/tailscale-machines.png)
 
-## Install MetalLB
+## Set up the load balancer with MetalLB
+
+
+You can install MetalLB and set up the load balancer in the MKS cluster by following the instructions found in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
+
+
+
+H﻿ere is the deployed MetalLB to the namespace 'metallb-system' in the MKS cluster *mks-test*:
 
 ```shell
-pce-trial@cfe-linux-jumphost:~$ k get all -n metallb-system
+$ kubectl get all -n metallb-system
 NAME                                      READY   STATUS    RESTARTS   AGE
 pod/metallb-controller-8474b54bc4-gdgmx   1/1     Running   0          14d
 pod/metallb-speaker-2f8zj                 4/4     Running   0          14d
@@ -33,33 +40,57 @@ deployment.apps/metallb-controller   1/1     1            1           14d
 
 NAME                                            DESIRED   CURRENT   READY   AGE
 replicaset.apps/metallb-controller-8474b54bc4   1         1         1       14d
+```
+
+You can see the range of virtual IP addresses, "172.20.40.240-172.20.40.250", defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*.
+
+```shell
 
 
-pce-trial@cfe-linux-jumphost:~$ k get ipaddresspool -n metallb-system
+
+$ kubectl get ipaddresspool -n metallb-system
 NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
 cfe-pool   true          false             ["172.20.40.240-172.20.40.250"]
-pce-trial@cfe-linux-jumphost:~$ k get crds | grep adverti
-bgpadvertisements.metallb.io                          2025-09-09T14:20:55Z
-l2advertisements.metallb.io                           2025-09-09T14:20:55Z
-pce-trial@cfe-linux-jumphost:~$ k get l2advertisement -n metallb-system
+
+
+$ kubectl get l2advertisement -n metallb-system
 NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
-
-
 
 ```
 
 
-## Deploy Tailscale Operator
+## Deploy Tailscale 
+
+### Generate Tailscale auth key
+
+![](/img/tailscale-generate-auth-key.png)
+
+![](/img/tailscale-auth-key.png)
+
+### Generate Tailscale OAuth client
+
+![](/img/tailscale-oauth-client.png)
+
+![](/img/tailscale-oauth-client-k8s-operator.png)
+
+![](/img/tailscale-oauth-client-details.png)
+
+### Deploy Tailscale K8s operator
 
 
 ```shell
-pce-trial@cfe-linux-jumphost:~/metallb$ helm search repo tailscale
+$ helm repo add tailscale https://pkgs.tailscale.com/helmcharts
+
+$ helm repo update
+
+$ helm search repo tailscale
 NAME                            CHART VERSION   APP VERSION     DESCRIPTION
 tailscale/tailscale-operator    1.86.5          v1.86.5         A Helm chart for Tailscale Kubernetes operator
 
 
-pce-trial@cfe-linux-jumphost:~/metallb$ helm upgrade --install tailscale-operator tailscale/tailscale-operator --namespace=tailscale --set-string oa
+
+$ helm upgrade --install tailscale-operator tailscale/tailscale-operator --namespace=tailscale --set-string oa
 uth.clientId=kK2Rvpd9Ek11CNTRL --set-string oauth.clientSecret=tskey-client-kK2Rvpd9Ek11CNTRL-RC8mpdNA6JJnhGe8JDU6JJzkgiDPiacaU --wait
 Release "tailscale-operator" does not exist. Installing it now.
 NAME: tailscale-operator
@@ -99,7 +130,10 @@ $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 
 
 $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
-pce-trial@cfe-linux-jumphost:~/metallb$ k get all -n tailscale
+```
+
+```shell
+$ kubectl get all -n tailscale
 NAME                           READY   STATUS    RESTARTS   AGE
 pod/operator-945796556-cgg86   1/1     Running   0          41s
 
@@ -111,19 +145,15 @@ replicaset.apps/operator-945796556   1         1         1       41s
 
 
 
-
 ```
 
+![](/img/tailscale-operator-machine.png)
 
-```shell
-
-
-```
 
 ## Expose Grafana service
 
 ```shell
-pce-trial@cfe-linux-jumphost:~$ k get svc -n monitoring
+$ kubectl get svc -n monitoring
 NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE
 alertmanager-main       ClusterIP      172.30.103.195   <none>          9093/TCP,8080/TCP            14d
 alertmanager-operated   ClusterIP      None             <none>          9093/TCP,9094/TCP,9094/UDP   14d
@@ -168,45 +198,15 @@ ingress-grafana   tailscale   *       grafana.qilin-beta.ts.net   80, 443   9d
 
 
 
-
 ```
 
+![](/img/grafana-machine.png)
 
 ![](/img/grafana-funnel.png)
 
 
 ![](/img/grafana-mobile.png)
 
-
-
-```shell
-
-
-```
-
-
-```shell
-
-
-```
-
-
-```shell
-
-
-```
-
-
-```shell
-
-
-```
-
-
-```shell
-
-
-```
 
 
 ```shell
