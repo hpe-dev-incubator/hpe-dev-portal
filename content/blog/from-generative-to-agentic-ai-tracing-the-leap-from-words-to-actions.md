@@ -1,6 +1,6 @@
 ---
 title: Blog post process - From Generative to Agentic AI
-date: 2025-07-22T13:40:43.461Z
+date: 2025-09-29T10:41:32.386Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
