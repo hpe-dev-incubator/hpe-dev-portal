@@ -5,290 +5,225 @@ date: 2025-09-26T15:47:53.318Z
 author: Guoping
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - Custom cluster layout
+  - Kubernetes
+  - HPE Private Cloud Enterprise
+  - hpe-private-cloud-enterprise
+  - Input template
+  - K3s
+  - MKS
 ---
-
-
-
-
 The blog post demonstrates how to create an K3s cluster using a custom cluster layout in HPE Private Cloud Enterprise. By leveraging various Morpheus components like *Node Type*, *Cluster Layout*, Automation *Task* and *Workflow*, a lightweight K8s distribution, *K3s*, has been selected and deployed into MKS as a sample K8s cluster.
 
-
+## Overview
 
 
 ## Prerequisites
 
+* Access to GLC tenant with appropriate Role assignment to perform administrative tasks in the Virtual Machines Service, i.e. 'Private Cloud Tenant Owner'.
+* Access to Internet from CMP.
+* Morpheus MKS feature has been enabled
 
+## Create custom cluster layout
 
-- Access to GLC tenant with appropriate Role assignment to perform administrative tasks in the Virtual Machines Service, i.e. 'Private Cloud Tenant Owner'.
-- Access to Internet from CMP.
-- Morpheus MKS feature has been enabled
+### Create node types
 
+1. Create an K3s primary master node type
 
+* Open the cloud management platform (CMP).
+  For details, see Accessing Private Cloud Enterprise: Virtual machines service and cloud management platform.
+* Navigate to **Library > Blueprints > Node Types**.
+* Click **+Add**.
+* Populate the following fields according to below screen. Click **Save changes**.
 
-## Create node types
+![](/img/k3s-node-type-primary-master.png)
 
-### Create an K3s Primary Master Node Type
+2. Create an K3s secondary master node type
 
-- 1. Open the cloud management platform (CMP).
-For details, see Accessing Private Cloud Enterprise: Virtual machines service and cloud management platform.
+* Navigate to **Library > Blueprints > Node Types**.
+* Click **+Add**.
+* Populate the following fields according to below screen. Click **Save changes**.
 
-- 2. Navigate to **Library > Blueprints > Node Types**
-- 3. Click *+ADD*
-- 4. Populate the following fields according to below screen
+![](/img/k3s-node-type-secondary-master.png)
 
+3. Create an K3s worker node type
 
+* Navigate to **Library > Blueprints > Node Types**.
+* Click **+Add**.
+* Populate the following fields according to below screen. Click **Save changes**.
 
+![](/img/k3s-node-type-worker.png)
 
-- 5. Click *SAVE CHANGES*
+### Create file template
 
-### Create an K3s Secondary Master Node Type
+1. Create a file template to add K8s Secret
 
-- 1. Navigate to **Library > Blueprints > Node Types**
-- 2. Click *+ADD*
-- 3. Populate the following fields according to below screen
+* Navigate to **Library > Templates > File Templates**.
+* Click **+Add**.
+* Populate the following fields according to below screen. Click **Save changes**.
 
+![](/img/file-template.png)
 
+2. Set up the K3s primary master node
 
+Add file template to the K3s primary Master Node Type.
 
+* Navigate to **Library > Blueprints > Node Types**.
+* Click **Edit** button to *k3s-primary-master*.
+* Under VMware VM Options, populate FILE TEMPLATES as below. Click **Save changes**.
 
-## Create file template
+![](/img/primary-master-node-type-edit.png)
 
-Create a file template to add K8s Secret
+### Create option list
 
-- 1. Navigate to **Library > Templates > File Templates**
-- 2. Click *+ADD*
-- 3. Populate the following fields according to below screen
+1. Create an Option List for K3s Version
 
+* Navigate to **Library** > **Options** > *Option Lists*.
+* Click **+Add**.
+* Populate the following fields. Click **Save changes**.
 
+![](/img/option-list-k3s-version.png)
 
+2. Create an Option List for K3s Networking
 
-- 4. Click *SAVE CHANGES*
-Add the File Template to the K3s Primary Master Node Type
+* Navigate to **Library > Options > Option Lists**.
+* Click **+Add**.
+* Populate the following fields. Click **Save changes**.
 
-- 1. Navigate to **Library > Blueprints > Node Types**
-- 2. Click *EDIT* button to "*k3s-primary-master*"
-- 3. Under VMware VM Options, populate FILE TEMPLATES as below
+![](/img/option-list-k3s-networking.png)
 
+### Create inputs
 
+1. Create an Input for K3s Version
 
+* Navigate to **Library** > **Options** > **Inputs**.
+* Click **+Add**.
+* Populate the following fields. Click **Save changes**.
 
+![](/img/input-k3s-version.png)
 
-## Create option list
+2. Create an Input for K3s Networking
 
-### Create an Option List for K3s Version
+* Navigate to **Library** > **Options** > **Inputs**.
+* Click **+Add**. Click **Save changes**.
 
-- 1. Navigate to **Library** > **Options** > *Option Lists*
-- 2. Click **+ADD**
-- 3. Populate the following fields:
+![](/img/input-k3s-networking.png)
 
+3. Create an Input for K3s Cluster VIP Address
 
+* Navigate to **Library > Options > Inputs**.
+* Click **+Add**.
+* Populate the following fields. Click **Save changes**.
 
+![](/img/input-k3s-vip.png)
 
+4. Create an Input for K3s Cluster CIDR
 
+* Navigate to **Library > Options > Inputs**.
+* Click **+Add**
+* Populate the following fields. Click **Save changes**.
 
+![](/img/input-k3s-cluster-cidr.png)
 
-### Create an Option List for K3s Networking
+5. Create an Input for K3s Service CIDR
 
-- 1. Navigate to **Library > Options > Option Lists**
-- 2. Click **+ADD**
-- 3. Populate the following fields:
+* Navigate to **Library > Options > Inputs**.
+* Click **+ADD**
+* Populate the following fields. Click **Save changes**.
 
+![](/img/input-k3s-service-cidr.png)
 
+### Create automation tasks and workflows
 
+1. Create an Automation Task for HA K3s Cluster Install
 
+* Navigate to \*\*Library > Automation\*\*.
+* Click \*\**+Add\*\*.*
+* Populate the following fieldsPopulate the following fields. Click **Save changes**.
 
-## Create inputs
-
-### Create an Input for K3s Version
-
-- 1. Navigate to **Library** > **Options** > **Inputs**
-- 2. Click **+ADD**
-- 3. Populate the following fields:
-
-
-
-
-- 4. Click **SAVE CHANGES**
-
-### Create an Input for K3s Networking
-
-- 1. Navigate to **Library** > **Options** > **Inputs**
-- 2. Click **+ADD**
-
-
-
-
-4. Click **SAVE CHANGES**
-
-
-### Create an Input for K3s Cluster VIP Address
-
-- 1. Navigate to **Library > Options > Inputs**
-- 2. Click **+ADD**
-- 3. Populate the following fields:
-
-
-
-
-
-
-### Create an Input for K3s Cluster CIDR
-
-- 1. Navigate to **Library > Options > Inputs**
-- 2. Click **+ADD**
-- 3. Populate the following fields:
-
-
-
-
-### Create an Input for K3s Service CIDR
-
-1. Navigate to **Library > Options > Inputs**
-2. Click **+ADD**
-
-
-4. Click **SAVE CHANGES**
-
-## Create automation tasks and workflows
-
-### Create an Automation Task for HA K3s Cluster Install
-
-- 1. Navigate to **Library > Automation 
-- 2. Click *+ADD*
-- 3. Populate the following fields:
-
-
-
-
+![](/img/k3s-install-task.png)
 
 *Note:* The K3s install script has been available from github repo at
 
 *https://github.com/GuopingJia/k3s-demo/blob/main/K3s-Install-Script.sh*
 
+2. Create an Automation Workflow for K3s HA Install
 
+* Navigate to **Library** > **Automation** > *Workflows tab*
+* Click *+ADD*
+* Populate the following fieldsPopulate the following fields. Click **Save changes**.
 
-- 4. Click **SAVE CHANGES**
+![](/img/k3s-install-workflow.png)
 
-### Create an Automation Workflow for K3s HA Install
+### Create K3s custome cluster layout
 
-- 1. Navigate to **Library** > **Automation** > *Workflows tab*
-- 2. Click **+ADD**
-- 3. Populate the following fields:
+1. Create an K3s HA cluster layout
 
+* Navigate to **Library** > **Blueprints** > *Cluster Layouts tab*
+* Click *+ADD*
+* Populate the following fieldsPopulate the following fields. Click **Save changes**.
 
+![](/img/k3s-ha-cluster-layout.png)
 
+2. Create a single-master K3s cluster layout
 
+* Navigate to **Library** > **Blueprints** > *Cluster Layouts tab*
+* Click **+Add**
+* Populate the following fieldsPopulate the following fields. Click **Save changes**.
 
-## Create K3s Cluster Layout
+![](/img/k3s-single-master-cluster-layout.png)
 
+## Provision an K3s cluster
 
+* Navigate to **Infrastructure > Clusters**. Click **+Add Cluster**.
+* Select *Cluster Type* as *KUBERNETES CLUSTER*. Click **Next**.
 
-### Create an K3s HA cluster layout
+![](/img/k3s-cluster-type.png)
 
-- 1. Navigate to **Library** > **Blueprints** > *Cluster Layouts tab*
-- 2. Click **+ADD**
-- 3. Populate the following fields:
+* Select *Group*, e.g., *CFE Department B Group*. Click **Next**.
 
+![](/img/k3s-group.png)
 
+* Enter NAME, and optional RESOURCE NAME, DESCRIPTION and LABELS. Click **Next**.
 
+![](/img/k3s-cluster-name.png)
 
-- 4. Click **SAVE CHANGES**
+* Select LAYOUT as *K3S HA Cluster* and PLAN. Specify VOLUMES, select NETWORKS and set VERSION, NETWORKING, VIP ADDRESS, CLUSTER CIDR and SERVICE CIDR. Click **Next**.
 
-### Create a Single-Master K3s Cluster Layout
+![](/img/k3s-cluster-master-config.png)
 
+* Specify NUMBER OF WORKERS and keep other default settings. Click **Next**.
 
+![](/img/k3s-cluster-worker-config.png)
 
-- 1. Navigate to **Library** > **Blueprints** > *Cluster Layouts tab*
-- 2. Click **+ADD**
-- 3. Populate the following fields:
+* Skip Automation step and review settings. Click **Complete**.
 
+![](/img/k3s-cluster-review.png)
 
+After a few minutes, the K3s cluster *k3s-ha* has been created with the custom cluster layout *K3S-HA-cluster*.
 
-- 4. Click **SAVE CHANGES**
+![](/img/k3s-ha-cluster.png)
 
-## Create an K3s Cluster
+## Verify K3s cluster
 
+* Navigate to **Infrastructure > Clusters**.
+* Click the K3s Cluster *k3s-ha*.
 
-- Navigate to **Infrastructure > Clusters**
-- Click **+ADD CLUSTER**
-- Select **CLUSTER TYPE**, e.g, *KUBERNETES CLUSTER*
-- Click *NEXT*
-- Select *Group*, e.g., *CFE Department B Group*
-- Click *NEXT*
-- Under Summary, populate the following fields:
+![](/img/k3s-ha-cluster-details.png)
 
+* From the *Cluster* detail page, click the *History* tab. Each individual process output available by clicking on target process
 
-
-
-
-## Verify Provisioned K3s HA Cluster
-
-- 1. Navigate to **Infrastructure > Clusters**.
-- 2. Check the *Status* of the K3s Cluster, e.g., *k3s-ha*
-
-
-
-
-- 4. From the *Cluster* detail page, click the *History* tab. Each individual process output available by clicking on target process
-
-
-
-
+![](/img/k3s-ha-cluster-history.png)
 
 ## Access the K3s HA Cluster
 
-- 1. Navigate to **Infrastructure > Clusters**.
-- 2. Click the Cluster name '*k3s-ha*' to the Cluster detail page.
-- 3. From *Control* tab, type commands, e.g., *get nodes*, *get pods*, etc.
+* Navigate to **Infrastructure > Clusters**.
+* Click the Cluster name '*k3s-ha*' to the Cluster detail page.
+* From *Control* tab, type commands, e.g., *get nodes*.
 
+![](/img/k3s-ha-cluster-access.png)
 
+From **Actions**, you can click *Upgrade Cluster* to upgrade the K3s cluster to its new version. 
 
-
-## Create an K3s Single-Master Cluster
-
-- 1. Navigate to **Infrastructure > Clusters**
-- **2.** Click **+ADD CLUSTER**
-- 3. Select **CLUSTER TYPE**, e.g, *KUBERNETES CLUSTER*
-- 4. Click *NEXT*
-- 5. Select *Group*, e.g., *CFE Department B Group*
-- 6. Click *NEXT*
-
-
-
-- 15. Review and select *COMPLETE*
-
-
-## Verify Provisioned K3s Single-Master Cluster
-
-
-
-- 5. Navigate to **Infrastructure > Clusters**.
-- 6. Check the *Status* of the K3s Cluster, e.g., *k3s-single-master*
-
-
-
-- *7.* Go to the Cluster detail page by clicking the Cluster name *k3s-single-master*
-
-
-
-
-- 8. From the *Cluster* detail page, click the *History* tab. Each individual process output available by clicking on target process
-
-
-
-
-
-
-## Access the K3s Single-Master Cluster
-
-
-
-- 1. Navigate to **Infrastructure > Clusters**.
-- 2. Click the Cluster name '*k3s-single-master*' to the Cluster detail page.
-- 3. From *Control* tab, type commands, e.g., *get nodes*, *get pods*, etc
-
-
-
-
-
-
+![](/img/k3s-ha-cluster-upgrade.png)
