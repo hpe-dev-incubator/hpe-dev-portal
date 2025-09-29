@@ -7,9 +7,13 @@ authorimage: /img/guoping.png
 disable: false
 ---
 
-## Install Tailscale
+## Overview
 
-![](/img/tailscale-machines.png)
+## MetalLB and Tailscale
+
+*MetalLB* 
+
+*Tailscale* is a secure, peer-to-peer VPN built on the [WireGuiad]() protocol. It uses WireGuard as its core trasport layer, benefiting from its open-source speed and security. 
 
 ## Set up the load balancer with MetalLB
 
@@ -61,6 +65,16 @@ cfe-l2advert   ["cfe-pool"]
 
 
 ## Deploy Tailscale 
+
+### Install Tailscale client
+
+In order to use Tailscale, you need first install the Tailscale client on your device. The Tailscale client is open source and available for various platforms, such as Linux, Windows, MacOS, iOS, and Android, etc. It's used, via its Admin console, to connect various devices securely to your private Tailscale network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
+
+Here is the Admin console of my Windows Tailscale client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a Tailscale account by choosing GitHub as the Identity Provider. You can integrate your Tailscale account using your own identity providers for secure SSO login and multi-factor authentication. 
+
+![](/img/tailscale-machines.png)
+
+My Windows laptop joins the tailnet, a private network linked to my GitHub identity. 
 
 ### Generate Tailscale auth key
 
