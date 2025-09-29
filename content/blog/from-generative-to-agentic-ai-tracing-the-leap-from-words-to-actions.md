@@ -64,11 +64,7 @@ published: true
 
 <center><img src="/img/picture1-dinesh.png" width="957" height="273" alt="Test" title="Test"></center>
 
-
-
 ![Test](/img/enabled-global-policies-for-client.png "Test")
-
-
 
 ```json
 {
@@ -83,7 +79,5 @@ published: true
     "version": "v1"
   }
 ```
-
-
 
 I want to add text
