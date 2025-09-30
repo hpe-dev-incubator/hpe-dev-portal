@@ -11,9 +11,9 @@ disable: false
 
 ## MetalLB and Tailscale
 
-*MetalLB* 
+[MetalLB](https://metallb.io/) is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing MetalLB, it supports the LoadBalancer services by assigning external IPs to services within the K8s clusters. This makes the applications easily reachable within your private network, without needing any special hardware or cloud services. 
 
-*Tailscale* is a secure, peer-to-peer VPN built on the [WireGuiad]() protocol. It uses WireGuard as its core trasport layer, benefiting from its open-source speed and security. 
+[Tailscale](https://tailscale.com/) is a mesh VPN service that uses the [WireGuiad](https://www.wireguard.com/) protocol to securely connects devices across different networks. Instead of routing traffic through a central server like traditional VPNs, Tailscale creates encrypted peer-to-peer connections between devices. These connections form a private network known as a *tailnet*, where each device receives a unique Tailscale IP address for direct communication. A tailnet provides a secure, interconnected space of users, devices, and resources, all managed through Tailscale's admin console, where you can configure access controls, DNS settings, TLS certificates, and more.   
 
 ## Set up the load balancer with MetalLB
 
@@ -22,7 +22,7 @@ You can install MetalLB and set up the load balancer in the MKS cluster by follo
 
 
 
-H﻿ere is the deployed MetalLB to the namespace 'metallb-system' in the MKS cluster *mks-test*:
+H﻿ere is the deployed MetalLB to the namespace *'metallb-system'* in the MKS cluster *mks-test*:
 
 ```shell
 $ kubectl get all -n metallb-system
@@ -68,9 +68,9 @@ cfe-l2advert   ["cfe-pool"]
 
 ### Install Tailscale client
 
-In order to use Tailscale, you need first install the Tailscale client on your device. The Tailscale client is open source and available for various platforms, such as Linux, Windows, MacOS, iOS, and Android, etc. It's used, via its Admin console, to connect various devices securely to your private Tailscale network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
+In order to use Tailscale, you need first install the Tailscale client on your device. The Tailscale client is open source and available for various platforms, such as *Linux*, *Windows*, *MacOS*, *iOS*, *Android*, etc. It's used, via its admin console, to connect various devices securely to your private Tailscale network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
 
-Here is the Admin console of my Windows Tailscale client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a Tailscale account by choosing GitHub as the Identity Provider. You can integrate your Tailscale account using your own identity providers for secure SSO login and multi-factor authentication. 
+Here is the admin console of my Windows Tailscale client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a Tailscale account by choosing GitHub as the Identity Provider. You can integrate your Tailscale account using your own identity providers for secure SSO login and multi-factor authentication. 
 
 ![](/img/tailscale-machines.png)
 
@@ -78,9 +78,32 @@ My Windows laptop joins the tailnet, a private network linked to my GitHub ident
 
 ### Generate Tailscale auth key
 
+After installing Tailscale client, you can generate an auth key from the admin console.
+
+1. Navigate to **Settings** -> **Keys**. Click ***Generate auth key***.
+
+![](/img/tailscale-settings-keys.png)
+
+2. Enter *Description* and set *Expiration*. Click ***Generate key***.
+
 ![](/img/tailscale-generate-auth-key.png)
 
+3. Copy the generated new key.
+
 ![](/img/tailscale-auth-key.png)
+
+Create a *Secret* YAML manifest file *'tailscale-auth.yaml'* using the generated auth key:
+
+```shell
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tailscale-auth
+  namespace: tailscale
+stringData:
+  TS_AUTHKEY: tskey-auth-kE2dReML1511CNTRL-NL2Wg1SLa8MZBuaohnXTG
+```
 
 ### Generate Tailscale OAuth client
 
