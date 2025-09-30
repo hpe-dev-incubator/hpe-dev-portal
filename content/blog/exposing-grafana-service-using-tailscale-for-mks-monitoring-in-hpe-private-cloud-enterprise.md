@@ -9,6 +9,12 @@ disable: false
 
 ## Overview
 
+## Prerequisites
+
+- An MKS cluster has been provisioned. Please follow up the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise]() to provision an MKS cluster.
+- kubectl
+- helm
+
 ## MetalLB and Tailscale
 
 [MetalLB](https://metallb.io/) is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing MetalLB, it supports the LoadBalancer services by assigning external IPs to services within the K8s clusters. This makes the applications easily reachable within your private network, without needing any special hardware or cloud services. 
@@ -102,23 +108,39 @@ metadata:
   name: tailscale-auth
   namespace: tailscale
 stringData:
-  TS_AUTHKEY: tskey-auth-kE2dReML1511CNTRL-NL2Wg1SLa8MZBuaohnXTG
+  TS_AUTHKEY: tskey-auth-<hidden>
+```
+
+Apply the *Secret* to the namespace *tailscale*.
+
+```shell
+$ kubectl create ns tailscale
+$ kubectl apply -f tailscale-auth.yaml
 ```
 
 ### Generate Tailscale OAuth client
 
+You can now generate an OAuth client from the admin console.
+
+1. Navigate to **Settings** -> **OAuth clients**. Click ***Generate OAuth client***.
+
 ![](/img/tailscale-oauth-client.png)
 
+2. Under **Devices**, select *Core* and add tag *k8s-operator*. Under Keys, select *Auth Keys* and add the tag *k8s-operator*. Click ***Generate client***.
+
 ![](/img/tailscale-oauth-client-k8s-operator.png)
+
+3. Copy and save the generated *Client ID* and *Client secret* of the generated new OAuth client.
 
 ![](/img/tailscale-oauth-client-details.png)
 
 ### Deploy Tailscale K8s operator
 
+Install the Tailscal operator to the namespace *tailscale* of the MKS cluster using *Helm* along with the generated Tailscale OAuth client. 
+
 
 ```shell
 $ helm repo add tailscale https://pkgs.tailscale.com/helmcharts
-
 $ helm repo update
 
 $ helm search repo tailscale
@@ -127,8 +149,9 @@ tailscale/tailscale-operator    1.86.5          v1.86.5         A Helm chart for
 
 
 
-$ helm upgrade --install tailscale-operator tailscale/tailscale-operator --namespace=tailscale --set-string oa
-uth.clientId=kK2Rvpd9Ek11CNTRL --set-string oauth.clientSecret=tskey-client-kK2Rvpd9Ek11CNTRL-RC8mpdNA6JJnhGe8JDU6JJzkgiDPiacaU --wait
+$ helm upgrade --install tailscale-operator tailscale/tailscale-operator \
+--namespace=tailscale --set-string oauth.clientId=<hidden> \
+--set-string oauth.clientSecret=tskey-client-<hidden> --wait
 Release "tailscale-operator" does not exist. Installing it now.
 NAME: tailscale-operator
 LAST DEPLOYED: Wed Sep 24 15:02:41 2025
@@ -169,6 +192,8 @@ $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 ```
 
+Check the Tailscale operator deployment. 
+
 ```shell
 $ kubectl get all -n tailscale
 NAME                           READY   STATUS    RESTARTS   AGE
@@ -184,8 +209,9 @@ replicaset.apps/operator-945796556   1         1         1       41s
 
 ```
 
-![](/img/tailscale-operator-machine.png)
+When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the tab **Machines**.
 
+![](/img/tailscale-operator-machine.png)
 
 ## Expose Grafana service
 
@@ -246,7 +272,3 @@ ingress-grafana   tailscale   *       grafana.qilin-beta.ts.net   80, 443   9d
 
 
 
-```shell
-
-
-```
