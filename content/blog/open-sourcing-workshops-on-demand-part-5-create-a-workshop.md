@@ -20,21 +20,32 @@ A﻿s you can see, there's no rocket science here. Just common sense. Depending 
 
 S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop for instance could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
 
-F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. The project makes it easy to deploy a test/ dev,  a staging, and at least one production environment. The HPE Developer Community actually started with only a test/dev/staging environment on one side and a production on the other side.
+F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. The project makes it easy to deploy a development and test environments, a staging environment, and at least one production environment. 
 
-In this post, I won't focus on the subject selection process. I'll leave that to you to figure it out. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the api db server mainly).
+Here are a few definitions of the different environments :
+
+1. **Development Environment:** This is where application/system development tasks, such as designing, programming, debugging of a workshop, etc., take place.
+2. **Test Environment:** As the name implies, this is where the workshop testing is conducted to find and fix errors.
+3. **Staging Environment:** Here, all the work done in the development environment is merged into the built system (often used to automate the process of software compilation) before it is moved into the production environment.
+4. **Production Environment:** The last environment in workshop development, this is where new builds/updates are moved into production for end users.
+
+The HPE Developer Community actually started with only a development, test and staging environments on one side and a production on the other side.
+
+In this post, I won't focus on the subject selection process. I'll leave that to you to figure it out. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the api db server mainly.
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
 What is a workshop? What do you need to develop?
 
-L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. We defined what is needed:
+L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. 
 
-* A﻿ set of notebooks that will be used by the student:
+We defined what is needed:
+
+* A﻿ set of notebooks that will be used by the student
 * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 * A student range for the workshop.
 
-A workshop should contain at least :
+A workshop should contain at least:
 
 * 0-ReadMeFirst.ipynb 
 * 1-WKSHP-LAB1.ipynb
@@ -47,11 +58,11 @@ A workshop should contain at least :
 
 To make the workshop compliant to our platform, Matt just needs to provide a final file that contains a set of metadata that will be used  for the workshop's integration into the infrastructure. this file is called **wod.yml**.
 
-Matt can leverage a simple **wod.yml** file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no? Moreover, the same script that will create the workshop entry in the ddatabase can also be sused to update it.
+Matt can leverage a simple **wod.yml** file containing them and that can be later parsed in order to feed the database with the relevant info. Quite handy, no? Moreover, the same script that will create the workshop entry in the database can also be used to update it.
 
 Here is an example of such a file:
 
-```
+```yaml
 %YAML 1.1
 # Meta data for the GO101 Workshop to populate seeder
 ---
@@ -82,8 +93,6 @@ replayLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-C
 the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
 
 ![](/img/wod-db-go-1.png "GO 101 Workshop DB screenshot")
-
-
 
 ![](/img/wod-db-go-2.png "GO 101 Workshop DB screenshot")
 
@@ -177,7 +186,7 @@ T﻿he very same processes will apply to the move to production phase.
 
 # Complex workshop example:
 
-I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not, even though I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start with a meeting where each of us will explain to the other what our goals are and how we expect to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on to figure out what the best platform would be on which to run his workshop.
+I will focus here on the specific aspects related to this  new workshop. Are you familiar with Automation tools like Ansible ? I was not, before working on the Ansible 101 Workshop.  As usual, we will start with a meeting where each of us will explain to the other what our goals are and how we expect to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on to figure out what the best platform would be on which to run his workshop.
 
 A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
 
@@ -185,7 +194,7 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 The  workshop will require:
 
-* A dedicated server running Docker to host the student containers in which the workshops' labs  will take place
+* A dedicated server running Linux to allow the student to run Ansible playbooks against during the workshops' labs.
 
   * This means preparing a server (VM or physical) : We will consider it as an appliance
   * Updating the relevant variable file to associate the IP address of the server to the workshop (there could be multiple servers too associated to a given workshop)
@@ -210,7 +219,7 @@ Testing the workshop:
 
 * one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
 
-  ```
+  ```shell
   dev@dev3:~$ wod-test-action.sh
   Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
   ACTION is mandatory
@@ -220,6 +229,8 @@ Testing the workshop:
 
 When all tests have validated the workshop, it can follow the move to prod cycle.
 
-You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.In the next post, I will explain how to deploy and manage the frontend part.
+You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.
 
-If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
+This was the last blog of the series. The Workshops-on-Demand project is available [here](https://github.com/Workshops-on-Demand). Further update of the documentation will occur on this github repository.
+
+If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://developer.hpe.com/slack-signup/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
