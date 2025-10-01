@@ -3,7 +3,7 @@ title: Self-activation and onboarding in HPE Complete Care Service – ITOps
 date: 2025-09-26T10:01:32.446Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
-disable: false
+disable: true
 tags:
   - activation-and-onboarding-in-hpe-complete-care-service-itops
   - hpe-complete-care-itops
