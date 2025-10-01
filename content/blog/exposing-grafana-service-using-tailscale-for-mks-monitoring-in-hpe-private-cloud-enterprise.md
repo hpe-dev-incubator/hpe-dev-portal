@@ -215,24 +215,78 @@ When the Tailscale operator has been installed and running, you should see a new
 
 ## Expose Grafana service
 
-```shell
-$ kubectl get svc -n monitoring
-NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE
-alertmanager-main       ClusterIP      172.30.103.195   <none>          9093/TCP,8080/TCP            14d
-alertmanager-operated   ClusterIP      None             <none>          9093/TCP,9094/TCP,9094/UDP   14d
-blackbox-exporter       ClusterIP      172.30.165.12    <none>          9115/TCP,19115/TCP           14d
-grafana                 LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP               14d
-kube-state-metrics      ClusterIP      None             <none>          8443/TCP,9443/TCP            14d
-node-exporter           ClusterIP      None             <none>          9100/TCP                     14d
-prometheus-adapter      ClusterIP      172.30.199.24    <none>          443/TCP                      14d
-prometheus-k8s          ClusterIP      172.30.54.40     <none>          9090/TCP,8080/TCP            14d
-prometheus-operated     ClusterIP      None             <none>          9090/TCP                     14d
-prometheus-operator     ClusterIP      None             <none>          8443/TCP                     14d
-pce-trial@cfe-linux-jumphost:~$ k get svc grafana -n monitoring
-NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
-grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP   14d
+As part of an MKS cluster provisioning, both *Prometheus* and *Grafana* have been installed and configured in the namespace *'monitoring'*. You can check the deployment details using below command:
 
-pce-trial@cfe-linux-jumphost:~/metallb$ cat ingress-grafana.yaml
+```shell
+$ kubectl get all -n monitoring
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/alertmanager-main-0                   2/2     Running   0           4d
+pod/alertmanager-main-1                   2/2     Running   0           4d
+pod/alertmanager-main-2                   2/2     Running   0           4d
+pod/blackbox-exporter-84d969fb75-msbqd    3/3     Running   0           4d
+pod/grafana-6698fc66bb-9rjk2              1/1     Running   0           4d
+pod/kube-state-metrics-6f5f95b6bf-6b77k   3/3     Running   0           4d
+pod/node-exporter-74nzh                   2/2     Running   0           4d
+pod/node-exporter-89m4q                   2/2     Running   0           4d
+pod/node-exporter-c699g                   2/2     Running   0           4d
+pod/node-exporter-prmwt                   2/2     Running   0           4d
+pod/node-exporter-vdfvj                   2/2     Running   0           4d
+pod/prometheus-adapter-599c88b6c4-nd7xd   1/1     Running   0           4d
+pod/prometheus-adapter-599c88b6c4-zh2z5   1/1     Running   0           4d
+pod/prometheus-k8s-0                      2/2     Running   0           4d
+pod/prometheus-k8s-1                      2/2     Running   0           4d
+pod/prometheus-operator-75486dd88-pjdjh   2/2     Running   0           4d
+
+NAME                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+service/alertmanager-main       ClusterIP   172.30.103.195  <none>        9093/TCP,8080/TCP             4d
+service/alertmanager-operated   ClusterIP   None            <none>        9093/TCP,9094/TCP,9094/UDP    4d
+service/blackbox-exporter       ClusterIP   172.30.165.12   <none>        9115/TCP,19115/TCP            4d
+service/grafana                 ClusterIP   172.30.211.119  <none>        3000/TCP                      4d
+service/kube-state-metrics      ClusterIP   None            <none>        8443/TCP,9443/TCP             4d
+service/node-exporter           ClusterIP   None            <none>        9100/TCP                      4d
+service/prometheus-adapter      ClusterIP   172.30.199.24   <none>        443/TCP                       4d
+service/prometheus-k8s          ClusterIP   172.30.54.40    <none>        9090/TCP,8080/TCP             4d
+service/prometheus-operated     ClusterIP   None            <none>        9090/TCP                      4d
+service/prometheus-operator     ClusterIP   None            <none>        8443/TCP                      4d
+
+NAME                           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/node-exporter   5         5         5       5            5           kubernetes.io/os=linux   43d
+
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/blackbox-exporter     1/1     1            1            4d
+deployment.apps/grafana               1/1     1            1            4d
+deployment.apps/kube-state-metrics    1/1     1            1            4d
+deployment.apps/prometheus-adapter    2/2     2            2            4d
+deployment.apps/prometheus-operator   1/1     1            1            4d
+
+NAME                                            DESIRED   CURRENT   READY   AGE
+replicaset.apps/blackbox-exporter-84d969fb75    1         1         1        4d
+replicaset.apps/grafana-6698fc66bb              1         1         1        4d
+replicaset.apps/kube-state-metrics-6f5f95b6bf   1         1         1        4d
+replicaset.apps/prometheus-adapter-599c88b6c4   2         2         2        4d
+replicaset.apps/prometheus-operator-75486dd88   1         1         1        4d
+
+NAME                                 READY   AGE
+statefulset.apps/alertmanager-main   3/3      4d
+statefulset.apps/prometheus-k8s      2/2      4d
+```
+
+Before exposing the *Grafana* service, you need change its service type from *ClusterIP* to *LoadBalancer* using the commmand *'kubectl edit svc  grafana -n monitoring'*. The *Grafana* service then is assigned an *EXTERNAL-IP* IP address, such as *'172.20.40.241'*.
+
+```shell
+
+
+$ kubectl get svc grafana -n monitoring
+NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
+grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
+```
+
+Create an *Ingress* YAML manifest file with the annotation *'tailscale.com/funnel: "true"'* and *'ingressClassName: tailscale'*. Then apply it to the *monitoring* namespace.
+
+```shell
+
+
+$ cat ingress-grafana.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -250,6 +304,14 @@ spec:
   tls:
     - hosts:
         - grafana
+$ kubectl apply -f ingress-grafana.yaml
+ingress.networking.k8s.io/ingress-grafana created
+```
+
+After few minutes, the ingress *ingress-grafana* is showing up its assigned name *grafana* appended with Tailscale domain *'qilin-beta.ts.net'*.
+
+```shell
+
 
 
 
@@ -263,10 +325,15 @@ ingress-grafana   tailscale   *       grafana.qilin-beta.ts.net   80, 443   9d
 
 ```
 
+The **Machines** tab of the Tailscale admin console shows the newly added device *'grafana'*.
+
 ![](/img/grafana-machine.png)
+
+You can start your browser by pointing to the URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured dashboard, e.g., *Kubernetes/API server*.
 
 ![](/img/grafana-funnel.png)
 
+You can access the exposed *Grafana* service from your mobile phone using the same URL to monitor your MKS cluster.
 
 ![](/img/grafana-mobile.png)
 
