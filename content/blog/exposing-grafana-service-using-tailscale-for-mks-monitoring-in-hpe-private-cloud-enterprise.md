@@ -6,14 +6,13 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 ---
-
 ## Overview
 
 ## Prerequisites
 
-- An MKS cluster has been provisioned. Please follow up the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise]() to provision an MKS cluster.
-- kubectl
-- helm
+* An MKS cluster has been provisioned. Please follow up the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](<>) to provision an MKS cluster.
+* kubectl
+* helm
 
 ## MetalLB and Tailscale
 
@@ -23,10 +22,7 @@ disable: false
 
 ## Set up the load balancer with MetalLB
 
-
 You can install MetalLB and set up the load balancer in the MKS cluster by following the instructions found in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
-
-
 
 H﻿ere is the deployed MetalLB to the namespace *'metallb-system'* in the MKS cluster *mks-test*:
 
@@ -55,9 +51,6 @@ replicaset.apps/metallb-controller-8474b54bc4   1         1         1       14d
 You can see the range of virtual IP addresses, "172.20.40.240-172.20.40.250", defined in the CRD resource *IPAddressPool*, and the layer 2 service IP address announcement in the CRD resource *L2Advertisement*.
 
 ```shell
-
-
-
 $ kubectl get ipaddresspool -n metallb-system
 NAME       AUTO ASSIGN   AVOID BUGGY IPS   ADDRESSES
 cfe-pool   true          false             ["172.20.40.240-172.20.40.250"]
@@ -66,11 +59,9 @@ cfe-pool   true          false             ["172.20.40.240-172.20.40.250"]
 $ kubectl get l2advertisement -n metallb-system
 NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
-
 ```
 
-
-## Deploy Tailscale 
+## Deploy Tailscale
 
 ### Install Tailscale client
 
@@ -84,7 +75,7 @@ My Windows laptop joins the tailnet, a private network linked to my GitHub ident
 
 ### Generate Tailscale auth key
 
-After installing Tailscale client, you can generate an auth key from the admin console.
+After installing Tailscale client, you need first generate an auth key from the Tailscale admin console.
 
 1. Navigate to **Settings** -> **Keys**. Click ***Generate auth key***.
 
@@ -94,14 +85,13 @@ After installing Tailscale client, you can generate an auth key from the admin c
 
 ![](/img/tailscale-generate-auth-key.png)
 
-3. Copy the generated new key.
+3. Copy and save the generated new key.
 
 ![](/img/tailscale-auth-key.png)
 
-Create a *Secret* YAML manifest file *'tailscale-auth.yaml'* using the generated auth key:
+Create a *Secret* YAML manifest file *'tailscale-auth.yaml'* using the generated auth key. 
 
 ```shell
-
 apiVersion: v1
 kind: Secret
 metadata:
@@ -111,7 +101,7 @@ stringData:
   TS_AUTHKEY: tskey-auth-<hidden>
 ```
 
-Apply the *Secret* to the namespace *tailscale*.
+Apply the *Secret* to the namespace *tailscale*. This secret will be used to securely join the cluster to your Tailscale network.
 
 ```shell
 $ kubectl create ns tailscale
@@ -120,7 +110,7 @@ $ kubectl apply -f tailscale-auth.yaml
 
 ### Generate Tailscale OAuth client
 
-You can now generate an OAuth client from the admin console.
+You need then generate an OAuth client from the Tailscale admin console.
 
 1. Navigate to **Settings** -> **OAuth clients**. Click ***Generate OAuth client***.
 
@@ -136,8 +126,7 @@ You can now generate an OAuth client from the admin console.
 
 ### Deploy Tailscale K8s operator
 
-Install the Tailscal operator to the namespace *tailscale* of the MKS cluster using *Helm* along with the generated Tailscale OAuth client. 
-
+You can now install the Tailscal operator to the namespace *tailscale* of the MKS cluster using *Helm* along with the generated Tailscale OAuth client, its *Client ID* and *Client secret*. 
 
 ```shell
 $ helm repo add tailscale https://pkgs.tailscale.com/helmcharts
@@ -192,7 +181,7 @@ $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 ```
 
-Check the Tailscale operator deployment. 
+Check the Tailscale operator deployment details. 
 
 ```shell
 $ kubectl get all -n tailscale
@@ -204,12 +193,9 @@ deployment.apps/operator   1/1     1            1           41s
 
 NAME                                 DESIRED   CURRENT   READY   AGE
 replicaset.apps/operator-945796556   1         1         1       41s
-
-
-
 ```
 
-When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the tab **Machines**.
+When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the tab **Machines** of your Tailscale admin console.
 
 ![](/img/tailscale-operator-machine.png)
 
@@ -274,18 +260,14 @@ statefulset.apps/prometheus-k8s      2/2      4d
 Before exposing the *Grafana* service, you need change its service type from *ClusterIP* to *LoadBalancer* using the commmand *'kubectl edit svc  grafana -n monitoring'*. The *Grafana* service then is assigned an *EXTERNAL-IP* IP address, such as *'172.20.40.241'*.
 
 ```shell
-
-
 $ kubectl get svc grafana -n monitoring
 NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
 grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
 ```
 
-Create an *Ingress* YAML manifest file with the annotation *'tailscale.com/funnel: "true"'* and *'ingressClassName: tailscale'*. Then apply it to the *monitoring* namespace.
+Then create below *Ingress* YAML manifest file with the annotation *'tailscale.com/funnel: "true"'* and *'ingressClassName: tailscale'*. Apply it to the *monitoring* namespace.
 
 ```shell
-
-
 $ cat ingress-grafana.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -308,34 +290,22 @@ $ kubectl apply -f ingress-grafana.yaml
 ingress.networking.k8s.io/ingress-grafana created
 ```
 
-After few minutes, the ingress *ingress-grafana* is showing up its assigned name *grafana* appended with Tailscale domain *'qilin-beta.ts.net'*.
+After few minutes, the deployed Ingress *ingress-grafana* is showing up its assigned name *grafana* appended with the Tailscale domain *'qilin-beta.ts.net'* your configured from your admin console.
 
 ```shell
-
-
-
-
-
-
 pce-trial@cfe-linux-jumphost:~$ k get ingress -n monitoring
 NAME              CLASS       HOSTS   ADDRESS                     PORTS     AGE
 ingress-grafana   tailscale   *       grafana.qilin-beta.ts.net   80, 443   9d
-
-
-
 ```
 
 The **Machines** tab of the Tailscale admin console shows the newly added device *'grafana'*.
 
 ![](/img/grafana-machine.png)
 
-You can start your browser by pointing to the URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured dashboard, e.g., *Kubernetes/API server*.
+You can now start your browser by pointing to the URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured dashboard, e.g., *Kubernetes/API server*.
 
 ![](/img/grafana-funnel.png)
 
 You can access the exposed *Grafana* service from your mobile phone using the same URL to monitor your MKS cluster.
 
 ![](/img/grafana-mobile.png)
-
-
-
