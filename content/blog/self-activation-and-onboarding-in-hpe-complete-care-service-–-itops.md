@@ -80,7 +80,7 @@ HPE **recommends leveraging the modern dashboard 2.0** for its advanced capabili
 
 There is [a short video on YouTube](https://www.youtube.com/watch?v=MPTq-3EA60E&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY) that walks through the creation and customization of a modern dashboard 2.0 in the HPE Complete Care Service – ITOps command center instance. For details about creating and customizing a modern dashboard 2.0, you can refer to the blog post [Enabling the monitoring of physical devices](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/), section ***Dashboard***.
 
-To learn more about dashboards, see the [HPE OpsRamp Software Dashboards documentation](https://docs.opsramp.com/platform-features/feature-guides/dashboards/dashboard20/).
+To learn more about **dashboard 2.0**, see the [HPE OpsRamp Software Dashboards documentation](https://docs.opsramp.com/platform-features/feature-guides/dashboards/dashboard20/).
 
 ## Summary
 
