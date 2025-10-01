@@ -32,7 +32,7 @@ This blog post walks you through the sequence of steps through a series of **aud
 
 ## Assumptions
 
-In this scenario, it is assumed that the HPE Account Service Manager (ASM) has reached out to you to complete the [HPE Complete Care Service – ITOps request form](https://forms.office.com/pages/responsepage.aspx?id=YSBbEGm2MUuSrCTTBNGV3MNwzZIB3zBHp5x5QZ1HakFURjRaWU1JRTVSSkJHRFlGSUI4SDk0STRBRC4u)  to setup and configure your HPE OpsRamp Software command center instance. 
+In this scenario, it is assumed that the HPE Account Service Manager (ASM) has reached out to you to complete the HPE Complete Care Service – ITOps request form (provided by your HPE ASM)  to setup and configure your HPE OpsRamp Software command center instance. 
 
 ## Prerequisites
 
@@ -76,11 +76,11 @@ Once monitoring tools have collected metrics, the next step in creating actionab
  
 The purpose of using and creating customizable dashboards is to easily identify anomalies so IT operations can identify them and troubleshoot issues quickly.
 
-You can choose from the classic dashboard or dashboard 2.0. HPE **recommends leveraging the modern dashboard 2.0** for its advanced capabilities.
+HPE **recommends leveraging the modern dashboard 2.0** for its advanced capabilities.
 
-There is [a short video on YouTube](https://www.youtube.com/watch?v=MPTq-3EA60E&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY) that walks through the creation and customization of a modern dashboard in the HPE Complete Care Service – ITOps command center instance. For details about creating and customizing a modern dashboard, you can refer to the blog post [Enabling the monitoring of physical devices](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/), section ***Dashboard***.
+There is [a short video on YouTube](https://www.youtube.com/watch?v=MPTq-3EA60E&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY) that walks through the creation and customization of a modern dashboard 2.0 in the HPE Complete Care Service – ITOps command center instance. For details about creating and customizing a modern dashboard 2.0, you can refer to the blog post [Enabling the monitoring of physical devices](https://developer.hpe.com/blog/hybrid-observability-service-%E2%80%93-part-4-enabling-the-monitoring-of-physical-devices-in-hpe-greenlake-flex-solutions/), section ***Dashboard***.
 
-To learn more about dashboards, see the [HPE OpsRamp Software Dashboards documentation](https://docs.opsramp.com/platform-features/feature-guides/dashboards/).
+To learn more about dashboards, see the [HPE OpsRamp Software Dashboards documentation](https://docs.opsramp.com/platform-features/feature-guides/dashboards/dashboard20/).
 
 ## Summary
 
