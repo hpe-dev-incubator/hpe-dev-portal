@@ -152,7 +152,7 @@ Hewlett Packard Enterprise provides all HPE Complete Care Service - ITOps custom
 <p style="font-size: 22px;">Please engage your HPE Account Service Manager (ASM) to guide you through the following steps:</p>
 
 <ol id="content-list">
-      <li>Complete the quick setup questionnaire that your ASM will share with you via email.</li>
+      <li>Complete the quick setup questionnaire that your HPE ASM will share with you via email.</li>
       
       <li>A GSR will then be assigned to provide guidance through the onboarding and customization of your HPE Complete Care Service - ITOps command center. This may include assistance with setting up user access to resources, gateways, auto-discovery and dashboarding, customizing monitoring templates and reports, as well as setting up patching, scripting and alert automation.</li>
     </ol>
