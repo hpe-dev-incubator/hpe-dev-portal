@@ -5,14 +5,41 @@ date: 2025-09-26T20:28:43.991Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - hpe-private-cloud-enterprise
+  - MKS
+  - Tailscale
+  - MetalLB
+  - Tailscale Funnel
+  - Prometheus
+  - Grafana
+  - Kubernetes
+  - Kubernetes monitoring
 ---
+This blog post describes how to expose the Grafana service running in the MKS cluster in HPE Private Cloud Enterprise to the public Internet using Tailscale along with MetalLB. Without the usual pain of networking or complex security settings, the exposed Grafana dashboard is reachable, both inside on-premise environment and from outside. It provides an easy way to monitor the MKS clusters running within HPE Private Cloud Enterprise environment.
+
+ 
 ## Overview
+
+
+[HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
+
+Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
+
+HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
+
+
 
 ## Prerequisites
 
-* An MKS cluster has been provisioned. Please follow up the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](<>) to provision an MKS cluster.
-* kubectl
-* helm
+
+
+Ensure that the following prerequisites are fulfilled:
+
+* An MKS cluster has been provisioned from an HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster.
+
+* The *helm* CLI tool, version 3.12.0 or later.
 
 ## MetalLB and Tailscale
 
@@ -309,3 +336,14 @@ You can now start your browser by pointing to the URL *'grafana.qilin-beta.ts.ne
 You can access the exposed *Grafana* service from your mobile phone using the same URL to monitor your MKS cluster.
 
 ![](/img/grafana-mobile.png)
+
+## Conclusions
+
+, without adding layers of complexity or security risks?opening firewall ports or setting up any reverse proxies, can be used for MKS monitoring   pre-installed and configured in the MKS cluster 
+
+Whether you’re developing new applications, debugging or demoing them, exposing these applications using Tailscale Funnel make it much easy and safe.
+
+
+
+
+There are still quite a few security considerations when applying the Tailscale setup in your production environments. While traffic to the exposed Grafana service is encrypted end-to-end via *HTTPS*, you should further restrict access using Tailscale ACL in the production deployment. You should consider to configure Tailscale to disable Funnel automatically if Tailscale disconnects. As of recent Tailscale update, you can request Tailscale support for using your own domain with Funnel. This is useful for production-quality public links to your exposed services.
