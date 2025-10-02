@@ -10,10 +10,12 @@ tags:
   - Kubernetes
   - HPE Private Cloud Enterprise
   - hpe-private-cloud-enterprise
-  - Input template
+  - File template
   - K3s
   - MKS
   - HPE Morpheus Enterprise
+  - Node type
+  - Automation task and workflow
 ---
 This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within the HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Automation Task and Workflow*, and *Cluster Layout*, a custom cluster layout that incorporates the *K3s* install script can be created. Once configured, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. Like the Morpheus Kubernetes Service (MKS), K3s clusters benefit from a curated set of built-in operations, including kubeconfig download, cluster scaling, K3s version upgrade, and cluster cleanup. These integrated capabilities simplify and streamline cluster management tasks, making K8s administration more efficient and user-friendly in HPE Private Cloud Enterprise. 
 
@@ -222,7 +224,7 @@ The K3s cluster page displays the count of controller and worker nodes, all show
 
 It contains all the details of the K3s cluster provisioning process, starting from the master nodes to the worker nodes.
 
-## Access K3s Cluster
+## Access K3s cluster
 
 * Navigate to **Infrastructure > Clusters**.
 * Click the K3s cluster *k3s-ha*.
@@ -230,7 +232,7 @@ It contains all the details of the K3s cluster provisioning process, starting fr
 
 ![](/img/k3s-ha-cluster-access.png)
 
-It shows both master and worker nodes in the cluster, together with its K8s version and status.
+It shows both master and worker nodes in the cluster, together with their K8s versions and status.
 
 From the cluster's ***Actions*** menu, you can click *Upgrade Cluster* to upgrade the K3s cluster to its new version, e.g., *1.31.13*. 
 
