@@ -134,6 +134,17 @@ Apply the *Secret* to the namespace *tailscale*. This secret will be used to sec
 $ kubectl create ns tailscale
 $ kubectl apply -f tailscale-auth.yaml
 ```
+### Create tag *k8s-operator*
+
+You need then create a tag named *k8s-operator* from the Tailscale admin console. Tailscale uses this tag to authenticate and identify the Tailscale K8s operator being deployed to the MKS cluster. 
+
+1. Navigate to **Settings** -> ** *Tags* tab. Click ***Create tag***.
+
+![](/img/tailscale-create-tag.png)
+
+2. Enter *Tag name* as *k8s-operator* and select *Tag owner* as *autogroup:member*. Click ***Save tag***.
+
+![](/img/tailscale-tag-k8s-operator.png)
 
 ### Generate Tailscale OAuth client
 
@@ -162,8 +173,6 @@ $ helm repo update
 $ helm search repo tailscale
 NAME                            CHART VERSION   APP VERSION     DESCRIPTION
 tailscale/tailscale-operator    1.86.5          v1.86.5         A Helm chart for Tailscale Kubernetes operator
-
-
 
 $ helm upgrade --install tailscale-operator tailscale/tailscale-operator \
 --namespace=tailscale --set-string oauth.clientId=<hidden> \
@@ -222,7 +231,7 @@ NAME                                 DESIRED   CURRENT   READY   AGE
 replicaset.apps/operator-945796556   1         1         1       41s
 ```
 
-When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the tab **Machines** of your Tailscale admin console.
+When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the **Machines** tab of your Tailscale admin console.
 
 ![](/img/tailscale-operator-machine.png)
 
@@ -284,13 +293,17 @@ statefulset.apps/alertmanager-main   3/3      4d
 statefulset.apps/prometheus-k8s      2/2      4d
 ```
 
-Before exposing the *Grafana* service, you need change its service type from *ClusterIP* to *LoadBalancer* using the commmand *'kubectl edit svc  grafana -n monitoring'*. The *Grafana* service then is assigned an *EXTERNAL-IP* IP address, such as *'172.20.40.241'*.
+In order to expose the *Grafana* service, you need change its service type from *ClusterIP* to *LoadBalancer* using the commmand *'kubectl edit svc  grafana -n monitoring'*. The *Grafana* service then is assigned an *EXTERNAL-IP* IP address, such as *'172.20.40.241'*.
 
 ```shell
 $ kubectl get svc grafana -n monitoring
 NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
 grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
 ```
+
+You need then create a tag named *k8s* from the Tailscale admin console. 
+
+![](/img/tailscale-tag-k8s.png)
 
 Then create below *Ingress* YAML manifest file with the annotation *'tailscale.com/funnel: "true"'* and *'ingressClassName: tailscale'*. Apply it to the *monitoring* namespace.
 
