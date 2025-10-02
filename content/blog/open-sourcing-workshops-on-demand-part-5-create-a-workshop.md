@@ -90,7 +90,7 @@ avatar: '/img/SpeakerImages/MattD.jpg'
 replayLink: 'https://hpe-developer-portal.s3.amazonaws.com/Workshops-on-Demand-Coming-Soon-Replay.mp4'
 ```
 
-the following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
+The following file will be used to update the **workshops table** in the database. Let's have a look at what a new entry could look like:
 
 ![](/img/wod-db-go-1.png "GO 101 Workshop DB screenshot")
 
@@ -105,9 +105,9 @@ As a contributor, Matt should be able to provide all the following details.
 * **avatar, role and replayLink** are superseded by entries in the replay table. I will explain later
 * **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop (automatically created at the import of the wod.yml file process)
 * **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
-* **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop
+* **D﻿uration:** All workshops are time bombed. You will define here the time allocated to perform the workshop
 * **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
-* **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails
+* **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embedded in the first emails
 * **session type:** Workshops-on-Demand by default (automatically created at the import of the wod.yml file process)
 
 The following fields are required by the infrastructure. And I will work as the infrastructure Admin with Matt to define them.
@@ -126,17 +126,17 @@ The following fields are required by the infrastructure. And I will work as the 
 * **MonoAppliance:** Some workshops require a single dedicated appliance
 * **MultiAppliance:** Some workshops require multiple sdedicated appliances
 
-*N﻿ote:* B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
+***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
 As Matt will create a simple workshop that does not require any infrastructure but the JupyterHub itself. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
-A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks on a dev env / staging env:
+A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks on a development environment and a staging environment:
 
 ### O﻿n the backend server:
 
-1. ##### Test and validate installation of the new kernel on the staging backend server by:
+1. Test and validate installation of the new kernel on the staging backend server by
 
 * Creating a new branch for this test
 * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
@@ -151,8 +151,7 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 ### O﻿n the api-db server:
 
-Connect to the api-db server 
-As wodadmin user: 
+1. Connect to the api-db server as wodadmin user:
 
 * Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
 * Move to wod-api-db/scripts directory
@@ -217,7 +216,7 @@ Whenever all the scripts are functional and that the necessary actions have been
 
 Testing the workshop: 
 
-* one can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
+* One can leverage the wod-test-action.sh script to test a workshop lifecycle action from deployment (CREATE) to CLEANUP, RESET, or PURGE.
 
   ```shell
   dev@dev3:~$ wod-test-action.sh
