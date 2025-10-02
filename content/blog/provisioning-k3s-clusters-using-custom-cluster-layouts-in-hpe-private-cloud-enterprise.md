@@ -1,5 +1,5 @@
 ---
-title: Provisioning K3S clusters using custom cluster layouts in HPE Private
+title: Provisioning K3s clusters using custom cluster layouts in HPE Private
   Cloud Enterprise
 date: 2025-09-26T15:47:53.318Z
 author: Guoping Jia
@@ -15,7 +15,7 @@ tags:
   - MKS
   - HPE Morpheus Enterprise
 ---
-This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Automation Task and Workflow*, and *Cluster Layout*, a custom cluster layout is created along with the *K3s* install script. Once created, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. Same as the MKS, the deployed K3s clusters benefit from a curated set of built-in operations, including downloading kubeconfig, scaling the clusters, performing K3s upgrades, and cleaning up the clusters. These integrated capabilities streamline essential cluster management tasks, making K8s administration more efficient, easier, and user-friendly in HPE Private Cloud Enterprise. 
+This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within the HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Automation Task and Workflow*, and *Cluster Layout*, a custom cluster layout that incorporates the *K3s* install script can be created. Once configured, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. Like the Morpheus Kubernetes Service (MKS), K3s clusters benefit from a curated set of built-in operations, including kubeconfig download, cluster scaling, K3s version upgrade, and cluster cleanup. These integrated capabilities simplify and streamline cluster management tasks, making K8s administration more efficient and user-friendly in HPE Private Cloud Enterprise. 
 
 ## Overview
 
@@ -26,7 +26,7 @@ This blog post outlines the steps to create a custom cluster layout for provisio
 
 Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise offers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now supports the Morpheus Kubernetes Service (MKS), enabling users to provision and manage MKS clusters using a set of prebuilt MKS cluster layouts based on the native K8s distribution. Additionally, customers can define custom cluster layouts to provision K8s clusters using third-party K8s distribution such as *Amazon EKS Anywhere* or *K3s*. 
 
-The following sections will walk you through the process of creating a custom cluster layout and using it provision an K3s cluster within HPE Private Cloud Enterprise. Once the cluster is provisioned, you will learn how to upgrade it to a newer K3s version using one of the it will show you how to upgrade the K3s cluster to a newer K3s version using one of the supported operations from the cluster's *Actions* menu. These built-in automation features streamline essential cluster operations, making cluster administration faster, easier, and more consistent.
+The following sections will guide you through the process of creating a custom cluster layout and using it to provision an K3s cluster within HPE Private Cloud Enterprise. Once the cluster is provisioned, a curated list of built-in operations becomes available from the cluster's *Actions* menu. Among these, you will learn how to upgrade K3s version using one of the supported actions. These integrated features streamline key cluster management tasks, making cluster administration easier, faster, and more consistent.
 
 
 ## Prerequisites
