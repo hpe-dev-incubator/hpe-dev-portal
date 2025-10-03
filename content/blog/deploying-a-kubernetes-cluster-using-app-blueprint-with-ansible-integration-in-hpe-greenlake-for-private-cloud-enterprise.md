@@ -15,7 +15,7 @@ tags:
   - hpe-private-cloud-enterprise
   - HPE GreenLake Flex Solutions
 ---
-This blog post provides a detailed step-to-step guide on how to deploy a Kubernetes (K8s) cluster using app blueprint with Ansible integration in [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html).
+This blog post provides a detailed step-to-step guide on how to provision a Kubernetes (K8s) cluster using an app blueprint within the HPE Private Cloud Enterprise environment. Together with other key Morpheus components, such as *Ansible Integration* and *Automation Task and Workflow*, an app blueprint for provisioning K8s clusters can be created. Once configured, this app blueprint enables provisioning of K8s clusters directly in the Morpheus platform in HPE Private Cloud Enterprise.
 
 ## Overview
 
@@ -23,49 +23,26 @@ This blog post provides a detailed step-to-step guide on how to deploy a Kuberne
 
 Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). 
 
-HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
+Among a list of key Morpheus components, *Ansible Integration* and *Automation Task and Workflow* can be used for creating an app blueprint for provisioning K8s clusters using Ansible playbooks available from the *GitHub* repository. It automatically creates a list of required virtual machine (VM) instances and deploying K8s on top of these VM instances. This blog post walks through the process of creating an app blueprint and using it for K8s cluster provisioning in HPE Private Cloud Enterprise.
 
 ## Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
 * Access to an HPE Private Cloud Enterprise workspace with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
-* The group named *'CFE Department B Group'* and the network *'Green-Net'* have already been created.
+* The group named *'Department B Group'* and the network *'Green-Net'* have already been created.
 
-## Access to HPE Private Cloud Enterprise
+## Create app blueprint
 
-1. Log in to HPE GreenLake Cloud at *https://common.cloud.hpe.com/*.
-2. Locate an HPE Private Cloud Enterprise workspace and click ***Go to Workspace***.
+To create an app blueprint, you need to log in to HPE GreenLake Cloud and launch the HPE Morpheus Enterprise Dashboard. For a detailed walkthrough of this process, refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/).
 
-![](/img/workspace.png)
+### 1.  Add Ansible integration
 
-3. From the *Getting Started* screen, click ***Find Services***. (If you've already launched HPE GreenLake Flex Solutions, the service will appear under *Recent Services*, from which you can click ***Launch***, then skip to the step *6* below.)
-
-![](/img/get-started.png)
-
-4. From the *Services Catalog*, enter *'HPE GreenLake Flex Solutions'*. Click the ***HPE GreenLake Flex Solutions*** Workloads result.
-
-![](/img/service-catalog.png)
-
-5. From the Workloads ***Overview*** tab, click ***Launch*** to open the HPE GreenLake Flex Solutions. 
-
-![](/img/launch-glc.png)
-
-6. From the Cloud Services ***Dashboard***, locate the *Private Cloud Services* card and ensure that the correct location is selected from the drop-down list.
-
-![](/img/launch-morpheus.png)
-
-7. Click ***Launch HPE Morpheus Enterprise***. The Morpheus Dashboard screen (**Operations** > **Dashboard**) displays.
-
-![](/img/morpheus-dashboard.png)
-
-## Add Ansible integration
-
-1. From Morpheus Dashboard screen, navigate to **Administration** > **Integrations**.
+* From Morpheus Dashboard screen, navigate to **Administration** > **Integrations**.
 
 ![](/img/morpheus-intg.png)
 
-2. Click ***+New Integration*** and select *Ansible*.
+* Click ***+New Integration*** and select *Ansible*.
 
 ![](/img/morpheus-ansible-intg.png)
 
@@ -73,18 +50,18 @@ Ensure that the following prerequisites are fulfilled:
 
 ![](/img/k8s-ansible-intg.png)
 
-We use our sample Ansible playbooks from [GitHub repo](https://github.com/guoping/ansible-k8s.git) to provision an K8s cluster with a single master and a single worker node using the native K8s distribution.
+**Note**. Sample Ansible playbooks are avaible from this [*GitHub* repository](https://github.com/guoping/ansible-k8s.git) for provisioning an K8s cluster with one master and one worker node, using the native K8s distribution.
 
-## Create tasks and workflows
+### 2. Create tasks and workflows
 
-### Create tasks for K8s master and worker
+#### Create tasks for K8s master and worker
 
-1. Navigate to **Library** -> **Automation** -> *Tasks tab* and click ***+Add***.
-2. Enter NAME as 'cfe-k8s-master' and select TYPE as *Ansible Playbook*. Then specify ANSIBLE REPO as 'cfe-ansible-k8s' and PLAYBOOK as 'master.yml'. Click ***SAVE CHANGES***.
+1. Navigate to **Library** -> **Automation** -> *Tasks tab*. Click ***+Add***.
+2. Enter NAME as *cfe-k8s-master* and select TYPE as *Ansible Playbook*. Then specify ANSIBLE REPO as *cfe-ansible-k8s* and PLAYBOOK as *master.yml*. Click ***SAVE CHANGES***.
 
 ![](/img/k8s-master-task.png)
 
-4. Following up the same process to create a task for K8s worker.
+3. Repeat step 1 and step 2 to create a task for K8s worker as name *cfe-k8s-worker*.
 
 ![](/img/k8s-worker-task.png)
 
@@ -95,30 +72,30 @@ We use our sample Ansible playbooks from [GitHub repo](https://github.com/guopin
 
 ![](/img/morpheus-workflow.png)
 
-3. Enter NAME as 'cfe-k8s-master' and select PLATFORM as *Linux*. Then search and select the task 'cfe-k8s-master'. Click ***SAVE CHANGES***.
+3. Enter NAME as *cfe-k8s-master* and select PLATFORM as *Linux*. Then search and select the task *cfe-k8s-master*. Click ***SAVE CHANGES***.
 
 ![](/img/k8s-master-workflow.png)
 
-4. Following up the same process to create a workflow for K8s worker.
+4. Repeat step 1 to 3 to create a workflow for K8s worker as name *cfe-k8s-worker*.
 
 ![](/img/k8s-worker-workflow.png)
 
 ## Create app blueprint
 
-1. Navigate to **Library** -> **Blueprints** -> *App Blueprints Tab*. Click ***+Add***.
+1. Navigate to **Library** -> **Blueprints** -> *App Blueprints* tab. Click ***+Add***.
 2. Enter NAME as *CEF-K8s-Ubuntu* and select TYPE as *Morpheus*. Click ***Next***.
 
 ![](/img/k8s-app-blueprint-summary.png)
 
-3. Click on ***+*** (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as 'App'.
+3. Click on ***+*** (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*.
 
 ![](/img/k8s-app-blueprint-tier-name.png)
 
-4. Click on *App* and edit its CONFIGURATION with NAME as 'CFE-K8s-master' and BOOT ORDER as '0'.
+4. Click on *App* and edit its CONFIGURATION with NAME as *CFE-K8s-master* and BOOT ORDER as *0*.
 
 ![](/img/k8s-app-blueprint-master-config.png)
 
-5. Click on ***+*** again (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as 'App'. Then click on *App* and edit its CONFIGURATION with NAME as 'CFE-K8s-worker' and BOOT ORDER as '1'. Under **Connected Tiers**, select 'CFE-K8s-master'.
+5. Click on ***+*** again (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*. Then click on *App* and edit its CONFIGURATION with NAME as *CFE-K8s-worker* and BOOT ORDER as *1*. Under **Connected Tiers**, select *CFE-K8s-master*.
 
 ![](/img/k8s-app-blueprint-worker-config.png)
 
@@ -130,7 +107,7 @@ We use our sample Ansible playbooks from [GitHub repo](https://github.com/guopin
 
 ![](/img/k8s-app-blueprint-vmware-config.png)
 
-8. Click the added config and configure K8s master instance settings.
+8. Click the added config and configure NAME, DESCRIPTION, LAYOUT, PLAN, VOLUMES, NETWORKS and IMAGE.
 
 ![](/img/k8s-app-blueprint-master.png)
 
