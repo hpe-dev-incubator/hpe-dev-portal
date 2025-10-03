@@ -138,7 +138,7 @@ $ kubectl apply -f tailscale-auth.yaml
 
 You need then create a tag named *k8s-operator* from the Tailscale admin console. Tailscale uses this tag to authenticate and identify the Tailscale K8s operator being deployed to the MKS cluster. 
 
-1. Navigate to **Settings** -> ** *Tags* tab. Click ***Create tag***.
+1. Navigate to **Settings -> ** *Tags* tab. Click ***Create tag***.
 
 ![](/img/tailscale-create-tag.png)
 
@@ -301,9 +301,19 @@ NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
 grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
 ```
 
+You can now expose the *Grafana* service to the public Internet using [Tailscale Funnel](https://tailscale.com/kb/1223/funnel) together with K8s *Ingress*. 
+
+Tailscale Funnel exposes a local service running in the MKS to the Internet through a unique *Funnel URL* with the format *'<service-name>.<tailscale domain>'. When accessing the Funnel URL, it sends a request to the Funnel relay server. Then the Funnel relay server establishes an encrypted TCP tunnel, which protects the shared data and hides the IP details of the local service. The Funnel relay server cannot decrypt data sent over the TCP proxy. 
+
+Tailscale Funnel is disabled by default. You can use the Tailscale CLI command *'tailscale funnel'* to enable it. The Tailscale CLI is installed as part of your Tailscale client installation.
+ 
 You need then create a tag named *k8s* from the Tailscale admin console. 
 
 ![](/img/tailscale-tag-k8s.png)
+
+You need also add a node attribute, under **Access controls -> ** *Node attributes* tab, from the admin console.
+
+![](/img/tailscale-node-attribute-k8s.png)
 
 Then create below *Ingress* YAML manifest file with the annotation *'tailscale.com/funnel: "true"'* and *'ingressClassName: tailscale'*. Apply it to the *monitoring* namespace.
 
@@ -330,7 +340,7 @@ $ kubectl apply -f ingress-grafana.yaml
 ingress.networking.k8s.io/ingress-grafana created
 ```
 
-After few minutes, the deployed Ingress *ingress-grafana* is showing up its assigned name *grafana* appended with the Tailscale domain *'qilin-beta.ts.net'* your configured from your admin console.
+After few minutes, the deployed Ingress *ingress-grafana* is showing up its assigned Funnel URL *grafana.qilin-beta.ts.net*. 
 
 ```shell
 pce-trial@cfe-linux-jumphost:~$ k get ingress -n monitoring
@@ -342,11 +352,11 @@ The **Machines** tab of the Tailscale admin console shows the newly added device
 
 ![](/img/grafana-machine.png)
 
-You can now start your browser by pointing to the URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured dashboard, e.g., *Kubernetes/API server*.
+You can now start your browser by pointing to the Funnel URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured dashboard, e.g., *Kubernetes/API server*.
 
 ![](/img/grafana-funnel.png)
 
-You can access the exposed *Grafana* service from your mobile phone using the same URL to monitor your MKS cluster.
+You can access the exposed *Grafana* service from your mobile phone using the same Funnel URL to monitor your MKS cluster.
 
 ![](/img/grafana-mobile.png)
 
