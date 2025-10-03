@@ -16,7 +16,7 @@ tags:
   - Kubernetes
   - Kubernetes monitoring
 ---
-This blog post describes how to expose the *Grafana* service, running in an MKS cluster within HPE Private Cloud Enterprise, to the public Internet using Tailscale in combination with MetalLB. Without the usual complexity of networking or intricate security configurations, the exposed *Grafana* dashboard becomes accessible both from within the on-premises environment and externally. This approach offers a simple and effective way to monitor MKS clusters running in HPE Private Cloud Enterprise environment.
+This blog post describes how to expose the *Grafana* service, running in an MKS cluster within HPE Private Cloud Enterprise, to the public Internet using *Tailscale* in combination with *MetalLB*. Without the usual complexity of networking or intricate security configurations, the exposed *Grafana* dashboard becomes accessible both from within the on-premises environment and externally. This approach offers a simple and effective way to monitor MKS clusters running in HPE Private Cloud Enterprise environment.
 
  
 ## Overview
@@ -24,9 +24,11 @@ This blog post describes how to expose the *Grafana* service, running in an MKS 
 
 [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
 
-Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
 
-HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that support a variety of K8s versions and cluster types. These cluster layouts provision MKS clusters using the native K8s distribution, streamlining and accelerating deployment. This blog post walks through the process of creating an MKS cluster using one of these preconfigured cluster layouts.
+
+Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters with built-in automation and observability capabilities. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to learn more about provisioning MKS clusters in HPE Private Cloud Enterprise.
+
+Networking is one of the key challenges for applications deployed in MKS clusters. How can these applications be made accessbile, both within the HPE Private Cloud Enterprise environment and from external networks? The following sections will describe how to expose services running in MKS cluster within HPE Private Cloud Enterprise to the public Internet using *Tailscale* and *MetalLB*, without introducing additional complexity or security overhead. 
 
 
 
@@ -37,21 +39,23 @@ HPE Morpheus Enterprise provides a set of prebuilt MKS cluster layouts that supp
 Ensure that the following prerequisites are fulfilled:
 
 * An MKS cluster has been provisioned from an HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster.
+* The *kubectl* CLI tool, together with the *kubeconfig* file for accessing the MKS cluster.
 
 * The *helm* CLI tool, version 3.12.0 or later.
 
-## MetalLB and Tailscale
+## *MetalLB* and *Tailscale*
 
-[MetalLB](https://metallb.io/) is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing MetalLB, it supports the LoadBalancer services by assigning external IPs to services within the K8s clusters. This makes the applications easily reachable within your private network, without needing any special hardware or cloud services. 
+[*MetalLB*](https://metallb.io/) is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing *MetalLB*, it supports the *LoadBalancer* type services by assigning external IPs to services within the K8s clusters. This makes the applications easily reachable within your private network, without needing any special hardware or cloud services. 
 
-[Tailscale](https://tailscale.com/) is a mesh VPN service that uses the [WireGuiad](https://www.wireguard.com/) protocol to securely connects devices across different networks. Instead of routing traffic through a central server like traditional VPNs, Tailscale creates encrypted peer-to-peer connections between devices. These connections form a private network known as a *tailnet*, where each device receives a unique Tailscale IP address for direct communication. A tailnet provides a secure, interconnected space of users, devices, and resources, all managed through Tailscale's admin console, where you can configure access controls, DNS settings, TLS certificates, and more.   
+[*Tailscale*](https://tailscale.com/) is a mesh virtual private network (VPN) service that uses the [WireGuard](https://www.wireguard.com/) protocol to securely connects devices across different networks. Instead of routing traffic through a central server like traditional VPNs, *Tailscale* creates encrypted peer-to-peer connections between devices. These connections form a private network called *tailnet*, where each device receives a unique *Tailscale* IP address for direct communication. A tailnet provides a secure, interconnected space of users, devices, and resources, all managed through Tailscale's admin console, where you can configure access controls, DNS settings, TLS certificates, and more.   
 
-## Set up the load balancer with MetalLB
+By leveraging the external IP addresses assigned by *MetalLB* to LoadBalancer-type services within the local private network, *Tailscale* securely exposes these services through publicly accessible URLs, without direct service IP address exposure.
 
-You can install MetalLB and set up the load balancer in the MKS cluster by following the instructions found in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
+## Set up the load balancer with *MetalLB*
 
-H﻿ere is the deployed MetalLB to the namespace *'metallb-system'* in the MKS cluster *mks-test*:
+You can install *MetalLB* and set up the load balancer in the MKS cluster by following the instructions found in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
+
+H﻿ere is the deployed *MetalLB* to the namespace *'metallb-system'* in the MKS cluster *mks-test*:
 
 ```shell
 $ kubectl get all -n metallb-system
@@ -88,21 +92,21 @@ NAME           IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 cfe-l2advert   ["cfe-pool"]
 ```
 
-## Deploy Tailscale
+## Deploy *Tailscale*
 
-### Install Tailscale client
+### Install *Tailscale* client
 
-In order to use Tailscale, you need first install the Tailscale client on your device. The Tailscale client is open source and available for various platforms, such as *Linux*, *Windows*, *MacOS*, *iOS*, *Android*, etc. It's used, via its admin console, to connect various devices securely to your private Tailscale network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
+In order to use *Tailscale*, you need first install the *Tailscale* client on your device. The *Tailscale* client is open source and available for various platforms, such as *Linux*, *Windows*, *MacOS*, *iOS*, *Android*, etc. It's used, via its admin console, to connect various devices securely to your private *Tailscale* network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
 
-Here is the admin console of my Windows Tailscale client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a Tailscale account by choosing GitHub as the Identity Provider. You can integrate your Tailscale account using your own identity providers for secure SSO login and multi-factor authentication. 
+Here is the admin console of my Windows *Tailscale* client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a *Tailscale* account by choosing GitHub as the Identity Provider. You can integrate your *Tailscale* account using your own identity providers for secure SSO login and multi-factor authentication. 
 
 ![](/img/tailscale-machines.png)
 
 My Windows laptop joins the tailnet, a private network linked to my GitHub identity. 
 
-### Generate Tailscale auth key
+### Generate *Tailscale* auth key
 
-After installing Tailscale client, you need first generate an auth key from the Tailscale admin console.
+After installing *Tailscale* client, you need first generate an auth key from the *Tailscale* admin console.
 
 1. Navigate to **Settings** -> **Keys**. Click ***Generate auth key***.
 
@@ -136,7 +140,7 @@ $ kubectl apply -f tailscale-auth.yaml
 ```
 ### Create tag *k8s-operator*
 
-You need then create a tag named *k8s-operator* from the Tailscale admin console. Tailscale uses this tag to authenticate and identify the Tailscale K8s operator being deployed to the MKS cluster. 
+You need then create a tag named *k8s-operator* from the *Tailscale* admin console. *Tailscale* uses this tag to authenticate and identify the *Tailscale* K8s operator being deployed to the MKS cluster. 
 
 1. Navigate to **Settings -> ** *Tags* tab. Click ***Create tag***.
 
@@ -146,9 +150,9 @@ You need then create a tag named *k8s-operator* from the Tailscale admin console
 
 ![](/img/tailscale-tag-k8s-operator.png)
 
-### Generate Tailscale OAuth client
+### Generate *Tailscale* OAuth client
 
-You need then generate an OAuth client from the Tailscale admin console.
+You need then generate an OAuth client from the *Tailscale* admin console.
 
 1. Navigate to **Settings** -> **OAuth clients**. Click ***Generate OAuth client***.
 
@@ -162,9 +166,9 @@ You need then generate an OAuth client from the Tailscale admin console.
 
 ![](/img/tailscale-oauth-client-details.png)
 
-### Deploy Tailscale K8s operator
+### Deploy *Tailscale* K8s operator
 
-You can now install the Tailscal operator to the namespace *tailscale* of the MKS cluster using *Helm* along with the generated Tailscale OAuth client, its *Client ID* and *Client secret*. 
+You can now install the Tailscal operator to the namespace *tailscale* of the MKS cluster using *Helm* along with the generated *Tailscale* OAuth client, its *Client ID* and *Client secret*. 
 
 ```shell
 $ helm repo add tailscale https://pkgs.tailscale.com/helmcharts
@@ -217,7 +221,7 @@ $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 ```
 
-Check the Tailscale operator deployment details. 
+Check the *Tailscale* operator deployment details. 
 
 ```shell
 $ kubectl get all -n tailscale
@@ -231,7 +235,7 @@ NAME                                 DESIRED   CURRENT   READY   AGE
 replicaset.apps/operator-945796556   1         1         1       41s
 ```
 
-When the Tailscale operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the **Machines** tab of your Tailscale admin console.
+When the *Tailscale* operator has been installed and running, you should see a new machine named *'tailscale-operator'* under the **Machines** tab of your Tailscale admin console.
 
 ![](/img/tailscale-operator-machine.png)
 
@@ -303,11 +307,11 @@ grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
 
 You can now expose the *Grafana* service to the public Internet using [Tailscale Funnel](https://tailscale.com/kb/1223/funnel) together with K8s *Ingress*. 
 
-Tailscale Funnel exposes a local service running in the MKS to the Internet through a unique *Funnel URL* with the format *'<service-name>.<tailscale domain>'. When accessing the Funnel URL, it sends a request to the Funnel relay server. Then the Funnel relay server establishes an encrypted TCP tunnel, which protects the shared data and hides the IP details of the local service. The Funnel relay server cannot decrypt data sent over the TCP proxy. 
+*Tailscale* Funnel exposes a local service running in the MKS to the Internet through a unique *Funnel URL* with the format *'<service-name>.<tailscale domain>'. When accessing the Funnel URL, it sends a request to the Funnel relay server. Then the Funnel relay server establishes an encrypted TCP tunnel, which protects the shared data and hides the IP details of the local service. The Funnel relay server cannot decrypt data sent over the TCP proxy. 
 
-Tailscale Funnel is disabled by default. You can use the Tailscale CLI command *'tailscale funnel'* to enable it. The Tailscale CLI is installed as part of your Tailscale client installation.
+*Tailscale* Funnel is disabled by default. You can use the *Tailscale* CLI command *'tailscale funnel'* to enable it. The *Tailscale* CLI is installed as part of your Tailscale client installation.
  
-You need then create a tag named *k8s* from the Tailscale admin console. 
+You need then create a tag named *k8s* from the *Tailscale* admin console. 
 
 ![](/img/tailscale-tag-k8s.png)
 
@@ -348,7 +352,7 @@ NAME              CLASS       HOSTS   ADDRESS                     PORTS     AGE
 ingress-grafana   tailscale   *       grafana.qilin-beta.ts.net   80, 443   9d
 ```
 
-The **Machines** tab of the Tailscale admin console shows the newly added device *'grafana'*.
+The **Machines** tab of the *Tailscale* admin console shows the newly added device *'grafana'*.
 
 ![](/img/grafana-machine.png)
 
@@ -364,9 +368,9 @@ You can access the exposed *Grafana* service from your mobile phone using the sa
 
 , without adding layers of complexity or security risks?opening firewall ports or setting up any reverse proxies, can be used for MKS monitoring   pre-installed and configured in the MKS cluster 
 
-Whether you’re developing new applications, debugging or demoing them, exposing these applications using Tailscale Funnel make it much easy and safe.
+Whether you’re developing new applications, debugging or demoing them, exposing these applications using *Tailscale* Funnel make it much easy and safe.
 
 
 
 
-There are still quite a few security considerations when applying the Tailscale setup in your production environments. While traffic to the exposed Grafana service is encrypted end-to-end via *HTTPS*, you should further restrict access using Tailscale ACL in the production deployment. You should consider to configure Tailscale to disable Funnel automatically if Tailscale disconnects. As of recent Tailscale update, you can request Tailscale support for using your own domain with Funnel. This is useful for production-quality public links to your exposed services.
+There are still quite a few security considerations when applying the *Tailscale* setup in your production environments. While traffic to the exposed Grafana service is encrypted end-to-end via *HTTPS*, you should further restrict access using *Tailscale* ACL in the production deployment. You should consider to configure *Tailscale* to disable Funnel automatically if *Tailscale* disconnects. As of recent *Tailscale* update, you can request *Tailscale* support for using your own domain with Funnel. This is useful for production-quality public links to your exposed services.
