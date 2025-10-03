@@ -6,7 +6,6 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake-for-private-cloud-enterprise
   - Kubernetes
   - HPE Morpheus Enterprise
   - App Blueprints
@@ -14,6 +13,7 @@ tags:
   - Ansible integration
   - hpe-private-cloud-enterprise
   - HPE GreenLake Flex Solutions
+  - Automation task and workflow
 ---
 This blog post provides a detailed step-to-step guide on how to provision an Kubernetes (K8s) cluster using an app blueprint within the HPE Private Cloud Enterprise environment. Together with other key Morpheus components, such as *Ansible Integration* and *Automation Task and Workflow*, an app blueprint for provisioning K8s clusters can be created. Once configured, this app blueprint enables provisioning of K8s clusters directly in the Morpheus platform in HPE Private Cloud Enterprise.
 
