@@ -16,7 +16,7 @@ tags:
   - Kubernetes
   - Kubernetes monitoring
 ---
-This blog post describes how to expose the Grafana service running in the MKS cluster in HPE Private Cloud Enterprise to the public Internet using Tailscale along with MetalLB. Without the usual pain of networking or complex security settings, the exposed Grafana dashboard is reachable, both inside on-premise environment and from outside. It provides an easy way to monitor the MKS clusters running within HPE Private Cloud Enterprise environment.
+This blog post describes how to expose the *Grafana* service, running in an MKS cluster within HPE Private Cloud Enterprise, to the public Internet using Tailscale in combination with MetalLB. Without the usual complexity of networking or intricate security configurations, the exposed *Grafana* dashboard becomes accessible both from within the on-premises environment and externally. This approach offers a simple and effective way to monitor MKS clusters running in HPE Private Cloud Enterprise environment.
 
  
 ## Overview
