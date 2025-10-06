@@ -17,7 +17,7 @@ Updated: October 2019
 
 ## Scope of this article
 
-This article describes the Redfish Event Subscription service implemented in HPE iLO 5 with a firmware version of 1.40 or later. The implementation of this service in iLO 4 may differ slightly.
+This article describes the Redfish Event Subscription service implemented in HPE iLO 5 with a firmware version of 1.40 or later. The implementation of this service in iLO 4 and 6 may differ slightly.
 
 The Event Receiver program presented in this blog is an alternative to the DMTF <a href="https://github.com/DMTF/Redfish-Event-Listener" target="_blank">Redfish-Event-Listener tool</a>.
 
