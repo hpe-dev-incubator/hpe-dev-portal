@@ -1,7 +1,7 @@
 ---
 title: Exposing Grafana service using Tailscale for MKS monitoring in HPE
   Private Cloud Enterprise
-date: 2025-09-26T20:28:43.991Z
+date: 2025-10-03T20:28:43.991Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
