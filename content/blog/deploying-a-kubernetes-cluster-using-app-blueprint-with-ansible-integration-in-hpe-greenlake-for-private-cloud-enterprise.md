@@ -1,7 +1,7 @@
 ---
 title: Provisioning Kubernetes clusters using app blueprint with Ansible
   integration in HPE Private Cloud Enterprise
-date: 2025-08-12T07:25:49.461Z
+date: 2025-10-03T07:25:49.461Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -50,7 +50,7 @@ To create an app blueprint, you need to log in to HPE GreenLake Cloud and launch
 
 ![](/img/k8s-ansible-intg.png)
 
-***Note***: Sample Ansible playbooks are avaible from this [*GitHub* repository](https://github.com/guoping/ansible-k8s.git) for provisioning an K8s cluster with one master and one worker node, using the native K8s distribution.
+***Note***: Sample Ansible playbooks are avaible from this [*GitHub* repository](https://github.com/guopingjia/ansible-k8s) for provisioning an K8s cluster with one master and one worker node, using the native K8s distribution.
 
 ### 2. Create tasks and workflows
 
