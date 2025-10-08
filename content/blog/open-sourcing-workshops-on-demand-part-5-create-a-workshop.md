@@ -124,7 +124,7 @@ The following fields are required by the infrastructure. And I will work as the 
 * **ReplayLink:** YouTube link of the recorded video to be used as a replay
 * **Replayid:** This ID is used to link the correct video with the associated workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
 * **MonoAppliance:** Some workshops require a single dedicated appliance
-* **MultiAppliance:** Some workshops require multiple sdedicated appliances
+* **MultiAppliance:** Some workshops require multiple dedicated appliances
 
 ***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
@@ -136,28 +136,29 @@ A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform sever
 
 ### O﻿n the backend server:
 
-1. Test and validate installation of the new kernel on the staging backend server by
+Test and validate installation of the new kernel on the staging backend server by:
 
-* Creating a new branch for this test
-* M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
-* Validating the changes by testing a new backend install process
-* Pushing the changes to the github repo
+1. Creating a new branch for this test
+2. M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
+3. Validating the changes by testing a new backend install process
 
-2. Create a user for the workshop developer on the test/dev and staging backend servers
-3. Provide to the developer the necessary information to connect to the test/dev and staging backend servers
-4. Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
-5. Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
-6. When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
+Pushing the changes to the github repo:
+
+1. Create a user for the workshop developer on the test/dev and staging backend servers
+2. Provide to the developer the necessary information to connect to the test/dev and staging backend servers
+3. Copy in the developer's home folder a workshop template containing examples of introduction, conclusion, and lab notebooks, allowing him to start his work
+4. Give the developer the wod-notebook repo url for him to fork the repo and work locally on his machine (when the workshop does not require an appliance but just a Jupyter kernel for instance)
+5. When ready, a pull request can be made. The admin can then review and accept it. The admin can then perform the necessary steps required to prepare the infrastructure to host the workshop
 
 ### O﻿n the api-db server:
 
-1. Connect to the api-db server as wodadmin user:
+Connect to the api-db server as wodadmin user:
 
-* Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
-* Move to wod-api-db/scripts directory
-* Update the database by running the wod-update-db.sh script.
+1. Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
+2. Move to wod-api-db/scripts directory
+3. Update the database by running the wod-update-db.sh script.
 
-This is will update the Database workshops table with the new workshop's entry.
+This script will update the Database workshops table with the new workshop's entry.
 
 A﻿s the developer of the Workshops-on-Demand content, Matt had to perform several tasks:
 
