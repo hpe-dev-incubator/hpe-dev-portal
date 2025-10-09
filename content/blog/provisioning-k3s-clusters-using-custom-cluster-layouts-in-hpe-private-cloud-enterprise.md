@@ -17,7 +17,7 @@ tags:
   - Node type
   - Automation task and workflow
 ---
-This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within the HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Automation Task and Workflow*, and *Cluster Layout*, a custom cluster layout that incorporates the *K3s* install script can be created. Once configured, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. 
+This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within the HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Task*, *Workflow*, and *Cluster Layout*, a custom cluster layout that incorporates the *K3s* install script can be created. Once configured, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. 
 
 Like the Morpheus Kubernetes Service (MKS), K3s clusters benefit from a curated set of built-in operations, including kubeconfig download, cluster scaling, K3s version upgrade, and cluster cleanup. These integrated capabilities simplify and streamline cluster management tasks, making K8s administration more efficient and user-friendly in HPE Private Cloud Enterprise. 
 
@@ -30,7 +30,7 @@ Like the Morpheus Kubernetes Service (MKS), K3s clusters benefit from a curated 
 
 Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise offers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now supports the Morpheus Kubernetes Service (MKS), enabling users to provision and manage MKS clusters using a set of prebuilt MKS cluster layouts based on the native K8s distribution. To learn more about provisioning MKS clusters in HPE Private Cloud Enterprise, refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/). Additionally, users can define custom cluster layouts to provision K8s clusters using third-party K8s distributions such as *Amazon EKS Anywhere* or *K3s*. 
 
-The following sections will guide you through the process of creating a custom cluster layout and using it to provision an K3s cluster within HPE Private Cloud Enterprise. Once the cluster is provisioned, a curated list of built-in operations becomes available from the cluster's *Actions* menu. Among these, you will learn how to upgrade K3s version using one of the supported actions. These integrated features streamline key cluster management tasks, making cluster administration easier, faster, and more consistent.
+The following sections will guide you through the process of creating a custom cluster layout and using it to provision a K3s cluster within HPE Private Cloud Enterprise. Once the cluster is provisioned, a curated list of built-in operations becomes available from the cluster's *Actions* menu. Among these, you will learn how to upgrade K3s version using one of the supported actions. These integrated features streamline key cluster management tasks, making cluster administration easier, faster, and more consistent.
 
 
 ## Prerequisites
@@ -42,7 +42,7 @@ Ensure that the following prerequisites are fulfilled:
 * Access to an HPE Private Cloud Enterprise workspace with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
 * The group named *'Department B Group'* and the network *'Green_network'* have already been created.
 * HPE Morpheus Enterprise running *version 8.0.5* or higher.
-* The MKS feature is enabled in HPE Private Cloud Enterprise. You can confirm the presence of the *Clusters* menu from ***Infrastructure*** tab.
+* The MKS feature is enabled in HPE Private Cloud Enterprise. You can confirm the presence of the *Clusters* menu from the ***Infrastructure*** tab.
 
 ## Create custom cluster layout
 
@@ -50,23 +50,23 @@ To create a custom cluster layout, you need to log in to *HPE GreenLake Cloud* a
  
 ### 1. Create node types
 
-From the HPE Morpheus Enterprise **Dashboard**, follow the steps below to create node types for both K3s master and worker nodes.
+From the HPE Morpheus Enterprise **Dashboard**, perform the following steps to create node types for both the K3s master and worker nodes.
 
-#### Create an K3s primary master node type
+#### Create a K3s primary master node type
 
 * Navigate to **Library > Blueprints > ** *Node Types* tab. Click ***+Add***.
 * Enter NAME as *k3s-primary-master*, choose *Virtual Image* option and select VM IMAGE as *Morpheus Ubuntu 20.04 20250218 (vmdk) - 1178*. Click ***Save changes***.
 
 ![](/img/k3s-node-type-primary-master.png)
 
-#### Create an K3s secondary master node type
+#### Create a K3s secondary master node type
 
 * Navigate to **Library > Blueprints > ** *Node Types* tab. Click ***+Add***.
 * Enter NAME as *k3s-secondary-master*, choose *Virtual Image* option and select VM IMAGE as *Morpheus Ubuntu 20.04 20250218 (vmdk) - 1178*. Click ***Save changes***.
 
 ![](/img/k3s-node-type-secondary-master.png)
 
-#### Create an K3s worker node type
+#### Create a K3s worker node type
 
 * Navigate to **Library > Blueprints > ** *Node Types* tab. Click ***+Add***.
 * Enter NAME as *k3s worker*, choose *Virtual Image* option and select VM IMAGE as *Morpheus Ubuntu 20.04 20250218 (vmdk) - 1178*. Click ***Save changes***.
@@ -131,7 +131,7 @@ From the HPE Morpheus Enterprise **Dashboard**, follow the steps below to create
 #### Create an input for K3s cluster Classless Inter-Domain Routing (CIDR)
 
 * Navigate to **Library > Options > ** *Inputs* tab. Click ***+Add***.
-* Enter NAME as *K3s Cluster CIDR* and FIELD NAME as *k3sclustercidr*, set REQUIRE FIELD and HELP BLOCK, and select TYPE as *Test* with LABEL as *Cluster CIDR*. Click ***Save changes***.
+* Enter NAME as *K3s Cluster CIDR* and FIELD NAME as *k3sclustercidr*, set REQUIRE FIELD and HELP BLOCK, and select TYPE as *Text* with LABEL as *Cluster CIDR*. Click ***Save changes***.
 
 ![](/img/input-k3s-cluster-cidr.png)
 
@@ -146,12 +146,12 @@ From the HPE Morpheus Enterprise **Dashboard**, follow the steps below to create
 
 #### Create an automation task using K3s install script
 
-* Navigate to **Library > Automation\> ** *Tasks* tab. Click ***+Add***.
+* Navigate to **Library > Automation > ** *Tasks* tab. Click ***+Add***.
 * Enter NAME as *K3s HA Install Script*, select TYPE as *Shell Script*, choose *SUDO* option, select SOURCE as *Local*, and provide CONTENT. Click ***Save changes***.
 
 ![](/img/k3s-install-task.png)
 
-**Note:** The sample K3s HA install script is available from [*GitHub* repository](https://github.com/GuopingJia/k3s-demo/blob/main/K3s-Install-Script.sh).
+**Note:** The sample K3s HA install script is available from the [*GitHub* repository](https://github.com/GuopingJia/k3s-demo/blob/main/K3s-Install-Script.sh).
 
 #### Create an automation workflow
 
@@ -162,9 +162,9 @@ From the HPE Morpheus Enterprise **Dashboard**, follow the steps below to create
 
 ### 6. Create K3s custom cluster layouts
 
-The following section outlines the creation of two custom cluster layouts: one for an K3s high-availability (HA) setup and another for a single-master K3s configuration.
+The following section outlines the creation of two custom cluster layouts: one for a K3s high-availability (HA) setup and another for a single-master K3s configuration.
 
-#### Create an K3s HA cluster layout
+#### Create a K3s HA cluster layout
 
 * Navigate to **Library** > **Blueprints** > *Cluster Layouts* tab. Click ***+Add***.
 * Enter NAME as *K3S HA Cluster*, select CLUSTER TYPE as *Kubernetes Cluster* and TECHNOLOGY as *VMware*, search and add **Inputs**, **Master Nodes** and **Worker Nodes**. Click ***Save changes***.
@@ -178,9 +178,9 @@ The following section outlines the creation of two custom cluster layouts: one f
 
 ![](/img/k3s-single-master-cluster-layout.png)
 
-## Provision an K3s cluster
+## Provision a K3s cluster
 
-The following section outlines the process to provision an K3s cluster using the custom cluster layout *K3S HA Cluster*. 
+The following section outlines the process to provision a K3s cluster using the custom cluster layout *K3S HA Cluster*. 
 
 * Navigate to **Infrastructure > Clusters**. Click ***+Add Cluster***.
 * Select *Cluster Type* as *KUBERNETES CLUSTER*. Click ***Next***.
