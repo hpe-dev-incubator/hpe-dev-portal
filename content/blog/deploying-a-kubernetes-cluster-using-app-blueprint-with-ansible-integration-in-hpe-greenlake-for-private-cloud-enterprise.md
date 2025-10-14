@@ -15,21 +15,21 @@ tags:
   - HPE GreenLake Flex Solutions
   - Automation task and workflow
 ---
-This blog post provides a detailed step-to-step guide on how to provision an Kubernetes (K8s) cluster using an app blueprint within the HPE Private Cloud Enterprise environment. Together with other key Morpheus components, such as *Ansible Integration* and *Automation Task and Workflow*, an app blueprint for provisioning K8s clusters can be created. Once configured, this app blueprint enables provisioning of K8s clusters directly in the Morpheus platform in HPE Private Cloud Enterprise.
+This blog post provides a detailed step-by-step guide on how to provision a Kubernetes (K8s) cluster using an app blueprint within the HPE Private Cloud Enterprise environment. Together with other key Morpheus components, such as *Ansible Integration* and *Automation Task and Workflow*, an app blueprint for provisioning K8s clusters can be created. Once configured, this app blueprint enables the provisioning of K8s clusters directly in the Morpheus platform in HPE Private Cloud Enterprise.
 
 ## Overview
 
 [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
 
-Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). 
+Through integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). 
 
-Among a list of key Morpheus components, *Ansible Integration* and *Automation Task and Workflow* can be used for creating an app blueprint for provisioning K8s clusters using Ansible playbooks available from the *GitHub* repository. It automatically creates a list of required virtual machine (VM) instances and deploying K8s on top of these VM instances. This blog post walks through the process of creating an app blueprint and using it for K8s cluster provisioning in HPE Private Cloud Enterprise.
+Among the key Morpheus components, *Ansible Integration* and *Automation Task and Workflow* can be used to create an app blueprint for provisioning K8s clusters using Ansible playbooks available from the *GitHub* repository. It automatically creates a list of required virtual machine (VM) instances and deploys K8s on top of these VM instances. This blog post walks through the process of creating an app blueprint and using it for K8s cluster provisioning in HPE Private Cloud Enterprise.
 
 ## Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
-* Access to an HPE Private Cloud Enterprise workspace with the '*Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
+* Access to an HPE Private Cloud Enterprise workspace with the *'Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
 * The group named *'CFE Department B Group'* and the network *'Green-Net'* have already been created.
 
 ## Create app blueprint
@@ -46,11 +46,11 @@ To create an app blueprint, you need to log in to HPE GreenLake Cloud and launch
 
 ![](/img/morpheus-ansible-intg.png)
 
-3. Enter NAME as 'cfe-ansible-k8s' and specify ANSIBLE GIT URL, DEFAULT BRANCH, PLAYBOOKS PATH, ROLES PATH, GROUP VARAIABLES PATH, DESCRIPTION, and HOST VARIABLES PATH. Click ***SAVE CHANGES***.
+3. Enter NAME as 'cfe-ansible-k8s' and specify ANSIBLE GIT URL, DEFAULT BRANCH, PLAYBOOKS PATH, ROLES PATH, GROUP VARIABLES PATH, DESCRIPTION, and HOST VARIABLES PATH. Click ***SAVE CHANGES***.
 
 ![](/img/k8s-ansible-intg.png)
 
-***Note***: Sample Ansible playbooks are avaible from this [*GitHub* repository](https://github.com/guopingjia/ansible-k8s) for provisioning an K8s cluster with one master and one worker node, using the native K8s distribution.
+***Note***: Sample Ansible playbooks are available from this [*GitHub* repository](https://github.com/guopingjia/ansible-k8s) for provisioning a K8s cluster with one master and one worker node, using the native K8s distribution.
 
 ### 2. Create tasks and workflows
 
@@ -123,7 +123,7 @@ To create an app blueprint, you need to log in to HPE GreenLake Cloud and launch
 
 ## Deploy K8s cluster
 
-Follow steps below to provision an K8s cluster using the app blueprint *CFE-K8s-Ubuntu*:
+Perform the following steps to provision a K8s cluster using the app blueprint *CFE-K8s-Ubuntu*:
 
 1. Navigate to **Provisioning** -> **Apps**. Click ***+Add*** 
 2. Select blueprint *CFE-K8S-UBUNTU*. Click ***Next***.
@@ -158,29 +158,29 @@ The K8s cluster *CFE-K8s* has been provisioned using the app blueprint *CFE-K8s-
 
 ## Access K8s cluster
 
-Provision an Ubuntu VM instance with *kubeclt* and *helm* installed, and set it up as jumphost by adding a *DNAT* rule to the *Router*. 
+Provision an Ubuntu VM instance with *kubectl* and *helm* installed, and set it up as jumphost by adding a *DNAT* rule to the *Router*. 
 
 ![](/img/k8s-jumpserver.png)
 
-Copy the *kubeconfig* file of the K8s cluster 'CFE-K8s' from its master node at IP *172.20.20.116*, and save it locally as *config*. You can then access the cluster 'CFE-K8s' using the command *'kubectl --kubeconfig=./config get nodes'.
+Copy the *kubeconfig* file of the K8s cluster 'CFE-K8s' from its master node at IP *172.20.20.116*, and save it locally as *config*. You can then access the cluster 'CFE-K8s' using the command *'kubectl --kubeconfig=./config get nodes'*.
 
 ![](/img/k8s-access.png)
 
 ## Delete K8s cluster
 
-Follow steps below to remove the K8s cluster *CFE-K8s* once it's no longer required.
+Perform the following steps to remove the K8s cluster *CFE-K8s* once it is no longer required.
 
 1. Navigate to **Provisioning**-> **Apps**.
 2. Select *CFE-K8s* and click ***DELETE***.
 
 ![](/img/k8s-delete.png)
 
-After few minutes, the cluster is successfully deleted, and all associated VM instances are removed.
+After a few minutes, the cluster is successfully deleted, and all associated VM instances are removed.
 
 ## Conclusion
 
-This blog post provided a step-by-step walkthrough for provisioning an K8s cluster using an app blueprint integrated with Ansible in the HPE Private Cloud Enterprise environment. With the support of the Morpheus Kubernetes Service (MKS), HPE Private Cloud Enterprise now empowers users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
+This blog post provided a step-by-step walkthrough for provisioning a K8s cluster using an app blueprint integrated with Ansible in the HPE Private Cloud Enterprise environment. With the support of the Morpheus Kubernetes Service (MKS), HPE Private Cloud Enterprise now empowers users to deploy and manage K8s clusters with built-in automation and observability capabilities. 
 
-You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) for a guide to provisioning MKS clusters using a list of predefined MKS cluster layouts. Whether you prefer the flexibility of app blueprints or the streamlined structure of cluster layouts, HPE Private Cloud Enterprise gives you the freedom to choose the approach that best fits your operational needs.
+You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) for a guide to provisioning MKS clusters using predefined MKS cluster layouts. Whether you prefer the flexibility of app blueprints or the streamlined structure of cluster layouts, HPE Private Cloud Enterprise gives you the freedom to choose the approach that best fits your operational needs.
 
-Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud for AI and get more ideas on how you can use it in your everyday operations.
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
