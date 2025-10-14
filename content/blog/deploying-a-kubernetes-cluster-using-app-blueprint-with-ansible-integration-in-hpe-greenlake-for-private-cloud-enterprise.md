@@ -87,23 +87,23 @@ To create an app blueprint, you need to log in to HPE GreenLake Cloud and launch
 
 ![](/img/k8s-app-blueprint-summary.png)
 
-3. Click on ***+*** (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*.
+3. Click ***+*** (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*.
 
 ![](/img/k8s-app-blueprint-tier-name.png)
 
-4. Click on *App* and edit its CONFIGURATION with NAME as *CFE-K8s-master* and BOOT ORDER as *0*.
+4. Click *App* and edit its CONFIGURATION with NAME as *CFE-K8s-master* and BOOT ORDER as *0*.
 
 ![](/img/k8s-app-blueprint-master-config.png)
 
-5. Click on ***+*** again (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*. Then click on *App* and edit its CONFIGURATION with NAME as *CFE-K8s-worker* and BOOT ORDER as *1*. Under **Connected Tiers**, select *CFE-K8s-master*.
+5. Click ***+*** again (next to *CFE-K8s-Ubuntu*) and select *Tier Name* as *App*. Then click *App* and edit its CONFIGURATION with NAME as *CFE-K8s-worker* and BOOT ORDER as *1*. Under **Connected Tiers**, select *CFE-K8s-master*.
 
 ![](/img/k8s-app-blueprint-worker-config.png)
 
-6. Click on ***+*** (next to *CFE-K8s-master*) and select *vmware*.
+6. Click ***+*** (next to *CFE-K8s-master*) and select *vmware*.
 
 ![](/img/k8s-app-blueprint-vmware.png)
 
-7. Click on ***+***  (next to *vmware*) and select *Group*, *Cloud* and *Environment*. Click ***Add config***.
+7. Click ***+***  (next to *vmware*) and select *Group*, *Cloud* and *Environment*. Click ***Add config***.
 
 ![](/img/k8s-app-blueprint-vmware-config.png)
 
@@ -134,11 +134,11 @@ Perform the following steps to provision a K8s cluster using the app blueprint *
 
 ![](/img/k8s-app-summary.png)
 
-4. Click on the config under *CFE-K8s-master* and wait for green check mark to appear (this indicates that all entries are up to date).
+4. Click the config under *CFE-K8s-master* and wait for green check mark to appear (this indicates that all entries are up to date).
 
 ![](/img/k8s-app-master-status.png)
 
-5. Click on the config under *CFE-K8s-worker* and wait for green check mark to appear (this indicates that all entries are up to date). Click ***Next***.
+5. Click the config under *CFE-K8s-worker* and wait for green check mark to appear (this indicates that all entries are up to date). Click ***Next***.
 
 ![](/img/k8s-app-worker-status.png)
 
