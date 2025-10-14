@@ -29,7 +29,7 @@ Among the key Morpheus components, *Ansible Integration* and *Automation Task an
 
 Ensure that the following prerequisites are fulfilled:
 
-* Access to an HPE Private Cloud Enterprise workspace with the *'Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
+* Access to a HPE Private Cloud Enterprise workspace with the *'Private Cloud Tenant Owner'* role, allowing administrative actions in the ***Virtual Machines*** service. 
 * The group named *'CFE Department B Group'* and the network *'Green-Net'* have already been created.
 
 ## Create app blueprint
