@@ -34,7 +34,7 @@ The following sections describe how to expose services, running in MKS clusters 
 
 Ensure that the following prerequisites are fulfilled:
 
-* An MKS cluster has been provisioned from an HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
+* An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
 * The *kubectl* CLI tool, together with the *kubeconfig* file for accessing the MKS cluster.
 * The *helm* CLI tool, version 3.12.0 or later.
 
@@ -236,7 +236,7 @@ Once the *Tailscale* operator is successfully installed and running, a new machi
 
 ## Expose *Grafana* service
 
-As part of the MKS cluster provisioning process, both *Prometheus* and *Grafana* are installed and configured in the namespace *monitoring*. Use below command to view the details.
+As part of the MKS cluster provisioning process, both *Prometheus* and *Grafana* are installed and configured in the namespace *monitoring*. Use the following command to view the details.
 
 ```shell
 $ kubectl get all -n monitoring
@@ -352,7 +352,7 @@ The **Machines** tab of the *Tailscale* admin console shows the newly added devi
 
 ## Access *Grafana* dashboard
 
-You can start your browser by pointing to the Funnel URL *'grafana.qilin-beta.ts.net '*. After login, you can navigate to one of the pre-configured *Grafana* dashboards, e.g., *Kubernetes/API server*.
+You can start your browser by pointing to the Funnel URL *'grafana.qilin-beta.ts.net '*. After logging in, you can navigate to one of the pre-configured *Grafana* dashboards, e.g., *Kubernetes/API server*.
 
 ![](/img/grafana-funnel.png)
 
