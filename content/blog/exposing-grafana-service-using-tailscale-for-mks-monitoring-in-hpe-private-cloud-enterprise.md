@@ -18,39 +18,39 @@ tags:
 ---
 
 
-This blog post describes how to expose the *Grafana* service, running in an MKS cluster within HPE Private Cloud Enterprise, to the public Internet using *Tailscale* alongside *MetalLB*. Without the usual complexity of networking or intricate security configurations, the exposed *Grafana* dashboard becomes accessible both within the on-premises environment and from external networks. This approach offers a simple and effective way to monitor MKS clusters running in the HPE Private Cloud Enterprise environment.
+This blog post describes how to expose the *Grafana* service running in an MKS cluster within HPE Private Cloud Enterprise to the public Internet using *Tailscale* alongside *MetalLB*. Without the usual complexity of networking or intricate security configurations, the exposed *Grafana* dashboard becomes accessible both within the on-premises environment and from external networks. This approach offers a simple and effective way to monitor MKS clusters running in the HPE Private Cloud Enterprise environment.
 
 ## Overview
 
 [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) is a fully managed *Infrastructure as a Service* (IaaS) offering that brings a modern, cloud-like experience to on-premises environments. It combines the flexibility of hybrid cloud with the enterprise-grade control and security required by enterprise IT. 
 
-Through the integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters with built-in automation and observability capabilities. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to learn more about provisioning MKS clusters in HPE Private Cloud Enterprise.
+Through integration with [HPE Morpheus Enterprise](https://www.hpe.com/us/en/morpheus-enterprise-software.html), which serves as the cloud management and orchestration layer, HPE Private Cloud Enterprise delivers a unified self-service interface for provisioning virtual machines (VMs), creating containers, and deploying applications, all governed by role-based access control (RBAC). This integration now enables support for the Morpheus Kubernetes Service (MKS) feature, allowing users to deploy and manage Kubernetes (K8s) clusters with built-in automation and observability capabilities. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to learn more about provisioning MKS clusters in HPE Private Cloud Enterprise.
 
 As you begin deploying applications in MKS clusters, networking quickly emerges as one of the key challenges. Traditional methods such as port forwarding, *NodePort* or *LoadBalancer* services, or manual virtual private network (VPN) setups can be cumbersome to configure, difficult to secure, and often require deep networking expertise. How can these applications be made accessible, both within the HPE Private Cloud Enterprise environment and from external networks, without the added complexity? 
 
-The following sections will describe how to expose services, running in MKS clusters within HPE Private Cloud Enterprise, to the public Internet using *Tailscale* and *MetalLB*, offering a streamlined and secure alternative to conventional approaches.
+The following sections describe how to expose services, running in MKS clusters within HPE Private Cloud Enterprise, to the public Internet using *Tailscale* and *MetalLB*, offering a streamlined and secure alternative to conventional approaches.
 
 ## Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
-* An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
+* An MKS cluster has been provisioned from an HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning an MKS cluster in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
 * The *kubectl* CLI tool, together with the *kubeconfig* file for accessing the MKS cluster.
 * The *helm* CLI tool, version 3.12.0 or later.
 
 ## *MetalLB* and *Tailscale*
 
-*[MetalLB](https://metallb.io/)* is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing *MetalLB*, it supports the *LoadBalancer*-type services by assigning external IPs to services within the K8s clusters. This makes the applications easily reachable within your private network, without needing any special hardware or cloud services. 
+*[MetalLB](https://metallb.io/)* is a software solution that provides a network load balancer implementation for K8s clusters using standard routing protocols. By installing *MetalLB*, it supports the *LoadBalancer*-type services by assigning external IPs to services within the K8s clusters. This makes applications easily reachable within your private network, without needing any special hardware or cloud services. 
 
-*[Tailscale](https://tailscale.com/)* is a mesh VPN service that uses the [WireGuard](https://www.wireguard.com/) protocol to securely connects devices across different networks. Instead of routing traffic through a central server like traditional VPNs, *Tailscale* creates encrypted peer-to-peer connections between devices. These connections form a private network called *tailnet*, where each device receives a unique *Tailscale* IP address for direct communication. A tailnet provides a secure, interconnected space of users, devices, and resources, all managed through Tailscale's admin console, where you can configure access controls, *DNS* settings, *TLS* certificates, and more.   
+*[Tailscale](https://tailscale.com/)* is a mesh VPN service that uses the [WireGuard](https://www.wireguard.com/) protocol to securely connect devices across different networks. Instead of routing traffic through a central server like traditional VPNs, *Tailscale* creates encrypted peer-to-peer connections between devices. These connections form a private network called a *tailnet*, where each device receives a unique *Tailscale* IP address for direct communication. A tailnet provides a secure, interconnected space of users, devices, and resources, all managed through Tailscale's admin console, where you can configure access controls, *DNS* settings, *TLS* certificates, and more.   
 
 By utilizing the external IP addresses assigned by *MetalLB* to *LoadBalancer*-type services within the local private network, *Tailscale* securely exposes these services via publicly accessible URLs, without revealing their underlying service IP addresses.
 
 ## Set up the load balancer with *MetalLB*
 
-You can install *MetalLB* and set up the load balancer in the MKS cluster by following the instructions found in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
+You can install *MetalLB* and set up the load balancer in the MKS cluster by following the instructions in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/exposing-an-application-using-ingress-and-tls-termination-on-kubernetes-in-hpe-greenlake-for-private-cloud-enterprise/).
 
-Run the following command to view the deployed *MetalLB* in namespace *metallb-system* of the MKS cluster *mks-test*.
+Run the following command to view the deployed *MetalLB* in the *metallb-system* namespace of the MKS cluster *mks-test*.
 
 ```shell
 $ kubectl get all -n metallb-system
@@ -90,9 +90,9 @@ cfe-l2advert   ["cfe-pool"]
 
 ### Install *Tailscale* client
 
-In order to use *Tailscale*, you need to install the *Tailscale* client on your device. The *Tailscale* client is open source and available for various platforms, such as *Linux*, *Windows*, *MacOS*, *iOS*, *Android*, etc. It's used, via its admin console, to connect various devices securely to your private *Tailscale* network (*tailnet*). It's the bridge between your device and the rest of your tailnet. 
+In order to use *Tailscale*, you need to install the *Tailscale* client on your device. The *Tailscale* client is open source and available for various platforms, such as *Linux*, *Windows*, *macOS*, *iOS*, and *Android*, etc. It is used, via its admin console, to connect various devices securely to your private *Tailscale* network (*tailnet*). It is the bridge between your device and the rest of your tailnet. 
 
-Here is the admin console of my Windows *Tailscale* client installed using the package avaible from [Tailscale download page](https://tailscale.com/download). It uses a *Tailscale* account by choosing the *GitHub* as the identity provider. You can integrate your *Tailscale* account using your own identity provider for secure single sign-on (SSO) login and multi-factor authentication (MFA). 
+Here is the admin console of my Windows *Tailscale* client installed using the package available from the [Tailscale download page](https://tailscale.com/download). It uses a *Tailscale* account by choosing *GitHub* as the identity provider. You can integrate your *Tailscale* account using your own identity provider for secure single sign-on (SSO) login and multi-factor authentication (MFA). 
 
 ![](/img/tailscale-machines.png)
 
@@ -216,7 +216,7 @@ $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 $ kubectl --namespace=tailscale get all -l app.kubernetes.io/managed-by=Helm
 ```
 
-Type below command to check the *Tailscale* operator deployment details. 
+Type the following command to check the *Tailscale* operator deployment details. 
 
 ```shell
 $ kubectl get all -n tailscale
@@ -300,7 +300,7 @@ NAME      TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
 grafana   LoadBalancer   172.30.211.119   172.20.40.241   3000:31469/TCP    4d
 ```
 
-You can now expose the *Grafana* service and make it publicly accessible using [Tailscale Funnel](https://tailscale.com/kb/1223/funnel). *Tailscale* Funnel exposes a local service running in the MKS cluster via a unique *Funnel URL*, formatted as *\<service-name\>.\<tailscale domain\>*. When someone accesses the Funnel URL, the request is routed to the Funnel relay server, which then establishes an encrypted TCP tunnel to the local service. This ensures the data remains secure and the service's IP aaadress stays hidden. The Funnel relay server cannot decrypt any data transmitted through the tunnel.  
+You can now expose the *Grafana* service and make it publicly accessible using [Tailscale Funnel](https://tailscale.com/kb/1223/funnel). *Tailscale* Funnel exposes a local service running in the MKS cluster via a unique *Funnel URL*, formatted as *\<service-name\>.\<tailscale domain\>*. When someone accesses the Funnel URL, the request is routed to the Funnel relay server, which then establishes an encrypted TCP tunnel to the local service. This ensures the data remains secure and the service's IP address stays hidden. The Funnel relay server cannot decrypt any data transmitted through the tunnel.  
 
 *Tailscale* Funnel is disabled by default. To enable it, use the *Tailscale* CLI command *'tailscale funnel'*. The *Tailscale* CLI tool is included when you install the *Tailscale* client.
 
@@ -308,11 +308,11 @@ After *Tailscale* Funnel is enabled, you need to create a tag named *k8s* in the
 
 ![](/img/tailscale-tag-k8s.png)
 
-You need also add a node attribute, under **Access controls ->**  *Node attributes* tab, in the admin console.
+You also need to add a node attribute, under **Access controls ->**  *Node attributes* tab, in the admin console.
 
 ![](/img/tailscale-node-attribute-k8s.png)
 
-Create below *Ingress* YAML manifest file with the annotation *tailscale.com/funnel: "true"* and *ingressClassName: tailscale*. Apply it to the *monitoring* namespace.
+Create the following *Ingress* YAML manifest file with the annotation *tailscale.com/funnel: "true"* and *ingressClassName: tailscale*. Apply it to the *monitoring* namespace.
 
 ```shell
 $ cat ingress-grafana.yaml
@@ -338,7 +338,7 @@ $ kubectl apply -f ingress-grafana.yaml
 ingress.networking.k8s.io/ingress-grafana created
 ```
 
-After few minutes, the deployed Ingress *ingress-grafana* displays its assigned Funnel URL *grafana.qilin-beta.ts.net*. 
+After a few minutes, the deployed Ingress *ingress-grafana* displays its assigned Funnel URL *grafana.qilin-beta.ts.net*. 
 
 ```shell
 $ kubectl get ingress -n monitoring
@@ -352,7 +352,7 @@ The **Machines** tab of the *Tailscale* admin console shows the newly added devi
 
 ## Access *Grafana* dashboard
 
-You can start your browser by pointing to the Funnel URL *'grafana.qilin-beta.ts.net '*. After login, you can land to one of the pre-configured *Grafana* dashboard, e.g., *Kubernetes/API server*.
+You can start your browser by pointing to the Funnel URL *'grafana.qilin-beta.ts.net '*. After login, you can navigate to one of the pre-configured *Grafana* dashboards, e.g., *Kubernetes/API server*.
 
 ![](/img/grafana-funnel.png)
 
@@ -360,10 +360,10 @@ You can access the exposed *Grafana* service from your mobile phone using the sa
 
 ![](/img/grafana-mobile.png)
 
-## Conclusions
+## Conclusion
 
-This blog post showed the steps for exposing the *Grafana* service, running within the MKS cluster in HPE Private Cloud Enterprise, using *Tailscale* and *MetalLB*. Without opening firewall ports or configuring reverse proxies, the *Grafana* dashboard becomes publicly accessible via its Funnel URL. Whether you are developing, debugging or showcasing applications in MKS clustes within the HPE Private Cloud Enterprise environment, this approach offers s simple and secure way to expose services. 
+This blog post showed the steps for exposing the *Grafana* service, running within the MKS cluster in HPE Private Cloud Enterprise, using *Tailscale* and *MetalLB*. Without opening firewall ports or configuring reverse proxies, the *Grafana* dashboard becomes publicly accessible via its Funnel URL. Whether you are developing, debugging or showcasing applications in MKS clusters within the HPE Private Cloud Enterprise environment, this approach offers a simple and secure way to expose services. 
 
-However, when applying the *Tailscale* setup in production environments, several security considerations remain important. Although traffic to the exposed Grafana service is encrypted end-to-end via *HTTPS*, it's recommended to enforce strict access controls using *Tailscale* ACLs. Additionally, you should configure *Tailscale* to automatically disable Funnel if connection drops, ensuring services are not unintentionally exposed. With recent updates, *Tailscale* supports custom domain integration for Funnel URLs, ideal for creating production-grade public endpoints for your services. 
+However, when applying the *Tailscale* setup in production environments, several security considerations remain important. Although traffic to the exposed Grafana service is encrypted end-to-end via *HTTPS*, it is recommended to enforce strict access controls using *Tailscale* ACLs. Additionally, you should configure *Tailscale* to automatically disable Funnel if the connection drops, ensuring services are not unintentionally exposed. With recent updates, *Tailscale* supports custom domain integration for Funnel URLs, ideal for creating production-grade public endpoints for your services. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
