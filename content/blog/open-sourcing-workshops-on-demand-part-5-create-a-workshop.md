@@ -8,7 +8,7 @@ tags:
   - Workshops-on-Demand
   - Open Source
 ---
-I﻿n this new article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. I already covered most of the infrastructure parts that support the workshops. In my previous posts, I covered setting up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
+I﻿n this article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. In my previous posts, I have already covered most of the pieces on how to set up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
 
 # O﻿verview
 
@@ -18,28 +18,28 @@ Let's start with a simple flowchart describing the 10000-foot view of the creati
 
 A﻿s you can see, there's no rocket science here. Just common sense. Depending on the workshop you wish to create, some obvious requirements should show up. A workshop based on a programmatic language, for instance, may require the relevant kernel to be set up on the JupyterHub server. The following [page](https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624) lists all available kernels.
 
-S﻿ome other workshops might need a proper infrastructure to run on. A kubernetes101 workshop for instance could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
+Some workshops might need a specific infrastructure set up in order to run. A Kubernetes 101 workshop, for instance, could not exist without the presence of a proper Kubernetes cluster. The same thing goes for any HPE-related solutions.
 
-F﻿rom an infrastructure standpoint, a minimum number of environments are necessary. The project makes it easy to deploy a development and test environments, a staging environment, and at least one production environment. 
+In setting up the infrastructure, there are a number of things you need at a minimum. The design of this open-sourcing project makes it very easy to deploy a development and test environment, a staging environment, and at least one production environment. 
 
-Here are a few definitions of the different environments :
+Let's look at how each of these environments is defined :
 
 1. **Development Environment:** This is where application/system development tasks, such as designing, programming, debugging of a workshop, etc., take place.
 2. **Test Environment:** As the name implies, this is where the workshop testing is conducted to find and fix errors.
 3. **Staging Environment:** Here, all the work done in the development environment is merged into the built system (often used to automate the process of software compilation) before it is moved into the production environment.
 4. **Production Environment:** The last environment in workshop development, this is where new builds/updates are moved into production for end users.
 
-The HPE Developer Community actually started with only a development, test and staging environments on one side and a production on the other side.
+When the HPE Developer Community began implementing their Workshop-on-Demand program, they originally only had a development and a test & staging environment on one end and a production environment on the other.
 
-In this post, I won't focus on the subject selection process. I'll leave that to you to figure it out. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation. What should be done on the backend and what needs to be done on the api db server mainly.
+In this post, I won't focus on the subject selection process. I'll leave that to you to figure it out. I will, however, talk a little bit again about the infrastructure, especially the dedicated scripts and variables that you need to create to support the lifecycle of the workshop. As usual, there are two sides to the workshop's creation--what should be done on the backend and what needs to be done mainly for the api db server.
 
 ![](/img/wod-blogserie3-archi3.png "WOD Overview.")
 
-What is a workshop? What do you need to develop?
+## What is a workshop? What do you need to develop?
 
-L﻿et's imagine that you plan to create a new workshop on a topic on which you have knowledge to transfer.  Let's call him **Matt**. He was kind enough to agree with working with me on creating a new workshop. After our first meeting, where I explained the creation process, and the expectations, we were able to quickly start working together. 
+Let me use an example to better explain this. There's this engineer, Matt, who has a great deal of knowledge that he would like to share. He was kind enough to agree to working with me on creating a new workshop. After our first meeting, where I explained the creation process and the expectations, we were able to quickly start designing a workshop that would help him do this.
 
-We defined what is needed:
+We defined what was needed:
 
 * A﻿ set of notebooks that will be used by the student
 * Containing instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
@@ -100,49 +100,49 @@ As a contributor, Matt should be able to provide all the following details.
 
 * **ID:** A workshop ID to be used by backend server automation and Replays table to reference the associated replay video of the workshop (automatically created at the import of the wod.yml file process)
 * **name:** The workshop's name as it will will be displayed on the registration portal
-* **notebook:** Name of the folder containing all the workshop's notebooks (automatically created at the import of the wod.yml file process)
+* **notebook:** The name of the folder containing all the workshop's notebooks (automatically created at the import of the wod.yml file process)
 * **description:** The workshop's abstract as it will will be displayed on the registration portal
-* **avatar, role and replayLink** are superseded by entries in the replay table. I will explain later
-* **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop (automatically created at the import of the wod.yml file process)
-* **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly
-* **D﻿uration:** All workshops are time bombed. You will define here the time allocated to perform the workshop
-* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
-* **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embedded in the first emails
+* **avatar, role and replayLink** are superseded by entries in the replay table (I will explain later)
+* **r﻿eplayId:** This entry links the dedicated replay video to the workshop and enables the presence of the replay in the learn more page of the workshop (automatically created at the import of the wod.yml file process)
+* **category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly.
+* **d﻿uration:** All workshops are time bombed. You will define here the time allocated to perform the workshop
+* **a﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal
+* **w﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embedded in the first emails
 * **session type:** Workshops-on-Demand by default (automatically created at the import of the wod.yml file process)
 
-The following fields are required by the infrastructure. And I will work as the infrastructure Admin with Matt to define them.
+The following fields are required by the infrastructure. In this example, I will work as the infrastructure Admin with Matt to define them.
 
 * **capacity:** The number of maximum concurrent students allowed to take on the workshop
 * **range:** The range between which students get picked at registration time
-* **r﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
-* **location:** If your setup includes multiple jupyterhub servers, use this field to allocate workshops according to your needs.
-* **compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files
+* **reset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop
+* **location:** If your setup includes multiple JupyterHub servers, use this field to allocate workshops according to your needs.
+* **compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows the admin to hide login scripts and credentials in non-editable executable files.
 * **varpass:**  This defines whether or not a workshop requires a password variable needs to be leveraged
-* **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance
+* **b﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on social media like linkedin for instance.
 * **beta:** Not implemented yet :-)
-* **AlternateLocation:** future development. The purpose is to allow automation of the relocation of a workshop in case of primary location's failure
-* **ReplayLink:** YouTube link of the recorded video to be used as a replay
-* **Replayid:** This ID is used to link the correct video with the associated workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
-* **MonoAppliance:** Some workshops require a single dedicated appliance
-* **MultiAppliance:** Some workshops require multiple dedicated appliances
+* **alternateLocation:** (Future development) The purpose is to allow automation of the relocation of a workshop in case of primary location's failure
+* **replayLink:** YouTube link of the recorded video to be used as a replay
+* **replayid:** This ID is used to link the correct video to the workshop. This is the replayId present in the workshops table (automatically created at the import of the wod.yml file process)
+* **monoAppliance:** Some workshops require a single dedicated appliance
+* **multiAppliance:** Some workshops require multiple dedicated appliances
 
 ***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are delivered by the frontend web server. 
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
 
-As Matt will create a simple workshop that does not require any infrastructure but the JupyterHub itself. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
+Matt will create a simple workshop that does not require any infrastructure but the JupyterHub itself. As far as the infrastructure's requirements, a new kernel was needed. No additional scripts were required for this workshop.
 
-A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks on a development environment and a staging environment:
+A﻿s an admin of the Workshops-on-Demand infrastructure, I have to perform several tasks on a development environment and a staging environment:
 
 ### O﻿n the backend server:
 
-Test and validate installation of the new kernel on the staging backend server by:
+Testing and validating installation of the new kernel on the staging backend server by:
 
 1. Creating a new branch for this test
 2. M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel
 3. Validating the changes by testing a new backend install process
 
-Pushing the changes to the github repo:
+Pushing the changes to the GitHub repo:
 
 1. Create a user for the workshop developer on the test/dev and staging backend servers
 2. Provide to the developer the necessary information to connect to the test/dev and staging backend servers
@@ -152,7 +152,7 @@ Pushing the changes to the github repo:
 
 ### O﻿n the api-db server:
 
-Connect to the api-db server as wodadmin user:
+Connecting to the api-db server as wodadmin user:
 
 1. Switch to the relevant branch for the new workshop and perform a git remote update / rebase in the relevant notebook directory.
 2. Move to wod-api-db/scripts directory
@@ -186,9 +186,9 @@ T﻿he very same processes will apply to the move to production phase.
 
 # Complex workshop example:
 
-I will focus here on the specific aspects related to this  new workshop. Are you familiar with Automation tools like Ansible ? I was not, before working on the Ansible 101 Workshop.  As usual, we will start with a meeting where each of us will explain to the other what our goals are and how we expect to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on to figure out what the best platform would be on which to run his workshop.
+If you've ever had to develop a workshop for something you're not as familiar with, you'll want to meet with SMEs and explain what your goals are and how to achieve them. Once you have a clearer understanding of the technology involved, you can move on to determine what the best platform would be on which to run the workshop. I can give you an example here focusing on Ansible, an automation tool. I was not originally familiar with it before I developed the Ansible 101 Workshop. In the steps below, I'll explain how I pulled it together..
 
-A﻿s an admin of the Workshops-on-Demand infrastructure, I had to perform several tasks:
+As the admin for the HPE Developer Community's Workshops-on-Demand infrastructure, I had to perform several tasks in order to set up this workshop. I had to determine what the workshop required from a backend and fully test it.
 
 ##### O﻿n the backend server:
 
@@ -213,7 +213,7 @@ The  workshop will require:
     * reset-\[WKSHP-NAME].sh (reset of the workshop's appliance, docker compose down of a container for instance)
 * A set of variables to be leveraged by the notebooks. These variables are to be set in yml format. They will be parsed at deployment time to set student ids, appliance IP addresses, and other relevant parameters like ports, or simulated hardware information
 
-Whenever all the scripts are functional and that the necessary actions have been performed both on backend and frontend servers, some functional tests can be conducted using cli and later webui as described earlier for the simple workshop example.
+When all the scripts are functional and the necessary actions have been performed both on backend and frontend servers, some functional tests can be conducted using cli and later webui as described earlier for the simple workshop example.
 
 Testing the workshop: 
 
@@ -231,6 +231,6 @@ When all tests have validated the workshop, it can follow the move to prod cycle
 
 You should now have a better understanding of the necessary tasks associated to the creation of a workshop. As you can see, it requires steps on the various sides of the infrastructure.
 
-This was the last blog of the series. The Workshops-on-Demand project is available [here](https://github.com/Workshops-on-Demand). Further update of the documentation will occur on this github repository.
+This was the last blog post of the series. The Workshops-on-Demand project is available [here](https://github.com/Workshops-on-Demand). Further update of the documentation will occur on this github repository.
 
 If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://developer.hpe.com/slack-signup/). Please be sure to check back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Also, don't forget to check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us so we can build more workshops!
