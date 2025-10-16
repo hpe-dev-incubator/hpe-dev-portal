@@ -491,7 +491,27 @@ Y﻿ou are now ready to perform the installation again to support a private repo
 
 Please note that this setup phase can be concurrent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
-Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, I will help you move to the frontend side of things and finally to a workshop's creation process.
+Y﻿ou now have a working Workshops-on-Demand backend server in place. In order to install the api-db server as well as the frontend server, please follow the same steps. 
+
+In order to setup the api-db server, you will need:
+
+* A fresh OS install on physical / virtualized server running Ubuntu 24.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
+* A Linux account with sudo priviledges on your Linux distro. Name it `install`   
+* 2 cpus or more machine
+* 16 GB of RAM 
+* 60 GB of storage 
+
+In order to setup the frontend server, you will need:
+
+* A fresh OS install on physical / virtualized server running Ubuntu 24.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
+* A Linux account with sudo priviledges on your Linux distro. Name it `install`   
+* 2 cpus or more machine
+* 8 GB of RAM 
+* 60 GB of storage 
+
+
+
+Congratulations! you should have now a running Workshops-on-Demand infrastructure. The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, I will help you move  finally to a workshop's creation process.
 
 I﻿f you need support for this installation process, use our dedicated [slack channel](https://hpedev.slack.com/archives/C01B60X8SSD).
 
