@@ -18,15 +18,15 @@ The overall infrastructure can run on physical servers or Virtual Machines. We u
 
 A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from the architectural and public / private aspects. Since the publication if of the previous article, additionnal repositories showed up as the installation process evolved over time. The architecture is divided between the frontend, api-db, and backend. The project admins will need to decide whether they are willing to develop and propose public-only content to the participants or add any proprietary and private content.
 
-I﻿ will start with the simpliest scenario: A public-only approach. Then we will dive into the specificities related the private approach.
+I﻿ will start with the simpliest scenario: A public-only approach. Then I will dive into the specificities related the private approach.
 
-### P﻿ublic-only Deployment: No private backend nor private workshops
+### P﻿ublic-only deployment: No private backend nor private workshops
 
 **Important Note:**  
 
 **T﻿his part is compulsory for any type of deployment. Public only or public + private.**
 
-F﻿irst, you need a repository to clone. The Workshops-on-Demand GitHub projects can be found [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several Github repos. Each repository handles a specific role in the overall architecture.
+F﻿irst, you need a repository to clone. The Workshops-on-Demand GitHub projects can be found [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the project over several GitHub repos. Each repository handles a specific role in the overall architecture.
 
 Here's a quick look at what can be found in each:
 
@@ -54,31 +54,31 @@ Here's a quick look at what can be found in each:
 
 **[w﻿od-api-db-private](https://github.com/Workshops-on-Demand/wod-api-db-private):** Workshops-on-Demand registration portal application
 
-* This provide examples for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
+* This provide examples for creating your own cutomization layer on top of the public standard WoD Backend / WoD Notebooks content. Do not put any confidential data here as this is a public repository!
 
 **Note**: T﻿here are now 9 repositories available for now. 
 
 ![](/img/wod-blogserie2-2repos.png "Workshops-on-Demand repositories")
 
-It provides:
+The Workshops-on-Demand project provides:
 
-* An Installer allowing you to install either Backend, Api-DB server, or Frontend using a single line of command.
-* A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find here. 
-* A postfix server used for the procmail API 
+* An Installer that allows you to install either Backend, Api-DB server, or Frontend using a single line of command.
+* A complete JupyterHub server with some add-ons (additional JupyterHub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to use.
+* A Postfix server used for the procmail API 
 * An Ansible engine to allow automation 
-* A fail2ban service 
+* A Fail2Ban service 
 * An Admin user to manage everything 
 * A set of scripts to handle different tasks such as: 
 
   * Notebooks deployment
-  * Jupyterhub compliancy
+  * JupyterHub compliancy
   * Users compliancy
   * Security Management
   * Workshops updates
 
 #### Backend server preparation:
 
-The installation process is handled by a dedicated repo : wod-install. This repo needs to be cloned on every single machine  constituting the wod architecture. B﻿efore cloning the wod-install repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
+The installation process is handled by a dedicated repo : wod-install. This repo needs to be cloned on every single machine  constituting the WoD architecture. B﻿efore cloning the wod-install repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
 ##### Prerequesites:
 
@@ -87,13 +87,13 @@ In order to setup the backend server, you will need:
 * A fresh OS install on physical / virtualized server running Ubuntu 24.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`   
 
-**Note**: In order to support 100 concurrent users, you need:    
+**Note**: In order to support 100 concurrent users, you will need:    
 
 * 2 cpus or more machine
 * 128 GB of RAM 
 * 500 GB of storage 
 
-We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
+As a point of interest, we are currently using  an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 When done with OS installation and preparation
 
@@ -284,7 +284,7 @@ It can be called as follows:
 
 As you can see on the command line, the -t parameter will define whether you install a backend, an api-db, or a frontend server. Having this information, the script will clone the relevant repository for the installation. If `t=backend`, then the `wod-backend` repository is cloned as part of the installation process, and the relevant installation scripts are called. Same goes for api-db, and frontend servers.
 
-`-﻿h` provides the help
+`-﻿h` parameter provides help.
 
 ```shellsession
 install@wod-backend2-u24:~/wod-install/install$ sudo ./install.sh -h
@@ -422,7 +422,6 @@ On the frontend machine:
   ./install.sh -a apidb.local:10000:https -f front.local:8000 \
   -g test -u wodmgr -p 9000 -s wodmailer@local\
   -t frontend \
-
 ```
 
 `install.sh` performs the following tasks:
@@ -447,15 +446,15 @@ On the frontend machine:
 
 At the end of the installation process:
 
-* you will have a JupyterHub server running on port 8000    
+* You will have a JupyterHub server running on port 8000    
 * You will get a new `wodadmin` user (Default admin)    
 * You will get a set of 20 students (Default value)    
 
 A﻿ll playbooks are self-documented. Please check for details.
 
-**Note: A wod-install.log is available under the home folder of the install user under `.wod-install`. It contains the installation log along with a another file containg the wodadmin credentials.**
+**Note: A wod-install.log is available under the home folder of the install user under `.wod-install`. It contains the installation log along with a another file containing the wodadmin credentials.**
 
-W﻿e leave it to you to handle the necessary port redirection and SSL certificates management when needed. In our case, we went for a simple yet efficient solution based on an OPNSense Firewall along with a HAProxy setup to manage ports'redirection, HTTP to HTTPS Redirection, SSL Certificates. The backend also includes a Fail2ban service for login security management.
+I'll leave it to you to handle the necessary port redirection and SSL certificates management when needed. In our case, I went for a simple yet efficient solution based on an OPNSense Firewall along with a HAProxy setup to manage ports'redirection, HTTP to HTTPS Redirection, SSL Certificates. The backend also includes a Fail2ban service for login security management.
 
 At this point, you should be able to access your JupyterHub environment with a few pre-installed set of kernels like `Bash, Python, ansible, ssh, PowerShell`.
 
@@ -471,7 +470,7 @@ T﻿he principle remains similar, with a few differences explained below.
 
 * After cloning the wod-install repository, y﻿ou will fork the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).    
 * Next, clone the forked repo.    
-* Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
+* Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In the case I've presented, I have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
@@ -492,7 +491,7 @@ Y﻿ou are now ready to perform the installation again to support a private repo
 
 Please note that this setup phase can be concurrent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
-Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to a workshop's creation process.
+Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, I will help you move to the frontend side of things and finally to a workshop's creation process.
 
 I﻿f you need support for this installation process, use our dedicated [slack channel](https://hpedev.slack.com/archives/C01B60X8SSD).
 
