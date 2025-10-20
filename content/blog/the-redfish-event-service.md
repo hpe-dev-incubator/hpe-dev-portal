@@ -12,4 +12,8 @@ tags:
   - Redfish
   - iLO
 ---
-NONE
+<br>
+
+<big>This blog post has been moved to the [Server Management Portal](https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/eventservice/redfisheventservice).</big>
+
+</br>
