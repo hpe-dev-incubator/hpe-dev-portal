@@ -26,17 +26,15 @@ li {
 
 Part 6 of our ***Gen AI for PM series***
 
-Intro
-
 Imagine a single screen where every moving part of your project comes together—tasks, risks, resources, and communications—all continuously monitored by AI. That’s the vision behind the Agentic AI command center.
 
-Rather than juggling spreadsheets, dashboards, and status meetings, project managers gain a central hub powered by intelligent agents. Each agent watches a different dimension of the project—tracking schedules, scanning for risks, analyzing sentiment, or monitoring budgets—and feeds insights into one unified view. The result is a real-time command center that helps managers move from reacting to problems to proactively steering projects toward success.
+Rather than juggling spreadsheets, dashboards, and status meetings, through its use, project managers gain a central hub powered by intelligent agents. Each agent watches a different dimension of the project—tracking schedules, scanning for risks, analyzing sentiment, or monitoring budgets—and feeds insights into one unified view. The result is a real-time command center that helps managers move from reacting to problems to proactively steering projects toward success.
 
-**PM dashboards vs. Intelligent command centers**
+**PM dashboards vs. intelligent command centers**
 
-Every project manager knows the struggle fifteen browser tabs open, dashboards from five different tools, Slack buzzing with updates, and a Gantt chart that was outdated yesterday. Traditional dashboards are useful, but they’re static snapshots they show you what happened, not what’s about to happen.
+Every project manager knows the struggle fifteen open browser tabs, dashboards from five different tools, Slack buzzing with updates, and a Gantt chart that was outdated yesterday. Traditional dashboards are useful, but they’re static snapshots to show you what happened, not what’s about to happen.
 
-Now imagine this instead a single command center powered by intelligent agents, orchestrating every aspect of your project in real time. Not just a dashboard but a digital control room that listens, predicts, and suggests.
+Now imagine this instead: A single command center powered by intelligent agents, orchestrating every aspect of your project in real time. Not just a dashboard but a digital control room that listens, predicts, and suggests.
 
 That’s the promise of the Agentic AI command center.
 
@@ -108,11 +106,11 @@ By mapping out the likely outcomes of each option, the system gives managers the
 
 <center><img src="/img/6.4.png" width="600" height="550" alt="AI decision support" title="AI decision support"></center>
 
-### Section 4: Security and audit logs for compliance
+### Security and audit logs for compliance
 
 In industries like finance, healthcare, and government, compliance is just as important as delivery. The AI command center builds **compliance into the workflow**:
 
-* Every decision is logged with timestamp and rationale.
+* Every decision is logged with a timestamp and rationale.
 * Audit-ready reports are generated automatically.
 * Sensitive data is flagged and access-controlled.
 
@@ -126,12 +124,12 @@ The illustration below shows how an **AI audit log** keeps track of every action
 
 For decades, project managers have been stuck hopping between tools, spreadsheets, and dashboards. The Agentic AI command center changes that.
 
-It becomes the **one screen to rule them all** unifying project health, answering questions in natural language, providing decision support, and ensuring compliance.
+It becomes the **one screen to rule them all** -- unifying project health, answering questions in natural language, providing decision support, and ensuring compliance.
 
-Instead of drowning in fragmented tools, PMs can finally focus on **strategy, leadership**, **and outcomes.**
+Instead of drowning in fragmented tools, project managers can finally focus on **strategy, leadership**, **and outcomes.**
 
 **Key takeaway**
 
-AI command centers replace fragmented tool-hopping — giving PMs foresight, clarity, and control in one place.
+AI command centers replace fragmented tool-hopping — giving project managers foresight, clarity, and control in one place.
 
 <center><img src="/img/6.6.png" width="600" height="550" alt="Future AI" title="Future AI"></center>
