@@ -27,21 +27,21 @@ li {
 
 Part 7 of our **Gen AI for PM series**
 
-## Intro:
+## Introduction
 
 Meetings often move fast, ideas overlap, action items get lost, and key insights can slip through the cracks. This is where **AI agents step in as the meeting whisperers**.
 
-Working quietly in the background, they **listen, summarize, and highlight what matters most**, from decisions and deadlines to risks and follow-ups. Instead of spending hours sifting through notes or trying to recall what was agreed upon, project managers get **concise, structured outputs** that keep everyone aligned.
+Working quietly in the background, they **listen, summarize, and highlight what matters most**, from decisions and deadlines to risks and follow-ups. Instead of spending hours sifting through notes or trying to recall what was agreed upon, project managers (PMs) get **concise, structured outputs** that keep everyone aligned.
 
 With AI handling the details, teams can focus on the conversation itself, making meetings more productive and outcomes far clearer.
 
-**PMs spend 30–50% of their time in meetings**
+**Less meetings, more impact**
 
 If you’re a project manager, this stat will hit home: PMs spend **30–50% of their time in meetings.**
 
-Some days, it feels like an endless relay of Zoom calls, each one blending into the next. You jot down notes, chase action items, and try to keep everyone aligned. But by the end of the week, you’re buried under meeting fatigue with precious little time left for strategic work.
+Some days, it feels like an endless relay of Zoom calls, each one blending into the next. You jot down notes, chase action items, and try to keep everyone aligned. But by the end of the week, you're plagued with meeting fatigue with precious little time left for strategic work.
 
-This is where **AI agent steps in as your “meeting whisperer”** capturing what matters, automating the follow-up, and helping you cut meetings in half without losing alignment.
+This is where the **AI agent steps in as your “meeting whisperer”** capturing what matters, automating the follow-up, and helping you cut meetings in half without losing alignment.
 
 **As an example:** The side-by-side illustration highlights the difference AI makes in managing meetings. On the left, a frazzled project manager is shown juggling **sticky notes and back-to-back Zoom calls**, struggling to keep track of decisions and action items. On the right, the same manager looks calm and focused while an **AI agent projects live meeting notes and action items directly onto a dashboard.**
 
@@ -85,7 +85,7 @@ This flow helps project managers capture important actions without relying on ma
 
 <center><img src="/img/7.3.png" width="600" height="550" alt="Auto-generating task" title="Auto-generating task"></center>
 
-### Section 3: Sentiment and engagement analysis in meetings
+### Sentiment and engagement analysis in meetings
 
 Not all meeting insights are about tasks. Sometimes the tone of the conversation matters more than the words.
 
@@ -103,7 +103,7 @@ Together, these visuals turn meeting discussions into structured intelligence, m
 
 <center><img src="/img/7.4.png" width="600" height="550" alt="AI meeting" title="AI meeting"></center>
 
-### Section 4: Meeting-free decision-making culture
+### Meeting-free decision-making culture
 
 The real power of AI meeting agents isn’t just in better notes — it’s in **fewer meetings**.
 
@@ -111,7 +111,7 @@ When updates, tasks, and risks are captured automatically, you don’t need 10 w
 
 **As an example**: A software team cuts their weekly syncs from 10 to 5. Instead of rehashing status updates, they review AI-prepared summaries and spend meetings on problem-solving.
 
-The illustration below shows how AI meeting summaries can dramatically reduce the time spent in meetings. In the **“Before” view**, project managers sit through around **10 meetings per week**, often just to gather updates. In the **“After” view**, with AI generating clear, reliable summaries, the number of meetings drops to **5 per week**, freeing up time for deeper work while keeping everyone equally (or even better) informed.
+The illustration below shows how AI meeting summaries can dramatically reduce the time spent in meetings. In the **“Before”** view, project managers sit through around **10 meetings per week**, often just to gather updates. In the **“After”** view, with AI generating clear, reliable summaries, the number of meetings drops to **5 per week**, freeing up time for deeper work while keeping everyone equally (or even better) informed.
 
 This comparison makes it clear: **AI doesn’t just make meetings smarter—it helps cut them in half.**
 
@@ -129,7 +129,7 @@ The result? **Less fatigue, more clarity, and better outcomes.**
 
 **Key takeaway**
 
-**AI remembers and follows up so PMs don’t have to freeing them to focus on leadership, not logistics.**
+**"AI remembers and follows up, so PMs don’t have to -- freeing them to focus on leadership, not logistics."**
 
 This scene captures how AI ensures that no important decision or responsibility slips through the cracks—turning meeting outcomes into clear, actionable roadmaps without extra effort from the manager.
 
