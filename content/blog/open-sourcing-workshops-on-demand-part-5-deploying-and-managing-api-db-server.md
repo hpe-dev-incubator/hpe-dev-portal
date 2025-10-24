@@ -4,7 +4,7 @@ title: "Open Sourcing Workshops-on-Demand part 5: Deploying and Managing API-DB
 date: 2025-06-24T09:52:09.975Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
-disable: false
+disable: true
 tags:
   - opensource
   - Workshops-on-Demand
