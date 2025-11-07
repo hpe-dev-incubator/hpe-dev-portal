@@ -44,15 +44,11 @@ tags:
         }
 </style>
 
-
-
 <!--StartFragment-->
 
 <div class="warning-box">
 
-    This blog post has been moved to 
-
-    <a href="https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/settingbiosandstoragecontrollerproperties/smartarraybiospropertysettings" target="_blank">HPE server management portal</a>
+    This blog post has been moved to the <a href="https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/settingbiosandstoragecontrollerproperties/smartarraybiospropertysettings" target="_blank">HPE server management portal</a>
 
 </div>
 
