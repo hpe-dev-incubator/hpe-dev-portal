@@ -7,7 +7,7 @@ disable: false
 ---
 # Introduction
 
-This article deals with generating and compiling a basic Morpheus plugin project.
+This article deals with generating and compiling a basic Morpheus plugin project on Windows 11.
 
 Topics covered in this article:
 
@@ -18,3 +18,15 @@ Topics covered in this article:
 * Upload the compiled plugin to Morpheus
 * Compile the plugin remotely on Linux, using Visual Studio Code
 * Compile the plugin using docker
+
+
+
+# JDK Prerequisite
+
+For the labs in this document, we assume a **Windows 11 host** with internet access and **Visual Studio Code** installed.
+
+
+You’ll also need to have **Java JDK 11 or 17** installed. The vendor distribution of Java is not important — both OpenJDK and Oracle JDK are supported.
+
+
+When using JDK 17, the project’s compile **compatibility level is set to version 1.11** to maintain compatibility with earlier environments.
