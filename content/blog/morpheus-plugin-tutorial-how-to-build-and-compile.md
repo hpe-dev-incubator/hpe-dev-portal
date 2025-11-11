@@ -39,5 +39,14 @@ When using JDK 17, the project’s compile **compatibility level is set to versi
    java -version
    ```
 
-   ![](/img/0.-install-jdk.png "Install and verify OpenJDK 17 on Windows 11")
-4.
+   ![](/img/0installjdk.png "Install and verify OpenJDK 17 on Windows 11")
+
+# Creating a plugin project
+
+Creating a project that compiles code into usable plugins can be a daunting task, especially for developers who are not familiar with Java, Groovy, or Gradle.
+
+To simplify this process and make it easier for potential plugin builders to get started, the Morpheus engineering team created the Morpheus Plugin Code Generator.
+
+We’ll use this handy tool as a starting point to create our new plugin project.
+The preferred source language for Morpheus plugins is Groovy.
+Groovy features a concise, flexible syntax and includes many helper methods that make coding easier. It’s fully interoperable with Java and compiles to the same JVM bytecode.
