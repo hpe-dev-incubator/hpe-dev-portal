@@ -120,3 +120,5 @@ As a first compile option, we will look at the local Windows environment.
 
 1. From the Terminal main menu, choose New Terminal.\
    (You may need to click the ellipses to exposes the entire menu)
+
+   ![Test title alt](/img/81terminal.png "Test title")
