@@ -163,3 +163,5 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 ![](/img/13choose_host.png "Choose host connection")
 
 4. Satisfy any possible certificate security prompts and enter your password when prompted. A new Visual Studio Code window will be opened. As with the previous exercise, **Open Folder** from the main **File menu**.
+
+![]()
