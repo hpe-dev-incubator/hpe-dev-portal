@@ -104,6 +104,11 @@ We will explore some of the most important files briefly. In different article, 
 * **build.gradle**\
   This is the actual build script. Build dependencies are declared here. This configures how the .jar file is built.
 * **PluginDemoPlugin.groovy**\
-  i.The entry point class that Morpheus will load.\
-  ii. Extends Plugin\
-  iii. Specified in the build.gradle file
+  i.The main plugin entry point class that Morpheus will load.\
+  ii. Extends **com.morpheusdata.core.Plugin**\
+  iii. Specified in the build.gradle file as the **Plugin-Class**\
+  iv. Registers **provider** classes that add functionality to the plugin
+* **PluginDemoGenericProvider**\
+  A provider class that add generic functionality. Many types of providers can be added to plugins.
+* **pluginDemoShow.hbs**\
+  Handlebars markup to display UI elements in the Morpheus web UI.
