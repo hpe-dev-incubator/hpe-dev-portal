@@ -79,7 +79,6 @@ Although we use Visual Studio Code in this example, several more powerful Java/G
 ![](/img/4vsc_open_folder.png "VS Code Open Folder")
 
 2. Respond **Yes** to the trust prompt. If this is the first project opened of its type, VS Code will prompt for the installation of java related extension packs. Respond by clicking **Install**.
-
 3. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
 
 ![](/img/61configuring.png "Extension pack setup")
@@ -88,4 +87,23 @@ Wait for the **Gradle: configuration** message to disappear and the **Java: Read
 
 ![](/img/62configured.png "Project build")
 
-4. 
+4. Open the **Explorer** view by clicking the corresponding icon at the top left. The **Welcome** and any open **Extension** tabs can now be closed.
+
+![](/img/7explorer_view.png "Open explorer view")
+
+## Important project files
+
+We will explore some of the most important files briefly. In different article, we will cover the project structure and the build files in more detail.
+
+* **gradlew.bat**\
+  OS shell wrapper script used for compiling the plugin on Windows.
+* **gradlew**\
+  OS shell wrapper script used for compiling on Linux.
+* **gradle.properties**\
+  Variables used in the in the gradle build. Typically version numbers.
+* **build.gradle**\
+  This is the actual build script. Build dependencies are declared here. This configures how the .jar file is built.
+* **PluginDemoPlugin.groovy**\
+  i.The entry point class that Morpheus will load.\
+  ii. Extends Plugin\
+  iii. Specified in the build.gradle file
