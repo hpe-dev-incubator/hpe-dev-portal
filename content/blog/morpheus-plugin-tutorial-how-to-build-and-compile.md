@@ -112,3 +112,35 @@ We will explore some of the most important files briefly. In different article, 
   A provider class that add generic functionality. Many types of providers can be added to plugins.
 * **pluginDemoShow.hbs**\
   Handlebars markup to display UI elements in the Morpheus web UI.
+
+## Compiling locally on Windows
+
+1. As a first compile option, we will look at the local Windows environment.\
+   (You may need to click the ellipses to exposes the entire menu)
+
+![](/img/81terminal.png "Open terminal")
+
+2. Run the Windows wrapper batch script command:
+
+   ```
+   .\gradlew.bat clean build
+   ```
+
+   The **shadowJar** parameter can be used instead **build**.
+3. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into Morpheus.
+
+![](/img/9.-jar-file.png "Browse to the jar file")
+
+4. Upload the plugin to Morpheus by navigating to **Administration > Integrations > Plugins > Add**. Drag the file onto the dialog or browse to the .jar file and click Upload.
+
+![](/img/10.-upload-jar.png "Upload jar file to Morpheus")
+
+A successful upload will add the plugin name to the list:
+
+![](/img/11.-uploaded.png "Uploaded plugin into list")
+
+To view the registered providers of an uploaded plugin, click the edit pencil to view the dialog.
+
+![](/img/12.-plugin-providers.png "View plugin details")
+
+\## Compiling the plugin on Linux
