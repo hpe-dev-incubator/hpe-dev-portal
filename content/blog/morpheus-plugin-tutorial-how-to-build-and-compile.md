@@ -40,7 +40,7 @@ When using JDK 17, the project’s compile **compatibility level is set to versi
    java -version
    ```
 
-![](/img/0installjdk.png)
+![](/img/0installjdk.png "Install and test java")
 
 ## Creating a plugin project
 
@@ -66,4 +66,26 @@ Groovy features a concise, flexible syntax and includes many helper methods that
 
 3. Unzip the plugin project for use in an IDE. For this example, we will unzip the plugin to the Windows Documents folder.
 
-![](/img/3unzip_plugin_project.png)
+![](/img/3unzip_plugin_project.png "Extract code project")
+
+## Authoring plugin projects in an IDE
+
+Adding logic and complexity to a working plugin is an exercise in object-oriented programming. Writing code in plain text editors can be tedious, time-consuming, and error prone. To make development easier, we use an IDE such as Visual Studio Code.
+
+Although we use Visual Studio Code in this example, several more powerful Java/Groovy IDEs are available, including IntelliJ IDEA, Eclipse, and NetBeans.
+
+1. Open **Visual Studio Code** and select **Open Folder** from the **File** menu.
+
+![](/img/4vsc_open_folder.png "VS Code Open Folder")
+
+2. Respond **Yes** to the trust prompt. If this is the first project opened of its type, VS Code will prompt for the installation of java related extension packs. Respond by clicking **Install**.
+
+3. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
+
+![](/img/61configuring.png "Extension pack setup")
+
+Wait for the **Gradle: configuration** message to disappear and the **Java: Ready** message to remain.
+
+![](/img/62configured.png "Project build")
+
+4. 
