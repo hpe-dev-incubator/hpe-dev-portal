@@ -127,7 +127,10 @@ We will explore some of the most important files briefly. In different article, 
    ```
 
    The **shadowJar** parameter can be used instead **build**.
-3. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into Morpheus.
+
+![](/img/8gradlew_bat.png "Build/compile command")
+
+2. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into Morpheus.
 
 ![](/img/9.-jar-file.png "Browse to the jar file")
 
@@ -143,4 +146,20 @@ To view the registered providers of an uploaded plugin, click the edit pencil to
 
 ![](/img/12.-plugin-providers.png "View plugin details")
 
-\## Compiling the plugin on Linux
+## Compiling the plugin on Linux
+
+Another compile option is to connect to a **remote Linux** machine using an **SSH** session from **Visual Studio Code.** As a prerequisite for this, unzip the initial project to your Linux machine and ensure remote SSH connectivity. The **Java JDK v17** will need to be present in this environment as well.
+
+1. Click the **Open Remote Window** at the bottom left of the Visual Studio Code window. In the top popup option box, choose **Connect to Host**.
+
+![](/img/13.-connect-to-host.png "Connect to remote host")
+
+2. Choose **+ Add New SSH Host** and enter your **user@host** combo. Choose any SSH configuration file on the system to save connection details to.
+
+![](/img/13.-specify-host.png "Provide user host pair")
+
+3. Click the O**pen Remote Window** at the bottom left of the Visual Studio Code window **again**. Choose **Connect to Host again**. This time, **select the host** that was entered and saved in the previous step.
+
+![](/img/13choose_host.png "Choose host connection")
+
+4. Satisfy any possible certificate security prompts and enter your password when prompted. A new Visual Studio Code window will be opened. As with the previous exercise, **Open Folder** from the main **File menu**.
