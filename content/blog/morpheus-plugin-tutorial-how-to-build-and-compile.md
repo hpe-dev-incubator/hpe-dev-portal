@@ -28,7 +28,6 @@ You’ll also need to have **Java JDK 11 or 17** installed. The vendor distribut
 When using JDK 17, the project’s compile **compatibility level is set to version 1.11** to maintain compatibility with earlier environments.
 
 1. Open a Windows command prompt (Press Win + R or click Start, type cmd, press enter)
-
 2. To install OpenJDK 17, run the following command and click yes to provide administrative privileges where needed:
 
    ```
@@ -47,19 +46,24 @@ When using JDK 17, the project’s compile **compatibility level is set to versi
 
 Creating a project that compiles code into usable plugins can be a daunting task, especially for developers who are not familiar with Java, Groovy, or Gradle.
 
-
-
 To simplify this process and make it easier for potential plugin builders to get started, the Morpheus engineering team created the **Morpheus Plugin Code Generator**.
-
-
 
 We’ll use this handy tool as a starting point to create our new plugin project.
 The preferred source language for Morpheus plugins is **Groovy**.
 
-
-
 Groovy features a concise, flexible syntax and includes many helper methods that make coding easier. It’s fully interoperable with Java and compiles to the same JVM bytecode.
 
-
-
 1. Using a web browser, navigate to [developer.morpheusdata.com](https://developer.morpheusdata.com/). Click the **Get Started Now** button.
+
+![](/img/1developer_getting_started_button.png "Launch plugin code generator")
+
+2. For this lab, we provide the following field values:\
+   **Name**: Plugin Demo\
+   **Code**: pluginDemo\
+   **Providers**: Generic Integration
+
+![](/img/2developer_generate_plugin.png "Generate plugin project")
+
+3. Unzip the plugin project for use in an IDE. For this example, we will unzip the plugin to the Windows Documents folder.
+
+![](/img/3unzip_plugin_project.png)
