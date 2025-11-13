@@ -79,7 +79,10 @@ Although we use Visual Studio Code in this example, several more powerful Java/G
 ![](/img/4vsc_open_folder.png "VS Code Open Folder")
 
 2. Respond **Yes** to the trust prompt. If this is the first project opened of its type, VS Code will prompt for the installation of java related extension packs. Respond by clicking **Install**.
-3. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
+
+![](/img/5trust_and_install_extensions.png)
+
+2. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
 
 ![](/img/61configuring.png "Extension pack setup")
 
@@ -164,4 +167,8 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 
 4. Satisfy any possible certificate security prompts and enter your password when prompted. A new Visual Studio Code window will be opened. As with the previous exercise, **Open Folder** from the main **File menu**.
 
-![]()
+![](/img/13open_folder.png "Open remote folder")
+
+5. Select your **Plugin Demo** folder and click **OK**. You will be prompted to supply the password again. As before, allow for the installation of the required Java Extension packs and wait for the **Java: Ready** status in the bottom status bar.
+
+![](/img/61configuring.png)
