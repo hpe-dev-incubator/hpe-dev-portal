@@ -169,10 +169,10 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 
 ![](/img/13open_folder.png "Open remote folder")
 
-5. Select your **Plugin Demo** folder and click **OK**. You will be prompted to supply the password again. 
+5. Select your **Plugin Demo** folder and click **OK**. You will be prompted to supply the password again. As before, allow for the installation of the required Java Extension packs and wait for the **Gradle: configure project** message to disappear.
 
 ![](/img/61configuring.png "Configuring project")
 
-As before, allow for the installation of the required Java Extension packs and wait for the **Gradle: configuration** message to disappear and the **Java: Ready** status to remain in the bottom status bar.
+The **Java: Ready** status message should remain in the bottom status bar.
 
 ![](/img/62configured.png "Project configured")
