@@ -42,6 +42,8 @@ When using JDK 17, the project’s compile **compatibility level is set to versi
 
 ![](/img/0installjdk.png "Install and test java")
 
+Another build dependency is the **Gradle build system**. This will automatically be provided by the **Gradle wrapper configuration** under the **gradle directory** of the project we will generate.
+
 ## Creating a plugin project
 
 Creating a project that compiles code into usable plugins can be a daunting task, especially for developers who are not familiar with Java, Groovy, or Gradle.
@@ -86,7 +88,7 @@ Although we use Visual Studio Code in this example, several more powerful Java/G
 
 ![](/img/61configuring.png "Extension pack setup")
 
-Wait for the **Gradle: configuration** message to disappear and the **Java: Ready** message to remain.
+Wait for the **Gradle: configure project** message to disappear and the **Java: Ready** message to remain.
 
 ![](/img/62configured.png "Project build")
 
@@ -176,3 +178,46 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 The **Java: Ready** status message should remain in the bottom status bar.
 
 ![](/img/62configured.png "Project configured")
+
+6. From the top main menu, choose **terminal > New Terminal**.
+
+![](/img/14open-terminal.png "Open new terminal")
+
+7. Ensure that the gradle **wrapper script** is **executable** by running the following:
+
+   ```
+   chmod +x ./gradlew
+   ```
+8. This time, we run the **gradlew** script, **instead of gradlew.bat**.
+
+   ```
+   ./gradlew clean build
+   ```
+
+![](/img/15linux_compile.png "Compile using gradlew")
+
+## Compiling using Docker
+
+To avoid the need for a dedicated local development environment or specific JDK installations, you can compile the plugin inside a **Docker container**. Using the official Gradle image, the build process runs in an isolated environment that already includes the correct JDK version and Gradle tooling. This ensures consistent results across different systems and eliminates dependency issues. 
+
+The prerequisite to this is a **working Docker installation**.
+
+```
+sudo docker run --rm \
+  -u "$(id -u):$(id -g)" \
+  -v "$PWD":/home/gradle/project \
+  -v gradle-cache:/home/gradle/.gradle \
+  -w /home/gradle/project \
+  gradle:8.10.2-jdk17 \
+  bash -lc "chmod +x ./gradlew && ./gradlew clean build"
+```
+
+## Next steps
+
+From here, we can explore the **mechanics of the interfaces** exposed by the Morpheus Plugin Core. These interfaces are organized into various **provider types**, each defining a specific kind of integration point within Morpheus.
+
+
+In essence, a *provider type* represents a particular extension area in the platform — such as a **custom tab**, **analytics page**, **dashboard widget**, or c**ustom report**. These allow developers to inject new functionality directly into the Morpheus UI or automation workflows.
+
+
+At the more advanced end of the spectrum are provider types that model **core infrastructure components**. These include integrations for **clouds**, **networks**, **storage systems**, and many others. Such providers tend to be more complex because they interact deeply with Morpheus’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
