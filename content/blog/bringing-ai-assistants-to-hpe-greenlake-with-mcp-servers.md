@@ -260,7 +260,7 @@ Understanding the internal architecture helps appreciate how MCP servers maintai
 
 ### Component Overview
 
-![component overview](/img/component-overview.png "component overview")
+![component overview](/img/component-overview.png "Component Overview")
 
 ### Request Flow
 
