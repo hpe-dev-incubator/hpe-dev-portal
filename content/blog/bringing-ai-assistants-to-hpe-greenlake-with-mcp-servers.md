@@ -241,9 +241,9 @@ Once configured, you can interact naturally:
 
 **You**: "Show me the 10 most recent audit log entries"
 
-**Claude** (using the `getAuditLogs` tool with `limit=10`):
+**Claude** (using the **getAuditLogs** tool with **limit=10**):
 
-```
+```shell
 Here are the 10 most recent audit log entries:
 
 1. [2025-01-15 14:32:15] User Management - User admin@example.com logged in
