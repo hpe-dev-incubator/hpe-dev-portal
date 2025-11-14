@@ -165,8 +165,27 @@ From the HPE GreenLake console:
 
 For this example, we'll set up an audit logs MCP server. The MCP generator tool (used internally by HPE to accelerate development) creates production-ready servers from OpenAPI specifications, though the generated servers can be deployed and configured independently.
 
-```
+```bash
+# Clone or download the pre-generated MCP server
+git clone https://github.com/hpe/greenlake-mcp-servers
+cd greenlake-mcp-servers/audit-logs
 
+# Install dependencies using uv (fast Python package manager)
+uv sync
+
+# Configure environment variables
+cat > .env.local << EOF
+GREENLAKE_API_BASE_URL=https://global.api.greenlake.hpe.com
+GREENLAKE_CLIENT_ID=your-client-id
+GREENLAKE_CLIENT_SECRET=your-client-secret
+GREENLAKE_WORKSPACE_ID=your-workspace-id
+GREENLAKE_TOKEN_ISSUER=https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token
+MCP_TOOL_MODE=static
+GREENLAKE_LOG_LEVEL=INFO
+EOF
+
+# Test the server
+make test
 ```
 
 ### Step 3: Connect Your AI Assistant
@@ -174,13 +193,44 @@ For this example, we'll set up an audit logs MCP server. The MCP generator tool 
 For Claude Desktop, add the server to your configuration file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
 ```json
-
+{
+  "mcpServers": {
+    "greenlake-audit-logs": {
+      "command": "uv",
+      "args": ["run", "python", "__main__.py"],
+      "cwd": "/path/to/greenlake-mcp-servers/audit-logs",
+      "env": {
+        "GREENLAKE_API_BASE_URL": "https://global.api.greenlake.hpe.com",
+        "GREENLAKE_CLIENT_ID": "your-client-id",
+        "GREENLAKE_CLIENT_SECRET": "your-client-secret",
+        "GREENLAKE_WORKSPACE_ID": "your-workspace-id",
+        "GREENLAKE_TOKEN_ISSUER": "https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token",
+        "MCP_TOOL_MODE": "static"
+      }
+    }
+  }
+}
 ```
 
 For VS Code with the Claude Code extension, create or update `.vscode/mcp.json` in your workspace:
 
 ```json
-
+{
+  "servers": {
+    "greenlake-audit-logs": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "python", "__main__.py"],
+      "cwd": "/path/to/greenlake-mcp-servers/audit-logs",
+      "env": {
+        "GREENLAKE_API_BASE_URL": "https://global.api.greenlake.hpe.com",
+        "GREENLAKE_CLIENT_ID": "your-client-id",
+        "GREENLAKE_CLIENT_SECRET": "your-client-secret",
+        "GREENLAKE_WORKSPACE_ID": "your-workspace-id"
+      }
+    }
+  }
+}
 ```
 
 Restart your AI client, and the MCP server will automatically connect.
@@ -194,7 +244,12 @@ Once configured, you can interact naturally:
 **Claude** (using the `getAuditLogs` tool with `limit=10`):
 
 ```
+Here are the 10 most recent audit log entries:
 
+1. [2025-01-15 14:32:15] User Management - User admin@example.com logged in
+2. [2025-01-15 14:28:43] Device Management - Device server-01 status changed to active
+3. [2025-01-15 14:15:22] Workspace - Workspace Production updated
+...
 ```
 
 The AI automatically invokes the appropriate MCP tool, formats parameters, makes the API call through the server, and presents results in a readable format.
@@ -224,7 +279,33 @@ Understanding the internal architecture helps appreciate how MCP servers maintai
 Each MCP tool implements a consistent interface:
 
 ```python
+class GetAuditLogsTool(BaseTool):
+    """Tool for querying HPE GreenLake audit logs."""
 
+    name = "getAuditLogs"
+    description = "Retrieve audit logs with optional filtering"
+
+    input_schema = {
+        "type": "object",
+        "properties": {
+            "filter": {"type": "string", "description": "OData filter expression"},
+            "limit": {"type": "integer", "default": 100},
+            "offset": {"type": "integer", "default": 0}
+        }
+    }
+
+    async def execute(self, filter: str = None, limit: int = 100, offset: int = 0):
+        """Execute the audit log query."""
+        # Parameter validation
+        params = {"limit": limit, "offset": offset}
+        if filter:
+            params["filter"] = filter
+
+        # Make authenticated API call
+        response = await self.http_client.get("/audit-log/v1/logs", params=params)
+
+        # Return structured data
+        return response
 ```
 
 This abstraction allows the MCP server to expose dozens of API endpoints with minimal code duplication.
@@ -236,19 +317,25 @@ For large APIs, dynamic mode provides significant performance benefits. Instead 
 **1. list_endpoints** - Fast discovery
 
 ```python
-
+# Returns: ["GET /audit-logs/v1/logs", "GET /devices/v1/servers", ...]
+# Allows AI to browse available operations
 ```
 
 **2. get_endpoint_schema** - On-demand schema loading
 
 ```python
-
+# Input: "GET /audit-logs/v1/logs"
+# Returns: Full parameter schema, response types, descriptions
+# AI learns how to use an endpoint only when needed
 ```
 
 **3. invoke_dynamic_tool** - Validated execution
 
 ```python
-
+# Input: endpoint, parameters
+# Validates parameters against schema
+# Makes API call
+# Returns structured response
 ```
 
 This architecture scales efficiently to APIs with hundreds of endpoints without overwhelming the AI's context window.
