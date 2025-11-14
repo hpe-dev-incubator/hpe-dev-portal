@@ -3,7 +3,7 @@ title: Setting Bios and Storage Controller Properties with Redfish®
 date: 2018-07-19T15:11:44.185Z
 featuredBlog: false
 priority: null
-externalLink: https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/settingbiosandstoragecontrollerproperties/smartarraybiospropertysettings
+externalLink: https://servermanagementportal--blog-settingbiosandstora-a08e37.preview.redocly.app/docs/references_and_material/blogposts/etc/biosandstorageprops/biosandstorageprops
 author: Francois Donze
 authorimage: /img/fdz-photoprofile.png
 thumbnailimage: null
