@@ -84,7 +84,7 @@ MCP servers for HPE GreenLake support two operational modes to optimize for diff
 
 **Dynamic Mode** (Automatically enabled for APIs with 50+ endpoints):
 
-* > Three meta-tools handle all endpoints: `list_endpoints`, **get_endpoint_schema**, and **invoke_dynamic_tool**
+* > Three meta-tools handle all endpoints: **list_endpoints**, **get_endpoint_schema**, and **invoke_dynamic_tool**
 * Runtime endpoint discovery and schema validation
 * Memory efficient for large APIs
 * Ideal for comprehensive services with extensive API surfaces
