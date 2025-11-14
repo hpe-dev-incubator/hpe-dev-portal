@@ -1,8 +1,10 @@
 ---
 title: Bringing AI assistants to HPE GreenLake with MCP Servers
 author: Vandewilly Silva
-image: /img/home/HPE-Developer-Community-Hero-1.png
+image: /img/cap_02_rgb.png
 ---
+![]()
+
 # Overview
 
 Modern cloud platforms generate vast amounts of operational data. HPE GreenLake customers often find themselves toggling between multiple interfaces, running complex API queries, and piecing together information from various services to understand their infrastructure state. What if your AI assistant could directly interact with your HPE GreenLake environment in a secure, controlled manner?
@@ -25,6 +27,8 @@ Traditional approaches to this problem involve building custom integration layer
 The Model Context Protocol is an open standard that enables AI applications to securely connect to external data sources and tools. Think of it as a universal adapter that allows AI assistants to "plug in" to your enterprise systems in a controlled, standardized way.
 
 MCP operates on a client-server architecture:
+
+![mcp architecture](/img/mcp-architecture.png "mcp architecture")
 
 The protocol defines three core primitives:
 
@@ -89,6 +93,8 @@ Security is paramount when connecting AI assistants to production infrastructure
 
 ### Authentication and Authorization
 
+![authn authz sequence diagram](/img/authn-seq-diagram.png "Authentication and Authorization Workflow")
+
 The MCP server handles OAuth2 authentication using the client credentials flow, automatically managing token lifecycle and refresh operations. Your credentials are read from local environment variables or configuration files, never transmitted to the AI service.
 
 ### Read-Only Operations
@@ -134,10 +140,6 @@ The MCP server enables:
 4. Correlation with workspace and user data
 5. Summary reports with actionable recommendations
 
-\[ ]
-
-TODO: Add more use cases
-
 ## Getting Started
 
 Setting up an MCP server for HPE GreenLake requires three steps: obtaining API credentials, configuring the server, and connecting your AI assistant.
@@ -161,17 +163,73 @@ From the HPE GreenLake console:
 
 For this example, we'll set up an audit logs MCP server. The MCP generator tool (used internally by HPE to accelerate development) creates production-ready servers from OpenAPI specifications, though the generated servers can be deployed and configured independently.
 
-`# Clone or download the pre-generated MCP server git clone https://github.com/hewlettPackard/gl-mcp cd src/audit-logs # Install dependencies using uv (fast Python package manager) uv sync # Configure environment variables cat > .env.local << EOF GREENLAKE_CLIENT_ID=your-client-id GREENLAKE_CLIENT_SECRET=your-client-secret GREENLAKE_WORKSPACE_ID=your-workspace-id EOF # Test the server make test`
+```
+# Clone or download the pre-generated MCP server
+git clone https://github.com/hpe/greenlake-mcp-servers
+cd greenlake-mcp-servers/audit-logs
+
+# Install dependencies using uv (fast Python package manager)
+uv sync
+
+# Configure environment variables
+cat > .env.local << EOF
+GREENLAKE_API_BASE_URL=https://global.api.greenlake.hpe.com
+GREENLAKE_CLIENT_ID=your-client-id
+GREENLAKE_CLIENT_SECRET=your-client-secret
+GREENLAKE_WORKSPACE_ID=your-workspace-id
+GREENLAKE_TOKEN_ISSUER=https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token
+MCP_TOOL_MODE=static
+GREENLAKE_LOG_LEVEL=INFO
+EOF
+
+# Test the server
+make test
+```
 
 ### Step 3: Connect Your AI Assistant
 
 For Claude Desktop, add the server to your configuration file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
-`{ "mcpServers": { "greenlake-audit-logs": { "command": "uv", "args": ["run", "python", "__main__.py"], "cwd": "/path/to/greenlake-mcp-servers/audit-logs", "env": { "GREENLAKE_CLIENT_ID": "your-client-id", "GREENLAKE_CLIENT_SECRET": "your-client-secret", "GREENLAKE_WORKSPACE_ID": "your-workspace-id" } } } }`
+```json
+{
+  "mcpServers": {
+    "greenlake-audit-logs": {
+      "command": "uv",
+      "args": ["run", "python", "__main__.py"],
+      "cwd": "/path/to/greenlake-mcp-servers/audit-logs",
+      "env": {
+        "GREENLAKE_API_BASE_URL": "https://global.api.greenlake.hpe.com",
+        "GREENLAKE_CLIENT_ID": "your-client-id",
+        "GREENLAKE_CLIENT_SECRET": "your-client-secret",
+        "GREENLAKE_WORKSPACE_ID": "your-workspace-id",
+        "GREENLAKE_TOKEN_ISSUER": "https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token",
+        "MCP_TOOL_MODE": "static"
+      }
+    }
+  }
+}
+```
 
 For VS Code with the Claude Code extension, create or update `.vscode/mcp.json` in your workspace:
 
-`{ "servers": { "greenlake-audit-logs": { "type": "stdio", "command": "uv", "args": ["run", "python", "__main__.py"], "cwd": "/path/to/greenlake-mcp-servers/audit-logs", "env": { "GREENLAKE_CLIENT_ID": "your-client-id", "GREENLAKE_CLIENT_SECRET": "your-client-secret", "GREENLAKE_WORKSPACE_ID": "your-workspace-id" } } } }`
+```json
+{
+  "servers": {
+    "greenlake-audit-logs": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "python", "__main__.py"],
+      "cwd": "/path/to/greenlake-mcp-servers/audit-logs",
+      "env": {
+        "GREENLAKE_API_BASE_URL": "https://global.api.greenlake.hpe.com",
+        "GREENLAKE_CLIENT_ID": "your-client-id",
+        "GREENLAKE_CLIENT_SECRET": "your-client-secret",
+        "GREENLAKE_WORKSPACE_ID": "your-workspace-id"
+      }
+    }
+  }
+}
+```
 
 Restart your AI client, and the MCP server will automatically connect.
 
@@ -183,7 +241,14 @@ Once configured, you can interact naturally:
 
 **Claude** (using the `getAuditLogs` tool with `limit=10`):
 
-`Here are the 10 most recent audit log entries: 1. [2025-01-15 14:32:15] User Management - User admin@example.com logged in 2. [2025-01-15 14:28:43] Device Management - Device server-01 status changed to active 3. [2025-01-15 14:15:22] Workspace - Workspace Production updated ...`
+```
+Here are the 10 most recent audit log entries:
+
+1. [2025-01-15 14:32:15] User Management - User admin@example.com logged in
+2. [2025-01-15 14:28:43] Device Management - Device server-01 status changed to active
+3. [2025-01-15 14:15:22] Workspace - Workspace Production updated
+...
+```
 
 The AI automatically invokes the appropriate MCP tool, formats parameters, makes the API call through the server, and presents results in a readable format.
 
@@ -192,6 +257,8 @@ The AI automatically invokes the appropriate MCP tool, formats parameters, makes
 Understanding the internal architecture helps appreciate how MCP servers maintain security while providing powerful capabilities.
 
 ### Component Overview
+
+![component overview](/img/component-overview.png "component overview")
 
 ### Request Flow
 
@@ -205,23 +272,66 @@ Understanding the internal architecture helps appreciate how MCP servers maintai
 8. **MCP Response**: Structured data is returned to the AI via JSON-RPC
 9. **AI Presentation**: The assistant formats and presents results to the user
 
-duplication.
+### Tool Implementation
+
+Each MCP tool implements a consistent interface:
+
+```python
+class GetAuditLogsTool(BaseTool):
+    """Tool for querying HPE GreenLake audit logs."""
+
+    name = "getAuditLogs"
+    description = "Retrieve audit logs with optional filtering"
+
+    input_schema = {
+        "type": "object",
+        "properties": {
+            "filter": {"type": "string", "description": "OData filter expression"},
+            "limit": {"type": "integer", "default": 100},
+            "offset": {"type": "integer", "default": 0}
+        }
+    }
+
+    async def execute(self, filter: str = None, limit: int = 100, offset: int = 0):
+        """Execute the audit log query."""
+        # Parameter validation
+        params = {"limit": limit, "offset": offset}
+        if filter:
+            params["filter"] = filter
+
+        # Make authenticated API call
+        response = await self.http_client.get("/audit-log/v1/logs", params=params)
+
+        # Return structured data
+        return response
+```
+
+This abstraction allows the MCP server to expose dozens of API endpoints with minimal code duplication.
 
 ### Dynamic Mode Optimization
 
 For large APIs, dynamic mode provides significant performance benefits. Instead of individual tool files for each endpoint, three meta-tools handle all operations:
 
 **1. list_endpoints** - Fast discovery
-
-`# Returns: ["GET /audit-logs/v1/logs", "GET /devices/v1/servers", ...] # Allows AI to browse available operations`
+```python
+# Returns: ["GET /audit-logs/v1/logs", "GET /devices/v1/servers", ...]
+# Allows AI to browse available operations
+```
 
 **2. get_endpoint_schema** - On-demand schema loading
-
-`# Input: "GET /audit-logs/v1/logs" # Returns: Full parameter schema, response types, descriptions # AI learns how to use an endpoint only when needed`
+```python
+# Input: "GET /audit-logs/v1/logs"
+# Returns: Full parameter schema, response types, descriptions
+# AI learns how to use an endpoint only when needed
+```
 
 **3. invoke_dynamic_tool** - Validated execution
-
-`# Input: endpoint, parameters # Validates parameters against schema # Makes API call # Returns structured response`
+```python
+# Input: endpoint, parameters
+# Validates parameters against schema
+# Makes API call
+# Returns structured response
+```
 
 This architecture scales efficiently to APIs with hundreds of endpoints without overwhelming the AI's context window.
 
