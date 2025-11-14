@@ -84,7 +84,7 @@ MCP servers for HPE GreenLake support two operational modes to optimize for diff
 
 **Dynamic Mode** (Automatically enabled for APIs with 50+ endpoints):
 
-* Three meta-tools handle all endpoints: `list_endpoints`, `get_endpoint_schema`, and `invoke_dynamic_tool`
+* > Three meta-tools handle all endpoints: `list_endpoints`, **get_endpoint_schema**, and **invoke_dynamic_tool**
 * Runtime endpoint discovery and schema validation
 * Memory efficient for large APIs
 * Ideal for comprehensive services with extensive API surfaces
@@ -95,7 +95,7 @@ Security is paramount when connecting AI assistants to production infrastructure
 
 ### Authentication and Authorization
 
-![authn authz sequence diagram](/img/authn-seq-diagram.png "Authentication and Authorization Workflow")
+![authn authz sequence diagram](/img/authn-seq-diagram.png "Authentication - sequence diagram")
 
 The MCP server handles OAuth2 authentication using the client credentials flow, automatically managing token lifecycle and refresh operations. Your credentials are read from local environment variables or configuration files, never transmitted to the AI service.
 
@@ -190,7 +190,7 @@ make test
 
 ### Step 3: Connect Your AI Assistant
 
-For Claude Desktop, add the server to your configuration file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+For Claude Desktop, add the server to your configuration file (*~/Library/Application Support/Claude/claude_desktop_config.json* on macOS):
 
 ```json
 {
@@ -212,7 +212,7 @@ For Claude Desktop, add the server to your configuration file (`~/Library/Applic
 }
 ```
 
-For VS Code with the Claude Code extension, create or update `.vscode/mcp.json` in your workspace:
+For VS Code with the Claude Code extension, create or update .vscode/mcp.json in your workspace:
 
 ```json
 {
