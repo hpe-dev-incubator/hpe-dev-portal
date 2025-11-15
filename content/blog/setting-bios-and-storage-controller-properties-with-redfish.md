@@ -48,7 +48,7 @@ tags:
 
 <div class="warning-box">
 
-    This blog post has been moved to the <a href="https://servermanagementportal--blog-settingbiosandstora-a08e37.preview.redocly.app/docs/references_and_material/blogposts/etc/biosandstorageprops/biosandstorageprops" target="_blank">HPE server management portal</a>
+    This blog post has been moved to the <a href="https://servermanagementportal--blog-settingbiosandstora-a08e37.preview.redocly.app/docs/references_and_material/blogposts/etc/biosandstorageprops/biosandstorageprops" target="_blank">HPE server management portal</a>.
 
 </div>
 
