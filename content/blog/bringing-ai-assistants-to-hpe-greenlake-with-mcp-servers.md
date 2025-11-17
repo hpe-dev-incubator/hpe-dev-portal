@@ -142,6 +142,43 @@ The MCP server enables:
 4. Correlation with workspace and user data
 5. Summary reports with actionable recommendations
 
+### Intelligent Device Inventory Management
+Managing thousands of devices across distributed infrastructure becomes conversational: 
+"Show me all unassigned compute devices in the production environment".
+"Which devices haven't been updated in 30 days and are approaching warranty expiration?"
+"Generate an inventory report showing all PCI-compliant devices with their support levels."
+
+The MCP server enables:
+1. Querying devices with complex filter expressions
+2. Natural language parsing of device attributes
+3. Pattern recognition across device types and states
+4. Automated capacity planning and forecasting
+
+### Subscriptions
+MCP servers unlock powerful workflows by combining AI reasoning with live HPE GreenLake data:
+
+"Show me all subscriptions expiring in the next 90 days and their renewal status."
+"Which subscriptions have less than 20% utilization and could be right-sized?"
+
+The MCP server enables:
+1. Querying subscriptions with time-based filters
+2. Expiration monitoring and alerts
+3. License compliance verification
+4. Cost forecasting and budgeting
+
+### User Management
+Security teams identify access risks conversationally:
+
+"Show me all active users who haven't logged in for 180 days and should be reviewed for deactivation."
+"How many new users were onboarded last month and what's their login activity?"
+
+The MCP server enables:
+1. Querying users with last-login filters
+2. Dormant account detection
+3. User growth trend analysis
+4. Onboarding metrics tracking
+5. Month-over-month comparisons
+
 ## Getting Started
 
 Setting up an MCP server for HPE GreenLake requires three steps: obtaining API credentials, configuring the server, and connecting your AI assistant.
