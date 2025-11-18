@@ -42,7 +42,7 @@ For HPE GreenLake integration, MCP servers primarily expose **tools** that map t
 
 ## Why MCP Servers for HPE GreenLake?
 
-MCP servers designed for HPE GreenLake offer several compelling advantages:
+MCP servers designed for HPE GreenLake offer several compelling advantages, including local access, personal API client pattern, standardized tool patterns, and two operating modes.
 
 ### Local, Read-Only Access
 
@@ -76,18 +76,13 @@ Once configured, the MCP server exposes HPE GreenLake APIs as standardized tools
 
 MCP servers for HPE GreenLake support two operational modes to optimize for different API sizes:
 
-**Static Mode**
+| **Static mode** | **Dynamic mode** (APIs with 50+ endpoints) |
+|-----------------|---------------------------------------------|
+| Each API endpoint becomes an individual tool | Three meta-tools handle all endpoints: **list_endpoints**, **get_endpoint_schema**, and **invoke_dynamic_tool** |
+| Explicit, type-safe tool definitions | Runtime endpoint discovery and schema validation |
+| Fast invocation with compile-time validation | Memory efficient for large APIs |
+| | Ideal for comprehensive services with extensive API surfaces |
 
-* Each API endpoint becomes an individual tool
-* Explicit, type-safe tool definitions
-* Fast invocation with compile-time validation
-
-**Dynamic Mode** (Automatically enabled for APIs with 50+ endpoints):
-
-* > Three meta-tools handle all endpoints: **list_endpoints**, **get_endpoint_schema**, and **invoke_dynamic_tool**
-* Runtime endpoint discovery and schema validation
-* Memory efficient for large APIs
-* Ideal for comprehensive services with extensive API surfaces
 
 ## Security Architecture
 
@@ -143,6 +138,7 @@ The MCP server enables:
 5. Summary reports with actionable recommendations
 
 ### Intelligent Device Inventory Management
+
 Managing thousands of devices across distributed infrastructure becomes conversational: 
 "Show me all unassigned compute devices in the production environment".
 "Which devices haven't been updated in 30 days and are approaching warranty expiration?"
@@ -155,29 +151,22 @@ The MCP server enables:
 4. Automated capacity planning and forecasting
 
 ### Subscriptions
+
 MCP servers unlock powerful workflows by combining AI reasoning with live HPE GreenLake data:
 
 "Show me all subscriptions expiring in the next 90 days and their renewal status."
 "Which subscriptions have less than 20% utilization and could be right-sized?"
 
-The MCP server enables:
-1. Querying subscriptions with time-based filters
-2. Expiration monitoring and alerts
-3. License compliance verification
-4. Cost forecasting and budgeting
+The **Subscriptions** MCP server enables comprehensive subscription analytics. You can query subscriptions with time-based filters, monitor expirations, and verify licenses. The **Subscriptions** MCP server can identify underutilized resources and forecast renewal costs. This transforms subscription management from a reactive process into strategic planning conversations with your data.
 
 ### User Management
+
 Security teams identify access risks conversationally:
 
 "Show me all active users who haven't logged in for 180 days and should be reviewed for deactivation."
 "How many new users were onboarded last month and what's their login activity?"
 
-The MCP server enables:
-1. Querying users with last-login filters
-2. Dormant account detection
-3. User growth trend analysis
-4. Onboarding metrics tracking
-5. Month-over-month comparisons
+These capabilities support comprehensive user lifecycle management. The **Users** MCP server can detect dormant accounts, analyze user growth trends to inform capacity planning, track onboarding metrics, and perform month-over-month comparisons to identify usage patterns.
 
 ## Getting Started
 
@@ -204,8 +193,8 @@ For this example, we'll set up an audit logs MCP server. The MCP generator tool 
 
 ```bash
 # Clone or download the pre-generated MCP server
-git clone https://github.com/hpe/greenlake-mcp-servers
-cd greenlake-mcp-servers/audit-logs
+git clone https://github.com/HewlettPackard/gl-mcp
+cd src/audit-logs
 
 # Install dependencies using uv (fast Python package manager)
 uv sync
@@ -227,7 +216,7 @@ make test
 
 ### Step 3: Connect Your AI Assistant
 
-For Claude Desktop, add the server to your configuration file (*~/Library/Application Support/Claude/claude_desktop_config.json* on macOS):
+For Claude Desktop, add the server to your configuration file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS). See the following code sample:
 
 ```json
 {
@@ -249,7 +238,7 @@ For Claude Desktop, add the server to your configuration file (*~/Library/Applic
 }
 ```
 
-For VS Code with the Claude Code extension, create or update .vscode/mcp.json in your workspace:
+For VS Code with the Claude Code extension, create or update `.vscode/mcp.json` in your workspace. See the following code sample:
 
 ```json
 {
