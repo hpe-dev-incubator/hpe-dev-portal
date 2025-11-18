@@ -2,7 +2,7 @@
 title: Bringing AI assistants to HPE GreenLake with MCP Servers
 date: 2025-11-19T18:40:27.066Z
 author: Vandewilly Silva
-authorimage: /img/Avatar1.svg
+authorimage: https://ca.slack-edge.com/E01LD9FH0JZ-U05UA6N7KH6-6b8619b87acd-512
 disable: false
 ---
 ![]()
