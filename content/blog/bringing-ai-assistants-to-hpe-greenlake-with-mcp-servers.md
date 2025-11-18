@@ -205,7 +205,6 @@ GREENLAKE_API_BASE_URL=https://global.api.greenlake.hpe.com
 GREENLAKE_CLIENT_ID=your-client-id
 GREENLAKE_CLIENT_SECRET=your-client-secret
 GREENLAKE_WORKSPACE_ID=your-workspace-id
-GREENLAKE_TOKEN_ISSUER=https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token
 MCP_TOOL_MODE=static
 GREENLAKE_LOG_LEVEL=INFO
 EOF
@@ -230,7 +229,6 @@ For Claude Desktop, add the server to your configuration file (`~/Library/Applic
         "GREENLAKE_CLIENT_ID": "your-client-id",
         "GREENLAKE_CLIENT_SECRET": "your-client-secret",
         "GREENLAKE_WORKSPACE_ID": "your-workspace-id",
-        "GREENLAKE_TOKEN_ISSUER": "https://global.api.greenlake.hpe.com/authorization/v2/oauth2/your-workspace-id/token",
         "MCP_TOOL_MODE": "static"
       }
     }
