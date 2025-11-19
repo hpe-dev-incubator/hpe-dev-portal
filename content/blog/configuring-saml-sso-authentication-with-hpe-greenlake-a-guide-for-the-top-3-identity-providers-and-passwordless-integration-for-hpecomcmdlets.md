@@ -6,5 +6,9 @@ externalLink: https://jullienl.github.io/Configuring-SAML-SSO-with-HPE-GreenLake
 author: Lionel Jullien
 authorimage: https://gravatar.com/avatar/860078c878ca0391edea34a9631842b4c4effbf8d960eb05cf6b72758bd6c276?v=1763548477000&size=192&d=initials
 disable: false
+tags:
+  - sso
+  - GreenLake
+  - PowerShell
 ---
 NONE
