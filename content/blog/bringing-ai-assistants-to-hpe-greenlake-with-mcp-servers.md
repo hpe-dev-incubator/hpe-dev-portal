@@ -9,13 +9,13 @@ disable: false
 
 # Overview
 
-Modern cloud platforms generate vast amounts of operational data. HPE GreenLake customers often find themselves toggling between multiple interfaces, running complex API queries, and piecing together information from various services to understand their infrastructure state. What if your AI assistant could directly interact with your HPE GreenLake environment in a secure, controlled manner?
+Modern cloud platforms generate vast amounts of operational data. GreenLake customers often find themselves toggling between multiple interfaces, running complex API queries, and piecing together information from various services to understand their infrastructure state. What if your AI assistant could directly interact with your GreenLake environment in a secure, controlled manner?
 
-The Model Context Protocol (MCP) makes this possible by providing a standardized way for AI assistants to access external data sources and tools. This article explores how MCP servers bring intelligent, conversational access to HPE GreenLake APIs while maintaining strict security boundaries.
+The Model Context Protocol (MCP) makes this possible by providing a standardized way for AI assistants to access external data sources and tools. This article explores how MCP servers bring intelligent, conversational access to GreenLake APIs while maintaining strict security boundaries.
 
 ## The Challenge: Bridging AI and Enterprise APIs
 
-AI assistants have transformed how we work with information, but they face a fundamental limitation when it comes to enterprise platforms: they don't have direct access to your live operational data. When you ask questions about your HPE GreenLake environment, the AI can only provide general guidance, not specific insights based on your actual workspaces, devices, or audit logs.
+AI assistants have transformed how we work with information, but they face a fundamental limitation when it comes to enterprise platforms: they don't have direct access to your live operational data. When you ask questions about your GreenLake environment, the AI can only provide general guidance, not specific insights based on your actual workspaces, devices, or audit logs.
 
 Traditional approaches to this problem involve building custom integration layers, managing authentication flows, and maintaining bespoke code for each API endpoint. This creates several challenges:
 
@@ -26,7 +26,7 @@ Traditional approaches to this problem involve building custom integration layer
 
 ## Introducing the Model Context Protocol
 
-The Model Context Protocol is an open standard that enables AI applications to securely connect to external data sources and tools. Think of it as a universal adapter that allows AI assistants to "plug in" to your enterprise systems in a controlled, standardized way.
+The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that enables AI applications to securely connect to external data sources and tools. Think of it as a universal adapter that allows AI assistants to "plug in" to your enterprise systems in a controlled, standardized way.
 
 MCP operates on a client-server architecture:
 
@@ -38,25 +38,28 @@ The protocol defines three core primitives:
 2. **Tools**: Functions that can be invoked (API calls, calculations, data transformations)
 3. **Prompts**: Reusable templates for common operations
 
-For HPE GreenLake integration, MCP servers primarily expose **tools** that map to API endpoints, allowing AI assistants to query workspaces, retrieve device information, search audit logs, and more.
+For GreenLake integration, MCP servers primarily expose **tools** that map to API endpoints, allowing AI assistants to query workspaces, retrieve device information, search audit logs, and more.
 
-## Why MCP Servers for HPE GreenLake?
+## Why MCP Servers Are a Natural Fit for GreenLake?
 
-MCP servers designed for HPE GreenLake offer several compelling advantages, including local access, personal API client pattern, standardized tool patterns, and two operating modes.
+MCP servers bring a set of benefits that align well with GreenLake’s secure, enterprise-scale architecture. At a high level, they provide local execution, per-user credentials, and a standardized interface for AI tools to safely interact with GreenLake APIs.
 
-### Local, Read-Only Access
+### Local Execution, Complete Control
 
-The MCP server runs entirely on your local machine, not in the cloud. Your HPE GreenLake credentials never leave your environment. The server acts as a secure intermediary between the AI assistant and HPE GreenLake APIs, enforcing read-only access patterns.
+An MCP server runs entirely on your machine. It doesn’t open network ports or send your credentials to an external service. Instead, it acts as a controlled bridge between your AI assistant and the GreenLake APIs.
 
-This architecture ensures:
+This design provides:
 
-* **Data sovereignty**: API responses are processed locally before being shared with the AI
-* **Credential isolation**: Your OAuth2 client secrets remain on your machine
-* **Network control**: The server respects your local network policies and firewall rules
+* **Data stays local**: API responses are processed on your device before the AI sees them.
+* **Credential isolation**: OAuth secrets never leave your environment.
+* **Read-only safety**: Only GET operations are exposed, preventing accidental changes.
+* **Firewall friendly behavior**: Only outbound HTTPS requests are sent to GreenLake APIs.
+
+*Takeaway: MCP servers give AI assistants visibility into your GreenLake environment without sacrificing security, privacy, or control.*
 
 ### Personal API Client Pattern
 
-MCP servers use your personal API credentials, similar to how you would interact with HPE GreenLake through the CLI or web console. This means:
+MCP servers use your personal API credentials, similar to how you would interact with GreenLake through the CLI or web console. This means:
 
 * **Workspace scoping**: You only access resources within your authorized workspaces
 * **Role-based access**: Your existing RBAC permissions apply to all API operations
@@ -65,28 +68,38 @@ MCP servers use your personal API credentials, similar to how you would interact
 
 ### Standardized Tool Interface
 
-Once configured, the MCP server exposes HPE GreenLake APIs as standardized tools that any MCP-compatible AI assistant can use. This provides:
+Once configured, the MCP server exposes GreenLake APIs as standardized tools that any MCP-compatible AI assistant can use. This provides:
 
 * **Consistent experience**: The same tools work in Claude Desktop, VS Code, and other MCP clients
 * **Discoverable capabilities**: AI assistants automatically learn available operations
 * **Type-safe parameters**: Input validation happens before API calls
 * **Structured responses**: API data is returned in predictable formats
 
-### Two Operating Modes
+### Operating Modes: Static vs. Dynamic
 
-MCP servers for HPE GreenLake support two operational modes to optimize for different API sizes:
+MCP servers support two operating modes depending on the size and complexity of the API surface.
 
-| **Static mode** | **Dynamic mode** (APIs with 50+ endpoints) |
-|-----------------|---------------------------------------------|
-| Each API endpoint becomes an individual tool | Three meta-tools handle all endpoints: **list_endpoints**, **get_endpoint_schema**, and **invoke_dynamic_tool** |
-| Explicit, type-safe tool definitions | Runtime endpoint discovery and schema validation |
-| Fast invocation with compile-time validation | Memory efficient for large APIs |
-| | Ideal for comprehensive services with extensive API surfaces |
+#### Static Mode
 
+* **Best for**: APIs with <50 endpoints
+* **Tool Model**: One tool per endpoint
+* **Validation**: Compile-time, type-safe
+* **Performance**: Fast execution
+* **Ideal Use**: Smaller, well-defined API sets
+
+#### Dynamic Mode
+
+* **Best for**: APIs with 50+ endpoints
+* **Tool Model**: Three meta-tools handle everything
+* **Validation**: Runtime schema validation
+* **Performance**: Lower memory footprint
+* **Ideal Use**: Large, evolving API sets
+
+Both modes expose the same capabilities — the difference lies in how efficiently the server manages larger API collections.
 
 ## Security Architecture
 
-Security is paramount when connecting AI assistants to production infrastructure. MCP servers for HPE GreenLake implement defense-in-depth principles:
+Security is paramount when connecting AI assistants to production infrastructure. MCP servers for GreenLake implement defense-in-depth principles.
 
 ### Authentication and Authorization
 
@@ -96,11 +109,7 @@ The MCP server handles OAuth2 authentication using the client credentials flow, 
 
 ### Read-Only Operations
 
-MCP servers for HPE GreenLake deliberately expose only GET operations from the OpenAPI specifications. This design choice ensures:
-
-* **No unintended modifications**: Write operations (POST, PUT, DELETE, PATCH) are excluded
-* **Safe exploration**: Users can query extensively without risk of changes
-* **Reduced blast radius**: Even if misconfigured, the server cannot modify infrastructure
+MCP servers for GreenLake deliberately expose only GET operations from the OpenAPI specifications. This design choice ensures no unintended modifications, as write options are excluded, allowing users to query extensively without risk of changes. This design choice reduces the blast radius, so even if misconfigured, the server cannot modify infrastructure.
 
 ### Network Isolation
 
@@ -109,7 +118,7 @@ The MCP server communicates with AI assistants via standard input/output (stdio)
 * **No listening ports**: The server doesn't expose network services
 * **Process-level isolation**: Communication happens through OS process pipes
 * **No remote access**: The server cannot be accessed from other machines
-* **Firewall friendly**: Only outbound HTTPS to HPE GreenLake APIs
+* **Firewall friendly**: Only outbound HTTPS to GreenLake APIs
 
 ### Credential Management
 
@@ -123,7 +132,7 @@ Credentials are never logged, and API responses are sanitized to remove sensitiv
 
 ## Real-World Use Case
 
-MCP servers unlock powerful workflows by combining AI reasoning with live HPE GreenLake data:
+MCP servers unlock powerful workflows by combining AI reasoning with live GreenLake data:
 
 ### Audit Log Analysis
 
@@ -145,6 +154,7 @@ Managing thousands of devices across distributed infrastructure becomes conversa
 "Generate an inventory report showing all PCI-compliant devices with their support levels."
 
 The MCP server enables:
+
 1. Querying devices with complex filter expressions
 2. Natural language parsing of device attributes
 3. Pattern recognition across device types and states
@@ -152,7 +162,7 @@ The MCP server enables:
 
 ### Subscriptions
 
-MCP servers unlock powerful workflows by combining AI reasoning with live HPE GreenLake data:
+MCP servers unlock powerful workflows by combining AI reasoning with live GreenLake data:
 
 "Show me all subscriptions expiring in the next 90 days and their renewal status."
 "Which subscriptions have less than 20% utilization and could be right-sized?"
@@ -170,22 +180,21 @@ These capabilities support comprehensive user lifecycle management. The **Users*
 
 ## Getting Started
 
-Setting up an MCP server for HPE GreenLake requires three steps: obtaining API credentials, configuring the server, and connecting your AI assistant.
+Setting up an MCP server for GreenLake requires three steps: obtaining API credentials, configuring the server, and connecting your AI assistant.
 
 ### Prerequisites
 
-* HPE GreenLake workspace with API access
+* GreenLake workspace with API access
 * Python 3.10 or higher
 * An MCP-compatible AI client (Claude Desktop, VS Code with Claude Code extension)
 
 ### Step 1: Obtain API Credentials
 
-From the HPE GreenLake console:
+From the GreenLake console:
 
 1. Navigate to **Settings** > **API Clients**
 2. Create a new API client with appropriate scopes
 3. Note the **Client ID**, **Client Secret**, and **Workspace ID**
-4. Configure the OAuth2 token issuer URL for your region
 
 ### Step 2: Generate and Configure the MCP Server
 
@@ -293,7 +302,7 @@ Understanding the internal architecture helps appreciate how MCP servers maintai
 3. **Tool Resolution**: The server's tool registry identifies the corresponding tool implementation
 4. **Parameter Validation**: Input parameters are validated against the tool's schema
 5. **Authentication Check**: The auth manager verifies token validity and freshness
-6. **API Call**: The HTTP client constructs and sends the HTTPS request to HPE GreenLake
+6. **API Call**: The HTTP client constructs and sends the HTTPS request to GreenLake
 7. **Response Processing**: The raw API response is parsed and formatted
 8. **MCP Response**: Structured data is returned to the AI via JSON-RPC
 9. **AI Presentation**: The assistant formats and presents results to the user
@@ -304,7 +313,7 @@ Each MCP tool implements a consistent interface:
 
 ```python
 class GetAuditLogsTool(BaseTool):
-    """Tool for querying HPE GreenLake audit logs."""
+    """Tool for querying GreenLake audit logs."""
 
     name = "getAuditLogs"
     description = "Retrieve audit logs with optional filtering"
@@ -364,10 +373,14 @@ For large APIs, dynamic mode provides significant performance benefits. Instead 
 
 This architecture scales efficiently to APIs with hundreds of endpoints without overwhelming the AI's context window.
 
+## What's Next?
+
+We are actively working on extending our GreenLake MCP Servers capabilities. Stay tuned for future updates.
+
 ## Conclusion
 
-MCP servers bridge the gap between AI assistants and enterprise APIs, enabling natural language interaction with HPE GreenLake without sacrificing security or control. By running locally and using personal API credentials, they provide a secure, auditable way to extend AI capabilities into your infrastructure management workflows.
+MCP servers bridge the gap between AI assistants and enterprise APIs, enabling natural language interaction with GreenLake without sacrificing security or control. By running locally and using personal API credentials, they provide a secure, auditable way to extend AI capabilities into your infrastructure management workflows.
 
 The read-only nature of these servers makes them ideal for exploration, reporting, and analysis tasks. Combined with the power of large language models, they transform how teams interact with cloud platforms, shifting from manual API navigation to conversational queries and automated insights.
 
-Whether you're investigating audit logs, documenting infrastructure, or generating compliance reports, MCP servers make HPE GreenLake data accessible where you need it: in your AI-powered development environment.
+Whether you're investigating audit logs, documenting infrastructure, or generating compliance reports, MCP servers make GreenLake data accessible where you need it: in your AI-powered development environment.
