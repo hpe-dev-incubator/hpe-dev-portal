@@ -1,5 +1,5 @@
 ---
-title: A Beginner’s Guide to Building and Compiling Morpheus Plugins
+title: A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins
 date: 2025-11-19T08:43:36.028Z
 author: Neil van Rensburg
 authorimage: /img/greenlogo.png
@@ -9,7 +9,7 @@ disable: false
 
 HPE Morpheus Enterprise is a hybrid cloud platform that unifies diverse products and technologies into a consistent workload-lifecycle orchestration, governance, and control framework.
 
-This makes HPE Morpheus Enterprise ideally positioned to integrate with a broad ecosystem of cloud-related service vendors. These integrations are enabled through technology-specific plugin providers. Morpheus is extendable with custom plugins for clouds, task types, UI tabs, reports, approvals, cypher, IPAM, backups and more.
+This makes HPE Morpheus Enterprise ideally positioned to integrate with a broad ecosystem of cloud-related service vendors. These integrations are enabled through technology-specific plugin providers. HPE Morpheus Enterprise is extendable with custom plugins for clouds, task types, UI tabs, reports, approvals, cypher, IPAM, backups and more.
 
 This article covers the process of generating and compiling a basic HPE Morpheus Enterprise generic plugin project on Windows 11. To understand how the workflow fits together, this blog will cover:
 
@@ -17,7 +17,7 @@ This article covers the process of generating and compiling a basic HPE Morpheus
 * Unzipping and opening the project in an IDE
 * Exploring main plugin file components
 * Compiling the plugin on Windows
-* Uploading the compiled plugin to Morpheus
+* Uploading the compiled plugin to HPE Morpheus Enterprise
 * Compiling the plugin remotely on Linux, using Visual Studio Code
 * Compiling the plugin using Docker
 
@@ -50,10 +50,10 @@ Another build dependency is the **Gradle build system**. This will automatically
 
 Creating a project that compiles code into usable plugins can be a daunting task, especially for developers who are not familiar with Java, Groovy, or Gradle.
 
-To simplify this process and make it easier for potential plugin builders to get started, the Morpheus engineering team created the **Morpheus Plugin Code Generator**.
+To simplify this process and make it easier for potential plugin builders to get started, the HPE Morpheus Enterprise engineering team created the **Morpheus Plugin Code Generator**.
 
 We’ll use this handy tool as a starting point to create our new plugin project.
-The preferred source language for Morpheus plugins is **Groovy**.
+The preferred source language for HPE Morpheus Enterprise plugins is **Groovy**.
 
 Groovy features a concise, flexible syntax and includes many helper methods that make coding easier. It’s fully interoperable with Java and compiles to the same JVM bytecode.
 
@@ -111,14 +111,14 @@ We will explore some of the most important files briefly. In different article, 
 * **build.gradle**\
   This is the actual build script. Build dependencies are declared here. This configures how the .jar file is built.
 * **PluginDemoPlugin.groovy**\
-  i.The main plugin entry point class that Morpheus will load.\
+  i.The main plugin entry point class that HPE Morpheus Enterprise will load.\
   ii. Extends **com.morpheusdata.core.Plugin**\
   iii. Specified in the build.gradle file as the **Plugin-Class**\
   iv. Registers **provider** classes that add functionality to the plugin
 * **PluginDemoGenericProvider**\
   A provider class that add generic functionality. Many types of providers can be added to plugins.
 * **pluginDemoShow.hbs**\
-  Handlebars markup to display UI elements in the Morpheus web UI.
+  Handlebars markup to display UI elements in the HPE Morpheus Enterprise web UI.
 
 ## Compiling locally on Windows
 
@@ -137,13 +137,13 @@ We will explore some of the most important files briefly. In different article, 
 
 ![](/img/8gradlew_bat.png "Build/compile command")
 
-2. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into Morpheus.
+2. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into HPE Morpheus Enterprise.
 
 ![](/img/9.-jar-file.png "Browse to the jar file")
 
-4. Upload the plugin to Morpheus by navigating to **Administration > Integrations > Plugins > Add**. Drag the file onto the dialog or browse to the .jar file and click Upload.
+4. Upload the plugin to the UI by navigating to **Administration > Integrations > Plugins > Add**. Drag the file onto the dialog or browse to the .jar file and click Upload.
 
-![](/img/10.-upload-jar.png "Upload jar file to Morpheus")
+![](/img/10.-upload-jar.png "Upload jar file to the UI")
 
 A successful upload will add the plugin name to the list:
 
@@ -165,7 +165,7 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 
 ![](/img/13.-specify-host.png "Provide user host pair")
 
-3. Click the O**pen Remote Window** at the bottom left of the Visual Studio Code window **again**. Choose **Connect to Host again**. This time, **select the host** that was entered and saved in the previous step.
+3. Click the **Open Remote Window** at the bottom left of the Visual Studio Code window **again**. Choose **Connect to Host again**. This time, **select the host** that was entered and saved in the previous step.
 
 ![](/img/13choose_host.png "Choose host connection")
 
@@ -216,11 +216,11 @@ sudo docker run --rm \
 
 ## Next steps
 
-From here, we can explore the **mechanics of the interfaces** exposed by the Morpheus Plugin Core. These interfaces are organized into various **provider types**, each defining a specific kind of integration point within Morpheus.
+From here, we can explore the **mechanics of the interfaces** exposed by the HPE Morpheus Enterprise Plugin Core. These interfaces are organized into various **provider types**, each defining a specific kind of integration point within HPE Morpheus Enterprise.
 
-In essence, a *provider type* represents a particular extension area in the platform — such as a **custom tab**, **analytics page**, **dashboard widget**, or c**ustom report**. These allow developers to inject new functionality directly into the Morpheus UI or automation workflows.
+In essence, a *provider type* represents a particular extension area in the platform — such as a **custom tab**, **analytics page**, **dashboard widget**, or c**ustom report**. These allow developers to inject new functionality directly into the UI or automation workflows.
 
-At the more advanced end of the spectrum are provider types that model **core infrastructure components**. These include integrations for **clouds**, **networks**, **storage systems**, and many others. Such providers tend to be more complex because they interact deeply with Morpheus’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
+At the more advanced end of the spectrum are provider types that model **core infrastructure components**. These include integrations for **clouds**, **networks**, **storage systems**, and many others. Such providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
 
 Explore the following resources for more information on the different plugin/provider types:
 
