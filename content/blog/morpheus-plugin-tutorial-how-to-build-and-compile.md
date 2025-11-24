@@ -1,5 +1,5 @@
 ---
-title: "Morpheus plugin tutorial: How to build and compile"
+title: A Beginner’s Guide to Building and Compiling Morpheus Plugins
 date: 2025-11-19T08:43:36.028Z
 author: Neil van Rensburg
 authorimage: /img/greenlogo.png
