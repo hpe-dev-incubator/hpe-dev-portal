@@ -7,13 +7,13 @@ disable: false
 ---
 ## Introduction
 
-HPE Morpheus Enterprise is a hybrid cloud management platform that brings together different products and technologies into a uniform workload lifecycle orchestration, governance and control platform. 
+HPE Morpheus Enterprise is a hybrid cloud platform that unifies diverse products and technologies into a consistent workload-lifecycle orchestration, governance, and control framework.
 
-This makes HPE Morpheus Enterprise perfectly positioned to integrate into an expanding base of cloud related service vendors. These integrations are achieved through technology specific plugin providers.
+This makes HPE Morpheus Enterprise ideally positioned to integrate with a broad ecosystem of cloud-related service vendors. These integrations are enabled through technology-specific plugin providers. Morpheus is extendable with custom plugins for clouds, task types, UI tabs, reports, approvals, cypher, IPAM, backups and more.
 
-This article deals with generating and compiling a basic Morpheus plugin project on Windows 11. To understand how the process works, we will look at:
+This article covers the process of generating and compiling a basic HPE Morpheus Enterprise generic plugin project on Windows 11. To understand how the workflow fits together, this blog will cover:
 
-* How to generate a new project using the plugin code generator
+* Generating a new project using the plugin code generator
 * Unzipping and opening the project in an IDE
 * Exploring main plugin file components
 * Compiling the plugin on Windows
@@ -221,3 +221,10 @@ From here, we can explore the **mechanics of the interfaces** exposed by the Mor
 In essence, a *provider type* represents a particular extension area in the platform — such as a **custom tab**, **analytics page**, **dashboard widget**, or c**ustom report**. These allow developers to inject new functionality directly into the Morpheus UI or automation workflows.
 
 At the more advanced end of the spectrum are provider types that model **core infrastructure components**. These include integrations for **clouds**, **networks**, **storage systems**, and many others. Such providers tend to be more complex because they interact deeply with Morpheus’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
+
+Explore the following resources for more information on the different plugin/provider types:
+
+* https://developer.morpheusdata.com
+* https://share.morpheusdata.com (follow the repository link under the plugin details to see the source code of a plugin)
+* https://github.com/hewlettpackard
+* https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX
