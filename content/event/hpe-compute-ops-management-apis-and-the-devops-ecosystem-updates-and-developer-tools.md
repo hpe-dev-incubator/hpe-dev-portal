@@ -5,7 +5,7 @@ dateStart: 2025-06-17T22:01:58.632Z
 dateEnd: 2025-06-18T21:30:58.648Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/8917459351405/WN_bWsoUYA-QBu3QjvyM6QCxQ
+link: https://www.youtube.com/watch?v=TKl_gRJnoxk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## HPE Compute Ops Management APIs and the DevOps ecosystem: Updates and developer tools
