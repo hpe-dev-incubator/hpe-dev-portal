@@ -86,7 +86,7 @@ Although we use Visual Studio Code in this example, several more powerful Java/G
 
 ![](/img/5trust_and_install_extensions.png)
 
-2. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
+3. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
 
 ![](/img/61configuring.png "Extension pack setup")
 
@@ -137,7 +137,7 @@ We will explore some of the most important files briefly. In different article, 
 
 ![](/img/8gradlew_bat.png "Build/compile command")
 
-2. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into HPE Morpheus Enterprise.
+3. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into HPE Morpheus Enterprise.
 
 ![](/img/9.-jar-file.png "Browse to the jar file")
 
@@ -161,7 +161,7 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 
 ![](/img/13.-connect-to-host.png "Connect to remote host")
 
-2. Choose **+ Add New SSH Host** and enter your **user@host** combo. Choose any SSH configuration file on the system to save connection details to.
+2. Choose **'+' Add New SSH Host** and enter your **user@host** combo. Choose any SSH configuration file on the system to save connection details to.
 
 ![](/img/13.-specify-host.png "Provide user host pair")
 
