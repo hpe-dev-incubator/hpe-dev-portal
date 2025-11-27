@@ -62,6 +62,7 @@ Groovy features a concise, flexible syntax and includes many helper methods that
 ![](/img/1developer_getting_started_button.png "Launch plugin code generator")
 
 2. For this lab, we provide the following field values:
+
    * **Name**: Plugin Demo
    * **Code**: pluginDemo
    * **Providers**: Generic Integration
@@ -122,8 +123,9 @@ We will explore some of the most important files briefly. In different article, 
 
 ## Compiling locally on Windows
 
-1. As a first compile option, we will look at the local Windows environment.\
-   (You may need to click the ellipses to exposes the entire menu)
+As a first compile option, we will look at the local Windows environment.
+
+1. Start by opening a terminal. You may need to click the ellipses to exposes the entire menu.
 
 ![](/img/81terminal.png "Open terminal")
 
