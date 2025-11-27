@@ -61,10 +61,10 @@ Groovy features a concise, flexible syntax and includes many helper methods that
 
 ![](/img/1developer_getting_started_button.png "Launch plugin code generator")
 
-2. For this lab, we provide the following field values:\
-   **Name**: Plugin Demo\
-   **Code**: pluginDemo\
-   **Providers**: Generic Integration
+2. For this lab, we provide the following field values:
+   * **Name**: Plugin Demo
+   * **Code**: pluginDemo
+   * **Providers**: Generic Integration
 
 ![](/img/2developer_generate_plugin.png "Generate plugin project")
 
