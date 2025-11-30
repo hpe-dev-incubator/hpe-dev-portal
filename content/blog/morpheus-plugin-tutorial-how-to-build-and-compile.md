@@ -30,7 +30,6 @@ You’ll also need to have **Java JDK 11 or 17** installed. The vendor distribut
 When using JDK 17, the project’s compile **compatibility level is set to version 1.11** to maintain compatibility with earlier environments.
 
 1. Open a Windows command prompt (Press Win + R or click Start, type cmd, press enter)
-
 2. To install OpenJDK 17, run the following command and click yes to provide administrative privileges where needed:
 
    ```
@@ -58,7 +57,7 @@ The preferred source language for HPE Morpheus Enterprise plugins is **Groovy**.
 
 Groovy features a concise, flexible syntax and includes many helper methods that make coding easier. It’s fully interoperable with Java and compiles to the same JVM bytecode.
 
-1. Using a web browser, navigate to **https://developer.morpheusdata.com/**. Click the **Get Started Now** button.
+1. ##### Using a web browser, navigate to **https://developer.morpheusdata.com/**. Click the **Get Started Now** button.
 
 ![](/img/1developer_getting_started_button.png "Launch plugin code generator")
 
