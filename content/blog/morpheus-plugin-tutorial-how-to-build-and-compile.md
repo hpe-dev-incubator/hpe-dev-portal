@@ -30,7 +30,7 @@ You’ll also need to have **Java JDK 11 or 17** installed. The vendor distribut
 When using JDK 17, the project’s compile **compatibility level is set to version 1.11** to maintain compatibility with earlier environments.
 
 1. Open a Windows command prompt (Press Win + R or click Start, type cmd, press enter)
-2. To install **OpenJDK** 17, run the following command and click yes to provide administrative privileges where needed:
+2. To install OpenJDK 17, run the following command and click yes to provide administrative privileges where needed:
 
    ```
    winget install jdkbuild.openjdk.17.jdk
