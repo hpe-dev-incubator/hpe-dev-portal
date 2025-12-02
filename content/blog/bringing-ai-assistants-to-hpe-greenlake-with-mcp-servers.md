@@ -1,6 +1,8 @@
 ---
 title: Bringing AI assistants to GreenLake with MCP Servers
 date: 2025-12-03T18:40:27.066Z
+featuredBlog: true
+priority: 1
 author: Vandewilly Silva
 authorimage: https://ca.slack-edge.com/E01LD9FH0JZ-U05UA6N7KH6-6b8619b87acd-512
 disable: false
