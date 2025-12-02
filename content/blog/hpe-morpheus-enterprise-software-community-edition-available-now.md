@@ -1,5 +1,5 @@
 ---
-title: HPE Morpheus Enterprise Software Community Edition Available Now!
+title: Get the HPE Morpheus Enterprise Software Community Edition for your home lab
 date: 2025-12-02T09:29:28.684Z
 author: Calvin Zito, HPE Morpheus Community Manager & Evangelist
 authorimage: /img/calvin-zito.png
