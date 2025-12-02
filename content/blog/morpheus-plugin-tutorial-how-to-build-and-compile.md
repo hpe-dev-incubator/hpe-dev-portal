@@ -4,6 +4,8 @@ date: 2025-11-19T08:43:36.028Z
 author: Neil van Rensburg
 authorimage: /img/greenlogo.png
 disable: false
+tags:
+  - morpheus
 ---
 ## Introduction
 
@@ -30,19 +32,20 @@ You’ll also need to have **Java JDK 11 or 17** installed. The vendor distribut
 When using JDK 17, the project’s compile **compatibility level is set to version 1.11** to maintain compatibility with earlier environments.
 
 1. Open a Windows command prompt (Press Win + R or click Start, type cmd, press enter)
+
 2. To install OpenJDK 17, run the following command and click yes to provide administrative privileges where needed:
 
-   ```
+   ```bash
    winget install jdkbuild.openjdk.17.jdk
    ```
 
    To verify your OpenJDK install, run:
 
-   ```
+   ```bash
    java -version
    ```
 
-![](/img/0installjdk.png "Install and test java")
+![Installing and testing Java JDK](/img/0installjdk.png "Install and test java")
 
 Another build dependency is the **Gradle build system**. This will automatically be provided by the **Gradle wrapper configuration** under the **gradle directory** of the project we will generate.
 
@@ -57,9 +60,9 @@ The preferred source language for HPE Morpheus Enterprise plugins is **Groovy**.
 
 Groovy features a concise, flexible syntax and includes many helper methods that make coding easier. It’s fully interoperable with Java and compiles to the same JVM bytecode.
 
-1. Using a web browser, navigate to https://developer.morpheusdata.com/. Click the Get Started Now button.
+1. Using a web browser, navigate to <https://developer.morpheusdata.com/>. Click the Get Started Now button.
 
-![](/img/1developer_getting_started_button.png "Launch plugin code generator")
+   ![Launch plugin code generator button](/img/1developer_getting_started_button.png "Launch plugin code generator")
 
 2. For this lab, we provide the following field values:
 
@@ -67,11 +70,11 @@ Groovy features a concise, flexible syntax and includes many helper methods that
    * **Code**: pluginDemo
    * **Providers**: Generic Integration
 
-![](/img/2developer_generate_plugin.png "Generate plugin project")
+   ![Generate plugin project](/img/2developer_generate_plugin.png "Generate plugin project")
 
 3. Unzip the plugin project for use in an IDE. For this example, we will unzip the plugin to the Windows Documents folder.
 
-![](/img/3unzip_plugin_project.png "Extract code project")
+   ![Extract code project](/img/3unzip_plugin_project.png "Extract code project")
 
 ## Authoring plugin projects in an IDE
 
@@ -81,23 +84,23 @@ Although we use Visual Studio Code in this example, several more powerful Java/G
 
 1. Open **Visual Studio Code** and select **Open Folder** from the **File** menu.
 
-![](/img/4vsc_open_folder.png "VS Code Open Folder")
+   ![Visual Studio Code Open Folder](/img/4vsc_open_folder.png "VS Code Open Folder")
 
 2. Respond **Yes** to the trust prompt. If this is the first project opened of its type, VS Code will prompt for the installation of java related extension packs. Respond by clicking **Install**.
 
-![](/img/5trust_and_install_extensions.png)
+   ![Trust and install extensions prompt](/img/5trust_and_install_extensions.png "Trust and install extensions prompt")
 
 3. The extension pack will take a while to install and build/configure the project. This can be seen at the bottom left of the VS Code window.
 
-![](/img/61configuring.png "Extension pack setup")
+  ![Configuring the extension pack in Visual Studio Code](/img/61configuring.png "Extension pack setup")
 
 Wait for the **Gradle: configure project** message to disappear and the **Java: Ready** message to remain.
 
-![](/img/62configured.png "Project build")
+![Project successfully configured in Visual Studio Code](/img/62configured.png "Project build")
 
-4. Open the **Explorer** view by clicking the corresponding icon at the top left. The **Welcome** and any open **Extension** tabs can now be closed.
+1. Open the **Explorer** view by clicking the corresponding icon at the top left. The **Welcome** and any open **Extension** tabs can now be closed.
 
-![](/img/7explorer_view.png "Open explorer view")
+  ![Explorer view in Visual Studio Code](/img/7explorer_view.png "Open explorer view")
 
 ## Important project files
 
@@ -127,33 +130,33 @@ As a first compile option, we will look at the local Windows environment.
 
 1. Start by opening a terminal. You may need to click the ellipses to exposes the entire menu.
 
-![](/img/81terminal.png "Open terminal")
+   ![Opening a terminal in Visual Studio Code](/img/81terminal.png "Open terminal")
 
 2. Run the Windows wrapper batch script command:
 
-   ```
+   ```batch
    .\gradlew.bat clean build
    ```
 
    The **shadowJar** parameter can be used instead **build**.
 
-![](/img/8gradlew_bat.png "Build/compile command")
+   ![Running the gradlew.bat command in terminal](/img/8gradlew_bat.png "Build/compile command")
 
 3. Find the generated **.jar** file that was generated on successful build under the **build > libs** directory. Use the **.jar** file suffixed with **\-all**. This file contains all compilation dependencies and is therefore safer to upload into HPE Morpheus Enterprise.
 
-![](/img/9.-jar-file.png "Browse to the jar file")
+   ![Browse to the generated jar file](/img/9.-jar-file.png "Browse to the jar file")
 
 4. Upload the plugin to the UI by navigating to **Administration > Integrations > Plugins > Add**. Drag the file onto the dialog or browse to the .jar file and click Upload.
 
-![](/img/10.-upload-jar.png "Upload jar file to the UI")
+   ![Upload jar file to the UI](/img/10.-upload-jar.png "Upload jar file to the UI")
 
 A successful upload will add the plugin name to the list:
 
-![](/img/11.-uploaded.png "Uploaded plugin into list")
+![Plugin successfully uploaded to the list](/img/11.-uploaded.png "Uploaded plugin into list")
 
 To view the registered providers of an uploaded plugin, click the edit pencil to view the dialog.
 
-![](/img/12.-plugin-providers.png "View plugin details")
+![Plugin providers dialog in HPE Morpheus Enterprise](/img/12.-plugin-providers.png "View plugin details")
 
 ## Compiling the plugin on Linux
 
@@ -161,52 +164,53 @@ Another compile option is to connect to a **remote Linux** machine using an **SS
 
 1. Click the **Open Remote Window** at the bottom left of the Visual Studio Code window. In the top popup option box, choose **Connect to Host**.
 
-![](/img/13.-connect-to-host.png "Connect to remote host")
+   ![Connect to remote host in Visual Studio Code](/img/13.-connect-to-host.png "Connect to remote host")
 
 2. Choose **'+' Add New SSH Host** and enter your **user@host** combo. Choose any SSH configuration file on the system to save connection details to.
 
-![](/img/13.-specify-host.png "Provide user host pair")
+   ![Specify SSH host configuration](/img/13.-specify-host.png "Provide user host pair")
 
 3. Click the **Open Remote Window** at the bottom left of the Visual Studio Code window **again**. Choose **Connect to Host again**. This time, **select the host** that was entered and saved in the previous step.
 
-![](/img/13choose_host.png "Choose host connection")
+   ![Choose the configured host connection](/img/13choose_host.png "Choose host connection")
 
 4. Satisfy any possible certificate security prompts and enter your password when prompted. A new Visual Studio Code window will be opened. As with the previous exercise, **Open Folder** from the main **File menu**.
 
-![](/img/13open_folder.png "Open remote folder")
+   ![Open folder on remote system](/img/13open_folder.png "Open remote folder")
 
 5. Select your **Plugin Demo** folder and click **OK**. You will be prompted to supply the password again. As before, allow for the installation of the required Java Extension packs and wait for the **Gradle: configure project** message to disappear.
 
-![](/img/61configuring.png "Configuring project")
+   ![Configuring project on remote system](/img/61configuring.png "Configuring project")
 
-The **Java: Ready** status message should remain in the bottom status bar.
+   The **Java: Ready** status message should remain in the bottom status bar.
 
-![](/img/62configured.png "Project configured")
+   ![Project configured successfully on remote system](/img/62configured.png "Project configured")
 
 6. From the top main menu, choose **terminal > New Terminal**.
 
-![](/img/14open-terminal.png "Open new terminal")
+   ![Open new terminal in remote Visual Studio Code](/img/14open-terminal.png "Open new terminal")
 
 7. Ensure that the gradle **wrapper script** is **executable** by running the following:
 
-   ```
+   ```bash
    chmod +x ./gradlew
    ```
+
 8. This time, we run the **gradlew** script, **instead of gradlew.bat**.
 
-   ```
+   ```bash
    ./gradlew clean build
    ```
 
-![](/img/15linux_compile.png "Compile using gradlew")
+   ![Compile using gradlew on Linux](/img/15linux_compile.png "Compile using gradlew")
 
 ## Compiling using Docker
 
-To avoid the need for a dedicated local development environment or specific JDK installations, you can compile the plugin inside a **Docker container**. Using the official Gradle image, the build process runs in an isolated environment that already includes the correct JDK version and Gradle tooling. This ensures consistent results across different systems and eliminates dependency issues. 
+To avoid the need for a dedicated local development environment or specific JDK installations, you can compile the plugin inside a **Docker container**. Using the official Gradle image, the build process runs in an isolated environment that already includes the correct JDK version and Gradle tooling. This ensures consistent results across different systems and eliminates dependency issues.
 
 The prerequisite to this is a **working Docker installation**.
 
-```
+```bash
 sudo docker run --rm \
   -u "$(id -u):$(id -g)" \
   -v "$PWD":/home/gradle/project \
@@ -226,7 +230,7 @@ At the more advanced end of the spectrum are provider types that model **core in
 
 Explore the following resources for more information on the different plugin/provider types:
 
-* https://developer.morpheusdata.com
-* https://share.morpheusdata.com (follow the repository link under the plugin details to see the source code of a plugin)
-* https://github.com/hewlettpackard
-* https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX
+* <https://developer.morpheusdata.com>
+* <https://share.morpheusdata.com> (follow the repository link under the plugin details to see the source code of a plugin)
+* <https://github.com/hewlettpackard>
+* <https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX>
