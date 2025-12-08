@@ -9,13 +9,13 @@ tags:
   - Hybrid cloud
   - Virtualization
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -54,9 +54,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -635,9 +635,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -663,7 +663,7 @@ tags:
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -673,7 +673,7 @@ I'm thrilled to announce the availability of the **HPE Morpheus Enterprise Soft
 
 HPE Morpheus Enterprise is a cutting-edge software platform that empowers IT teams to unify management, streamline automation, and simplify operations across private and public clouds. It's built to help organizations modernize their infrastructure while improving agility and reducing complexity. With features tailored for VM lifecycle management, self-service provisioning, and policy-based governance, HPE Morpheus Enterprise is the ultimate tool for managing hybrid cloud environments. Here's [a link to the hpe.com page](http://www.hpe.com/morpheus) where you can learn more by reading other content and watch videos. 
 
-**Community Edition Highlights**
+**Community Edition highlights**
 
 The HPE Morpheus Enterprise Software Community Edition includes all the features in HPE Morpheus VM Essentials, enabling you to:
 
@@ -682,9 +682,9 @@ The HPE Morpheus Enterprise Software Community Edition includes all the featur
 * Leverage policies for governance and compliance, ensuring consistent management across environments.
 * Experiment with the platform at no cost and discover how it can transform your IT infrastructure.
 
-Whether you’re an IT or VM administrator, a DevOps engineer, or a cloud architect, the Community Edition is the perfect way to experience the power of HPE Morpheus Enterprise firsthand. However, note that the Community Edition is a non-commercial, personal use license. It has feature limits and is a 3-socket license. It is not for customers who want to test Morpheus Enterprise in their environment. That's a discussion that should start with your HPE representative. 
+Whether you’re an IT or VM administrator, a DevOps engineer, or a cloud architect, the Community Edition is the perfect way to experience the power of HPE Morpheus Enterprise firsthand. However, note that the Community Edition is a non-commercial, "*personal use"* license. It has limited features and supplies a 3-socket license. If you are interested in testing Morpheus Enterprise in your environment, your HPE representative can assist you in finding ways to do that.
 
-**Get Started Today**
+**Get started today**
 
 Ready to dive in? The HPE Morpheus Enterprise Software Community Edition is available now, and I can’t wait to see how you use it to innovate and streamline your IT operations. Join the HPE Community and explore the possibilities with this exciting release! Send an email to **[morpheus_communityedition@hpe.com](mailto:morpheus_communityedition@hpe.com)** with your request. If you are eligible, I'll send you an invite to get the license and download the binaries. 
 
