@@ -9,13 +9,13 @@ tags:
   - Hybrid cloud
   - Virtualization
 ---
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -54,9 +54,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -635,9 +635,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -663,13 +663,13 @@ tags:
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
 I'm thrilled to announce the availability of the **HPE Morpheus Enterprise Software Community Edition.** HPE Morpheus Enterprise is a powerful and flexible solution designed to accelerate your multi-cloud and hybrid IT automation journey. Whether you’re just starting out or looking to optimize your existing cloud infrastructure, this is your chance to explore HPE Morpheus Enterprise and learn why [ISG in its latest quadrant report named HPE Morpheus the leader in Hybrid Cloud Management Platform](https://www.hpe.com/psnow/doc/a00141838enw). 
 
-**What is HPE Morpheus Enteprise?**
+**What is HPE Morpheus Enterprise?**
 
 HPE Morpheus Enterprise is a cutting-edge software platform that empowers IT teams to unify management, streamline automation, and simplify operations across private and public clouds. It's built to help organizations modernize their infrastructure while improving agility and reducing complexity. With features tailored for VM lifecycle management, self-service provisioning, and policy-based governance, HPE Morpheus Enterprise is the ultimate tool for managing hybrid cloud environments. Here's [a link to the hpe.com page](http://www.hpe.com/morpheus) where you can learn more by reading other content and watch videos. 
 
