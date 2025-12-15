@@ -1,6 +1,8 @@
 ---
 title: A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins
 date: 2025-11-19T08:43:36.028Z
+featuredBlog: true
+priority: 2
 author: Neil van Rensburg
 authorimage: /img/greenlogo.png
 disable: false
