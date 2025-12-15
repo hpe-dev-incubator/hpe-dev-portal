@@ -1,6 +1,8 @@
 ---
 title: "Open Sourcing Workshops-on-Demand part 2: How to Deploy the infrastructure"
 date: 2025-10-09T12:50:13.758Z
+featuredBlog: true
+priority: 3
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 disable: false
