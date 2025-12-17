@@ -8,22 +8,22 @@ tags:
   - Morpheus
   - API
 ---
-<!--\\\\\\\\\\\\\\\\\\\\\\[if !mso]>
+<!--\\\\\\\\\\\\\\\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -62,9 +62,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -643,9 +643,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 10]>
+<!--\\\\\\\\\\\\\\\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -672,7 +672,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -734,7 +734,7 @@ This time, we can see that the refId field is NOT populated on the ComputeServer
 
 ## Compiling and loading the Custom Task Plugin
 
-Download/clone the plugin code repository from <https://github.com/neilvrhpe/link-network-hosts.>
+Download/clone the following plugin code repository from <https://github.com/neilvrhpe/link-network-hosts.>
 
 Open the directory and compile with the relevant gradlew (Linux) or gradlew.bat (Windows) script using the shadowJar argument:
 
@@ -805,6 +805,7 @@ In large environments it would be impractical to execute the workflow for each I
 ![Large Scale example](/img/morrpheus-fix-pool-26..png "Large Scale example")
 
 ## Next steps
+
 From here, .....
 
 In essence, ...
