@@ -5,22 +5,22 @@ author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
 ---
-<!--\\\\\\\\\\\\\\\\[if !mso]>
+<!--\\\\\\\\\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\[if gte mso 10]>
+<!--\\\\\\\\\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -777,9 +777,11 @@ Finally, we need an `Operational Workflow` to run the task with the correct inpu
 
 ## Run the Workflow against the Network Pool
 
-
 Let review the REST API call to confirm that the refId field is not currently set against our `ComputeServer`:
 
+![Host Record query via REST API](/img/morrpheus-fix-pool-21..png "Host Record query via REST API")
+
+Under Library > Automation > Workflows, click the name of the workflow we created in the previous step to view the workflow details:
 
 
 
