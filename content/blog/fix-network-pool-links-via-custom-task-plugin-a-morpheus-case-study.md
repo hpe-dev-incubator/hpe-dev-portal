@@ -2,7 +2,7 @@
 title: "Fix Network Pool Links via Custom Task Plugin: A Morpheus case study"
 date: 2025-12-17T09:56:16.246Z
 author: "Niels van Rensburg "
-authorimage: /img/morpheus-logo-192x187.png
+authorimage: /img/greenlogo-morpheus.png
 disable: false
 tags:
   - Morpheus
