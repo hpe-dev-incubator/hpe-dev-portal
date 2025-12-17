@@ -5,22 +5,22 @@ author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
 ---
-<!--\\\\\\\\\\\\\\[if !mso]>
+<!--\\\\\\\\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte mso 10]>
+<!--\\\\\\\\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -757,10 +757,28 @@ To use this new custom task, we will provide an OptionSource input. We create th
 
 Next, we create the input that presents the OptionList entries to the end user in the UI. This is done using the `Library > Options` > `Inputs` > `Add` button. We will provide `networkPool` as the `Field Name` for the custom task in the next step to reference. Choose `Select List` as the `Type`and use `ChooseNetworkPool`as the `Option List` field value:
 
+![Input Creation](/img/morrpheus-fix-pool-17..png "Input Creation")
+
+To set up the task, we navigate to Library > Automation > Add. Provide a task Name and a `Network Pool Id` of `<%= customOptions.networkPool%>`. This reference will insert the value from the input we created in the previous step. 
+
+![Task Setup](/img/morrpheus-fix-pool-18..png "Task Setup")
+
+## MATCH FULL FQDN
+
+Checkbox this box will include the full domain name suffixed to the host name in the match comparison. Unchecked, only the hostname portion is matched, case insensitive.
+
+## REPLACE EXISTING LINKS
+
+Checking this box will overwrite any exiting refId links when the hostname matches.
+
+Finally, we need an `Operational Workflow` to run the task with the correct input context (Pool ID). Create the workflow under `Library > Automation > Add > Operational Workflow`. Provide a name for the workflow, add the `task from the previous` step under Tasks and add the `ChooseNetworkPool` input under Inputs:
+
+![Edit Workflow](/img/morrpheus-fix-pool-20..png "Edit Workflow")
+
+## Run the Workflow against the Network Pool
 
 
-
-
+Let review the REST API call to confirm that the refId field is not currently set against our `ComputeServer`:
 
 
 
