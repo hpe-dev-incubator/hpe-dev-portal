@@ -4,6 +4,9 @@ date: 2025-12-17T09:56:16.246Z
 author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
+tags:
+  - Morpheus
+  - API
 ---
 <!--\\\\\\\\\\\\\\\\\\\\\\[if !mso]>
 <style>
@@ -801,6 +804,18 @@ In large environments it would be impractical to execute the workflow for each I
 
 ![Large Scale example](/img/morrpheus-fix-pool-26..png "Large Scale example")
 
+## Next steps
+From here, .....
 
+In essence, ...
+
+At the more advanced end of the spectrum are provider types that model core infrastructure components. These include integrations for clouds, networks, storage systems, and many others. Such providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
+
+Explore the following resources for more information on the different plugin/provider types:
+
+https://developer.morpheusdata.com
+https://share.morpheusdata.com (follow the repository link under the plugin details to see the source code of a plugin)
+https://github.com/hewlettpackard
+https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX
 
 <!--EndFragment-->
