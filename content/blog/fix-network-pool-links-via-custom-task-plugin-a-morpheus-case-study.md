@@ -5,22 +5,22 @@ author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
 ---
-<!--\\\\\\\\\[if !mso]>
+<!--\\\\\\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\[if gte mso 10]>
+<!--\\\\\\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -742,6 +742,24 @@ The compiled .jar file will be found in the build/libs subdirectory:
 ![Compiled .jar file](/img/morrpheus-fix-pool-13..png "Compiled .jar file")
 
 Upload the .jar file to Administration > Integrations > Plugins > Add. The plugin will show in the list:
+
+![Plugin Availibilty](/img/morrpheus-fix-pool-14..png "Plugin Availibilty")
+
+## Setup the Custom Task Workflow
+
+Uploading the plugin in the previous step introduced a new task type to the Morpheus appliance. This can be seen under the edit dialog of the uploaded plugin:
+
+![Edit Dialog box of the uploaded plugin](/img/morrpheus-fix-pool-15..png "Edit Dialog box of the uploaded plugin")
+
+To use this new custom task, we will provide an OptionSource input. We create the corresponding `OptionList` under `Library > Options > Option Lists > Add`. The type is `Plugin` and the option list will be `Link Network Hosts: getNetworkPools`, as provided by the plugin that we uploaded in the previous step. Provide `ChooseNetworkPool` as the name for the next step.
+
+![OptionList Creation](/img/morrpheus-fix-pool-16..png "OptionList Creation")
+
+Next, we create the input that presents the OptionList entries to the end user in the UI. This is done using the `Library > Options` > `Inputs` > `Add` button. We will provide `networkPool` as the `Field Name` for the custom task in the next step to reference. Choose `Select List` as the `Type`and use `ChooseNetworkPool`as the `Option List` field value:
+
+
+
+
 
 
 
