@@ -5,22 +5,22 @@ author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
 ---
-<!--\\\[if !mso]>
+<!--\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\[endif]-->
+<!\\\\\\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\\\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\\\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\\\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\[endif]-->
+<!\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -712,6 +712,41 @@ To illustrate the broken reference issue, we start off by removing the network t
 ![Removal of the network to IP pool association](/img/morrpheus-fix-pool-6..png "Removal of the network to IP pool association")
 
 Then provision a VM to the network:
+
+![VM to Network Provisioning](/img/morrpheus-fix-pool-7..png "VM to Network Provisioning")
+
+![VM to Network Provisioning#2](/img/morrpheus-fix-pool-8..png "VM to Network Provisioning#2")
+
+Next, we create a host entry manually within the pool:
+
+![Manual Host Entry Creation within the pool](/img/morrpheus-fix-pool-9..png "Manual Host Entry Creation within the pool")
+
+Finally, we add the IP pool back onto the network:
+
+![Adding Back IP to pool](/img/morrpheus-fix-pool-10..png "Adding Back IP to pool")
+
+This time, we can see that the refId field is NOT populated on the ComputeServer:
+
+![Host Record query via REST API](/img/morrpheus-fix-pool-11..png "Host Record query via REST API")
+
+## Compiling and loading the Custom Task Plugin
+
+Download/clone the plugin code repository from <https://github.com/neilvrhpe/link-network-hosts.>
+
+Open the directory and compile with the relevant gradlew (Linux) or gradlew.bat (Windows) script using the shadowJar argument:
+
+![gradlew.bat (Windows)](/img/morrpheus-fix-pool-12..png "gradlew.bat (Windows)")
+
+The compiled .jar file will be found in the build/libs subdirectory:
+
+![Compiled .jar file](/img/morrpheus-fix-pool-13..png "Compiled .jar file")
+
+Upload the .jar file to Administration > Integrations > Plugins > Add. The plugin will show in the list:
+
+
+
+
+
 
 
 <!--EndFragment-->
