@@ -5,22 +5,22 @@ author: "Niels van Rensburg "
 authorimage: /img/morpheus-logo-192x187.png
 disable: false
 ---
-<!--\\\\\\\\\\\\\\\\\\[if !mso]>
+<!--\\\\\\\\\\\\\\\\\\\\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -59,9 +59,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
+<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -640,9 +640,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\\\\\\\\\\\\\\\\[endif]-->
+</xml><!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\\\\\[if gte mso 10]>
+<!--\\\\\\\\\\\\\\\\\\\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -669,7 +669,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-ZA;}
 </style>
-<!\\\\\\\\\\\\\\\\\\[endif]-->
+<!\\\\\\\\\\\\\\\\\\\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -786,6 +786,20 @@ Under `Library > Automation > Workflows`, click the name of the workflow we crea
 ![Workflow Details](/img/morrpheus-fix-pool-22.png "Workflow Details")
 
 The Execute button brings up the workflow execution dialog. Here we select the pool that our test VM is deployed to. The execution config/context can be ignored, as this task will always run on the HPE Morpheus Enterprise appliance in its own context.
+
+![Workflow Execution](/img/morrpheus-fix-pool-23..png "Workflow Execution")
+
+Under the Executions tab we can view the run output of the task, showing which compute servers were updated.
+
+![Execution Tab](/img/morrpheus-fix-pool-24..png "Execution Tab")
+
+Re-running the REST API call confirms that refType/refId link was established:
+
+![Host Record query via REST API](/img/morrpheus-fix-pool-25..png "Host Record query via REST API")
+
+In large environments it would be impractical to execute the workflow for each IP pool by hand in the UI. For these environments, execute the workflow via the REST API. Provide the ID of the workflow in the URL and the ID of the IP Pool to  the networkPool body parameter to execute the POST request:
+
+![Large Scale example](/img/morrpheus-fix-pool-26..png "Large Scale example")
 
 
 
