@@ -676,7 +676,7 @@ w\:* {behavior:url(#default#VML);}
 
 <!--StartFragment-->
 
-In my previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/),I introduced the basics about Morpheus plugins. In today's article, I plan on expanding on the subject with a practical example.
+In my previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/), I introduced you the basics around Morpheus plugins. In today's article, I plan on expanding on the subject with a practical example. Fixing a Network Pool Links via Custom Task Plugin.
 
 ## Problem statement
 
