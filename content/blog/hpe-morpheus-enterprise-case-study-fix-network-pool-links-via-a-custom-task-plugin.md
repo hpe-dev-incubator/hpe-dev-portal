@@ -3,7 +3,7 @@ title: "HPE Morpheus Enterprise case study: Fix Network Pool Links via a Custom
   Task Plugin"
 date: 2025-12-18T11:45:51.565Z
 author: Neil van Rensburg
-authorimage: /img/Avatar1.svg
+authorimage: /img/morpheusgreen.png
 disable: false
 ---
 In a previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/), we explored the basics around building and compiling HPE Morpheus Enterprise plugins. In this article, we expand on the subject by implementing a minimal Custom Task plugin. The logic will target IP Pools, where links between the host entries and the VM workloads are broken or missing.
@@ -31,3 +31,15 @@ First, consider the normal day-today use case. We associate our network with the
 Should we provision a VM instance into this network, a host record entry will be created in the IP pool:
 
 ![Instance provisioned](/img/morphblog_linknetwork_instance_provisioned.png)
+
+![Host record created](/img/morphblog_linknetwork_host_record.png)
+
+By querying the host record via the REST API, we can see the link back to the ComputeServer within the instance:
+
+![Host record via REST API](/img/morphblog_linknetwork_api_host_record.png)
+
+## Provision without IP pool
+
+To illustrate the broken reference issue, we start off by removing the network-to-IP-pool association:
+
+![Network without pool](/img/morphblog_linknetwork_network_without_pool.png)
