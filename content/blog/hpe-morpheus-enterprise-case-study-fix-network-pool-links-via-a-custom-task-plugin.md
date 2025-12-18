@@ -36,7 +36,7 @@ Should we provision a VM instance into this network, a host record entry will be
 
 ![Host record created](/img/morphblog_linknetwork_host_record.png)
 
-By querying the host record via the REST API, we can see the link back to the ComputeServer within the instance:
+By querying the host record via the REST API, we can see the link back to the ***ComputeServer*** within the instance:
 
 ![Host record via REST API](/img/morphblog_linknetwork_api_host_record.png)
 
@@ -55,3 +55,21 @@ Then provision a VM to the network:
 Next, we create a host entry manually within the pool:
 
 ![New Pool IP](/img/morphblog_linknetworks_manual_host_record.png)
+
+Finally, we add the IP pool back onto the network:
+
+![Network pool re-added onto network](/img/morphblog_linknetwork_network_pool_readded.png)
+
+This time, we can see that the ***refId*** property is NOT populated on the ***ComputeServer***, despite the matching host name on the VM:
+
+![API host record with no link](/img/morphblog_linknetwork_api_host_record_nolink.png)
+
+## Compiling and loading the Custom Task Plugin
+
+Download or clone the plugin repository from <https://github.com/neilvrhpe/link-network-hosts>.
+Open the project directory and compile with the relevant ***gradlew*** (Linux) or ***gradlew.bat*** (Windows) script using the ***shadowJar*** argument:
+
+![Compile the plugin jar file](/img/morphblog_linknetworks_compile_jar.png)
+
+The compiled ***.jar*** file will be found in the ***build/libs*** subdirectory:
+
