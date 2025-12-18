@@ -14,7 +14,7 @@ In a nutshell, we need a way to link a NetworkPoolIp entry to a ComputeServer ob
 
 These reference links exist via the refType and refId properties of the NetworkPoolIp object, as shown below:
 
-![refType and refId relationship](/img/morphblog_linknetworks_reftype_redid.png)
+![refType and refId relationship](/img/morphblog_linknetworks_reftype_refid_small.png)
 
 Upon provisioning, the refType property is set to the literal value of 'ComputeServer' and the refId property is assigned the Id of the ComputeServer object itself.
 
@@ -24,4 +24,4 @@ To reproduce this, we will provision a single VM instance into a simple lab, the
 
 ## Normal Behavior
 
-First,
+First, consider the normal day-today use case. We associate our network with the IP pool as shown below:
