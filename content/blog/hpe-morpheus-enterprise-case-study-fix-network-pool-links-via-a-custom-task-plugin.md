@@ -84,3 +84,27 @@ Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > A
 Uploading the plugin in the previous step introduced a new ***TaskType*** to the HPE Morpheus Enterprise appliance. This can be seen under the edit dialog of the uploaded plugin:
 
 ![New task type introduced](/img/morphblog_linknetworks_new_tasktype.png)
+
+To use this new custom task type in the UI, we will provide an ***OptionSource*** input. We create the corresponding ***OptionList*** under ***Library > Options > Option Lists > Add***. The type is ***Plugin*** and the option list will be ***Link Network Hosts: getNetworkPools***, as provided by the plugin that we uploaded in the previous step. Provide 'ChooseNetworkPool' as the name, so that it matches the name in the next step:
+
+![Create option source](/img/morphblog_linknetworks_create_optionsource.png)
+
+Next, we create the ***Input*** that represents the ***OptionList*** entries to the end user dropdown in the UI, This is done using the ***Library > Options > Inputs > Add*** button. We will provide 'networkPool' as the ***Field Name*** for the custom task to reference in the next step. Choose ***Select List*** as the ***Type*** and use ***ChooseNetworkPool*** as the ***Option List*** field value:
+
+![Create the form input for the option source](/img/morphblog_linknetworks_form_input.png)
+
+To set up the task, we navigate to ***Library > Automation > Add***. Provide a task ***Name*** and a ***Network Pool Id*** value of ***<%=customOptions.networkPool%>***. This reference will insert the value from the input we created in the previous step.
+
+![Custom task setup](/img/morphblog_linknetworks_task_setup.png)
+
+### MATCH FULL FQDN
+
+Checking this box will include the full domain name suffixed to the hostname in the match comparison. Unchecked, only the hostname portion is matched. Matching is case insensitive.
+
+### REPLACE EXISTING LINKS
+
+Checking this box will overwrite any existing ***refId*** links when the hostname matches.
+
+Next, we need an ***Operational Workflow*** to run the task with the correct input context (Pool ID). Create the workflow under ***Library > Automation > Add > Operational Workflow***. Provide a name for the workflow, add the ***task from the previous step*** under ***Tasks*** and add the ***ChooseNetworkPool*** input under ***Inputs***.
+
+![Operational workflow setup](/img/morphblog_linknetworks_workflow_setup.png)
