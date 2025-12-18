@@ -143,7 +143,7 @@ In large environments it would be impractical to execute the workflow for each I
 
 ## Next steps
 
-From here, it would make sense to explore the unused possibilities around Custom Tasks. Whereas this example only ever runs on the local HPE Morpheus Enterprise appliance, tasks can run on different targets (remote, resource) and against different contexts (instances, servers)
+From here, it would make sense to explore the unused possibilities around Custom Tasks. Whereas this example only ever runs on the local HPE Morpheus Enterprise appliance, tasks can run on different targets (remote, resource) and against different contexts (instances, servers).
 
 In essence, we've only explored a very particular use case to potentially assist in IPAM migrations and day 2 IPAM adoption.
 
