@@ -73,3 +73,14 @@ Open the project directory and compile with the relevant ***gradlew*** (Linux) o
 
 The compiled ***.jar*** file will be found in the ***build/libs*** subdirectory:
 
+![Compiled jar file in build/libs subdirectory](/img/morphblog_linknetworks_compiled_jar.png)
+
+Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > Add*** dialog. The plugin should appear in the list as shown below:
+
+![Plugin uploaded and shown in list](/img/morphblog_linknetworks_plugin_uploaded.png)
+
+## Setup the Custom Task Workflow
+
+Uploading the plugin in the previous step introduced a new ***TaskType*** to the HPE Morpheus Enterprise appliance. This can be seen under the edit dialog of the uploaded plugin:
+
+![New task type introduced](/img/morphblog_linknetworks_new_tasktype.png)
