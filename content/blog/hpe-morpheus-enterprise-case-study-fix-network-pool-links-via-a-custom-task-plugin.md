@@ -10,18 +10,24 @@ In a previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how
 
 ## Problem Statement
 
-In a nutshell, we need a way to link a NetworkPoolIp entry to a ComputeServer object, where a network interface falls within the same Network/NetworkPool.
+In a nutshell, we need a way to link a ***NetworkPoolIp*** entry to a ***ComputeServer*** object, where a network interface falls within the same ***Network***/***NetworkPool***.
 
-These reference links exist via the refType and refId properties of the NetworkPoolIp object, as shown below:
+These reference links exist via the ***refType*** and ***refId*** properties of the ***NetworkPoolIp*** object, as shown below:
 
 ![refType and refId relationship](/img/morphblog_linknetworks_reftype_refid_small.png)
 
-Upon provisioning, the refType property is set to the literal value of 'ComputeServer' and the refId property is assigned the Id of the ComputeServer object itself.
+Upon provisioning, the ***refType*** property is set to the literal value of 'ComputeServer' and the ***refId*** property is assigned the ***Id*** of the ***ComputeServer*** object itself.
 
-When a NetworkPool is migrated/changed, or added to the Network After Instance provisioning, NetworkPoolIp records are created or synchronized from IPAM, without the refId link populated. This causes orphan host entries when workloads are later deleted.
+When a ***NetworkPool*** is migrated/changed, or added to the ***Network*** After instance provisioning, ***NetworkPoolIp*** records are created or synchronized from IPAM, without the ***refId*** link populated. This causes orphan host entries when workloads are later deleted.
 
 To reproduce this, we will provision a single VM instance into a simple lab, then add the IP Pool to the related network, afterward.
 
 ## Normal Behavior
 
 First, consider the normal day-today use case. We associate our network with the IP pool as shown below:
+
+![Network with IP Pool](/img/morphblog_linknetwork_network_with_pool.png)
+
+Should we provision a VM instance into this network, a host record entry will be created in the IP pool:
+
+![Instance provisioned](/img/morphblog_linknetwork_instance_provisioned.png)
