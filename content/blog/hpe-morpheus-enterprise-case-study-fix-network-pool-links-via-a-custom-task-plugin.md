@@ -108,3 +108,31 @@ Checking this box will overwrite any existing ***refId*** links when the hostnam
 Next, we need an ***Operational Workflow*** to run the task with the correct input context (Pool ID). Create the workflow under ***Library > Automation > Add > Operational Workflow***. Provide a name for the workflow, add the ***task from the previous step*** under ***Tasks*** and add the ***ChooseNetworkPool*** input under ***Inputs***.
 
 ![Operational workflow setup](/img/morphblog_linknetworks_workflow_setup.png)
+
+## Run the Workflow against the Network Pool
+
+We review the REST API call to confirm that the host record ***refId*** property is not currently set against our ***ComputeServer***:
+
+![Confirm missing refId link to ComputeServer](/img/morphblog_linknetworks_link_ref_missing.png)
+
+Under ***Library > Automation > Workflows***, click the name of the workflow we created in the previous step to view the workflow details:
+
+![View workflow details](/img/morphblog_linknetworks_workflow_details.png)
+
+The ***Execute*** button brings up the workflow execution dialog. Here we select the pool that our test VM is deployed to. The ***Execution Config/Context*** can be ignored, as this task will always run on the local HPE Morpheus Enterprise appliance in its own context:
+
+![Execute the workflow](/img/morphblog_linknetworks_workflow_execute.png)
+
+Under the ***Executions*** tab we can view the output of the task, showing which ***ComputeServer*** objects have been allocated to host records within the pool, via the ***refId*** property:
+
+![Workflow execution results](/img/morphblog_linknetworks_workflow_executed.png)
+
+Re-running the REST API call confirms that the ***refType*** and ***refId*** link was created:
+
+![Reftype and refId link created](/img/morphblog_linknetwork_api_host_record_linked.png)
+
+## Workflow via the API
+
+In large environments it would be impractical to execute the workflow for each IP pool by hand in the UI. For these scenarios, execute the workflow via the REST API. Provide the ***id*** of the ***workflow*** in the request URL and the ***id*** of the IP pool to the ***networkPool*** body parameter to execute the POST request:
+
+![Execute workflow via API](/img/morphblog_linknetwork_execute_via_api.png)
