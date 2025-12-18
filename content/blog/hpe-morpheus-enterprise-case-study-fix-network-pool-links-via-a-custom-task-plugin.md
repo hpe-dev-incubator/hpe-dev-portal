@@ -5,6 +5,10 @@ date: 2025-12-18T11:45:51.565Z
 author: Neil van Rensburg
 authorimage: /img/morpheusgreen.png
 disable: false
+tags:
+  - Morpheus
+  - API
+  - Plugin
 ---
 ![]()
 
@@ -136,3 +140,19 @@ Re-running the REST API call confirms that the ***refType*** and ***refId*** lin
 In large environments it would be impractical to execute the workflow for each IP pool by hand in the UI. For these scenarios, execute the workflow via the REST API. Provide the ***id*** of the ***workflow*** in the request URL and the ***id*** of the IP pool to the ***networkPool*** body parameter to execute the POST request:
 
 ![Execute workflow via API](/img/morphblog_linknetwork_execute_via_api.png)
+
+## Next steps
+
+From here, it would make sense to explore the unused possibilities around Custom Tasks. Whereas this example only ever runs on the local HPE Morpheus Enterprise appliance, tasks can run on different targets (remote, resource) and against different contexts (instances, servers)
+
+In essence, we've only explored a very particular use case to potentially assist in IPAM migrations and day 2 IPAM adoption.
+
+At the more advanced end of the spectrum are provider types that model core infrastructure components. These include integrations for clouds, networks, storage systems, and many others. Such providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these provider types fit together is key to building powerful, production-grade plugins.
+
+Explore the following resources for more information on the different plugin/provider types:
+
+https://developer.morpheusdata.com 
+
+https://share.morpheusdata.com (follow the repository link under the plugin details to see the source code of a plugin) 
+
+https://github.com/hewlettpackard https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX
