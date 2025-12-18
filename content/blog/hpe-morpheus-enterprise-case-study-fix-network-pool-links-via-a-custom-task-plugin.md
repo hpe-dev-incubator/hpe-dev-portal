@@ -97,7 +97,7 @@ Next, we create the ***Input*** that represents the ***OptionList*** entries to 
 
 ![Create the form input for the option source](/img/morphblog_linknetworks_form_input.png)
 
-To set up the task, we navigate to ***Library > Automation > Add***. Provide a task ***Name*** and a ***Network Pool Id*** value of ***<%=customOptions.networkPool%>***. This reference will insert the value from the input we created in the previous step.
+To set up the task, we navigate to ***Library > Automation > Tasks > Add***. Provide a task ***Name*** and a ***Network Pool Id*** value of ***<%=customOptions.networkPool%>***. This reference will insert the value from the input we created in the previous step.
 
 ![Custom task setup](/img/morphblog_linknetworks_task_setup.png)
 
