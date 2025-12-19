@@ -18,7 +18,7 @@ A previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to
 
 When IP Pools are added to Networks, or changed, after Instance provisioning, where a Network Interface falls within the same ***Network***/***NetworkPool***, the ***NetworkPoolIp*** entry is not linked to a ***ComputeServer*** object.
 
-When a server is provisioned, reference links are created via the ***refType*** and ***refId*** properties of the ***NetworkPoolIp*** object, as shown below:
+When a server is provisioned to a Network where an IP Pool as present, reference links are created via the ***refType*** and ***refId*** properties of the ***NetworkPoolIp*** object, as shown below:
 
 ![refType and refId relationship](/img/morphblog_linknetworks_reftype_refid_small.png)
 
