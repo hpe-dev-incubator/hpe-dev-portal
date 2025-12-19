@@ -1,6 +1,6 @@
 ---
 title: "Implementing a complete Workshop-on-Demand infrastructure in less than an hour"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8917459351405/WN_bWsoUYA-QBu3QjvyM6QCxQ
 imageBackground: white
