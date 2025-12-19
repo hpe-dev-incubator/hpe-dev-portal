@@ -12,10 +12,10 @@ table {
     width: 100%;
     width: max-content;
     max-width: 100%;
-    overflow: auto; 
+    overflow: auto;
      -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
+    box-shadow: none;
     border:1px solid grey;
 }
 td {
@@ -23,7 +23,7 @@ td {
     -moz-box-shadow: none;
     box-shadow: none;
     border:1px solid grey;
-    text-align: left !important; 
+    text-align: left !important;
     padding: 10px !important;
 }
 thead tr:first-child td {
@@ -31,15 +31,15 @@ thead tr:first-child td {
   -moz-box-shadow: none;
   box-shadow: none;
   border:1px solid grey;
-  text-align: center !important; 
-  padding: 20px !important; 
+  text-align: center !important;
+  padding: 20px !important;
   font-weight: bold !important;
 }
 </style>
 
 | &nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp; | Title                                                                                                                                                                                                                               | Speaker(s)                                                     | Company                    | Link                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| 17-Dec-25                                        | Implementing a complete Workshop-on-Demand infrastructure in less than an hour                                                         | Frederic Passeron / Bruno Cornec                             | HPE                    |  [Replay](https://www.youtube.com/watch?v=RSt7ewTulPE)                                                                                                              |   
+| 17-Dec-25                                        | [Implementing a complete Workshop-on-Demand infrastructure in less than an hour](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/WOD_infrastructure_less_than_an_hour.pdf)                                                         | Frederic Passeron / Bruno Cornec                             | HPE                    |  [Replay](https://www.youtube.com/watch?v=RSt7ewTulPE)                                                                                                              |
 | 18-Jun-25                                        | HPE Compute Ops Management APIs and the DevOps ecosystem: Updates and developer tools                                                                                                                                           | Lionel Jullien                                             | HPE                    | [Replay](https://www.youtube.com/watch?v=TKl_gRJnoxk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)                |
 | 30-Apr-25                                            | [HPE Private Cloud AI Technical Demo](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/HPE+PCAI+Webinar+04-30-25.pdf)                                                                                                        | Randy Thomasson                                                | HPE                        | [Replay](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)               |
 | 26-Mar-25                                            | [No More Blind Spots: How eBPF Transforms Observability](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/No+More+Blindspots.pdf)                                                                                            | Neil Pearson                                                   | HPE                        | [Replay](https://www.youtube.com/watch?v=qH93yD5KSL8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)               |
