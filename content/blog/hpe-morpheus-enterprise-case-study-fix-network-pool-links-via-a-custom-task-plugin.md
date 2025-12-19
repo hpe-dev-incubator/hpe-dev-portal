@@ -1,6 +1,6 @@
 ---
-title: "HPE Morpheus Enterprise case study: Fix network pool links via a custom
-  task plugin"
+title: "HPE Morpheus Enterprise case study: Fix network pool links via a Custom
+  Task Plugin"
 date: 2025-12-18T11:45:51.565Z
 author: Neil van Rensburg
 authorimage: /img/morpheusgreen.png
