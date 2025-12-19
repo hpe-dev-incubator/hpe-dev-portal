@@ -12,7 +12,7 @@ tags:
 ---
 ![]()
 
-In a previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/), I explored the basics around building and compiling HPE Morpheus Enterprise Plugins. This post expands on the subject by implementing a minimal Custom Task Plugin. The logic will target IP Pools, where links between the host entries and the VM workloads are broken or missing.
+A previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/) post explored the basics around building and compiling HPE Morpheus Enterprise Plugins. This post expands on the subject by implementing a minimal Custom Task Plugin. The logic will target IP Pools, where links between the host entries and the VM workloads are broken or missing.
 
 ## Problem statement
 
@@ -22,11 +22,11 @@ When a server is provisioned, reference links are created via the ***refType*** 
 
 ![refType and refId relationship](/img/morphblog_linknetworks_reftype_refid_small.png)
 
-Upon provisioning, the ***refType*** property is set to the literal value of 'ComputeServer' and the ***refId*** property is assigned the ***Id*** of the ***ComputeServer*** object itself.
+Upon provisioning, the ***refType*** property is set to the literal value of 'ComputeServer' and the ***refId*** property is set to the ***Id*** of the ***ComputeServer*** object itself.
 
 When a ***NetworkPool*** is migrated/changed, or added to the ***Network*** after Instance provisioning, ***NetworkPoolIp*** records are created or synchronized from IPAM, without the ***refId*** link populated. This causes orphan host entries when workloads are later deleted.
 
-To reproduce this, I will provision a single VM Instance into a simple lab, then add the IP Pool to the related Network, afterward.
+To reproduce this, provision a single VM Instance into a simple lab, then add the IP Pool to the related Network, afterward.
 
 ## Normal behavior
 
@@ -46,7 +46,7 @@ Querying the Host Record via the REST API shows the link back to the ***ComputeS
 
 ## Provision without IP Pool
 
-To illustrate the broken reference issue, I start off by removing the Network-to-IP-Pool association:
+To illustrate the broken reference issue, remove the Network-to-IP-Pool association:
 
 ![Network without IP Pool](/img/morphblog_linknetwork_network_without_pool.png)
 
@@ -56,11 +56,11 @@ Then provision a VM Instance to the Network:
 
 ![Provisioned VM to Network](/img/morphblog_linknetwork_provisioned_vm.png)
 
-Next, I create a Host Record entry manually within the IP Pool:
+Next, create a Host Record entry manually within the IP Pool:
 
 ![New Pool IP](/img/morphblog_linknetworks_manual_host_record.png)
 
-Finally, I add the IP Pool back onto the Network:
+Finally, add the IP Pool back onto the Network:
 
 ![Network Pool re-added onto Network](/img/morphblog_linknetwork_network_pool_readded.png)
 
