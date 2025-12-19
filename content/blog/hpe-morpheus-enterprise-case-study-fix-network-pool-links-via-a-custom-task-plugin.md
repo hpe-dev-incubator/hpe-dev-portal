@@ -12,7 +12,7 @@ tags:
 ---
 ![]()
 
-In a previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/), I explored the basics around building and compiling HPE Morpheus Enterprise Plugins. This post expands on the subject by implementing a minimal custom Task Plugin. The logic will target IP Pools, where links between the host entries and the VM workloads are broken or missing.
+In a previous [blog](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/), I explored the basics around building and compiling HPE Morpheus Enterprise Plugins. This post expands on the subject by implementing a minimal Custom Task Plugin. The logic will target IP Pools, where links between the host entries and the VM workloads are broken or missing.
 
 ## Problem statement
 
