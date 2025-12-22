@@ -1,3 +1,22 @@
+---
+title: Streamlining Server Management - Bulk Onboarding to HPE Compute Ops Management with iLOrest
+date: 2025-12-22T14:33:05.807Z
+priority: 9
+author: Rajeev Kallur
+authorimage: /img/Avatar2.svg
+disable: false
+tags: 
+  - ComputeOpsManagement
+  - iLOrest
+  - ServerManagement
+  - HPE
+  - CloudManagement
+  - Automation
+  - HPEDev
+featuredBlog: true
+
+---
+
 # Streamlining Server Management: Bulk Onboarding to HPE Compute Ops Management with iLOrest
 
 ## Introduction
@@ -110,39 +129,47 @@ The `commonSettings` section defines default values applied to all servers:
 
 **COM Credentials:**
 ```json
-"computeOpsManagement": {
-    "activationKey": "YOUR-ACTUAL-ACTIVATION-KEY",
-    "workspace_id": "YOUR-WORKSPACE-ID"
+{
+    "computeOpsManagement": {
+        "activationKey": "YOUR-ACTUAL-ACTIVATION-KEY",
+        "workspace_id": "YOUR-WORKSPACE-ID"
+    }
 }
 ```
 Get these from your HPE Compute Ops Management portal at [https://common.cloud.hpe.com](https://common.cloud.hpe.com).
 
 **iLO Authentication:**
 ```json
-"iloAuthentication": {
-    "iloUser": "administrator",
-    "iloPassword": "YourSecurePassword123!"
+{
+    "iloAuthentication": {
+        "iloUser": "administrator",
+        "iloPassword": "YourSecurePassword123!"
+    }
 }
 ```
 Use credentials that have administrator privileges on all target iLOs.
 
 **Network Configuration:**
 ```json
-"network": {
-    "dns": ["10.0.1.10", "10.0.1.11"],
-    "ntp": ["time.example.com", "time2.example.com"]
+{
+    "network": {
+        "dns": ["10.0.1.10", "10.0.1.11"],
+        "ntp": ["time.example.com", "time2.example.com"]
+    }
 }
 ```
 Configure DNS and NTP servers appropriate for your environment.
 
 **Proxy Settings (Optional):**
 ```json
-"proxy": {
-    "server": "proxy.mycompany.com",
-    "port": 8080,
-    "credentials": {
-        "username": "proxyuser",
-        "password": "ProxyPass123"
+{
+    "proxy": {
+        "server": "proxy.mycompany.com",
+        "port": 8080,
+        "credentials": {
+            "username": "proxyuser",
+            "password": "ProxyPass123"
+        }
     }
 }
 ```
@@ -154,19 +181,23 @@ Define your target servers in two ways:
 
 **Individual Servers:**
 ```json
-"individual": [
-    {"ip": "10.20.30.40"},
-    {"ip": "10.20.30.41", "network": {"dns": ["8.8.8.8", "8.8.4.4"]}},
-    {"ip": "10.20.30.42", "skipNtp": true, "skipProxy": true}
-]
+{
+    "individual": [
+        {"ip": "10.20.30.40"},
+        {"ip": "10.20.30.41", "network": {"dns": ["8.8.8.8", "8.8.4.4"]}},
+        {"ip": "10.20.30.42", "skipNtp": true, "skipProxy": true}
+    ]
+}
 ```
 
 **IP Ranges:**
 ```json
-"ranges": [
-    {"start": "10.20.30.50", "end": "10.20.30.60"},
-    {"start": "10.20.40.1", "end": "10.20.40.20", "skipDns": true}
-]
+{
+    "ranges": [
+        {"start": "10.20.30.50", "end": "10.20.30.60"},
+        {"start": "10.20.40.1", "end": "10.20.40.20", "skipDns": true}
+    ]
+}
 ```
 
 **Override Options:**
@@ -276,7 +307,7 @@ You can verify from the HPE Compute Ops Management console:
             "individual": [
                 {
                     "ip": "10.10.1.50",
-                    "comment": "DMZ server - different DNS"
+                    "comment": "DMZ server - different DNS",
                     "network": {
                         "dns": ["10.50.1.10", "10.50.1.11"]
                     }
