@@ -1,5 +1,5 @@
 ---
-title: Automating application delivery to MKS clusters using GitOps with ArgoCD
+title: Automating application delivery to MKS clusters using GitOps with Argo CD
 date: 2025-12-24T06:53:11.415Z
 author: Guoping Jia
 authorimage: /img/guoping.png
@@ -9,11 +9,11 @@ disable: false
 
 ### What is GitOps
 
-GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD tooling, and applies them to infrastructure automation. GitOps uses Git as the single source of truth for declarative infrastructure and applications. Everything about the desired state of your K8s cluster, such as deployments, services, ConfigMaps, etc, is stored in Git , and automation tools like ArgoCD or Flux compare the live cluster state with the desired state in Git and sync the actual cluster state to match what’s in Git. There is a list of popular GitOps tools, such as ArgoCD, Flux CD, Jenkins X, and Spinnaker, etc. This blog will choose ArgoCD as one of GitOps automation tools. 
+GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD tooling, and applies them to infrastructure automation. GitOps uses Git as the single source of truth for declarative infrastructure and applications. Everything about the desired state of your K8s cluster, such as deployments, services, ConfigMaps, etc, is stored in Git , and automation tools like *Argo CD* or Flux compare the live cluster state with the desired state in Git and sync the actual cluster state to match what’s in Git. There is a list of popular GitOps tools, such as *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*, etc. This blog will choose *Argo CD* as one of GitOps automation tools. 
 
-### What is ArgoCD
+### What is Argo CD
 
-ArgoCD is a declarative GitOps based continuous delivery tool for Kubernetes (K8s). It helps deploy and manage applications on K8s clusters in an automated, reliable and repeatable way. It does it by continuously monitoring the current live state of applications in a cluster and compares it against the desired state defined in a Git repository. This is commonly referred to as making Git your Source of Truth for your configurations. Whenever a developer pushes changes to a Git repository, ArgoCD will detect the changes and sync them to the K8s cluster. Syncing can either be a manual or automatic process depending on how you configure it. It can be a prett common pattern to just automatically sync changes from Dev and Test environments but have your production applications require someone manually syncing. So, that’s really the big picture of what you need to know for ArgoCD at a high level. You define your settings in a Git repository and ArgoCD makes sure your environments reflect what’s in Git.  
+[*Argo CD*](https://argoproj.github.io/cd/) is a declarative GitOps based continuous delivery tool for Kubernetes (K8s). It helps deploy and manage applications on K8s clusters in an automated, reliable and repeatable way. It does it by continuously monitoring the current live state of applications in a cluster and compares it against the desired state defined in a Git repository. This is commonly referred to as making Git your Source of Truth for your configurations. Whenever a developer pushes changes to a Git repository, *Argo CD* will detect the changes and sync them to the K8s cluster. Syncing can either be a manual or automatic process depending on how you configure it. It can be a prett common pattern to just automatically sync changes from Dev and Test environments but have your production applications require someone manually syncing. So, that’s really the big picture of what you need to know for *Argo CD* at a high level. You define your settings in a Git repository and *Argo CD* makes sure your environments reflect what’s in Git.  
 
 ### Prerequisites
 
@@ -23,13 +23,13 @@ Before starting, make sure you have the following:
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The *helm* CLI tool, version 3.12.0 or later
 
-### Set up ArgoCD
+### Set up Argo CD
 
 You can install *MetalLB* and set up the load balancer in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
 Type the following commands to deploy *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
 
-The Shell script for installing ArgoCD:
+The Shell script for installing *Argo CD*:
 
 ```shell
 #!/bin/bash
