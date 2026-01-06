@@ -15,6 +15,12 @@ GitOps is an operational framework that takes DevOps best practices used for app
 
 [*Argo CD*](https://argoproj.github.io/cd/) is a declarative GitOps based continuous delivery tool for Kubernetes (K8s). It helps deploy and manage applications on K8s clusters in an automated, reliable and repeatable way. It does it by continuously monitoring the current live state of applications in a cluster and compares it against the desired state defined in a Git repository. This is commonly referred to as making Git your Source of Truth for your configurations. Whenever a developer pushes changes to a Git repository, *Argo CD* will detect the changes and sync them to the K8s cluster. Syncing can either be a manual or automatic process depending on how you configure it. It can be a prett common pattern to just automatically sync changes from Dev and Test environments but have your production applications require someone manually syncing. So, that’s really the big picture of what you need to know for *Argo CD* at a high level. You define your settings in a Git repository and *Argo CD* makes sure your environments reflect what’s in Git.  
 
+Argo CD is a declarative GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications, enforcing configurations stored in a Git repository. This ensures that the live infrastructure matches its declared state, improving reliability and version control.
+
+Argo CD’s real-time monitoring and alerting provide a cohesive overview of application synchronization and status. It also promotes GitOps practices by integrating with existing CI/CD tools and workflows.
+
+
+
 ### Prerequisites
 
 Before starting, make sure you have the following:
