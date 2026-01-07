@@ -10,9 +10,7 @@ width: large
 ---
 ## Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP
 
- 
-Speakers: Vanderwilly Silva Roman Nersyan
-Abstract:
+01/21/2026
 
 Managing infrastructure often means navigating complex consoles, learning APIs, and manually generating reports. But what if there was an easier way?
 
