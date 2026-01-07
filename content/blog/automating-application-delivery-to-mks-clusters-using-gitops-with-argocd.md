@@ -7,6 +7,8 @@ disable: false
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
+This blog post describes how to automate the deployment of applications to MKS clusters within HPE Private Cloud Enterprise using GitOps with *Argo CD*. With Argo CD's real-time monitoring and alerting features, it provides a cohesive overview of deployed applicaiton synchronization and status, and it ensures the live infrastructure matches its declared state, improving reliability and version control.
+
 ### What is GitOps
 
 GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD tooling, and applies them to infrastructure automation. GitOps uses Git as the single source of truth for declarative infrastructure and applications. Everything about the desired state of your K8s cluster, such as deployments, services, ConfigMaps, etc, is stored in Git , and automation tools like *Argo CD* or Flux compare the live cluster state with the desired state in Git and sync the actual cluster state to match what’s in Git. There is a list of popular GitOps tools, such as *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*, etc. This blog will choose *Argo CD* as one of GitOps automation tools. 
@@ -19,14 +21,14 @@ Argo CD is a declarative GitOps continuous delivery tool for Kubernetes. It auto
 
 Argo CD’s real-time monitoring and alerting provide a cohesive overview of application synchronization and status. It also promotes GitOps practices by integrating with existing CI/CD tools and workflows.
 
-
-
 ### Prerequisites
 
-Before starting, make sure you have the following:
+Ensure that the following prerequisites are fulfilled:
 
-* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
+
+
+* An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster
 * The *helm* CLI tool, version 3.12.0 or later
 
 ### Set up Argo CD
@@ -241,8 +243,10 @@ ingress-wordpress   tailscale   *       wordpress.qilin-beta.ts.net   80, 443   
 
 ### Conclusion
 
-This blog post offers you a comprehensive guide on 
+This blog post provided a comprehensive guide on how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. It detailed the process of deploying Argo CD using Morpheus task running from MKS master node, configuring the deployment of applications via the public accessible Argo CD service endpoint exposed using Tailscale Funnel, and monitoring the live state of applications in the MKS cluster. 
 
-Let’s now look at an example real world pipeline that should give you a better understanding of the complete flow.When it comes to GitOps, it’s a best practice to have two repositories. One for your application source code and another for your configuration code. In your configuration repository, you should have your K8s manifests, Helm charts, or customize files, which define your K8s resources, such as deployments, services, ConfigMap, whatever this configuration repository gets updated, that’s when ArgoCD is going to kick in and do its sync. But that’s not all there is to this story. Let’s remember that ArgoCD is a continuous delivery tool, we still require a pipeline for continuous integration that will test and build our application when a developer updates the application source code that’s when the code is going to be tested and the image will be built and pushed to a container repository your CI pipeline then could trigger updates to your configuration repository which would cause ArgoCD to sync. This is a good example pipeline that many companies use when implementing GitOps into their workflow. 
+Let’s remember that *Argo CD* is a continuous delivery (CD) tool, it still requires a pipeline for continuous integration (CI) that will test and build our application when a developer updates the application source code that’s when the code is going to be tested and the image will be built and pushed to a container repository your CI pipeline then could trigger updates to your configuration repository which would cause ArgoCD to sync. This is a good example pipeline that many companies use when implementing GitOps into their workflow. *Argo CD* also promotes GitOps practives by easily integrating with existing CI/CD tools and workflows.
 
-Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
+Apart from its real-time monitoring and alerting features,  In production environment, it’s a best practice to have two repositories. One for your application source code and another for your configuration code. In your configuration repository, you should have your K8s manifests, Helm charts, or customize files, which define your K8s resources, such as deployments, services, ConfigMap, whatever this configuration repository gets updated, that’s when ArgoCD is going to kick in and do its sync. But that’s not all there is to this story. 
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
