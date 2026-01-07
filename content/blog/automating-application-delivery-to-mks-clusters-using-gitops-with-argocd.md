@@ -7,7 +7,7 @@ disable: false
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes how to automate the deployment of applications to MKS clusters within HPE Private Cloud Enterprise using GitOps with *Argo CD*. With Argo CD's real-time monitoring and alerting features, it provides a cohesive overview of deployed applicaiton synchronization and status, and it ensures the live infrastructure matches its declared state, improving reliability and version control.
+This blog post describes how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. By taking advantage of Argo CD's real-time monitoring and alerting features, it provides clear visibility into applicaiton synchronization and overall deployment status. This approach helps ensure that deployed applications consistently reflect their declared state, improving reliability and reinforcing version control. 
 
 ### What is GitOps
 
