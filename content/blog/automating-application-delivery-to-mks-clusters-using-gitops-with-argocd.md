@@ -251,11 +251,17 @@ Follow the process to create a new app for application deployment.
 
 ![](/img/argocd-application-running.png)
 
+#### Make changes to application repository
+
+Now let’s try to make some changes to the application repository, increasing the replica from the default *1* to *2* for the *WordPress* application.
+
 ![](/img/git-repo-changes.png)
+
+As soon as you commit the changes in the repository, *Argo CD* will look for the changes and start sync'ing the changes in the MKS cluster.
 
 ![](/img/argocd-application-syncing.png)
 
-![](/img/argocd-application-synced.png)
+Type the following command, you can check that the *WordPress* now has 2 PODs running in the MKS cluster.
 
 ```shell
 $ kubectl get all -n wordpress
@@ -279,6 +285,12 @@ NAME                                     READY   AGE
 statefulset.apps/wordpress-app-mariadb   1/1     162m
 ```
 
+### Access WordPress application
+
+You can expose the *WordPress* application using *Tailscale*. 
+
+1. Create an *Ingress* YAML manifest.
+
 ```shell
 $ cat ingress-wordpress.yaml
 apiVersion: networking.k8s.io/v1
@@ -300,15 +312,24 @@ spec:
         - wordpress
 ```
 
+2. Apply the Ingress to the namespace *wordpress*.
+
 ```shell
 $ kubectl apply -f ingress-wordpress.yaml
 ingress.networking.k8s.io/ingress-wordpress created
-$ k get ingress -n wordpress
+
+3. Check the Ingress *ingress-wordpress* is create with its assigned Tailscale Funnel URL *wordpress.qilin-beta.ts.net*.
+
+$ kubectl get ingress -n wordpress
 NAME                CLASS       HOSTS   ADDRESS                       PORTS     AGE
 ingress-wordpress   tailscale   *       wordpress.qilin-beta.ts.net   80, 443   7s
 ```
 
+4. From Tailscale admin console, a new machine named *'wordpress'* appears under the *Machines* tab.
+
 ![](/img/tailscale-wordpress.png)
+
+5. The *WordPress* application is accessible by pointing its Tailscale Funnel URL in the browser.
 
 ![](/img/wordpress-ui.png)
 
