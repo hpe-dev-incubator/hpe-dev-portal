@@ -33,11 +33,11 @@ Ensure that the following prerequisites are fulfilled:
 
 ### Install Argo CD
 
-You can install *Argo CD*, using either the install YAML script or the Helm charts, by following up the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/).  
+You can install *Argo CD*, using either the install YAML script with *kubectl* or the Helm charts with **helm. You can refer to the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/) for the details.  
 
-For the MKS clusters in HPE Private Cloud Enterprise, you can create a Shell script for installing *Argo CD* and add a Morpheus task using the Shell script as its content. The *Argo CD* can be installed by executing the Morpheus task from the MKS's master node. 
+For the MKS clusters in HPE Private Cloud Enterprise, you can create a *Shell* script for installing *Argo CD* and add a Morpheus task using the *Shell* script as its content. The *Argo CD* can be installed by executing the Morpheus task from the MKS's master node. 
 
-Here is the Shell script for installing *Argo CD*:
+Here is the *Shell* script for installing *Argo CD*.
 
 ```shell
 #!/bin/bash
@@ -58,31 +58,37 @@ else
 fi
 ```
 
-From the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
+Perform the following steps to install *Argo CD* to the MKS cluster. 
+
+1. From the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
 
 ![](/img/add-task.png)
 
-Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Then enable *SUDO* option and select SOURCE as *Local*. Paste the Shell script as CONTENT. Click ***SAVE CHANGES***.
+2. Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Then enable *SUDO* option and select SOURCE as *Local*. Paste the Shell script as CONTENT. Click ***SAVE CHANGES***.
 
 ![](/img/install-argocd-task.png)
 
-Navigate to **Infrastructure -> Clusters**. Click the MKS cluster NAME, e.g., *mks-test*.
+3. Navigate to **Infrastructure -> Clusters**. Click the MKS cluster NAME, e.g., *mks-test*.
 
 ![](/img/mks-test-cluster.png)
 
-Click *Nodes* tab. Click the MKS master node, e.g., *mks-test-master*.
+4. Click *Nodes* tab. Click the MKS master node, e.g., *mks-test-master*.
 
 ![](/img/mks-test-nodes.png)
 
-Click **Actions**. Select *Run Task*.
+5. Click **Actions**. Select *Run Task*.
 
 ![](/img/mks-test-master-node.png)
 
-
+6. Select *Install ArgoCD* as TASK. 
 
 ![](/img/mks-test-task-execute.png)
 
+7. Click *History* tab. Click info *'i'* to see the logs of the *Run Task: Install ArgoCD*.
+
 ![](/img/mks-test-task-history.png)
+
+You can check and confirm *Argo CD* is deployed successfully to the namespace *'argocd'*.
 
 ```shell
 $ kubectl get ns argocd
@@ -129,10 +135,25 @@ NAME                                 STATUS     COMPLETIONS   DURATION   AGE
 job.batch/argocd-redis-secret-init   Complete   1/1           3s         53s
 ```
 
+It should be noted that the *Argo CD* service *'argocd-server'* is configured as *ClusterIP* type. It can only be accessed internally within the cluster.
+
+### Configure Argo CD access
+
+In order to use *Argo CD* for application deployments, you need configure the *Argo CD* service to be accessible externally to the MKS cluster. There are some methods such as *port forwarding*, *NodePort* or *LoadBalancer* type services, or manual virtual private network (VPN) can be used. 
+
+This section uses an alternative approach of exposing *Argo CD* service to public Internet using *Tailscale*. You can refer to the blog post [Exposing Grafana service using Tailscale for MKS monitoring in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-grafana-service-using-tailscale-for-mks-monitoring-in-hpe-private-cloud-enterprise/) for the details about *Tailscale* and service exposing process. 
+
+Perform the following steps to expost the *Argo CD* service endpoint. 
+
+1. Change the *Argo CD* service type from *ClusterIP* to *LoadBalancer*.
+
 ```shell
 $ kubectl edit svc/argocd-server -n argocd                                                                              service/argocd-server edited
+```
 
+2. Verify *Argo CD* service type.
 
+```shell
 $ kubectl get svc -n argocd
 NAME                               TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
 argocd-applicationset-controller   ClusterIP      172.30.219.75   <none>          7000/TCP                     2m47s
@@ -141,6 +162,8 @@ argocd-redis                       ClusterIP      172.30.65.186   <none>        
 argocd-repo-server                 ClusterIP      172.30.1.116    <none>          8081/TCP                     2m47s
 argocd-server                      LoadBalancer   172.30.64.166   172.20.20.242   80:30147/TCP,443:31601/TCP   2m47s
 ```
+
+3. Create an *Ingress* YAML manifest file and apply it.
 
 ```shell
 $ cat ingress-argocd.yaml
@@ -161,24 +184,33 @@ spec:
   tls:
     - hosts:
         - argocd
-```
 
-```shell
 $ kubectl apply -f ingress-argocd.yaml
 ingress.networking.k8s.io/ingress-argocd created
+
+4. Verify the *Ingress* *'ingress-argocd'* is created with the assigned address.
+
 $ k get ingress -n argocd
 NAME             CLASS       HOSTS   ADDRESS                    PORTS     AGE
 ingress-argocd   tailscale   *       argocd.qilin-beta.ts.net   80, 443   8s
 ```
 
+5. From Tailscale admin console, a new machine named *'argocd'* appears under the *Machines* tab.
+
 ![](/img/tailscale-argocd.png)
+
+6. Start the browser by pointing to the *Argo CD* Funnel URL, i.e., *'argocd.qilin-beta.ts.net '*.
+
+![](/img/argocd-login.png)
+
+You can log in to *Argo CD* using the username *'admin'*. 
+
+Type the following command to get the password.
 
 ```shell
 $ kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-XFnhHPm0JCMTIAvJ
 ```
 
-![](/img/argocd-login.png)
 
 Settings / Repositories / + CONNECT
 
