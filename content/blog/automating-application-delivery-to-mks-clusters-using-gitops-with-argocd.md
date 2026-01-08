@@ -15,7 +15,7 @@ GitOps is an operational framework that takes DevOps best practices used for app
 
 ### What is Argo CD
 
-[*Argo CD*](https://argoproj.github.io/cd/) is a declarative GitOps based continuous delivery tool for Kubernetes (K8s). It helps deploy and manage applications on K8s clusters in an automated, reliable and repeatable way. It does it by continuously monitoring the current live state of applications in a cluster and compares it against the desired state defined in a Git repository. This is commonly referred to as making Git your Source of Truth for your configurations. Whenever a developer pushes changes to a Git repository, *Argo CD* will detect the changes and sync them to the K8s cluster. Syncing can either be a manual or automatic process depending on how you configure it. It can be a prett common pattern to just automatically sync changes from Dev and Test environments but have your production applications require someone manually syncing. So, that’s really the big picture of what you need to know for *Argo CD* at a high level. You define your settings in a Git repository and *Argo CD* makes sure your environments reflect what’s in Git.  
+*[Argo CD](https://argoproj.github.io/cd/)* is a declarative GitOps based continuous delivery tool for Kubernetes (K8s). It helps deploy and manage applications on K8s clusters in an automated, reliable and repeatable way. It does it by continuously monitoring the current live state of applications in a cluster and compares it against the desired state defined in a Git repository. This is commonly referred to as making Git your Source of Truth for your configurations. Whenever a developer pushes changes to a Git repository, *Argo CD* will detect the changes and sync them to the K8s cluster. Syncing can either be a manual or automatic process depending on how you configure it. It can be a prett common pattern to just automatically sync changes from Dev and Test environments but have your production applications require someone manually syncing. So, that’s really the big picture of what you need to know for *Argo CD* at a high level. You define your settings in a Git repository and *Argo CD* makes sure your environments reflect what’s in Git.  
 
 Argo CD is a declarative GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications, enforcing configurations stored in a Git repository. This ensures that the live infrastructure matches its declared state, improving reliability and version control.
 
@@ -25,15 +25,13 @@ Argo CD’s real-time monitoring and alerting provide a cohesive overview of app
 
 Ensure that the following prerequisites are fulfilled:
 
-
-
 * An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster
 * The *helm* CLI tool, version 3.12.0 or later
 
 ### Install Argo CD
 
-You can install *Argo CD*, using either the install YAML script with *kubectl* or the Helm charts with **helm. You can refer to the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/) for the details.  
+You can install *Argo CD*, using either the install YAML script with *kubectl* or the Helm charts with \*\*helm. You can refer to the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/) for the details.  
 
 For the MKS clusters in HPE Private Cloud Enterprise, you can create a *Shell* script for installing *Argo CD* and add a Morpheus task using the *Shell* script as its content. The *Argo CD* can be installed by executing the Morpheus task from the MKS's master node. 
 
@@ -205,24 +203,51 @@ ingress-argocd   tailscale   *       argocd.qilin-beta.ts.net   80, 443   8s
 
 You can log in to *Argo CD* using the username *'admin'*. 
 
-Type the following command to get the password.
+Type the following command to get the admin password.
 
 ```shell
 $ kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
+### Deploy applications using *Argo CD*
 
-Settings / Repositories / + CONNECT
+Using *Argo CD* service endpoint, you can now start connecting your application code repository and deploying them to the MKS cluster. 
+
+#### Connect application repository
+
+The Helm charts of the sample *WordPress* application are available from GitHub repository [helm-demo](https://github.com/GuopingJia/helm-demo). This section describes the process to connect this application repository in *Argo CD*.
+
+* Navigate ***Settings -> Repository***. Click ***+ CONNECT REPO***.
+
+![](/img/argocd-git.png)
+
+* Choose your connection method as *VIA HTTP/HTTPS*, select Type as *git* and Project as *default*, specify optional Name as *wordpress* and provide Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
 
 ![](/img/argocd-git-connect.png)
 
+* After a few seconds, the CONNECTION STATUS of the Git repository shows as *Successful*.
+
 ![](/img/argocd-git-wordpress.png)
 
-Applications / CREATE APPLICATION 
+#### Create application
+
+Follow the process to create a new app for application deployment.
+
+* Click ***Applications***. Click ***CREATE APPLICATION***.
+
+![](/img/argocd-application.png)
+
+* Specify Application Name as *wordpress-app*, select Project Name as *default* and SYNC POLICY as *Automatic*, select SOURCE Repository URL, its Revision as *HEAD*, Path as *wordpress*, select DESTINATION Cluster URL as *https://kubernetes.default.svc* and Namespace as *wordpress*. Enable other options, e.g., ENABLE AUTO-SYNC, SELF HEAL, AUTO-CREATE NAMESPACE and RETRY. Click ***CREATE***.
+
+***Note***: Under *SYNC POLICY*, if you select *Manual*, *Argo CD* will detect the changes in your Git repository, but it’s not going to apply them to the MKS cluster. You will need to go into *Argo CD* Applications page and hit the *SYNC* button before the changes are made to your application. 
 
 ![](/img/argocd-application-create.png)
 
+* The application *wordpress-app* starts being deployed.
+
 ![](/img/argocd-application-pogressing.png)
+
+* After a few seconds, the application is deployed successfully with APP HEALTH as *Healthy* and SYNC STATUS as *Synced*.
 
 ![](/img/argocd-application-running.png)
 
