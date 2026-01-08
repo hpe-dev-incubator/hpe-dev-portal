@@ -31,13 +31,13 @@ Ensure that the following prerequisites are fulfilled:
 * The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster
 * The *helm* CLI tool, version 3.12.0 or later
 
-### Set up Argo CD
+### Install Argo CD
 
-You can install *MetalLB* and set up the load balancer in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+You can install *Argo CD*, using either the install YAML script or the Helm charts, by following up the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/).  
 
-Type the following commands to deploy *Super Mario* and *Tetris* to the namespace *cfe-games* in the cluster:
+For the MKS clusters in HPE Private Cloud Enterprise, you can create a Shell script for installing *Argo CD* and add a Morpheus task using the Shell script as its content. The *Argo CD* can be installed by executing the Morpheus task from the MKS's master node. 
 
-The Shell script for installing *Argo CD*:
+Here is the Shell script for installing *Argo CD*:
 
 ```shell
 #!/bin/bash
@@ -58,13 +58,27 @@ else
 fi
 ```
 
+From the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
+
+![](/img/add-task.png)
+
+Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Then enable *SUDO* option and select SOURCE as *Local*. Paste the Shell script as CONTENT. Click ***SAVE CHANGES***.
+
 ![](/img/install-argocd-task.png)
+
+Navigate to **Infrastructure -> Clusters**. Click the MKS cluster NAME, e.g., *mks-test*.
 
 ![](/img/mks-test-cluster.png)
 
+Click *Nodes* tab. Click the MKS master node, e.g., *mks-test-master*.
+
 ![](/img/mks-test-nodes.png)
 
+Click **Actions**. Select *Run Task*.
+
 ![](/img/mks-test-master-node.png)
+
+
 
 ![](/img/mks-test-task-execute.png)
 
