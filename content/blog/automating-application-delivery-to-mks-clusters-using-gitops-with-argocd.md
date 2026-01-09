@@ -15,6 +15,8 @@ GitOps is an operational model that extends core DevOps principles, like version
 
 *[Argo CD](https://argoproj.github.io/cd/)* is a declarative, GitOps-driven continuous delivery tool for K8s. It enables automated, consistent, and repeatable application deployment by using Git as the single source of truth for all configuration. *Argo CD* continuously monitors the live state of applications running in a K8s cluster and compares it with the desired state stored in a Git repository. When developers push changes to Git, *Argo CD* detects the updates and synchronizes them to the cluster. Synchronization can be configured to run automatically, commonly used for development and test envrionments, or manually, which is often preferred for production. You define the desired environment state in Git, and *Argo CD* ensures that the applications deployed in the K8s cluster remain aligned with it. Beyond basic synchronization, *Argo CD* provides real-time visibility into application health, status, and configuration drift through its monitoring and alerting capabilities. It integrates smoothly with existing CI/CD pipelines and reinforces GitOps best practices throughout the application deployment lifecyle.
 
+This log post guides you through the process how to automate application deployments to MKS clusters in [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html), followed by key post-deployment tasks.
+
 ### Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
