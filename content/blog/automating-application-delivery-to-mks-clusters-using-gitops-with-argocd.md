@@ -5,11 +5,11 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 ---
-This blog post describes how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. By taking advantage of Argo CD's real-time monitoring and alerting features, it provides overall application deployment status and clear visibility into applicaiton synchronization. This approach helps ensure that deployed applications consistently reflect their declared state, improving reliability and reinforcing version control. 
+This blog post describes how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. By taking advantage of *Argo CD*'s real-time monitoring and alerting features, it provides overall application deployment status and clear visibility into applicaiton synchronization. This approach helps ensure that deployed applications consistently reflect their declared state, improving reliability and reinforcing version control. 
 
 ### What is GitOps
 
-GitOps is an operational model that extends core DevOps principles, like version control, collaboration, compliance, and CI (continuous integration)/CD (continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the *single source of truth* for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, such as deployments, services, ConfigMaps, and more, is stored in Git. Automation tools like *Argo CD* or *Flux* continuously compare the cluster's live state with what's defined in the repository and reconcile any differences to ensure they match. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For this blog, *Argo CD* will be the GitOps automation tool of choice. 
+GitOps is an operational model that extends core DevOps principles, like version control, collaboration, compliance, and CI (continuous integration)/CD (continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the *single source of truth* for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, such as *Deployments*, *Services*, *ConfigMaps*, and more, is stored in Git. Automation tools like *Argo CD* or *Flux* continuously compare the cluster's live state with what's defined in the repository and reconcile any differences to ensure they match. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For this blog, *Argo CD* will be the GitOps automation tool of choice. 
 
 ### What is Argo CD
 
