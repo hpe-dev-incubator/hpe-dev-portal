@@ -13,13 +13,8 @@ tags:
   - ilorest
   - ilo-restful-api
 ---
-
 <br>
 
-
-
-<big>This blog post has been moved to the [Server Management Portal](https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/changefactorypasswd/changefactorypasswd)</big>
-
-
+<big>This blog post has been moved to the [Server Management Portal ](https://servermanagementportal.ext.hpe.com/docs/references_and_material/blogposts/etc/changefactorypasswd/changefactorypasswd)</big>
 
 <br>
