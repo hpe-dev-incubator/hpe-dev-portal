@@ -25,11 +25,11 @@ Ensure that the following prerequisites are fulfilled:
 
 ### Install Argo CD
 
-You can install *Argo CD*, using either the install YAML script with *kubectl* or the Helm charts with \*\*helm. You can refer to the [Install Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/) for the details.  
+You can install *Argo CD* using either the provided [installation YAML file](https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml) with *kubectl* or the (Helm charts](https://argoproj.github.io/argo-helm) with *helm*. Refer to the [Argo CD installation documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/) for detailed instructions.  
 
-For the MKS clusters in HPE Private Cloud Enterprise, you can create a *Shell* script for installing *Argo CD* and add a Morpheus task using the *Shell* script as its content. The *Argo CD* can be installed by executing the Morpheus task from the MKS's master node. 
+For MKS clusters in HPE Private Cloud Enterprise, you can automate the installation by creating a *Shell* script and addit as a Morpheus task. Running this task from the MKS master node will deploy *Argo CD* to the cluster. can be installed by executing the Morpheus task from . 
 
-Here is the *Shell* script for installing *Argo CD*.
+Below is the *Shell* script used to install *Argo CD*.
 
 ```shell
 #!/bin/bash
@@ -50,21 +50,21 @@ else
 fi
 ```
 
-Perform the following steps to install *Argo CD* to the MKS cluster. 
+Follow the steps below to install *Argo CD* on the MKS cluster. 
 
-1. From the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
+1. In the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
 
 ![](/img/add-task.png)
 
-2. Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Then enable *SUDO* option and select SOURCE as *Local*. Paste the Shell script as CONTENT. Click ***SAVE CHANGES***.
+2. Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Enable *SUDO*, select SOURCE as *Local*, paste the *Shell* script into CONTENT. Click ***SAVE CHANGES***.
 
 ![](/img/install-argocd-task.png)
 
-3. Navigate to **Infrastructure -> Clusters**. Click the MKS cluster NAME, e.g., *mks-test*.
+3. Navigate to **Infrastructure -> Clusters**. Click the target MKS cluster NAME, e.g., *mks-test*.
 
 ![](/img/mks-test-cluster.png)
 
-4. Click *Nodes* tab. Click the MKS master node, e.g., *mks-test-master*.
+4. Open the *Nodes* tab. Click the MKS master node, e.g., *mks-test-master*.
 
 ![](/img/mks-test-nodes.png)
 
@@ -76,7 +76,7 @@ Perform the following steps to install *Argo CD* to the MKS cluster.
 
 ![](/img/mks-test-task-execute.png)
 
-7. Click *History* tab. Click info *'i'* to see the logs of the *Run Task: Install ArgoCD*.
+7. Open *History* tab. Click info (i) icon to view the logs for *Run Task: Install ArgoCD*.
 
 ![](/img/mks-test-task-history.png)
 
