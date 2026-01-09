@@ -76,11 +76,11 @@ Follow the steps below to install *Argo CD* on the MKS cluster.
 
 ![](/img/mks-test-task-execute.png)
 
-7. Open *History* tab. Click info (i) icon to view the logs for *Run Task: Install ArgoCD*.
+7. Open *History* tab. Click info (**"i"**) icon to view the logs for *Run Task: Install ArgoCD*.
 
 ![](/img/mks-test-task-history.png)
 
-You can check and confirm *Argo CD* is deployed successfully to the namespace *'argocd'*.
+You can verify that *Argo CD* has been successfully deployed to the namespace *'argocd'*.
 
 ```shell
 $ kubectl get ns argocd
@@ -127,23 +127,23 @@ NAME                                 STATUS     COMPLETIONS   DURATION   AGE
 job.batch/argocd-redis-secret-init   Complete   1/1           3s         53s
 ```
 
-It should be noted that the *Argo CD* service *'argocd-server'* is configured as *ClusterIP* type. It can only be accessed internally within the cluster.
+Keep in mind that the *'argocd-server'* service is configured as the *ClusterIP* type, meaning it is accessible only from within the cluster.
 
 ### Configure Argo CD access
 
-In order to use *Argo CD* for application deployments, you need configure the *Argo CD* service to be accessible externally to the MKS cluster. There are some methods such as *port forwarding*, *NodePort* or *LoadBalancer* type services, or manual virtual private network (VPN) can be used. 
+To use *Argo CD* for application deployments, the *Argo CD* service must be accessible from outside the MKS cluster. This can be achieved through several methods, including *port forwarding*, *NodePort* or *LoadBalancer* type services, or a manual virtual private network (VPN) setup. 
 
-This section uses an alternative approach of exposing *Argo CD* service to public Internet using *Tailscale*. You can refer to the blog post [Exposing Grafana service using Tailscale for MKS monitoring in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-grafana-service-using-tailscale-for-mks-monitoring-in-hpe-private-cloud-enterprise/) for the details about *Tailscale* and service exposing process. 
+In this blog, we use an alternative approach: exposing the *Argo CD* service to the public Internet using *Tailscale*. For background on *Tailscale* and the service-exposure workflow, refer to the blog post [Exposing Grafana service using Tailscale for MKS monitoring in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-grafana-service-using-tailscale-for-mks-monitoring-in-hpe-private-cloud-enterprise/). 
 
-Perform the following steps to expost the *Argo CD* service endpoint. 
+Follow the steps below to expose the *Argo CD* service endpoint using *Tailscale*. 
 
-1. Change the *Argo CD* service type from *ClusterIP* to *LoadBalancer*.
+1. Update the *Argo CD* service type from *ClusterIP* to *LoadBalancer*.
 
 ```shell
 $ kubectl edit svc/argocd-server -n argocd                                                                              service/argocd-server edited
 ```
 
-2. Verify *Argo CD* service type.
+2. Confirm that the service type has been updated successfully.
 
 ```shell
 $ kubectl get svc -n argocd
@@ -155,7 +155,7 @@ argocd-repo-server                 ClusterIP      172.30.1.116    <none>        
 argocd-server                      LoadBalancer   172.30.64.166   172.20.20.242   80:30147/TCP,443:31601/TCP   2m47s
 ```
 
-3. Create an *Ingress* YAML manifest file and apply it.
+3. Create an *Ingress* YAML manifest and apply it to the cluster.
 
 ```shell
 $ cat ingress-argocd.yaml
@@ -180,24 +180,22 @@ spec:
 $ kubectl apply -f ingress-argocd.yaml
 ingress.networking.k8s.io/ingress-argocd created
 
-4. Verify the *Ingress* *'ingress-argocd'* is created with the assigned address.
+4. Verify that the *Ingress* resource *'ingress-argocd'* has been created and assigned an address.
 
 $ k get ingress -n argocd
 NAME             CLASS       HOSTS   ADDRESS                    PORTS     AGE
 ingress-argocd   tailscale   *       argocd.qilin-beta.ts.net   80, 443   8s
 ```
 
-5. From Tailscale admin console, a new machine named *'argocd'* appears under the *Machines* tab.
+5. In the Tailscale admin console, a new machine named *'argocd'* should appear under the *Machines* tab.
 
 ![](/img/tailscale-argocd.png)
 
-6. Start the browser by pointing to the *Argo CD* Funnel URL, i.e., *'argocd.qilin-beta.ts.net '*.
+6. Open a browser and point to the *Argo CD* Funnel URL, e.g., *'argocd.qilin-beta.ts.net '*.
 
 ![](/img/argocd-login.png)
 
-You can log in to *Argo CD* using the username *'admin'*. 
-
-Type the following command to get the admin password.
+Log in using the username *'admin'*. Run the following command to retrieve the admin password.
 
 ```shell
 $ kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -205,57 +203,59 @@ $ kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.p
 
 ### Deploy applications using *Argo CD*
 
-Using *Argo CD* service endpoint, you can now start connecting your application code repository and deploying them to the MKS cluster. 
+You can now use the *Argo CD* service endpoint to connect your application's code repository and begin deploying applications to the MKS cluster. 
 
 #### Connect application repository
 
-The Helm charts of the sample *WordPress* application are available from GitHub repository [helm-demo](https://github.com/GuopingJia/helm-demo). This section describes the process to connect this application repository in *Argo CD*.
+The sample *WordPress* application's Helm charts are available in the GitHub repository [helm-demo](https://github.com/GuopingJia/helm-demo). 
 
-* Navigate ***Settings -> Repository***. Click ***+ CONNECT REPO***.
+This section outlines the steps for connecting that repository to *Argo CD*.
+
+* In the *Argo CD* UI, navigate to ***Settings -> Repository***. Click ***+ CONNECT REPO***.
 
 ![](/img/argocd-git.png)
 
-* Choose your connection method as *VIA HTTP/HTTPS*, select Type as *git* and Project as *default*, specify optional Name as *wordpress* and provide Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
+* Select *VIA HTTP/HTTPS* as the connection method, choose *git* as Type, set Project to *default*, optional name it *wordpress*, and enter Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
 
 ![](/img/argocd-git-connect.png)
 
-* After a few seconds, the CONNECTION STATUS of the Git repository shows as *Successful*.
+* After a few moments, the repository's CONNECTION STATUS should display as *Successful*.
 
 ![](/img/argocd-git-wordpress.png)
 
 #### Create application
 
-Follow the process to create a new app for application deployment.
+Follow the steps below to create a new application for deployment.
 
-* Click ***Applications***. Click ***CREATE APPLICATION***.
+1. In the *Argo CD* UI, go to ***Applications***. Click ***CREATE APPLICATION***.
 
 ![](/img/argocd-application.png)
 
-* Specify Application Name as *wordpress-app*, select Project Name as *default* and SYNC POLICY as *Automatic*, select SOURCE Repository URL, its Revision as *HEAD*, Path as *wordpress*, select DESTINATION Cluster URL as *https://kubernetes.default.svc* and Namespace as *wordpress*. Enable other options, e.g., ENABLE AUTO-SYNC, SELF HEAL, AUTO-CREATE NAMESPACE and RETRY. Click ***CREATE***.
+2. Enter Application Name as *wordpress-app*, set Project Name to *default* and choose *Automatic* for SYNC POLICY. For SOURCE, select Repository URL, set Revision to *HEAD*, and specify Path as *wordpress*. For DESTINATION, choose Cluster URL as *https://kubernetes.default.svc* and set Namespace to *wordpress*. Enable additional options such as ENABLE AUTO-SYNC, SELF HEAL, AUTO-CREATE NAMESPACE and RETRY. Click ***CREATE***. 
 
-***Note***: Under *SYNC POLICY*, if you select *Manual*, *Argo CD* will detect the changes in your Git repository, but it’s not going to apply them to the MKS cluster. You will need to go into *Argo CD* Applications page and hit the *SYNC* button before the changes are made to your application. 
+***Note***: If you choose *Manual* under SYNC POLICY, *Argo CD* will detect the changes in the Git repository but will not apply them automatically. You must manually click *SYNC* on Applications page to apply updates.  
 
 ![](/img/argocd-application-create.png)
 
-* The application *wordpress-app* starts being deployed.
+3. The *wordpress-app* deployment will begin immediately.
 
 ![](/img/argocd-application-pogressing.png)
 
-* After a few seconds, the application is deployed successfully with APP HEALTH as *Healthy* and SYNC STATUS as *Synced*.
+4. After a short time, the application should complete deployment with APP HEALTH showing *Healthy* and SYNC STATUS showing *Synced*.
 
 ![](/img/argocd-application-running.png)
 
 #### Make changes to application repository
 
-Now let’s try to make some changes to the application repository, increasing the replica from the default *1* to *2* for the *WordPress* application.
+Now let’s update the application repository by increasing the number of replicas for the *WordPress* application from the default value of *1* to *2*.
 
 ![](/img/git-repo-changes.png)
 
-As soon as you commit the changes in the repository, *Argo CD* will look for the changes and start sync'ing the changes in the MKS cluster.
+Once the change is committed, *Argo CD* will detect the update and automatically begin synchronizing it to the MKS cluster.
 
 ![](/img/argocd-application-syncing.png)
 
-Type the following command, you can check that the *WordPress* now has 2 PODs running in the MKS cluster.
+After the sync completes, run the following command to verify that *WordPress* is now running with 2 PODs in the cluster.
 
 ```shell
 $ kubectl get all -n wordpress
@@ -311,19 +311,21 @@ spec:
 ```shell
 $ kubectl apply -f ingress-wordpress.yaml
 ingress.networking.k8s.io/ingress-wordpress created
+```
 
-3. Check the Ingress *ingress-wordpress* is create with its assigned Tailscale Funnel URL *wordpress.qilin-beta.ts.net*.
+3. Verify that the *ingress-wordpress* resource is created and assigned a *Tailscale Funnel* URL, e.g., *'wordpress.qilin-beta.ts.net'*.
 
+```shell
 $ kubectl get ingress -n wordpress
 NAME                CLASS       HOSTS   ADDRESS                       PORTS     AGE
 ingress-wordpress   tailscale   *       wordpress.qilin-beta.ts.net   80, 443   7s
 ```
 
-4. From Tailscale admin console, a new machine named *'wordpress'* appears under the *Machines* tab.
+4. In the Tailscale admin console, a new machine named *'wordpress'* should appear under the *Machines* tab.
 
 ![](/img/tailscale-wordpress.png)
 
-5. The *WordPress* application is accessible by pointing its Tailscale Funnel URL in the browser.
+You can now access the *WordPress* application by opening its *Tailscale Funnel* URL in a browser.
 
 ![](/img/wordpress-ui.png)
 
