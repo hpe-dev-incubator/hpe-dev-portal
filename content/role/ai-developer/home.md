@@ -129,7 +129,7 @@ Create chatbots that understand and respond to users, Build fraud detection syst
 </div>
 
 <br>
-<hr style="background: #33DAC8; height: 5px; border: none">
+<hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 ### Addressing Key Concerns
@@ -168,7 +168,7 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 * [Start contributing back to the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
 
 <br>
-<hr style="background: #FF8300; height: 5px; border: none">
+<hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 ### Skill Up
@@ -181,9 +181,9 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
   </div>
   <div class="column">
-    - \\[Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ)
-
 ```
+    -  [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP (https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+
 - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8)
 
 - [Kubernetes 101](https://www.youtube.com/watch?v=PWVJKK1obKQ&feature=youtu.be)
