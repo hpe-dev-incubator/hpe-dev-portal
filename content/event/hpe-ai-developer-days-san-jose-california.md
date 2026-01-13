@@ -1,5 +1,5 @@
 ---
-title: HPE AI Developer Days   San Jose, California
+title: "HPE AI Developer Days "
 dateStart: 2026-01-26T09:30:51.820Z
 dateEnd: 2026-01-26T15:00:51.828Z
 category: Event
