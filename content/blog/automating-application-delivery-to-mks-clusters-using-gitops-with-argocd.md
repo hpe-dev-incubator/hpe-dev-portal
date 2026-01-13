@@ -1,29 +1,39 @@
 ---
-title: Automating application delivery to MKS clusters using GitOps with Argo CD
+title: Automating application deployments to MKS clusters using GitOps with Argo CD
 date: 2026-01-13T13:52:48.383Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - "HPE Private Cloud Enterprise "
+  - MKS
+  - GitOps
+  - Argo CD
+  - Kubernetes
+  - Helm
+  - CI/CD
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 This blog post describes how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. By taking advantage of *Argo CD*'s real-time monitoring and alerting features, it provides overall application deployment status and clear visibility into application synchronization. This approach helps ensure that deployed applications consistently reflect their declared state, improving reliability and reinforcing version control. 
 
 ### What is GitOps?
 
-GitOps is an operational model that extends core DevOps principles, like version control, collaboration, compliance, and CI (continuous integration)/CD (continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the *single source of truth* for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, such as *Deployments*, *Services*, *ConfigMaps*, and more, is stored in Git. Automation tools like *Argo CD* or *Flux* continuously compare the cluster's live state with what's defined in the repository and reconcile any differences to ensure they match. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For this blog, *Argo CD* will be the GitOps automation tool of choice. 
+GitOps is an operational framework that extends core DevOps principles, such as version control, collaboration, compliance, and CI/CD (continuous integration and continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the *single source of truth* for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, including resources such as *Deployments*, *Services*, *ConfigMaps*, and more, is stored in Git. A GitOps controller continuously compares the cluster's actual state with the desired state defined in the repository and reconciles any differences to ensure consistency. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For the purpose of this blog, *Argo CD* will be used as the primary tool for demonstrating GitOps automation. 
 
 ### What is Argo CD?
 
 *[Argo CD](https://argoproj.github.io/cd/)* is a declarative, GitOps-driven continuous delivery platform for K8s. It automates consistent and repeatable application deployments by using Git as the single source of truth for all configuration. *Argo CD* continuously monitors the live state of applications running in a K8s cluster and compares it against the desired state defined in a Git repository. When developers push changes to Git, *Argo CD* detects the updates and synchronizes them to the cluster. Synchronization can be configured to run automatically, commonly used for development and test environments, or manually, which is typically preferred for production workflows. By defining the target environment state in Git, *Argo CD* ensures that the applications deployed in the K8s cluster remain aligned with the declared configuration. In addition to synchronization, *Argo CD* provides real-time insights into application health, status, and configuration drift through its monitoring and alerting capabilities. It integrates seamlessly with existing CI/CD pipelines and enforces GitOps best practices throughout the application deployment lifecycle.
 
-This following sections provide a technical walkthrough for automating application deployments to MKS clusters in [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) using a GitOps workflow with *Argo CD*. It details the end-to-end process of installing *Argo CD* on a MKS cluster, connecting application source repositories, configuring deployment settings, and monitoring the application state within the cluster.
+The following sections provide a technical walkthrough for automating application deployments to MKS clusters in [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) using a GitOps workflow with *Argo CD*. It details the end-to-end process of installing *Argo CD* on a MKS cluster, connecting application source repositories, configuring deployment settings, and monitoring the application state within the cluster.
 
 ### Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
 * An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster
-* The *helm* CLI tool, version 3.12.0 or later
+* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster.
+* The *helm* CLI tool, version 3.12.0 or later.
 
 ### Install Argo CD
 
@@ -54,11 +64,11 @@ fi
 
 Follow the steps below to install *Argo CD* on the MKS cluster. 
 
-1. In the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+Add***.
+1. In the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+ Add***.
 
 ![](/img/add-task.png)
 
-2. Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Enable *SUDO*, select SOURCE as *Local*, paste the *Shell* script into CONTENT. Click ***SAVE CHANGES***.
+2. Enter NAME as *Install ArgoCD* and select TYPE as *Shell Script*. Enable *SUDO*, select SOURCE as *Local*, paste the *Shell* script into CONTENT. Click ***Save changes***.
 
 ![](/img/install-argocd-task.png)
 
@@ -70,7 +80,7 @@ Follow the steps below to install *Argo CD* on the MKS cluster.
 
 ![](/img/mks-test-nodes.png)
 
-5. Click **Actions**. Select *Run Task*.
+5. Click ***Actions***. Select *Run Task*.
 
 ![](/img/mks-test-master-node.png)
 
@@ -88,6 +98,7 @@ You can verify that *Argo CD* has been successfully deployed to the namespace *'
 $ kubectl get ns argocd
 NAME     STATUS   AGE
 argocd   Active   52s
+
 $ k get all -n argocd
 NAME                                                    READY   STATUS      RESTARTS   AGE
 pod/argocd-application-controller-0                     1/1     Running     0          48s
@@ -142,7 +153,8 @@ Follow the steps below to expose the *Argo CD* service endpoint using *Tailscale
 1. Update the *Argo CD* service type from *ClusterIP* to *LoadBalancer*.
 
 ```shell
-$ kubectl edit svc/argocd-server -n argocd                                                                              service/argocd-server edited
+$ kubectl edit svc/argocd-server -n argocd 
+service/argocd-server edited
 ```
 
 2. Confirm that the service type has been updated successfully.
@@ -219,7 +231,7 @@ This section outlines the steps for connecting that repository to *Argo CD*.
 
 ![](/img/argocd-git.png)
 
-* Select *VIA HTTP/HTTPS* as the connection method, choose *git* as Type, set Project to *default*, optional name it *wordpress*, and enter Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
+* Select *VIA HTTP/HTTPS* as the connection method, choose *git* as Type, set Project to *default*, optional name as *wordpress*, and enter Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
 
 ![](/img/argocd-git-connect.png)
 
@@ -231,7 +243,7 @@ This section outlines the steps for connecting that repository to *Argo CD*.
 
 Follow the steps below to create a new application for deployment.
 
-1. In the *Argo CD* UI, go to ***Applications***. Click ***CREATE APPLICATION***.
+1. In the *Argo CD* UI, navigate to ***Applications***. Click ***CREATE APPLICATION***.
 
 ![](/img/argocd-application.png)
 
@@ -310,14 +322,14 @@ spec:
         - wordpress
 ```
 
-2. Apply the Ingress to the namespace *wordpress*.
+2. Apply the *Ingress* to the namespace *wordpress*.
 
 ```shell
 $ kubectl apply -f ingress-wordpress.yaml
 ingress.networking.k8s.io/ingress-wordpress created
 ```
 
-3. Verify that the *ingress-wordpress* resource is created and assigned a *Tailscale Funnel* URL, e.g., *'wordpress.qilin-beta.ts.net'*.
+3. Verify that the *Ingress* resource *'ingress-wordpress'* has been created and assigned an address, e.g., *'wordpress.qilin-beta.ts.net'*.
 
 ```shell
 $ kubectl get ingress -n wordpress
@@ -335,7 +347,7 @@ You can now access the *WordPress* application by opening its *Tailscale Funnel*
 
 ### Conclusion
 
-This blog post provided a detailed walkthrough of how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. It covered the process of deploying *Argo CD* through a Morpheus task executed on the MKS master node, configuring application deployments via a publicly accessible *Argo CD* endpoint exposed with *Tailscale Funnel*, and monitoring the real-time state of applications running in the MKS cluster. 
+This blog post provided a detailed walkthrough of how to automate application deployments to MKS clusters in HPE Private Cloud Enterprise using GitOps with *Argo CD*. It covered the process of deploying *Argo CD* through a Morpheus task executed on the MKS master node, configuring application deployments via a publicly accessible *Argo CD* endpoint exposed with *Tailscale*, and monitoring the real-time state of applications running in the MKS cluster. 
 
 It's important to remember that while *Argo CD* manages continuous delivery (CD), it still relies on a separate continuous integration (CI) pipeline. The CI pipeline is responsible for testing and building the application whenever developers update the source code. During this phase, the application is validated, container images are built and pushed to an image registry, and the CI system can update the configuration repository, often a separate repository from the application's source code and connected to *Argo CD*. These updates then trigger *Argo CD* to synchronize the desired state with the cluster. This workflow represents a common GitOps pattern used across many organizations. By integrating seamlessly with existing CI/CD systems, *Argo CD* helps teams implement GitOps practices effectively.
 
