@@ -144,11 +144,11 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
   </div>
   <div class="column">
-    - [Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ)
+    - [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
 
-    - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8)
+    - [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-    - [Kubernetes 101](https://www.youtube.com/watch?v=PWVJKK1obKQ&feature=youtu.be)
+    - [	The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
   </div>
 </div>
@@ -164,9 +164,9 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
   </div>
   <div class="column">
-    - [Quarkus - Supersonic Subatomic Java](https://hpe.zoom.us/webinar/register/5716414626617/WN_VS7nBF_qQze0G64XLzBilw)
+    - [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-    - [Streamlit - The fastest way to build and share data science apps](https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw)
+    - [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
      
   </div>
