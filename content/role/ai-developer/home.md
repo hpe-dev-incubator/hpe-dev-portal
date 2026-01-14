@@ -69,7 +69,9 @@ An AI developer is a software professional who designs, builds, and integrates a
 <div class="column">
 
 * [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
+
 * [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
+
 * [Paris, France Date  to be defined soon](TBD)
 
 </div>
@@ -91,8 +93,11 @@ An AI developer is a software professional who designs, builds, and integrates a
 <div class="column">
 
 * [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+
 * [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+
 * [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+
 </div>
 </div>
 
@@ -110,6 +115,7 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
 
 * [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+
 * [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
  </div>
@@ -134,11 +140,17 @@ An AI developer is a software professional who designs, builds, and integrates a
  <div class="column">
 
 * [Kubernetes 101 - Introduction to Kubernetes Concepts](https://hackshack.hpedev.io/workshop/24)
+
 * [SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts](https://hackshack.hpedev.io/workshop/27)
+
 * [API 101 - REST API basics and the value they provide](https://hackshack.hpedev.io/workshop/9)
+
 * [Python 101 - Introduction to Python programming language](https://hackshack.hpedev.io/workshop/15)
+
 * [Streamline app development with open source Grommet](https://hackshack.hpedev.io/workshop/14)
+
 * [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
+
 * [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
 
  </div>
@@ -162,6 +174,7 @@ An AI developer is a software professional who designs, builds, and integrates a
  <div class="column">
 
 * [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
+
  </div>
 </div>
 <br>
