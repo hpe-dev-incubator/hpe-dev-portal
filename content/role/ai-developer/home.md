@@ -62,7 +62,7 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-<a href="bstatic/img/hpe-ai-dev-days.png" style="font-weight: 700; font-size: 27px">AI developer Days</a>
+![]{static/img/hpe-ai-dev-days.png}
   </div>
 <div class="row">
   <div class="column">
