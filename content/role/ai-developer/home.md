@@ -45,6 +45,9 @@ An AI developer is a software professional who designs, builds, and integrates a
 * Build fraud detection systems
 * Develop image recognition features for apps, and Improve search functionality with AI.
 
+ </div>
+  </div>
+
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
 <br>
