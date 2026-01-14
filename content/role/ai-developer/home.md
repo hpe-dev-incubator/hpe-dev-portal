@@ -30,23 +30,23 @@ An AI developer is a software professional who designs, builds, and integrates a
 <div class="row">
   <div class="column">
     ### Core Skills & Tools
-    \*\*AI Dev DNA\*\*
+   
 
-```
 * Programming: Python is essential, with R, Java, and C++ also used. 
 * AI/ML Frameworks: Familiarity with TensorFlow, PyTorch, Keras. 
 * Math & Stats: Strong foundation in calculus, linear algebra, probability, and statistics. 
 * Specialized Knowledge: Understanding of MCP, NLP, transformers, vector embeddings, and computer vision. *
-```
+
 
   </div>
   <div class="column">
     ### What They Do 
-    \*\*Examples\*\*
+    
+* Deploy MCP servers to enable AI assistants to securely perform tasks
+* Create chatbots that understand and respond to users
+* Build fraud detection systems
+* Develop image recognition features for apps, and Improve search functionality with AI.
 
-```
-*Open source Kubernetes is the de-facto standard for managing containerized applications at scale. But it can be complex and take time and experience to fully master.*
-```
 
   </div>
 </div>
