@@ -155,27 +155,24 @@ An AI developer is a software professional who designs, builds, and integrates a
  <div class="column">
 
 * [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
-
  </div>
+</div>
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
 <br>
-
-
 <div style="font-weight: 700; font-size: 27px">Engage</div>
-
 <div class="row">
+
   <div class="column">
-    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
+    <br> Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
 
   </div>
-
   <div class="column">
 
 * [HPE Developer Slack](https://slack.hpedev.io/)
 
   </div>
-
  </div>
+
 
