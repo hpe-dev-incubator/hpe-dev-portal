@@ -117,9 +117,9 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 
 <br>
-
 <br>
 
+- - -
 
 <a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
 
@@ -144,7 +144,25 @@ An AI developer is a software professional who designs, builds, and integrates a
 - [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
 
 - [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
+  </div>
+</div>
 
+<br>
+<br>
+
+- - -
+
+<a href="https://developer.hpe.com/platform/hpe-private-cloud-ai/home/" style="font-weight: 700; font-size: 27px">Learn more about HPE Solutions</a>
+
+<div class="row">
+  <div class="column">
+    <br>HPE Private Cloud AI is a pre-configured, end-to-end solution for enterprise AI that integrates high-performance compute, storage, networking and AI software so you can focus on what you need to do: build innovative AI solutions. A built-in software ecosystem of tools and frameworks streamlines lifecycles so you can deploy into production without wrangling data, tools, or infrastructure.
+
+  </div>
+  <div class="column">
+
+
+- [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
 
   </div>
 </div>
