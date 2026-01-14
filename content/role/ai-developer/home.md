@@ -164,10 +164,10 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
  </div>
 </div>
-
+<br>
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
-<br>
+<br><br>
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 <div class="row">
 
