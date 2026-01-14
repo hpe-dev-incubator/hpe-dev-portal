@@ -30,7 +30,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 <div class="row">
   <div class="column">
     ### Core Skills & Tools
-    \*\*What They Do (Examples)\*\*
+    \*\*AI Dev DNA\*\*
 
 ```
 *Delivering a consistent, enjoyable user experience (UX) is key to developing successful applications today.*
@@ -38,8 +38,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
   <div class="column">
-    ### Building a Foundation 
-    \*\*Kubernetes\*\*
+    ### What They Do 
+    \*\*Examples\*\*
 
 ```
 *Open source Kubernetes is the de-facto standard for managing containerized applications at scale. But it can be complex and take time and experience to fully master.*
