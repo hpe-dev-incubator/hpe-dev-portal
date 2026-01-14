@@ -16,7 +16,8 @@ priority: 1
 
 An AI developer is a software professional who designs, builds, and integrates artificial intelligence capabilities into applications, using programming languages like Python to create systems that can learn, reason, and automate tasks, often by working with machine learning models, natural language processing (NLP), or computer vision for real-world problem-solving. They focus on making AI functional in software, bridging the gap between complex AI research and practical user experiences, and work on everything from developing foundation models to applying existing ones 
 
-** Key Responsibilities:**
+ **Key Responsibilities:**
+
 * Coding & Implementation: Writing code to develop AI algorithms, training models, and embedding them into software.\
 * Data Management: Preparing, cleaning, and engineering features from large datasets for model training. 
 * Model Development: Designing, training, testing, and optimizing machine learning models (e.g., neural networks, LLMs). 
@@ -31,27 +32,18 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
 
 ### Core Skills & Tools
-   
 
 * Programming: Python is essential, with R, Java, and C++ also used. 
 * AI/ML Frameworks: Familiarity with TensorFlow, PyTorch, Keras. 
 * Math & Stats: Strong foundation in calculus, linear algebra, probability, and statistics. 
 * Specialized Knowledge: Understanding of MCP, NLP, transformers, vector embeddings, and computer vision. *
 
+### What They Do
 
-  </div>
-  <div class="column">
- ### What They Do 
-    
 * Deploy MCP servers to enable AI assistants to securely perform tasks
 * Create chatbots that understand and respond to users
 * Build fraud detection systems
 * Develop image recognition features for apps, and Improve search functionality with AI.
-
-
-  </div>
-</div>
-
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -68,18 +60,13 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 <div class="column">
 
-- [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
+* [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
+* [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
+* [Paris, France Date  to be defined soon](TBD)
 
-- [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
-
-- [Paris, France Date  to be defined soon](TBD)
-  </div>
-</div>
-<br>
-<br>
 - - -
-<br>
 
+<br>
 
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
@@ -90,15 +77,10 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 <div class="column">
 
-- [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+* [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+* [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+* [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-- [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-
-- [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-  </div>
-</div>
-<br>
-<br>
 - - -
 
 <br>
@@ -112,19 +94,14 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-- [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-
-
-- [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-
-
-  </div>
-</div>
+* [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+* [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
 <br>
 <br>
 
 - - -
+
 <br>
 
 <a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
@@ -136,29 +113,20 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-
-- [Kubernetes 101 - Introduction to Kubernetes Concepts](https://hackshack.hpedev.io/workshop/24)
-
-- [SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts](https://hackshack.hpedev.io/workshop/27)
-
-- [API 101 - REST API basics and the value they provide](https://hackshack.hpedev.io/workshop/9)
-
-- [Python 101 - Introduction to Python programming language](https://hackshack.hpedev.io/workshop/15)
-
-- [Streamline app development with open source Grommet](https://hackshack.hpedev.io/workshop/14)
-
-- [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
-
-- [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
-  </div>
-</div>
+* [Kubernetes 101 - Introduction to Kubernetes Concepts](https://hackshack.hpedev.io/workshop/24)
+* [SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts](https://hackshack.hpedev.io/workshop/27)
+* [API 101 - REST API basics and the value they provide](https://hackshack.hpedev.io/workshop/9)
+* [Python 101 - Introduction to Python programming language](https://hackshack.hpedev.io/workshop/15)
+* [Streamline app development with open source Grommet](https://hackshack.hpedev.io/workshop/14)
+* [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
+* [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
 
 <br>
 <br>
 
 - - -
-<br>
 
+<br>
 
 <a href="https://developer.hpe.com/platform/hpe-private-cloud-ai/home/" style="font-weight: 700; font-size: 27px">Learn more about HPE Solutions</a>
 
@@ -169,15 +137,7 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-
-- [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
-
-  </div>
-</div>
-<br>
-<br>
-<hr style="background: #7630EA; height: 5px; border: none">
-<br>
+* [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
 
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
@@ -188,9 +148,4 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-- [HPE Developer Slack](https://slack.hpedev.io/)
-
-
-
-  </div>
-</div>
+* [HPE Developer Slack](https://slack.hpedev.io/)
