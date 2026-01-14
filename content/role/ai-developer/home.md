@@ -33,7 +33,10 @@ An AI developer is a software professional who designs, builds, and integrates a
     \*\*AI Dev DNA\*\*
 
 ```
-*Delivering a consistent, enjoyable user experience (UX) is key to developing successful applications today.*
+* Programming: Python is essential, with R, Java, and C++ also used. 
+* AI/ML Frameworks: Familiarity with TensorFlow, PyTorch, Keras. 
+* Math & Stats: Strong foundation in calculus, linear algebra, probability, and statistics. 
+* Specialized Knowledge: Understanding of MCP, NLP, transformers, vector embeddings, and computer vision. *
 ```
 
   </div>
