@@ -101,12 +101,13 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
   <div class="column">
+```
     -[HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
 
     -[LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-
+```
   </div>
 </div>
 
