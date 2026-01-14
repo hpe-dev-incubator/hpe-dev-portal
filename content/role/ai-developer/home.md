@@ -161,9 +161,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 - [HPE Developer Slack](https://slack.hpedev.io/)
 
-- [Grommet Slack](https://grommet.slack.com/)
-
-- [Chapel Discourse Forum](https://chapel.discourse.group/latest)
 
 
   </div>
