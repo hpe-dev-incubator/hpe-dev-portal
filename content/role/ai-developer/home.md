@@ -77,6 +77,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 
 - - -
+
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
