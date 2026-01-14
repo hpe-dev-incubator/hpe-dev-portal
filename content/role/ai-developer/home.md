@@ -58,6 +58,24 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 ### Skill Up
 
+<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">AI developer Days</a>
+
+<div class="row">
+  <div class="column">
+    <br> Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
+
+</div>
+<div class="column">
+
+- [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
+
+- [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
+
+- [Paris, France Date  to be defined soon](TBD)
+  </div>
+</div>
+
+- - -
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
@@ -75,9 +93,8 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
 </div>
 
+- - -
 
-<hr style="background: #7630EA; height: 5px; border: none">
-<br>
 <br><br>
 <a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
