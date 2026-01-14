@@ -51,21 +51,9 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
 </div>
 
-<div class="row">
-  <div class="column">
 
-  </div>
-  <div class="column">
-    - Learn how to migrate an existing application by reading \[Deploying Complex Stateful Applications on Kubernetes with KubeDirector](https://developer.hpe.com/blog/deploying-complex-stateful-applications-on-kubernetes-with-kubedirector/) or \[Best Practices for Migrating Your Apps to Containers and Kubernetes](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
-
-```
-- Read [Introducing a multi-vendor CSI driver for Kubernetes](https://developer.hpe.com/blog/introducing-a-multi-vendor-csi-driver-for-kubernetes/) and [Using Raw Block and Ephemeral Inline Volumes on Kubernetes](https://developer.hpe.com/blog/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes/) to learn how to leverage the CSI driver for persistent storage for your applications
-```
-
-  </div>
-</div>
 <br>
-<hr style="background: #FF8300; height: 5px; border: none">
+<hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 ### Skill Up
@@ -74,45 +62,43 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 <div class="row">
   <div class="column">
-    Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
+    <br> Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
 
-  </div>
-  <div class="column">
-    - \[Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+</div>
+<div class="column">
 
-```
+- [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
+
 - [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-- [	The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-```
-
+- [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
   </div>
 </div>
 
-<br>
-<hr style="background: #FF8300; height: 5px; border: none">
+
+<hr style="background: #7630EA; height: 5px; border: none">
 <br>
 <br><br>
 <a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
 <div class="row">
   <div class="column">
-    A series of in-depth talks on open source developer technologies.
+    <br>A series of in-depth talks on open source developer technologies.
 
   </div>
   <div class="column">
-```
-    -[HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+
+- [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
 
-    -[LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+- [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-```
+
   </div>
 </div>
 
 <br>
-<hr style="background: #FF8300; height: 5px; border: none">
+<hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 
@@ -120,12 +106,12 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 <div class="row">
   <div class="column">
-    Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
+    <br>Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
 
   </div>
   <div class="column">
 
-```
+
 - [Kubernetes 101 - Introduction to Kubernetes Concepts](https://hackshack.hpedev.io/workshop/24)
 
 - [SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts](https://hackshack.hpedev.io/workshop/27)
@@ -139,7 +125,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 - [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
 
 - [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
-```
+
 
   </div>
 </div>
@@ -157,13 +143,12 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
   <div class="column">
 
-```
 - [HPE Developer Slack](https://slack.hpedev.io/)
 
 - [Grommet Slack](https://grommet.slack.com/)
 
 - [Chapel Discourse Forum](https://chapel.discourse.group/latest)
-```
+
 
   </div>
 </div>
