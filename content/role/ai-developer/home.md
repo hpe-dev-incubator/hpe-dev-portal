@@ -65,7 +65,7 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
     <br> Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
 
-  </div>
+</div>
 <div class="column">
 
 * [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
@@ -73,7 +73,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [Paris, France Date  to be defined soon](TBD)
 
 </div>
-</div></div>
+</div>
 
 <br>
 
