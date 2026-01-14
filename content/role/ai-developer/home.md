@@ -65,81 +65,9 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
 </div>
 
-- - -
-
-<div class="row">
-  <div class="column">
-    \*\*Containerized apps\*\*
-
-```
-*Complex applications can be assembled from small, independent containerized modules with REST API-based interaction. Choose the right platform for your deployment.*
-```
-
-  </div>
-  <div class="column">
-    \*\*Zero-Trust Security\*\*
-
-```
-*Securing an application in heterogeneous, distributed environments is a daunting task. A CNCF-incubated project, SPIFFE/SPIRE, can help.*
-```
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="column">
-    
-    Modern, cloud-native application development relies heavily on containers and Kubernetes. When determining the right platform for your use, be sure to check out \[HPE Ezmeral Runtime Enterprise.](https://developer.hpe.com/platform/hpe-ezmeral/home/)
-
-  </div>
-  <div class="column">
-    - \[Learn about the concept of Zero-Trust security in the ebook Solving the Bottom Turtle](https://spiffe.io/book/)
-
-```
-- [Discover some of the more recently added SPIFFE/SPIRE capabilities](https://developer.hpe.com/blog/top-13-capabilities-within-spiffe-and-spire-released-in-2019/)
-```
-
-  </div>
-</div>
-
 <br>
-<hr style="background: #33DAC8; height: 5px; border: none">
+<hr style="background: #37630EA; height: 5px; border: none">
 <br>
-
-### Addressing Key Concerns
-
-**How can I easily prototype my designs?**
-
-* Learn about the [open source React framework Grommet](https://developer.hpe.com/platform/grommet/home/)
-* [Test the Grommet Designer ](https://designer.grommet.io/)
-
-**How do I best handle parallel programming?**
-
-* Explore [Chapel](https://developer.hpe.com/platform/chapel/home/), an open source programming language invented by parallel programming engineers from Cray Computer, now part of Hewlett Packard Enterprise
-* [Join the Chapel community](https://chapel.discourse.group/latest)
-* Read about the HPE Cray Programming Environment [here](https://community.hpe.com/t5/Advantage-EX/Make-your-apps-run-faster-with-HPE-Cray-Programming-Environment/ba-p/7144400?jumpId=in_videogallery_0f352d12-b606-4fae-97db-be760f0fda7a_gaiw) or follow [this](https://www.hpe.com/h22228/video-gallery/us/en/4ee817bd-3edc-45db-aed0-ae054d9d8712/take-the-frustration-out-of-hpc-software-development-with-hpe-cray-programming-environment-/video/) 25mn seminar
-
-**How do I secure workloads in distributed environments?**
-
-* Learn about the CNCF project, [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/), and how to achieve zero-trust security for your application
-* [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
-
-**How can I deploy my stateful application on my modern Kubernetes platform?**
-
-* If migrating a legacy application to Kubernetes is one of your concerns, [read about  the KubeDirector project](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
-
-**How can I focus more about the application, and less about the data?**
-
-* [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html) to learn how to simplify using and sharing your data with a common infrastructure
-* Make sure you check our [HPE Ezmeral Data Fabric platform](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) pages
-
-**How do you handle collaboration and sharing of code in your organization?**
-
-Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog posts to help with Git wizardry: 
-
-* [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
-* [Learn to share with the community using Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
-* [Start contributing back to the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
