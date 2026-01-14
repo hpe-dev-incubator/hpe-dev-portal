@@ -79,7 +79,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 <br>
 - - -
 <br>
-<br>
+
+
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
@@ -100,7 +101,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 <br>
 - - -
 
-<br><br>
+<br>
+
 <a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
 <div class="row">
@@ -124,7 +126,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 - - -
 <br>
-<br>
+
 <a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
 
 <div class="row">
@@ -156,7 +158,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 - - -
 <br>
-<br>
+
+
 <a href="https://developer.hpe.com/platform/hpe-private-cloud-ai/home/" style="font-weight: 700; font-size: 27px">Learn more about HPE Solutions</a>
 
 <div class="row">
