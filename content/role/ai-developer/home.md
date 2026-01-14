@@ -64,11 +64,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
 </div>
-
-<br>
-<hr style="background: #37630EA; height: 5px; border: none">
-<br>
-
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
 <br>
@@ -94,8 +89,9 @@ An AI developer is a software professional who designs, builds, and integrates a
   </div>
 </div>
 
-- - -
-
+<br>
+<hr style="background: #FF8300; height: 5px; border: none">
+<br>
 <br><br>
 <a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
@@ -105,22 +101,20 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
   <div class="column">
-    - \[HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+    -[HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-```
-- [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
- 
-```
+    -[LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+
 
   </div>
 </div>
 
-- - -
+<br>
+<hr style="background: #FF8300; height: 5px; border: none">
+<br>
 
-- - -
 
-<br><br>
 <a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
 
 <div class="row">
