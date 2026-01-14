@@ -37,8 +37,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 * AI/ML Frameworks: Familiarity with TensorFlow, PyTorch, Keras. 
 * Math & Stats: Strong foundation in calculus, linear algebra, probability, and statistics. 
 * Specialized Knowledge: Understanding of MCP, NLP, transformers, vector embeddings, and computer vision. *
-</div>
-<div class="column">
 
 ### What They Do
 
@@ -46,23 +44,23 @@ An AI developer is a software professional who designs, builds, and integrates a
 * Create chatbots that understand and respond to users
 * Build fraud detection systems
 * Develop image recognition features for apps, and Improve search functionality with AI.
-</div>
-</div>
-
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 ### Skill Up
+
 <div class="row">
   <div class="column">
 
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">AI developer Days</a>
+
   </div>
   <div class="column">
 
-![]{static/img/hpe-ai-dev-days.png}
+![](hpe-ai-dev-days.png)
+
   </div>
 <div class="row">
   <div class="column">
@@ -96,8 +94,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
 * [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 * [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
-</div>
-</div>
 
 - - -
 
@@ -117,7 +113,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 
  </div>
 </div>
-
 
 <br>
 <br>
@@ -165,8 +160,6 @@ An AI developer is a software professional who designs, builds, and integrates a
  <div class="column">
 
 * [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
- </div>
-</div>
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -181,8 +174,3 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
 
 * [HPE Developer Slack](https://slack.hpedev.io/)
-
-  </div>
- </div>
-
-
