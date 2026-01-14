@@ -53,11 +53,6 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 <div class="row">
   <div class="column">
-    - Bringing UX designers into a project early can significantly improve your chances of success. Read \[Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
-
-```
-- Implementing validated designs isn’t always easy. See how [HPE DesignSystem](https://design-system.hpe.design/), based on open source Grommet, can help you get there faster and easier.
-```
 
   </div>
   <div class="column">
