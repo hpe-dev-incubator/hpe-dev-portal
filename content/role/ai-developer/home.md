@@ -29,7 +29,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 
 <div class="row">
   <div class="column">
-    ### Core Skills & Tools
+
+### Core Skills & Tools
    
 
 * Programming: Python is essential, with R, Java, and C++ also used. 
@@ -40,7 +41,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
   <div class="column">
-    ### What They Do 
+ ### What They Do 
     
 * Deploy MCP servers to enable AI assistants to securely perform tasks
 * Create chatbots that understand and respond to users
@@ -115,7 +116,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 
 <br>
-<hr style="background: #7630EA; height: 5px; border: none">
+
 <br>
 
 
@@ -146,10 +147,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 
   </div>
 </div>
-
-- - -
-
-<br><br>
+<hr style="background: #7630EA; height: 5px; border: none">
+<br>
 
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
