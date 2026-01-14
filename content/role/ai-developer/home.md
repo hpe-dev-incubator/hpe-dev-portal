@@ -29,7 +29,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 <br>
 
 <div class="row">
-  <div class="column">
+<div class="column">
 
 ### Core Skills & Tools
 
@@ -44,9 +44,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 * Create chatbots that understand and respond to users
 * Build fraud detection systems
 * Develop image recognition features for apps, and Improve search functionality with AI.
-
- </div>
-  </div>
+</div>
+</div>
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -60,29 +59,35 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
     <br> Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
 
-</div>
+  </div>
 <div class="column">
 
 * [San Jose, California](https://events.bizzabo.com/797906/page/5472193/bay-area-information)
 * [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
 * [Paris, France Date  to be defined soon](TBD)
 
+</div>
+</div>
+<br>
+
 - - -
 
 <br>
-
+<br>
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
   <div class="column">
     <br> Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
 
-</div>
+  </div>
 <div class="column">
 
 * [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe.zoom.us/webinar/register/1017660672844/WN_XXzi6jDTRju8r8XYBLyLFw)
 * [Unlocking Private AI Power: Insurance Fraud Detection and Beyond](https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 * [The Transformative Impact of Generative AI on Telco Products](https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
+</div>
+</div>
 
 - - -
 
@@ -100,6 +105,10 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [HPE Private Cloud AI Technical Demo](https://www.youtube.com/watch?v=5uRoHXD2Sks&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 * [LLM Agentic Tool Mesh – Democratizing Gen AI](https://www.youtube.com/watch?v=vDQAVIuEsVo&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
+ </div>
+</div>
+
+
 <br>
 <br>
 
@@ -114,7 +123,8 @@ An AI developer is a software professional who designs, builds, and integrates a
     <br>Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
 
   </div>
-  <div class="column">
+
+ <div class="column">
 
 * [Kubernetes 101 - Introduction to Kubernetes Concepts](https://hackshack.hpedev.io/workshop/24)
 * [SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts](https://hackshack.hpedev.io/workshop/27)
@@ -123,6 +133,9 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [Streamline app development with open source Grommet](https://hackshack.hpedev.io/workshop/14)
 * [RUST 101 - Introduction to the Rust programming language](https://hackshack.hpedev.io/workshop/16)
 * [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
+
+ </div>
+</div>
 
 <br>
 <br>
@@ -137,10 +150,18 @@ An AI developer is a software professional who designs, builds, and integrates a
   <div class="column">
     <br>HPE Private Cloud AI is a pre-configured, end-to-end solution for enterprise AI that integrates high-performance compute, storage, networking and AI software so you can focus on what you need to do: build innovative AI solutions. A built-in software ecosystem of tools and frameworks streamlines lifecycles so you can deploy into production without wrangling data, tools, or infrastructure.
 
-  </div>
-  <div class="column">
+ </div>
+
+ <div class="column">
 
 * [HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
+
+ </div>
+
+<br>
+<hr style="background: #7630EA; height: 5px; border: none">
+<br>
+
 
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
@@ -149,6 +170,12 @@ An AI developer is a software professional who designs, builds, and integrates a
     Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
 
   </div>
+
   <div class="column">
 
 * [HPE Developer Slack](https://slack.hpedev.io/)
+
+  </div>
+
+ </div>
+
