@@ -64,7 +64,7 @@ fi
 
 Follow the steps below to install *Argo CD* on the MKS cluster. 
 
-1. In the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***+ Add***.
+1. In the Morpheus Dashboard, navigate to **Library -> Automation ->** *Tasks* tab. Click ***\+ Add***.
 
 ![](/img/add-task.png)
 
@@ -227,11 +227,11 @@ The sample *WordPress* application's Helm charts are available in the GitHub rep
 
 This section outlines the steps for connecting that repository to *Argo CD*.
 
-* In the *Argo CD* UI, navigate to ***Settings -> Repository***. Click ***+ CONNECT REPO***.
+* In the *Argo CD* UI, navigate to ***Settings -> Repository***. Click ***\+ CONNECT REPO***.
 
 ![](/img/argocd-git.png)
 
-* Select *VIA HTTP/HTTPS* as the connection method, choose *git* as Type, set Project to *default*, optional name as *wordpress*, and enter Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click **CONNECT**. 
+* Select *VIA HTTP/HTTPS* as the connection method, choose *git* as Type, set Project to *default*, optional name as *wordpress*, and enter Repository URL, e.g., *https://github.com/GuopingJia/helm-demo*. Click ***CONNECT***. 
 
 ![](/img/argocd-git-connect.png)
 
