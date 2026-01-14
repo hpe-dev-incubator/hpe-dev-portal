@@ -37,6 +37,8 @@ An AI developer is a software professional who designs, builds, and integrates a
 * AI/ML Frameworks: Familiarity with TensorFlow, PyTorch, Keras. 
 * Math & Stats: Strong foundation in calculus, linear algebra, probability, and statistics. 
 * Specialized Knowledge: Understanding of MCP, NLP, transformers, vector embeddings, and computer vision. *
+</div>
+<div class="column">
 
 ### What They Do
 
@@ -47,14 +49,21 @@ An AI developer is a software professional who designs, builds, and integrates a
 </div>
 </div>
 
+
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
 <br>
 
 ### Skill Up
+<div class="row">
+  <div class="column">
 
 <a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">AI developer Days</a>
+  </div>
+  <div class="column">
 
+<a href="bstatic/img/hpe-ai-dev-days.png" style="font-weight: 700; font-size: 27px">AI developer Days</a>
+  </div>
 <div class="row">
   <div class="column">
     <br> Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
@@ -66,6 +75,7 @@ An AI developer is a software professional who designs, builds, and integrates a
 * [Monterrey , Mexico](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
 * [Paris, France Date  to be defined soon](TBD)
 
+</div>
 </div>
 </div>
 <br>
