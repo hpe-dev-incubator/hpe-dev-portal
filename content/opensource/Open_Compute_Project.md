@@ -1,5 +1,7 @@
 ---
 title: Open Compute Project
+active: true
+Featured: true
 category: COMPUTE
 link: https://www.opencompute.org/
 description: The Open Compute Project (OCP) is a collaborative community focused
