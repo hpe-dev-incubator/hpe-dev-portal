@@ -13,10 +13,11 @@ tags:
   - Helm
   - CI/CD
   - HPE Morpheus Enterprise
+  - Morpheus Kubernetes Service
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-This blog post describes how to automate application deployments to MKS clusters using a GitOps workflow powered by *Argo CD*. While the implementation example focuses on HPE Private Cloud Enterprise, the same approach applies seamlessly to HPE Morpheus Enterprise as long as a MKS cluster is provisioned. By taking advantage of *Argo CD*’s real‑time monitoring and alerting features, the solution provides clear visibility into application deployment health and enforces strict alignment between the live cluster state and the declarative configuration stored in Git. This ensures reliable, consistent, and version‑controlled application delivery across both environments.
+This blog post describes how to automate application deployments to Morpheus Kubernetes Service (MKS) clusters using a GitOps workflow powered by *Argo CD*. While the implementation example focuses on HPE Private Cloud Enterprise, the same approach applies seamlessly to HPE Morpheus Enterprise as long as a MKS cluster is provisioned. By taking advantage of *Argo CD*’s real‑time monitoring and alerting features, the solution provides clear visibility into application deployment health and enforces strict alignment between the live cluster state and the declarative configuration stored in Git. This ensures reliable, consistent, and version‑controlled application delivery across both environments.
 
 ### What is GitOps?
 
