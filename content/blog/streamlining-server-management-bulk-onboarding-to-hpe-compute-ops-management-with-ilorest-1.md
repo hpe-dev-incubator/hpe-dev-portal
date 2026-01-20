@@ -1,7 +1,7 @@
 ---
 title: "Streamlining server management: Bulk onboarding to HPE Compute Ops Management with iLOrest"
 date: 2026-01-09T08:04:01.755Z
-featuredBlog: true
+featuredBlog: false
 author: Rajeev Kallur
 authorimage: /img/rajeev_new.jpg
 thumbnailimage: ""
