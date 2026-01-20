@@ -11,6 +11,9 @@ width: large
 priority: 6
 frontpage: true
 active: "true"
+tags:
+  - open source
+  - openchami
 ---
 ## Open Composable Heterogeneous Adaptable Management Infrastructure
 
