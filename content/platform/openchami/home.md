@@ -12,8 +12,6 @@ priority: 6
 frontpage: true
 active: "true"
 ---
-
-
 ## Open Composable Heterogeneous Adaptable Management Infrastructure
 
 **OpenCHAMI** (Open Composable Heterogeneous Adaptable Management Infrastructure) is an open-source system management platform designed to bring **cloud-like flexibility and security** to High Performance Computing (HPC) environments. It provides modern tools to efficiently **deploy, manage, and scale** HPC clusters, making it easier for organizations to support both traditional scientific workloads and emerging **AI, ML, and data-driven applications**.
@@ -66,4 +64,4 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 
 ## Any questions on OpenCHAMI open-source project?
 
-Join the [Determined AI Slack Workspace](https://determined-community.slack.com/join/shared_invite/zt-1f4hj60z5-JMHb~wSr2xksLZVBN61g_Q#/shared-invite/email) and start a discussion.
+Join the [open source slack channel](https://join.slack.com/share/enQtMTAzNjA1NDMxMjI2NzItYTY1Yjk3NzgzNjhlZWEyZThjY2RiNGU3ZTM1MzhlMGQxYmRmZTJiMTIyMTZkYjQ4MDYzMTU0NTUzZmZmYTNmZQ) and start a discussion.
