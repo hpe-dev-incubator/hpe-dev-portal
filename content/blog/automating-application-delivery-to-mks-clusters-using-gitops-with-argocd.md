@@ -17,24 +17,30 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
+While Kubernetes (K8s) is widely adopted, enterprises often face challenges when deploying and managing application workloads across K8s clusters, including configuration drift, inconsistent deployment practices, and limited operational visibility. As environments grow, manual processes introduce variability and make compliance and rollback procedures increasingly difficult. A GitOps model addresses these challenges by using Git as the *single source of truth* for all declarative configurations and maintaining alignment through continuous reconciliation. This approach enhances reliability, strengthens auditability, and enables predictable, repeatable deployments across complex K8s environments.
+
 This blog post describes how to automate application deployments to Morpheus Kubernetes Service (MKS) clusters using a GitOps workflow powered by *Argo CD*. While the implementation example focuses on HPE Private Cloud Enterprise, the same approach applies seamlessly to HPE Morpheus Enterprise as long as a MKS cluster is provisioned. By taking advantage of *Argo CD*’s real‑time monitoring and alerting features, the solution provides clear visibility into application deployment health and enforces strict alignment between the live cluster state and the declarative configuration stored in Git. This ensures reliable, consistent, and version‑controlled application delivery across both environments.
 
 ### What is GitOps?
 
-GitOps is an operational framework that extends core DevOps principles, such as version control, collaboration, compliance, and CI/CD (continuous integration and continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the *single source of truth* for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, including resources such as *Deployments*, *Services*, *ConfigMaps*, and more, is stored in Git. A GitOps controller continuously compares the cluster's actual state with the desired state defined in the repository and reconciles any differences to ensure consistency. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For the purpose of this blog, *Argo CD* will be used as the primary tool for demonstrating GitOps automation. 
+GitOps is an operational framework that extends core DevOps principles, such as version control, collaboration, compliance, and CI/CD (continuous integration and continuous delivery), and applies them to infrastructure automation. In a GitOps workflow, Git acts as the single source of truth for all declarative infrastructure and application configurations. The entire desired state of a Kubernetes (K8s) cluster, including resources such as *Deployments*, *Services*, *ConfigMaps*, and more, is stored in Git. A GitOps controller continuously compares the cluster's actual state with the desired state defined in the repository and reconciles any differences to ensure consistency. Several well-known GitOps tools exist, including *Argo CD*, *Flux CD*, *Jenkins X*, and *Spinnaker*. For the purpose of this blog, *Argo CD* will be used as the primary tool for demonstrating GitOps automation. 
 
 ### What is Argo CD?
 
-*[Argo CD](https://argoproj.github.io/cd/)* is a declarative, GitOps-driven continuous delivery platform for K8s. It automates consistent and repeatable application deployments by using Git as the single source of truth for all configuration. *Argo CD* continuously monitors the live state of applications running in a K8s cluster and compares it against the desired state defined in a Git repository. When developers push changes to Git, *Argo CD* detects the updates and synchronizes them to the cluster. Synchronization can be configured to run automatically, commonly used for development and test environments, or manually, which is typically preferred for production workflows. By defining the target environment state in Git, *Argo CD* ensures that the applications deployed in the K8s cluster remain aligned with the declared configuration. In addition to synchronization, *Argo CD* provides real-time insights into application health, status, and configuration drift through its monitoring and alerting capabilities. It integrates seamlessly with existing CI/CD pipelines and enforces GitOps best practices throughout the application deployment lifecycle.
+*[Argo CD](https://argoproj.github.io/cd/)* is a declarative, GitOps-driven continuous delivery platform for K8s. It automates consistent and repeatable application deployments by using Git as the single source of truth for all configuration artifacts. *Argo CD* continuously monitors the live state of applications running in a K8s cluster and compares it against the desired state defined in a Git repository. When developers push changes to Git, *Argo CD* detects the updates and synchronizes them to the cluster. 
 
-The following sections provide a technical walkthrough for automating application deployments to MKS clusters using a GitOps workflow built around *Argo CD*. This blog specifically demonstrates the end‑to‑end process in a [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) environment, including installing *Argo CD* on a MKS cluster, connecting application source repositories, configuring deployment parameters, and monitoring application state within the cluster.
+Synchronization can be configured to run automatically, commonly used for development and test environments, or manually, which is typically preferred for production workflows. By defining the target environment state in Git, *Argo CD* ensures that the applications deployed in the K8s cluster remain aligned with the declared configuration. 
+
+Beyond synchronization, *Argo CD* provides real-time insights into application health, deployment status, and configuration drift through its monitoring and alerting capabilities. It integrates seamlessly with existing CI/CD pipelines and enforces GitOps best practices throughout the application deployment lifecycle.
+
+The following sections provide a technical walkthrough for automating application deployments to MKS clusters using a GitOps workflow built around *Argo CD*. This blog specifically demonstrates the end‑to‑end process in a [HPE Private Cloud Enterprise](https://www.hpe.com/us/en/hpe-private-cloud-enterprise.html) environment, including installing *Argo CD* on a MKS cluster, connecting application source repositories, configuring deployment parameters, and monitoring the application state within the cluster.
 
 ### Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
-* An MKS cluster has been provisioned from a HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the MKS cluster.
+* A MKS cluster has been provisioned from an HPE Private Cloud Enterprise workspace. You can refer to the blog post [Provisioning MKS clusters in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/provisioning-mks-clusters-in-hpe-greenlake-for-private-cloud-enterprise/) to provision an MKS cluster.
+* The *kubectl* CLI tool has been properly installed, along with the kubeconfig file used to access the MKS cluster.
 
 ### Install Argo CD
 
@@ -147,7 +153,7 @@ Keep in mind that the *'argocd-server'* service is configured as the *ClusterIP*
 
 To use *Argo CD* for application deployments, the *Argo CD* service must be accessible from outside the MKS cluster. This can be achieved through several methods, including *port forwarding*, *NodePort* or *LoadBalancer* type services, or a manual virtual private network (VPN) setup. 
 
-In this blog, we use an alternative approach: exposing the *Argo CD* service to the public Internet using *Tailscale*. For background on *Tailscale* and the service-exposure workflow, refer to the blog post [Exposing Grafana service using Tailscale for MKS monitoring in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-grafana-service-using-tailscale-for-mks-monitoring-in-hpe-private-cloud-enterprise/). 
+In this blog, I show an alternative approach: exposing the *Argo CD* service to the public Internet using *Tailscale*. For background on *Tailscale* and the service-exposure workflow, refer to the blog post [Exposing Grafana service using Tailscale for MKS monitoring in HPE Private Cloud Enterprise](https://developer.hpe.com/blog/exposing-grafana-service-using-tailscale-for-mks-monitoring-in-hpe-private-cloud-enterprise/). 
 
 Follow the steps below to expose the *Argo CD* service endpoint using *Tailscale*. 
 
@@ -226,7 +232,7 @@ You can now use the *Argo CD* service endpoint to connect your application's cod
 
 The sample *WordPress* application's Helm charts are available in the GitHub repository [helm-demo](https://github.com/GuopingJia/helm-demo). 
 
-This section outlines the steps for connecting that repository to *Argo CD*.
+In this section, I will outline the steps for connecting that repository to *Argo CD*.
 
 * In the *Argo CD* UI, navigate to ***Settings -> Repository***. Click ***\+ CONNECT REPO***.
 
