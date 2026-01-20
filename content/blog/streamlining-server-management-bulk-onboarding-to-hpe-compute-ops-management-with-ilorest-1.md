@@ -1,6 +1,5 @@
 ---
-title: "Streamlining Server Management: Bulk Onboarding to HPE Compute Ops
-  Management with iLOrest"
+title: "Streamlining server management: Bulk onboarding to HPE Compute Ops Management with iLOrest"
 date: 2026-01-09T08:04:01.755Z
 featuredBlog: true
 author: Rajeev Kallur
@@ -15,9 +14,9 @@ tags:
 ---
 ## Introduction
 
-Managing hundreds or thousands of servers manually is time-consuming and error-prone. IT administrators often face the challenge of onboarding multiple HPE servers to HPE Compute Ops Management (COM) efficiently. In this tutorial, we'll explore how the iLOrest command-line interface simplifies this process through its powerful bulk onboarding feature, allowing you to onboard dozens or even hundreds of servers with a single command.
+Managing hundreds or thousands of servers manually is time-consuming and error-prone. IT administrators often face the challenge of onboarding multiple HPE servers to HPE Compute Ops Management (COM) efficiently. In this tutorial, I will explore how the iLOrest command-line interface simplifies this process through its powerful bulk onboarding feature, allowing you to onboard dozens or even hundreds of servers with a single command.
 
-**What You'll Learn:**
+**What you'll learn:**
 - How to configure multiple servers for COM onboarding using a JSON configuration file
 - How to perform pre-checks to validate your configuration before making changes
 - How to execute bulk onboarding operations with proper error handling
@@ -39,9 +38,9 @@ HPE Compute Ops Management (COM) is a cloud-based infrastructure management plat
 - Health and performance analytics
 - Automated incident detection and response
 
-Before servers can be managed through COM, they must be "onboarded" - a process that establishes a secure connection between the server's iLO and the COM platform.
+Before servers can be managed through COM, they must be "onboarded" - a process that establishes a secure connection between the servers' iLO and the COM platform.
 
-## The Challenge: Manual vs. Bulk Onboarding
+## The challenge: Manual vs. bulk onboarding
 
 ### Traditional Manual Approach
 Onboarding servers one at a time requires:
@@ -53,7 +52,7 @@ Onboarding servers one at a time requires:
 
 For 100 servers, this could take hours or even days!
 
-### The iLOrest Bulk Onboarding Solution
+### The iLOrest bulk onboarding solution
 With iLOrest's `computeopsmanagement multiconnect` command, you can:
 - Onboard multiple servers simultaneously using a single JSON configuration file
 - Define both individual servers and IP ranges
@@ -61,17 +60,15 @@ With iLOrest's `computeopsmanagement multiconnect` command, you can:
 - Perform pre-checks before making any changes
 - Generate detailed reports of successes and failures
 
-## Tutorial: Bulk Onboarding Servers to COM
+## Tutorial: Bulk onboarding servers to COM
 
-### Step 1: Generate the Configuration Template
+### Step 1: Generate the configuration template
 
-First, let's generate a template configuration file that you can customize:
+First, you'll need to generate a template configuration file that you can customize:
 
 ```powershell
 ilorest computeopsmanagement multiconnect --input_file_json_template
 ```
-
-![Generate Template Command](generate_template.png)
 
 This creates a file named `multiconnect_input_template.json` with the following structure:
 
@@ -115,13 +112,13 @@ This creates a file named `multiconnect_input_template.json` with the following 
 }
 ```
 
-### Step 2: Customize Your Configuration
+### Step 2: Customize your configuration
 
-#### 2.1 Common Settings Section
+#### 2.1 Common settings section
 
 The `commonSettings` section defines default values applied to all servers:
 
-**COM Credentials:**
+**COM credentials:**
 ```json
 {
     "computeOpsManagement": {
@@ -132,7 +129,7 @@ The `commonSettings` section defines default values applied to all servers:
 ```
 Get these from your HPE Compute Ops Management portal at [https://common.cloud.hpe.com](https://common.cloud.hpe.com).
 
-**iLO Authentication:**
+**iLO authentication:**
 ```json
 {
     "iloAuthentication": {
@@ -143,7 +140,7 @@ Get these from your HPE Compute Ops Management portal at [https://common.cloud.h
 ```
 Use credentials that have administrator privileges on all target iLOs.
 
-**Network Configuration:**
+**Network configuration:**
 ```json
 {
     "network": {
@@ -154,7 +151,7 @@ Use credentials that have administrator privileges on all target iLOs.
 ```
 Configure DNS and NTP servers appropriate for your environment.
 
-**Proxy Settings (Optional):**
+**Proxy settings (optional):**
 ```json
 {
     "proxy": {
@@ -169,11 +166,11 @@ Configure DNS and NTP servers appropriate for your environment.
 ```
 If your servers require proxy to reach the internet, configure these settings. Otherwise, remove this section.
 
-#### 2.2 Target Servers Section
+#### 2.2 Target servers section
 
 Define your target servers in two ways:
 
-**Individual Servers:**
+**Individual servers:**
 ```json
 {
     "individual": [
@@ -184,7 +181,7 @@ Define your target servers in two ways:
 }
 ```
 
-**IP Ranges:**
+**IP ranges:**
 ```json
 {
     "ranges": [
@@ -194,13 +191,13 @@ Define your target servers in two ways:
 }
 ```
 
-**Override Options:**
+**Override options:**
 - `skipDns`: Skip DNS configuration for this server
 - `skipNtp`: Skip NTP configuration for this server
 - `skipProxy`: Skip proxy configuration for this server
 - `network`: Override network settings for specific servers
 
-### Step 3: Validate Configuration with Pre-check
+### Step 3: Validate configuration with pre-check
 
 Before onboarding, run a pre-check to validate your configuration:
 
@@ -208,7 +205,7 @@ Before onboarding, run a pre-check to validate your configuration:
 ilorest computeopsmanagement multiconnect --input_file bulk_com_input.json --precheck
 ```
 
-### Step 3: Precheck before Onboarding
+#### Step 3.1: Precheck before onboarding
 
 The pre-check validates:
 - ✓ Network connectivity to each iLO
@@ -219,7 +216,7 @@ The pre-check validates:
 - ✓ Current COM connection status
 - ✓ Proxy configuration (if applicable)
 
-**Example Pre-check Output:**
+**Example pre-check output:**
 ```
 ilorest computeopsmanagement multiconnect --input_file servers_input.json --output report.json --precheck
 Validating 192.168.254.15: 5/5 [########################################] 100.0%[status=PASSED, preCheckPassed=5]
@@ -228,9 +225,9 @@ Precheck passed for 5 iLO(s).
 Precheck failed for 0 iLO(s).
 ```
 
-Check the precheck report for detailed analysis:
+Check the precheck report for detailed analysis. Address any failures before proceeding.
 
-### Step 4: Execute Bulk Onboarding
+### Step 4: Execute bulk onboarding
 
 Once the pre-check passes, execute the bulk onboarding:
 
@@ -238,15 +235,15 @@ Once the pre-check passes, execute the bulk onboarding:
 ilorest computeopsmanagement multiconnect --input_file servers_input.json
 ```
 
-**What Happens During Onboarding:**
+**What happens during onboarding:**
 
-1. **Connection Phase**: iLOrest connects to each iLO serially. Efforts are underway to make this onboarding parallel.
-2. **Network Configuration**: DNS and NTP settings are applied
-3. **Proxy Setup**: Proxy configuration is applied (if specified)
-4. **COM Registration**: Activation key and workspace ID are submitted
+1. **Connection phase**: iLOrest connects to each iLO serially. Efforts are underway to make this onboarding parallel.
+2. **Network configuration**: DNS and NTP settings are applied
+3. **Proxy setup**: Proxy configuration is applied (if specified)
+4. **COM registration**: Activation key and workspace ID are submitted
 5. **Verification**: Connection status is verified
 
-**Example Onboarding Output:**
+**Example onboarding output:**
 ```
 ilorest computeopsmanagement multiconnect --input_file servers_input.json --output report.json
 Processing 192.168.254.15: 5/5 [########################################] 100.0%[status=SUCCESS, connected=5]
@@ -255,7 +252,7 @@ ComputeOpsManagement connection failed for 0 server(s).
 The operation completed. Details available in the output report.json file
 ```
 
-### Step 5: Handling iLO Resets
+### Step 5: Handling iLO resets
 
 Some servers may require an iLO reset for settings to take effect. You can allow automatic resets:
 
@@ -263,12 +260,12 @@ Some servers may require an iLO reset for settings to take effect. You can allow
 ilorest computeopsmanagement multiconnect --input_file servers_input.json --allow_ilo_reset
 ```
 
-**Important Notes:**
+**Important notes:**
 - iLO reset temporarily interrupts management connectivity (30-60 seconds)
 - The iLO reset does NOT affect the running operating system
 - After reset, the iLO will automatically reconnect to COM
 
-### Step 6: Verify Onboarding Status
+### Step 6: Verify onboarding status
 
 You can verify from the HPE Compute Ops Management console:
 
@@ -276,9 +273,9 @@ You can verify from the HPE Compute Ops Management console:
 2. Navigate to **Devices** > **Servers**
 3. Confirm your newly onboarded servers appear in the inventory
 
-## Advanced Configuration Examples
+## Advanced configuration examples
 
-### Example 1: Mixed Environment with Different Network Settings
+### Example 1: Mixed environment with different network settings
 
 ```json
 {
@@ -325,7 +322,7 @@ You can verify from the HPE Compute Ops Management console:
 }
 ```
 
-### Example 2: Environment with Corporate Proxy
+### Example 2: Environment with corporate proxy
 
 ```json
 {
@@ -371,7 +368,7 @@ You can verify from the HPE Compute Ops Management console:
 }
 ```
 
-### Example 3: Large-Scale Deployment (500+ Servers)
+### Example 3: Large-scale deployment (500+ Servers)
 
 For very large deployments, you can programmatically generate the configuration:
 
@@ -425,9 +422,9 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --p
 ilorest computeopsmanagement multiconnect --input_file large_deployment.json --allow_ilo_reset --output large_onboard.json
 ```
 
-## Troubleshooting Common Issues
+## Troubleshooting common issues
 
-### Issue 1: Authentication Failures
+### Issue 1: Authentication failures
 
 **Symptom:** `[ERROR] Authentication failed` for multiple servers
 
@@ -437,7 +434,7 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --a
 - Check if accounts are locked due to failed login attempts
 - Verify iLO user directory configuration if using AD/LDAP
 
-### Issue 2: Network Connectivity Problems
+### Issue 2: Network connectivity problems
 
 **Symptom:** `[ERROR] Connection timeout` or `Unable to reach iLO`
 
@@ -447,7 +444,7 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --a
 - Verify iLO IP addresses are correct
 - Ensure management network routing is configured
 
-### Issue 3: Firmware Version Too Old
+### Issue 3: Firmware version too old
 
 **Symptom:** `This iLO version doesn't support the requested operation. Please update iLO firmware`
 
@@ -459,7 +456,7 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --a
   ```
 - Deploy firmware updates at scale using HPE OneView or SUM
 
-### Issue 4: Invalid Activation Key or Workspace ID
+### Issue 4: Invalid activation key or workspace ID
 
 **Symptom:** `The activation key provided is invalid. Please check and enter a valid one`
 
@@ -469,7 +466,7 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --a
 - Check activation key hasn't expired
 - Confirm you have permissions in the workspace
 
-### Issue 5: Proxy Configuration Issues
+### Issue 5: Proxy configuration issues
 
 **Symptom:** `iLO couldn't reach the endpoint. Check your proxy or firewall settings` with proxy configured
 
@@ -480,22 +477,22 @@ ilorest computeopsmanagement multiconnect --input_file large_deployment.json --a
 - Verify proxy allows HTTPS traffic to HPE cloud services
 - Try bypassing proxy for specific servers using `"skipProxy": true`
 
-## Best Practices
+## Best practices
 
-### 1. Always Run Pre-checks First
+### 1. Always run pre-checks First
 Pre-checks help identify issues before making changes:
 ```powershell
 ilorest computeopsmanagement multiconnect --input_file server_input.json --precheck --output precheck_report.json
 ```
 Review the report and fix issues before proceeding.
 
-### 2. Use Staged Rollouts
+### 2. Use staged rollouts
 For large deployments, onboard in phases:
 - **Phase 1**: 5-10 test servers
 - **Phase 2**: One complete rack or subnet
 - **Phase 3**: Remaining servers in batches
 
-### 3. Maintain Configuration Files
+### 3. Maintain configuration files
 Store configuration files in version control:
 ```powershell
 git add server_input.json
@@ -503,14 +500,14 @@ git commit -m "Add COM onboarding config for production servers"
 git push
 ```
 
-### 4. Generate and Archive Reports
+### 4. Generate and archive reports
 Always save reports for audit trail:
 ```powershell
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 ilorest computeopsmanagement multiconnect --input_file server_input.json --output "onboard_$timestamp.json"
 ```
 
-### 5. Monitor Progress in Real-Time
+### 5. Monitor progress in real-Time
 For large operations, monitor the output file:
 ```powershell
 # In one terminal, run onboarding
@@ -524,7 +521,7 @@ while ($true) {
 }
 ```
 
-## Performance Considerations
+## Performance considerations
 
 Actual time depends on:
 - Network latency
@@ -532,33 +529,33 @@ Actual time depends on:
 - Number of configuration changes
 - Whether iLO resets are required
 
-### Network Bandwidth
+### Network bandwidth
 Bulk operations generate minimal network traffic:
 - Configuration changes: ~1-2 KB per server
 - Status checks: ~500 bytes per server
 - Total bandwidth: Typically less than 1 Mbps for 100 servers
 
-## Security Considerations
+## Security considerations
 
-### 1. Credential Protection
+### 1. Credential protection
 - Store activation keys in secure vaults (Azure Key Vault, HashiCorp Vault)
 - Use environment variables instead of hardcoding credentials
 - Implement least-privilege access for iLO accounts
 - Rotate passwords regularly
 
-### 2. Network Security
+### 2. Network security
 - Use secure management networks (isolated VLANs)
 - Implement firewall rules limiting iLO access
 - Consider VPN for remote management
 - Enable iLO security features (FIPS mode, TLS 1.2+)
 
-### 3. Audit Trail
+### 3. Audit trail
 - Maintain logs of all onboarding operations
 - Archive configuration files and reports
 - Track who performed operations and when
 - Implement approval workflows for production changes
 
-### 4. COM Access Control
+### 4. COM access control
 - Use role-based access control in COM
 - Separate workspaces for different environments (dev/test/prod)
 - Review COM user permissions regularly
@@ -575,29 +572,28 @@ Bulk onboarding to HPE Compute Ops Management using iLOrest transforms a tedious
 
 The `computeopsmanagement multiconnect` command is a powerful addition to the iLOrest toolkit, enabling IT administrators to manage HPE infrastructure at scale with confidence.
 
-## Call to Action
+## Get started today
 
 Ready to streamline your server management?
 
-### Get Started Today:
 1. **Install iLOrest**: Download from [HPE Support](https://support.hpe.com) or install via pip:
    ```powershell
    pip install ilorest
    ```
 
-2. **Try the Tutorial**: Follow the steps in this guide with a small test environment
+2. **Try the tutorial**: Follow the steps in this guide with a small test environment. I will be available in HPEDEV slack workspace on channel #ilorest for any help.
 
-3. **Join the Community**: 
+3. **Join the community**: 
    - Visit [HPE Developer Community](https://developer.hpe.com)
    - Explore [iLOrest GitHub Repository](https://github.com/HewlettPackard/python-redfish-utility)
    - Read more tutorials at [HPE DEV Blog](https://developer.hpe.com/blog)
 
-### Additional Resources:
-- **iLOrest Documentation**: [User Guide](https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide)
+### Additional resources:
+- **iLOrest documentation**: [User Guide](https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide)
 - **HPE iLO RESTful API**: [Reference](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo7)
-- **Video Tutorials**: [HPE YouTube Channel](https://www.youtube.com/user/HewlettPackardVideos)
+- **Video tutorials**: [HPE YouTube Channel](https://www.youtube.com/user/HewlettPackardVideos)
 
-### Need Help?
-- **Technical Support**: [HPE Support Center](https://support.hpe.com)
-- **Community Forums**: [HPE Community](https://community.hpe.com)
-- **GitHub Issues**: [Report bugs or request features](https://github.com/HewlettPackard/python-redfish-utility/issues)
+### Need help?
+- **Technical support**: [HPE Support Center](https://support.hpe.com)
+- **Community forums**: [HPE Community](https://community.hpe.com)
+- **GitHub issues**: [Report bugs or request features](https://github.com/HewlettPackard/python-redfish-utility/issues)
