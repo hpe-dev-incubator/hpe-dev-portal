@@ -11,6 +11,15 @@ logo_url: /img/dev-thumb2.png
 
 media_folder: static/img
 public_folder: /img
+media_library: 
+  name: cloudinary
+  config: 
+    cloud_name: 'hpe-dev-portal'
+    api_key: '985836654398919'
+    timestamp: '1620968940102'
+    username: 'pramod-reddy.sareddy@hpe.com'
+    #signature: 'e70ca0031407e281c0e0ead8d6c73791a2eda402267273a20b8ca9451adbb09b'
+    output_filename_only: true
 
 collections:
   - label: 'Home'
