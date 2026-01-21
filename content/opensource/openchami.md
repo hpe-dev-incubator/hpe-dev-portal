@@ -1,7 +1,6 @@
 ---
 title: OpenCHAMI
 active: true
-Featured: true
 category: HPC
 link: platform/openchami/home
 description: HPC System Management for Cloud Engineers and HPC Sysadmins
