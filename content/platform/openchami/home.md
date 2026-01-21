@@ -7,7 +7,7 @@ image: /img/platforms/openchami.png
 width: large
 priority: 6
 frontpage: true
-active: "true"
+active: true
 tags:
   - open source
   - openchami
@@ -36,9 +36,9 @@ Learn how OpenCHAMI simplifies HPC system management with **security-first arch
 
 Watch OpenCHAMI in action [here](https://youtu.be/UbBdbhzXjbA):  
 
-# Projects
+### Projects
 
-### [OpenCHAMI ](https://github.com/openCHAMI)[](<### https://github.com/openCHAMI>)
+#### [OpenCHAMI](https://github.com/openCHAMI)[](<https://github.com/openCHAMI>)
 
 HPC System Management for Cloud Engineers and HPC Sysadmins
 
@@ -53,7 +53,7 @@ Learn more:
 
 ## Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. 
+Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
