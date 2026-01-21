@@ -127,7 +127,13 @@ The `commonSettings` section defines default values applied to all servers:
     }
 }
 ```
-Get these from your HPE Compute Ops Management portal at [https://common.cloud.hpe.com](https://common.cloud.hpe.com).
+Get these from your HPE Compute Ops Management portal at [https://common.cloud.hpe.com](https://common.cloud.hpe.com). For detailed instructions, refer to the [COM guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00001293en_us&page=GUID-F78CB807-1D53-4322-8EA6-3112187CA3C8.html).
+
+**Important:** The credential type depends on your iLO version:
+- **iLO 5**: Use `workspace_id` (the `activationKey` field will be ignored)
+- **iLO 6 and later**: Use `activationKey` (the `workspace_id` field will be ignored)
+
+You can include both fields in your configuration file to support mixed environments with both iLO 5 and iLO 6 servers. The iLOrest tool will automatically use the appropriate credential based on the iLO version it connects to.
 
 **iLO authentication:**
 ```json
@@ -217,8 +223,12 @@ The pre-check validates:
 - ✓ Proxy configuration (if applicable)
 
 **Example pre-check output:**
-```
+```powershell
 ilorest computeopsmanagement multiconnect --input_file servers_input.json --output report.json --precheck
+```
+
+Output:
+```
 Validating 192.168.254.15: 5/5 [########################################] 100.0%[status=PASSED, preCheckPassed=5]
 Precheck completed. Report saved to: report.json
 Precheck passed for 5 iLO(s).
@@ -244,8 +254,12 @@ ilorest computeopsmanagement multiconnect --input_file servers_input.json
 5. **Verification**: Connection status is verified
 
 **Example onboarding output:**
-```
+```powershell
 ilorest computeopsmanagement multiconnect --input_file servers_input.json --output report.json
+```
+
+Output:
+```
 Processing 192.168.254.15: 5/5 [########################################] 100.0%[status=SUCCESS, connected=5]
 ComputeOpsManagement connection successful for 5 server(s).
 ComputeOpsManagement connection failed for 0 server(s).
@@ -413,11 +427,14 @@ with open("large_deployment.json", "w") as f:
 print("Configuration generated for 500 servers")
 ```
 
-Then execute:
+Then execute the following commands:
+
 ```powershell
 # Run precheck first
 ilorest computeopsmanagement multiconnect --input_file large_deployment.json --precheck --output large_precheck.json
+```
 
+```powershell
 # Review the precheck report, then onboard
 ilorest computeopsmanagement multiconnect --input_file large_deployment.json --allow_ilo_reset --output large_onboard.json
 ```
@@ -509,10 +526,13 @@ ilorest computeopsmanagement multiconnect --input_file server_input.json --outpu
 
 ### 5. Monitor progress in real-Time
 For large operations, monitor the output file:
+
 ```powershell
 # In one terminal, run onboarding
 ilorest computeopsmanagement multiconnect --input_file config.json --output live_report.json
+```
 
+```powershell
 # In another terminal, watch progress
 while ($true) {
     Clear-Host
