@@ -19,4 +19,4 @@ March 24, 2026
 
 Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
 
-###### [Register](https://events.bizzabo.com/797906/home)
+###### [Register Coming soon](https://events.bizzabo.com/797906/home)
