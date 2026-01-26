@@ -1,10 +1,10 @@
 ---
-title: HPE AI Developer Day Monterrey, Mexico
-dateStart: 2026-01-29T08:00:36.204Z
-dateEnd: 2026-01-29T16:30:36.215Z
+title: HPE AI Developer Day Bogota, Colombia
+dateStart: 2026-02-24T08:00:36.204Z
+dateEnd: 2026-02-24T16:30:36.215Z
 category: Event
 image: /img/hpe-ai-dev-days.png
-link: https://events.bizzabo.com/797906/page/5472191/monterrey-information
+link: https://events.bizzabo.com/797906/home
 width: large
 tags:
   - HPE DEV
@@ -14,10 +14,10 @@ tags:
 
 ## **Crea tu propio AI Agent con HPE & Nvidia**
 
-### Monterrey, Mexico
+### Bogota, Colombia
+February 24, 2026
 
-January 29, 2026
+Únase a nosotros en un taller práctico y envolvente en el que aprenderá a diseñar e implementar casos de uso de IA generativa del mundo real en HPE Private Cloud AI, con tecnología NVIDIA AI Enterprise Software.
+Este taller está diseñado para desarrolladores, científicos de datos e innovadores empresariales que deseen ver cómo se crean, escalan y aplican soluciones de IA de nivel empresarial para resolver retos empresariales reales.
 
-Sumérgete en una exploración práctica de HPE AI Essentials y NVIDIA AI Enterprise Software, donde adquirirás experiencia práctica con herramientas y marcos de trabajo de vanguardia. Empieza por aprender sobre el tecnol stack tecnológico y recorrer el entorno de desarrollo para comprender sus capacidades. En esta sesión utilizaremos un caso de uso de gestión de retrasos de vuelos como ejemplo. Sin embargo, con estos conocimientos podrás desarrollar tus propios agentes de AI para resolver tu caso de negocio.
-
-###### [Regístrate](https://events.bizzabo.com/797906/page/5472191/monterrey-information)
+###### [Regístrate - Coming soon](https://events.bizzabo.com/797906/home)
