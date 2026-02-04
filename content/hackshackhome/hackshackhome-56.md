@@ -1,7 +1,7 @@
 ---
 title: "Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP"
 active: false
-link: https://hpe.zoom.us/webinar/register/9417660673496/WN_XXzi6jDTRju8r8XYBLyLFw
+link: https://www.youtube.com/watch?v=-RYmpXaGl2o
 path: " "
 description: "Managing infrastructure often means navigating 
 complex consoles,learning APIs, and manually generating reports.
