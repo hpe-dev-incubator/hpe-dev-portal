@@ -4,7 +4,7 @@ dateStart: 2026-03-10T08:00:36.204Z
 dateEnd: 2026-03-10T16:30:36.215Z
 category: Event
 image: /img/hpe-ai-dev-days.png
-link: https://events.bizzabo.com/797906/home
+link: https://events.bizzabo.com/797906/page/5526657/paris-information
 width: large
 tags:
   - HPE DEV
@@ -21,4 +21,4 @@ Construisez et déployez une véritable solution d'IA dans le cadre d'un atelier
 HPE Developer Day est un événement d'une journée conçu pour vous aider à passer de vos ambitions en matière d'IA à des résultats concrets.
 
 
-###### [Inscription -  Disponible bientôt](https://events.bizzabo.com/797906/home)
+###### [Inscription](https://events.bizzabo.com/797906/page/5526657/paris-information)
