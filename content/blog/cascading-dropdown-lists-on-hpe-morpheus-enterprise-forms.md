@@ -5,6 +5,8 @@ author: Neil van Rensburg
 authorimage: /img/greenlogo.png
 disable: false
 ---
-Introduction
+## Introduction
 
-HPE Morpheus Enterprise allows the customization of form elements.
+HPE Morpheus Enterprise enables the customization of form elements across instance provisioning, workflows, and service catalog items, providing greater flexibility and control. Drop-down lists can be populated using various types of option sources.
+
+This article focuses on demonstrating cascading (interdependent) drop-down lists using both REST-based and plugin-based option sources.
