@@ -45,6 +45,26 @@ To create the **Option Lists** in **HPE Morpheus Enterprise**, navigate to **Lib
 
 ![](/img/add_optionlist.png)
 
-Consider the **Type** field.
+Consider the **Type** field that controls where Option List data is sourced from.
 
-REST
+**REST**
+
+Web endpoint requests.
+
+**Morpheus Api**
+
+HPE Morpheus Enterprise platform elements like VMs or Networks directly.
+
+**LDAP**
+
+Use LDAP Search Filter syntax to populate Option Lists.
+
+**Manual**
+
+Define Option List data with CSV or JSON.
+
+**Plugin**
+
+OptionSourceProvider classes within uploaded plugins supplies data in name / value pairs
+
+T
