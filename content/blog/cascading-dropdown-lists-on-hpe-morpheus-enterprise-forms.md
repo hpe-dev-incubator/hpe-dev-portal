@@ -37,9 +37,7 @@ The 3 headings: **countries**, **states** and **cities** reflect the base object
 
 In this way, the endpoint **http://demojsonserver/countries** provides the 3 countries in the **locations.json** file:
 
-![](/img/jsonserver_countries.png)
-
-
+![](/img/locations_json.png)
 
 Creating the Option Lists
 
