@@ -13,18 +13,18 @@ This article focuses on demonstrating cascading (interdependent) drop-down lists
 
 ## Demo environment
 
-The demo environment for this consist of a JSON Server VM and an HPE Morpheus Enterprise appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+The demo environment for this consist of a **JSON Server** VM and an **HPE Morpheus Enterprise** appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
-For the purposes of this article, the JSON Server was setup on a clean Debian 12 install, on the same network segment as the HPE Morpheus Enterprise appliance. Data for the JSON Server web endpoint below is supplied by a locations.json file. The content for this file can be found [here](https://github.com/neilvrhpe/OptionSourceDemo/blob/main/locations.json). 
+For the purposes of this article, the **JSON Server** was setup on a clean Debian 12 install, on the same network segment as the **HPE Morpheus Enterprise** appliance. Data for the **JSON Server** web endpoint below is supplied by a locations.json file. The content for this file can be found [here](https://github.com/neilvrhpe/OptionSourceDemo/blob/main/locations.json). 
 
-JSON Server was setup using the following commands:
+**JSON Server** was setup using the following commands:
 
 `apt update
 apt install nodejs npm -y
 npm install json-server
 vi locations.json 
-npx json-server --host 0.0.0.0 --port 3000 locations.json`
+npx json-server --host 0.0.0.0 --port 80 locations.json`
 
 (Bear in mind that minimal Debian doesn't install with the **sudo** command by default. Prepend **sudo** to administrative commands where appropriate to your OS distribution)
 
-This JSON Server VM's IP resolves to demojsonserver
+In this demo, the **JSON Server** web endpoint responds on http://demojsonserver and renders this:
