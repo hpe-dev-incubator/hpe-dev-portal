@@ -20,7 +20,7 @@ For the purposes of this article, the JSON Server was setup on a clean Debian 12
 `apt update
 apt install nodejs npm -y
 npm install json-server
-vi db.json
+vi db.json `(The conent pasted/saved into this file can be found at)`
 npx json-server --host 0.0.0.0 --port 3000 db.json`
 
 (Bear in mind that minimal Debian doesn't install with the **sudo** command by default. Prepend **sudo** to administrative commands where appropriate to your OS distribution)
