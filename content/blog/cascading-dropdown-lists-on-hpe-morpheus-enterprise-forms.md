@@ -14,3 +14,13 @@ This article focuses on demonstrating cascading (interdependent) drop-down lists
 ## Demo environment
 
 The demo environment for this consist of a JSON Server VM and an HPE Morpheus Enterprise appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+
+For the purposes of this article, the JSON Server was setup on a clean Debian 12 install, on the same network segment as the HPE Morpheus Enterprise appliance. JSON Server was setup using the following commands:
+
+`apt update
+apt install nodejs npm -y
+npm install json-server
+vi db.json
+npx json-server --host 0.0.0.0 --port 3000 db.json`
+
+(Bear in mind that minimal Debian doesn't install with the **sudo** command by default. Prepend **sudo** to administrative commands where appropriate to your OS distribution)
