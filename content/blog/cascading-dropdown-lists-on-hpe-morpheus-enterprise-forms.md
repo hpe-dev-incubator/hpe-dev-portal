@@ -13,4 +13,4 @@ This article focuses on demonstrating cascading (interdependent) drop-down lists
 
 ## Demo environment
 
-The demo environment for this consist of a JSON server VM and an HPE morpheus Enterprise appliance. The development environment
+The demo environment for this consist of a JSON Server VM and an HPE Morpheus Enterprise appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
