@@ -33,22 +33,8 @@ HPE Private Cloud AI is a turnkey, enterprise‑ready platform that brings toget
 
 ### What is K8s RBAC?
  
+Kubernetes RBAC is built around four core components: Roles, which define permissions for specific resources within a single namespace; ClusterRoles, which provide similar permissions but at the cluster-wide level; RoleBindings, which assign a Role to a user, group, or service account within a particular namespace; and ClusterRoleBindings, which grant subjects access to a ClusterRole across the entire cluster. Together, these elements allow fine‑grained control over who can access which resources, ensuring a secure and well‑organized authorization model. When environments grow and managing numerous roles becomes complex, Kubernetes also offers Role Aggregation to simplify and streamline permission management.
 
-
-
-
-K8s RBAC revolves around four building blocks. 
-
-
-
-* *Role*: It's a list of permissions that apply to specific resources within a particular namespace.
-* *ClusterRole*: Like a Role, but it's not limited to just one namespace. Permissions defined in a ClusterRole can be granted across the whole cluster, including . 
-* *RoleBinding*: This is how you assign a Role to a user, group, or service account within a namespace. 
-* *ClusterRoleBinding*: Similar to RoleBinding, but it's for ClusterRoles. 
-
-
-
-With these four elements, you   
 
 The K8s API server creates a set of default ClusterRole objects. Many of these are prefixed with 'system', indicating that they are managed directly by the cluster control plane. The remaining default ClusterRoles, that is, those without the system prefix, are intended as user‑facing roles. K8s ships these user-facing roles to cover the most common permission levels for users, most notably view, edit, and admin, which form a natural progression from read‑only access to full namespace‑level administration.
 
@@ -57,6 +43,8 @@ The K8s API server creates a set of default ClusterRole objects. Many of these a
 ### What is an aggregate ClusterRole?
 
 [Aggregate ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles), introduced and supported since K8s v1.9, are a mechanism that automatically aggregates several ClusterRoles into one combined ClusterRole through specified labels. A controller, running as part of the cluster control plane, watches for ClusterRole objects with an aggregationRule set. The aggregationRule in a ClusterRole defines a label selector that the controller uses to match other ClusterRole objects that should be combined into the rules field of this one. 
+
+Aggregated ClusterRoles offer several key advantages in Kubernetes RBAC. They simplify management by reducing the need to maintain numerous individual roles, keeping permissions organized and easier to oversee. They also update automatically when underlying roles change, eliminating manual adjustments and reducing administrative overhead. As your cluster grows, aggregated roles scale naturally—new roles can be added as needed, and Kubernetes handles the aggregation seamlessly. This approach also enhances security by encouraging smaller, more focused roles, minimizing the risk of granting overly broad permissions.
 
 ```shell
 
