@@ -554,6 +554,9 @@ Conclusion
 ### Conclusion
  
 This blog post discussed how to simplify permission management accessing K8s resources in HPE PCAI. By using aggregate ClusterRoles, permission management with Kubernetes RBAC becomes more flexible and extensible. When you need to grant users additional permissions for new resources or namespaces, this mechanism automates and simplifies what would otherwise require manually updating existing roles. 
+
+This blog post explored how permission management for accessing K8s resources in HPE PCAI can be significantly streamlined through the use of ClusterRole aggregation. This approach makes K8s RBAC more flexible and extensible by automatically incorporating new permissions as additional roles are introduced, eliminating the need for manual updates. At its core, K8s RBAC serves as the cluster’s gatekeeper, ensuring every user and service receives precisely the access they require. With ClusterRole aggregation, that model becomes even easier to manage, allowing roles to be combined dynamically and keeping permissions clean, scalable, and secure as new capabilities are added.
+
  
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
  
