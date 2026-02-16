@@ -57,30 +57,52 @@ Consider the selection options for the **Type** field that controls where Option
 
 **Plugin:** OptionSourceProvider classes within uploaded plugins supply data in name / value pairs.
 
-The focus of this article is on REST web endpoints and an OptionSourceProvider Plugin. Create 3 Options lists that reflect the values below:
+The focus of this article is on REST Web endpoints and an OptionSourceProvider Plugin. Replace the URL hostname in your lab appropriately then create 3 Options lists that reflect the values below:
 
+- - -
 
-| | |
-|:------------------ |:------------------------------- |
+|                    |                                 |
+| ------------------ | ------------------------------- |
 | **NAME:**          | Countries                       |
 | **TYPE:**          | REST                            |
 | **SOURCE URL:**    | http://demojsonserver/countries |
 | **SOURCE METHOD:** | GET                             |
+| **REAL TIME:**     | Checked                         |
 
-| | |
-|:------------------ |:------------------------------- |
-| **NAME:**          | States|
-| **TYPE:**          | REST                            |
-| **SOURCE URL:**    | http://demojsonserver/states|
-| **SOURCE METHOD:** | GET                             |
+- - -
 
-| | |
-|:------------------ |:------------------------------- |
-| **NAME:**          | Cities|
-| **TYPE:**          | REST                            |
-| **SOURCE URL:**    | http://demojsonserver/cities|
-| **SOURCE METHOD:** | GET                             |
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **NAME:**          | States                       |
+| **TYPE:**          | REST                         |
+| **SOURCE URL:**    | http://demojsonserver/states |
+| **SOURCE METHOD:** | GET                          |
+| **REAL TIME:**     | Checked                      |
 
+- - -
 
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **NAME:**          | Cities                       |
+| **TYPE:**          | REST                         |
+| **SOURCE URL:**    | http://demojsonserver/cities |
+| **SOURCE METHOD:** | GET                          |
+| **REAL TIME:**     | Checked                      |
 
+Verify that the 3 option lists reflect the below:
+
+![](/img/option_lists.png)
+
+## Create the Form Inputs
+Navigate to Library > Options > Inputs. Click Add. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
+
+ - - -
+
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **NAME:**          | Country                      |
+| **TYPE:**          | REST                         |
+| **SOURCE URL:**    | http://demojsonserver/cities |
+| **SOURCE METHOD:** | GET                          |
+| **REAL TIME:**     | Checked                      |
 
