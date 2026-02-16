@@ -57,4 +57,9 @@ Consider the selection options for the **Type** field that controls where Option
 
 **Plugin:** OptionSourceProvider classes within uploaded plugins supply data in name / value pairs.
 
-The focus of this article is on REST web endpoints and an OptionSourceProvider Plugin.
+The focus of this article is on REST web endpoints and an OptionSourceProvider Plugin. Create 3 Options lists that reflect the values below:
+
+| Name | Type | Source URL | Source Method | 
+|:-----|:-----|:-----------|:--------------|
+| Countries   | REST   | http://demojsonserver/countries | GET |
+
