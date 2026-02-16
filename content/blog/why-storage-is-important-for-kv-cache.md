@@ -66,9 +66,41 @@ KV-cache access pattern is:
 This means KV cache cannot be used if in CPU memory, SSD, or network storage. To be used, it must remain in GPU HBM, which is effectively the highest performance “storage tier” available. 
 
 #### KV Cache often can’t fit in GPU memory<br />
+
 For effectiveness, KV cache must remain in GPU memory, but unfortunately, it often can’t fit there. The size of the KV cache increases linearly with both the context length and the number of layers, creating capacity and bandwidth challenges. 
 
 For example:
 
 * A 70B model can require tens of gigabytes of KV cache just for 32k tokens.
 * Larger contexts (100k–1M tokens) would require storage-tier thinking, such as sharding, compression, paging, etc.
+
+When the KV-cache exceeds the HBM memory, it must be stored elsewhere (CPU memory first, then fast storage).
+
+#### KV cache often doesn’t reside in a single GPU
+
+But there is an additional complexity. The KV cache often doesn’t reside in a single GPU. When models run across multiple GPUs, the KV cache is sharded across them. KV cache “follows” the model parallelism:
+
+* Tensor parallelism: shard across layers/heads
+* Sequence parallelism: shard by tokens
+* Context parallelism: shard by ranges of inputs
+
+This makes KV management like distributed file systems:
+
+* Placement
+* Replication
+* Access path optimization
+* Paging / eviction
+
+*In conclusion, KV-cache pagination requires a memory-tiered storage*
+
+Indeed, recent trends see the development of storage systems optimized for tiering with KV-cache. Storage systems are, therefore, part of the KV-cache pagination management:
+
+* GPU HBM → hot KV
+* CPU RAM → warm KV
+* NVMe / SSD → cold KV
+
+#### Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache
+
+This diagram shows the end to end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
+
+![](/img/screenshot-2026-02-16-at-10.41.09.png "Figure 1 - RDMA/GDS role in a RAG pipeline")
