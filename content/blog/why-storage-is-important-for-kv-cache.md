@@ -104,3 +104,15 @@ Indeed, recent trends see the development of storage systems optimized for tieri
 This diagram shows the end to end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
 
 ![](/img/screenshot-2026-02-16-at-10.41.09.png "Figure 1 - RDMA/GDS role in a RAG pipeline")
+
+
+RDMA / GPUDirect help:
+* Storage → GPU ingestion:
+   * RDMA (object/file) + GPUDirect allow NIC or storage to DMA directly into GPU memory, bypassing CPU copies.
+   * This accelerates document load, embedding pipelines, vector index updates, and LLM input streaming.
+* Before KV activation:
+   * KV cache is populated after tokenization and initial forward passes occur on GPU. RDMA/GPUDirect primarily reduce the time to first token by accelerating data arrival to the GPU.
+* During RAG loops:
+   * Frequent retrieval (top k) + reranking benefits from GPU-resident vector DB and RDMA reads from warm storage. The faster the context assembly, the sooner the LLM can append to KV cache.
+ 
+In other words, RDMA/GPUDirect accelerate the front half (docs/embeddings/context into GPU memory). Once generation starts, the KV cache dominates the hot path, acting as the L1/L2 like working store of the decoder.
