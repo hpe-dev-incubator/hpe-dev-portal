@@ -14,7 +14,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
  
-When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a core security mechanism for managing permissions across the cluster. It enables precise control by mapping users and processes to specific sets of permissions, enforcing the principle of least privilege. However, managing these permissions can become cumbersome. While Roles and ClusterRoles offer a structured way to assign resource‑level access, manually updating and managing them becomes increasingly challenging as new access requests arise and clusters evole.
+When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a core security mechanism for managing permissions across the cluster. It enables precise control by mapping users and processes to specific sets of permissions, enforcing the principle of least privilege. However, managing these permissions can become cumbersome. While Roles and ClusterRoles offer a structured way to assign resource‑level access, manually updating and managing them becomes increasingly challenging as new access requests arise and clusters evolve.
 
 This blog post explores how ClusterRole aggregation can help address that challenge. It introduces the key concepts and advantages of aggregated ClusterRoles and explains how they can streamline permission management. The post then walks through practical examples of applying ClusterRole aggregation in the HPE Private Cloud AI environment to make RBAC administration more scalable and efficient.
 
