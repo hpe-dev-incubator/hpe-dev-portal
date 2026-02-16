@@ -94,15 +94,37 @@ Verify that the 3 option lists reflect the below:
 ![](/img/option_lists.png)
 
 ## Create the Form Inputs
-Navigate to Library > Options > Inputs. Click Add. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
+Navigate to **Library > Options > Inputs**. Click **Add**. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
 
  - - -
-
 |                    |                              |
 | ------------------ | ---------------------------- |
 | **NAME:**          | Country                      |
-| **TYPE:**          | REST                         |
-| **SOURCE URL:**    | http://demojsonserver/cities |
-| **SOURCE METHOD:** | GET                          |
-| **REAL TIME:**     | Checked                      |
+| **FIELD NAME:**    | country                      |
+| **TYPE:**          | Select List                  |
+| **LABEL:**         | Country                      |
+| **OPTION LIST:**   | Countries                    |
+ - - -
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **NAME:**          | State                        |
+| **FIELD NAME:**    | state                        |
+| **TYPE:**          | Select List                  |
+| **LABEL:**         | State                        |
+| **OPTION LIST:**   | States                       |
+ - - -
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **NAME:**          | City                         |
+| **FIELD NAME:**    | city                         |
+| **TYPE:**          | Select List                  |
+| **LABEL:**         | City                         |
+| **OPTION LIST:**   | Cities                       |
+
+Inputs should be created as shown below:
+
+
+
+
+
 
