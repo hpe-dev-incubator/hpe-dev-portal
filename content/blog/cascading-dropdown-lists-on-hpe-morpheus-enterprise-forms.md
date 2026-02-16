@@ -130,3 +130,8 @@ Navigate to **Library > Options > Inputs**. Click **Add**. Create 3 Form Inputs 
 Inputs should be created as shown below:
 
 ![](/img/inputs.png)
+
+## Testing Inputs
+
+A simple way to test inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Form Inputs as Workflow Inputs.
+Navigate to **Library > Automation > Workflows**. Click **Add > Operational Workflow**. Provide **Test Inputs** as the **Name** and add **Country**, **State** and **City** to the **Inputs** field:
