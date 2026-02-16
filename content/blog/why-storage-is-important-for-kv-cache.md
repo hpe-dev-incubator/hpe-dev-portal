@@ -15,8 +15,8 @@ Here’s how to map KV cache to conventional storage concepts:
 
 | Storage Concept      | LLM Equivalent | Explanation |
 | -------------------- | -------------- | ----------- |
-| Registers            |                |             |
-| L1 / L2 cache        |                |             |
+| Registers            |     Tensor cores, attention units           |          Compute engines        |
+| L1 / L2 cache        |      KV cache slices currently in use          |        Immediate access attention data        |
 | RAM                  |                |             |
 | SSD / Object Storage |                |             |
 | Cold Storage         |                |             |
