@@ -136,9 +136,8 @@ Inputs should be created as shown below:
 A simple way to test inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Form Inputs as Workflow Inputs.
 Navigate to **Library > Automation > Workflows**. Click **Add > Operational Workflow**. Provide **Test Inputs** as the **Name** and add **Country**, **State** and **City** to the type-ahead **Inputs** field:
 
-![](/img/new_workflow.png)
+![](/img/execute_workflow.png)
 
 Under **Library > Automation > Workflows**, click the name of the **Test Inputs** workflow. Click the **EXECUTE** button. Check that all 3 dropdowns contain data from the JSON Server endpoints:
 
-
-
+## Filtering Data
