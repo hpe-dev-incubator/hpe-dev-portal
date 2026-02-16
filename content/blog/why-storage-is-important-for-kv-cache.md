@@ -116,3 +116,5 @@ RDMA / GPUDirect help:
    * Frequent retrieval (top k) + reranking benefits from GPU-resident vector DB and RDMA reads from warm storage. The faster the context assembly, the sooner the LLM can append to KV cache.
  
 In other words, RDMA/GPUDirect accelerate the front half (docs/embeddings/context into GPU memory). Once generation starts, the KV cache dominates the hot path, acting as the L1/L2 like working store of the decoder.
+
+# Conclusion:
