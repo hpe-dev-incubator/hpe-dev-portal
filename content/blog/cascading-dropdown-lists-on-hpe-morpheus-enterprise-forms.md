@@ -39,32 +39,22 @@ In this way, the endpoint **http://demojsonserver/countries** provides the 3 cou
 
 ![](/img/locations_json.png)
 
-Creating the Option Lists
+## Creating the Option Lists
 
 To create the **Option Lists** in **HPE Morpheus Enterprise**, navigate to **Library** > **Options** > **Options Lists**. Click **Add**. The following dialog will be displayed:
 
 ![](/img/add_optionlist.png)
 
-Consider the **Type** field that controls where Option List data is sourced from.
+Consider the selection options for the **Type** field that controls where Option List data is sourced from.
 
-**REST**
+**REST:** Web endpoint requests.
 
-Web endpoint requests.
+**Morpheus Api:** HPE Morpheus Enterprise platform elements like VMs or Networks directly.
 
-**Morpheus Api**
+**LDAP:** Use LDAP Search Filter syntax to populate Option Lists.
 
-HPE Morpheus Enterprise platform elements like VMs or Networks directly.
+**Manual:** Define Option List data with CSV or JSON.
 
-**LDAP**
+**Plugin:** OptionSourceProvider classes within uploaded plugins supply data in name / value pairs.
 
-Use LDAP Search Filter syntax to populate Option Lists.
-
-**Manual**
-
-Define Option List data with CSV or JSON.
-
-**Plugin**
-
-OptionSourceProvider classes within uploaded plugins supplies data in name / value pairs
-
-T
+The focus of this article is on REST web endpoints and an OptionSourceProvider Plugin.
