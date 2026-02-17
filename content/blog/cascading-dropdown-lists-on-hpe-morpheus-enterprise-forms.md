@@ -173,7 +173,7 @@ for (var x = 0; x < data.length; x++) {
 }
 ```
 
-The above code loops through each entry in the **data** JSON list using a javascript for loop. For each entry, a **name** and **value** object is pushed onto the **results** list.
+The above code loops through each entry in the **data** JSON list using a javascript for loop. For each entry, a **name** and **value** object is pushed onto the **results** list. This ensures that the **value** attribute is available on the **input** map for future filtering. 
 
 At the moment, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
 
