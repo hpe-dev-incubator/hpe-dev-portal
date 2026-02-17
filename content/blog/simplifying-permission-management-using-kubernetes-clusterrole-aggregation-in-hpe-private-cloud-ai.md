@@ -85,14 +85,55 @@ It uses
 
 ### HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a turnkey, enterprise‑ready platform that brings together HPE and NVIDIA technologies to simplify and accelerate the deployment of AI workloads by running them on a K8s foundation. By leveraging standard K8s constructs, AI models, inference services, and supporting components are deployed into dedicated K8s namespaces for clean separation, scalability, and lifecycle management. As part of its user‑centric design, PCAI automatically provisions a default notebook environment for each authenticated user, running as a containerized Pod inside that user’s personal Kubernetes namespace, providing an isolated workspace for experimentation, data preparation, and model development.
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a turnkey, enterprise‑ready platform that brings together HPE and NVIDIA technologies to simplify and accelerate the deployment of AI workloads by running them on a K8s foundation. By leveraging standard K8s constructs, AI models, inference services, and supporting components are deployed into dedicated K8s namespaces in PCAI for clean separation, scalability, and lifecycle management. As part of its user‑centric design, PCAI automatically provisions a default Kubeflow notebook environment for each authenticated user, running as a containerized Pod inside that user’s personal K8s namespace, providing an isolated workspace for experimentation, data preparation, and model development.
+
+
+The following sections will show you some practival examples of permission management in Kubeflow notebook server access in PCAI.
+
+### Kubeflow Notebook servers
+
+As part of a suite of pre‑integrated tools in PCAI, Kubeflow Notebooks has been deployed, along with a set of custom resource definitions (CRDs) and built‑in ClusterRoles. These ClusterRoles follow Kubernetes’ standard role patterns, *kubeflow-view*, *kubeflow-edit*, and *kubeflow-admin*, and can be assigned by K8s administrators to users or ServiceAccounts to manage access control within the cluster.
+
+```shell
+
+
+# kubectl get clusterroles | grep -e "kubeflow-edit" -e "kubeflow-view" -e "kubeflow-admin"
+kubeflow-admin                                                         2025-11-20T03:25:34Z
+kubeflow-edit                                                          2025-11-20T03:25:34Z
+kubeflow-view                                                          2025-11-20T03:25:34Z
+
+```
+
+When a user logs into PCAI, a default Notebook server is already running inside that user’s dedicated project namespace, e.g., *project-user-guoping-jia*. 
+
 
 ![](/img/kubeflow-notebooks.png) 
 
+Within this namespace, a RoleBinding named *default-editor* links the ServiceAccount *default-editor* to the Kubeflow ClusterRole *kubeflow-edit*. This ClusterRole provides the standard set of permissions required for typical Kubeflow operations. As a result, from the Notebook’s terminal, the user can read and write most Kubernetes resources within their namespace.
 
-A key architectural foundation of HPE PCAI is its deep integration with Kubernetes (K8s). Kubernetes functions as the orchestration layer that schedules, isolates, manages, and scales AI workloads across PCAI’s compute nodes. Instead of custom orchestration or proprietary schedulers, PCAI leverages standard Kubernetes constructs—namespaces, deployments, autoscaling policies, and Helm-based packaging—to deliver repeatable and scalable AI services. This Kubernetes-native approach removes complexity and aligns PCAI with modern cloud‑native operational practices.
 
-HPE Private Cloud AI is a turnkey, enterprise‑ready platform that brings together HPE and NVIDIA technologies to simplify and accelerate the deployment of AI workloads by running them on a Kubernetes foundation, where models, inference services, and supporting components are deployed into dedicated Kubernetes namespaces for clean separation, scalability, and lifecycle management.  As part of its user‑centric design, PCAI automatically provisions a default notebook environment for each authenticated user, running as a containerized Pod inside that user’s personal Kubernetes namespace, providing an isolated workspace for experimentation, data preparation, and model development.
+```shell
+# kubectl get serviceaccount -n project-user-guoping-jia default-editor
+NAME                      SECRETS   AGE
+
+default-editor            0         24d
+default-viewer            0         24d
+kserve-local-s3           0         24d
+spark-runner              0         24d
+spark-submitter           0         24d
+tenantcli                 0         24d
+[root@ai-cluster ~]# kubectl get rolebinding -n project-user-guoping-jia
+NAME                       ROLE                                   AGE
+default-editor             ClusterRole/kubeflow-edit              24d
+default-viewer             ClusterRole/kubeflow-view              24d
+hpe-airflow-role-binding   ClusterRole/hpe-airflow-cluster-role   24d
+namespaceAdmin             ClusterRole/kubeflow-admin             24d
+spark-run                  ClusterRole/spark-run                  24d
+spark-submit               ClusterRole/spark-submit               24d
+tenant-user                ClusterRole/spark-submit               24d
+tenantcli                  ClusterRole/tenantcli                  24d
+user-guoping-jia           ClusterRole/ezproject-admin            24d
+workflow-default-binding   Role/workflow-role                     24d
 
 
 ![](/img/notebook-server-terminal.png) 
