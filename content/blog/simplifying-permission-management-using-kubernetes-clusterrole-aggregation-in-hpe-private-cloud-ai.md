@@ -324,91 +324,19 @@ NAME            ROLE                               AGE
 custom-editor   ClusterRole/custom-kubeflow-edit   84s                                                 2026-02-17T10:43:00Z
 ```
 
+* Verify the added permissions
 
-
-
-```shell
-[root@ai-cluster cr-aggregate]# k get clusterrole custom-kubeflow-edit -o yaml
-aggregationRule:
-  clusterRoleSelectors:
-  - matchLabels:
-      rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"aggregationRule":{"clusterRoleSelectors":[{"matchLabels":{"rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit":"true"}}]},"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"custom-kubeflow-edit"},"rules":[]}
-  creationTimestamp: "2026-02-05T14:14:30Z"
-  name: custom-kubeflow-edit
-  resourceVersion: "143469537"
-  uid: acab13d6-804d-4b85-af96-ef8c2222f43d
-rules:
-- apiGroups:
-  - '*'
-  resources:
-  - pods/exec
-  verbs:
-  - '*'
-- apiGroups:
-  - ""
-  resources:
-  - secrets
-  verbs:
-  - get
-  - list
-```
-
-```shell
-
-
-[root@ai-cluster cr-aggregate]# cat custom-rolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: custom-editor
-  namespace: project-user-guoping-jia
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: custom-kubeflow-edit
-subjects:
-- kind: ServiceAccount
-  name: default-editor
-  namespace: project-user-guoping-jia
-```
-
-
-```shell
-
-[root@ai-cluster cr-aggregate]# k apply custom-rolebinding.yaml
-error: Unexpected args: [custom-rolebinding.yaml]
-See 'kubectl apply -h' for help and examples
-[root@ai-cluster cr-aggregate]# k apply -f custom-rolebinding.yaml
-rolebinding.rbac.authorization.k8s.io/custom-editor created
-[root@ai-cluster cr-aggregate]# k get rolebindings -n project-user-guoping-jia
-NAME                       ROLE                                   AGE
-custom-editor              ClusterRole/custom-kubeflow-edit       20s
-default-editor             ClusterRole/kubeflow-edit              24d
-default-viewer             ClusterRole/kubeflow-view              24d
-hpe-airflow-role-binding   ClusterRole/hpe-airflow-cluster-role   24d
-namespaceAdmin             ClusterRole/kubeflow-admin             24d
-spark-run                  ClusterRole/spark-run                  24d
-spark-submit               ClusterRole/spark-submit               24d
-tenant-user                ClusterRole/spark-submit               24d
-tenantcli                  ClusterRole/tenantcli                  24d
-user-guoping-jia           ClusterRole/ezproject-admin            24d
-workflow-default-binding   Role/workflow-role                     24d
-```
+From Kubeflow Notebook server's terminal, you should be able to list the Secrets and execute the *bash* command in the Pods's container.  
 
 ```shell
 
 
 
-(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec
-yes
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets
 yes
+(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec
+yes
+
 (base) guoping-jia@default-notebook-0:~$ 
 
 
@@ -429,17 +357,23 @@ root@default-notebook-0:/# pwd
 /
 root@default-notebook-0:/# exit
 exit
-(base) guoping-jia@default-notebook-0:~$ 
 ```
+
+### Granting user access to other namespace
+
+
+As another practical example of granting user permissions, this section describes another advanced permission requirement on accessing some other namespaces where some AI applications being deployed via PCAI Import Framework process and debugging any issue.
+
+With default ClusterRole and RoleBinding settings, the authenticated user is not allowed to access other namespace, e.g., *custom-ns*. 
 
 ```shell
 
 
 
 
-[root@ai-cluster cr-aggregate]# k create ns custom-ns
+# kubectl create ns custom-ns
 namespace/custom-ns created
-[root@ai-cluster cr-aggregate]# k get ns | grep custom-ns
+# kubectl get ns | grep custom-ns
 custom-ns                               Active   3s
 ```
 
@@ -451,8 +385,11 @@ custom-ns                               Active   3s
 Error from server (Forbidden): namespaces "custom-ns" is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot get resource "namespaces" in API group "" in the namespace "custom-ns"
 (base) guoping-jia@default-notebook-0:~$ kubectl get pods -n custom-ns
 Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "pods" in API group "" in the namespace "custom-ns"
-(base) guoping-jia@default-notebook-0:~$ 
 ```
+
+Follow up below steps to grant user access to the namespace.
+
+* Create a RoleBinding *ns-default-editor* in the namespace *custom-ns* to bind the ClusterRole *default-editor* to the ServiceAccount *default-editor*. Apply it. 
 
 ```shell
 
@@ -460,7 +397,7 @@ Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:pr
 
 
 
-[root@ai-cluster cr-aggregate]# cat ns-default-editor.yaml
+# cat ns-default-editor.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -474,16 +411,18 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
-[root@ai-cluster cr-aggregate]# k apply -f ns-default-editor.yaml
+
+
+# kubectl apply -f ns-default-editor.yaml
 rolebinding.rbac.authorization.k8s.io/default-editor created
-```
 
-```shell
 
-[root@ai-cluster cr-aggregate]# k get rolebinding -n custom-ns
+# kubectl get rolebinding -n custom-ns
 NAME             ROLE                        AGE
 default-editor   ClusterRole/kubeflow-edit   10s
 ```
+
+* Verify the namespace access.
 
 ```shell
 
@@ -491,15 +430,20 @@ default-editor   ClusterRole/kubeflow-edit   10s
 (base) guoping-jia@default-notebook-0:~$ kubectl get ns custom-ns
 NAME        STATUS   AGE
 custom-ns   Active   13m
-(base) guoping-jia@default-notebook-0:~$ kubectl create deploy mybox -n custom-ns --image=busybox 
-deployment.apps/mybox created
-(base) guoping-jia@default-notebook-0:~$ kubectl get pods -n custom-ns
-NAME                    READY   STATUS      RESTARTS     AGE
-mybox-84bdf9578-b6tkh   0/1     Completed   1 (4s ago)   8s
-
-(base) guoping-jia@default-notebook-0:~$ kubectl exec -it mybox-84bdf9578-b6tkh -n custom-ns -- bash
-Error from server (Forbidden): pods "mybox-84bdf9578-b6tkh" is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot create resource "pods/exec" in API group "" in the namespace "custom-ns"
 ```
+
+However, the user cann't list the Secrets in the namespace. Neither execute the commands in any running Pod's container.
+
+```shell
+(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
+no
+(base) guoping-jia@default-notebook-0:~$ kubectl get secrets -n custom-ns
+Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "custom-ns"
+(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec -n custom-ns
+no
+```
+
+* Create another RoleBinding *ns-custom-editor* in the namespace *custom-ns* to bind the ClusterRole *custom-editor* to the ServiceAccount *default-editor* in the namespace *custom-ns*. Apply it. 
 
 ```shell
 
@@ -518,9 +462,7 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
-```
 
-```shell
 
 [root@ai-cluster cr-aggregate]# k apply -f ns-custom-editor.yaml
 rolebinding.rbac.authorization.k8s.io/custom-editor created
@@ -530,7 +472,14 @@ custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
 
+* Verify the permissions.
+
 ```shell
+(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
+yes
+(base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec -n custom-ns
+yes
+
 
 
 (base) guoping-jia@default-notebook-0:~$ kubectl create deploy nginx -n custom-ns --image=nginx 
@@ -566,12 +515,11 @@ drwxr-xr-x.    1 root root   66 Feb  2 00:00 usr
 drwxr-xr-x.    1 root root   19 Feb  2 00:00 var
 root@nginx-5869d7778c-b4tcw:/# exit
 Exit
-(base) guoping-jia@default-notebook-0:~$ 
 
-``` 
- 
-Conclusion
- 
+
+``` 
+
+
 ### Conclusion
  
 This blog post discussed how to simplify permission management accessing K8s resources in HPE PCAI. By using aggregate ClusterRoles, permission management with Kubernetes RBAC becomes more flexible and extensible. When you need to grant users additional permissions for new resources or namespaces, this mechanism automates and simplifies what would otherwise require manually updating existing roles. 
