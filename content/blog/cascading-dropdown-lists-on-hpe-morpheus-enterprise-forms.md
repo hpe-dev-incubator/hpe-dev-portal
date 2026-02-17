@@ -146,17 +146,35 @@ Under **Library > Automation > Workflows**, click the name of the **Test Inputs*
 
 When filtering, it is important to understand that Option Lists are populated through an inherent **results** object. This **results** construct consists of a list of **name** and **value** pairs.
 
-By default, the Option List is assigned the corresponding **name** and **value** JSON fields within the JSON list. Consider our country data:
- 
+By default, the Option List is assigned the corresponding **name** and **value** JSON fields within the JSON list. Consider the current country JSON data:
+
+```
+[
+  {
+    "id": "1",
+    "name": "United States"
+  },
+  {
+    "id": "2",
+    "name": "Canada"
+  },
+  {
+    "id": "3",
+    "name": "Australia"
+  }
+]
+```
+
+This issue with the above list is that the **value** key is missing, represented by an **id** property instead. Populating the Translation Script text box using the below code, causes the **results** object to be populated by javascript logic instead:
+
+
+
 
 
 Now, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
 
 This section will look at the 2 available mechanisms for filtering Option List data based on the values of other Form Inputs, **Translation Scripts** and **Request Scripts**.
 
-### Filter the state, by country, using a Translation Script
+### Filter the state by country, using a Translation Script
 
 Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **States** Option List using the corresponding pencil icon on the right:
-
-
-
