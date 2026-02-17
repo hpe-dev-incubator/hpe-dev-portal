@@ -171,7 +171,7 @@ This issue with the above list is that the **value** key is missing, represented
 
 Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **Countries** Option List using the corresponding pencil icon on the right:
 
-
+![](/img/edit_optionslist_countries.png)
 
 Populating the **Translation Script** text box using the below code, causes the **results** object to be populated by javascript logic instead:
 
