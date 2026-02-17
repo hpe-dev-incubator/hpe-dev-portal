@@ -89,7 +89,7 @@ The focus of this article is on REST Web endpoints and an OptionSourceProvider P
 | **SOURCE METHOD:** | GET                          |
 | **REAL TIME:**     | Checked                      |
 
-Verify that the 3 option lists reflect the below:
+Verify that the 3 Option Lists reflect the below:
 
 ![](/img/option_lists.png)
 
