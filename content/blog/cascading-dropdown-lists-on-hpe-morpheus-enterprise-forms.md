@@ -182,3 +182,5 @@ This section will look at the 2 available mechanisms for filtering Option List d
 ### Filter the state by country, using a Translation Script
 
 Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **States** Option List using the corresponding pencil icon on the right:
+
+ Add the following code to the :
