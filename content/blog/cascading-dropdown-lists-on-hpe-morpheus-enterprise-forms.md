@@ -31,7 +31,7 @@ In this demo, the **JSON Server** web endpoint responds on **http://demojsonserv
 
 ![](/img/jsonserver_home.png)
 
-The 3 headings: **countries**, **states** and **cities** reflect the base objects in the **locations.json** file:
+The 3 sub-pages: **/countries**, **/states** and **/cities** reflect the base objects in the **locations.json** file:
 
 ![](/img/locations_json.png)
 
