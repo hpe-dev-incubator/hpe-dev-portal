@@ -129,7 +129,7 @@ With default rolebinding binds to the ClusterRole *kubeflow-edit* in the namespa
 ### Granting additional permissions
 
 
-With the default RoleBinding in the namespace, a user can access most K8s objects, including Pods and Secrets. However, they lack certain capabilities—such as listing all Secrets or performing privileged actions like executing commands inside a running Pod’s container. These permissions are sometimes necessary, for example, when verifying private container image configurations that depend on specific Secrets.
+With the default RoleBinding in the namespace, the user can access most K8s objects, including Pods and Secrets, in the default namespace. However, certain capabilities, such as listing the Secrets or performing privileged actions like executing commands inside a running Pod’s container, are not allowed. These permissions are sometimes necessary, for example, when verifying private container image configurations that depend on specific Secrets.
 
 ```shell
 
@@ -152,9 +152,9 @@ Error from server (Forbidden): pods "default-notebook-0" is forbidden: User "sys
 Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "project-user-guoping-jia"
 ```
 
-Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of each authenticated user to the PCAI, apporach of changing this shared ClusterRole by adding addtional permissions should not be taken. Othewise, all the other users will get additional permissions in their Kubeflow Notebook servers, which does not comply with the principle of the least privilegs.  
+Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of each authenticated user to the PCAI, the apporach of changing this shared ClusterRole by adding addtional permissions should not be taken. Othewise, all the other users will get additional permissions in their Kubeflow Notebook servers, which does not comply with the principle of the least privilegs.  
 
-The following section describes an approach of creating a custom aggregated ClusterRole and easily extending it with additional permissions. 
+The following section describes an approach of creating a custom aggregated ClusterRole and easily extending it with additional permissions from a list of smaller, yet focused ClusterRoles. 
 
 * Create a *custom* version of ClusterRole *custom-kubeflow-edit* and apply it.
 
