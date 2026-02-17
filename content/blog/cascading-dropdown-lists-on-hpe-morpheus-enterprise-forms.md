@@ -136,13 +136,21 @@ Inputs should be created as shown below:
 A simple way to test Form Inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Form Inputs as Workflow Inputs.
 Navigate to **Library > Automation > Workflows**. Click **Add > Operational Workflow**. Provide **Test Inputs** as the **Name** and add **Country**, **State** and **City** to the type-ahead **Inputs** field:
 
-![](/img/execute_workflow.png)
+![](/img/new_workflow.png)
 
 Under **Library > Automation > Workflows**, click the name of the **Test Inputs** workflow. Click the **EXECUTE** button. Check that all 3 drop-downs contain data from the JSON Server endpoints:
 
+![](/img/execute_workflow.png)
+
 ## Filtering Data
 
-Now, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the slect country and state.
+When filtering, it is important to understand that Option Lists are populated through an inherent **results** object. This **results** construct consists of a list of **name** and **value** pairs.
+
+By default, the Option List is assigned the corresponding **name** and **value** JSON fields within the JSON list. Consider our country data:
+ 
+
+
+Now, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
 
 This section will look at the 2 available mechanisms for filtering Option List data based on the values of other Form Inputs, **Translation Scripts** and **Request Scripts**.
 
