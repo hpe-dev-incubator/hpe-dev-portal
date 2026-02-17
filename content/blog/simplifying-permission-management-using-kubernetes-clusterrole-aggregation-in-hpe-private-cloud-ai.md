@@ -359,10 +359,10 @@ root@default-notebook-0:/# exit
 exit
 ```
 
-### Granting user access to other namespace
+### Granting user access to other namespaces
 
 
-As another practical example of granting user permissions, this section describes another advanced permission requirement on accessing some other namespaces where some AI applications being deployed via PCAI Import Framework process and debugging any issue.
+As another practical example of granting user permissions, this section describes another advanced permission requirement on accessing some other namespaces where some AI applications being deployed via PCAI *Import Framework* process and debugging any issue.
 
 With default ClusterRole and RoleBinding settings, the authenticated user is not allowed to access other namespace, e.g., *custom-ns*. 
 
@@ -373,9 +373,11 @@ With default ClusterRole and RoleBinding settings, the authenticated user is not
 
 # kubectl create ns custom-ns
 namespace/custom-ns created
-# kubectl get ns | grep custom-ns
+# kubectl get ns custom-ns
 custom-ns                               Active   3s
 ```
+
+Below is the error if you try to access above newly created namespace.
 
 ```shell
 
@@ -387,7 +389,7 @@ Error from server (Forbidden): namespaces "custom-ns" is forbidden: User "system
 Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "pods" in API group "" in the namespace "custom-ns"
 ```
 
-Follow up below steps to grant user access to the namespace.
+You can follow up below steps to grant user access to other namespace than his own namespace.
 
 * Create a RoleBinding *ns-default-editor* in the namespace *custom-ns* to bind the ClusterRole *default-editor* to the ServiceAccount *default-editor*. Apply it. 
 
@@ -432,13 +434,14 @@ NAME        STATUS   AGE
 custom-ns   Active   13m
 ```
 
-However, the user cann't list the Secrets in the namespace. Neither execute the commands in any running Pod's container.
+However, the user can not list the Secrets in the namespace. Neither execute the commands in any running Pod's container in the namespace.
 
 ```shell
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
 no
 (base) guoping-jia@default-notebook-0:~$ kubectl get secrets -n custom-ns
 Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "custom-ns"
+
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec -n custom-ns
 no
 ```
@@ -464,15 +467,19 @@ subjects:
   namespace: project-user-guoping-jia
 
 
-[root@ai-cluster cr-aggregate]# k apply -f ns-custom-editor.yaml
+[root@ai-cluster cr-aggregate]# kubectl apply -f ns-custom-editor.yaml
 rolebinding.rbac.authorization.k8s.io/custom-editor created
-[root@ai-cluster cr-aggregate]# k get rolebinding -n custom-ns
+
+
+[root@ai-cluster cr-aggregate]# kubectl get rolebinding -n custom-ns
 NAME             ROLE                               AGE
 custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
 
-* Verify the permissions.
+* Verify the access permissions.
+
+With one default RoleBinding to the ClusterRole *kubeflow-edit* and another RoleBinding to the custom ClusterRole *custom-editor* created in the namespace *custom-ns*, you can now list the Secrets and execute *bash* commands from a running Pod's container in the namespace.
 
 ```shell
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
