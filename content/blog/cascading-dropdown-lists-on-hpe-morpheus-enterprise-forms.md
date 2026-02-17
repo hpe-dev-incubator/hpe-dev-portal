@@ -165,10 +165,15 @@ By default, the Option List is assigned the corresponding **name** and **value**
 ]
 ```
 
-This issue with the above list is that the **value** key is missing, represented by an **id** property instead. This causes the HTML drop-down Option Tags to have null values:
+This issue with the above list is that the **value** key is missing, represented by an **id** property instead. This causes the HTML drop-down **option** tags to have null values:
+
+![](/img/dropdown_html_before.png)
+
+Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **Countries** Option List using the corresponding pencil icon on the right:
 
 
-Populating the Translation Script text box using the below code, causes the **results** object to be populated by javascript logic instead:
+
+Populating the **Translation Script** text box using the below code, causes the **results** object to be populated by javascript logic instead:
 
 ```
 for (var x = 0; x < data.length; x++) {
@@ -179,8 +184,6 @@ for (var x = 0; x < data.length; x++) {
 The above code loops through each entry in the **data** JSON list using a javascript for loop. For each entry, a **name** and **value** object is pushed onto the **results** list. This ensures that the **value** attribute is available on the **input** map for future filtering. 
 
 Inspecting the HTML element on the HPE Morpheus Enterprise UI page, reveals that the drop-down control is now correctly populated.
-
-
 
 At the moment, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
 
