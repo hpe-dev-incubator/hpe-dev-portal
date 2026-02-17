@@ -221,7 +221,7 @@ As before, we loop through the **data** set and push entries onto the **results*
 
 To trigger the refresh of the **STATE** drop-down field, navigate to **Library > Options > Inputs** and edit the **State** Input. Set the value of the **DEPENDENT FIELD** to **country**. Click **SAVE CHANGES**:
 
-
+![](/img/dependent_on_country.png)
 
 Navigate back to **Library > Automation > Workflows** and open the workflow execution dialog for the Test Inputs workflow again. This time, **states** are filtered by the selected **country** value:
 
