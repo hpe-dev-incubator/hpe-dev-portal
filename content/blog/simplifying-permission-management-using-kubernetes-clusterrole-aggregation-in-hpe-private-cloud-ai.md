@@ -129,7 +129,7 @@ With default rolebinding binds to the ClusterRole *kubeflow-edit* in the namespa
 ### Granting additional permissions
 
 
-With the default RoleBinding in the namespace, a user can access most Kubernetes objects, including Pods and Secrets. However, they lack certain capabilities—such as listing all Secrets or performing privileged actions like executing commands inside a running Pod’s container. These permissions are sometimes necessary, for example, when verifying private container image configurations that depend on specific Secrets.
+With the default RoleBinding in the namespace, a user can access most K8s objects, including Pods and Secrets. However, they lack certain capabilities—such as listing all Secrets or performing privileged actions like executing commands inside a running Pod’s container. These permissions are sometimes necessary, for example, when verifying private container image configurations that depend on specific Secrets.
 
 ```shell
 
@@ -143,16 +143,20 @@ With the default RoleBinding in the namespace, a user can access most Kubernetes
 no
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec
 no
+
 (base) guoping-jia@default-notebook-0:~$ kubectl exec -it default-notebook-0 -- sh
 Error from server (Forbidden): pods "default-notebook-0" is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot create resource "pods/exec" in API group "" in the namespace "project-user-guoping-jia"
+
 
 (base) guoping-jia@default-notebook-0:~$ kubectl get secrets
 Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "project-user-guoping-jia"
 ```
 
-Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of each authenticated user to the PCAI, changing this shared ClusterRole by adding addtional permissions should not be taken. Othewise, all the other users will get additional permissions in their Kubeflow Notebook servers, which apparently is not expected. 
+Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of each authenticated user to the PCAI, apporach of changing this shared ClusterRole by adding addtional permissions should not be taken. Othewise, all the other users will get additional permissions in their Kubeflow Notebook servers, which does not comply with the principle of the least privilegs.  
 
-The following *custom* version of ClusterRole *kubeflow-edit* can be created.
+The following section describes an approach of creating a custom aggregated ClusterRole and easily extending it with additional permissions. 
+
+* Create a *custom* version of ClusterRole *custom-kubeflow-edit* and apply it.
 
 ```shell
 
@@ -168,73 +172,25 @@ aggregationRule:
   - matchLabels:
       rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"
 rules: []
-```
 
-The custom label, *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*, is defined in this ClusterRole. 
-
-Then create the follwing RoleBinding to bind the custom ClusterRole *custom-kubeflow-edit* to the ServiceAccount *default-editor* in the user's namespace. 
-
-```shell
-
-
-# cat custom-rolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: custom-editor
-  namespace: project-user-guoping-jia
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: custom-kubeflow-edit
-subjects:
-- kind: ServiceAccount
-  name: default-editor
-  namespace: project-user-guoping-jia
-```
-
-After apply the two YAML manifest files, the custom ClusterRole *custom-kubeflow-edit* has been created and the RoleBinding *custom-editor* has been created to bind the new ClusterRole to the ServiceAccount *default-editor*. 
-
-```shell
-
-# k apply -f custom-kubeflow-edit.yaml
+# kubectl apply -f custom-kubeflow-edit.yaml
 clusterrole.rbac.authorization.k8s.io/custom-kubeflow-edit created
 
-# k apply -f custom-rolebinding.yaml
-rolebinding.rbac.authorization.k8s.io/custom-editor created
-
-# k get clusterroles custom-kubeflow-edit
+# kubectl get clusterroles custom-kubeflow-edit
 NAME                   CREATED AT
 custom-kubeflow-edit   2026-02-17T10:43:00Z
-
-# k get rolebinding -n project-user-guoping-jia custom-editor
-NAME            ROLE                               AGE
-custom-editor   ClusterRole/custom-kubeflow-edit   84s                                                 2026-02-17T10:43:00Z
-
-
 ```
+
+The custom label, *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*, is defined in this ClusterRole, under its *aggregationRule* section. 
+
+Type the following command to check the *rules* section of the deployed ClusterRole *custom*.
 
 ```shell
-# k get clusterroles custom-kubeflow-edit -o yaml
-aggregationRule:
-  clusterRoleSelectors:
-  - matchLabels:
-      rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"aggregationRule":{"clusterRoleSelectors":[{"matchLabels":{"rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit":"true"}}]},"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"custom-kubeflow-edit"},"rules":[]}
-  creationTimestamp: "2026-02-17T10:43:00Z"
-  name: custom-kubeflow-edit
-  resourceVersion: "165357374"
-  uid: 18546166-c757-4cf4-8f08-07fe1548eeab
-rules: null
+# kubectl get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}' | jq .
+null
 ```
 
-
-
+* Create a ClusterRole *custom-list-secrets* for listing Secrets permissions and apply it.
 
 
 GitHub repository:  https://github.com/GuopingJia/aggregate-clusterroles
@@ -258,7 +214,37 @@ rules:
     verbs:
     - get
     - list
-[root@ai-cluster cr-aggregate]# cat custom-exec-pods.yaml
+
+# kubectl apply -f custom-list-secrets.yaml
+clusterrole.rbac.authorization.k8s.io/custom-list-secret created
+```
+
+The ClusterRole defines a label, *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*. 
+
+Type the following command to verify the list Secrets permissions has been picked up and merged in to the aggregated ClusterRole *custom-kubeflow-edit*.
+
+```shell
+# kubectl get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}' | jq .
+[
+  {
+    "apiGroups": [
+      ""
+    ],
+    "resources": [
+      "secrets"
+    ],
+    "verbs": [
+      "get",
+      "list"
+    ]
+  }
+]
+```
+
+* Create another ClusterRole *custom-list-secrets* for executing commands inside a Pod container, and apply it.
+
+```shell
+# cat custom-exec-pods.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -272,16 +258,73 @@ rules:
     - pods/exec
     verbs:
     - "*"
+
+# kubectl apply -f custom-exec-pods.yaml
+clusterrole.rbac.authorization.k8s.io/custom-exec-pods created
 ```
+
+Type the following command to verify the exec commands permissions have been also picked up and merged in to the aggregated ClusterRole *custom-kubeflow-edit*.
+
+```shell
+[root@ai-cluster cr-aggregate]# k get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}
+' | jq .
+[
+  {
+    "apiGroups": [
+      "*"
+    ],
+    "resources": [
+      "pods/exec"
+    ],
+    "verbs": [
+      "*"
+    ]
+  },
+  {
+    "apiGroups": [
+      ""
+    ],
+    "resources": [
+      "secrets"
+    ],
+    "verbs": [
+      "get",
+      "list"
+    ]
+  }
+]
+```
+
+* Create a RoleBinding to bind the custom ClusterRole *custom-kubeflow-edit* to the ServiceAccount *default-editor* in the user namespace *project-user-guoping-jia
+```*. 
 
 ```shell
 
 
-# k apply -f custom-list-secrets.yaml
-clusterrole.rbac.authorization.k8s.io/custom-list-secret created
-# k apply -f custom-exec-pods.yaml
-clusterrole.rbac.authorization.k8s.io/custom-exec-pods created
+# cat custom-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: custom-editor
+  namespace: project-user-guoping-jia
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: custom-kubeflow-edit
+subjects:
+- kind: ServiceAccount
+  name: default-editor
+  namespace: project-user-guoping-jia
+
+# kubectl apply -f custom-rolebinding.yaml
+rolebinding.rbac.authorization.k8s.io/custom-editor created
+
+# kubectl get rolebinding -n project-user-guoping-jia custom-editor
+NAME            ROLE                               AGE
+custom-editor   ClusterRole/custom-kubeflow-edit   84s                                                 2026-02-17T10:43:00Z
 ```
+
+
 
 
 ```shell
