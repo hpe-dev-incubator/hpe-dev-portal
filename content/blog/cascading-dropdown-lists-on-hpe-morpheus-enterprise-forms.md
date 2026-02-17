@@ -183,4 +183,16 @@ This section will look at the 2 available mechanisms for filtering Option List d
 
 Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **States** Option List using the corresponding pencil icon on the right:
 
- Add the following code to the :
+![](/img/edit_optionslist.png)
+
+ Add the following code to the **Translation Script** field and click Save Changes:
+
+```
+for (var i = 0; i < data.length; i++) {
+  if (data[i].countryId == input.country) {
+ 	 results.push({"name": data[i].name, "value": data[i].id})  
+  }
+}
+```
+
+![](/img/translation_script_code.png)
