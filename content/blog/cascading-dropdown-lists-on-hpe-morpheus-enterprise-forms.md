@@ -227,4 +227,4 @@ Navigate back to **Library > Automation > Workflows** and open the workflow exec
 
 ![](/img/filtered_states.png)
 
-### Filter the state by country, using a Translation Script
+### Filter the city by state, using a Request Script
