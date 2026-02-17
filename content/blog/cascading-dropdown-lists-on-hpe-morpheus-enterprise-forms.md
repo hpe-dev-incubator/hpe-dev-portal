@@ -173,9 +173,9 @@ for (var x = 0; x < data.length; x++) {
 }
 ```
 
+The above code loops through each entry in the **data** JSON list using a javascript for loop. For each entry, a **name** and **value** object is pushed onto the **results** list.
 
-
-Now, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
+At the moment, the state drop-down contains all states in the data source, regardless of which country is selected. Similarly, cities also remain unfiltered, regardless of the selected country and state.
 
 This section will look at the 2 available mechanisms for filtering Option List data based on the values of other Form Inputs, **Translation Scripts** and **Request Scripts**.
 
