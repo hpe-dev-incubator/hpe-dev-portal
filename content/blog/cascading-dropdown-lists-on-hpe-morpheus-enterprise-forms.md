@@ -167,7 +167,11 @@ By default, the Option List is assigned the corresponding **name** and **value**
 
 This issue with the above list is that the **value** key is missing, represented by an **id** property instead. Populating the Translation Script text box using the below code, causes the **results** object to be populated by javascript logic instead:
 
-
+```
+for (var x = 0; x < data.length; x++) {
+  results.push({"name": data[x].name,"value": data[x].id})
+}
+```
 
 
 
