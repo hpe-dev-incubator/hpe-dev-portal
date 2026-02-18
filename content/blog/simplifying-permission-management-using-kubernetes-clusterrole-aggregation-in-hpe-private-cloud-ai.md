@@ -11,6 +11,8 @@ tags:
   - Role-based Access Control
   - ClusterRole
   - Kubeflow Notebooks
+  - Aggregated ClusterRole
+  - Jupyter Notebook
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
  
@@ -331,9 +333,9 @@ root@default-notebook-0:/#
 ### Granting user access to other namespaces
 
 
-As another practical example of granting user permissions, this section describes another advanced permission requirement on accessing some other namespaces where some AI applications being deployed via PCAI *Import Framework* process and debugging any issue.
+As another practical example of granting user permissions, this section describes an advanced permission requirement: enabling user access to a specific namespace that differs from the user's default namespace. In this additional namespace, AI applications are deployed through the PCAI *Import Framework*, and access may be required for debugging or inspection.
 
-With default ClusterRole and RoleBinding settings, the authenticated user is not allowed to access other namespace, e.g., *custom-ns*. 
+Under the default ClusterRole and RoleBinding configuration in the Jupyter notebook environment, an authenticated user is restricted to their own default namespace. They are not permitted to access other namespaces, such as *'custom-ns'*. 
 
 ```shell
 
@@ -346,7 +348,7 @@ namespace/custom-ns created
 custom-ns                               Active   3s
 ```
 
-Below is the error if you try to access above newly created namespace in Notebook server's terminal.
+The following error appears when attempting to access the newly created namespace from the Jupyter notebook terminal.
 
 ```shell
 
@@ -498,10 +500,8 @@ exit
 ```
 
 ### Conclusion
- 
-This blog post discussed how to simplify permission management accessing K8s resources in HPE PCAI. By using aggregate ClusterRoles, permission management with Kubernetes RBAC becomes more flexible and extensible. When you need to grant users additional permissions for new resources or namespaces, this mechanism automates and simplifies what would otherwise require manually updating existing roles. 
 
-This blog post explored how permission management for accessing K8s resources in HPE PCAI can be significantly streamlined through the use of ClusterRole aggregation. This approach makes K8s RBAC more flexible and extensible by automatically incorporating new permissions as additional roles are introduced, eliminating the need for manual updates. At its core, K8s RBAC serves as the cluster’s gatekeeper, ensuring every user and service receives precisely the access they require. With ClusterRole aggregation, that model becomes even easier to manage, allowing roles to be combined dynamically and keeping permissions clean, scalable, and secure as new capabilities are added.
+This blog post explored and demonstrated how permission management for accessing K8s resources in the HPE Private Cloud AI environment can be simplified and streamlined through ClusterRole aggregation. When additional permissions are required, they can be defined as independent, purpose‑built ClusterRoles, which are then automatically aggregated by applying the appropriate labels to the aggregate ClusterRoles. This avoids modifying existing ClusterRoles for every new permission request and reduces RBAC maintenance overhead. With aggregated ClusterRoles, RBAC becomes more flexible and extensible, eliminating the manual updates traditionally required. Managing smaller, focused roles results in a more scalable and maintainable authorization model.
 
  
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
