@@ -242,3 +242,13 @@ To implement URL request parameter filtering on the **cities** Option Source, na
 `results.push({ name: 'stateId', value: data.state || "NoState" });`
 
 ![](/img/request_script.png)
+
+This line of code effectively sets the **stateId** request parameter to the value of the **state** Form Input, or to "NoState" if no state is selected. The reason for this is that a blank **stateId** request parameter value causes JSON Server to remove the filter entirely.
+
+To trigger the refresh of **cities** upon the selection of a **state**, navigate to **Library > Options > Inputs** and edit the **State** input using the pencil icon on the right. Set the value of the **DEPENDENT FIELD** to **state**. Click **SAVE CHANGES**:
+
+![](/img/dependent_on_state.png)
+
+The selection of city, is now based on state, which is based on the selected country. Navigate back to **Library > Automation > Workflows** and open the workflow execution dialog for the **Test Inputs** workflow again. This time, **cities** are filtered by the selected **state** value:
+
+![](/img/country_state_city.png)
