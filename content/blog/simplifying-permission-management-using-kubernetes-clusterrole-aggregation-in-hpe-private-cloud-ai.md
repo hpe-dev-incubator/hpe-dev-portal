@@ -84,7 +84,7 @@ With this default RoleBinding, which grants the ClusterRole *'kubeflow-edit'* wi
 
 ![](/img/notebook-server-terminal.png) 
 
-### Permission management in Jupyter notebook terminal access
+### Permission management for K8s access in Jupyter notebook terminal
 
 
 
@@ -118,7 +118,7 @@ Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of e
 
 Considering the fact that the ClusterRole *'kubeflow-edit'* is bound to the ServiceAccount of every authenticated PCAI user, modifying this shared ClusterRole to add additional permissions is not an appropriate approach. Doing so would grant all users elevated privileges in their Jupyter notebooks, which violates the principle of least privilege.
 
-The following section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRoles and RoleBindings referecned here are from the [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). 
+The following section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRoles and RoleBindings referenced here are from the [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). Remember to replace the project's user namespace with your own if you plan to configure this for for your Jupyter notebook.
 
 * Create a *custom* version of ClusterRole *custom-kubeflow-edit* and apply it.
 
@@ -360,9 +360,7 @@ Error from server (Forbidden): namespaces "custom-ns" is forbidden: User "system
 Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "pods" in API group "" in the namespace "custom-ns"
 ```
 
-You can follow up below steps to grant user access to other namespace than his own namespace.
-
-* Create a RoleBinding *ns-default-editor* in the namespace *custom-ns* to bind the ClusterRole *default-editor* to the ServiceAccount *default-editor*. Apply it. 
+The user access to other namespace than his default namespace can be granted by creating a RoleBinding named *'ns-default-editor'*.
 
 ```shell
 
@@ -384,7 +382,13 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
+```
 
+The RoleBinding *ns-default-editor* binds the ClusterRole *kubeflow-edit* to the ServiceAccount *default-editor* in the namespace *custom-ns*. 
+
+Create this RoleBinding in the namespace *custom-ns*.
+
+```shell
 
 # kubectl apply -f ns-default-editor.yaml
 rolebinding.rbac.authorization.k8s.io/default-editor created
@@ -395,7 +399,7 @@ NAME             ROLE                        AGE
 default-editor   ClusterRole/kubeflow-edit   10s
 ```
 
-* Verify the namespace access.
+Then verify that the user can now access the namespace.
 
 ```shell
 
@@ -417,7 +421,7 @@ Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount
 no
 ```
 
-* Create another RoleBinding *ns-custom-editor* in the namespace *custom-ns* to bind the ClusterRole *custom-editor* to the ServiceAccount *default-editor* in the namespace *custom-ns*. Apply it. 
+Those additional permissions in the namespace can be added by creating another RoleBinding *'ns-custom-editor'*.
 
 ```shell
 
@@ -436,7 +440,13 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
+```
 
+The RoleBinding *ns-custom-editor* binds the ClusterRole *custom-kubeflow-edit* to the ServiceAccount *default-editor* in the namespace *custom-ns*. 
+
+Create this RoleBinding in the namespace *custom-ns*.
+
+```shell
 
 [root@ai-cluster cr-aggregate]# kubectl apply -f ns-custom-editor.yaml
 rolebinding.rbac.authorization.k8s.io/custom-editor created
@@ -448,7 +458,7 @@ custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
 
-* Verify the access permissions.
+The *'custom-kubeflow-edit'* is the aggregate ClusterRole created in the previous section. It has already two specific permissions aggregated, one is for listing Secrets resources and the other is for executing commands in Pod's container. You can verify that these two additional permissions have been added to the namespace *'custom-ns'*.
 
 With one default RoleBinding to the ClusterRole *kubeflow-edit* and another RoleBinding to the custom ClusterRole *custom-editor* created in the namespace *custom-ns*, you can now list the Secrets and execute *bash* commands from a running Pod's container in the namespace.
 
@@ -498,6 +508,8 @@ exit
 
 
 ```
+
+In case any additional permission needs to be added to the namespace, you can take the same process to define it as a specific-purpose ClusterRole with the appropriate label. Upon applying the ClusterRole, the permission will be automatically merged to the aggregated ClusterRole.
 
 ### Conclusion
 
