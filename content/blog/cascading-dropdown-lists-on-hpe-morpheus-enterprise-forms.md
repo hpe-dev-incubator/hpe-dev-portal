@@ -253,7 +253,7 @@ The selection of city, is now based on state, which is based on the selected cou
 
 ![](/img/country_state_city.png)
 
-## Compile and upload the Option Source Plugin
+## Explore, compile and upload the Option Source Plugin
 
 Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. Open the project directory and compile the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
@@ -288,3 +288,13 @@ for (var x = 0; x < data.length; x++) {
 The above code sets the ***name*** property of a city, to both the ***name*** and ***value*** of the city drop-down entry. You can verify this by opening the execution dialog of the ***Test Inputs*** workflow. Inspecting the HTML once a **city** is selected confirms this:
 
 ![](/img/cities_dropdown_html.png)
+
+Within the plugin code project, explore the **src > main > groovy > com > hpe > morpheus > demo** directory:
+
+
+
+
+
+
+
+**DemoOptionSourceProvider.groovy** class file.
