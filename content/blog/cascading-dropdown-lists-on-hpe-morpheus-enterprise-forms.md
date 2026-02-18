@@ -231,7 +231,7 @@ Navigate back to **Library > Automation > Workflows** and open the workflow exec
 
 Some REST web endpoints support filtering by URL parameters. For example, to filter **cities** by a **state** id of 3, the URL would look like this:
 
-` http://demojsonserver/cities?stateId=3`
+`http://demojsonserver/cities?stateId=3`
 
 Here is the GET request result:
 
@@ -252,3 +252,17 @@ To trigger the refresh of **cities** upon the selection of a **state**, navigate
 The selection of city, is now based on state, which is based on the selected country. Navigate back to **Library > Automation > Workflows** and open the workflow execution dialog for the **Test Inputs** workflow again. This time, **cities** are filtered by the selected **state** value:
 
 ![](/img/country_state_city.png)
+
+## Compile and upload the Option Source Plugin
+
+Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. Open the project directory and compile the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
+
+![](/img/compile_plugin.png)
+
+The compiled ***.jar*** file will be found in the ***build/libs*** subdirectory:
+
+![](/img/jar_file.png)
+
+Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > Add*** dialog. The Plugin should appear in the list as shown below:
+
+![](/img/uploaded_plugin.png)
