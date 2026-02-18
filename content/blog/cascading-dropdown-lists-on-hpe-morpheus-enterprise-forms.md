@@ -255,7 +255,23 @@ The selection of city, is now based on state, which is based on the selected cou
 
 ## Explore, compile and upload the Option Source Plugin
 
-Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. Open the project directory and compile the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
+Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. 
+
+Open the project directory using a simple IDE like Visual Studio code, or even a text editor tool. View the ***OptionsSourceDemoPlugin.groovy*** class file:
+
+![](/img/plugin_class.png)
+
+Lorum ipsum
+
+View the ***DemoOptionSourceProvider.groovy*** class file:
+
+![](/img/provider_class.png)
+
+Lorum Ipsum
+
+
+
+Open the project directory in a commandline terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
 ![](/img/compile_plugin.png)
 
