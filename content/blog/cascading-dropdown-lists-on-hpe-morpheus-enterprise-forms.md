@@ -228,3 +228,13 @@ Navigate back to **Library > Automation > Workflows** and open the workflow exec
 ![](/img/filtered_states.png)
 
 ### Filter the city by state, using a Request Script
+
+Some REST web endpoints support filtering by URL parameters. For example, to filter **cities** by a **state** id of 3, the URL would look like this:
+
+` http://demojsonserver/cities?stateId=3`
+
+Here is the GET request result:
+
+![](/img/cities_filtered_by_url.png)
+
+To implement this on the **cities** Option Source
