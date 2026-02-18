@@ -266,3 +266,25 @@ The compiled ***.jar*** file will be found in the ***build/libs*** subdirect
 Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > Add*** dialog. The Plugin should appear in the list as shown below:
 
 ![](/img/uploaded_plugin.png)
+
+Edit the uploaded plugin using the pencil icon to confirm that the ***Option Source Provider*** is present:
+
+![](/img/plugin_provider.png)
+
+## Add the Zip Code Option List and Input
+
+At the moment, only the name of the city is added to the ***City*** drop-down. This is due to the missing ***value*** property, as seen earlier with ***country*** and ***state***. 
+
+Add the following code snippet to the ***cities*** Option List ***TRANSLATION SCRIPT*** field by navigating to **Library** > **Options** > **Options Lists** and clicking the corresponding pencil icon on the right:
+
+```
+for (var x = 0; x < data.length; x++) {
+  results.push({"name": data[x].name,"value": data[x].name})
+}
+```
+
+![](/img/cities_translation_script.png)
+
+The above code sets the ***name*** property of a city, to both the ***name*** and ***value*** of the city drop-down entry. You can verify this by opening the execution dialog of the ***Test Inputs*** workflow. Inspecting the HTML once a **city** is selected confirms this:
+
+![](/img/cities_dropdown_html.png)
