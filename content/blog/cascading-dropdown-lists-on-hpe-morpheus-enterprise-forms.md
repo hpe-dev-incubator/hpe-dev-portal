@@ -238,3 +238,7 @@ Here is the GET request result:
 ![](/img/cities_filtered_by_url.png)
 
 To implement URL request parameter filtering on the **cities** Option Source, navigate to **Library** > **Options** > **Options Lists** and edit the **Cities** Option Source. Populate the **REQUEST SCRIPT** text box with the below code:
+
+`results.push({ name: 'stateId', value: data.state || "NoState" });`
+
+![](/img/request_script.png)
