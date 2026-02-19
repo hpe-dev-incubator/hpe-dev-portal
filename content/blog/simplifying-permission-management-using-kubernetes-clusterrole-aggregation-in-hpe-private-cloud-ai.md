@@ -15,6 +15,8 @@ tags:
   - RoleBinding
   - Jupyter Notebook
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to precise permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing K8s Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
 
 This blog post introduces ClusterRole aggregation as an effective way to simplify that challenge. It explains the key concepts and advantages of aggregated ClusterRoles and shows how they streamline permission management by reducing manual RBAC updates on existing roles. The post also provides practical examples of applying ClusterRole aggregation in the HPE Private Cloud AI (PCAI) environment, demonstrating how this approach makes RBAC administration more scalable, maintainable, and efficient.
