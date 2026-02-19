@@ -45,12 +45,14 @@ The following sections will show you some practical examples of permission manag
 
 ### HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a turnkey, enterprise‑ready platform that brings together HPE and NVIDIA technologies to simplify and accelerate the deployment of AI workloads by running them on a K8s foundation. By leveraging standard K8s constructs, AI models, inference services, and supporting components are deployed into dedicated K8s namespaces in PCAI for clean resource separation, scalability, and lifecycle management. As part of its user‑centric design, PCAI automatically provisions a default Jupyter notebook environment for each authenticated user, running as a containerized Pod inside that user’s personal K8s namespace, providing an isolated workspace for experimentation, data preparation, and model development.
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a turnkey, enterprise‑ready platform that integrates HPE and NVIDIA technologies to simplify and accelerate AI workload deployment on a K8s foundation. By leveraging standard K8s constructs, PCAI deploys AI models, inference services, and supporting AI/ML components into dedicated K8s namespaces, ensuring clean resource separation, scalability, and lifecycle management. 
+
+As part of its user‑centric design, PCAI automatically provisions a default Jupyter notebook environment for each authenticated user. This Jupyter notebook runs as a containerized Pod within the user’s personal K8s namespace, providing an isolated workspace for experimentation, data preparation, and model development.
 
 
-### Kubeflow Notebook server
+#### Kubeflow Notebooks
 
-As part of a suite of pre‑integrated tools in PCAI, Kubeflow has been deployed, along with a set of custom resource definitions (CRDs) and built‑in ClusterRoles. These ClusterRoles follow K8s standard role patterns, *kubeflow-view*, *kubeflow-edit*, and *kubeflow-admin*, and can be assigned by cluster administrators to users or ServiceAccounts to manage access control within the cluster.
+As part of the pre‑integrated toolset in PCAI, [Kubeflow](https://www.kubeflow.org/) is deployed along with its associated custom resource definitions (CRDs) and built‑in ClusterRoles. These ClusterRoles follow K8s standard role patterns, *kubeflow-view*, *kubeflow-edit*, and *kubeflow-admin*, and can be assigned by cluster administrators to users or ServiceAccounts to manage access control within the cluster.
 
 ```shell
 
@@ -62,11 +64,11 @@ kubeflow-view                                                          2025-11-2
 
 ```
 
-When a user logs into PCAI, a default Jupyter notebook named *'default-notebook'* is already present under *Notebook Servers*. It has been pre-created using the tensorflow image through Kubeflow Notebooks, and is deployed within the user's dedicated project namespace, for example *'project-user-guoping-jia'*. 
+When a user logs into PCAI, a default Jupyter notebook named *'default-notebook'* is already available under *Notebook Servers*. This Jupyter notebook is pre-created using the tensorflow image through Kubeflow Notebooks and is deployed within the user's dedicated project namespace, such as *'project-user-guoping-jia'*. 
 
 ![](/img/kubeflow-notebooks.png) 
 
-Within this namespace, a RoleBinding named *'default-editor'* links the ServiceAccount *'default-editor'* to the Kubeflow ClusterRole *'kubeflow-edit'*. This ClusterRole provides the standard set of permissions required for typical Kubeflow operations. 
+Within this namespace, a RoleBinding named *'default-editor'* associaates the ServiceAccount *'default-editor'* with the Kubeflow ClusterRole *'kubeflow-edit'*. This ClusterRole grants the standard set of permissions required for typical Kubeflow operations. 
 
 
 ```shell
@@ -80,15 +82,13 @@ NAME                       ROLE                         �
 default-editor             ClusterRole/kubeflow-edit              24d
 ```
 
-With this default RoleBinding, which grants the ClusterRole *'kubeflow-edit'* within the namespace, the user can run *kubectl* commands from the Jupyter notebook terminal to acess most K8s objects, including Pods, Deployments, Services, and more.  
+With this default RoleBinding in place, the user obtains the *'kubeflow-edit'* permissions within the namespace and can run *kubectl* commands from the Jupyter notebook terminal to acess most K8s objects, including Pods, Deployments, Services, and more.  
 
 ![](/img/notebook-server-terminal.png) 
 
-### Permission management for K8s access in Jupyter notebook terminal
+#### Permission restriction in Jupyter notebook
 
-
-
-While the user can access most K8s objects in the namespace, certain operations remain restricted. For example, the user cannot list all Secrets or perform privileged actions such as executing commands inside a running Pod’s container. These elevated permissions are sometimes necessary, for instance when verifying private container image configurations that rely on specific Secrets or when debugging issues in a failed Pod.
+While the user can access most K8s objects in the project namespace, certain operations remain restricted. For example, they cannot list all Secrets or perform privileged actions such as executing commands inside a running Pod’s container. These elevated permissions are sometimes necessary, for instance, when verifying private container image configurations that rely on specific Secrets or when troubleshooting issues in a failed Pod.
 
 ```shell
 
@@ -111,14 +111,15 @@ Error from server (Forbidden): pods "default-notebook-0" is forbidden: User "sys
 Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "project-user-guoping-jia"
 ```
 
-Considering the ClusterRole *kubeflow-edit* is binded to the ServiceAccount of each authenticated user to the PCAI, the apporach of changing this shared ClusterRole by adding addtional permissions should not be taken. Othewise, all the other users will get additional permissions in their Kubeflow Notebook servers, which does not comply with the principle of the least privilegs.  
+### Permission management for Jupyter notebook terminal access
 
-
-#### Granting additional permissions
+This section explains how to grant addtional permissions in a Jupyter notebook environment using ClusterRole aggregation to simplify RBAC permission management. 
 
 Considering the fact that the ClusterRole *'kubeflow-edit'* is bound to the ServiceAccount of every authenticated PCAI user, modifying this shared ClusterRole to add additional permissions is not an appropriate approach. Doing so would grant all users elevated privileges in their Jupyter notebooks, which violates the principle of least privilege.
 
-The following section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRoles and RoleBindings referenced here are from the [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). Remember to replace the project's user namespace with your own if you plan to configure this for for your Jupyter notebook.
+#### Granting additional permissions
+
+This section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRoles and RoleBindings referenced here are from the [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). Remember to replace the project's user namespace with your own if you plan to configure this for for your Jupyter notebook.
 
 * Create a *custom* version of ClusterRole *custom-kubeflow-edit* and apply it.
 
@@ -140,9 +141,9 @@ aggregationRule:
 rules: []
 ```
 
-It should be noted that the **rules** field is empty with the label, *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*, being defined in this aggregate ClusterRole. The control plane will automatically fill in the *rules* field by merging the roles from other ClusterRoles matched with the defined label. Any values that you manually specify in the *rules* field of an aggregate ClusterRole will be overwritten. If you want to change or add rules, do so in the ClusterRole objects that are selected by the *aggregateRule*.
+Notice that the *'rules'* field in this aggregated ClusterRole is intentionally left empty, with only the label *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'* defined. The control plane automatically fills the *'rules'* field by merging permissions from other ClusterRoles that match this label. Any rules you manually add to an aggregateed ClusterRole will be overwritten. To modify or extend permissions, you must update or create the individual ClusterRole objects selected by the aggregation label.
 
-Apply the CluterRole to the cluster.
+Apply the aggregate CluterRole to the cluster.
 
 ```shell
 # kubectl apply -f custom-kubeflow-edit.yaml
@@ -513,7 +514,7 @@ In case any additional permission needs to be added to the namespace, you can ta
 
 ### Conclusion
 
-This blog post explored and demonstrated how permission management for accessing K8s resources in the HPE Private Cloud AI environment can be simplified and streamlined through ClusterRole aggregation. When additional permissions are required, they can be defined as independent, purpose‑built ClusterRoles, which are then automatically aggregated by applying the appropriate labels to the aggregate ClusterRoles. This avoids modifying existing ClusterRoles for every new permission request and reduces RBAC maintenance overhead. With aggregated ClusterRoles, RBAC becomes more flexible and extensible, eliminating the manual updates traditionally required. Managing smaller, focused roles results in a more scalable and maintainable authorization model.
+This blog post explored and demonstrated how permission management for accessing K8s resources in the HPE Private Cloud AI environment can be simplified and streamlined through ClusterRole aggregation. When additional permissions are required, they can be defined as independent, purpose‑built ClusterRoles, which are then automatically aggregated by applying the appropriate labels to the aggregate ClusterRole. This avoids modifying existing ClusterRoles for every new permission request and reduces RBAC maintenance overhead. With aggregated ClusterRoles, RBAC becomes more flexible and extensible, eliminating the manual updates traditionally required. Managing smaller, focused roles results in a more scalable and maintainable authorization model.
 
  
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
