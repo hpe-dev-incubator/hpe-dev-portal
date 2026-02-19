@@ -443,9 +443,9 @@ subjects:
   namespace: project-user-guoping-jia
 ```
 
-The RoleBinding *ns-custom-editor* binds the ClusterRole *custom-kubeflow-edit* to the ServiceAccount *default-editor* in the namespace *custom-ns*. 
+The RoleBinding *'ns-custom-editor'* binds the aggregated ClusterRole *'custom-kubeflow-edit'*, created in the previous section, to the ServiceAccount *'default-editor'* in the namespace *'custom-ns'*. 
 
-Create this RoleBinding in the namespace *custom-ns*.
+Run the following command to create this RoleBinding in the namespace *'custom-ns'*.
 
 ```shell
 
@@ -459,9 +459,7 @@ custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
 
-The *'custom-kubeflow-edit'* is the aggregate ClusterRole created in the previous section. It has already two specific permissions aggregated, one is for listing Secrets resources and the other is for executing commands in Pod's container. You can verify that these two additional permissions have been added to the namespace *'custom-ns'*.
-
-With one default RoleBinding to the ClusterRole *kubeflow-edit* and another RoleBinding to the custom ClusterRole *custom-editor* created in the namespace *custom-ns*, you can now list the Secrets and execute *bash* commands from a running Pod's container in the namespace.
+With th RoleBinding *'custom-editor'* in place, binding the aggregate ClusterRole *'custom-kubeflow-edit'*, which already includes two additional permissions, you can now verify that both listing the Secrets and executing *bash* command inside a running Pod's container work as expected in the namespace *'custom-ns'*.
 
 ```shell
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
@@ -510,7 +508,7 @@ exit
 
 ```
 
-In case any additional permission needs to be added to the namespace, you can take the same process to define it as a specific-purpose ClusterRole with the appropriate label. Upon applying the ClusterRole, the permission will be automatically merged to the aggregated ClusterRole.
+If additional permission are needed in the namespace, you can follow the same approach by defining a purpose-specific ClusterRole with the appropriate aggregation label. Once the ClusterRole is applied, its permissions will be automatically merged into the aggregated ClusterRole.
 
 ### Conclusion
 
