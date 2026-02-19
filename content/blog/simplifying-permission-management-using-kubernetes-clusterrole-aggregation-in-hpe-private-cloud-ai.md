@@ -14,9 +14,7 @@ tags:
   - Aggregated ClusterRole
   - Jupyter Notebook
 ---
-<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
- 
-When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to precise permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
+When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to precise permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing K8s Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
 
 This blog post introduces ClusterRole aggregation as an effective way to simplify that challenge. It explains the key concepts and advantages of aggregated ClusterRoles and shows how they streamline permission management by reducing manual RBAC updates on existing roles. The post also provides practical examples of applying ClusterRole aggregation in the HPE Private Cloud AI (PCAI) environment, demonstrating how this approach makes RBAC administration more scalable, maintainable, and efficient.
 
@@ -35,13 +33,13 @@ To address these challenges as environments grow and the number of roles increas
 
 ### What is ClusterRole aggregation?
 
-[ClusterRole aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles), introduced in K8s v1.9, is a mechanism that automatically aggregates several ClusterRoles into one combined ClusterRole based on label selectors. A controller, running in the cluster control plane, watches for ClusterRole objects that define an *aggregationRule*. This role specifies a set of label selectors that the controller uses to match other ClusterRoles whose roles should be merged into the *rules* field of the aggregated ClusterRole. The resulting ClusterRole is dynamically constructed by combining the permissions of all matching roles. 
+[ClusterRole aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles), introduced in K8s v1.9, is a mechanism that automatically aggregates several ClusterRoles into one combined ClusterRole based on label selectors. A controller, running in the cluster control plane, watches for ClusterRole objects that define an *aggregationRule*. This rule specifies a set of label selectors that the controller uses to match other ClusterRoles whose rules should be merged into the *rules* field of the aggregated ClusterRole. The resulting ClusterRole is dynamically constructed by combining the permissions of all matching rules. 
 
 K8s ships with several built-in *user-facing* roles, such as *view*, *edit* and *admin*, implemented using this aggregation mechanism. These default roles represent common permission tiers, ranging from ready-only access to full namespac-level administratrive capabilities. They are automatically assembled by the controller using labels of the form *'rbac.authorization.k8s.io/aggregate-to-'*.
 
 When additional permissions are required, cluster administrators can define them as standalone ClusterRoles and apply the appropriate label. The controller will automatically incorporate these roles into the corresponding aggregated roles (e.g., *edit*, *view*), eliminating the need to manually modify existing ClusterRoles whenever new access requirements arise. This approach shifts the operational focus toward managing small, purpose‑specific roles that are automatically composed into higher‑level permission sets, making RBAC policy management more scalable, maintainable, and efficient.
 
-The following sections will show you some practical examples of permission management using ClusterRole aggregation in HPE PCAI environment.
+The following sections will show you some practical examples of permission management using ClusterRole aggregation in the HPE PCAI environment.
 
 ### HPE Private Cloud AI
 
@@ -64,11 +62,11 @@ kubeflow-view                                                          2025-11-2
 
 ```
 
-When a user logs into PCAI, a default Jupyter notebook named *'default-notebook'* is already available under *Notebook Servers*. This Jupyter notebook is pre-created using the tensorflow image through Kubeflow Notebooks and is deployed within the user's dedicated project namespace, such as *'project-user-guoping-jia'*. 
+When a user logs into PCAI, a default Jupyter notebook named *'default-notebook'* is already available under **Notebook Servers**. This Jupyter notebook is pre-created using the tensorflow image through Kubeflow Notebooks and is deployed within the user's dedicated project namespace, such as *'project-user-guoping-jia'*. 
 
 ![](/img/kubeflow-notebooks.png) 
 
-Within this namespace, a RoleBinding named *'default-editor'* associaates the ServiceAccount *'default-editor'* with the Kubeflow ClusterRole *'kubeflow-edit'*. This ClusterRole grants the standard set of permissions required for typical Kubeflow operations. 
+Within this namespace, a RoleBinding named *'default-editor'* associates the ServiceAccount *'default-editor'* with the Kubeflow ClusterRole *'kubeflow-edit'*. This ClusterRole grants the standard set of permissions required for typical Kubeflow operations. 
 
 
 ```shell
@@ -102,10 +100,8 @@ While the user can access most K8s objects in the project namespace, certain ope
 no
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec
 no
-
 (base) guoping-jia@default-notebook-0:~$ kubectl exec -it default-notebook-0 -- sh
 Error from server (Forbidden): pods "default-notebook-0" is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot create resource "pods/exec" in API group "" in the namespace "project-user-guoping-jia"
-
 
 (base) guoping-jia@default-notebook-0:~$ kubectl get secrets
 Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "secrets" in API group "" in the namespace "project-user-guoping-jia"
@@ -113,17 +109,17 @@ Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount
 
 ### Permission management for Jupyter notebook terminal access
 
-This section explains how to grant addtional permissions in a Jupyter notebook environment using ClusterRole aggregation to simplify RBAC permission management. 
+This section explains how to grant additional permissions in a Jupyter notebook environment using ClusterRole aggregation to simplify RBAC permission management. 
 
 Considering the fact that the ClusterRole *'kubeflow-edit'* is bound to the ServiceAccount of every authenticated PCAI user, modifying this shared ClusterRole to add additional permissions is not an appropriate approach. Doing so would grant all users elevated privileges in their Jupyter notebooks, which violates the principle of least privilege.
 
 #### Granting additional permissions
 
-This section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRoles and RoleBindings referenced here are from the [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). Remember to replace the project's user namespace with your own if you plan to configure this for for your Jupyter notebook.
+This section outlines an approach for creating a custom aggregated ClusterRole that can be easily extended with additional permissions from a set of smaller, purpose-specific ClusterRoles. All ClusterRole and RoleBinding YAML manifest files referenced here are available from [my GitHub repository](https://github.com/GuopingJia/aggregate-clusterroles). Remember to replace the project's user namespace with your own if you plan to configure this for your Jupyter notebook.
 
-* Create a *custom* version of ClusterRole *custom-kubeflow-edit* and apply it.
+* Create a *custom* version of ClusterRole *'custom-kubeflow-edit'*. Apply it.
 
-Create the following aggregate ClusterRole *'custom-kubeflow-edit'*. 
+Create the following aggregated ClusterRole named *'custom-kubeflow-edit'*. 
 
 ```shell
 
@@ -141,9 +137,9 @@ aggregationRule:
 rules: []
 ```
 
-Notice that the *'rules'* field in this aggregated ClusterRole is intentionally left empty, with only the label *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'* defined. The control plane automatically fills the *'rules'* field by merging permissions from other ClusterRoles that match this label. Any rules you manually add to an aggregateed ClusterRole will be overwritten. To modify or extend permissions, you must update or create the individual ClusterRole objects selected by the aggregation label.
+Notice that the *'rules'* field in this aggregated ClusterRole is intentionally left empty, with only the label *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'* defined. The control plane automatically fills the *'rules'* field by merging permissions from other ClusterRoles that match this label. Any rules you manually add to an aggregated ClusterRole will be overwritten. To modify or extend permissions, you must update or create the individual ClusterRole objects selected by the aggregation label.
 
-Apply the aggregate CluterRole to the cluster.
+Apply the aggregated CluterRole to the cluster.
 
 ```shell
 # kubectl apply -f custom-kubeflow-edit.yaml
@@ -161,8 +157,7 @@ Type the following command to check the *'rules'* section of the deployed Cluste
 null
 ```
 
-* Create a ClusterRole *custom-list-secrets* for listing Secrets permissions and apply it.
-
+* Create a ClusterRole *'custom-list-secrets'* to grant permission for listing Secrets. 
 
 
 
@@ -190,9 +185,9 @@ rules:
 clusterrole.rbac.authorization.k8s.io/custom-list-secret created
 ```
 
-The ClusterRole defines a label, *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*. 
+The ClusterRole includes the label *'rbac.authorization.kubeflow.org/aggregate-to-custom-kubeflow-edit: "true"'*. 
 
-Type the following command to verify the list Secrets permissions has been picked up and merged in to the aggregated ClusterRole *custom-kubeflow-edit*.
+Run the following command to verify that permission to list Secrets has been picked up and merged into the aggregated ClusterRole *'custom-kubeflow-edit'*.
 
 ```shell
 # kubectl get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}' | jq .
@@ -212,7 +207,7 @@ Type the following command to verify the list Secrets permissions has been picke
 ]
 ```
 
-* Create another ClusterRole *custom-list-secrets* for executing commands inside a Pod container, and apply it.
+* Create another ClusterRole *'custom-exec-pods'* to grant permission for executing commands inside a running Pod's container.
 
 ```shell
 # cat custom-exec-pods.yaml
@@ -234,10 +229,10 @@ rules:
 clusterrole.rbac.authorization.k8s.io/custom-exec-pods created
 ```
 
-Type the following command to verify the exec commands permissions have been also picked up and merged in to the aggregated ClusterRole *custom-kubeflow-edit*.
+Run the following command to verify that the exec-command permissions have also been picked up and merged into the aggregated ClusterRole *'custom-kubeflow-edit'*.
 
 ```shell
-[root@ai-cluster cr-aggregate]# k get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}
+# kubectl get clusterrole custom-kubeflow-edit -o jsonpath='{.rules}
 ' | jq .
 [
   {
@@ -266,8 +261,7 @@ Type the following command to verify the exec commands permissions have been als
 ]
 ```
 
-* Create a RoleBinding to bind the custom ClusterRole *custom-kubeflow-edit* to the ServiceAccount *default-editor* in the user namespace *project-user-guoping-jia
-*. 
+* Create a RoleBinding *'custom-editor'* to bind the custom ClusterRole *'custom-kubeflow-edit'* to the ServiceAccount *'default-editor'* in the user namespace *'project-user-guoping-jia'*. 
 
 ```shell
 
@@ -297,7 +291,7 @@ custom-editor   ClusterRole/custom-kubeflow-edit   84s                          
 
 * Verify the added permissions
 
-From Kubeflow Notebook server's terminal, you should be able to list the Secrets and execute the *bash* command in the Pods's container.  
+From the Jupyter notebook terminal, you should now be able to list Secrets and execute *bash* commands inside a running Pods's container within the namespace.  
 
 ```shell
 
@@ -308,7 +302,7 @@ yes
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i get pods --subresource=exec
 yes
 
-(base) guoping-jia@default-notebook-0:~$ 
+
 
 
 (base) guoping-jia@default-notebook-0:~$ kubectl get secrets
@@ -331,12 +325,12 @@ exit
 root@default-notebook-0:/# 
 ```
 
-### Granting user access to other namespaces
+#### Granting user access to other namespaces
 
 
-As another practical example of granting user permissions, this section describes an advanced permission requirement: enabling user access to a specific namespace that differs from the user's default namespace. In this additional namespace, AI applications are deployed through the PCAI *Import Framework*, and access may be required for debugging or inspection.
+As another practical example of permission management, this section describes an advanced permission requirement: allowing a user to access a namespace other than their default one. In this additional namespace, AI applications may be deployed, for example through the PCAI *Import Framework*, and users may need access for debugging or inspection.
 
-Under the default ClusterRole and RoleBinding configuration in the Jupyter notebook environment, an authenticated user is restricted to their own default namespace. They are not permitted to access other namespaces, such as *'custom-ns'*. 
+By default, the ClusterRole and RoleBinding configuration applied in the Jupyter notebook environment restricts each authenticated user to their own namespace. They are not permitted to access other namespaces, such as *'custom-ns'*, unless additional permissions are explicitly granted. 
 
 ```shell
 
@@ -361,7 +355,7 @@ Error from server (Forbidden): namespaces "custom-ns" is forbidden: User "system
 Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:project-user-guoping-jia:default-editor" cannot list resource "pods" in API group "" in the namespace "custom-ns"
 ```
 
-The user access to other namespace than his default namespace can be granted by creating a RoleBinding named *'ns-default-editor'*.
+The user access to other namespace can be granted by creating a RoleBinding named *'default-editor'*.
 
 ```shell
 
@@ -383,13 +377,7 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
-```
 
-The RoleBinding *ns-default-editor* binds the ClusterRole *kubeflow-edit* to the ServiceAccount *default-editor* in the namespace *custom-ns*. 
-
-Create this RoleBinding in the namespace *custom-ns*.
-
-```shell
 
 # kubectl apply -f ns-default-editor.yaml
 rolebinding.rbac.authorization.k8s.io/default-editor created
@@ -400,7 +388,9 @@ NAME             ROLE                        AGE
 default-editor   ClusterRole/kubeflow-edit   10s
 ```
 
-Then verify that the user can now access the namespace.
+The RoleBinding *'ns-default-editor'* binds the ClusterRole *kubeflow-edit* to the ServiceAccount *default-editor* in the namespace *custom-ns*. 
+
+Run the following commands to verify that the user can now access the namespace *'custom-ns'*.
 
 ```shell
 
@@ -410,7 +400,7 @@ NAME        STATUS   AGE
 custom-ns   Active   13m
 ```
 
-However, the user can not list the Secrets in the namespace. Neither execute the commands in any running Pod's container in the namespace.
+However, the user cannot list Secrets in the namespace *'custom-ns'*, nor can they execute the commands inside any running Pod's container within that namespace.
 
 ```shell
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
@@ -422,12 +412,12 @@ Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount
 no
 ```
 
-Those additional permissions in the namespace can be added by creating another RoleBinding *'ns-custom-editor'*.
+You can add these additional permissions to the namespace by creating another RoleBinding named *'ns-custom-editor'*.
 
 ```shell
 
 
-[root@ai-cluster cr-aggregate]# cat ns-custom-editor.yaml
+# cat ns-custom-editor.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -441,23 +431,20 @@ subjects:
 - kind: ServiceAccount
   name: default-editor
   namespace: project-user-guoping-jia
-```
 
-The RoleBinding *'ns-custom-editor'* binds the aggregated ClusterRole *'custom-kubeflow-edit'*, created in the previous section, to the ServiceAccount *'default-editor'* in the namespace *'custom-ns'*. 
 
-Run the following command to create this RoleBinding in the namespace *'custom-ns'*.
-
-```shell
-
-[root@ai-cluster cr-aggregate]# kubectl apply -f ns-custom-editor.yaml
+# kubectl apply -f ns-custom-editor.yaml
 rolebinding.rbac.authorization.k8s.io/custom-editor created
 
 
-[root@ai-cluster cr-aggregate]# kubectl get rolebinding -n custom-ns
+# kubectl get rolebinding -n custom-ns
 NAME             ROLE                               AGE
 custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
+```
+
+The RoleBinding *'custom-editor'* binds the aggregated ClusterRole *'custom-kubeflow-edit'*, created in the previous section, to the ServiceAccount *'default-editor'* in the namespace *'custom-ns'*. 
 
 With th RoleBinding *'custom-editor'* in place, binding the aggregate ClusterRole *'custom-kubeflow-edit'*, which already includes two additional permissions, you can now verify that both listing the Secrets and executing *bash* command inside a running Pod's container work as expected in the namespace *'custom-ns'*.
 
