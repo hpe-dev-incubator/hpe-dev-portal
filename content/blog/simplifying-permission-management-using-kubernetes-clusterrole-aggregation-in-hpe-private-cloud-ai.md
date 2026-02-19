@@ -12,6 +12,7 @@ tags:
   - ClusterRole
   - Kubeflow Notebooks
   - Aggregated ClusterRole
+  - RoleBinding
   - Jupyter Notebook
 ---
 When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to precise permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing K8s Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
@@ -412,7 +413,7 @@ Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount
 no
 ```
 
-You can add these additional permissions to the namespace by creating another RoleBinding named *'ns-custom-editor'*.
+You can add these additional permissions to the namespace *'custom-ns'* by creating another RoleBinding named *'custom-editor'*.
 
 ```shell
 
@@ -442,11 +443,10 @@ NAME             ROLE                               AGE
 custom-editor    ClusterRole/custom-kubeflow-edit   8s
 default-editor   ClusterRole/kubeflow-edit          12m
 ```
-```
 
 The RoleBinding *'custom-editor'* binds the aggregated ClusterRole *'custom-kubeflow-edit'*, created in the previous section, to the ServiceAccount *'default-editor'* in the namespace *'custom-ns'*. 
 
-With th RoleBinding *'custom-editor'* in place, binding the aggregate ClusterRole *'custom-kubeflow-edit'*, which already includes two additional permissions, you can now verify that both listing the Secrets and executing *bash* command inside a running Pod's container work as expected in the namespace *'custom-ns'*.
+With the RoleBinding *'custom-editor'* in place, and with the ClusterRole *'custom-kubeflow-edit'* already incorporating the two additional permissions, you can now confirm that both listing the Secrets and executing *bash* command inside a running Pod's container work as expected in the namespace *'custom-ns'*.
 
 ```shell
 (base) guoping-jia@default-notebook-0:~$ kubectl auth can-i list secrets -n custom-ns
