@@ -360,7 +360,7 @@ Set the corresponding ***VISIBILITY FIELD*** values on the other inputs to make 
 
 ## Summary
 
-This post only explores HPE Morpheus Enterprise Inputs and Option lists and Option Source Provider Plugins. 
+This post only explores HPE Morpheus Enterprise Inputs and Option lists and Option Source Provider Plugins. Under ***Library > Options > Forms***, you can find more advanced Forms as collections of inputs.
 
 At the more advanced end of the spectrum are other Plugin Provider Types that model core infrastructure components. These include integrations for Clouds, Networks, Storage systems, and many others. Such Providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these Provider Types fit together is key to building powerful, production-grade Plugins.
 
