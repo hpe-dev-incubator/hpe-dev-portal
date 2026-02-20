@@ -13,11 +13,11 @@ This article focuses on demonstrating cascading (interdependent) drop-down lists
 
 ## Demo environment
 
-The demo environment for this consist of a **JSON Server** VM and an **HPE Morpheus Enterprise** appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+The demo environment for this consist of a **JSON Server** VM and an **HPE Morpheus Enterprise** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
 For the purposes of this article, the **JSON Server** was setup on a clean Debian 12 install, on the same network segment as the **HPE Morpheus Enterprise** appliance. Data for the **JSON Server** web endpoint below is supplied by a **locations.json** file. The content for this file can be found [here](https://github.com/neilvrhpe/OptionSourceDemo/blob/main/locations.json). 
 
-**JSON Server** was setup using the following commands:
+**JSON Server** v1.0.0 was setup using the following commands:
 
 `apt update
 apt install nodejs npm -y
@@ -269,8 +269,6 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 
 Lorum Ipsum
 
-
-
 Open the project directory in a commandline terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
 ![](/img/compile_plugin.png)
@@ -306,11 +304,5 @@ The above code sets the ***name*** property of a city, to both the ***name*** an
 ![](/img/cities_dropdown_html.png)
 
 Within the plugin code project, explore the **src > main > groovy > com > hpe > morpheus > demo** directory:
-
-
-
-
-
-
 
 **DemoOptionSourceProvider.groovy** class file.
