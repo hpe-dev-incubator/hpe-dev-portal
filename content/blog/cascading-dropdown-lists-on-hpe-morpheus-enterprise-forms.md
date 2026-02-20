@@ -308,15 +308,42 @@ The above code sets the ***name*** property of a city, to both the ***name*** an
 The ***listZipCodes*** method returns ***name*** and ***value*** pairs with the ***city name*** and the* **zip code value***. As the Request Script will match using the ***city name***, the value of the drop-down has to be the ***city name*** (not the city ***id***).
 
 Navigate to ***Library > Options > Option*** ***Lists*** and click ***Add***. Supply the field values as shown below:
-- - -
-
-|                    |                                 |
-| ------------------ | ------------------------------- |
-| **NAME:**          | Zip Codes                       |
-| **TYPE:**          | Plugin                          |
-| **OPTION LIST:**   | Option Source Demo: listZipCodes|
-
-
-
 
 - - -
+
+|                  |                                  |
+| ---------------- | -------------------------------- |
+| **NAME:**        | ZipCodes                         |
+| **TYPE:**        | Plugin                           |
+| **OPTION LIST:** | Option Source Demo: listZipCodes |
+
+\
+**TRANSLATION SCRIPT:**
+
+```
+for (var i = 0; i < data.length; i++) {
+  if (data[i].name == input.city) {
+ 	 results.push({"name": data[i].value, "value": data[i].value})  
+  }
+}
+```
+
+- - -
+
+The above populates the ***ZipCodes*** Option List with the ***zip code*** as both the ***name*** and ***value*** (the drop-down ***label*** and ***value***). Click ***SAVE CHANGES***
+
+![](/img/zipcodes_option_list.png)
+
+Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below field values:
+- - -
+|                       |             |
+| --------------------- | ----------- |
+| **NAME:**             | ZipCode     |
+| **FIELD NAME:**       | zipCode     |
+| **DEPENDENT FIELD:**  | city        |
+| **VISIBILITY FIELD:** | city        |
+| **TYPE:**             | Select List |
+| **LABEL:**            | Zip Code    |
+| **OPTION LIST:**      | ZipCodes    |
+- - -
+
