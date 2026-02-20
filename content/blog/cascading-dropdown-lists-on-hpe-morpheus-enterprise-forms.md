@@ -257,7 +257,7 @@ The selection of ***city***, is now based on ***state***, which is based on the 
 
 Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. 
 
-Open the project directory using a simple IDE like Visual Studio code, or even a text editor tool. View the ***OptionsSourceDemoPlugin.groovy*** class file:
+Open the project directory using a simple IDE like Visual Studio code, or even a text editor tool. Exxpand the ***src > main > groovy > com > hpe > morpheus > demo*** directory. View the ***OptionsSourceDemoPlugin.groovy*** class file:
 
 ![](/img/plugin_class.png)
 
@@ -267,7 +267,9 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 
 ![](/img/provider_class.png)
 
-This class extends AbstractOptionSourceProvider, which enables the plugin to 
+This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example there is only one method called ***listZipCodes*** which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easlity be retrieved from other systems via SDKs, APIs or database connections.
+
+For more information pertaining to the anatomy of HPE Moprpheus Enterprise Plugins, please refer to the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
 Open the project directory in a commandline terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
@@ -303,6 +305,18 @@ The above code sets the ***name*** property of a city, to both the ***name*** an
 
 ![](/img/cities_dropdown_html.png)
 
-Within the plugin code project, explore the **src > main > groovy > com > hpe > morpheus > demo** directory:
+The ***listZipCodes*** method returns ***name*** and ***value*** pairs with the ***city name*** and the* **zip code value***. As the Request Script will match using the ***city name***, the value of the drop-down has to be the ***city name*** (not the city ***id***).
 
-**DemoOptionSourceProvider.groovy** class file.
+Navigate to ***Library > Options > Option*** ***Lists*** and click ***Add***. Supply the field values as shown below:
+- - -
+
+|                    |                                 |
+| ------------------ | ------------------------------- |
+| **NAME:**          | Zip Codes                       |
+| **TYPE:**          | Plugin                          |
+| **OPTION LIST:**   | Option Source Demo: listZipCodes|
+
+
+
+
+- - -
