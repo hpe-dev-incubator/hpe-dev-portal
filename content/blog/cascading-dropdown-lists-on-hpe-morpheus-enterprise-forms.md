@@ -335,7 +335,9 @@ The above populates the ***ZipCodes*** Option List with the ***zip code*** as bo
 ![](/img/zipcodes_option_list.png)
 
 Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below field values:
+
 - - -
+
 |                       |             |
 | --------------------- | ----------- |
 | **NAME:**             | ZipCode     |
@@ -345,5 +347,9 @@ Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below 
 | **TYPE:**             | Select List |
 | **LABEL:**            | Zip Code    |
 | **OPTION LIST:**      | ZipCodes    |
+
 - - -
 
+![](/img/zipcodes_input.png)
+
+Navigate to ***Library > Automation > Workflows***, click the name of the ***Test Inputs*** workflow andf click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
