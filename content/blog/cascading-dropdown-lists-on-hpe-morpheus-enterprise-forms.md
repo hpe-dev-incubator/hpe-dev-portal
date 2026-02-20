@@ -353,3 +353,24 @@ Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below 
 ![](/img/zipcodes_input.png)
 
 Navigate to ***Library > Automation > Workflows***, click the name of the ***Test Inputs*** workflow andf click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
+
+![](/img/zipcode_dropdown.png)
+
+Set the corresponding ***VISIBILITY FIELD*** values on the other inputs to make the visibility of each subsequent drop-down depend on the one before. ***State to country***, and ***city to state***.
+
+## Summary
+
+This post only explores HPE Morpheus Enterprise Inputs and Option lists and Option Source Provider Plugins. 
+
+At the more advanced end of the spectrum are other Plugin Provider Types that model core infrastructure components. These include integrations for Clouds, Networks, Storage systems, and many others. Such Providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these Provider Types fit together is key to building powerful, production-grade Plugins.
+
+Explore the following resources for more information on the different Plugin/Provider types:
+
+[https://developer.morpheusdata.com](https://developer.morpheusdata.com/)
+
+[https://share.morpheusdata.com](https://share.morpheusdata.com/) (follow the repository link under the Plugin details to see the source code of a Plugin)
+
+<https://github.com/hewlettpackard> 
+
+<https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX>
+
