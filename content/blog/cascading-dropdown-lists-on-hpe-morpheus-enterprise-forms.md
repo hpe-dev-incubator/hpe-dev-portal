@@ -7,17 +7,17 @@ disable: false
 ---
 ## Introduction
 
-HPE Morpheus Enterprise enables the customization of form elements across instance provisioning, workflows, and service catalog items, providing greater flexibility and control. Drop-down lists can be populated using various types of option sources.
+HPE Morpheus Enterprise allows for the customization of form elements across instance provisioning, workflows, and service catalog items, providing greater flexibility and control. Drop-down lists can be populated using various types of option sources.
 
 This article focuses on demonstrating cascading (interdependent) drop-down lists using both REST-based and plugin-based option sources.
 
 ## Demo environment
 
-The demo environment for this consist of a **JSON Server** VM and an **HPE Morpheus Enterprise** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+The demo environment consists of a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x appliance. The development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
-For the purposes of this article, the **JSON Server** was setup on a clean Debian 12 install, on the same network segment as the **HPE Morpheus Enterprise** appliance. Data for the **JSON Server** web endpoint below is supplied by a **locations.json** file. The content for this file can be found [here](https://github.com/neilvrhpe/OptionSourceDemo/blob/main/locations.json). 
+For the purposes of this article, the ***JSON Server*** was setup on a clean Debian 12 install, on the same network segment as the ***HPE Morpheus Enterprise*** appliance. Data for the ***JSON Server*** web endpoint below is supplied by a ***locations.json*** file. The content for this file can be found [here](https://github.com/neilvrhpe/OptionSourceDemo/blob/main/locations.json). 
 
-**JSON Server** v1.0.0 was setup using the following commands:
+***JSON Server*** ***v1.0.0*** was setup using the following commands:
 
 `apt update
 apt install nodejs npm -y
@@ -25,9 +25,9 @@ npm install json-server
 vi locations.json 
 npx json-server --host 0.0.0.0 --port 80 locations.json`
 
-(Bear in mind that minimal Debian doesn't install with the **sudo** command by default. Prepend **sudo** to administrative commands where appropriate to your OS distribution)
+(Bear in mind that minimal Debian doesn't install with the ***sudo*** command by default. Prepend ***sudo*** to administrative commands where appropriate on your OS distribution)
 
-In this demo, the **JSON Server** web endpoint responds on **http://demojsonserver** and renders this:
+In this demo, the ***JSON Server*** web endpoint responds on **http://demojsonserver** and renders this:
 
 ![](/img/jsonserver_home.png)
 
