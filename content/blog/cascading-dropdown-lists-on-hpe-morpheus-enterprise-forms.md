@@ -27,25 +27,25 @@ npx json-server --host 0.0.0.0 --port 80 locations.json`
 
 (Bear in mind that minimal Debian doesn't install with the ***sudo*** command by default. Prepend ***sudo*** to administrative commands where appropriate on your OS distribution)
 
-In this demo, the ***JSON Server*** web endpoint responds on **http://demojsonserver** and renders this:
+In this demo, the ***JSON Server*** web endpoint responds on ***http://demojsonserver*** and renders this:
 
 ![](/img/jsonserver_home.png)
 
-The 3 sub-pages: **/countries**, **/states** and **/cities** reflect the base objects in the **locations.json** file:
+The 3 sub-pages:* **/countries***, ***/states*** and ***/cities*** reflect the base objects in the ***locations.json*** file:
 
 ![](/img/locations_json.png)
 
-In this way, the endpoint **http://demojsonserver/countries** provides the 3 countries in the **locations.json** file:
+In this way, the endpoint* **http://demojsonserver/countries*** provides the 3 countries in the* **locations.json*** file:
 
 ![](/img/locations_json.png)
 
 ## Creating the Option Lists
 
-To create the **Option Lists** in **HPE Morpheus Enterprise**, navigate to **Library** > **Options** > **Options Lists**. Click **Add**. The following dialog will be displayed:
+To create the ***Option Lists*** in ***HPE Morpheus Enterprise***, navigate to ***Library > Options > Options Lists***. Click ***Add***. The following dialog will be displayed:
 
 ![](/img/add_optionlist.png)
 
-Consider the selection options for the **Type** field that controls where Option List data is sourced from.
+Consider the selection options for the ***Type*** field that controls where Option List data is sourced from.
 
 **REST:** Web endpoint requests.
 
@@ -57,7 +57,7 @@ Consider the selection options for the **Type** field that controls where Option
 
 **Plugin:** OptionSourceProvider classes within uploaded plugins supply data in name / value pairs.
 
-The focus of this article is on REST Web endpoints and an OptionSourceProvider Plugin. Replace the URL hostname in your lab appropriately then create 3 Options lists that reflect the values below:
+The focus of this article is on ***REST Web*** endpoints and an ***OptionSourceProvider Plugin***. Replace the URL hostname in your lab with the appropriate hostname or IP address of the ***JSON Server*** then create 3 Options Lists that reflect the values below:
 
 - - -
 
