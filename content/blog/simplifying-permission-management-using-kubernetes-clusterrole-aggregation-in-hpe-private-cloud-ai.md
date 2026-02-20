@@ -17,7 +17,7 @@ tags:
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
-When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to precise permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing K8s Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
+When operating Kubernetes (K8s), Role‑Based Access Control (RBAC) serves as a foundational security mechanism, mapping users and workloads to define permissions and enforcing the principle of least privilege. However, as clusters evolve and new access requirements arise, managing K8s Roles and ClusterRoles through manual updates becomes increasingly difficult and error-prone. 
 
 This blog post introduces ClusterRole aggregation as an effective way to simplify that challenge. It explains the key concepts and advantages of aggregated ClusterRoles and shows how they streamline permission management by reducing manual RBAC updates on existing roles. The post also provides practical examples of applying ClusterRole aggregation in the HPE Private Cloud AI (PCAI) environment, demonstrating how this approach makes RBAC administration more scalable, maintainable, and efficient.
 
@@ -501,5 +501,5 @@ If additional permission are needed in the namespace, you can follow the same ap
 
 This blog post explored and demonstrated how permission management for accessing K8s resources in the HPE Private Cloud AI environment can be simplified and streamlined through ClusterRole aggregation. When additional permissions are required, they can be defined as independent, purpose‑built ClusterRoles, which are then automatically incorporated into an aggregated ClusterRole by applying the appropriate labels. This approach eliminates the need to modify existing ClusterRoles for each new permission request and significantly reduces RBAC maintenance overhead. By relying on smaller, focused roles that aggregates cleanly, permission management becomes more flexible, scalable, and easier to maintain.
 
- 
+
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
