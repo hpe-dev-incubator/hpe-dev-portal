@@ -187,19 +187,19 @@ Add the code to the ***Translation Script*** text box and click ***Save Changes*
 
 ![](/img/translation_script_code_basic.png)
 
-Navigate back to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the **EXECUTE** button. Inspecting the **country** drop-down HTML element on the web UI page, reveals that the drop-down control is now correctly populated with country id values.
+Navigate back to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Inspecting the ***country*** drop-down HTML element on the web UI page, reveals that the drop-down control is now correctly populated with country id values.
 
 ![](/img/dropdown_html_after.png)
 
 If the values are still showing up as null, you may need to refresh the browser page.
 
-At the moment, the **state** drop-down contains all states in the data source, regardless of which **country** is selected. Similarly, **cities** also remain unfiltered, regardless of the selected **country** and **state**.
+At the moment, the ***state*** drop-down contains all states in the data source, regardless of which ***country*** is selected. Similarly, ***cities*** also remain unfiltered, regardless of the selected ***country*** and ***state***.
 
-This section will look at the 2 available mechanisms for filtering Option List data based on the values of other Form Inputs, **Translation Scripts** and **Request Scripts**.
+This section will look at the 2 available mechanisms for filtering Option List data based on the values of other Form Inputs, ***Translation Scripts*** and ***Request Scripts***.
 
 ### Filter the state by country, using a Translation Script
 
-Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **States** Option List using the corresponding pencil icon on the right:
+Navigate to ***Library > Options > Options Lists*** and edit the previously created ***States*** Option List using the corresponding pencil icon on the right:
 
 ![](/img/edit_optionslist.png)
 
@@ -215,7 +215,7 @@ for (var i = 0; i < data.length; i++) {
 
 ![](/img/translation_script_code.png)
 
-As before, we loop through the **data** set and push entries onto the **results** list. The difference is the conditional statement where the selected value of the **country** Form Input must match the **countryId** of the list entry:
+As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional statement where the selected value of the **country** Form Input must match the **countryId** of the JSON list entry, before it is added:
 
 ![](/img/country_id.png)
 
