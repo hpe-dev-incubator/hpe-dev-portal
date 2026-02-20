@@ -219,17 +219,17 @@ As before, the script loops through the ***data*** set and pushes entries onto t
 
 ![](/img/country_id.png)
 
-To trigger the refresh of the **STATE** drop-down field, navigate to **Library > Options > Inputs** and edit the **State** Input. Set the value of the **DEPENDENT FIELD** to **country**. Click **SAVE CHANGES**:
+To trigger the refresh of the ***STATE*** drop-down field, navigate to ***Library > Options > Inputs*** and edit the ***State*** Input. Set the value of the ***DEPENDENT FIELD*** to **country**. Click ***SAVE CHANGES***:
 
 ![](/img/dependent_on_country.png)
 
-Navigate back to **Library > Automation > Workflows** and open the workflow execution dialog for the Test Inputs workflow again. This time, **states** are filtered by the selected **country** value:
+Navigate back to ***Library > Automation > Workflows*** and open the workflow execution dialog for the ***Test Inputs*** workflow again. This time, ***states*** are filtered by the selected ***country*** value:
 
 ![](/img/filtered_states.png)
 
 ### Filter the city by state, using a Request Script
 
-Some REST web endpoints support filtering by URL parameters. For example, to filter **cities** by a **state** id of 3, the URL would look like this:
+Some REST web endpoints support filtering by URL parameters. For example, to filter ***cities*** by a ***state*** id of 3, the URL would look like this:
 
 `http://demojsonserver/cities?stateId=3`
 
@@ -237,19 +237,19 @@ Here is the GET request result:
 
 ![](/img/cities_filtered_by_url.png)
 
-To implement URL request parameter filtering on the **cities** Option Source, navigate to **Library** > **Options** > **Options Lists** and edit the **Cities** Option Source. Populate the **REQUEST SCRIPT** text box with the below code:
+To implement URL request parameter filtering on the ***cities*** Option Source, navigate to ***Library > Options > Options Lists*** and edit the ***Cities*** Option Source. Populate the* **REQUEST SCRIPT*** text box with the below code:
 
 `results.push({ name: 'stateId', value: data.state || "NoState" });`
 
 ![](/img/request_script.png)
 
-This line of code effectively sets the **stateId** request parameter to the value of the **state** Form Input, or to "NoState" if no state is selected. The reason for this is that a blank **stateId** request parameter value causes JSON Server to remove the filter entirely.
+This line of code effectively sets the ***stateId*** request parameter to the value of the ***state*** Form Input, or to "NoState" if no state is selected. The reason for this is that a blank **stateId** request parameter value causes JSON Server to remove the filter entirely, thus showing all entries, instead of no entries.
 
-To trigger the refresh of **cities** upon the selection of a **state**, navigate to **Library > Options > Inputs** and edit the **State** input using the pencil icon on the right. Set the value of the **DEPENDENT FIELD** to **state**. Click **SAVE CHANGES**:
+To trigger the refresh of ***cities*** upon the selection of a ***state***, navigate to ***Library > Options > Inputs*** and edit the **State** input using the pencil icon on the right. Set the value of the ***DEPENDENT FIELD*** to **state**. Click ***SAVE CHANGES***:
 
 ![](/img/dependent_on_state.png)
 
-The selection of city, is now based on state, which is based on the selected country. Navigate back to **Library > Automation > Workflows** and open the workflow execution dialog for the **Test Inputs** workflow again. This time, **cities** are filtered by the selected **state** value:
+The selection of ***city***, is now based on ***state***, which is based on the selected ***country***. Navigate back to ***Library > Automation > Workflows*** and open the workflow execution dialog for the ***Test Inputs*** workflow again. This time, ***cities*** are filtered by the selected ***state*** value:
 
 ![](/img/country_state_city.png)
 
@@ -261,13 +261,13 @@ Open the project directory using a simple IDE like Visual Studio code, or even a
 
 ![](/img/plugin_class.png)
 
-Lorum ipsum
+This file is the HPE Morpheus Enterprise appliance's entry point into the plugin. ***HPE Morpheus Enterprise plugins*** always register one or more ***provider classes***. The ***provider classes*** supply the plugin functionality. The method call on line 30, ***this.registerProvider***, registers the ***OptionSourceProvider***, which will provide a list of zip codes to the ***ZipCodes Option List*** in the next section.
 
 View the ***DemoOptionSourceProvider.groovy*** class file:
 
 ![](/img/provider_class.png)
 
-Lorum Ipsum
+This class extends AbstractOptionSourceProvider, which enables the plugin to 
 
 Open the project directory in a commandline terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
