@@ -183,7 +183,7 @@ for (var x = 0; x < data.length; x++) {
 
 The above code loops through each entry in the ***data*** JSON list using a javascript for loop. For each entry, a ***name*** and ***value*** object is pushed onto the ***results*** list. This ensures that the ***value*** attribute is available on the ***input*** map for future ***filtering*** or for use within ***automation tasks***. 
 
-Add the code to the ***Translation Script*** text box and click ***Save Changes***:
+Add the code to the ***Translation Script*** text box and click ***SAVE CHANGES***:
 
 ![](/img/translation_script_code_basic.png)
 
@@ -203,7 +203,7 @@ Navigate to ***Library > Options > Options Lists*** and edit the previously crea
 
 ![](/img/edit_optionslist.png)
 
- Add the following code to the **Translation Script** field and click Save Changes:
+ Add the following code to the **TRANSLATION SCRIPT** field and click Save Changes:
 
 ```
 for (var i = 0; i < data.length; i++) {
@@ -215,7 +215,7 @@ for (var i = 0; i < data.length; i++) {
 
 ![](/img/translation_script_code.png)
 
-As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional statement where the selected value of the **country** Form Input must match the **countryId** of the JSON list entry, before it is added:
+As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional statement where the selected value of the ***country*** Form Input must match the ***countryId*** of the JSON list entry, before it is added:
 
 ![](/img/country_id.png)
 
