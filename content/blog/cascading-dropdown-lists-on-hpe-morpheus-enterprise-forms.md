@@ -203,7 +203,7 @@ Navigate to ***Library > Options > Options Lists*** and edit the previously crea
 
 ![](/img/edit_optionslist.png)
 
- Add the following code to the **TRANSLATION SCRIPT** field and click Save Changes:
+ Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
 
 ```
 for (var i = 0; i < data.length; i++) {
@@ -215,7 +215,7 @@ for (var i = 0; i < data.length; i++) {
 
 ![](/img/translation_script_code.png)
 
-As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional statement where the selected value of the ***country*** Form Input must match the ***countryId*** of the JSON list entry, before it is added:
+As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional if statement, where the selected value of the ***country*** Form Input must match the ***countryId*** of the JSON list entry, before it is added:
 
 ![](/img/country_id.png)
 
