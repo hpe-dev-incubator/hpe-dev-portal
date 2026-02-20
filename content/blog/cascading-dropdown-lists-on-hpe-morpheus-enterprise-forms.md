@@ -95,7 +95,7 @@ Verify that the 3 Option Lists reflect the below:
 
 ## Create the Form Inputs
 
-Navigate to **Library > Options > Inputs**. Click **Add**. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
+Navigate to ***Library > Options > Inputs***. Click ***Add***. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
 
 - - -
 
@@ -134,19 +134,19 @@ Inputs should be created as shown below:
 ## Testing Inputs
 
 A simple way to test Form Inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Form Inputs as Workflow Inputs.
-Navigate to **Library > Automation > Workflows**. Click **Add > Operational Workflow**. Provide **Test Inputs** as the **Name** and add **Country**, **State** and **City** to the type-ahead **Inputs** field:
+Navigate to ***Library > Automation > Workflows***. Click ***Add* > *Operational Workflow***. Provide ***Test Inputs*** as the ***Name*** and add ***Country***, ***State*** and ***City*** to the type-ahead ***Inputs*** field:
 
 ![](/img/new_workflow.png)
 
-Under **Library > Automation > Workflows**, click the name of the **Test Inputs** workflow. Click the **EXECUTE** button. Check that all 3 drop-downs contain data from the JSON Server endpoints:
+Under ***Library* > *Automation* > *Workflows***, click the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Check that all 3 drop-downs contain data from the JSON Server endpoints:
 
 ![](/img/execute_workflow.png)
 
 ## Filtering Data
 
-When filtering, it is important to understand that Option Lists are populated through an inherent **results** object. This **results** construct consists of a list of **name** and **value** pairs.
+When filtering, it is important to understand that Option Lists are populated through an inherent ***results*** object. This ***results*** construct consists of a list of ***name*** and ***value*** pairs.
 
-By default, the Option List is assigned the corresponding **name** and **value** JSON fields within the JSON list. Consider the current country JSON data:
+By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
 
 ```
 [
@@ -165,15 +165,15 @@ By default, the Option List is assigned the corresponding **name** and **value**
 ]
 ```
 
-This issue with the above list is that the **value** key is missing, represented by an **id** property instead. This causes the HTML drop-down **option** tags to have **null** values:
+This issue with the above list is that the ***value*** key is missing, represented by an ***id*** property instead. This causes the HTML drop-down ***option*** tags to have ***null*** values:
 
 ![](/img/dropdown_html_before.png)
 
-Navigate to **Library** > **Options** > **Options Lists** and edit the previously created **Countries** Option List using the corresponding pencil icon on the right:
+Navigate to ***Library*** > ***Options*** > ***Options Lists*** and edit the previously created ***Countries*** Option List using the corresponding pencil icon on the right:
 
 ![](/img/edit_optionslist_countries.png)
 
-Populating the **Translation Script** text box using the below code, causes the **results** object to be populated by **javascript logic** instead of default behavior:
+Populating the ***Translation Script*** text box using the below code, causes the ***results*** object to be populated by ***javascript logic*** instead of default behavior:
 
 ```
 for (var x = 0; x < data.length; x++) {
@@ -181,13 +181,13 @@ for (var x = 0; x < data.length; x++) {
 }
 ```
 
-The above code loops through each entry in the **data** JSON list using a javascript for loop. For each entry, a **name** and **value** object is pushed onto the **results** list. This ensures that the **value** attribute is available on the **input** map for future filtering. 
+The above code loops through each entry in the ***data*** JSON list using a javascript for loop. For each entry, a ***name*** and ***value*** object is pushed onto the ***results*** list. This ensures that the ***value*** attribute is available on the ***input*** map for future ***filtering*** or for use within ***automation tasks***. 
 
-Add the code to the **Translation Script** text box and click **Save Changes**:
+Add the code to the ***Translation Script*** text box and click ***Save Changes***:
 
 ![](/img/translation_script_code_basic.png)
 
-Navigate back to **Library > Automation > Workflows** and click on the name of the **Test Inputs** workflow. Click the **EXECUTE** button. Inspecting the **country** drop-down HTML element on the web UI page, reveals that the drop-down control is now correctly populated with country id values.
+Navigate back to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the **EXECUTE** button. Inspecting the **country** drop-down HTML element on the web UI page, reveals that the drop-down control is now correctly populated with country id values.
 
 ![](/img/dropdown_html_after.png)
 
