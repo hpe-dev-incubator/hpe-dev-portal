@@ -25,8 +25,10 @@ This blog post introduces ClusterRole aggregation as an effective way to simplif
 
 
 ### What is K8s RBAC?
- 
-K8s RBAC is a native authorization framework integrated directly into the K8s API server. It is composed of four primary object types: *Roles*, which define permissions for namespaced resources; *ClusterRoles*, which define permissions at the cluster scope; *RoleBindings*, which associate a Role with a user, group, or ServiceAccount within a specific namespace; and *ClusterRoleBindings*, which bind subjects to a ClusterRole across the entire cluster. Together, these constructs provide fine‑grained, declarative control over resource access and enforce least-privilege authorization across the environment. 
+
+
+
+K8s RBAC is a native authorization framework integrated directly into the K8s API server. It is composed of four primary object types: *Roles*, which define permissions for namespaced resources; *ClusterRoles*, which define permissions at the cluster scope; *RoleBindings*, which associate a role with a user, group, or ServiceAccount within a specific namespace; and *ClusterRoleBindings*, which bind subjects to a ClusterRole across the entire cluster. Together, these constructs provide fine‑grained, declarative control over resource access and enforce least-privilege authorization across the environment. 
 
 Despite its flexibility, K8s RBAC introduces several operational challenges, largely due to its mixed namespace and cluster-scoped permission model. Because RBAC permissions must span both namespaced and global resources, teams often struggle to maintain strict least‑privilege boundaries without resorting to overly broad ClusterRoles, raising the risk of misconfiguration and privilege escalation. The high granularity of K8s API resources and verbs, combined with the separation of Roles/ClusterRoles from their bindings, makes it difficult to understand the effective permissions granted to a subject. As multiple teams modify RBAC objects over time, policies tend to drift, accumulate inconsistencies, and unintentionally propagate privileges through shared bindings. In large-scale environments such as PCAI, K8s RBAC management becomes complex, error‑prone, and operationally fragile. 
 
