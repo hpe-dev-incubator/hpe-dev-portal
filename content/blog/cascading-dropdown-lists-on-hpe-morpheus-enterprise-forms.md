@@ -26,10 +26,10 @@ For the purposes of this article, the ***JSON Server*** was setup on a clean Deb
 
 ***JSON Server*** ***v1.0.0*** was setup using the following commands:
 
-`apt update
-apt install nodejs npm -y
-npm install json-server
-vi locations.json 
+`apt update \n
+apt install nodejs npm -y \n
+npm install json-server \n
+vi locations.json \n
 npx json-server --host 0.0.0.0 --port 80 locations.json`
 
 (Bear in mind that minimal Debian doesn't install with the ***sudo*** command by default. Prepend ***sudo*** to administrative commands where appropriate on your OS distribution)
@@ -38,7 +38,7 @@ In this demo, the ***JSON Server*** web endpoint responds on ***http://demojsons
 
 ![](/img/jsonserver_home.png)
 
-The 3 sub-pages:* **/countries***, ***/states*** and ***/cities*** reflect the base objects in the ***locations.json*** file:
+The 3 sub-pages: ***/countries***, ***/states*** and ***/cities*** reflect the base objects in the ***locations.json*** file:
 
 ![](/img/locations_json.png)
 
