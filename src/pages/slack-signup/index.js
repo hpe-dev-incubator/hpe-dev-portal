@@ -171,8 +171,8 @@ export default function Slacksignup() {
         style={{ marginTop: '-120px' }}
       >
         <Button label="50+ Channels" style={buttonStyle} />
-        <Button label="Over 4,000 members" style={buttonStyle} />
-        <Button label="6 Years+ Community" style={buttonStyle} />
+        <Button label="Over 9,000 members" style={buttonStyle} />
+        <Button label="8 Years+ Community" style={buttonStyle} />
       </Box>
     </Layout>
   );
