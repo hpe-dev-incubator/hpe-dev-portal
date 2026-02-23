@@ -160,8 +160,8 @@ When filtering, it is important to understand that Option Lists are populated th
 By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
 
 ```
-[
-  {
+[\n
+  {\n
     "id": "1",
     "name": "United States"
   },
@@ -384,4 +384,3 @@ Explore the following resources for more information on the different Plugin/Pro
 <https://github.com/hewlettpackard> 
 
 <https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX>
-
