@@ -217,7 +217,7 @@ Navigate to ***Library > Options > Options Lists*** and edit the previously crea
 
  Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
 
-```
+```js
 for (var i = 0; i < data.length; i++) {
   if (data[i].countryId == input.country) {
  	 results.push({"name": data[i].name, "value": data[i].id})  
