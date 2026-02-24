@@ -329,7 +329,7 @@ Navigate to ***Library > Options > Option*** ***Lists*** and click ***Add***. Su
 | **TYPE:**        | Plugin                           |
 | **OPTION LIST:** | Option Source Demo: listZipCodes |
 
-\
+
 **TRANSLATION SCRIPT:**
 
 ```js
