@@ -124,7 +124,7 @@ It easy to see that KV cache becomes not just a compute issue but a storage orch
 
 As KV cache is a storage orchestration challenge, the ability to move back and foward the KV cache in a fast storage system is a critical strategy for managing the KV cache. Here's more information that details the reasons behind this.
 
-#### KV Cache Requires Extremely High Bandwidth (HBM class) <br />
+#### KV cache Requires Extremely High Bandwidth (HBM class) <br />
 
 KV cache access patterns behave in such a way that:
 
@@ -133,7 +133,7 @@ KV cache access patterns behave in such a way that:
 
 This means KV cache cannot be used if in CPU memory, SSD, or network storage. To be used, it must remain in GPU HBM, which is effectively the highest performance “storage tier” available. 
 
-#### KV Cache often can’t fit in GPU memory<br />
+#### KV cache often can’t fit in GPU memory<br />
 
 For effectiveness, KV cache must remain in GPU memory, but unfortunately, it often can’t fit there. The size of the KV cache increases linearly with both the context length and the number of layers, creating capacity and bandwidth challenges. 
 
@@ -159,7 +159,7 @@ This makes KV management like distributed file systems:
 * Access path optimization
 * Paging / eviction
 
- >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *In conclusion, KV-cache pagination requires a memory-tiered storage*</span>
+ >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *In conclusion, KV cache pagination requires a memory-tiered storage*</span>
 
 Indeed, recent trends see the development of storage systems optimized for tiering with KV-cache. Storage systems are, therefore, part of the KV-cache pagination management:
 
@@ -174,7 +174,7 @@ Indeed, recent trends see the development of storage systems optimized for tieri
 
 ### <span style="color:blue; font-family:Arial; font-size:1em">Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache</span>
 
-This diagram shows the end to end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
+This diagram shows the end-to-end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
 
 ![](/img/screenshot-2026-02-16-at-10.41.09.png "Figure 1 - RDMA/GDS role in a RAG pipeline")
 
