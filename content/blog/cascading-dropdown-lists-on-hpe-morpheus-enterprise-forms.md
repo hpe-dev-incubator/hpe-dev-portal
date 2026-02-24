@@ -187,7 +187,7 @@ Navigate to ***Library*** > ***Options*** > ***Options Lists*** and edit t
 
 Populating the ***Translation Script*** text box using the below code, causes the ***results*** object to be populated by ***javascript logic*** instead of default behavior:
 
-```
+```js
 for (var x = 0; x < data.length; x++) {
   results.push({"name": data[x].name,"value": data[x].id})
 }
