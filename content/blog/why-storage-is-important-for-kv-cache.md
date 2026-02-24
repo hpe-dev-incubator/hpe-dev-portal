@@ -9,6 +9,37 @@ tags:
   - Storage
   - HPE DEV
 ---
+<style>
+table {
+    display: block;
+    width: max-content !important;
+    max-width: 100%;
+    overflow: auto;
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+}
+td {
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+    text-align: left !important;
+     font-weight: normal !important;
+    padding: 10px !important;
+}
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important;
+  padding: 20px !important;
+  font-weight: bold !important;
+}
+</style>
+
 Although KV (*Key-value)* cache is usually described as an LLM inference optimization, it is actually best understood as a specialized, high‑performance storage layer that holds intermediate attention states. This article explores this aspect of KV cache and its relationship with storage.
 
 
@@ -21,11 +52,22 @@ Although KV (*Key-value)* cache is usually described as an LLM inference optimiz
 
 ## <span style="color:blue; font-family:Arial; font-size:1em"> What KV-cache is</span>
 
-You can think of KV cache as: a volatile, GPU–resident key–value store that stores per-token features so they don’t need to be recomputed. This makes it essentially like a memory tier within a multi-layer storage hierarchy.
+You can think of KV cache as a volatile GPU–resident, key–value store that stores per-token features so they don’t need to be recomputed. In essence, it acts like a memory tier within a multi-layer storage hierarchy.
 
 Here’s how to map KV cache to conventional storage concepts:
 
-![](/img/kv-cache-explanantion-table.png "KV cache to conventional storage concepts mapping")
+<div align="center">
+
+| Storage concept    | LLM equivalent | Explanation |
+| -------- | ------- | ------- |
+| Registers  | Tensor cores, attention units    | Compute engines |
+| L1/L2 cache | KV cache slices currently in use     | Immediate access attention data |
+| RAM    | Overall KV cache across all layers    | Working set for model inference |
+| SSD / object storage | Prompt, documents | Fed in before KV cache populates |
+| Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
+
+</div>
+
 
   >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *Therefore, the KV cache is the model's “High-Bandwidth Memory (HBM) scratchpad.*</span>
 
