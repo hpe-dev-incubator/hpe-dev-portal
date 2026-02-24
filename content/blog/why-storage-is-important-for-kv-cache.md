@@ -19,7 +19,7 @@ Although KV (*Key-value)* cache is usually described as an LLM inference optimiz
 <br/>
 
 
-# <span style="color:blue; font-family:Arial; font-size:1em"> What KV-cache is</span>
+## <span style="color:blue; font-family:Arial; font-size:1em"> What KV-cache is</span>
 
 You can think of KV cache as: a volatile, GPU–resident key–value store that stores per-token features so they don’t need to be recomputed. This makes it essentially like a memory tier within a multi-layer storage hierarchy.
 
@@ -35,15 +35,15 @@ Here’s how to map KV cache to conventional storage concepts:
 
 <br/>
 
-# <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and Generative AI</span>
+### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and Generative AI</span>
 
-## <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is important for RAG and inference in general</span>
+### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is important for RAG and inference in general</span>
 
 KV cache is essential for RAG because it lets the model handle long retrieved contexts without having to recompute attention over all those tokens at every decoding step. When a large block of retrieved text is inserted into the prompt, the model encodes it once, stores the keys and values, and then reuses them during generation. This means new tokens only attend to the cached prefix instead of reprocessing thousands of context tokens repeatedly. As the retrieved context grows, KV cache keeps latency stable, prevents compute from exploding with sequence length, and makes long context RAG both feasible and efficient.
 
-## <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for Agentic AI</span>
+### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for Agentic AI</span>
 
-### Agentic AI requires:
+#### Agentic AI requires:
 
 \*Long contexts, long chains of thought, and multi-turn loops: Agents concatenate system prompts + chat history + retrieved chunks + tool outputs. Every added token expands the KV working set. The model then re reads prior tokens’ K/V at each step.
 
@@ -63,7 +63,7 @@ If the KV cache is slow, insufficient, or mismanaged:
 
 <br/>
 
-## <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is a storage problem</span>
+### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is a storage problem</span>
 
 When examined closely, the KV-cache becomes a storage issue.<br />
 When a large language model generates text one token at a time, it keeps a memory of everything it has already seen. This memory lives in the KV cache—a set of tensors that store the keys and values for every layer and every past token.
@@ -80,7 +80,7 @@ It easy to see that KV cache becomes not just a compute issue but a storage orch
 
 As KV-cache is a storage orchestration challenge, the ability to move back and foward the KV cache in a fast storage system is a critical strategy for managing the KV cache. Let’s see more in details the reasons.
 
-### KV Cache Requires Extremely High Bandwidth (HBM class). <br />
+#### KV Cache Requires Extremely High Bandwidth (HBM class). <br />
 
 KV-cache access pattern is:
 
@@ -128,7 +128,7 @@ Indeed, recent trends see the development of storage systems optimized for tieri
 
 <br/>
 
-## <span style="color:blue; font-family:Arial; font-size:1em">Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache</span>
+### <span style="color:blue; font-family:Arial; font-size:1em">Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache</span>
 
 This diagram shows the end to end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
 
