@@ -11,7 +11,15 @@ tags:
 ---
 Although KV (*Key-value)* cache is usually described as an LLM inference optimization, it is actually best understood as a specialized, high‑performance storage layer that holds intermediate attention states. This article explores this aspect of KV cache and its relationship with storage.
 
-# What KV-cache is
+
+<br/>
+
+---
+
+<br/>
+
+
+# <span style="color:blue; font-family:Arial; font-size:1em"> What KV-cache is</span>
 
 You can think of KV cache as: a volatile, GPU–resident key–value store that stores per-token features so they don’t need to be recomputed. This makes it essentially like a memory tier within a multi-layer storage hierarchy.
 
@@ -19,15 +27,21 @@ Here’s how to map KV cache to conventional storage concepts:
 
 ![](/img/kv-cache-explanantion-table.png "KV cache to conventional storage concepts mapping")
 
-*Therefore, the KV cache is the model's “High-Bandwidth Memory (HBM) scratchpad.*
+  >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *Therefore, the KV cache is the model's “High-Bandwidth Memory (HBM) scratchpad.*</span>
 
-# Why KV cache is important for AI and Generative AI
+<br/>
 
-## Why KV-cache is important for RAG and inference in general
+---
+
+<br/>
+
+# <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and Generative AI</span>
+
+## <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is important for RAG and inference in general</span>
 
 KV cache is essential for RAG because it lets the model handle long retrieved contexts without having to recompute attention over all those tokens at every decoding step. When a large block of retrieved text is inserted into the prompt, the model encodes it once, stores the keys and values, and then reuses them during generation. This means new tokens only attend to the cached prefix instead of reprocessing thousands of context tokens repeatedly. As the retrieved context grows, KV cache keeps latency stable, prevents compute from exploding with sequence length, and makes long context RAG both feasible and efficient.
 
-## Why KV cache is important for Agentic AI
+## <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for Agentic AI</span>
 
 ### Agentic AI requires:
 
@@ -43,7 +57,13 @@ If the KV cache is slow, insufficient, or mismanaged:
 * The model must truncate context → memory loss
 * Multi-step reasoning grinds to a halt
 
-## Why KV-cache is a storage problem
+<br/>
+
+---
+
+<br/>
+
+## <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is a storage problem</span>
 
 When examined closely, the KV-cache becomes a storage issue.<br />
 When a large language model generates text one token at a time, it keeps a memory of everything it has already seen. This memory lives in the KV cache—a set of tensors that store the keys and values for every layer and every past token.
@@ -95,15 +115,20 @@ This makes KV management like distributed file systems:
 * Access path optimization
 * Paging / eviction
 
-*In conclusion, KV-cache pagination requires a memory-tiered storage*
+ >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *In conclusion, KV-cache pagination requires a memory-tiered storage*</span>
 
 Indeed, recent trends see the development of storage systems optimized for tiering with KV-cache. Storage systems are, therefore, part of the KV-cache pagination management:
 
 * GPU HBM → hot KV
 * CPU RAM → warm KV
 * NVMe / SSD → cold KV
+<br/>
 
-#### Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache
+---
+
+<br/>
+
+## <span style="color:blue; font-family:Arial; font-size:1em">Finally, why RDMA/GPUDirect (for objects or files) is important for KV cache</span>
 
 This diagram shows the end to end RAG + inference flow and where RDMA / GPUDirect optimizes movement into the GPU—before the KV cache becomes active.
 
@@ -124,7 +149,13 @@ RDMA / GPUDirect help:
 
 In other words, RDMA/GPUDirect accelerate the front half (docs/embeddings/context into GPU memory). Once generation starts, the KV cache dominates the hot path, acting as the L1/L2 like working store of the decoder.
 
-## Conclusion:
+<br/>
+
+---
+
+<br/>
+
+## <span style="color:blue; font-family:Arial; font-size:1em">Conclusion:</span>
 
 A fast storage is essential for maximizing KV‑cache performance. By placing the right portions of the cache on fast, low‑latency. RDMA- and GDS-enabled storage - such as HPE Alletra MP X10000 - and offloading overflow to cost‑efficient tiers, organizations can balance speed, scale, and efficiency. 
 
