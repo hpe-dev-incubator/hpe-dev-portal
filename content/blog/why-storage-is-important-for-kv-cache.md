@@ -1,5 +1,5 @@
 ---
-title: Why storage is important for KV cache?
+title: "AI Tips: Why storage is important for KV cache?"
 date: 2026-02-16T08:29:33.435Z
 author: "Andrea Fabrizi, Product manager for Storage for AI "
 authorimage: /img/andrea-fabrizi.png
@@ -118,3 +118,6 @@ RDMA / GPUDirect help:
 In other words, RDMA/GPUDirect accelerate the front half (docs/embeddings/context into GPU memory). Once generation starts, the KV cache dominates the hot path, acting as the L1/L2 like working store of the decoder.
 
 # Conclusion:
+A fast storage is essential for maximizing KV‑cache performance. By placing the right portions of the cache on fast, low‑latency. RDMA- and GDS-enabled storage - such as HPE Alletra MP X10000 - and offloading overflow to cost‑efficient tiers, organizations can balance speed, scale, and efficiency. 
+ 
+Stay tuned to the HPE Developer Community blog and AI Tips for more guides and best practices on AI amd Storage for AI.
