@@ -69,7 +69,7 @@ Here’s how to map KV cache to conventional storage concepts:
 </div>
 
 
-  >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *Therefore, the KV cache is the model's “High-Bandwidth Memory (HBM) scratchpad.*</span>
+  >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *You can think of the KV cache as a model's “High-Bandwidth Memory (HBM) scratchpad.”*</span>
 
 <br/>
 
@@ -79,9 +79,9 @@ Here’s how to map KV cache to conventional storage concepts:
 
 ### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and Generative AI</span>
 
-### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is important for RAG and inference in general</span>
+### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is essential to Retrieval Augmented Generation (RAG) and inference in general</span>
 
-KV cache is essential for RAG because it lets the model handle long retrieved contexts without having to recompute attention over all those tokens at every decoding step. When a large block of retrieved text is inserted into the prompt, the model encodes it once, stores the keys and values, and then reuses them during generation. This means new tokens only attend to the cached prefix instead of reprocessing thousands of context tokens repeatedly. As the retrieved context grows, KV cache keeps latency stable, prevents compute from exploding with sequence length, and makes long context RAG both feasible and efficient.
+KV cache is essential for RAG because it lets the model handle long-retrieved contexts without having to recompute attention over all those tokens at every decoding step. When a large block of retrieved text is inserted into a prompt, the model encodes it once, stores the keys and values, and then reuses them during generation. This means new tokens only attend to the cached prefix instead of reprocessing thousands of context tokens repeatedly. As the retrieved context grows, KV cache keeps latency stable, prevents compute from exploding with sequence length, and makes long-context RAG both feasible and efficient.
 
 ### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for Agentic AI</span>
 
