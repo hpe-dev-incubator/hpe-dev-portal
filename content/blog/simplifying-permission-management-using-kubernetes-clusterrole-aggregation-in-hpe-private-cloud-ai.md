@@ -1,6 +1,6 @@
 ---
 title: Simplifying permission management using Kubernetes ClusterRole
-  aggregation in HPE Private Cloud AI.
+  aggregation in HPE Private Cloud AI
 date: 2026-02-17T07:36:43.381Z
 author: Guoping Jia
 authorimage: /img/guoping.png
@@ -38,7 +38,7 @@ To address these challenges as environments grow and the number of roles increas
 
 ### What is ClusterRole aggregation?
 
-[ClusterRole aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles), introduced in K8s v1.9, is a mechanism that automatically aggregates several ClusterRoles into one combined ClusterRole based on label selectors. A controller, running in the cluster control plane, watches for ClusterRole objects that define an *aggregationRule*. This rule specifies a set of label selectors that the controller uses to match other ClusterRoles whose rules should be merged into the *rules* field of the aggregated ClusterRole. The resulting ClusterRole is dynamically constructed by combining the permissions of all matching rules. 
+[ClusterRole aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles), introduced in K8s v1.9, is a mechanism that automatically aggregates several ClusterRoles into one combined ClusterRole based on label selectors. A controller, running in the cluster control plane, watches for ClusterRole objects that define an *aggregationRule* section. This rule specifies a set of label selectors that the controller uses to match other ClusterRoles whose rules should be merged into the *rules* field of the aggregated ClusterRole. The resulting ClusterRole is dynamically constructed by combining the permissions of all matching rules. 
 
 K8s ships with several built-in *user-facing* roles, such as *view*, *edit* and *admin*, implemented using this aggregation mechanism. These default roles represent common permission tiers, ranging from ready-only access to full namespac-level administrative capabilities. They are automatically assembled by the controller using labels of the form *'rbac.authorization.k8s.io/aggregate-to-'*.
 
@@ -89,7 +89,7 @@ With this default RoleBinding in place, the user obtains the *'kubeflow-edit'* p
 
 ![](/img/notebook-server-terminal.png) 
 
-#### Permission restriction in Jupyter notebook
+#### Permission restriction in Jupyter notebooks
 
 While the user can access most K8s objects in the project namespace, certain operations remain restricted. For example, they cannot list all Secrets or perform privileged actions such as executing commands inside a running Pod’s container. These elevated permissions are sometimes necessary, for instance, when verifying private container image configurations that rely on specific Secrets or when troubleshooting issues in a failed Pod.
 
