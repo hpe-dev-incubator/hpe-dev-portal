@@ -68,7 +68,6 @@ Here’s how to map KV cache to conventional storage concepts:
 
 </div>
 
-
   >>>>>  <span style="color:blue; font-family:Arial; font-size:1em"> *You can think of the KV cache as a model's “High-Bandwidth Memory (HBM) scratchpad.”*</span>
 
 <br/>
