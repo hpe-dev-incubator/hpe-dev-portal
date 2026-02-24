@@ -215,7 +215,7 @@ Navigate to ***Library > Options > Options Lists*** and edit the previously crea
 
 ![](/img/edit_optionslist.png)
 
- Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
+Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
 
 ```js
 for (var i = 0; i < data.length; i++) {
