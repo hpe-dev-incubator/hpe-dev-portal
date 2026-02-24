@@ -305,7 +305,7 @@ At the moment, only the name of the city is added to the ***City*** drop-down. T
 
 Add the following code snippet to the ***cities*** Option List ***TRANSLATION SCRIPT*** field by navigating to **Library** > **Options** > **Options Lists** and clicking the corresponding pencil icon on the right:
 
-```
+```js
 for (var x = 0; x < data.length; x++) {
   results.push({"name": data[x].name,"value": data[x].name})
 }
@@ -332,7 +332,7 @@ Navigate to ***Library > Options > Option*** ***Lists*** and click ***Add***. Su
 \
 **TRANSLATION SCRIPT:**
 
-```
+```js
 for (var i = 0; i < data.length; i++) {
   if (data[i].name == input.city) {
  	 results.push({"name": data[i].value, "value": data[i].value})  
