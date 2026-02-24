@@ -159,9 +159,8 @@ When filtering, it is important to understand that Option Lists are populated th
 
 By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
 
-<pre>
 
-```
+```json
 [
   {
     "id": "1",
@@ -177,7 +176,6 @@ By default, the Option List is assigned the corresponding ***name*** and ***valu
   }
 ]
 ```
-</pre>
 
 This issue with the above list is that the ***value*** key is missing, represented by an ***id*** property instead. This causes the HTML drop-down ***option*** tags to have ***null*** values:
 
