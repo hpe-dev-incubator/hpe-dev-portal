@@ -77,17 +77,19 @@ Here’s how to map KV cache to conventional storage concepts:
 
 <br/>
 
-### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and Generative AI</span>
+### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for AI and generative AI</span>
 
 ### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is essential to Retrieval Augmented Generation (RAG) and inference in general</span>
 
 KV cache is essential for RAG because it lets the model handle long-retrieved contexts without having to recompute attention over all those tokens at every decoding step. When a large block of retrieved text is inserted into a prompt, the model encodes it once, stores the keys and values, and then reuses them during generation. This means new tokens only attend to the cached prefix instead of reprocessing thousands of context tokens repeatedly. As the retrieved context grows, KV cache keeps latency stable, prevents compute from exploding with sequence length, and makes long-context RAG both feasible and efficient.
 
-### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for Agentic AI</span>
+### <span style="color:blue; font-family:Arial; font-size:1em"> Why KV cache is important for agentic AI</span>
+
+A couple of things to note about KV cache when used in agentic AI situations.
 
 #### Agentic AI requires:
 
-\*Long contexts, long chains of thought, and multi-turn loops: Agents concatenate system prompts + chat history + retrieved chunks + tool outputs. Every added token expands the KV working set. The model then re reads prior tokens’ K/V at each step.
+* Long contexts, long chains of thought, and multi-turn loops: Agents concatenate system prompts + chat history + retrieved chunks + tool outputs. Every added token expands the KV working set. The model then rereads prior tokens’ K/V at each step.
 
 * Sensitivity to bandwidth: The attention kernel’s speed is often limited by HBM bandwidth, not FLOPs. If KV reads stall, per token latency increases, tail latencies widen, and throughput collapses under concurrency.
 * Persistence across actions and Memory of past steps: Agent steps (plan, call tools, reflect) frequently reuse the same conversation context. KV reuse avoids recomputing attention for the past—saving both time and power.
@@ -95,9 +97,9 @@ KV cache is essential for RAG because it lets the model handle long-retrieved co
 This means agents spend minutes inside a single inference session. That makes KV cache the central runtime storage system for agent state.
 If the KV cache is slow, insufficient, or mismanaged:
 
-* The agent must recompute attention → huge latency spike
-* The model must truncate context → memory loss
-* Multi-step reasoning grinds to a halt
+* The agent must recompute attention resulting in a huge latency spike h
+* The model must truncate context resulting in memory loss
+* Multi step reasoning grinds to a halt
 
 <br/>
 
@@ -105,29 +107,29 @@ If the KV cache is slow, insufficient, or mismanaged:
 
 <br/>
 
-### <span style="color:blue; font-family:Arial; font-size:1em">Why KV-cache is a storage problem</span>
+### <span style="color:blue; font-family:Arial; font-size:1em">Why KV cache is a storage problem</span>
 
-When examined closely, the KV-cache becomes a storage issue.<br />
-When a large language model generates text one token at a time, it keeps a memory of everything it has already seen. This memory lives in the KV cache—a set of tensors that store the keys and values for every layer and every past token.
+When examined closely, the KV cache becomes a storage issue.<br />
+When a large language model generates text one token at a time, it keeps a memory of everything it has already seen. This memory lives in the KV cache a set of tensors that store the keys and values for every layer and every past token.
 
 At first, this cache is small. A few tokens, a few layers, a bit of GPU memory. But as the conversation grows longer—say from 1,000 tokens to 32,000—this “memory” expands linearly with the size of the context. The model must keep every past key/value vector around so that new tokens can attend back to them. And suddenly, the KV cache, not the model weights, becomes the largest memory consumer.
 
-As GPUs have limited High-Bandwidth-Memory (HBM), when the KV cache grows too large, systems must decide whether:
+As GPUs have limited High-Bandwidth Memory (HBM), when the KV cache grows too large, systems must decide whether:
 
-* Moving it (offloading) to CPU RAM or even to fast storage helps with capacity but reduces speed, because every new token must fetch pieces of that cache across slower connections interconnects. 
+* Moving it (offloading) to CPU RAM or even to fast storage helps with capacity but reduces speed, because every new token must fetch pieces of that cache across slower connection interconnects. 
 * Compressing it saves space but may reduce accuracy.  
 * Storing everything in GPU memory maintains performance but limits the number of users served simultaneously. 
 
 It easy to see that KV cache becomes not just a compute issue but a storage orchestration challenge—balancing capacity, bandwidth, latency, and cost. Long-context models, multi-user serving, and high-throughput inference all rely on how cleverly we can store, move, compress, or reuse this cache. Ultimately, generating text efficiently depends as much on memory engineering as on math.
 
-As KV-cache is a storage orchestration challenge, the ability to move back and foward the KV cache in a fast storage system is a critical strategy for managing the KV cache. Let’s see more in details the reasons.
+As KV cache is a storage orchestration challenge, the ability to move back and foward the KV cache in a fast storage system is a critical strategy for managing the KV cache. Here's more information that details the reasons behind this.
 
-#### KV Cache Requires Extremely High Bandwidth (HBM class). <br />
+#### KV Cache Requires Extremely High Bandwidth (HBM class) <br />
 
-KV-cache access pattern is:
+KV cache access patterns behave in such a way that:
 
 * Every new token must retrieve all previous keys and values
-* Access frequency is per layer × per head
+* Access frequency is done per layer × per head
 
 This means KV cache cannot be used if in CPU memory, SSD, or network storage. To be used, it must remain in GPU HBM, which is effectively the highest performance “storage tier” available. 
 
