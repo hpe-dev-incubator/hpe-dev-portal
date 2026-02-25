@@ -54,7 +54,7 @@ Although KV (*Key-value)* cache is usually described as an LLM inference optimiz
 
 You can think of KV cache as a volatile GPU–resident, key–value store that stores per-token features so they don’t need to be recomputed. In essence, it acts like a memory tier within a multi-layer storage hierarchy.
 
-Here’s how to map KV cache to conventional storage concepts:
+Here’s how to map KV cache to conventional storage concepts:<br/><br/>
 
 <div align="center">
 
@@ -63,7 +63,7 @@ Here’s how to map KV cache to conventional storage concepts:
 | Registers  | Tensor cores, attention units    | Compute engines |
 | L1/L2 cache | KV cache slices currently in use     | Immediate access attention data |
 | RAM    | Overall KV cache across all layers    | Working set for model inference |
-| SSD / object storage | Prompt, documents | Fed in before KV cache populates |
+| SSD - Object storage | Prompt, documents | Fed in before KV cache populates |
 | Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
 
 </div>
