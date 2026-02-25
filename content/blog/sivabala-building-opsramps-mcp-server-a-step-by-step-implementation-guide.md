@@ -1,9 +1,13 @@
 ---
-title: "sivabala-Building OpsRamp's MCP Server: A Step-by-Step Implementation Guide"
+title: "Building OpsRamp's MCP Server: A Step-by-Step Implementation Guide"
 date: 2026-02-25T22:44:12.993Z
+featuredBlog: true
 author: BalaSubramanian Vetrivel
-authorimage: /img/Avatar1.svg
+authorimage: /img/balasubramanian-photo.png
 disable: false
+tags:
+  - "opsramp "
+  - AI, MCP, OpsRamp MCP server
 ---
 # Building OpsRamp's MCP Server: A Step-by-Step Implementation Guide
 
