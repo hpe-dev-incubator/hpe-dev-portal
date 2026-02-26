@@ -37,7 +37,7 @@ th {
 }
 </style>
 
-Although KV (*Key-value)* cache is usually described as an LLM inference optimization, it is actually best understood as a specialized, high‑performance storage layer that holds intermediate attention states. This article explores this aspect of KV cache and its relationship with storage.
+Although KV (*Key-value)* cache is usually described as an LLM inference optimization, it is actually best understood as a specialized, high‑performance storage layer that holds intermediate attention states. This article explores this aspect of KV cache and its relationship with storage. In particular it will show how long-context models, multi-user serving, and high-throughput inference management all rely on how cleverly storage can store, move, compress, or reuse KV cache.
 
 <br/>
 
@@ -79,9 +79,12 @@ A couple of things to note about KV cache when used in agentic AI situations.
 
 #### Agentic AI requires
 
+Agentic AI systems require a robust architectural substrate capable of autonomous goal formulation, context‑aware decision‑making, and continuous adaptation through multi‑modal sensing, dynamic planning, and feedback‑driven optimization. Below are some of the key aspects:
+
 * Long contexts, long chains of thought, and multi-turn loops: Agents concatenate system prompts + chat history + retrieved chunks + tool outputs. Every added token expands the KV working set. The model then rereads prior tokens’ K/V at each step.
 
 * Sensitivity to bandwidth: The attention kernel’s speed is often limited by HBM bandwidth, not FLOPs. If KV reads stall, per token latency increases, tail latencies widen, and throughput collapses under concurrency.
+* 
 * Persistence across actions and Memory of past steps: Agent steps (plan, call tools, reflect) frequently reuse the same conversation context. KV reuse avoids recomputing attention for the past—saving both time and power.
 
 This means agents spend minutes inside a single inference session. That makes KV cache the central runtime storage system for agent state.
@@ -143,7 +146,7 @@ But there is an additional complexity. The KV cache often doesn’t reside in a 
 * Sequence parallelism: shard by tokens
 * Context parallelism: shard by ranges of inputs
 
-This makes KV management like distributed file systems:
+This makes KV management similar to distributed file systems:
 
 * Placement
 * Replication
@@ -152,7 +155,7 @@ This makes KV management like distributed file systems:
 
 > <span style="color:blue; font-family:Arial; font-size:1em">*In conclusion, KV cache pagination requires a memory-tiered storage*</span>
 
-Indeed, recent trends see the development of storage systems optimized for tiering with KV-cache. Storage systems are, therefore, part of the KV-cache pagination management:
+Indeed, recent trends see the development of storage systems optimized for tiering with KV cache. Storage systems are, therefore, part of the KV cache pagination management:
 
 * GPU HBM → hot KV
 * CPU RAM → warm KV
@@ -168,7 +171,7 @@ This diagram shows the end-to-end RAG + inference flow and where RDMA / GPUDirec
 
 ![](/img/screenshot-2026-02-16-at-10.41.09.png "Figure 1 - RDMA/GDS role in a RAG pipeline")
 
-RDMA / GPUDirect help:
+RDMA/GPUDirect help:
 
 * Storage → GPU ingestion:
 
