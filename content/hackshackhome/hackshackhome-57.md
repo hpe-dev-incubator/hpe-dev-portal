@@ -1,6 +1,6 @@
 ---
 title: "Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3417701980990/WN_T6zzXuQ1TJifHRYgs8CE6w
 imageBackground: white
