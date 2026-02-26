@@ -200,6 +200,6 @@ In other words, RDMA/GPUDirect accelerate the front half (docs/embeddings/contex
 
 ## <span style="color:blue; font-family:Arial; font-size:1em">Conclusion:</span>
 
-A fast storage is essential for maximizing KV cache performance. By placing the right portions of the cache on fast, low‑latency. RDMA- and GDS-enabled storage - such as HPE Alletra MP X10000 - and offloading overflow to cost‑efficient tiers, organizations can balance speed, scale, and efficiency. 
+KV cache management is a storage orchestration challenge that affects capacity, bandwidth, latency, and cost, and efficient text generation depends as much on memory engineering as on algorithms. A fast storage is essential for maximizing KV cache performance. By placing the right portions of the cache on fast, low‑latency. RDMA- and GDS-enabled storage - such as HPE Alletra MP X10000 - and offloading overflow to cost‑efficient tiers, organizations can balance speed, scale, and efficiency. 
 
 Stay tuned to the [HPE Developer Community blogs ](https://developer.hpe.com/blog/)and AI Tips for more guides and best practices on AI and Storage for AI.
