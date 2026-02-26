@@ -123,7 +123,7 @@ It easy to see that KV cache becomes not just a compute issue but a storage orch
 
 As KV cache is a storage orchestration challenge, the ability to move back and foward the KV cache in a fast storage system is a critical strategy for managing the KV cache. Here's more information that details the reasons behind this.
 
-#### KV cache Requires Extremely High Bandwidth (HBM class) <br />
+#### KV cache requires extremely high bandwidth (HBM class) <br />
 
 KV cache access patterns behave in such a way that:
 
@@ -151,7 +151,7 @@ But there is an additional complexity. The KV cache often doesn’t reside in a 
 * Sequence parallelism: shard by tokens
 * Context parallelism: shard by ranges of inputs
 
-This makes KV management like distributed file systems:
+This makes KV management similar to distributed file systems:
 
 * Placement
 * Replication
