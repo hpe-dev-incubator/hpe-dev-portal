@@ -164,7 +164,7 @@ By default, the Option List is assigned the corresponding ***name*** and ***valu
 [
   {
     "id": "1",
-    "name": "United States"<br/>
+    "name": "United States"
   },
   {
     "id": "2",
