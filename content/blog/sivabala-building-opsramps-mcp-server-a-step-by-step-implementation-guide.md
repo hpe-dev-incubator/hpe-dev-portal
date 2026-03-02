@@ -1,5 +1,6 @@
 ---
-title: "Building OpsRamp's MCP Server: A Step-by-Step Implementation Guide"
+title: " Building an MCP server to take advantage of OpsRamp monitoring - A
+  Step-by-Step Implementation Guide"
 date: 2026-02-25T22:44:12.993Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
@@ -9,19 +10,19 @@ tags:
   - "opsramp "
   - AI, MCP, OpsRamp MCP server
 ---
-# Building OpsRamp's MCP Server: A Step-by-Step Implementation Guide
+
 
 ---
 
 ## Introduction
 
-In our [previous article](https://developer.hpe.com/blog/sivabala-model-context-protocol-mcp-the-universal-connector-for-ai-applications/), we explored the Model Context Protocol (MCP) as the universal connector for AI applications. Now, let's roll up our sleeves and dive into the actual implementation of OpsRamp's MCP server, transforming monitoring data into AI-accessible intelligence.
+In my [previous article](https://developer.hpe.com/blog/sivabala-model-context-protocol-mcp-the-universal-connector-for-ai-applications/), I explored the Model Context Protocol (MCP) as the universal connector for AI applications. Now, let's roll up our sleeves and dive into the actual implementation of OpsRamp's MCP server, transforming monitoring data into AI-accessible intelligence.
 
 This isn't just another code walkthrough – it's a practical guide that takes you from project setup to a fully functional MCP server that exposes OpsRamp's monitoring capabilities to AI applications like Claude Desktop.
 
-## The OpsRamp challenge: bridging monitoring and AI
+## The OpsRamp challenge: Bridging monitoring and AI
 
-OpsRamp's monitoring platform generates thousands of alerts daily, tracks hundreds of devices, and processes massive volumes of operational telemetry. Yet despite this wealth of data, operations teams found themselves manually correlating information, parsing through dashboards, and spending valuable time translating monitoring data into actionable insights.
+OpsRamp's monitoring platform generates thousands of alerts daily, tracks hundreds of devices, and processes massive volumes of operational telemetry. Yet despite this wealth of data, operations teams working with it have found themselves manually correlating information, parsing through dashboards, and spending valuable time translating monitoring data into actionable insights.
 
 The challenge wasn't lack of data – it was the cognitive overhead of making sense of that data quickly and accurately. What if operations teams could simply ask questions like:
 
@@ -33,7 +34,7 @@ To make this vision reality, we needed to build an MCP server that bridges OpsRa
 
 ## Setting up the project with UV
 
-Before diving into code, let's set up a modern Python project using UV – a fast, reliable Python package installer and resolver that's become the go-to choice for modern Python development.
+Before diving into code walkthrough, let's set up a modern Python project using UV – a fast, reliable Python package installer and resolver that's become the go-to choice for modern Python development.
 
 ### Why UV?
 
@@ -45,7 +46,7 @@ UV offers several advantages over traditional Python package management:
 
 ### Installing UV
 
-First, install UV on your system:
+To install UV on our system, start with this:
 ```bash
 # On macOS and Linux
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -116,23 +117,25 @@ opsramp-mcp-server/
 └── .env                      # Environment variables (don't commit!)
 ```
 
-## Architecture overview: the three-layer approach
+## Architecture overview: The three-layer approach
 
-Our MCP server follows a clean three-layer architecture:
+The MCP server being set up via the instructions in this guide follows a clean three-layer architecture:
 
-1. **Authentication Layer**: Handles OAuth 2.0 token management and API security
-2. **API Communication Layer**: Manages HTTP requests and responses with OpsRamp
-3. **MCP Interface Layer**: Exposes tools and resources through the MCP protocol
+1. **Authentication layer**: Handles OAuth 2.0 token management and API security
+2. **API Communication layer**: Manages HTTP requests and responses with OpsRamp
+3. **MCP Interface layer**: Exposes tools and resources through the MCP protocol
 
 This separation ensures maintainability, testability, and clear boundaries between concerns.
 
-## Implementation deep dive: building the server
+## Implementation deep dive: Building the server
 
 Now let's walk through the implementation step by step, understanding each component and design decision.
 
-### Step 1: understanding the MCP Python SDK
+### Step 1: Understanding the MCP Python SDK
 
-Before we dive into the imports, let's understand the MCP Python SDK. Anthropic provides an official Python SDK that simplifies building MCP servers by handling the protocol details, message serialization, and transport layer complexity. The SDK provides:
+Before diving into the imports, it's important to understand the MCP Python SDK.
+
+ Anthropic provides an official Python SDK that simplifies building MCP servers by handling the protocol details, message serialization, and transport layer complexity. The SDK provides:
 
 - **Server framework**: Core classes for building MCP servers
 - **Type definitions**: Strongly-typed interfaces for tools, resources, and prompts
@@ -193,7 +196,7 @@ logging.basicConfig(
 )
 ```
 
-### Step 3: the OpsRampClient class - authentication layer
+### Step 3: The OpsRampClient class - authentication layer
 
 The `OpsRampClient` class handles all interactions with OpsRamp's API, starting with OAuth 2.0 authentication:
 ```python
@@ -212,7 +215,7 @@ class OpsRampClient:
 
 **Design considerations:**
 
-- **Token caching**: We store the access token and its expiration time to avoid unnecessary authentication requests
+- **Token caching**: The system stores the access token and its expiration time to avoid unnecessary authentication requests
 - **Session reuse**: A single `aiohttp.ClientSession` is maintained for connection pooling and better performance
 - **Tenant isolation**: The tenant ID ensures proper data isolation in multi-tenant environments
 
@@ -261,7 +264,7 @@ async def _get_access_token(self) -> str:
 - **Automatic refresh**: Expired tokens are automatically refreshed transparently
 - **Error handling**: Failed authentication attempts are logged with detailed error messages
 
-### Step 5: authenticated API requests
+### Step 5: Authenticated API requests
 
 The `_make_request` method wraps all API calls with authentication:
 ```python
@@ -326,14 +329,14 @@ async def execute_opsql_query(self, query: str) -> Dict[str, Any]:
 
 ### Step 7: MCP server initialization
 
-Now we create the MCP server instance:
+Now create the MCP server instance:
 ```python
 server = Server("opsramp-mcp-server")
 ```
 
 This single line creates an MCP server with the name "opsramp-mcp-server" that will be visible to AI applications.
 
-### Step 8: tool registration
+### Step 8: Tool registration
 
 The `@server.list_tools()` decorator registers available tools with the MCP protocol:
 ```python
@@ -413,7 +416,7 @@ async def handle_list_tools() -> list[types.Tool]:
 - **Intuitive naming**: Tool names follow verb-noun patterns (get_alerts, execute_query)
 - **Progressive disclosure**: Simple tools (get_release_version) require no parameters, while complex ones (execute_opsql_query) have detailed schemas
 
-### Step 9: tool execution handler
+### Step 9: Tool execution handler
 
 The `@server.call_tool()` decorator implements the actual tool logic. This is where the magic happens – where AI requests transform into actual OpsRamp API calls:
 ```python
@@ -516,7 +519,7 @@ async def handle_call_tool(
 - **JSON formatting**: Results are formatted in readable JSON with syntax highlighting
 - **Comprehensive logging**: Every tool call is logged for debugging and audit trails
 
-### Step 10: query examples helper
+### Step 10: Query examples helper
 
 The `get_query_examples` function provides AI applications with sample queries to learn from:
 ```python
@@ -572,7 +575,7 @@ def get_query_examples(category: str) -> str:
 - **Progressive complexity**: Examples range from simple to complex
 - **AI-friendly format**: Structured to help AI models understand query patterns
 
-### Step 11: main entry point and server startup
+### Step 11: Main entry point and server startup
 
 The `main` function orchestrates server initialization and lifecycle:
 ```python
@@ -624,7 +627,7 @@ if __name__ == "__main__":
 3. **STDIO transport**: Uses standard input/output for communication with AI applications
 4. **Graceful error handling**: Missing configuration results in helpful error messages
 
-## Configuration: environment variables
+## Configuration: Environment variables
 
 Create a `.env` file for your configuration (and add it to `.gitignore`):
 ```bash
@@ -674,7 +677,7 @@ Let's revisit some crucial design choices that make this implementation robust:
 
 ### Asynchronous design
 
-We chose `asyncio` and `aiohttp` for several compelling reasons:
+I chose `asyncio` and `aiohttp` for several compelling reasons:
 
 - **Concurrent request handling**: Multiple AI applications can query simultaneously without blocking
 - **Efficient I/O**: Network requests don't block the event loop
@@ -709,7 +712,7 @@ Multi-level logging provides visibility without overwhelming:
 
 ## What's next?
 
-We've successfully built a production-ready MCP server that exposes OpsRamp's monitoring capabilities to AI applications. The implementation demonstrates key patterns:
+Congratulations! You've successfully built a production-ready MCP server that exposes OpsRamp's monitoring capabilities to AI applications. The implementation demonstrates key patterns:
 
 - **Clean separation of concerns** with distinct layers for auth, API, and MCP
 - **Robust error handling** at every level
@@ -717,7 +720,7 @@ We've successfully built a production-ready MCP server that exposes OpsRamp's mo
 - **Async-first design** for performance
 - **Type safety** through Python type hints
 
-In our next article, **Part 3: Testing and Integration**, we'll explore:
+In my next article, **Part 3: Testing and Integration**, I'll explore:
 
 - Testing the server with MCP Inspector
 - Integrating with Claude Desktop
@@ -726,7 +729,8 @@ In our next article, **Part 3: Testing and Integration**, we'll explore:
 - Performance optimization strategies
 - Production deployment considerations
 
-The journey from monitoring data to AI-accessible intelligence continues. Stay tuned as we bring this MCP server to life with real AI interactions!
+
+The journey from monitoring data to AI-accessible intelligence continues. Stay tuned for how you can bring this MCP server to life with real AI interactions!
 
 ---
 
