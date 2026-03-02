@@ -31,12 +31,15 @@ This article demonstrates how to implement cascading drop-down lists in Morpheus
 Some of the terminology used in this article may be misleading or confusing due to its ubiquitous use across a wide range of products and technology domains, including ITSM, virtualization platforms, and service orchestration systems. This section explains the common terms used for HPE Morpheus Enterprise concepts throughout the article:
 
 **Option List**
-A list of name and value pairs used to populate multi-select UI controls like drop-downs, radio lists and type-ahead boxes. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Inputs***.
+A list of name and value pairs used to populate multi-select UI controls like drop-downs, radio lists and type-ahead boxes. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Option Lists***.
 
 **Option Source**
-Raw data supplied to Option List controls. This can be static data
+Raw data supplied to Option List controls. The Option Source type can be static data in JSON or CSV, REST response data, LDAP query results, HPE Morpheus Enterprise API data, or Option Source plugins. Option sources are defined as part of creating Option Lists.
 
 **Input**
+A web UI control used in an HPE Morpheus Enterprise wizard. A wizard usually has several of controls, like when provisining a VM Instance. Input types are checkbox, hidden value, number, password, radio list, select list, text, text area or type ahead. Inputs are defined under ***Library > Options > Inputs***
+
+A select list input is populated by a corresponding Option List. This article will work exclusively with select list Inputs.
 
 
 
