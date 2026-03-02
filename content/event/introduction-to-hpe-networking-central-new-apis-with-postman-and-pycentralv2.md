@@ -4,7 +4,7 @@ dateStart: 2026-02-25T04:00:00.632Z
 dateEnd: 2026-02-25T05:00:00.648Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/3417701980990/WN_T6zzXuQ1TJifHRYgs8CE6w
+link: https://www.youtube.com/watch?v=5QFTzwk9VrU
 width: large
 ---
 ## Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2

@@ -2,7 +2,7 @@
 title: "Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2"
 active: false
 fit: contain
-path: https://hpe.zoom.us/webinar/register/3417701980990/WN_T6zzXuQ1TJifHRYgs8CE6w
+path: https://www.youtube.com/watch?v=5QFTzwk9VrU
 imageBackground: white
 description: "February 25, 2026: Join our next meetup session to learn about the Automation
 capabilities of HPE Networking Central that have had a big upgrade, and we’ll show you how
