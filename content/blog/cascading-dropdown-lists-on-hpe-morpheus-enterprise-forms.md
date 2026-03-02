@@ -16,7 +16,7 @@ tags:
 
 Authors frequently need to capture additional information during the provisioning of workloads and services. This information is typically collected through user interface controls such as drop-down lists, often populated dynamically from external systems. Downstream, these selections are consumed by automation workflows that tailor deployments and integrate with ancillary systems such as CMDBs, IPAM platforms, or other operational tooling.
 
-HPE Morpheus Enterprise provides extensive flexibility for customizing form elements across instance provisioning, workflows, and service catalog items. Drop-down lists can be populated using a variety of option source types, including REST-based endpoints and plugin-backed integrations.
+HPE Morpheus Enterprise provides extensive flexibility for customizing form elements across instance provisioning, workflows, and service catalog items. Drop-down Option Lists can be populated using a variety of Option Source types, including REST-based endpoints and plugin-backed integrations.
 
 However, in real-world environments, form inputs are rarely independent. The selection made in one field often determines the valid values in another.
 
@@ -25,6 +25,14 @@ This is where cascading (interdependent) drop-down lists become essential.
 By dynamically filtering or populating one field based on the selection of another, cascading drop-downs introduce context awareness into provisioning forms. This reduces user error, improves data integrity, and ensures that deployments align with environmental constraints and governance requirements.
 
 This article demonstrates how to implement cascading drop-down lists in Morpheus using both REST-based and plugin-based option sources.
+
+## HPE Morpheus terms explained
+
+Some of the terminology used in this article may be misleading or confusing due to its ubiquitous use across a wide range of products and technology domains, including ITSM, virtualization platforms, and service orchestration systems. This section explains the common terms used for HPE Morpheus Enterprise concepts throughout the article:
+
+**Option List**
+A list of name and value pairs used to populate multi-select UI controls like drop-downs, radio lists and type-ahead boxes.
+
 
 ## Demo environment
 
@@ -110,7 +118,7 @@ In this article, I am focusing on the ***REST Web*** endpoints and an ***OptionS
 | **SOURCE METHOD:** | GET                          |
 | **REAL TIME:**     | Checked                      |
 
-Verify that the 3 Option Lists reflect the below:
+Verify that the three Option Lists reflect the below:
 
 ![](/img/option_lists.png)
 
@@ -168,7 +176,6 @@ Under ***Library* > *Automation* > *Workflows***, click the name of the ***Test 
 When filtering, it is important to understand that Option Lists are populated through an inherent ***results*** object. This ***results*** construct consists of a list of ***name*** and ***value*** pairs.
 
 By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
-
 
 ```json
 [
@@ -340,7 +347,6 @@ Navigate to ***Library > Options > Option*** ***Lists*** and click ***Add***. Su
 | **NAME:**        | ZipCodes                         |
 | **TYPE:**        | Plugin                           |
 | **OPTION LIST:** | Option Source Demo: listZipCodes |
-
 
 **TRANSLATION SCRIPT:**
 
