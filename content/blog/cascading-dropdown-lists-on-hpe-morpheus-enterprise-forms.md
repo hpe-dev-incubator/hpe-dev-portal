@@ -291,11 +291,11 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 
 ![](/img/provider_class.png)
 
-This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example there is only one method called ***listZipCodes*** which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easlity be retrieved from other systems via SDKs, APIs or database connections.
+This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example, there is only one method called ***listZipCodes***, which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easily be retrieved from other systems via SDKs, APIs, or database connections.
 
-For more information pertaining to the anatomy of HPE Moprpheus Enterprise Plugins, please refer to the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
-Open the project directory in a commandline terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
+Open the project directory in a command line terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
 ![](/img/compile_plugin.png)
 
@@ -303,7 +303,7 @@ The compiled ***.jar*** file will be found in the ***build/libs*** subdirect
 
 ![](/img/jar_file.png)
 
-Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > Add*** dialog. The Plugin should appear in the list as shown below:
+Upload the ***.jar*** file to the ***Administration > Integrations > Plugins > Add*** dialog. The plugin should appear in the list as shown below:
 
 ![](/img/uploaded_plugin.png)
 
@@ -311,7 +311,7 @@ Edit the uploaded plugin using the pencil icon to confirm that the ***Option Sou
 
 ![](/img/plugin_provider.png)
 
-## Add the Zip Code Option List and Input
+## Add the zip code Option List and Input
 
 At the moment, only the name of the city is added to the ***City*** drop-down. This is due to the missing ***value*** property, as seen earlier with ***country*** and ***state***. 
 
@@ -325,7 +325,7 @@ for (var x = 0; x < data.length; x++) {
 
 ![](/img/cities_translation_script.png)
 
-The above code sets the ***name*** property of a city, to both the ***name*** and ***value*** of the city drop-down entry. You can verify this by opening the execution dialog of the ***Test Inputs*** workflow. Inspecting the HTML once a **city** is selected confirms this:
+The above code sets the ***name*** property of a city to both the ***name*** and ***value*** of the city drop-down entry. You can verify this by opening the execution dialog of the ***Test Inputs*** workflow. Inspecting the HTML once a **city** is selected confirms this:
 
 ![](/img/cities_dropdown_html.png)
 
@@ -384,7 +384,7 @@ Set the corresponding ***VISIBILITY FIELD*** values on the other inputs to make 
 
 ## Summary
 
-This post only explores HPE Morpheus Enterprise Inputs and Option lists and Option Source Provider Plugins. Under ***Library > Options > Forms***, you can find more advanced Forms as collections of inputs.
+This post only explores HPE Morpheus Enterprise Inputs and Option lists and Option Source Provider Plugins. Under ***Library > Options > Forms***, you can find more advanced Forms as collections of inputs. These form controls enrich functionality on UI forms and enable the customization of the inputs for workloads and services.
 
 At the more advanced end of the spectrum are other Plugin Provider Types that model core infrastructure components. These include integrations for Clouds, Networks, Storage systems, and many others. Such Providers tend to be more complex because they interact deeply with HPE Morpheus Enterprise’s provisioning, synchronization, and lifecycle management layers. Understanding how these Provider Types fit together is key to building powerful, production-grade Plugins.
 
