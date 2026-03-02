@@ -51,12 +51,15 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  
+  // Try to fetch special badges, but continue if service is unavailable
   try {
     // eslint-disable-next-line
     const specialBadgesApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
     const getSpecialBadges = await axios({
       method: 'GET',
       url: specialBadgesApi,
+      timeout: 5000, // 5 second timeout
     });
 
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
@@ -78,15 +81,18 @@ exports.createPages = async ({ graphql, actions }) => {
       // console.log('------------------------------');
     });
   } catch (error) {
-    console.log('error: ', error);
+    console.log('Warning: Could not connect to workshop challenge API for special badges. Skipping special badge pages.');
+    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
   }
 
+  // Try to fetch replays, but continue if service is unavailable
   try {
     // eslint-disable-next-line max-len
     const replaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
     const getReplays = await axios({
       method: 'GET',
       url: replaysApi,
+      timeout: 5000, // 5 second timeout
     });
 
     getReplays.data.forEach(({ id, title, desc, workshop }) => {
@@ -135,7 +141,8 @@ exports.createPages = async ({ graphql, actions }) => {
       // console.log('------------------------------');
     });
   } catch (error) {
-    console.log('error: ', error);
+    console.log('Warning: Could not connect to workshop challenge API for replays. Skipping replay pages.');
+    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
   }
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
