@@ -37,23 +37,22 @@ A list of ***name*** and ***value*** pairs used to populate UI controls such as 
 The underlying data source used to populate an Option List. The Option Source type may be static data (JSON or CSV), REST response data, LDAP query results, HPE Morpheus Enterprise API data, or a plugin-based provider. Option sources are defined as part of creating Option Lists.
 
 **Input**
-A web UI control used in an HPE Morpheus Enterprise wizard. A wizard usually has several of controls, like when provisining a VM Instance. Input types are checkbox, hidden value, number, password, radio list, select list, text, text area or type ahead. Inputs are defined under ***Library > Options > Inputs***
+A web UI control used in an HPE Morpheus Enterprise wizard. A wizard typically contains multiple Input controls, such as when provisioning a VM instance. Input types include checkbox, hidden value, number, password, radio list, select list, text, text area, and type-ahead. Inputs are defined under ***Library > Options > Inputs***
 
-A select list input is populated by a corresponding Option List. This article will work exclusively with select list Inputs.
+A select list Input is populated by a corresponding Option List. This article focuses exclusively with select list Inputs.
 
 **Forms**
-HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items within the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
+HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items in the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
 
 **HPE Morpheus Plugin**
-A compiled ***.jar*** file containing logic that extends the functionality of HPE Morpheus. Usually plugins are written in the Groovy programming language and compiled using a Java compiler.
+A compiled ***.jar*** file containing logic that extends the functionality of HPE Morpheus. Plugins are typically written in Groovy and compiled using the Java toolchain.
 
 **Option Source Provider**
-A class within an HPE Morpheus plugin that contains the logic required to fetch and construct raw data for Option Lists programmatically.
-
+A plugin class responsible for retrieving and constructing the data used to populate Option Lists programmatically.
 
 ## Demo environment
 
-To illustrate how to reference external data sources on form inputs, and then make them interdependent on HPE Morpheus Enterprise forms, this article makes use of 2 demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x appliance. 
+To illustrate how to reference external data sources on wizard Inputs, and then make them interdependent on HPE Morpheus Enterprise forms, this article makes use of 2 demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x appliance. 
 
 To demonstrate how a plugin can supply the data via custom integration, a development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
