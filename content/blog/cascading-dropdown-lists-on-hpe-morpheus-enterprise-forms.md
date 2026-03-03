@@ -34,7 +34,7 @@ Some of the terminology used in this article may be misleading or confusing due 
 A list of ***name*** and ***value*** pairs used to populate UI controls such as drop-downs, radio lists, and type-ahead fields. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Option Lists***.
 
 **Option Source**
-Raw data supplied to Option List controls. The Option Source type can be static data in JSON or CSV, REST response data, LDAP query results, HPE Morpheus Enterprise API data, or Option Source plugins. Option sources are defined as part of creating Option Lists.
+The underlying data source used to populate an Option List. The Option Source type may be static data (JSON or CSV), REST response data, LDAP query results, HPE Morpheus Enterprise API data, or a plugin-based provider. Option sources are defined as part of creating Option Lists.
 
 **Input**
 A web UI control used in an HPE Morpheus Enterprise wizard. A wizard usually has several of controls, like when provisining a VM Instance. Input types are checkbox, hidden value, number, password, radio list, select list, text, text area or type ahead. Inputs are defined under ***Library > Options > Inputs***
