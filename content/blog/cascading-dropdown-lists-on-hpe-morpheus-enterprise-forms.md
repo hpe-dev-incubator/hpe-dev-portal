@@ -31,7 +31,7 @@ This article demonstrates how to implement cascading drop-down lists in Morpheus
 Some of the terminology used in this article may be misleading or confusing due to its ubiquitous use across a wide range of products and technology domains, including ITSM, virtualization platforms, and service orchestration systems. This section explains the common terms used for HPE Morpheus Enterprise concepts throughout the article:
 
 **Option List**
-A list of name and value pairs used to populate multi-select UI controls like drop-downs, radio lists and type-ahead boxes. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Option Lists***.
+A list of ***name*** and ***value*** pairs used to populate UI controls such as drop-downs, radio lists, and type-ahead fields. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Option Lists***.
 
 **Option Source**
 Raw data supplied to Option List controls. The Option Source type can be static data in JSON or CSV, REST response data, LDAP query results, HPE Morpheus Enterprise API data, or Option Source plugins. Option sources are defined as part of creating Option Lists.
@@ -41,6 +41,14 @@ A web UI control used in an HPE Morpheus Enterprise wizard. A wizard usually has
 
 A select list input is populated by a corresponding Option List. This article will work exclusively with select list Inputs.
 
+**Forms**
+HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items within the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
+
+**HPE Morpheus Plugin**
+A compiled ***.jar*** file containing logic that extends the functionality of HPE Morpheus. Usually plugins are written in the Groovy programming language and compiled using a Java compiler.
+
+**Option Source Provider**
+A class within an HPE Morpheus plugin that contains the logic required to fetch and construct raw data for Option Lists programmatically.
 
 
 ## Demo environment
