@@ -3,6 +3,7 @@ title: "Building an MCP server to take advantage of OpsRamp monitoring - A
   Step-by-Step Implementation Guide Part 2"
 date: 2026-02-25T22:44:12.993Z
 featuredBlog: true
+priority: 2
 author: BalaSubramanian Vetrivel
 authorimage: /img/balaprofilephoto.png
 disable: false
@@ -12,7 +13,13 @@ tags:
   - MCP
   - "OpsRamp MCP server"
 ---
-
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
 
 ## Introduction
 
@@ -59,7 +66,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 ### Creating the project structure
 
-Now let's create our OpsRamp MCP server project:
+Once that is complete, you can begin creating your OpsRamp MCP server project:
 
 ```bash
 # Create a new project directory
@@ -150,7 +157,7 @@ Anthropic provides an official Python SDK that simplifies building MCP servers b
 
 This allows developers to focus on business logic rather than protocol implementation details.
 
-### Step 2: imports and logging configuration
+### Step 2: Imports and logging configuration
 
 ```python
 #!/usr/bin/env python3
