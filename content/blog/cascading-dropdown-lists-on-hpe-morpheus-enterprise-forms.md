@@ -24,35 +24,35 @@ This is where cascading (interdependent) drop-down lists become essential.
 
 By dynamically filtering or populating one field based on the selection of another, cascading drop-downs introduce context awareness into provisioning forms. This reduces user error, improves data integrity, and ensures that deployments align with environmental constraints and governance requirements.
 
-This article demonstrates how to implement cascading drop-down lists in Morpheus using both REST-based and plugin-based option sources.
+This article demonstrates how to implement cascading drop-down lists in Morpheus using both REST-based and plugin-based Option Lists.
 
 ## HPE Morpheus terms explained
 
 Some of the terminology used in this article may be misleading or confusing due to its ubiquitous use across a wide range of products and technology domains, including ITSM, virtualization platforms, and service orchestration systems. This section explains the common terms used for HPE Morpheus Enterprise concepts throughout the article:
 
-**Option List**
+**Option List**<br/>
 A list of ***name*** and ***value*** pairs used to populate UI controls such as drop-downs, radio lists, and type-ahead fields. In the HPE Morpheus Enterprise UI, Option Lists are defined under ***Library > Options > Option Lists***.
 
-**Option Source**
+**Option Source**<br/>
 The underlying data source used to populate an Option List. The Option Source type may be static data (JSON or CSV), REST response data, LDAP query results, HPE Morpheus Enterprise API data, or a plugin-based provider. Option sources are defined as part of creating Option Lists.
 
-**Input**
+**Input**<br/>
 A web UI control used in an HPE Morpheus Enterprise wizard. A wizard typically contains multiple Input controls, such as when provisioning a VM instance. Input types include checkbox, hidden value, number, password, radio list, select list, text, text area, and type-ahead. Inputs are defined under ***Library > Options > Inputs***
 
 A select list Input is populated by a corresponding Option List. This article focuses exclusively with select list Inputs.
 
-**Forms**
+**Forms**<br/>
 HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items in the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
 
-**HPE Morpheus Plugin**
+**HPE Morpheus Plugin**<br/>
 A compiled ***.jar*** file containing logic that extends the functionality of HPE Morpheus. Plugins are typically written in Groovy and compiled using the Java toolchain.
 
-**Option Source Provider**
+**Option Source Provider**<br/>
 A plugin class responsible for retrieving and constructing the data used to populate Option Lists programmatically.
 
 ## Demo environment
 
-To illustrate how to reference external data sources on wizard Inputs, and then make them interdependent on HPE Morpheus Enterprise forms, this article makes use of 2 demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab works on any HPE Morpheus Enterprise 7.x or 8.x appliance. 
+To illustrate how to reference external data sources on wizard Inputs, and then make them interdependent on HPE Morpheus Enterprise forms, this article makes use of 2 demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab has been tested on HPE Morpheus Enterprise 8.0. 
 
 To demonstrate how a plugin can supply the data via custom integration, a development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
