@@ -12,7 +12,7 @@ Deploying a local Large Language Model (LLM) architecture using S3‑compatible 
 
 This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO* as a local S3-based object storage platform for model hosting, and uses *vLLM* as the optimized infrerence engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment. 
 
-### Overview
+### HPE Private Cloud AI
 
 [HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science.
 
@@ -30,9 +30,11 @@ Ensure that the following prerequisites are fulfilled:
 
 The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the HPE PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
-### Model storage setup via *Import Framework*
+### Model storage setup using *MinIO*
 
-Deploy a MinIO server instance vi the Import Framework to act as the local S3 object store
+#### Deploy MinIO via *Import Framework*
+
+You can install *MinIO* in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
 
 ![](/img/tools-frameworks-import-framework.png)
 
@@ -46,15 +48,41 @@ Deploy a MinIO server instance vi the Import Framework to act as the local S3 ob
 
 ![](/img/import-framework-minio-imported.png)
 
-![](/img/import-framework-minio-login.png)
+T﻿ype the following commands to check the *MinIO* deployment to the namespace *minio* in the cluster:
 
-Create a dedicated bucket for LLM model weights
+```shell
+$ kubectl get all -n minio
+NAME          READY   STATUS    RESTARTS   AGE
+pod/minio-0   1/1     Running   0          4h30m
+pod/minio-1   1/1     Running   0          4h30m
+pod/minio-2   1/1     Running   0          4h30m
+pod/minio-3   1/1     Running   0          4h30m
+
+NAME                    TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/minio           ClusterIP   10.96.2.234   <none>        9000/TCP   4h30m
+service/minio-console   ClusterIP   10.96.1.181   <none>        9001/TCP   4h30m
+service/minio-svc       ClusterIP   None          <none>        9000/TCP   4h30m
+
+NAME                     READY   AGE
+statefulset.apps/minio   4/4     4h30m
+
+$ kubectl get pvc -n minio
+NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      VOLUMEATTRIBUTESCLASS   AGE
+export-minio-0   Bound    pvc-8b5e262b-3667-4da8-a886-8e8596b1cbe0   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
+export-minio-1   Bound    pvc-04770c71-301c-47f1-b92f-d7461c8bfca0   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
+export-minio-2   Bound    pvc-527387c5-0ca8-4991-8d0f-340dfdead8b4   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
+export-minio-3   Bound    pvc-d52bfe41-b7a4-4f06-8275-d2b566198012   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
+```
+
+#### Create a dedicated bucket for LLM model weights
+
+Create Push model to to act as the local S3 object store
+
+![](/img/import-framework-minio-login.png)
 
 ![](/img/import-framework-minio-ai-bucket.png)
 
-![](/img/import-framework-minio-ai-model.png)
-
-Upload model artifacts to the bucket
+#### Upload model artifacts to the bucket
 
 ```shell
 $ git clone https://huggingface.co/Qwen/Qwen3-0.6B-Base
@@ -84,41 +112,15 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 -rw-r--r-- 1 GUJ 1049089    2776833 Mar  4 18:53 vocab.json
 ```
 
-Configure access credentails for secure model retrieval
+![](/img/import-framework-minio-ai-model.png)
+
+#### Configure access credentails for secure model retrieval
 
 ![](/img/import-framework-minio-create-access-key.png)
 
 ![](/img/import-framework-minio-access-key.png)
 
-You can install *MetalLB* and set up the load balancer in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
-
-T﻿ype the following commands to deploy *Super Mario* and *Tetris* to the namespace *minio* in the cluster:
-
-```shell
-$ kubectl get all -n minio
-NAME          READY   STATUS    RESTARTS   AGE
-pod/minio-0   1/1     Running   0          4h30m
-pod/minio-1   1/1     Running   0          4h30m
-pod/minio-2   1/1     Running   0          4h30m
-pod/minio-3   1/1     Running   0          4h30m
-
-NAME                    TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
-service/minio           ClusterIP   10.96.2.234   <none>        9000/TCP   4h30m
-service/minio-console   ClusterIP   10.96.1.181   <none>        9001/TCP   4h30m
-service/minio-svc       ClusterIP   None          <none>        9000/TCP   4h30m
-
-NAME                     READY   AGE
-statefulset.apps/minio   4/4     4h30m
-
-$ kubectl get pvc -n minio
-NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      VOLUMEATTRIBUTESCLASS   AGE
-export-minio-0   Bound    pvc-8b5e262b-3667-4da8-a886-8e8596b1cbe0   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
-export-minio-1   Bound    pvc-04770c71-301c-47f1-b92f-d7461c8bfca0   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
-export-minio-2   Bound    pvc-527387c5-0ca8-4991-8d0f-340dfdead8b4   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
-export-minio-3   Bound    pvc-d52bfe41-b7a4-4f06-8275-d2b566198012   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
-```
-
-### Model registry configuration in *MLIS*
+### Model registry configuration 
 
 HPE Machine Learning Inference Software (MLIS) 
 Define a local S3 registry mapping model names to S3 uri
