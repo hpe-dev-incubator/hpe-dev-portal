@@ -6,19 +6,38 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 ---
-<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
-
 Deploying a local Large Language Model (LLM) architecture using S3‑compatible object storage and *vLLM* as the inference engine provides a scalable, cost‑efficient, and secure foundation for enterprise AI adoption. This approach enables organizations to operationalize AI workloads while maintaining full control over data, performance, and model lifecycle management.
 
 This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO* as a local S3-based object storage platform for model hosting, and uses *vLLM* as the optimized infrerence engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment. 
 
 ### HPE Private Cloud AI
 
-[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate large language models (LLMs) to efficiently hosting and deploying them. Beyond these core functions, HPE PCAI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA NIM LLMs, along with a powerful suite of AI tools and frameworks for Data Engineering, Analytics, and Data Science.
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a unified, private, full-stack AI cloud platform built for enterprises that require complete control over how they deploy, govern, and scale AI. It is designed to give organizations ownership of their AI environment while enabling rapid innovation across diverse use cases. PCAI directly addresses the most pressing challenges enterprises face as AI adoption accelerates: maintaining data sovereignty, ensuring security, reducing operational complexity, and avoiding the escalating costs and inefficiencies of fragmented, multi-vendor AI infrastructure. 
 
 
+PCAI provides a comprehensive, turnkey foundation for end-to-end enterprise AI. It delivers a secure, scalable, and ready-to-use private cloud environment that includes a curated set of pre-built NVIDIA NIM-optimized LLMs and an integrated suite of AI/ML tools and frameworks for data engineering, analytics, and data science. This creates a consistent, governed operational layer for building and running AI services, ensuring that organizations retain full sovereignty over their data, models, and infrastructure while benefiting from a modern, production-ready AI platform.
 
-The Import Framework in HPE PCAI further enhances flexibility by enabling organizations to integrate their own applications or third-party solutions alongside pre-installed components, accommodating a wide range of enterprise-specific use cases.
+
+At the core of PCAI’s “AI managed by you” philosophy are two complementary approaches that give enterprises both flexibility and operational rigor for deploying and operating AI services: 
+
+
+* *Import Framework*
+
+
+The Import Framework offers an open, extensible mechanism for organizations to integrate any AI application, framework or third-party tool into the PCAI environment. It enables customers to import partner or open-source AI frameworks and add domain-specific or business-specific AI applications. Once imported, these components are managed through PCAI’s unified lifecycle management, ensuring consistent deployment, monitoring, and governance across the entire private cloud platform. 
+This framework is what makes PCAI truly AI-application agnostic. Customers are not limited to prepackaged tools and can freely build the AI ecosystem that fits their strategy. 
+ 
+* *Machine Learning Inference Software (MLIS)*
+
+
+Machine Learning Inference Software (MLIS) is natively integrated into PCAI to provide a production-ready, standardized runtime for large-scale AI inference operations. It delivers a controlled and reproducible execution layer that manages model versioning, GPU resource allocation, performance tuning, and full-stack observability, including availability, latency, and compliance metrics. 
+
+
+MLIS supports the entire AI service deployment lifecycle, from registry setup and LLM model onboarding to creating model deployments and serving prediction requests. Once a model is registered, PCAI ensures consistent operational behavior across environments, regardless of the model’s origin. 
+
+
+A key capability of PCAI is its vendor-agnostic support for any LLM model. Beyond the pre-built NVIDIA NIM models, PCAI can run open-source LLMs (such as those from Hugging Face), third-party or proprietary models, and imported artifacts stored in external systems like MinIO deployed via the Import Framework. This flexibility allows organizations to integrate heterogeneous model sources into a unified deployment framework, while maintaining enterprise-grade reliability, observability, and operational consistency. 
+
 
 ### Prerequisites
 
@@ -120,10 +139,11 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 
 ![](/img/import-framework-minio-access-key.png)
 
-### Model registry configuration 
+### Model registry configuration in *MLIS*
 
 HPE Machine Learning Inference Software (MLIS) 
-Define a local S3 registry mapping model names to S3 uri
+
+#### Define a local S3 registry mapping model names to S3 uri
 
 ![](/img/add-minio-s3-data-source.png)
 
@@ -137,8 +157,10 @@ Store metadata such as model version, quantization type, and configuration files
 
 ![](/img/s3-minio-registry.png)
 
-Ensure vLLM can resolve model paths via S3 endpoints
-Mount local (cache) directories for efficient model loading (???)
+#### Ensure vLLM can resolve model paths via S3 endpoints
+
+
+#### Mount local (cache) directories for efficient model loading (???)
 
 ![](/img/create-s3-packaged-model.png)
 
