@@ -53,7 +53,7 @@ The following sections show application deployment details using the *kubectl*�
 
 #### Deploy MinIO via *Import Framework*
 
-You can install *MinIO* in the K8s cluster by following the instructions shown in the blog post [Setting up the load balancer with MetalLB](https://developer.hpe.com/blog/set-up-load-balancer-with-metallb-in-hpe-greenlake-for-private-cloud-enterprise/).
+Based on the Helm charts from the official [MinIO site](https://github.com/minio/minio/tree/master/helm/minio), there is the revised MinIO Helm charts, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio). With these customizations, MinIO can be easily deployed into HPE PCAI using the Import Framework:
 
 ![](/img/tools-frameworks-import-framework.png)
 
@@ -65,7 +65,7 @@ You can install *MinIO* in the K8s cluster by following the instructions shown i
 
 ![](/img/import-framework-minio-submit.png)
 
-![](/img/import-framework-minio-imported.png)
+
 
 T﻿ype the following commands to check the *MinIO* deployment to the namespace *minio* in the cluster:
 
@@ -93,11 +93,22 @@ export-minio-2   Bound    pvc-527387c5-0ca8-4991-8d0f-340dfdead8b4   500Gi �
 export-minio-3   Bound    pvc-d52bfe41-b7a4-4f06-8275-d2b566198012   500Gi      RWO            gl4f-filesystem   <unset>                 4h30m
 ```
 
+#### MinIO console access via its endpoint
+
+After *MinIO* is deployed via the HPE PCAI Import Framework, an Imported *MinIO* tile appears under Tools & Frameworks. 
+
+![](/img/import-framework-minio-imported.png)
+
+Click _**Open**_ from the imported *MinIO* tile will open the *MinIO* login page. 
+
+![](/img/import-framework-minio-login.png)
+
 #### Create a dedicated bucket for LLM model weights
+
 
 Create Push model to to act as the local S3 object store
 
-![](/img/import-framework-minio-login.png)
+
 
 ![](/img/import-framework-minio-ai-bucket.png)
 
