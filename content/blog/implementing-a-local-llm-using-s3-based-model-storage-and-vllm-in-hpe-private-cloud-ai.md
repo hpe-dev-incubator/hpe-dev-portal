@@ -23,8 +23,8 @@ The Import Framework in HPE PCAI further enhances flexibility by enabling organi
 Ensure that the following prerequisites are fulfilled:
 
 
-* HPE Private Cloud AI running HPE AI Essentials version 1.9.1 or higher.
-* Access to such an HPE Private Cloud AI workspace with the 'AI Administrator' role, allowing administrative actions in the HPE AI Essentials.
+* HPE Private Cloud AI version 1.5.0 or higher, running HPE AI Essentials version 1.9.1 or higher.
+* Access to such an HPE Private Cloud AI workspace with the 'Private Cloud AI Administrator' role, allowing administrative operations.
 
 The following sections show application deployment details using the *kubectl* CLI and *kubeconfig* to access the HPE PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
