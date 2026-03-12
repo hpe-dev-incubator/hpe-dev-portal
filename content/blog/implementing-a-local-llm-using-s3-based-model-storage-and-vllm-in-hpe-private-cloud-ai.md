@@ -192,27 +192,47 @@ Click ***Create registry***.
 
 ![](/img/s3-minio-registry.png)
 
-You have successfully added a new registry to HPE Machine Learning Inferencing Software (MLIS). You can now create a packaged model and associate it with this registry.
+You have successfully added a new registry to MLIS. You can now create a packaged model and associate it with this registry.
 
 #### Ensure vLLM can resolve model paths via S3 endpoints
 
 #### Mount local (cache) directories for efficient model loading (???)
 
+Navigate to **Packaged Models**. Click ***Create Packaged Model***, input details for Name and Description, and click ***Next***.
+
 ![](/img/create-s3-packaged-model.png)
+
+Specify Registry as *'s3-minio-registry'*, Model format as *'Custom'*, image as *'vllm/vllm-openai:latest'*, model URL as *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and Model category as *'llm'*. Click ***Next***. 
 
 ![](/img/create-s3-packaged-model-storage.png)
 
+Choose a Resource Template as *'gpu-tiny'*. Click ***Next***.  
+
 ![](/img/create-s3-packaged-model-resources.png)
+
+Under *Advanced* tab, specify Arguments as *'--model /mnt/models'*. Click ***Done***. 
 
 ![](/img/create-s3-packaged-model-advanced.png)
 
+MLIS will pull the model from this mount point. 
+
+Navigate to **Deployments** and click ***Create Deployment***. Specify Name as *'s3-minio-registry'*, select Namespace as *'project-user-guoping-jia'* from the list. Click ***Next***. 
+
 ![](/img/create-model-deployment.png)
+
+Choose **Packaged model** as *'qwen3-06b-base'* from the dropdown. Click ***Next***. 
 
 ![](/img/create-model-deployment-packaged-model.png)
 
+Choose an **Auto scaling template**, for example *'fixed-1'*. Click ***Next***. 
+
 ![](/img/create-model-deployment-scaling.png)
 
+Specify *Environment Variables*, for example *'AIOLI_DISABLE_LOGGER = 1'*. Click ***Done***. 
+
 ![](/img/create-model-deployment-advanced.png)
+
+After few minutes, the deployment *'s3-minio-registry'* shows in *Ready* status.
 
 ![](/img/create-model-deployment-s3-minio-registry.png)
 
