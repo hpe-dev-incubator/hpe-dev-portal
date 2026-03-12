@@ -14,35 +14,26 @@ This blog post outlines the implementation of a fully local LLM deployment withi
 
 [HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) is a unified, private, full-stack AI cloud platform built for enterprises that require complete control over how they deploy, govern, and scale AI. It is designed to give organizations ownership of their AI environment while enabling rapid innovation across diverse use cases. PCAI directly addresses the most pressing challenges enterprises face as AI adoption accelerates: maintaining data sovereignty, ensuring security, reducing operational complexity, and avoiding the escalating costs and inefficiencies of fragmented, multi-vendor AI infrastructure. 
 
-
 PCAI provides a comprehensive, turnkey foundation for end-to-end enterprise AI. It delivers a secure, scalable, and ready-to-use private cloud environment that includes a curated set of pre-built NVIDIA NIM-optimized LLMs and an integrated suite of AI/ML tools and frameworks for data engineering, analytics, and data science. This creates a consistent, governed operational layer for building and running AI services, ensuring that organizations retain full sovereignty over their data, models, and infrastructure while benefiting from a modern, production-ready AI platform.
-
 
 At the core of PCAI’s “AI managed by you” philosophy are two complementary approaches that give enterprises both flexibility and operational rigor for deploying and operating AI services: 
 
-
 * *Import Framework*
-
 
 The Import Framework offers an open, extensible mechanism for organizations to integrate any AI application, framework or third-party tool into the PCAI environment. It enables customers to import partner or open-source AI frameworks and add domain-specific or business-specific AI applications. Once imported, these components are managed through PCAI’s unified lifecycle management, ensuring consistent deployment, monitoring, and governance across the entire private cloud platform. 
 This framework is what makes PCAI truly AI-application agnostic. Customers are not limited to prepackaged tools and can freely build the AI ecosystem that fits their strategy. 
- 
-* *Machine Learning Inference Software (MLIS)*
 
+* *Machine Learning Inference Software (MLIS)*
 
 Machine Learning Inference Software (MLIS) is natively integrated into PCAI to provide a production-ready, standardized runtime for large-scale AI inference operations. It delivers a controlled and reproducible execution layer that manages model versioning, GPU resource allocation, performance tuning, and full-stack observability, including availability, latency, and compliance metrics. 
 
-
 MLIS supports the entire AI service deployment lifecycle, from registry setup and LLM model onboarding to creating model deployments and serving prediction requests. Once a model is registered, PCAI ensures consistent operational behavior across environments, regardless of the model’s origin. 
 
-
 A key capability of PCAI is its vendor-agnostic support for any LLM model. Beyond the pre-built NVIDIA NIM models, PCAI can run open-source LLMs (such as those from Hugging Face), third-party or proprietary models, and imported artifacts stored in external systems like MinIO deployed via the Import Framework. This flexibility allows organizations to integrate heterogeneous model sources into a unified deployment framework, while maintaining enterprise-grade reliability, observability, and operational consistency. 
-
 
 ### Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
-
 
 * HPE Private Cloud AI version 1.5.0 or higher, running HPE AI Essentials version 1.9.1 or higher.
 * Access to such an HPE Private Cloud AI workspace with the 'Private Cloud AI Administrator' role, allowing administrative operations.
@@ -64,8 +55,6 @@ Based on the Helm charts from the official [MinIO site](https://github.com/minio
 ![](/img/import-framework-minio-review.png)
 
 ![](/img/import-framework-minio-submit.png)
-
-
 
 T﻿ype the following commands to check the *MinIO* deployment to the namespace *minio* in the cluster:
 
@@ -99,16 +88,13 @@ After *MinIO* is deployed via the HPE PCAI Import Framework, an Imported *MinIO*
 
 ![](/img/import-framework-minio-imported.png)
 
-Click _**Open**_ from the imported *MinIO* tile will open the *MinIO* login page. 
+Click ***Open*** from the imported *MinIO* tile will open the *MinIO* login page. 
 
 ![](/img/import-framework-minio-login.png)
 
 #### Create a dedicated bucket for LLM model weights
 
-
 Create Push model to to act as the local S3 object store
-
-
 
 ![](/img/import-framework-minio-ai-bucket.png)
 
@@ -150,15 +136,38 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 
 ![](/img/import-framework-minio-access-key.png)
 
+Connecting S3 data source:
+HPE AI Essentials Software includes PrestoDB and CSI connectors, enabling connections to multiple types of data sources. Connecting to an external data source is as simple as selecting the data source type and providing the required connection parameters and credentials.
+
+In the left navigation pane, select Data Engineering > Data Sources.
+
+![](/img/data-sources.png)
+
+Select the Object Store Data tab. Click Add New Data Source.
+
+![](/img/object-store-data.png)
+
+Locate the tile with the type of data source that you want to connect, and click \_\*\*Add MinIO S3\*\*\_. 
+
+![](/img/add-minio-s3-data-source-type.png)
+
+In the drawer that opens, enter the connection parameters and then click Add.
+
+![](/img/add-minio-s3-data-source.png)
+
+![](/img/minio-s3-data-source.png)
+
+When registering a S3 data source, you need provide the S3 credentials, such as the access key and secret key along with the S3 connection details.
+
+On the Data Sources page, a tile for a MinIO S3 data source with the name *'minio-s3'* and the enpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*. 
+
+It should be noted that after an administrator connects HPE AI Essentials Software to an external object store in AWS, MinIO, or HPE Ezmeral Data Fabric Object Store, you can access data in those data sources through clients such as Spark or Kubeflow notebooks, without providing an access key or secret key. Your HPE AI Essentials Software administrator provides the access credentials when creating the data source connection. Your access to the data source is authorized through HPE AI Essentials Software.
+
 ### Model registry configuration in *MLIS*
 
 HPE Machine Learning Inference Software (MLIS) 
 
 #### Define a local S3 registry mapping model names to S3 uri
-
-![](/img/add-minio-s3-data-source.png)
-
-![](/img/minio-s3-data-source.png)
 
 Store metadata such as model version, quantization type, and configuration files
 
@@ -169,7 +178,6 @@ Store metadata such as model version, quantization type, and configuration files
 ![](/img/s3-minio-registry.png)
 
 #### Ensure vLLM can resolve model paths via S3 endpoints
-
 
 #### Mount local (cache) directories for efficient model loading (???)
 
