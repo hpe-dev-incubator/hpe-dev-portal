@@ -143,11 +143,11 @@ In the left navigation pane, select Data Engineering > Data Sources.
 
 ![](/img/data-sources.png)
 
-Select the Object Store Data tab. Click Add New Data Source.
+Select the **Object Store Data** tab. Click ***Add New Data Source***.
 
 ![](/img/object-store-data.png)
 
-Locate the tile with the type of data source that you want to connect, and click \_\*\*Add MinIO S3\*\*\_. 
+Locate the tile with the type of data source that you want to connect, and click _**Add MinIO S3**_. 
 
 ![](/img/add-minio-s3-data-source-type.png)
 
@@ -167,15 +167,32 @@ It should be noted that after an administrator connects HPE AI Essentials Softwa
 
 HPE Machine Learning Inference Software (MLIS) 
 
+Click ***Tools & Frameworks*** on the left-navigation bar, and navigate to the **HPE MLIS** tile and click ***Open***.
+
+![](/img/pcai-mlis.png)
+
+
+Navigate to ***Registries***, and click ***Create Registry***.
+
+![](/img/create-new-registry.png)
+
 #### Define a local S3 registry mapping model names to S3 uri
 
 Store metadata such as model version, quantization type, and configuration files
 
-![](/img/create-s3-minio-registry.png)
+Select **Internal S3 registry** as your model registry provider from the available options. Click ***Continue***.
 
 ![](/img/mlis-internal-s3-registry.png)
 
+Input details for Name, Select the Object Store from the drop-down, Select the bucket from the drop-down.
+
+![](/img/create-s3-minio-registry.png)
+
+Click ***Create registry***.
+
 ![](/img/s3-minio-registry.png)
+
+You have successfully added a new registry to HPE Machine Learning Inferencing Software (MLIS). You can now create a packaged model and associate it with this registry.
 
 #### Ensure vLLM can resolve model paths via S3 endpoints
 
