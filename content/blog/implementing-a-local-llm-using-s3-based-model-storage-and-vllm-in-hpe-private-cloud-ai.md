@@ -46,15 +46,13 @@ The following sections show application deployment details using the *kubectl*�
 
 Based on the Helm charts from the official [MinIO site](https://github.com/minio/minio/tree/master/helm/minio), there is the revised MinIO Helm charts, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio). With these customizations, MinIO can be easily deployed into HPE PCAI using the Import Framework:
 
-![](/img/tools-frameworks-import-framework.png)
+In the left navigation pane, click ***Tools & Frameworks***.
 
-![](/img/import-framework-minio-logo.png)
+![](/img/pcai-tools-frameworks-import-framework.png)
 
-![](/img/import-framework-minio-ns.png)
+By following up the import framework process, *MinIO* can be easily deployed PCAI.
 
-![](/img/import-framework-minio-review.png)
-
-![](/img/import-framework-minio-submit.png)
+![](/img/import-framework-minio.png)
 
 T﻿ype the following commands to check the *MinIO* deployment to the namespace *minio* in the cluster:
 
