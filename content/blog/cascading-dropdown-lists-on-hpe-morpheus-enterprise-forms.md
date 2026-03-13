@@ -111,7 +111,7 @@ To create the ***Option Lists*** in ***HPE Morpheus Enterprise***, navigate to *
 
 ![](/img/add_optionlist.png)
 
-For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** and then create 3 Options Lists that reflect the values below:
+For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** in your environment. Then create 3 Options Lists that reflect the values below:
 
 - - -
 
@@ -147,9 +147,9 @@ Verify that the three Option Lists reflect the below:
 
 ![](/img/option_lists.png)
 
-## Create the Form Inputs
+## Create the Inputs
 
-To create the Form Inputs, navigate to ***Library > Options > Inputs***. Click ***Add***. Create 3 Form Inputs that correspond to the Option Lists above, with the following values:
+To create the wizard Inputs, navigate to ***Library > Options > Inputs***. Click ***Add***. Create 3 Inputs that correspond to the Option Lists above, with the following values:
 
 - - -
 
@@ -187,7 +187,7 @@ Inputs should be created as shown below:
 
 ## How to test Option List Inputs
 
-A simple way to test Form Inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Form Inputs as Workflow Inputs.
+A simple way to test Inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Inputs as Workflow wizard Inputs.
 Navigate to ***Library > Automation > Workflows***. Click ***Add* > *Operational Workflow***. Provide ***Test Inputs*** as the ***Name*** and add ***Country***, ***State*** and ***City*** to the type-ahead ***Inputs*** field:
 
 ![](/img/new_workflow.png)
