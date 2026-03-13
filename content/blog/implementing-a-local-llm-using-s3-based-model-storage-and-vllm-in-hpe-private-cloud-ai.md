@@ -42,6 +42,10 @@ The following sections show application deployment details using the *kubectl*�
 
 ### Model storage setup using *MinIO*
 
+MinIO is a high‑performance, S3‑compatible object storage platform designed for modern, cloud‑native workloads. It serves as an enterprise‑grade alternative to Amazon S3 that can be deployed locally, on‑premises, or in any cloud environment, providing the same API and behavior as S3 while remaining fully under your control.
+
+The following sections show the process of deploying MinIO to PCAI using the Import Framework and configuring it as the local model repository for storing and managing LLM artifacts.
+
 #### Deploy MinIO via *Import Framework*
 
 Based on the Helm charts from the official [MinIO site](https://github.com/minio/minio/tree/master/helm/minio), there is the revised MinIO Helm charts, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio). With these customizations, MinIO can be easily deployed into HPE PCAI using the Import Framework:
@@ -247,10 +251,8 @@ Automate model updates by pushing new versions to MinIO and triggering vLLM relo
 
 ### Conclusion
 
-This blog post offers you a comprehensive guide on
+This blog post discussed and demonstrated the implementation of a fully local, privacy-preserving LLM deployment using *MinIO* for centralized S3-compatible model storage and *vLLM* for high-performance inference, integrated into the PCAI environment through the Import Framework and MLIS. This architecture enables scalable, secure, and cost-efficient LLM operations while eliminating reliance on external APIs or thrid-party model hosting services. 
 
-The outcome is a fully local, privacy-preserving LLM deployment with centralized model storage via MioIO, controlled model lifecycle through a local S3 model registry, high-performance inference powered by vLLM, and seamless integration into the product environment in HPE PCAI. This support scalable, secure, and cost-efficient LLM operations without relying on external APIs. 
-
-A local LLM implementation provides a strategic foundation for future AI initiatives, RAG pipelines, domain-specific fine-tuning, agent frameworks, and multimodal models. The combination of S3 storage and vLLM creates a flexible, externsible architecture that can evolve with emerging AI capabilities without requiring major redesigns or new vendor contracts. 
+A local LLM deployment provides a strategic foundation for advanced AI initiatives, including RAG pipelines, domain-specific fine-tuning, agent-based systems, and multimodal model integration. By combining S3-compatible storage with vLLM's optimized inference engine, organizations gain a flexible and externsible architecture capable of evolving with emerging AI capabilities without requiring major architectural changes or new vendor dependencies. 
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
