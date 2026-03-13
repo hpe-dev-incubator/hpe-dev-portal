@@ -83,9 +83,9 @@ The 3 sub-pages: ***/countries***, ***/states*** and ***/cities*** reflect the b
 
 ![](/img/locations_json.png)
 
-As you can see, the endpoint* **http://demojsonserver/countries*** provides the 3 countries in the* **locations.json*** file:
+As you can see, the endpoint ***http://demojsonserver/countries*** provides the 3 countries in the* **locations.json*** file:
 
-![](/img/locations_json.png)
+![](/img/countries_json.png)
 
 ## Creating the Option Lists
 
