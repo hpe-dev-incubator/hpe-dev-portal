@@ -39,7 +39,7 @@ The underlying data source used to populate an Option List. The Option Source ty
 **Input**<br/>
 A web UI control used in an HPE Morpheus Enterprise wizard. A wizard typically contains multiple Input controls, such as when provisioning a VM Instance. Input types include checkbox, hidden value, number, password, radio list, select list, text, text area, and type-ahead. Inputs are defined under ***Library > Options > Inputs***
 
-A select list Input is populated by a corresponding Option List. This article focuses exclusively with select list Inputs.
+A select list Input is populated by a corresponding Option List. This article focuses exclusively on select list Inputs.
 
 **Forms**<br/>
 HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items in the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
@@ -50,9 +50,12 @@ A compiled ***.jar*** file containing logic that extends the functionality of HP
 **Option Source Provider**<br/>
 A plugin class responsible for retrieving and constructing the data used to populate Option Lists programmatically.
 
+**Wizard**
+This article uses the term **wizard** to indicate a section of the web user interface where the end user provides input values. In example of this would be the input fields when a user provisions an instance. In this article an operational workflow wizard is used to show and test Input controls.
+
 ## Demo environment
 
-To illustrate how to reference external data sources on wizard Inputs, and then make them interdependent on HPE Morpheus Enterprise forms, this article makes use of 2 demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab has been tested on HPE Morpheus Enterprise 8.0. 
+To illustrate how to reference external data sources on wizard drop-down Inputs, and then make them interdependent, this article makes use of two demo lab VMs. These include a ***JSON Server*** VM and an ***HPE Morpheus Enterprise*** appliance. This lab has been tested on HPE Morpheus Enterprise 8.0. 
 
 To demonstrate how a plugin can supply the data via custom integration, a development environment assumes plugin compile capability as described in the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
