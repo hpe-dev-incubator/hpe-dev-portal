@@ -87,13 +87,11 @@ As you can see, the endpoint ***http://demojsonserver/countries*** provides the 
 
 ![](/img/countries_json.png)
 
-## Creating the Option Lists
+## Option Source Types
 
-To create the ***Option Lists*** in ***HPE Morpheus Enterprise***, navigate to ***Library > Options > Options Lists***. Click ***Add***. The following dialog will be displayed:
+There are several types of Option Lists. These represent the different ways by which an Option Source can populate the resulting drop-down control. Consider the TYPE input on the NEW OPTION LIST wizard:
 
-![](/img/add_optionlist.png)
-
-Consider the selection options for the ***Type*** field that controls where Option List data is sourced from.
+![](/img/option_list_types.png)
 
 **REST:** Web endpoint requests.
 
@@ -105,7 +103,15 @@ Consider the selection options for the ***Type*** field that controls where Opti
 
 **Plugin:** OptionSourceProvider classes within uploaded plugins supply data in name / value pairs.
 
-In this article, I am focusing on the ***REST Web*** endpoints and an ***OptionSourceProvider Plugin***. For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** and then create 3 Options Lists that reflect the values below:
+In this article, I am focusing on the ***REST Web*** endpoints and an ***OptionSourceProvider Plugin***.
+
+## Creating the Option Lists
+
+To create the ***Option Lists*** in ***HPE Morpheus Enterprise***, navigate to ***Library > Options > Options Lists***. Click ***Add***. The following dialog will be displayed:
+
+![](/img/add_optionlist.png)
+
+For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** and then create 3 Options Lists that reflect the values below:
 
 - - -
 
