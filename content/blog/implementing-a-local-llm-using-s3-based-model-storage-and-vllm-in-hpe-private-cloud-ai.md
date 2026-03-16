@@ -49,7 +49,7 @@ The following sections outline the deployment of MinIO within the PCAI environme
 
 #### Deploy MinIO via *Import Framework*
 
-Based on the officla [MinIO Helm charts](https://github.com/minio/minio/tree/master/helm/minio), I created the revised [MinIO Helm charts](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio) that includes the required *Istio VirtualService* and Kyverno *ClusterPolicy* manifests. Using this Helm charts, MinIO can be deployed into the PCAI environment through the Import Framework by following the steps outlined below.
+Using a revised MinIO Helm chart, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio), MinIO can be deployed into the PCAI environment through the Import Framework by following the steps outlined below. This Helm chart is derived from the official [MinIO charts](https://github.com/minio/minio/tree/master/helm/minio) and augmented with the required *Istio* *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure compatibility with PCAI’s service mesh and policy controls. 
 
 * In PCAI left navigation pane, select **Tools & Frameworks**. Click ***Import Framework***.
 
@@ -59,7 +59,7 @@ Based on the officla [MinIO Helm charts](https://github.com/minio/minio/tree/mas
 
 ![](/img/import-framework-minio.png)
 
-T﻿ype the following commands to check the *MinIO* deployment to the namespace *minio* in the cluster:
+T﻿ype the following commands to check the *MinIO* deployment to the namespace *'minio'* in the cluster:
 
 ```shell
 $ kubectl get all -n minio
@@ -87,19 +87,23 @@ export-minio-3   Bound    pvc-d52bfe41-b7a4-4f06-8275-d2b566198012   500Gi �
 
 #### MinIO console access via its endpoint
 
-After *MinIO* is deployed via the HPE PCAI Import Framework, an Imported *MinIO* tile appears under Tools & Frameworks. 
+After *MinIO* is deployed via the Import Framework, an imported *MinIO* tile appears under **Tools & Frameworks**. 
 
 ![](/img/import-framework-minio-imported.png)
 
-Click ***Open*** from the imported *MinIO* tile will open the *MinIO* login page. 
+Click ***Open*** from the *MinIO* tile will open the *MinIO* console login page. 
 
 ![](/img/import-framework-minio-login.png)
 
 #### Create a dedicated bucket for LLM model weights
 
-Create Push model to to act as the local S3 object store
+After log into MinIO console, Create Push model to to act as the local S3 object store
 
-![](/img/import-framework-minio-ai-bucket.png)
+![](/img/create-minio-bucket.png)
+
+![](/img/create-ai-model-bucket.png)
+
+
 
 #### Upload model artifacts to the bucket
 
@@ -130,6 +134,10 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 -rw-r--r-- 1 GUJ 1049089       9916 Mar  4 18:53 tokenizer_config.json
 -rw-r--r-- 1 GUJ 1049089    2776833 Mar  4 18:53 vocab.json
 ```
+
+![](/img/s3-ai-model-bucket.png)
+
+![](/img/import-framework-minio-ai-bucket.png)
 
 ![](/img/import-framework-minio-ai-model.png)
 
