@@ -16,7 +16,7 @@ This blog post outlines the implementation of a fully local LLM deployment withi
 
 PCAI provides a comprehensive, turnkey foundation for end-to-end enterprise AI. It delivers a secure, scalable, and ready-to-use private cloud environment that includes a curated set of pre-built NVIDIA NIM-optimized LLMs and an integrated suite of AI/ML tools and frameworks for data engineering, analytics, and data science. This creates a consistent, governed operational layer for building and running AI services, ensuring that organizations retain full sovereignty over their data, models, and infrastructure while benefiting from a modern, production-ready AI platform.
 
-At the core of PCAI’s *AI managed by you* philosophy are two complementary approaches that give enterprises both flexibility and operational rigor for deploying and operating AI services: 
+At the core of PCAI’s *'AI managed by you'* philosophy are two complementary approaches that give enterprises both flexibility and operational rigor for deploying and operating AI services: 
 
 * *Import Framework*
 
@@ -26,9 +26,9 @@ This framework is what makes PCAI truly AI-application agnostic. Customers are n
 
 * *Machine Learning Inference Software (MLIS)*
 
-HPE Machine Learning Inference Software (MLIS) is an enterprise‑grade platform designed to streamline and operationalize large-scale deployment, management, and monitoring of machine learning (ML) models. It supports the full AI service lifecycle, including model registry configuration, LLM model onboarding, deployment creation, and high-throughput inference serving. Delivered as a prepackaged PCAI‑integrated application, similar to components such as *Kubeflow* and *Ray*, MLIS provides a controlled and reproducible execution layer that handles model versioning, GPU scheduling, performance tuning, and comprehensive observability across availability, latency, and compliance metrics.
+HPE Machine Learning Inference Software (MLIS) is an enterprise‑grade platform designed to streamline and operationalize large-scale deployment, management, and monitoring of machine learning (ML) models. It supports the full AI service lifecycle, including model registry configuration, LLM model onboarding, deployment creation, and high-throughput inference serving. Delivered as a prepackaged PCAI‑integrated application, similar to components such as *Kubeflow* and *Ray*, MLIS provides a controlled execution layer that handles model versioning, GPU scheduling, performance tuning, and comprehensive observability across availability, latency, and compliance metrics.
 
-A core capability of PCAI is its vendor-agnostic support for heterogeneous LLM models. Beyond pre-built NVIDIA NIM models, PCAI can deploy open-source LLMs (e.g., Hugging Face), third-party or proprietary models, and artifacts stored in external or internal object stores such as MinIO. This flexibility enables organizations to consolidate diverse model sources within a unified deployment and governance framework while maintaining enterprise-grade reliability, visibility, and operational consistency. 
+A core capability of PCAI is its vendor-agnostic support for heterogeneous LLM models. Beyond pre-built NVIDIA NIM models, PCAI can deploy open-source LLMs (e.g., Hugging Face), third-party or proprietary models, and artifacts stored in external or internal object stores such as *MinIO*. This flexibility enables organizations to consolidate diverse model sources within a unified deployment and governance framework while maintaining enterprise-grade reliability, visibility, and operational consistency. 
 
 The following sections detail the implementation of a local LLM deployment within the PCAI environment using the Import Framework and MLIS. 
 
@@ -51,7 +51,7 @@ The following sections outline the deployment of MinIO within the PCAI environme
 
 Using a revised MinIO Helm chart, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/minio), MinIO can be deployed into the PCAI environment through the Import Framework by following the steps outlined below. This Helm chart is derived from the official [MinIO charts](https://github.com/minio/minio/tree/master/helm/minio) and augmented with the required *Istio* *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure compatibility with PCAI’s service mesh and policy controls. 
 
-* In PCAI left navigation pane, select **Tools & Frameworks**. Click ***Import Framework***.
+* In PCAI left navigation panel, select **Tools & Frameworks**. Click ***Import Framework***.
 
 ![](/img/pcai-tools-frameworks-import-framework.png)
 
@@ -164,7 +164,7 @@ These *Access Key* and *Secret Key* will be required in the following configurat
 
 As the last model storage setting process, the following steps describe how to register *MinIO* as a S3 data source in PCAI. Rather than accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data souce can also be accessed by external clients such as *Spark* or *Kubeflow* Notebooks for unified data interoperability. 
 
-* In the PCAI left navigation pane, select ***Data Engineering > Data Sources***.
+* In the PCAI left navigation panel, select ***Data Engineering > Data Sources***.
 
 ![](/img/data-sources.png)
 
@@ -186,38 +186,36 @@ As the last model storage setting process, the following steps describe how to r
 
 ### Model registry configuration in *MLIS*
 
-HPE Machine Learning Inference Software (MLIS) 
+HPE Machine Learning Inference Software (MLIS) is natively integrated into PCAI to provide a production-ready, standardized runtime for large-scale AI inference operations. 
 
-Click ***Tools & Frameworks*** on the left-navigation bar, and navigate to the **HPE MLIS** tile and click ***Open***.
+The following sections describe the S3 model registry configuration, a LLM model creation using the S3 model registry, and the model deployment using vLLM in MLIS. 
+
+#### Define a S3 model registry 
+
+*  In PCAI left navigation pane, select **Tools & Frameworks**. Choose the **HPE MLIS** tile and click ***Open***.
 
 ![](/img/pcai-mlis.png)
 
 
-Navigate to ***Registries***, and click ***Create Registry***.
+* Navigate to **Registries**. Click ***Create Registry***.
 
 ![](/img/create-new-registry.png)
 
-#### Define a local S3 registry mapping model names to S3 uri
-
-Store metadata such as model version, quantization type, and configuration files
-
-Select **Internal S3 registry** as your model registry provider from the available options. Click ***Continue***.
+*  Select **Internal S3 registry** from the list as the model registry provider. Click ***Continue***.
 
 ![](/img/mlis-internal-s3-registry.png)
 
-Input details for Name, Select the Object Store from the drop-down, Select the bucket from the drop-down.
+* Specify *Name* as *'s3-minio-registry'*, select *Object store* as *'s3-minio'* and *Bucket* as *'s3-ai-models'* from the drop-down. Click ***Create registry***.
 
 ![](/img/create-s3-minio-registry.png)
 
-Click ***Create registry***.
+A registry named *'s3-minio-registry'* shows in the **Registries** page.
 
 ![](/img/s3-minio-registry.png)
 
-You have successfully added a new registry to MLIS. You can now create a packaged model and associate it with this registry.
+#### Create a packaged model
 
-#### Ensure vLLM can resolve model paths via S3 endpoints
 
-#### Mount local (cache) directories for efficient model loading (???)
 
 Navigate to **Packaged Models**. Click ***Create Packaged Model***, input details for Name and Description, and click ***Next***.
 
@@ -260,6 +258,21 @@ After few minutes, the deployment *'s3-minio-registry'* shows in *Ready* status.
 ![](/img/create-model-deployment-s3-minio-registry-open.png)
 
 Validate that MinIO exposes the correct S3 API semantics for model downloads
+
+
+
+
+You have successfully added a new registry to MLIS. You can now create a packaged model and associate it with this registry.
+
+Define a local S3 registry mapping model names to S3 uri
+
+Store metadata such as model version, quantization type, and configuration files
+
+
+#### Ensure vLLM can resolve model paths via S3 endpoints
+
+#### Mount local (cache) directories for efficient model loading (???)
+
 
 ### Integration and runtime operations
 
