@@ -162,31 +162,27 @@ These *Access Key* and *Secret Key* will be required in the following configurat
 
 #### Connect S3 data source
 
-HPE AI Essentials Software includes PrestoDB and CSI connectors, enabling connections to multiple types of data sources. Connecting to an external data source is as simple as selecting the data source type and providing the required connection parameters and credentials.
+As the last model storage setting process, the following steps describe how to register *MinIO* as a S3 data source in PCAI. Rather than accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data souce can also be accessed by external clients such as *Spark* or *Kubeflow* Notebooks for unified data interoperability. 
 
-In the left navigation pane, select Data Engineering > Data Sources.
+* In the PCAI left navigation pane, select ***Data Engineering > Data Sources***.
 
 ![](/img/data-sources.png)
 
-Select the **Object Store Data** tab. Click ***Add New Data Source***.
+* Select **Object Store Data** tab. Click ***Add New Data Store***.
 
 ![](/img/object-store-data.png)
 
-Locate the tile with the type of data source that you want to connect, and click _**Add MinIO S3**_. 
+* Locate **MinIO S3** tile. click ***Add MinIO S3***. 
 
 ![](/img/add-minio-s3-data-source-type.png)
 
-In the drawer that opens, enter the connection parameters and then click Add.
+* Specify *Name* as *'s3-minio'* and *Endpoint*, for example as *'http://minio.minio.svc.cluster.local:90000'*, provide both *Access Key* and *Secret Key* created in the previous steps, and select *Insecure* option. Click ***Add***.
 
 ![](/img/add-minio-s3-data-source.png)
 
+* A new tile with the name *'s3-minio'* and the enpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*, show on the **Data Sources** page. 
+
 ![](/img/minio-s3-data-source.png)
-
-When registering a S3 data source, you need provide the S3 credentials, such as the access key and secret key along with the S3 connection details.
-
-On the Data Sources page, a tile for a MinIO S3 data source with the name *'minio-s3'* and the enpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*. 
-
-It should be noted that after an administrator connects HPE AI Essentials Software to an external object store in AWS, MinIO, or HPE Ezmeral Data Fabric Object Store, you can access data in those data sources through clients such as Spark or Kubeflow notebooks, without providing an access key or secret key. Your HPE AI Essentials Software administrator provides the access credentials when creating the data source connection. Your access to the data source is authorized through HPE AI Essentials Software.
 
 ### Model registry configuration in *MLIS*
 
