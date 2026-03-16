@@ -95,17 +95,19 @@ Click ***Open*** from the *MinIO* tile will open the *MinIO* console login page.
 
 ![](/img/import-framework-minio-login.png)
 
-#### Create a dedicated bucket for LLM model weights
+#### Create a dedicated bucket
 
-After log into MinIO console, Create Push model to to act as the local S3 object store
+After log into *MinIO* console, click ***Create a Bucket*** to create a S3 bucket for LLM models.
 
 ![](/img/create-minio-bucket.png)
 
+Specify Name, e.g., *'s3-ai-models'* and select optional features for *Versioning*, *Object Locking* or *Quota*. Click ***Create Bucket***.
+
 ![](/img/create-ai-model-bucket.png)
 
-
-
 #### Upload model artifacts to the bucket
+
+As a sample LLM model, the *'Qwen3-0.6B-Base'* is pulled from the [Hugging Face](https://huggingface.co/Qwen/Qwen3-0.6B-Base) to the local disk.
 
 ```shell
 $ git clone https://huggingface.co/Qwen/Qwen3-0.6B-Base
@@ -116,7 +118,6 @@ remote: Compressing objects: 100% (3/3), done.
 remote: Total 46 (delta 0), reused 0 (delta 0), pack-reused 43 (from 1)
 Unpacking objects: 100% (46/46), done.
 Checking out files: 100% (10/10), done.
-
 
 $ ls -al  Qwen3-0.6B-Base/
 total 1175909
@@ -135,19 +136,32 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 -rw-r--r-- 1 GUJ 1049089    2776833 Mar  4 18:53 vocab.json
 ```
 
+From the *MinIO* console, click the created bucket *'s3-ai-models'*. 
+
 ![](/img/s3-ai-model-bucket.png)
+
+Click ***Upload*** and select **Upload Folder** to upload the model *'Qwen3-0.6B-Base'*. 
 
 ![](/img/import-framework-minio-ai-bucket.png)
 
+After few minutes, the bucket *'s3-ai-models'* shows the uploaded LLM model weights from the local folder. 
+
 ![](/img/import-framework-minio-ai-model.png)
 
-#### Configure access credentails for secure model retrieval
+#### Configure access credentails
+
+Navigate to **Access Keys** in the **MinIO** console, click ***Create access key +***. Specify *Expiry*, *Name*, *Description* and *Comments*. Click ***Create***.
 
 ![](/img/import-framework-minio-create-access-key.png)
 
-![](/img/import-framework-minio-access-key.png)
+Save the new *Access Key* and *Secret Key*. 
 
-Connecting S3 data source:
+![](/img/bucket-access-key.png)
+
+These *Access Key* and *Secret Key* will be required in the following configuration steps for secure model retrieval. 
+
+#### Connect S3 data source
+
 HPE AI Essentials Software includes PrestoDB and CSI connectors, enabling connections to multiple types of data sources. Connecting to an external data source is as simple as selecting the data source type and providing the required connection parameters and credentials.
 
 In the left navigation pane, select Data Engineering > Data Sources.
