@@ -5,6 +5,15 @@ date: 2026-03-10T15:10:21.099Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - HPE Private Cloud AI
+  - S3 storage store
+  - MinIO
+  - Import Framework
+  - HPE Machine Learning Inference Software
+  - Helm chart
+  - vLLM
+  - Hagging Face
 ---
 Deploying a local Large Language Model (LLM) architecture using S3‑compatible object storage and *vLLM* as the inference engine provides a scalable, cost‑efficient, and secure foundation for enterprise AI adoption. This approach enables organizations to operationalize AI workloads while maintaining full control over data, performance, and model lifecycle management.
 
