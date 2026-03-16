@@ -215,71 +215,51 @@ A registry named *'s3-minio-registry'* shows in the **Registries** page.
 
 #### Create a packaged model
 
-
-
-Navigate to **Packaged Models**. Click ***Create Packaged Model***, input details for Name and Description, and click ***Next***.
+* Navigate to **Packaged Models** in MLIS and click ***Create Packaged Model***. Under **Your model** tab, secify *Name* as *qwen3-06b-basae* and *Description* as *'Qwen3-0.6B-Base'*. Click ***Next***.
 
 ![](/img/create-s3-packaged-model.png)
 
-Specify Registry as *'s3-minio-registry'*, Model format as *'Custom'*, image as *'vllm/vllm-openai:latest'*, model URL as *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and Model category as *'llm'*. Click ***Next***. 
+* Under **Storage** tab, secify *Registry* as *'s3-minio-registry'*, *Model format* as *'Custom'*, *image* as *'vllm/vllm-openai:latest'*, *URL* as *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and *Model category* as *'llm'*. Click ***Next***.
 
 ![](/img/create-s3-packaged-model-storage.png)
 
-Choose a Resource Template as *'gpu-tiny'*. Click ***Next***.  
+* Under **Resources** tab, select *Resource Template* as *'gpu-tiny'* from the list. Click ***Next***.  
 
 ![](/img/create-s3-packaged-model-resources.png)
 
-Under *Advanced* tab, specify Arguments as *'--model /mnt/models'*. Click ***Done***. 
+* Under **Advanced** tab, specify *Arguments* as *'--model /mnt/models'*. Click ***Done***. 
 
 ![](/img/create-s3-packaged-model-advanced.png)
 
-MLIS will pull the model from this mount point. 
+MLIS will pull the model from this mount point *'/mnt/models'*. 
 
-Navigate to **Deployments** and click ***Create Deployment***. Specify Name as *'s3-minio-registry'*, select Namespace as *'project-user-guoping-jia'* from the list. Click ***Next***. 
+#### Create model deployment
+
+* Navigate to **Deployments** in MLIS and click ***Create Deployment***. Under **Deployment** tab, specify *Name* as *'s3-minio-registry'* and select *Namespace* as *'project-user-guoping-jia'* from the list. Click ***Next***. 
 
 ![](/img/create-model-deployment.png)
 
-Choose **Packaged model** as *'qwen3-06b-base'* from the dropdown. Click ***Next***. 
+* Under **Deployment** tab, select **Packaged model** as *'qwen3-06b-base'* from the drop-down. Click ***Next***. 
 
 ![](/img/create-model-deployment-packaged-model.png)
 
-Choose an **Auto scaling template**, for example *'fixed-1'*. Click ***Next***. 
+* Under **Scaling** tab, select *Auto scaling template*, for example *'fixed-1'*. Click ***Next***. 
 
 ![](/img/create-model-deployment-scaling.png)
 
-Specify *Environment Variables*, for example *'AIOLI_DISABLE_LOGGER = 1'*. Click ***Done***. 
+* Under **Advanced** tab, specify *Environment Variables*, for example *'AIOLI_DISABLE_LOGGER = 1'*. Click ***Done***. 
 
 ![](/img/create-model-deployment-advanced.png)
 
-After few minutes, the deployment *'s3-minio-registry'* shows in *Ready* status.
+* After few minutes, the deployment *'s3-minio-registry'* shows in *Ready* status in the **Deployments** page, with a configured model deployment endpoint, for example *'https://s3-minio-registry.project-user-guoping-jia.serving.ai-application.pcai0109.dc15.hpecolo.net/'*.
 
 ![](/img/create-model-deployment-s3-minio-registry.png)
 
+* Click **'...'** next to the model deployment *'s3-minio-registry'* and select **Open**, all the details of the model deployment shows under **Timeline** tab.
+
 ![](/img/create-model-deployment-s3-minio-registry-open.png)
 
-Validate that MinIO exposes the correct S3 API semantics for model downloads
-
-
-
-
-You have successfully added a new registry to MLIS. You can now create a packaged model and associate it with this registry.
-
-Define a local S3 registry mapping model names to S3 uri
-
-Store metadata such as model version, quantization type, and configuration files
-
-
-#### Ensure vLLM can resolve model paths via S3 endpoints
-
-#### Mount local (cache) directories for efficient model loading (???)
-
-
-### Integration and runtime operations
-
-Connect product services to the vLLM inference endpoint
-Implement request routing, authentication, and rate control as needed - show the benefits using PCAI
-Monitor GPU utilization, token throughput, and latency
-Automate model updates by pushing new versions to MinIO and triggering vLLM reloads
+You have successfully added a new registry using the local *MinIO* S3 data source , create a packaged model and deploy it in MLIS. With managed access tokens, the configured inference service endpoint from the model deployment can be integrated into a broad range of AI tools, including the *VSCode AI Toolkit*, as well as LLM model-serving frameworks like *Open WebUI*, for code generation and virtual assistant capabilities.
 
 ### Conclusion
 
