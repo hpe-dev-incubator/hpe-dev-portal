@@ -1,5 +1,5 @@
 ---
-title: Cascading dropdown lists on HPE Morpheus Enterprise forms
+title: Cascading dropdown lists for HPE Morpheus Enterprise
 date: 2026-02-11T11:16:09.248Z
 author: Neil van Rensburg
 authorimage: /img/greenlogo.png
