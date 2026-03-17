@@ -191,6 +191,8 @@ Inputs should be created as shown below:
 
 ![](/img/inputs.png)
 
+The rest of the available Input types are not driven by Option Source list data. These include HTML text, textarea, checkbox, hidden, number and password. Text based Inputs can be validated using regular expressions.
+
 ## How to test Option List Inputs
 
 A simple way to test Inputs in HPE Morpheus Enterprise is to create an Operational Workflow. These workflows can use Inputs as Workflow wizard Inputs.
