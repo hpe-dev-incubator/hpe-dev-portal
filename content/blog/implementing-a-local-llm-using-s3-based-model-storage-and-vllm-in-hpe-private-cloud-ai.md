@@ -171,9 +171,9 @@ These *Access Key* and *Secret Key* values will be required in the subsequent co
 
 #### Connect S3 data source
 
-The following steps describe how to register *MinIO* as a S3 data source in PCAI. Instead of accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data source can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks for unified data interoperability. 
+The following steps describe how to register *MinIO* as a S3 data source in PCAI. Instead of accessing *MinIO* directly through its internal service endpoint, PCAI connects to a configured S3-compatible *MinIO* endpoint using the provided access and secret keys to retrieve model artifacts. This S3 data source serves as the object-storage backend for model ingestion and runtime access, and can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks to ensure consistent, interoperable data access across the platform. 
 
-* In the PCAI left navigation panel, select ***Data Engineering > Data Sources***.
+* In the PCAI left navigation panel, go to **Data Engineering** and select *Data Sources*.
 
 ![](/img/data-sources.png)
 
@@ -181,15 +181,15 @@ The following steps describe how to register *MinIO* as a S3 data source in PCAI
 
 ![](/img/object-store-data.png)
 
-* Locate **MinIO S3** tile. Click ***Add MinIO S3***. 
+* Locate the **MinIO S3** tile. Click ***Add MinIO S3***. 
 
 ![](/img/add-minio-s3-data-source-type.png)
 
-* Specify *Name* as *'s3-minio'*, *Endpoint*, for example as *'http://minio.minio.svc.cluster.local:90000'*, provide both *Access Key* and *Secret Key* created in the previous steps, and select *Insecure* option. Click ***Add***.
+* Enter *Name* as *'s3-minio'*, specify *Endpoint* (for example, *'http://minio.minio.svc.cluster.local:90000'*), provide the *Access Key* and *Secret Key* created earlier, and select *Insecure* option. Click ***Add***.
 
 ![](/img/add-minio-s3-data-source.png)
 
-* A new tile with the name *'s3-minio'* and the endpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*, show on the **Data Sources** page. 
+* A new tile named *'s3-minio'*, displaying its endpoint URL (for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*), now appears on the **Data Sources** page. 
 
 ![](/img/minio-s3-data-source.png)
 
@@ -199,7 +199,7 @@ HPE Machine Learning Inference Software (MLIS) is natively integrated into PCAI 
 
 #### Define a S3 model registry 
 
-*  In PCAI left navigation panel, select **Tools & Frameworks**. Choose the **HPE MLIS** tile and click ***Open***.
+*  In the PCAI left navigation panel, go to **Tools & Frameworks**, and select the **HPE MLIS** tile. Click ***Open***.
 
 ![](/img/pcai-mlis.png)
 
@@ -208,65 +208,65 @@ HPE Machine Learning Inference Software (MLIS) is natively integrated into PCAI 
 
 ![](/img/create-new-registry.png)
 
-*  Select **Internal S3 registry** from the drop-down as the model registry provider. Click ***Continue***.
+*  Select **Internal S3 registry** as the model registry provider. Click ***Continue***.
 
 ![](/img/mlis-internal-s3-registry.png)
 
-* Specify *Name* as *'s3-minio-registry'*, select *Object store* as *'s3-minio'* and *Bucket* as *'s3-ai-models'* from the drop-down. Click ***Create registry***.
+* Enter *Name* as *'s3-minio-registry'*, choose *Object store* as *'s3-minio'*, and select *Bucket* as *'s3-ai-models'* from the drop-down menus. Click ***Create registry***.
 
 ![](/img/create-s3-minio-registry.png)
 
-A registry named *'s3-minio-registry'* shows in the **Registries** page.
+* A registry named *'s3-minio-registry'* now appears on the **Registries** page.
 
 ![](/img/s3-minio-registry.png)
 
 #### Create a packaged model
 
-* Navigate to **Packaged Models** in MLIS, click ***Create Packaged Model***. Under **Your model** tab, specify *Name* as *'qwen3-06b-basae'* and *Description* as *'Qwen3-0.6B-Base'*. Click ***Next***.
+* In MLIS, navigate to **Packaged Models** and click ***Create Packaged Model***. Under the **Your model** tab, enter *Name* as *'qwen3-06b-basae'* and *Description* as *'Qwen3-0.6B-Base'*. Click ***Next***.
 
 ![](/img/create-s3-packaged-model.png)
 
-* Under **Storage** tab, specify *Registry* as *'s3-minio-registry'*, *Model format* as *'Custom'*, *image* as *'vllm/vllm-openai:latest'*, *URL* as *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and *Model category* as *'llm'*. Click ***Next***.
+* Under the **Storage** tab, set *Registry* to *'s3-minio-registry'*, choose *Model format* as *'Custom'*, specify *image* as *'vllm/vllm-openai:latest'*, set *URL* to *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and select *Model category* as *'llm'*. Click ***Next***.
 
 ![](/img/create-s3-packaged-model-storage.png)
 
-* Under **Resources** tab, select *Resource Template* as *'gpu-tiny'*. Click ***Next***.  
+* Under the **Resources** tab, select *Resource Template* as *'gpu-tiny'*. Click ***Next***.  
 
 ![](/img/create-s3-packaged-model-resources.png)
 
-* Under **Advanced** tab, specify *Arguments* as *'--model /mnt/models --port 8080'*. Click ***Done***. 
+* Under the **Advanced** tab, set *Arguments* to *'--model /mnt/models --port 8080'*. Click ***Done***. 
 
 ![](/img/create-s3-packaged-model-advanced.png)
 
-MLIS will pull the model from the mount point *'/mnt/models'*. 
+MLIS retrieves the model from the mount point *'/mnt/models'*. 
 
 #### Create model deployment
 
-* Navigate to **Deployments** in MLIS, click ***Create Deployment***. Under **Deployment** tab, specify *Name* as *'s3-minio-registry'* and select *Namespace* as *'project-user-guoping-jia'*. Click ***Next***. 
+* In MLIS, navigate to **Deployments** and click ***Create Deployment***. Under the **Deployment** tab, enter *Name* as *'s3-minio-registry'* and select *Namespace* as *'project-user-guoping-jia'*. Click ***Next***. 
 
 ![](/img/create-model-deployment.png)
 
-* Under **Packaged Model** tab, select **Packaged model** as *'qwen3-06b-base'* from the drop-down. Click ***Next***. 
+* Under the **Packaged Model** tab, select **Packaged model** as *'qwen3-06b-base'* from the drop-down. Click ***Next***. 
 
 ![](/img/create-model-deployment-packaged-model.png)
 
-* Under **Scaling** tab, select *Auto scaling template*, for example as *'fixed-1'*. Click ***Next***. 
+* Under the **Scaling** tab, select *Auto scaling template*, such as *'fixed-1'*. Click ***Next***. 
 
 ![](/img/create-model-deployment-scaling.png)
 
-* Under **Advanced** tab, specify *Environment Variables*, for example *'AIOLI_DISABLE_LOGGER = 1'*. Click ***Done***. 
+* Under the **Advanced** tab, add *Environment Variables*, for example *'AIOLI_DISABLE_LOGGER = 1'*. Click ***Done***. 
 
 ![](/img/create-model-deployment-advanced.png)
 
-* After few minutes, the deployment *'s3-minio-registry'* shows in *Ready* status in the **Deployments** page, with a configured model deployment endpoint, for example *'https://s3-minio-registry.project-user-guoping-jia.serving.ai-application.pcai0109.dc15.hpecolo.net/'*.
+* After a few minutes, the deployment *'s3-minio-registry'* appears in *Ready* status on the **Deployments** page, along with its configured model deployment endpoint, for example: *'https://s3-minio-registry.project-user-guoping-jia.serving.ai-application.pcai0109.dc15.hpecolo.net/'*.
 
 ![](/img/create-model-deployment-s3-minio-registry.png)
 
-* Click **'...'** next to the model deployment *'s3-minio-registry'*, click ***Open***. All the details of the model deployment shows under **Timeline** tab.
+* Click the **...** menu next to the deployment *'s3-minio-registry'* and select **Open**. The **Timeline** tab displays all model deployment details. 
 
 ![](/img/create-model-deployment-s3-minio-registry-open.png)
 
-You have successfully added a new registry using the local *MinIO* S3 data source, created a packaged model and deployed it in MLIS. With managed access tokens provided as part of configuration process, the inference service endpoint from the model deployment can be integrated into a broad range of AI tools, including the *VSCode AI Toolkit*, as well as LLM model-serving frameworks like *Open WebUI*, for code generation and virtual assistant capabilities.
+You have successfully configured a new registry backed by the local *MinIO* S3 data source, packaged the model, and deployed it through MLIS. With managed access tokens provided during configuration, the resulting inference service endpoint can be integrated into a wide range of AI tooling, including the *VSCode AI Toolkit* and LLM-serving frameworks such as *Open WebUI*, to enable code generation workflows and virtual assistant capabilities.
 
 ### Conclusion
 
