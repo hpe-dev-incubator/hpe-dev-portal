@@ -116,7 +116,7 @@ Specify *Name*, e.g., *'s3-ai-models'* and select optional features for *Version
 
 #### Upload model artifacts to the bucket
 
-As a sample LLM model, the *'Qwen3-0.6B-Base'* has been pulled from the [Hugging Face](https://huggingface.co/Qwen/Qwen3-0.6B-Base) to the local disk in the folder *'Qwen3-0.6B-Base'*.
+As an example LLM model, the *Qwen3-0.6B-Base* has been retrieved from the [*Hugging Face*](https://huggingface.co/Qwen/Qwen3-0.6B-Base) and stored locally in the directory *'Qwen3-0.6B-Base'*.
 
 ```shell
 $ git clone https://huggingface.co/Qwen/Qwen3-0.6B-Base
@@ -145,33 +145,33 @@ drwxr-xr-x 1 GUJ 1049089          0 Mar  4 18:54 .git
 -rw-r--r-- 1 GUJ 1049089    2776833 Mar  4 18:53 vocab.json
 ```
 
-From the *MinIO* console, click the created bucket *'s3-ai-models'*. 
+In the *MinIO* console, select the created bucket *'s3-ai-models'*. 
 
 ![](/img/s3-ai-model-bucket.png)
 
-Click ***Upload***, select **Upload Folder** and provide the folder name *'Qwen3-0.6B-Base'* to upload the model from the local disk. 
+Click ***Upload***, choose *Upload Folder*, and select the *'Qwen3-0.6B-Base'* directory to upload the model from local storage. 
 
 ![](/img/import-framework-minio-ai-bucket.png)
 
-After few minutes, the bucket *'s3-ai-models'* shows the uploaded LLM model weights, along with the configuration and tokenizer files, from the local folder. 
+After few minutes, the bucket *'s3-ai-models'* displays the uploaded LLM model weights along with the associated configuration and tokenizer files from the local directory. 
 
 ![](/img/import-framework-minio-ai-model.png)
 
 #### Configure access credentials
 
-Navigate to **Access Keys** in the **MinIO** console, click ***Create access key +***. Specify *Expiry*, *Name*, *Description* and *Comments*. Click ***Create***.
+In the *MinIO* console, navigate to **Access Keys**,   click ***Create access key +***. Specify the *Expiry*, *Name*, *Description* and *Comments* fields. Click ***Create***.
 
 ![](/img/import-framework-minio-create-access-key.png)
 
-Save the new *Access Key* and *Secret Key* to a safe place. 
+Store the newly generated *Access Key* and *Secret Key* in a secure location. 
 
 ![](/img/bucket-access-key.png)
 
-These *Access Key* and *Secret Key* will be required in the following configuration steps for secure model retrieval. 
+These *Access Key* and *Secret Key* values will be required in the subsequent configuration steps to enable secure model retrieval. 
 
 #### Connect S3 data source
 
-As the last model storage setting process, the following steps describe how to register *MinIO* as a S3 data source in PCAI. Rather than accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data source can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks for unified data interoperability. 
+The following steps describe how to register *MinIO* as a S3 data source in PCAI. Instead of accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data source can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks for unified data interoperability. 
 
 * In the PCAI left navigation panel, select ***Data Engineering > Data Sources***.
 
