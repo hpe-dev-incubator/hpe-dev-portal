@@ -149,8 +149,13 @@ Verify that the three Option Lists reflect the below:
 
 ## Create the Inputs
 
-On their own, Option Lists aren't useful as wizard inputs. To use the values in a UI control, the Option List is attached to a list-based Input Type. These include HTML drop-downs, option lists and type-ahead fields. \n
-To create the wizard Inputs, navigate to ***Library > Options > Inputs***. Click ***Add***. Create 3 Inputs that correspond to the Option Lists above, with the following values:
+On their own, Option Lists aren't useful as wizard inputs. To use the values in a UI control, the Option List is attached to a list-based Input Type. These include HTML drop-downs, option lists and type-ahead fields. 
+Inputs are also variables, with the ***fieldName*** property as the variable name.
+To create the wizard Inputs, navigate to ***Library > Options > Inputs***. Click ***Add***. 
+
+![](/img/create_input.png)
+
+Create 3 Inputs that correspond to the Option Lists above, with the following values:
 
 - - -
 
