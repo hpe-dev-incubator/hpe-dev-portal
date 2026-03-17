@@ -17,7 +17,7 @@ tags:
 ---
 Deploying a local Large Language Model (LLM) architecture using S3‑compatible object storage and *vLLM* as the inference engine provides a scalable, cost‑efficient, and secure foundation for enterprise AI adoption. This approach enables organizations to operationalize AI workloads while maintaining full control over data, performance, and model lifecycle management.
 
-This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO* as a local S3-based object storage platform for model hosting and uses *vLLM* as the optimized infrerence engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment. 
+This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO* as a local S3-based object storage platform for model hosting and uses *vLLM* as the optimized inference engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment. 
 
 ### HPE Private Cloud AI
 
@@ -157,7 +157,7 @@ After few minutes, the bucket *'s3-ai-models'* shows the uploaded LLM model weig
 
 ![](/img/import-framework-minio-ai-model.png)
 
-#### Configure access credentails
+#### Configure access credentials
 
 Navigate to **Access Keys** in the **MinIO** console, click ***Create access key +***. Specify *Expiry*, *Name*, *Description* and *Comments*. Click ***Create***.
 
@@ -171,7 +171,7 @@ These *Access Key* and *Secret Key* will be required in the following configurat
 
 #### Connect S3 data source
 
-As the last model storage setting process, the following steps describe how to register *MinIO* as a S3 data source in PCAI. Rather than accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data souce can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks for unified data interoperability. 
+As the last model storage setting process, the following steps describe how to register *MinIO* as a S3 data source in PCAI. Rather than accessing *MinIO* directly through its internal service endpoint, PCAI uses a configured S3-compatible *MinIO* endpoint, together with the provided access key and secret key, to retrieve model artifacts. This configured S3 data source functions as the object storage backend that PCAI relies on for model ingestion and runtime access. The same S3 data source can also be accessed by external clients such as *Spark* or *Kubeflow* notebooks for unified data interoperability. 
 
 * In the PCAI left navigation panel, select ***Data Engineering > Data Sources***.
 
@@ -185,11 +185,11 @@ As the last model storage setting process, the following steps describe how to r
 
 ![](/img/add-minio-s3-data-source-type.png)
 
-* Specify *Name* as *'s3-minio'* and *Endpoint*, for example as *'http://minio.minio.svc.cluster.local:90000'*, provide both *Access Key* and *Secret Key* created in the previous steps, and select *Insecure* option. Click ***Add***.
+* Specify *Name* as *'s3-minio'*, *Endpoint*, for example as *'http://minio.minio.svc.cluster.local:90000'*, provide both *Access Key* and *Secret Key* created in the previous steps, and select *Insecure* option. Click ***Add***.
 
 ![](/img/add-minio-s3-data-source.png)
 
-* A new tile with the name *'s3-minio'* and the enpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*, show on the **Data Sources** page. 
+* A new tile with the name *'s3-minio'* and the endpoint URL, for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*, show on the **Data Sources** page. 
 
 ![](/img/minio-s3-data-source.png)
 
@@ -208,7 +208,7 @@ HPE Machine Learning Inference Software (MLIS) is natively integrated into PCAI 
 
 ![](/img/create-new-registry.png)
 
-*  Select **Internal S3 registry** from the drop-dwon as the model registry provider. Click ***Continue***.
+*  Select **Internal S3 registry** from the drop-down as the model registry provider. Click ***Continue***.
 
 ![](/img/mlis-internal-s3-registry.png)
 
@@ -270,7 +270,7 @@ You have successfully added a new registry using the local *MinIO* S3 data sourc
 
 ### Conclusion
 
-This blog post discussed and demonstrated the implementation of a fully local, privacy-preserving LLM deployment using *MinIO* for centralized S3-compatible model storage and *vLLM* for high-performance inference, integrated into the PCAI environment through the Import Framework and MLIS. This architecture enables scalable, secure, and cost-efficient LLM operations while eliminating reliance on external APIs or thrid-party model hosting services. 
+This blog post discussed and demonstrated the implementation of a fully local, privacy-preserving LLM deployment using *MinIO* for centralized S3-compatible model storage and *vLLM* for high-performance inference, integrated into the PCAI environment through the Import Framework and MLIS. This architecture enables scalable, secure, and cost-efficient LLM operations while eliminating reliance on external APIs or third-party model hosting services. 
 
 A local LLM deployment provides a strategic foundation for advanced AI initiatives, including *RAG* pipelines, domain-specific fine-tuning, agent-based systems, and multimodal model integration. By combining S3-compatible storage with *vLLM*'s optimized inference engine, organizations gain a flexible and extensible architecture capable of evolving with emerging AI capabilities without requiring major architectural changes or new vendor dependencies. 
 
