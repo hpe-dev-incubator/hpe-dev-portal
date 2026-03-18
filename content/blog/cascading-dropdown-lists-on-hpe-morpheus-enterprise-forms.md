@@ -208,52 +208,29 @@ Under ***Library* > *Automation* > *Workflows***, click the name of the ***Test 
 
 When Option Lists are populated by Option Source data, the list items are stored against an inherent ***results*** object. This ***results*** construct consists of a list of ***name*** and ***value*** pairs.
 
-
-
-
-
-By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
+Consider the current country JSON data:
 
 ```json
 [
-  {
-    "id": "1",
-    "name": "United States"
-  },
-  {
-    "id": "2",
-    "name": "Canada"
-  },
-  {
-    "id": "3",
-    "name": "Australia"
-  }
+        {
+            "value": 1,
+            "name": "United States"
+        },
+        {
+            "value": 2,
+            "name": "Canada"
+        },
+        {
+            "value": 3,
+            "name": "Australia"
+        }
 ]
 ```
+If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-This issue with the above list is that the ***value*** key is missing, represented by an ***id*** property instead. This causes the HTML drop-down ***option*** tags to have ***null*** values:
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>*** tag to be populated with ***<option>*** tags. 
 
-![](/img/dropdown_html_before.png)
-
-Navigate to ***Library*** > ***Options*** > ***Options Lists*** and edit the previously created ***Countries*** Option List using the corresponding pencil icon on the right:
-
-![](/img/edit_optionslist_countries.png)
-
-Populating the ***Translation Script*** text box using the below code causes the ***results*** object to be populated by ***javascript logic*** instead of reverting to the default behavior of ***name*** and ***value*** JSON keys:
-
-```js
-for (var x = 0; x < data.length; x++) {
-  results.push({"name": data[x].name,"value": data[x].id})
-}
-```
-
-The above code loops through each entry in the ***data*** JSON list using a javascript for-loop. For each entry, a ***name*** and ***value*** object is pushed onto the ***results*** list. This ensures that the ***value*** attribute is available on the ***input*** map for future ***filtering*** or for use within ***automation tasks***. 
-
-To use ***id*** as the ***value*** key, add the above code to the ***Translation Script*** text box and click ***SAVE CHANGES***:
-
-![](/img/translation_script_code_basic.png)
-
-Navigate back to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Inspecting the ***country*** drop-down HTML element on the web UI page reveals that the drop-down control is now correctly populated with country id values.
+Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Inspecting the ***country*** drop-down HTML element on the web UI page reveals that the drop-down control is now correctly populated with country id values.
 
 ![](/img/dropdown_html_after.png)
 
