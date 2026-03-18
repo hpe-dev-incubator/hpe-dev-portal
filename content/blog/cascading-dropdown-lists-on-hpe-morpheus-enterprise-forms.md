@@ -228,9 +228,9 @@ Consider the current country JSON data:
 ```
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>*** tag to be populated with ***<option>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select\>*** tag to be populated with ***\<option\>*** tags. 
 
-Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Inspecting the ***country*** drop-down HTML element on the web UI page reveals that the drop-down control is now correctly populated with country id values.
+Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. Inspecting the ***country*** drop-down HTML element on the web UI page reveals that the drop-down control is populated with country name and value IDs.
 
 ![](/img/dropdown_html_after.png)
 
