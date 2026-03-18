@@ -234,13 +234,11 @@ Navigate to ***Library > Automation > Workflows*** and click on the name of the 
 
 ![](/img/dropdown_html_after.png)
 
-If the values are still showing up as null, you may need to refresh the browser page.
+### Filter the state by country using a translation script
 
 At the moment, the ***state*** drop-down contains all states in the data source, regardless of which ***country*** is selected. Similarly, ***cities*** also remain unfiltered, regardless of the selected ***country*** and ***state***.
 
 This section will look at the two available mechanisms for filtering Option List data based on the values of other Form Inputs, ***Translation Scripts*** and ***Request Scripts***.
-
-### Filter the state by country using a translation script
 
 Navigate to ***Library > Options > Options Lists*** and edit the previously created ***States*** Option List using the corresponding pencil icon on the right:
 
