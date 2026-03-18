@@ -206,7 +206,11 @@ Under ***Library* > *Automation* > *Workflows***, click the name of the ***Test 
 
 ## Filtering data
 
-When filtering, it is important to understand that Option Lists are populated through an inherent ***results*** object. This ***results*** construct consists of a list of ***name*** and ***value*** pairs.
+When Option Lists are populated by Option Source data, the list items are stored against an inherent ***results*** object. This ***results*** construct consists of a list of ***name*** and ***value*** pairs.
+
+
+
+
 
 By default, the Option List is assigned the corresponding ***name*** and ***value*** JSON fields within the JSON list. Consider the current country JSON data:
 
