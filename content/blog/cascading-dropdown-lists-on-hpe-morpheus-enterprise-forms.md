@@ -242,7 +242,7 @@ At this stage, the ***state*** drop-down contains all states in the data source,
 
 This section will look at the two available mechanisms for filtering Option List data based on the values of other UI wizard Inputs, ***Translation Scripts*** and ***Request Scripts***.
 
-Translation scripts use these components: 
+Translation scripts use javascript syntax and consist of these components: 
 
 * An ***input*** object map that represents the selected values of other inputs on the same UI wizard
 * A ***data*** list/array object that contains the raw data from the Option Source 
@@ -252,10 +252,6 @@ Translation scripts use these components:
 Navigate to ***Library > Options > Options Lists*** and edit the previously created ***States*** Option List using the corresponding pencil icon on the right:
 
 ![](/img/edit_optionslist.png)
-
-
-
-
 
 Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
 
@@ -269,7 +265,7 @@ for (var i = 0; i < data.length; i++) {
 
 ![](/img/translation_script_code.png)
 
-As before, the script loops through the ***data*** set and pushes entries onto the ***results*** list. The difference is the conditional if statement. The selected value of the ***country*** Form Input must match the ***countryId*** of the JSON list entry before it can be added to the ***results*** list:
+The above script loops through the state ***data*** set and pushes entries onto the ***results*** list. This time there is no ***value*** field. The ***id*** field is used for the value instead. The conditional if statement ensures that the selected value of the ***country*** Input matches the ***countryId*** of the JSON list entry before it can be added to the ***results*** list:
 
 ![](/img/country_id.png)
 
