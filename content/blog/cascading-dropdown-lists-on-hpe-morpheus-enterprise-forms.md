@@ -226,9 +226,10 @@ Consider the current country JSON data:
         }
 ]
 ```
+
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select> *** tag to be populated with ***\<option\>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>***  tag to be populated with ***<option>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspecting the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -237,13 +238,24 @@ Using developer tools on your browser, inspecting the ***country*** drop-down HT
 
 ### Filter the state by country using a translation script
 
-At the moment, the ***state*** drop-down contains all states in the data source, regardless of which ***country*** is selected. Similarly, ***cities*** also remain unfiltered, regardless of the selected ***country*** and ***state***.
+At this stage, the ***state*** drop-down contains all states in the data source, regardless of which ***country*** is selected. Similarly, ***cities*** also remain unfiltered, regardless of the selected ***country*** and ***state***.
 
-This section will look at the two available mechanisms for filtering Option List data based on the values of other Form Inputs, ***Translation Scripts*** and ***Request Scripts***.
+This section will look at the two available mechanisms for filtering Option List data based on the values of other UI wizard Inputs, ***Translation Scripts*** and ***Request Scripts***.
+
+Translation scripts use these components: 
+
+* An ***input*** object map that represents the selected values of other inputs on the same UI wizard
+* A ***data*** list/array object that contains the raw data from the Option Source 
+* A ***results*** list/array object that the script needs to add value objects onto 
+* ***name*** and ***value*** objects that get added onto the ***data*** object. E.g., {"name": "USA", "value": 1}
 
 Navigate to ***Library > Options > Options Lists*** and edit the previously created ***States*** Option List using the corresponding pencil icon on the right:
 
 ![](/img/edit_optionslist.png)
+
+
+
+
 
 Add the following code to the ***TRANSLATION SCRIPT*** field and click ***SAVE CHANGES***:
 
