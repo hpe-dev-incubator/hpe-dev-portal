@@ -229,7 +229,7 @@ Consider the current country JSON data:
 
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select\>***  tag to be populated with ***\<option\>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>***  tag to be populated with ***<option>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspect the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -266,7 +266,7 @@ for (var i = 0; i < data.length; i++) {
 ![](/img/translation_script_code.png)
 
 The above script loops through the state ***data*** set and pushes entries onto the ***results*** list. <br />
-This time there is no ***value*** field in the data. The ***id*** field is used for the value instead. It is necessary to provide ***name*** and ***value*** objects via translation scripts if the JSON data doesn't specifically use ***name*** and v***value*** keys. <br />
+This time there is no ***value*** field in the data. The ***id*** field is used for the value instead. It is necessary to provide ***name*** and ***value*** objects via translation scripts if the JSON data doesn't specifically use ***name*** and ***value*** keys. <br />
 The conditional if statement ensures that the selected value of the ***country*** Input matches the ***countryId*** of the JSON list entry before it can be added to the ***results*** list:
 
 ![](/img/country_id.png)
@@ -311,7 +311,7 @@ The selection of ***city*** is now based on ***state***, which is based on the s
 ## Explore, compile, and upload the Option Source plugin
 
 HPE Morpheus Enterprise uses plugins to extend platform functionality, usually onto 3rd party platforms like hypervisors or IPAM systems. This is achieved through Groovy code projects that compile to java archives (.jar files). The .jar files are uploaded via the HPE Morpheus Enterprise UI or API. Plugins implement domain-specific class files called providers. To programmatically populate Option Lists from plugins, you need to implement an Option Source Provider.<br />
-This section explores an example of an Option Source plugin by adding zip codes to the above countries, states, cities example. <br /><br />
+This section explores an example of an Option Source plugin by adding zip codes to the above countries, states, cities example. <br />
 
 For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to official plugin documentation at [developer.morpheusdata.com](https://developer.hpe.com) or have a look at the blog article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
@@ -328,7 +328,6 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 ![](/img/provider_class.png)
 
 This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example, there is only one method called ***listZipCodes***, which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easily be retrieved from other systems via SDKs, APIs, or database connections.
-
 
 Open the project directory in a command line terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
@@ -348,7 +347,7 @@ Edit the uploaded plugin using the pencil icon to confirm that the ***Option Sou
 
 ## Add the zip code Option List and Input
 
-At the moment, only the name of the city is added to the ***City*** drop-down. This is due to the missing ***value*** property, as seen earlier with ***country*** and ***state***. 
+At this stage, only the name of the city is added to the ***City*** drop-down. This is due to the missing ***value*** property, as seen earlier with the ***state*** Option List. 
 
 Add the following code snippet to the ***cities*** Option List ***TRANSLATION SCRIPT*** field by navigating to **Library** > **Options** > **Options Lists** and clicking the corresponding pencil icon on the right:
 
@@ -410,11 +409,15 @@ Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below 
 
 ![](/img/zipcodes_input.png)
 
-Navigate to ***Library > Automation > Workflows***, click the name of the ***Test Inputs*** workflow and click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
+Navigate to ***Library > Automation > Workflows*** and edit the ***Test Inputs*** workflow. As before, add the ZipCode Input to the workflow and save. 
+
+![](/img/zipcode_workflow_input.png)
+
+Click the name of the ***Test Inputs*** workflow and click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
 
 ![](/img/zipcode_dropdown.png)
 
-Set the corresponding ***VISIBILITY FIELD*** values on the other inputs to make the visibility of each subsequent drop-down depend on the one before. ***State to country***, and ***city to state***.
+To implement cascading visibility, set the corresponding ***VISIBILITY FIELD*** values on the other inputs to make the visibility of each subsequent drop-down depend on the one before. ***State to country***, and ***city to state***.
 
 ## Summary
 
