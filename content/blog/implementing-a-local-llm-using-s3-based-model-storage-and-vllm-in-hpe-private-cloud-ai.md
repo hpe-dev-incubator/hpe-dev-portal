@@ -19,7 +19,7 @@ tags:
 
 Deploying a local Large Language Model (LLM) architecture using S3‑compatible object storage and *vLLM* as the inference engine provides a scalable, cost‑efficient, and secure foundation for enterprise AI adoption. This approach enables organizations to operationalize AI workloads while maintaining full control over data, performance, and model lifecycle management.
 
-This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO* as a local S3-based object storage platform for model hosting and uses *vLLM* as the optimized inference engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment. 
+This blog post outlines the implementation of a fully local LLM deployment within the HPE Private Cloud AI (PCAI) environment. It deploys *MinIO*, a high-performance, S3-compatible object storage platform optimized for cloud-native and containerized workloads, as the local model store, providing fast, parallel access to large model artifacts. The architecture then uses *vLLM* as the optimized inference engine to deliver high-throughput model execution and efficient GPU utilization. Together, these components form a fully self-hosted LLM pipeline within the PCAI environment, enabling organizations to serve models reliably, scale efficiently, and run secure, high‑performance generative AI workloads entirely on‑premises without dependence on external cloud services. 
 
 ### HPE Private Cloud AI
 
@@ -27,34 +27,39 @@ This blog post outlines the implementation of a fully local LLM deployment withi
 
 PCAI provides a comprehensive, turnkey foundation for end-to-end enterprise AI. It delivers a secure, scalable, and ready-to-use private cloud environment that includes a curated set of pre-built NVIDIA NIM-optimized LLMs and an integrated suite of AI/ML tools and frameworks for data engineering, analytics, and data science. This creates a consistent, governed operational layer for building and running AI services, ensuring that organizations retain full sovereignty over their data, models, and infrastructure while benefiting from a modern, production-ready AI platform.
 
-At the core of PCAI’s *'AI managed by you'* philosophy are two complementary approaches that give enterprises both flexibility and operational rigor for deploying and operating AI services: 
+### AI managed by you
+
+At the core of PCAI’s *'AI managed by you'* philosophy are two complementary approaches that give enterprises both flexibility and operational rigor when deploying and operating AI services: 
 
 * *Import Framework*
-
-The PCAI Import Framework offers an open, extensible mechanism for organizations to integrate any AI application, framework or third-party tool into the PCAI environment. It enables customers to import partner or open-source AI frameworks and add domain-specific or business-specific AI applications. Once imported, these components are managed through PCAI’s unified lifecycle management, ensuring consistent deployment, monitoring, and governance across the entire private cloud platform. 
-
-This framework is what makes PCAI truly AI-application agnostic. Customers are not limited to prepackaged tools and can freely build the AI ecosystem that fits their strategy. 
-
 * *Machine Learning Inference Software (MLIS)*
+
+#### *Import Framework*
+
+The PCAI Import Framework feature offers an open, extensible mechanism for organizations to integrate any AI application, framework or third-party tool into the PCAI environment. It enables customers to import partner or open-source AI frameworks and add domain-specific or business-specific AI applications. Once imported, these components are managed through PCAI’s unified lifecycle management, ensuring consistent deployment, monitoring, and governance across the entire private cloud platform. 
+
+This Import Framework feature is what makes PCAI truly AI-application agnostic. Customers are not limited to prepackaged tools and can freely build the AI ecosystem that fits their strategy. 
+
+#### *Machine Learning Inference Software (MLIS)*
 
 HPE Machine Learning Inference Software (MLIS) is an enterprise‑grade platform designed to streamline and operationalize large-scale deployment, management, and monitoring of machine learning (ML) models. It supports the full AI service lifecycle, including model registry configuration, LLM model onboarding, deployment creation, and high-throughput inference serving. Delivered as a prepackaged PCAI‑integrated application, similar to components such as *Kubeflow* and *Ray*, MLIS provides a controlled execution layer that handles model versioning, GPU scheduling, performance tuning, and comprehensive observability across availability, latency, and compliance metrics.
 
 A core capability of PCAI is its vendor-agnostic support for heterogeneous LLM models. Beyond pre-built NVIDIA NIM models, PCAI can deploy open-source LLMs (e.g., Hugging Face), third-party or proprietary models, and artifacts stored in external or internal object stores such as *MinIO*. This flexibility enables organizations to consolidate diverse model sources within a unified deployment and governance framework while maintaining enterprise-grade reliability, visibility, and operational consistency. 
 
-The following sections detail the implementation of a local LLM deployment within the PCAI environment using the Import Framework and MLIS. 
+The following sections detail the implementation of a local LLM deployment within the PCAI environment using the Import Framework feature and MLIS. 
 
 ### Prerequisites
 
 Ensure that the following prerequisites are fulfilled:
 
 * HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
-* Administrator-level access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role) to perform the required administrative operations.
+* Access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role), allowing to performe administrative operations.
 
 The deployment examples in the following sections use the *kubectl* CLI and *kubeconfig* to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via *kubectl* is generally not required.
 
 ### Setting up model storage using *MinIO*
 
-[*MinIO*](https://www.min.io/) is a high‑performance, S3‑compatible object storage platform designed for cloud‑native and containerized workloads. It serves as an enterprise‑grade, self-hosted alternative to *Amazon S3*, offering full API compatibility and consistent operational behavior across local, on‑premises, and cloud deployments.
+[*MinIO*](https://www.min.io/) is a high‑performance, S3‑compatible object storage platform designed for cloud‑native and containerized workloads, offering a lightweight, K8s-friendly architecture that makes it exceptionally easy to deploy and scale. Beyond simple S3 compatibility, *MinIO* provides enterprise‑grade durability through distributed erasure coding, high aggregate throughput for parallel I/O, and consistent operational behavior across local, on‑premises, and cloud deployments. These characteristics make it particularly effective for AI/ML and LLM pipelines, where fast, reliable access to large, immutable model artifacts is critical for efficient training and inference execution.
 
 The following sections describe how to deploy *MinIO* within the PCAI environment using the Import Framework and configure it as a local model repository for storing and managing LLM artifacts.
 
@@ -66,7 +71,7 @@ Using a revised *MinIO* Helm chart, available in the GitHub repository [pcai-hel
 
 ![](/img/pcai-tools-frameworks-import-framework.png)
 
-* By following the Import Framework workflow, *MinIO* can be deployed into the PCAI environment within minutes.
+* By following the Import Framework wizard workflow, *MinIO* can be deployed into the PCAI environment within minutes.
 
 ![](/img/import-framework-minio.png)
 
@@ -108,11 +113,11 @@ Click ***Open*** from the *MinIO* tile will open the *MinIO* console login page.
 
 #### Create a dedicated bucket
 
-After log into *MinIO* console, click ***Create a Bucket*** to create a S3 bucket for LLM models.
+After logging into the *MinIO* console, click ***Create a Bucket*** to create a S3 bucket for LLM models.
 
 ![](/img/create-minio-bucket.png)
 
-Enter *Name*, e.g., *'s3-ai-models'* and select optional features for *Versioning*, *Object Locking* or *Quota*. Click ***Create Bucket***.
+Enter *Name*, e.g., *'s3-ai-models'* and select optional features for *Versioning*, *Object Locking*, or *Quota*. Click ***Create Bucket***.
 
 ![](/img/create-ai-model-bucket.png)
 
@@ -191,7 +196,7 @@ The following steps describe how to register *MinIO* as a S3 data source in PCAI
 
 ![](/img/add-minio-s3-data-source.png)
 
-* A new tile named *'s3-minio'*, displaying its endpoint URL (for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*), now appears on the **Data Sources** page. 
+* A new tile named *'s3-minio'*, displaying its endpoint URL (for example, *'http://s3-minio-service.ezdata-system.svc.cluster.local:30000'*) now appears on the **Data Sources** page. 
 
 ![](/img/minio-s3-data-source.png)
 
