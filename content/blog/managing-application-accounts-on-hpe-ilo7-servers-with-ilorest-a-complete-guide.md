@@ -64,7 +64,7 @@ Before running any `appaccount` command, ensure the following:
 1. **iLO 7 v1.11.00 or later firmware** is installed on the server. The command explicitly checks the iLO generation and will fail with an `IncompatibleiLOVersionError` on iLO5 or iLO6.
 2. **Virtual NIC (VNIC) is enabled** in iLO. All appaccount operations communicate with iLO over the internal VNIC interface at `https://16.1.15.1`. If VNIC is not enabled or misconfigured, you will see a `VnicExistsError`.
 3. **Root or Administrator privileges** are required on the host OS. The command checks for `root` on Linux and `Administrator` on Windows; unprivileged users are blocked with a `UserNotAdminError`.
-4. **iLO Administrator credentials** (`-u` / `-p`) are required for create, reactivate, and delete operations. Even for self-registered account deletion, credentials are strongly recommended to ensure the account is fully removed from both TPM and iLO (see the detailed explanation under the Delete section).
+4. **iLO Administrator credentials** (`-u` / `-p`) are required for create, reactivate, and delete operations. Even for self-registered account deletion, credentials are strongly recommended to ensure the account is fully removed from both TPM and iLO (see the detailed explanation under the **Deleting an application account** section).
 
 > **Note on CHIF vs. VNIC:** The CHIF (Channel Interface) driver used in iLO 5 and iLO 6 is **not exposed in iLO7**. All host-to-iLO communication on iLO 7 is performed exclusively through the **VNIC (Virtual NIC)** interface. The appaccount command uses the VNIC for both local TPM operations and iLO REST API calls.
 
@@ -74,10 +74,10 @@ Before running any `appaccount` command, ensure the following:
 
 Every application account lives in **two places simultaneously**:
 
-| Storage                     | What It Holds                                                                        | Access Mechanism                                    |
-|:----------------------------|:-------------------------------------------------------------------------------------|:----------------------------------------------------|
+| Storage                     | What it holds                                                                        | Access mechanism                                        |
+|:----------------------------|:-------------------------------------------------------------------------------------|:--------------------------------------------------------|
 | **TPM** (Trusted Platform Module) | The **apptoken** — cryptographic secret for authentication. Has an expiry lifecycle. | VNIC driver call from the host OS (no REST auth needed) |
-| **iLO** (Redfish REST API)  | The **appaccount** — identity record iLO uses to authorize REST API requests.        | Authenticated REST session (username + password)    |
+| **iLO** (Redfish REST API)  | The **appaccount** — identity record iLO uses to authorize REST API requests.        | Authenticated REST session (username + password)        |
 
 This distinction is critical: **TPM operations are local VNIC driver calls** that don't require iLO REST authentication, while **iLO-side operations always require a valid authenticated REST session**. This has real implications for commands like `delete --self`, as explained below.
 
@@ -111,7 +111,7 @@ Behind the scenes, the command:
 2. **Silently handles orphans** — if a previous account with the same ID exists in iLO but *not* in TPM (e.g., after a TPM clear), the command **automatically and silently cleans up** the stale iLO account, then proceeds to create a fresh account in both stores as if nothing happened. The user sees only the success message — no extra steps are required.
 3. **Generates and saves** — calls `generate_save_token()` to create the apptoken in TPM and register the appaccount in iLO in a single operation.
 
-### Why `create` Is the Recommended Recovery Path After TPM Clear
+### Why `create` is the recommended recovery path after TPM clear
 
 After a TPM clear, all apptokens are wiped but the corresponding appaccounts remain in iLO (orphaned). Rather than requiring a manual delete-then-create sequence, the `create` command detects this situation automatically:
 
@@ -186,22 +186,22 @@ Application account already exists for the specified host application.
 | `InvalidCredentialsError`      | The iLO username / password is wrong.                                    |
 | `GenerateAndSaveAccountError`  | A general failure occurred during generation. Retry later.               |
 
-In all failure cases, the error message also suggests: *"Alternatively, you can use the `--no_app_account` option in the Login Command to log in using your iLO user account credentials."*
+In all failure cases, the error message also suggests: *"Alternatively, you can use the `--no_app_account` option in the **login** Command to log in using your iLO user account credentials."*
 
 ---
 
 ## 2. Deleting an application account 
 
-### What It Does
+### What it does
 
 The `appaccount delete` subcommand removes an application account from **both** TPM (the apptoken) and iLO (the appaccount). The command follows a two-step process:
 
 1. **Delete the apptoken from TPM** — removes the cryptographic secret via a VNIC driver call. This does **not** require iLO REST authentication.
-2. **Delete the appaccount from iLO** — removes the account via an authenticated `DELETE` call to `/redfish/v1/AccountService/Oem/Hpe/AppAccounts/<id>`. This **requires a valid iLO REST session**.
+2. **Delete the appaccount from iLO** — removes the account via an authenticated `DELETE` call to `/redfish/v1/AccountService/Oem/Hpe/AppAccounts/<id>`. This **requires a valid iLOrest session**.
 
 If the account exists in only one location (e.g., iLO but not TPM after a TPM clear), the command still succeeds as long as it was removed from at least one.
 
-### Why credentials are always Recommended
+### Why credentials are always recommended
 
 iLO does not allow any modifications to its REST API resources without authentication. This means:
 
@@ -316,17 +316,17 @@ ilorest appaccount details --hostappid all -u admin -p iLOpassw0rd
 
 **Sample output (table format):**
 ```
-Application Name: SUM
+Application name: SUM
 Application Id: **c3d4
 App account exists in TPM: yes
 App account exists in iLO: yes
 
-Application Name: SUT
+Application name: SUT
 Application Id: **e5f6
 App account exists in TPM: yes
 App account exists in iLO: yes
 
-Application Name: iLOrest
+Application name: iLOrest
 Application Id: **00b5
 App account exists in TPM: yes
 App account exists in iLO: yes
@@ -358,7 +358,7 @@ ilorest appaccount details --hostappid all --json -u admin -p iLOpassw0rd
 ]
 ```
 
-### Filtering: TPM-Only or iLO-Only
+### Filtering: TPM-only or iLO-only
 
 **Show only apptoken (TPM) status:**
 ```shell
@@ -370,7 +370,7 @@ ilorest appaccount details --hostappid all --only_token
 ilorest appaccount details --hostappid all --only_account -u admin -p iLOpassw0rd
 ```
 
-### Viewing a Specific Account
+### Viewing a specific account
 
 ```shell
 ilorest appaccount details --hostappid a1b2
@@ -378,7 +378,7 @@ ilorest appaccount details --hostappid a1b2
 
 Supports both 4-char short IDs and full IDs.
 
-### Viewing the Self-Registered Account
+### Viewing the self-registered account
 
 ```shell
 ilorest appaccount details --self
@@ -407,11 +407,11 @@ This tells you the SUM apptoken has been wiped from TPM but the appaccount persi
 
 ## 5. Reactivating an expired apptoken 
 
-### What It Does
+### What it does
 
 The `appaccount reactivate` subcommand is designed **exclusively** for renewing **expired or inactive apptokens** as part of the token **expiry and rotation** lifecycle. Application tokens stored in TPM have a defined lifespan. When a token expires, the application can no longer authenticate with iLO. The `reactivate` command renews the token in place without requiring a full delete-and-recreate cycle.
 
-### What Reactivate Does NOT Do
+### What reactivate does not do
 
 - ❌ **Does not handle orphaned accounts.** If the apptoken has been removed from TPM entirely (e.g., after a TPM clear), `reactivate` will fail with an error. Use `appaccount create` instead — it handles orphan cleanup automatically and silently.
 - ❌ **Does not create new accounts.** It only renews existing, expired tokens.
@@ -419,15 +419,15 @@ The `appaccount reactivate` subcommand is designed **exclusively** for renewing 
 
 ### When to use reactivate vs. create
 
-| Scenario                              | What Happened                                 | Recommended Command                                       |
-|:--------------------------------------|:----------------------------------------------|:----------------------------------------------------------|
-| Token expired (still in TPM)          | Apptoken's lifespan has elapsed               | `appaccount reactivate`                                   |
-| Periodic token rotation               | Scheduled credential renewal                  | `appaccount reactivate`                                   |
-| TPM was cleared (orphan in iLO)       | Apptoken wiped; appaccount remains in iLO     | `appaccount create` (silently cleans up the orphan)       |
-| Account does not exist at all         | Fresh setup                                   | `appaccount create`                                       |
-| Account needs to be removed           | Decommissioning an application                | `appaccount delete`                                       |
+| Scenario                              | What happened                             | Recommended command                                 |
+|:--------------------------------------|:------------------------------------------|:----------------------------------------------------|
+| Token expired (still in TPM)          | Apptoken's lifespan has elapsed           | `appaccount reactivate`                             |
+| Periodic token rotation               | Scheduled credential renewal              | `appaccount reactivate`                             |
+| TPM was cleared (orphan in iLO)       | Apptoken wiped; appaccount remains in iLO | `appaccount create` (silently cleans up the orphan) |
+| Account does not exist at all         | Fresh setup                               | `appaccount create`                                 |
+| Account needs to be removed           | Decommissioning an application            | `appaccount delete`                                 |
 
-### How It Works Internally
+### How it works internally
 
 1. Checks whether the apptoken exists in TPM. The `_check_exists_in_tpm()` function returns `True` for both active and inactive/expired tokens — an expired token still *exists*, it's just no longer valid for authentication.
 2. If the token does **not** exist in TPM at all (it was wiped, not just expired), the command raises an error and directs the user to use `create` instead.
@@ -497,13 +497,13 @@ The `appaccount create` command is the **primary and recommended recovery mechan
 
 ### Summary by subcommand
 
-| Subcommand     | Orphan Behavior                                                                                                     |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------|
+| Subcommand     | Orphan behavior                                                                                                         |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------|
 | `create`       | **Silently cleans up** the orphaned iLO account, then creates fresh in both stores. User sees a normal success message. |
-| `delete`       | Attempts deletion from both TPM and iLO independently. Succeeds if removed from at least one.                       |
-| `details`      | Shows orphans clearly — `ExistsInTPM: no` alongside `ExistsIniLO: yes`.                                            |
-| `exists`       | Reports the account as existing if found in either store.                                                           |
-| `reactivate`   | **Does not handle orphans.** Fails if the apptoken is missing from TPM. Only works on expired tokens still in TPM.  |
+| `delete`       | Attempts deletion from both TPM and iLO independently. Succeeds if removed from at least one.                           |
+| `details`      | Shows orphans clearly — `ExistsInTPM: no` alongside `ExistsIniLO: yes`.                                                 |
+| `exists`       | Reports the account as existing if found in either store.                                                               |
+| `reactivate`   | **Does not handle orphans.** Fails if the apptoken is missing from TPM. Only works on expired tokens still in TPM.      |
 
 ---
 
