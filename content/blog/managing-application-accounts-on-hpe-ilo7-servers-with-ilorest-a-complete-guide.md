@@ -1,8 +1,7 @@
 ---
-title: Managing Application Accounts on HPE iLO7+ Servers with ilorest — A
-  Complete Guide
+title: Managing application accounts on HPE iL07+ servers with iLOrest - A complete guide
 date: 2026-03-15T14:32:16.161Z
-featuredBlog: true
+featuredBlog: false
 author: Rajeev Kallur
 authorimage: /img/rajeev_new.jpg
 disable: false
@@ -16,20 +15,20 @@ tags:
 
 ## Introduction
 
-Starting with **iLO7**, HPE introduced a new security paradigm for host-based applications that need to communicate with the Integrated Lights-Out (iLO) management processor: **Application Accounts** (appaccounts). Unlike traditional iLO user accounts that humans use to log in via the iLO web GUI or SSH, application accounts are purpose-built credentials that allow *software running on the host OS* to authenticate with iLO securely — with the secret material stored inside the server's **Trusted Platform Module (TPM)**.
+Starting with **iLO 7**, HPE introduced a new security paradigm for host-based applications that need to communicate with the Integrated Lights-Out (iLO) management processor: **Application Accounts** (appaccounts). Unlike traditional iLO user accounts that humans use to log in via the iLO web GUI or SSH, application accounts are purpose-built credentials that allow *software running on the host OS* to authenticate with iLO securely — with the secret material stored inside the server's **Trusted Platform Module (TPM)**.
 
 The `ilorest` command-line tool provides a dedicated `appaccount` command that lets administrators create, delete, check the existence of, view details of, and reactivate these application accounts. This guide walks through every capability in depth, with real-world examples and explanations of the internal mechanics.
 
 ---
 
-## Terminology: Application Account vs. Application Token
+## Terminology: Application account vs. Application token
 
 Before diving in, it's important to understand two related but distinct concepts:
 
-| Term                                   | What It Is                                                                                         | Where It Lives        | Lifecycle                                  |
-|:---------------------------------------|:---------------------------------------------------------------------------------------------------|:----------------------|:-------------------------------------------|
-| **Application Account** (appaccount)   | The application's identity record in iLO. Includes app name, ID, and authorization configuration.  | **iLO** (Redfish API) | Created / deleted explicitly by the admin  |
-| **Application Token** (apptoken)       | The cryptographic secret the application uses to authenticate. Has a **defined lifespan**.          | **TPM** (hardware)    | Created with the account; expires and is renewed via `reactivate` |
+| Term                                 | What It Is                                                                                         | Where It Lives        | Lifecycle                                  |
+|:-------------------------------------|:---------------------------------------------------------------------------------------------------|:----------------------|:-------------------------------------------|
+| **Application account** (appaccount) | The application's identity record in iLO. Includes app name, ID, and authorization configuration.  | **iLO** (Redfish API) | Created / deleted explicitly by the admin  |
+| **Application token** (apptoken)     | The cryptographic secret the application uses to authenticate. Has a **defined lifespan**.          | **TPM** (hardware)    | Created with the account; expires and is renewed via `reactivate` |
 
 **When to use which term:**
 
@@ -41,20 +40,20 @@ Think of it this way: the **appaccount** is the "identity card" and the **apptok
 
 ---
 
-## Which Applications Are Supported?
+## Which applications are supported?
 
 > **Important:** As of today, application accounts can only be created for the following HPE-recognized applications:
 >
-> | Application                      | Description                                    |
-> |:---------------------------------|:-----------------------------------------------|
-> | **SUM** (Smart Update Manager)   | HPE's firmware and driver update tool          |
-> | **SUT** (Smart Update Tools)     | Automated OS-level update agent                |
-> | **AMS** (Agentless Mgmt Service) | Collects host OS information for iLO           |
-> | **iLORest** (self-registered)    | HPE's RESTful Interface Tool itself            |
+> | Application                      | Description                           |
+> |:---------------------------------|:--------------------------------------|
+> | **SUM** (Smart Update Manager)   | HPE's firmware and driver update tool |
+> | **SUT** (Smart Update Tools)     | Automated OS-level update agent       |
+> | **AMS** (Agentless Mgmt Service) | Collects host OS information for iLO  |
+> | **iLOrest** (self-registered)    | HPE's RESTful interface tool itself   |
 >
-> **Custom or third-party applications are not yet supported.** You cannot register an arbitrary application with its own `hostappid` / `hostappname` / `salt` unless it is one of the recognized HPE tools listed above. If you attempt to create an account for an unrecognized application, the operation will be rejected.
+> **Custom or third-party applications are not yet supported.** You cannot register an arbitrary application with its own `hostappid` / `hostappname` / `salt` unless it is one of the recognized HPE tools listed above. 
 >
-> When using the `--self` flag, ilorest creates a self-registered account with the reserved ID prefix `00b5`, which is exclusively allocated to ilorest's own self-registration mechanism.
+> When using the `--self` flag, iLOrest creates a self-registered account with the reserved ID prefix `00b5`, which is exclusively allocated to iLOrest's own self-registration mechanism.
 
 ---
 
@@ -62,16 +61,16 @@ Think of it this way: the **appaccount** is the "identity card" and the **apptok
 
 Before running any `appaccount` command, ensure the following:
 
-1. **iLO7 or later firmware** is installed on the server. The command explicitly checks the iLO generation and will fail with an `IncompatibleiLOVersionError` on iLO5 or iLO6.
+1. **iLO 7 v1.11.00 or later firmware** is installed on the server. The command explicitly checks the iLO generation and will fail with an `IncompatibleiLOVersionError` on iLO5 or iLO6.
 2. **Virtual NIC (VNIC) is enabled** in iLO. All appaccount operations communicate with iLO over the internal VNIC interface at `https://16.1.15.1`. If VNIC is not enabled or misconfigured, you will see a `VnicExistsError`.
 3. **Root or Administrator privileges** are required on the host OS. The command checks for `root` on Linux and `Administrator` on Windows; unprivileged users are blocked with a `UserNotAdminError`.
 4. **iLO Administrator credentials** (`-u` / `-p`) are required for create, reactivate, and delete operations. Even for self-registered account deletion, credentials are strongly recommended to ensure the account is fully removed from both TPM and iLO (see the detailed explanation under the Delete section).
 
-> **Note on CHIF vs. VNIC:** The CHIF (Channel Interface) driver used in iLO5 and iLO6 is **not exposed in iLO7**. All host-to-iLO communication on iLO7 is performed exclusively through the **VNIC (Virtual NIC)** interface. The appaccount command uses the VNIC for both local TPM operations and iLO REST API calls.
+> **Note on CHIF vs. VNIC:** The CHIF (Channel Interface) driver used in iLO 5 and iLO 6 is **not exposed in iLO7**. All host-to-iLO communication on iLO 7 is performed exclusively through the **VNIC (Virtual NIC)** interface. The appaccount command uses the VNIC for both local TPM operations and iLO REST API calls.
 
 ---
 
-## Understanding Dual Storage: TPM + iLO
+## Understanding dual storage: TPM + iLO
 
 Every application account lives in **two places simultaneously**:
 
@@ -86,25 +85,25 @@ When everything is in sync, both locations agree. But situations like a **TPM cl
 
 ---
 
-## Subcommands at a Glance
+## Subcommands at a glance
 
-| Subcommand     | Purpose                                                                                  | Requires `-u` / `-p`?                            |
-|:---------------|:-----------------------------------------------------------------------------------------|:--------------------------------------------------|
-| `create`       | Create a new appaccount (apptoken in TPM + appaccount in iLO). Silently cleans up orphans. | **Yes** — always                                |
-| `delete`       | Remove an appaccount from both TPM and iLO                                               | **Yes** — always recommended                      |
-| `exists`       | Check whether an appaccount / apptoken exists in TPM or iLO                              | No                                                |
-| `details`      | List all appaccounts with their TPM / iLO presence status                                | No (more complete with credentials)               |
-| `reactivate`   | Renew an **expired apptoken** in TPM (token rotation). Does **not** handle orphans.      | **Yes** — always                                  |
+| Subcommand     | Purpose                                                                                  | Does it require iLO Credentials?    |
+|:---------------|:-----------------------------------------------------------------------------------------|:------------------------------------|
+| `create`       | Create a new appaccount (apptoken in TPM + appaccount in iLO). Silently cleans up orphans. | **Yes** — always                    |
+| `delete`       | Remove an appaccount from both TPM and iLO                                               | **Yes** — always recommended        |
+| `exists`       | Check whether an appaccount / apptoken exists in TPM or iLO                              | No                                  |
+| `details`      | List all appaccounts with their TPM / iLO presence status                                | No (more complete with credentials) |
+| `reactivate`   | Renew an **expired apptoken** in TPM (token rotation). Does **not** handle orphans.      | **Yes** — always                    |
 
 > **Note on `delete --self`:** The CLI allows running `delete --self` without credentials, but this is **not recommended**. Without credentials, only the TPM token is deleted. The iLO-side account **cannot** be removed without an authenticated REST session, leaving an **orphaned account in iLO**. Always provide `-u` and `-p` for a complete deletion.
 
 ---
 
-## 1. Creating an Application Account (`appaccount create`)
+## 1. Creating an application account 
 
-### What It Does
+### What it does
 
-The `create` subcommand generates a new apptoken and saves it in TPM, while simultaneously registering the corresponding appaccount in iLO. This is the primary way to set up application-level authentication.
+The `appaccount create` subcommand generates a new apptoken and saves it in TPM, while simultaneously registering the corresponding appaccount in iLO. This is the primary way to set up application-level authentication.
 
 Behind the scenes, the command:
 
@@ -132,7 +131,7 @@ The user doesn't need to know about the orphan — `create` handles it transpare
 
 There are two modes:
 
-#### Mode 1: Named Application (for SUM, SUT, or AMS)
+#### Mode 1: Named application (for SUM, SUT, or AMS)
 
 ```
 ilorest appaccount create --hostappname <name> --hostappid <id> --salt <salt> -u <ilo_user> -p <ilo_password>
@@ -151,15 +150,15 @@ ilorest appaccount create --hostappname SUM --hostappid a1b2c3d4 --salt sumsecre
 Application account has been generated and saved successfully.
 ```
 
-#### Mode 2: Self-Registration (for ilorest itself)
+#### Mode 2: Self-registration (for iLOrest itself)
 
 ```
 ilorest appaccount create --self -u <ilo_user> -p <ilo_password>
 ```
 
-The `--self` flag tells ilorest to create an account for *itself*, using the reserved ID prefix `00b5`. You **cannot** combine `--self` with `--hostappname`, `--hostappid`, or `--salt` — doing so will produce an error.
+The `--self` flag tells iLOrest to create an account for *itself*, using the reserved ID prefix `00b5`. You **cannot** combine `--self` with `--hostappname`, `--hostappid`, or `--salt` — doing so will produce an error.
 
-**Example — Self-registering ilorest:**
+**Example — Self-registering iLOrest:**
 
 ```shell
 ilorest appaccount create --self -u admin -p iLOpassw0rd
@@ -170,7 +169,7 @@ ilorest appaccount create --self -u admin -p iLOpassw0rd
 Application account has been generated and saved successfully.
 ```
 
-### What If the Account Already Exists?
+### What if the account already exists?
 
 If you try to create an account that already exists in both TPM and iLO, the command does **not** fail — it simply informs you:
 
@@ -178,7 +177,7 @@ If you try to create an account that already exists in both TPM and iLO, the com
 Application account already exists for the specified host application.
 ```
 
-### Error Scenarios
+### Error scenarios
 
 | Error                          | Meaning                                                                  |
 |:-------------------------------|:-------------------------------------------------------------------------|
@@ -191,18 +190,18 @@ In all failure cases, the error message also suggests: *"Alternatively, you can 
 
 ---
 
-## 2. Deleting an Application Account (`appaccount delete`)
+## 2. Deleting an application account 
 
 ### What It Does
 
-The `delete` subcommand removes an application account from **both** TPM (the apptoken) and iLO (the appaccount). The command follows a two-step process:
+The `appaccount delete` subcommand removes an application account from **both** TPM (the apptoken) and iLO (the appaccount). The command follows a two-step process:
 
 1. **Delete the apptoken from TPM** — removes the cryptographic secret via a VNIC driver call. This does **not** require iLO REST authentication.
 2. **Delete the appaccount from iLO** — removes the account via an authenticated `DELETE` call to `/redfish/v1/AccountService/Oem/Hpe/AppAccounts/<id>`. This **requires a valid iLO REST session**.
 
 If the account exists in only one location (e.g., iLO but not TPM after a TPM clear), the command still succeeds as long as it was removed from at least one.
 
-### Why Credentials Are Always Recommended
+### Why credentials are always Recommended
 
 iLO does not allow any modifications to its REST API resources without authentication. This means:
 
@@ -216,12 +215,12 @@ If you run `delete --self` without `-u` / `-p`, the command will:
 
 **The result is an orphaned appaccount left in iLO.** While this orphan is harmless (it can't be used without the matching TPM token) and will be silently cleaned up by a subsequent `create`, it clutters the account list. To ensure a **clean, immediate deletion**, always provide credentials.
 
-### Credential Rules
+### Credential rules
 
 - **Deleting another application's account** (e.g., SUM, SUT, AMS): iLO Administrator credentials (`-u` and `-p`) are **mandatory**. The command will reject the request without them.
 - **Deleting your own self-registered account** (`--self` or ID containing `00b5`): Credentials are not enforced by the CLI, but are **strongly recommended** for a complete deletion.
 
-### Short ID Expansion
+### Short appid expansion
 
 When you provide a 4-character `hostappid`, the command automatically expands it to the full ID using the `ExpandAppId()` function. This makes it convenient to use the short IDs shown in the `details` output.
 
@@ -233,7 +232,7 @@ When you provide a 4-character `hostappid`, the command automatically expands it
 ilorest appaccount delete --hostappid a1b2 -u admin -p iLOpassw0rd
 ```
 
-**Delete the ilorest self-registered account (credentials recommended):**
+**Delete the iLOrest self-registered account (credentials recommended):**
 
 ```shell
 ilorest appaccount delete --self -u admin -p iLOpassw0rd
@@ -251,11 +250,11 @@ The application account you are trying to delete does not exist.
 
 ---
 
-## 3. Checking If an Application Account Exists (`appaccount exists`)
+## 3. Checking if an application account exists 
 
-### What It Does
+### What it does
 
-The `exists` subcommand checks whether an appaccount/apptoken is present in **either** TPM or iLO (or both). It is a read-only operation.
+The `appaccount exists` subcommand checks whether an appaccount/apptoken is present in **either** TPM or iLO (or both). It is a read-only operation.
 
 Internally, it:
 
@@ -275,7 +274,7 @@ If found in either location, the account is reported as existing.
 ilorest appaccount exists --hostappid a1b2
 ```
 
-**Check the self-registered ilorest account:**
+**Check the self-registered iLOrest account:**
 
 ```shell
 ilorest appaccount exists --self
@@ -295,11 +294,11 @@ The command returns a distinct exit code (`ACCOUNT_DOES_NOT_EXIST_ERROR`) when t
 
 ---
 
-## 4. Viewing Application Account Details (`appaccount details`)
+## 4. Viewing application account details 
 
-### What It Does
+### What it does
 
-The `details` subcommand provides a **consolidated view** of all application accounts, showing which ones have apptokens in TPM, appaccounts in iLO, or both. This is the most powerful diagnostic tool for understanding the state of appaccounts on a server.
+The `appaccount details` subcommand provides a **consolidated view** of all application accounts, showing which ones have apptokens in TPM, appaccounts in iLO, or both. This is the most powerful diagnostic tool for understanding the state of appaccounts on a server.
 
 Internally, the command:
 
@@ -309,7 +308,7 @@ Internally, the command:
 
 > **Note:** Without credentials, only TPM-side data is returned. Providing `-u` / `-p` enables the iLO REST query, giving you the complete picture.
 
-### Viewing All Accounts
+### Viewing all accounts
 
 ```shell
 ilorest appaccount details --hostappid all -u admin -p iLOpassw0rd
@@ -327,7 +326,7 @@ Application Id: **e5f6
 App account exists in TPM: yes
 App account exists in iLO: yes
 
-Application Name: ilorest
+Application Name: iLOrest
 Application Id: **00b5
 App account exists in TPM: yes
 App account exists in iLO: yes
@@ -335,7 +334,7 @@ App account exists in iLO: yes
 
 > **Security note:** Application IDs are **masked** — only the last 4 characters are shown, prefixed with `**`.
 
-### JSON Output (for scripting and automation)
+### JSON output (for scripting and automation)
 
 ```shell
 ilorest appaccount details --hostappid all --json -u admin -p iLOpassw0rd
@@ -387,11 +386,11 @@ ilorest appaccount details --self
 
 If no self-registered account exists:
 ```
-No self-registered iLORest app account found.
+No self-registered iLOrest app account found.
 Use 'appaccount details --hostappid all' to see all app accounts.
 ```
 
-### Detecting Orphaned Accounts
+### Detecting orphaned accounts
 
 After a TPM clear, you might see:
 
@@ -406,11 +405,11 @@ This tells you the SUM apptoken has been wiped from TPM but the appaccount persi
 
 ---
 
-## 5. Reactivating an Expired Token (`appaccount reactivate`)
+## 5. Reactivating an expired apptoken 
 
 ### What It Does
 
-The `reactivate` subcommand is designed **exclusively** for renewing **expired or inactive apptokens** as part of the token **expiry and rotation** lifecycle. Application tokens stored in TPM have a defined lifespan. When a token expires, the application can no longer authenticate with iLO. The `reactivate` command renews the token in place without requiring a full delete-and-recreate cycle.
+The `appaccount reactivate` subcommand is designed **exclusively** for renewing **expired or inactive apptokens** as part of the token **expiry and rotation** lifecycle. Application tokens stored in TPM have a defined lifespan. When a token expires, the application can no longer authenticate with iLO. The `reactivate` command renews the token in place without requiring a full delete-and-recreate cycle.
 
 ### What Reactivate Does NOT Do
 
@@ -418,7 +417,7 @@ The `reactivate` subcommand is designed **exclusively** for renewing **expired o
 - ❌ **Does not create new accounts.** It only renews existing, expired tokens.
 - ❌ **Does not modify the iLO-side appaccount.** Only the TPM-side apptoken is renewed.
 
-### When to Use Reactivate vs. Create
+### When to use reactivate vs. create
 
 | Scenario                              | What Happened                                 | Recommended Command                                       |
 |:--------------------------------------|:----------------------------------------------|:----------------------------------------------------------|
@@ -471,13 +470,13 @@ If the account was orphaned after a TPM clear, please use 'appaccount delete' fo
 
 ---
 
-## Orphaned Accounts: What They Are and How They're Handled
+## Orphaned accounts: what they are and how they're handled
 
-### What Is an Orphaned Account?
+### What is an orphaned account?
 
 An orphaned account is one where the **appaccount exists in iLO** but the **apptoken is missing from TPM**. The account can't be used for authentication because the secret is gone.
 
-### How Orphans Occur
+### How orphans occur
 
 | Trigger                                 | Result                                                                       |
 |:----------------------------------------|:-----------------------------------------------------------------------------|
@@ -485,9 +484,9 @@ An orphaned account is one where the **appaccount exists in iLO** but the **appt
 | Failed creation (partial write)         | Apptoken may exist in TPM but not in iLO, or vice versa                      |
 | Deleting `--self` without credentials   | Apptoken removed from TPM; appaccount left in iLO (no REST session)          |
 
-### How the Tool Handles Orphans
+### How the tool handles orphans
 
-The `create` command is the **primary and recommended recovery mechanism** for orphaned accounts. When you run `create` for an application that has an orphaned account:
+The `appaccount create` command is the **primary and recommended recovery mechanism** for orphaned accounts. When you run `create` for an application that has an orphaned account:
 
 1. It detects that the appaccount exists in iLO but the apptoken is missing from TPM.
 2. It **silently deletes** the orphaned appaccount from iLO.
@@ -496,7 +495,7 @@ The `create` command is the **primary and recommended recovery mechanism** for o
 
 **No manual cleanup is required.** The entire orphan recovery is invisible to the user.
 
-### Summary by Subcommand
+### Summary by subcommand
 
 | Subcommand     | Orphan Behavior                                                                                                     |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -508,7 +507,7 @@ The `create` command is the **primary and recommended recovery mechanism** for o
 
 ---
 
-## Credential Encoding Support
+## Credential encoding support
 
 For security-sensitive automation pipelines, the `appaccount` command supports **encoded credentials**. When the `--encode` flag is active, the provided `-u` (username) and `-p` (password) values are treated as encoded strings and decoded internally using the `Encryption.decode_credentials()` utility before use.
 
@@ -516,11 +515,11 @@ This prevents plaintext passwords from appearing in process listings, shell hist
 
 ---
 
-## Session Management Under the Hood
+## Session management under the hood
 
 The `appaccount` command communicates with iLO in two fundamentally different ways:
 
-### 1. VNIC Driver Calls (for TPM operations)
+### 1. VNIC driver calls (for TPM operations)
 
 Operations like `generate_save_token`, `delete_token`, `token_exists`, `reactivate_token`, and `ListAppIds` are performed through the **VNIC driver** — a direct host-to-iLO channel that does not go through the REST API. These calls do not require REST authentication.
 
@@ -541,9 +540,9 @@ These temporary sessions are always cleaned up in a `finally` block, even if an 
 
 ---
 
-## Quick Reference: Common Workflows
+## Quick reference: Common workflows
 
-### Workflow 1: First-Time Setup of ilorest Self-Registration
+### Workflow 1: First-time setup of iLOrest self-registration
 
 ```shell
 # Create the self-registered account (credentials required)
@@ -556,7 +555,7 @@ ilorest appaccount exists --self
 ilorest appaccount details --self
 ```
 
-### Workflow 2: Recovery After TPM Clear
+### Workflow 2: Recovery after TPM clear
 
 No manual cleanup needed — just re-run `create`. Orphans are handled silently.
 
@@ -568,7 +567,7 @@ ilorest appaccount create --hostappname SUM --hostappid a1b2c3d4 --salt sumsecre
 ilorest appaccount details --hostappid a1b2 -u admin -p iLOpassw0rd
 ```
 
-### Workflow 3: Token Expiry — Reactivating an Expired Token
+### Workflow 3: Token expiry — reactivating an expired apptoken
 
 ```shell
 # Reactivate the expired token (token must still exist in TPM, just expired)
@@ -578,7 +577,7 @@ ilorest appaccount reactivate --hostappname SUM --hostappid a1b2c3d4 --salt sums
 ilorest appaccount exists --hostappid a1b2
 ```
 
-### Workflow 4: Audit and Cleanup
+### Workflow 4: Audit and cleanup
 
 ```shell
 # List all accounts in JSON (credentials enable iLO-side data)
@@ -591,7 +590,7 @@ ilorest appaccount delete --hostappid e5f6 -u admin -p iLOpassw0rd
 ilorest appaccount exists --hostappid e5f6
 ```
 
-### Workflow 5: Deleting the Self-Registered Account
+### Workflow 5: Deleting the self-registered account
 
 ```shell
 # Always provide credentials for a complete deletion from both TPM and iLO
@@ -605,7 +604,7 @@ ilorest appaccount exists --self
 
 ---
 
-## Error Reference
+## Error reference
 
 | Error                              | Cause                                                       | Resolution                                              |
 |:-----------------------------------|:------------------------------------------------------------|:--------------------------------------------------------|
@@ -623,7 +622,7 @@ ilorest appaccount exists --self
 
 ---
 
-## Security Best Practices
+## Security best practices
 
 1. **Always provide iLO credentials** for create, delete, and reactivate operations to ensure both TPM and iLO stay in sync.
 2. **Never embed plaintext credentials in scripts.** Use the `--encode` flag or integrate with a secrets manager.
@@ -635,9 +634,9 @@ ilorest appaccount exists --self
 
 ---
 
-## Conclusion
+## In summary
 
-The `appaccount` command in ilorest is a powerful, security-first tool for managing application-level authentication on iLO7+ servers. By leveraging dual storage — **apptokens in TPM** for hardware-backed secret security and **appaccounts in iLO** for REST API authorization — it provides a robust foundation for automated server management.
+The `appaccount` command in iLOrest is a powerful, security-first tool for managing application-level authentication on iLO7+ servers. By leveraging dual storage — **apptokens in TPM** for hardware-backed secret security and **appaccounts in iLO** for REST API authorization — it provides a robust foundation for automated server management.
 
 Key strengths of the design include:
 
@@ -645,20 +644,20 @@ Key strengths of the design include:
 - **Token lifecycle management** — the `reactivate` command handles token expiry and rotation without disrupting the account.
 - **Comprehensive diagnostics** — the `details` command provides a unified view of both stores, making it easy to spot inconsistencies.
 
-Currently limited to **SUM, SUT, AMS, and ilorest** (with custom application support not yet available), it covers the core HPE management stack comprehensively. Whether you're automating firmware updates with SUM, collecting host data with AMS, or scripting iLO configuration with ilorest, the `appaccount` command ensures your application credentials are secure, auditable, and recoverable.
+Currently limited to **SUM, SUT, AMS, and iLOrest** (with custom application support not yet available), it covers the core HPE management stack comprehensively. Whether you're automating firmware updates with SUM, collecting host data with AMS, or scripting iLO configuration with iLOrest, the `appaccount` command ensures your application credentials are secure, auditable, and recoverable.
 
 ---
 
-## Get Started Today
+## Get started today
 
-Ready to secure your iLO7 application authentication? Here's how to take the first step:
+### Ready to secure your iLO7 application authentication? Here's how to take the first step:
 
 1. **Verify your environment** — Confirm that your server is running iLO7 firmware and that VNIC is enabled.
-2. **Create your first appaccount** — Run `ilorest appaccount create --self -u <admin> -p <password>` to register ilorest itself.
+2. **Create your first appaccount** — Run `ilorest appaccount create --self -u <admin> -p <password>` to register iLOrest itself.
 3. **Audit your existing accounts** — Run `ilorest appaccount details --hostappid all --json -u <admin> -p <password>` to see what's already registered.
 4. **Integrate into your automation** — Add appaccount create/delete steps to your provisioning scripts and CI/CD pipelines so every server is configured consistently.
-5. **Bookmark this guide** — Refer back to the [Workflows](#quick-reference-common-workflows) and [Error Reference](#error-reference) sections when troubleshooting.
+5. **Bookmark this guide** — Refer back to the [Workflows](#quick-reference-common-workflows) and [Error reference](#error-reference) sections when troubleshooting.
 
-Have questions or running into issues? Reach out to your HPE support representative or visit [ilorest documentation](https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide) for additional resources.
+Interested in learning more....stay tuned with the [HPE Developer Community](https://developer.hpe.com/blog/)....
 
 
