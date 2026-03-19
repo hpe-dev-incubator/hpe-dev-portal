@@ -246,7 +246,7 @@ Translation scripts use javascript syntax and consist of these components:
 
 * An ***input*** object map that represents the selected values of other inputs on the same UI wizard
 * A ***data*** list/array object that contains the raw data from the Option Source 
-* A ***results*** list/array object that the script needs to add value objects onto 
+* A ***results*** list/array object that the script needs to add ***name*** and ***value*** objects onto 
 * ***name*** and ***value*** objects that get added onto the ***data*** object. E.g., {"name": "USA", "value": 1}
 
 Navigate to ***Library > Options > Options Lists*** and edit the previously created ***States*** Option List using the corresponding pencil icon on the right:
