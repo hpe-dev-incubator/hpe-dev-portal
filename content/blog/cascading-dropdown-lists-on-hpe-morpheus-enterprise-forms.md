@@ -232,7 +232,7 @@ If the JSON keys in the list are not exactly ***name*** and ***value***, then th
 When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select\>***  tag to be populated with ***\<option\>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
-Using developer tools on your browser, inspecting the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
+Using developer tools on your browser, inspect the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
 
 ![](/img/dropdown_html_after.png)
 
