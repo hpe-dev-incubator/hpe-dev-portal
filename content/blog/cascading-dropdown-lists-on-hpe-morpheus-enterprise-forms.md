@@ -229,7 +229,7 @@ Consider the current country JSON data:
 
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>***  tag to be populated with ***<option>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select\>***  tag to be populated with ***\<option\>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspecting the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -265,11 +265,14 @@ for (var i = 0; i < data.length; i++) {
 
 ![](/img/translation_script_code.png)
 
-The above script loops through the state ***data*** set and pushes entries onto the ***results*** list. This time there is no ***value*** field. The ***id*** field is used for the value instead. The conditional if statement ensures that the selected value of the ***country*** Input matches the ***countryId*** of the JSON list entry before it can be added to the ***results*** list:
+The above script loops through the state ***data*** set and pushes entries onto the ***results*** list. <br />
+This time there is no ***value*** field in the data. The ***id*** field is used for the value instead. It is necessary to provide ***name*** and ***value*** objects via translation scripts if the JSON data doesn't specifically use ***name*** and v***value*** keys. <br />
+The conditional if statement ensures that the selected value of the ***country*** Input matches the ***countryId*** of the JSON list entry before it can be added to the ***results*** list:
 
 ![](/img/country_id.png)
 
-To trigger the refresh of the ***state*** drop-down field, navigate to ***Library > Options > Inputs*** and edit the ***State*** Input. Set the value of the ***DEPENDENT FIELD*** input to **country**. Click ***SAVE CHANGES***:
+Inputs use ***DEPENDENT FIELD*** to trigger an Option List refresh when another field changes. Supply the ***FIELD NAME*** value of the other Input (country in this case) to trigger the refresh of the state Input.<br />
+To set up the refresh trigger of the ***state*** drop-down field, navigate to ***Library > Options > Inputs*** and edit the ***State*** Input. Set the value of the ***DEPENDENT FIELD*** input to **country**. Click ***SAVE CHANGES***:
 
 ![](/img/dependent_on_country.png)
 
@@ -279,7 +282,7 @@ Navigate back to ***Library > Automation > Workflows*** and open the workflow ex
 
 ### Filter the city by state using a request script
 
-Some REST web endpoints support filtering by URL parameters. For example, to filter ***cities*** by a ***state*** id of 3, the URL would look like this:
+Some REST web endpoints support filtering by URL parameters. In this case you don't need to use a request script. For example, to filter ***cities*** by a ***state*** id of 3, the URL would look like this:
 
 `http://demojsonserver/cities?stateId=3`
 
@@ -307,6 +310,11 @@ The selection of ***city*** is now based on ***state***, which is based on the s
 
 ## Explore, compile, and upload the Option Source plugin
 
+HPE Morpheus Enterprise uses plugins to extend platform functionality, usually onto 3rd party platforms like hypervisors or IPAM systems. This is achieved through Groovy code projects that compile to java archives (.jar files). The .jar files are uploaded via the HPE Morpheus Enterprise UI or API. Plugins implement domain-specific class files called providers. To programmatically populate Option Lists from plugins, you need to implement an Option Source Provider.<br />
+This section explores an example of an Option Source plugin by adding zip codes to the above countries, states, cities example. <br /><br />
+
+For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to official plugin documentation at [developer.morpheusdata.com](https://developer.hpe.com) or have a look at the blog article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+
 Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. 
 
 Open the project directory using a simple IDE, like Visual Studio code, or even a text editor tool. Expand the ***src > main > groovy > com > hpe > morpheus > demo*** directory. View the ***OptionsSourceDemoPlugin.groovy*** class file:
@@ -321,7 +329,7 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 
 This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example, there is only one method called ***listZipCodes***, which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easily be retrieved from other systems via SDKs, APIs, or database connections.
 
-For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to the article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
+
 
 Open the project directory in a command line terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
