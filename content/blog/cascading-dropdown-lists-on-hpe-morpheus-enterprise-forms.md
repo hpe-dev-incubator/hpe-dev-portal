@@ -330,7 +330,6 @@ View the ***DemoOptionSourceProvider.groovy*** class file:
 This class extends ***AbstractOptionSourceProvider***, which enables the plugin to provide a list of ***name*** and ***value*** pairs for an Option List through a collection of methods. The methods are made available to the platform via the ***getMethodNames*** method (line 21). In this example, there is only one method called ***listZipCodes***, which is defined on line 45. It returns static **name** and **value** pairs, although the plugin provides flexibility on how the list is built. Data can easily be retrieved from other systems via SDKs, APIs, or database connections.
 
 
-
 Open the project directory in a command line terminal and compile the plugin with the relevant ***gradlew***(Linux) or ***gradlew.bat***(Windows) script using the ***shadowJar*** argument:
 
 ![](/img/compile_plugin.png)
@@ -411,7 +410,7 @@ Navigate to ***Library > Options > Inputs*** and click ***Add***. Use the below 
 
 ![](/img/zipcodes_input.png)
 
-Navigate to ***Library > Automation > Workflows***, click the name of the ***Test Inputs*** workflow andf click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
+Navigate to ***Library > Automation > Workflows***, click the name of the ***Test Inputs*** workflow and click ***EXECUTE***. The ***Zip Code drop-down*** now appears in the workflow execution dialog, once the **city** is selected:
 
 ![](/img/zipcode_dropdown.png)
 
