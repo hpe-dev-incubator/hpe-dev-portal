@@ -1,12 +1,12 @@
 ---
-author: Vandewilly Silva
+author: Santosh Nagaraj & Claudio Calderon
 category: Feature Blog
-priority: 7
+priority: 1
 active: true
 width: medium
 imageScale: 0.75
-title: Bringing AI assistants to GreenLake with MCP Servers
-link: https://developer.hpe.com/blog/bringing-ai-assistants-to-hpe-greenlake-with-mcp-servers/
-image: https://ca.slack-edge.com/E01LD9FH0JZ-U05UA6N7KH6-6b8619b87acd-512
+title: LLM observability and cost management on HPE Private Cloud AI
+link: https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/
+image: /img/santosh-picture.jpg
 ---
-What if your AI assistant could directly interact with your GreenLake environment in a secure, controlled manner?
+LLM (Large language Model) observability and cost management are critical for deploying reliable, secure, and financially sustainable AI applications. By tracking metrics like token usage, latency, and output quality, teams can prevent runaway costs, reduce hallucinations, and ensure regulatory compliance.

@@ -1,8 +1,6 @@
 ---
 title: "LLM Agentic Tool Mesh: Orchestrating agentic tools for the AI revolution"
 date: 2025-01-20T08:36:14.226Z
-featuredBlog: true
-priority: 5
 author: Antonio Fin
 authorimage: /img/afin_photo.jpg
 disable: false
