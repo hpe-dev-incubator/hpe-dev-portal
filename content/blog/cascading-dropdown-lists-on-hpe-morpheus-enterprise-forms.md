@@ -282,7 +282,11 @@ Navigate back to ***Library > Automation > Workflows*** and open the workflow ex
 
 ### Filter the city by state using a request script
 
-Some REST web endpoints support filtering by URL parameters. In this case you don't need to use a request script. For example, to filter ***cities*** by a ***state*** id of 3, the URL would look like this:
+Some REST web endpoints support filtering by URL parameters. As an example, consider the HPE Moprpheus Enterprise REST API endpoint for servers. Here is an example where the GET request URL is used to filter the list of servers on their ***parentServerId***:
+
+`https://some.morpheus.appliance/api/servers?parentServerId=42`
+
+In this case you don't need to use a request script. For example, to filter ***cities*** by a ***state*** id of 3, the URL would look like this:
 
 `http://demojsonserver/cities?stateId=3`
 
