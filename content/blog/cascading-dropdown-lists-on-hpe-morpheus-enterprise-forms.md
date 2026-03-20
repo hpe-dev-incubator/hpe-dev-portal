@@ -229,7 +229,7 @@ Consider the current country JSON data:
 
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>*** tag to be populated with ***<option>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML page ***select*** tag to be populated with ***option*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspect the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -271,7 +271,7 @@ The conditional if statement ensures that the selected value of the ***country**
 
 ![](/img/country_id.png)
 
-Inputs use ***DEPENDENT FIELD*** to trigger an Option List refresh when another field changes. Supply the ***FIELD NAME*** value of the other Input (country in this case) to trigger the refresh of the state Input.<br />
+Inputs use ***DEPENDENT FIELD*** to trigger an Option List refresh when another field changes. Supply the ***FIELD NAME*** value of the other Input (country in this case) to trigger the refresh of the state Input. <br />
 To set up the refresh trigger of the ***state*** drop-down field, navigate to ***Library > Options > Inputs*** and edit the ***State*** Input. Set the value of the ***DEPENDENT FIELD*** input to **country**. Click ***SAVE CHANGES***:
 
 ![](/img/dependent_on_country.png)
