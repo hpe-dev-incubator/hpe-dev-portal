@@ -319,8 +319,6 @@ This section explores an example of an Option Source plugin by adding zip codes 
 
 ![](/img/plugin_providers_diag.png)
 
-![](/img/plugin_services_diagram2.png)
-
 For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to official plugin documentation at [developer.morpheusdata.com](https://developer.morpheusdata.com) or have a look at the blog article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
 Download or clone the plugin repository from <https://github.com/neilvrhpe/OptionSourceDemo>. 
