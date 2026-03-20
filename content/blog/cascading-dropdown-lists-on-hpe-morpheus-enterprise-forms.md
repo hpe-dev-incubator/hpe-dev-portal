@@ -317,7 +317,7 @@ The selection of ***city*** is now based on ***state***, which is based on the s
 HPE Morpheus Enterprise uses plugins to extend platform functionality, usually onto 3rd party platforms like hypervisors or IPAM systems. This is achieved through Groovy code projects that compile to java archives (.jar files). The .jar files are uploaded via the HPE Morpheus Enterprise UI or API. Plugins implement domain-specific class files called providers. To programmatically populate Option Lists from plugins, you need to implement an Option Source Provider.<br />
 This section explores an example of an Option Source plugin by adding zip codes to the above countries, states, cities example. <br /> 
 
-![](/img/plugin_services_diagram.png)
+![](/img/plugin_services_diagram2.png)
 
 For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to official plugin documentation at [developer.morpheusdata.com](https://developer.morpheusdata.com) or have a look at the blog article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
