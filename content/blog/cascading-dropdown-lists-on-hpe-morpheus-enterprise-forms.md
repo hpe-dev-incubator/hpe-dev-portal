@@ -42,7 +42,7 @@ A web UI control used in an HPE Morpheus Enterprise wizard. A wizard typically c
 A select list Input is populated by a corresponding Option List. This article focuses exclusively on select list Inputs.
 
 **Forms**<br/>
-HPE Morpheus Forms are collections of Inputs organized by field groups. Forms are used exclusively with Catalog Items in the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
+HPE Morpheus Forms are collections of Inputs organized in sections called Field Groups. Forms are used exclusively with Catalog Items in the HPE Morpheus Enterprise Service Catalog. Forms are created and configured under ***Library > Options > Forms*** in the UI. Forms ***will not be covered*** by this article.
 
 **HPE Morpheus Plugin**<br/>
 A compiled ***.jar*** file containing logic that extends the functionality of HPE Morpheus. Plugins are typically written in Groovy and compiled using the Java toolchain.
@@ -51,7 +51,7 @@ A compiled ***.jar*** file containing logic that extends the functionality of HP
 A plugin class responsible for retrieving and constructing the data used to populate Option Lists programmatically.
 
 **Wizard**
-This article uses the term **wizard** to indicate a section of the web user interface where the end user provides input values. In example of this would be the input fields when a user provisions an instance. In this article an operational workflow wizard is used to show and test Input controls.
+This article uses the term **wizard** to indicate a section of the web user interface where the end user provides input values. An example of this would be the input fields when a user provisions an instance. In this article an operational workflow wizard is used to show and test Input controls.
 
 ## Demo environment
 
@@ -111,7 +111,7 @@ To create the ***Option Lists*** in ***HPE Morpheus Enterprise***, navigate to *
 
 ![](/img/add_optionlist.png)
 
-For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** in your environment. Then create 3 Options Lists that reflect the values below:
+For you to obtain proper results, replace the URL hostname with the appropriate hostname or IP address of the ***JSON Server*** in your environment. Then create three Option Lists that reflect the values below:
 
 - - -
 
@@ -229,7 +229,7 @@ Consider the current country JSON data:
 
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>***  tag to be populated with ***<option>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>*** tag to be populated with ***<option>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspect the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -427,10 +427,10 @@ At the more advanced end of the spectrum are other Plugin Provider Types that mo
 
 Explore the following resources for more information on the different Plugin/Provider types:
 
-[https://developer.morpheusdata.com](https://developer.morpheusdata.com/)
+[https://developer.morpheusdata.com](https://developer.morpheusdata.com/) (The official plugin documentation)
 
-[https://share.morpheusdata.com](https://share.morpheusdata.com/) (follow the repository link under the Plugin details to see the source code of a Plugin)
+[https://share.morpheusdata.com](https://share.morpheusdata.com/) (Follow the repository link under the details page of a plugin to see the corresponding source code)
 
-<https://github.com/hewlettpackard> 
+<https://github.com/hewlettpackard> (Several repositories with source code for various plugins and automation code samples)
 
-<https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX>
+<https://youtu.be/1twoNvPoEV4?si=elUEzCYGo88TIffX> (Plugin code generator demo video)
