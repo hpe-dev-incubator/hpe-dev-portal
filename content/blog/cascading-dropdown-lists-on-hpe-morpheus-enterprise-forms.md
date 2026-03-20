@@ -229,7 +229,7 @@ Consider the current country JSON data:
 
 If the JSON keys in the list are not exactly ***name*** and ***value***, then the drop-down will not be correctly populated. Should the JSON keys be different, an additional step is needed to populate the values correctly. This step is covered in the next step.
 
-When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***\<select\> ***tag to be populated with ***\<option\>*** tags. 
+When the Option List is populated, each entry in the JSON Option Source list will be added onto the ***results*** object, causing the corresponding HTML ***<select>*** tag to be populated with ***<option>*** tags. 
 
 Navigate to ***Library > Automation > Workflows*** and click on the name of the ***Test Inputs*** workflow. Click the ***EXECUTE*** button. 
 Using developer tools on your browser, inspect the ***country*** drop-down HTML element on the web UI page. This reveals that the drop-down control is populated with country name and value IDs.
@@ -316,6 +316,8 @@ The selection of ***city*** is now based on ***state***, which is based on the s
 
 HPE Morpheus Enterprise uses plugins to extend platform functionality, usually onto 3rd party platforms like hypervisors or IPAM systems. This is achieved through Groovy code projects that compile to java archives (.jar files). The .jar files are uploaded via the HPE Morpheus Enterprise UI or API. Plugins implement domain-specific class files called providers. To programmatically populate Option Lists from plugins, you need to implement an Option Source Provider.<br />
 This section explores an example of an Option Source plugin by adding zip codes to the above countries, states, cities example. <br />
+
+![](/img/plugin_services_diagram.png)
 
 For more information pertaining to the anatomy of HPE Morpheus Enterprise Plugins, please refer to official plugin documentation at [developer.morpheusdata.com](https://developer.morpheusdata.com) or have a look at the blog article [A Beginner’s Guide to Building and Compiling HPE Morpheus Enterprise Plugins](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/).
 
