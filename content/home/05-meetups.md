@@ -2,7 +2,7 @@
 title: Meetups
 author: " "
 category: Virtual Event
-priority: 1
+priority: 2
 active: true
 width: medium
 link: /campaign/meetups

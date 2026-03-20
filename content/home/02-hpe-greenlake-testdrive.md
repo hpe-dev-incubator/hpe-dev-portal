@@ -1,7 +1,7 @@
 ---
 reverse: true
 author: " "
-priority: 3
+priority: 7
 active: true
 width: medium
 imageScale: 0.7

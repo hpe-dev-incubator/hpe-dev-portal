@@ -2,6 +2,8 @@
 title: Simplifying permission management using Kubernetes ClusterRole
   aggregation in HPE Private Cloud AI
 date: 2026-02-17T07:36:43.381Z
+featuredBlog: true
+priority: 1
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -493,7 +495,10 @@ root@nginx-5869d7778c-b4tcw:/# exit
 exit
 (base) guoping-jia@default-notebook-0:~$ 
 
-
+
+
+
+
 
 ```
 
@@ -504,4 +509,4 @@ If additional permission are needed in the namespace, you can follow the same ap
 This blog post explored and demonstrated how permission management for accessing K8s resources in the HPE Private Cloud AI environment can be simplified and streamlined through ClusterRole aggregation. When additional permissions are required, they can be defined as independent, purpose‑built ClusterRoles, which are then automatically incorporated into an aggregated ClusterRole by applying the appropriate labels. This approach eliminates the need to modify existing ClusterRoles for each new permission request and significantly reduces RBAC maintenance overhead. By relying on smaller, focused roles that aggregates cleanly, permission management becomes more flexible, scalable, and easier to maintain.
 
 
-Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
