@@ -4,7 +4,7 @@ dateStart: 2026-03-18T16:00:15.207Z
 dateEnd: 2026-03-18T17:00:15.214Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/6617720995221/WN_qu78n9WkSlGi95qpcC7rkg
+link: https://www.youtube.com/watch?v=c3L13ELQ51o
 width: large
 ---
 ## Open Source at HPE: Three Pillars, Many Paths
