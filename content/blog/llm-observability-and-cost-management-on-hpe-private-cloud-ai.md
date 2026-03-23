@@ -142,16 +142,16 @@ Sample code snippet to call meta/llama via LiteLLM. (Replace your LiteLLM API ke
 ```python
 import requests
 import json
-
 import os
 
 LITELLM_PROXY_API_KEY = "sk-***********"
-
 url = 'https://litellm.ai-application.pcai0109.dc15.hpecolo.net/chat/completions'
+
 headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {LITELLM_PROXY_API_KEY}'
 }
+
 data = {
     "model": "openai/meta/llama-3.1-8b-instruct",
     "messages": [
@@ -161,7 +161,6 @@ data = {
         }
     ]
 }
-
 response = requests.post(url, headers=headers, json=data, verify=False)
 print(json.dumps(response.json(), indent=2))
 ```
