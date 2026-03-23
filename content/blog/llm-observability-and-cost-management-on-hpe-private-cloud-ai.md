@@ -19,7 +19,7 @@ This blog post walks you through deployment and configuration of LiteLLM and Lan
 
 HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models. 
 
-HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, HPE AI Essentials (AIE), a suite of AI tools (including HPE Machine Learning Inference Software), and a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like LiteLLM and Langfuse.
+HPE AI Essentials (AIE) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. It provides a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like LiteLLM and Langfuse.
 
 ![](/img/screenshot-2026-03-06-121708.png)
 
