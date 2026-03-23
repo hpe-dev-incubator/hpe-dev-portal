@@ -139,7 +139,7 @@ Using the LiteLLM virtual key and the LiteLLM URL, you can access the LLM (meta/
 
 Sample code snippet to call meta/llama via LiteLLM. (Replace your LiteLLM API key in the code)
 
-```
+```python
 import requests
 import json
 
@@ -182,6 +182,6 @@ Dashboards with custom widgets can be created in Langfuse to observe various par
 
 ## Conclusion
 
-By combining capabilities of LiteLLM and Langfuse with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to observe perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
+By combining capabilities of LiteLLM and Langfuse with HPE AIE's robust model management, HPE Private Cloud AI empowers organizations to observe perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
 
 Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
