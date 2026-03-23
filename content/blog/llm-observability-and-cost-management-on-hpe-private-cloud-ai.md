@@ -137,6 +137,8 @@ Now, create a new virtual key in LiteLLM to access the model,
 
 Using the LiteLLM virtual key and the LiteLLM URL, you can access the LLM (meta/llama-3.1) and use it in any AI application.
 
+*Note: In this example, security is not handled for LiteLLM endpoint URL and anyone can hit a request to proxy URL. You can protect the UI by putting it behind outh2-proxy.*
+
 Sample code snippet to call meta/llama via LiteLLM. (Replace your LiteLLM API key in the code)
 
 ```python
