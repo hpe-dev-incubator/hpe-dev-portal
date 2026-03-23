@@ -165,6 +165,40 @@ response = requests.post(url, headers=headers, json=data, verify=False)
 print(json.dumps(response.json(), indent=2))
 ```
 
+
+
+
+
+Tried a new content for code block.
+
+
+
+```python
+import requests
+import json
+import os
+
+LITELLM_PROXY_API_KEY = "sk-***********"
+url = 'https://litellm.ai-application.pcai0109.dc15.hpecolo.net/chat/completions'
+
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': f'Bearer {LITELLM_PROXY_API_KEY}'
+}
+
+data = {
+    "model": "openai/meta/llama-3.1-8b-instruct",
+    "messages": [
+        {
+            "role": "user",
+            "content": "Describe Angkor Wat in 300 words"
+        }
+    ]
+}
+response = requests.post(url, headers=headers, json=data, verify=False)
+print(json.dumps(response.json(), indent=2))
+```
+
 ### 9. LLM observability and cost analysis in Langfuse
 
 Access the Langfuse application deployed on HPE Private Cloud AI and log in using the credentials. The traces of the LLM calls will appear under **Observability** -> **Tracing**.
