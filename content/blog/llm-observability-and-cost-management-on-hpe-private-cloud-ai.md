@@ -19,7 +19,7 @@ This blog post walks you through deployment and configuration of LiteLLM and Lan
 
 HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models. 
 
-HPE Private Cloud AI has pre-integrated NVIDIA NIM LLMs, a suite of AI tools (including HPE Machine Learning Inference Software), and a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like LiteLLM and Langfuse.
+HPE AI Essentials (AIE) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. It provides a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like LiteLLM and Langfuse.
 
 ![](/img/screenshot-2026-03-06-121708.png)
 
@@ -137,21 +137,23 @@ Now, create a new virtual key in LiteLLM to access the model,
 
 Using the LiteLLM virtual key and the LiteLLM URL, you can access the LLM (meta/llama-3.1) and use it in any AI application.
 
+*Note: In this example, security is not handled for LiteLLM endpoint URL and anyone can hit a request to proxy URL. You can protect the UI by putting it behind outh2-proxy.*
+
 Sample code snippet to call meta/llama via LiteLLM. (Replace your LiteLLM API key in the code)
 
-```
+```python
 import requests
 import json
-
 import os
 
 LITELLM_PROXY_API_KEY = "sk-***********"
-
 url = 'https://litellm.ai-application.pcai0109.dc15.hpecolo.net/chat/completions'
+
 headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {LITELLM_PROXY_API_KEY}'
 }
+
 data = {
     "model": "openai/meta/llama-3.1-8b-instruct",
     "messages": [
@@ -161,7 +163,6 @@ data = {
         }
     ]
 }
-
 response = requests.post(url, headers=headers, json=data, verify=False)
 print(json.dumps(response.json(), indent=2))
 ```
@@ -182,6 +183,6 @@ Dashboards with custom widgets can be created in Langfuse to observe various par
 
 ## Conclusion
 
-By combining capabilities of LiteLLM and Langfuse with HPE MLIS’s robust model management, HPE Private Cloud AI empowers organizations to observe perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
+By combining capabilities of LiteLLM and Langfuse with HPE AIE's robust model management, HPE Private Cloud AI empowers organizations to observe perform cost management of LLMs in their AI solutions. This integrated approach ensures data privacy, operational control, and scalability for deployments.
 
 Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
