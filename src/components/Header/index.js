@@ -180,7 +180,7 @@ function Header() {
     //   to="/platform/hpe-greenlake/home"
     // />,
     <DropButton
-      label="HPE GreenLake"
+      label="HPE GreenLake cloud"
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -282,17 +282,17 @@ function Header() {
     />,
   );
 
-  if (!userDetail) {
-    navLinks.push(
-      <Button
-        align="start"
-        key="os"
-        label="SIGN IN"
-        secondary
-        onClick={handleHPESignIn}
-      />,
-    );
-  }
+  // if (!userDetail) {
+  //   navLinks.push(
+  //     <Button
+  //       align="start"
+  //       key="os"
+  //       label="SIGN IN"
+  //       secondary
+  //       onClick={handleHPESignIn}
+  //     />,
+  //   );
+  // }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink

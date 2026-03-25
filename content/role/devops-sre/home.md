@@ -62,7 +62,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
     - Check out how to [Scale Kubernetes Clusters using HPE GreenLake Terraform Provider](/blog/scale-kubernetes-cluster-using-hpe-greenlake-terraform-provider/)
 
-    - Watch [Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
+    - Watch [Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
  
   </div>
 </div>
@@ -75,7 +75,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
 **Leveraging automation for maximum efficiency, repeatability, and cost effectiveness**
 
-- Watch [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+- Watch [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HewlettPackardEnterprise)
 
 - Read [Infrastructure-as-code on HPE GreenLake using Terraform](/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/)
 
@@ -83,11 +83,11 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
 **Securing and automating app development**
 
-- Watch [Running Reliable systems Part 1: An overview of Site Reliability Engineering (SRE)](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+- Watch [Running Reliable systems Part 1: An overview of Site Reliability Engineering (SRE)](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HewlettPackardEnterprise)
 
-- Watch [Running Reliable systems Part 2: Service level objective (SLO) math](https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+- Watch [Running Reliable systems Part 2: Service level objective (SLO) math](https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
 
-- View [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
+- View [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
 
 - Learn about [Galadriel – a SPIRE Federation Alternative](/blog/galadriel-a-spire-federation-alternative/)
 
@@ -113,7 +113,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
 **Modernizing and migrating legacy apps**
 
-- View [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+- View [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
 
 - Read [Application modernization with the Application Workbench](/blog/application-modernization-with-the-application-workbench/)
 
@@ -143,11 +143,11 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
   </div>
   <div class="column">
-    - [Calling all citizen developers: Can low-code platforms accelerate your impact?](https://www.youtube.com/watch?v=zc_54fq8PoY&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+    - [Calling all citizen developers: Can low-code platforms accelerate your impact?](https://www.youtube.com/watch?v=zc_54fq8PoY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
 
-    - [Kubernetes 101](https://www.youtube.com/watch?v=PWVJKK1obKQ&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
+    - [Kubernetes 101](https://www.youtube.com/watch?v=PWVJKK1obKQ&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
 
-    - [Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
+    - [Microservices Architecture 101](https://www.youtube.com/watch?v=qyyxQU37ZyQ&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&feature=youtu.be&ab_channel=HewlettPackardEnterprise)
 
   </div>
 </div>
@@ -164,17 +164,17 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
   </div>
   <div class="column">
 
-   - [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+   - [HPE GreenLake and Infrastructure-as-Code (IaC)](https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-   - [Running reliable systems - Part 1: An Overview of Site Reliability Engineering (SRE)](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+   - [Running reliable systems - Part 1: An Overview of Site Reliability Engineering (SRE)](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HewlettPackardEnterprise)
 
-   - [Running reliable systems - Part 2: Service level objective (SLO) Math](https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=2&ab_channel=HewlettPackardEnterprise)
+   - [Running reliable systems - Part 2: Service level objective (SLO) Math](https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=2&ab_channel=HewlettPackardEnterprise)
 
-   - [OpenTelemetry: Getting started and the road to production](https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+   - [OpenTelemetry: Getting started and the road to production](https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
 
-   - [Finding vulnerabilities in production with open source ThreatMapper](https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+   - [Finding vulnerabilities in production with open source ThreatMapper](https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
 
-   - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
+   - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&ab_channel=HewlettPackardEnterprise)
      
   </div>
 </div>

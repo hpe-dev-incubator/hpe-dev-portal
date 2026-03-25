@@ -1,8 +1,8 @@
 ---
 title: Getting started with webhooks on HPE GreenLake cloud
 date: 2025-02-06T13:53:06.527Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority:
 author: Didier Lalli
 authorimage: /img/didier-lalli-192x192.png
 disable: false
@@ -54,7 +54,7 @@ From the illustration above, you can see that the webhook handler is a piece of 
 ```json
 {
   "data": {
- 	"challengeRequest": "8cbecfea-d708-4706-bba3-669225084a10"
+  "challengeRequest": "8cbecfea-d708-4706-bba3-669225084a10"
   },
   "datacontenttype": "application/json",
   "id": "9d2698f2-0dd4-4870-b026-7e18c755e121",
@@ -82,37 +82,37 @@ If the challenge was successful, meaning that the webhook handler has been recog
 
 ```json
 {
-    	"specversion": "1.0",
-    	"id": "uJoQ5JMB_HAPiq2sSllt",
-    	"source": "//global.api.greenlake.hpe.com/audit-log",
-    	"type": "com.hpe.greenlake.audit-log.v1.logs.created",
-    	"datacontenttype": "application/json",
-    	"dataschema": "https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/catalog/audit-log-event-latest/paths/Audit%20Log%20Created/post/",
-    	"time": "2024-12-20T12:34:53.161Z",
-    	"data": {
-        	"id": "uJoQ5JMB_HAPiq2sSllt",
-        	"user": {
-            	"username": "john.doe@hpedev.io"
-        	},
-        	"workspace": {
-            	"id": "3009de2825f211ec8a84fedebcb4a754",
-            	"workspace_name": null,
-            	"workspace_type": null
-        	},
-        	"application": {
-            	"id": "00000000-0000-0000-0000-000000000000"
-        	},
-        	"category": "user_management",
-        	"description": "User john.doe@hpedev.io logged out",
-        	"created_at": 1734698093161,
-        	"updated_at": 1734698093161,
-        	"additional_info": {
-            	"ip_address": "194.9.99.5",
-            	"account_name": "HPEDEV -GLCP- Hackshack",
-            	"ip_address_str": "1.1.1.1"
-        	},
-        	"has_details": false
-    	}
+     "specversion": "1.0",
+     "id": "uJoQ5JMB_HAPiq2sSllt",
+     "source": "//global.api.greenlake.hpe.com/audit-log",
+     "type": "com.hpe.greenlake.audit-log.v1.logs.created",
+     "datacontenttype": "application/json",
+     "dataschema": "https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/catalog/audit-log-event-latest/paths/Audit%20Log%20Created/post/",
+     "time": "2024-12-20T12:34:53.161Z",
+     "data": {
+         "id": "uJoQ5JMB_HAPiq2sSllt",
+         "user": {
+             "username": "john.doe@hpedev.io"
+         },
+         "workspace": {
+             "id": "3009de2825f211ec8a84fedebcb4a754",
+             "workspace_name": null,
+             "workspace_type": null
+         },
+         "application": {
+             "id": "00000000-0000-0000-0000-000000000000"
+         },
+         "category": "user_management",
+         "description": "User john.doe@hpedev.io logged out",
+         "created_at": 1734698093161,
+         "updated_at": 1734698093161,
+         "additional_info": {
+             "ip_address": "194.9.99.5",
+             "account_name": "HPEDEV -GLCP- Hackshack",
+             "ip_address_str": "1.1.1.1"
+         },
+         "has_details": false
+     }
 ```
 
 > > *Example of an event payload*
@@ -155,7 +155,7 @@ Next, add another module to compute the HMAC. Click the plus sign and add a **To
 
 Configure the Set variable module with:
 
-* Variable name: **hmac** 
+* Variable name: **hmac**
 * Variable value: **sha256( challengeRequest ; ; <SecretKey> )**
 
 > Note: you can drag the **challengeRequest** property from the **Webhooks** module, and drop it as your first parameter. **<SecretKey>** is a placeholder which you will replace later, once we know the the real shared secret key.

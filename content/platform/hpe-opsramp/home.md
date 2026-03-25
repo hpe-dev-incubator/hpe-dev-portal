@@ -10,6 +10,7 @@ priority: 8
 active: true
 tags:
   - hpe-opsramp
+  - opsramp
 ---
 The Cloud and Cloud-Native Observability solution within OpsRamp, a Hewlett Packard Enterprise company, is designed to provide organizations with deep visibility and actionable insights into their hybrid cloud and cloud-native environments. By leveraging a comprehensive set of powerful monitoring and observability capabilities, OpsRamp enables ITOps and DevOps teams to ensure the reliability, performance, and security of their business-critical services, applications and infrastructure.
 

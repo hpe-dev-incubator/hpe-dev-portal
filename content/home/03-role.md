@@ -1,13 +1,14 @@
 ---
-title: Navigate by role
-width: large
+title: HPE AI Developer Days
+width: medium
 category: Featured
-priority: 3
-link: /role
-image: /img/role/developer.png
-imageScale: 0.7
+priority: 1
+link: https://events.bizzabo.com/797906/home
+image: /img/hpe-ai-dev-days-2.png
+imageScale: 1
 reverse: false
 active: true
 ---
 
-Software is at the heart of everything we do. No matter your role, you’ll find resources and tools to assist you in building the best possible experience for your customers – from edge to cloud.
+HPE Developer Day is a focused one-day event designed to help you move from AI ambition to real-world results.
+Check it out!

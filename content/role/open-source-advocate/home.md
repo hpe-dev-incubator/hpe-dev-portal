@@ -192,15 +192,15 @@ Explore community-powered innovation here as we highlight a few of the latest op
   <div class="column">
     - Mithril: Introducing Robust Identities into Istio by integrating with SPIRE
 
-    - [Golden Age of AI, Dark Ages of AI Infrastructure](https://www.youtube.com/watch?v=ktZFLD-9qgw&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+    - [Golden Age of AI, Dark Ages of AI Infrastructure](https://www.youtube.com/watch?v=ktZFLD-9qgw&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-    - [Redfish: Past, Present and Future](https://www.youtube.com/watch?v=Q1Qeb24lpKg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+    - [Redfish: Past, Present and Future](https://www.youtube.com/watch?v=Q1Qeb24lpKg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
-    - [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HPETechnology)
+    - [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HPETechnology)
 
-    - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HPETechnology)
+    - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&ab_channel=HPETechnology)
     
-    - [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+    - [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)
 
 
   </div>

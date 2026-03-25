@@ -1,6 +1,6 @@
 ---
 title: "ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE"
-active: true
+active: false
 fit: contain
 link: ""
 path: https://hpe.zoom.us/webinar/register/1317404047450/WN_27DCW281R2-m_KlZRTLB2g

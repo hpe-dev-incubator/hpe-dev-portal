@@ -9,7 +9,7 @@ import { SEO } from '../../../components';
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
-    avatar={workshop.replay && workshop.replay.avatar}
+  avatar={workshop.replay && workshop.replay.avatar}
     desc={
       workshop.sessionType === 'Workshops-on-Demand'
         ? `${workshop.description.slice(0, 520)}`
@@ -90,29 +90,24 @@ const Workshop = (props) => {
         </MainTitle>
         {workshops.length > 0 ? (
           <Tabs activeIndex={index} onActive={onActive} justify="start">
-            <Tab title="All">
+            <Tab title={`All (${workshops.length})`}>
               <CardGrid pad={{ top: 'medium' }} key="all">
-                {workshops.map((workshop, i) =>
-                  renderScheduleCard(workshop, i),
-                )}
+                {workshops.map((workshop, i) =>renderScheduleCard(workshop, i))}
               </CardGrid>
             </Tab>
-            <Tab title="Latest">
+            <Tab title={`Latest (${latestWorkshops.length})`}>
               <CardGrid pad={{ top: 'medium' }} key="ltst">
-                {latestWorkshops.map((workshop, i) =>
-                  renderScheduleCard(workshop, i),
-                )}
+                {latestWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
               </CardGrid>
             </Tab>
-            <Tab title="Popular">
+            <Tab title={`Popular (${workshops.filter(workshop => workshop.popular).length})`}>
               <CardGrid pad={{ top: 'medium' }} key="pop">
                 {workshops.map(
-                  (workshop, i) =>
-                    workshop.popular && renderScheduleCard(workshop, i),
+                  (workshop, i) => workshop.popular && renderScheduleCard(workshop, i),
                 )}
               </CardGrid>
             </Tab>
-            <Tab title="Open Source">
+            <Tab title={`Open Source (${workshops.filter(workshop => workshop.category && workshop.category.includes('open source')).length})`}>
               <CardGrid pad={{ top: 'medium' }} key="os">
                 {workshops.map(
                   (workshop, i) =>
@@ -122,7 +117,7 @@ const Workshop = (props) => {
                 )}
               </CardGrid>
             </Tab>
-            <Tab title="HPE GreenLake">
+            <Tab title={`HPE GreenLake (${workshops.filter(workshop => workshop.category && workshop.category.includes('hpe greenlake')).length})`}>
               <CardGrid pad={{ top: 'medium' }} key="hpee">
                 {workshops.map(
                   (workshop, i) =>
@@ -132,7 +127,7 @@ const Workshop = (props) => {
                 )}
               </CardGrid>
             </Tab>
-            <Tab title="HPE Ezmeral">
+            <Tab title={`HPE Ezmeral (${workshops.filter(workshop => workshop.category && workshop.category.includes('hpe ezmeral')).length})`}>
               <CardGrid pad={{ top: 'medium' }} key="hpee">
                 {workshops.map(
                   (workshop, i) =>
@@ -142,7 +137,7 @@ const Workshop = (props) => {
                 )}
               </CardGrid>
             </Tab>
-            <Tab title="Infrastructure">
+            <Tab title={`Infrastructure (${workshops.filter(workshop => workshop.category && workshop.category.includes('infrastructure')).length})`}>
               <CardGrid pad={{ top: 'medium' }} key="ifa">
                 {workshops.map(
                   (workshop, i) =>

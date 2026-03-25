@@ -4,7 +4,7 @@ dateStart: 2024-10-01T22:01:00.000Z
 dateEnd: 2024-10-02T21:30:41.009Z
 category: Virtual Event
 image: /img/ai-jam-400.jpg
-link: https://www.youtube.com/watch?v=gxpcBISePhE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=gxpcBISePhE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Cool AI Use Case, Now What?

@@ -10,6 +10,7 @@ priority: 4
 active: true
 tags:
   - hpe-greenlake-for-compute-ops-management
+  - hpe-compute-ops-management
 ---
 Compute powers business today, and organizations need compute resources to be available in more environments than ever before -- at the edge, close to where data is generated and consumed, and in the cloud where they can provide greater agility.
 

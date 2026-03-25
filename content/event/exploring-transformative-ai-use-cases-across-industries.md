@@ -4,7 +4,7 @@ dateStart: 2024-08-20T22:01:30.910Z
 dateEnd: 2024-08-21T21:30:30.927Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+link: https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
 ## Exploring Transformative AI Use Cases Across Industries

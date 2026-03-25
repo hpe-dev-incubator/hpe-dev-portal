@@ -16,11 +16,13 @@ templateCards:
 ---
 - Read instructions found in [Be a Blogger](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/). 
 
-- Create an account or sign into <a target='\_blank' rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal'>GitHub</a>.
+- Create a [Personal GitHub account](https://github.com/signup) or sign into your GitHub account. 
 
-- Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE Developer External Contributor Guide</a> regarding the Netlify CMS. 
+- Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE Developer External Contributor Guide</a> regarding the Content Management System (CMS).
 
-- Connect to our Content Management System to fork our repo and start working on your blog
+- Download and review the [HPE Brand Writing Style Guide](https://brandcentral.hpe.com/uploads/media/2026/2/writing-style-guide-aug-2025v2-1755635696557-7-1771886948866.pdf) for accurate and relevant styling.
+
+- Click **Start Now** button to connect to our Content Management System to fork our repository and start working on your blog.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
@@ -47,3 +49,4 @@ templateCards:
 <div class="w3-container w3-center w3-margin-bottom">
   <a target='\_blank'rel="noopener noreferrer" href="https://developer.hpe.com/admin"><button type="button" class="button">Start Now</button></a>
 </div>
+
