@@ -234,6 +234,9 @@ NAME                                  READY   AGE
 statefulset.apps/dagster-postgresql   1/1     30h
 ```
 
+### Access *Dagster* framework
+
+#### Connect to *Dagster* deployment
 
 ![](/img/dagster.png)
 
@@ -245,6 +248,7 @@ statefulset.apps/dagster-postgresql   1/1     30h
 
 ![](/img/harbor-audit-logs.png)
 
+#### Materialize *Dagster* assets
 
 In the Dagster UI, navigate to the Asset catalog and click the Materialize button to materialize an asset. Dagster will start a Kubernetes job to materialize the asset. You can introspect on the Kubernetes cluster to see this job:
 
