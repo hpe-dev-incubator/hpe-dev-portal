@@ -5,20 +5,23 @@ date: 2026-03-25T16:14:15.611Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - HPE Private Cloud AI
+  - Import Framework
+  - Dagster
+  - Harbor
+  - Airflow
+  - Helm chart
+  - Istio VirtualService
+  - Kyverno ClusterPolicy
 ---
-HPE Private Cloud AI provides a curated set of pre‑integrated orchestration and machine‑learning frameworks—including Airflow, Kubeflow, and Ray—to streamline the development and operationalization of AI workloads. In this environment, Dagster can be introduced as an additional, asset‑centric data orchestration framework that complements the existing toolchain rather than replacing it. Its modular architecture and cloud‑native design allow it to integrate cleanly with the platform’s services, offering teams a flexible option for managing data pipelines, lineage, and reproducibility when their workflows benefit from Dagster’s modern approach to data‑centric orchestration.
+HPE Private Cloud AI (PCAI) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
 
-Dagster is a modern, developer‑focused data orchestration platform used to build, run, and monitor data pipelines and data assets. It’s widely used by data engineering and analytics teams to make pipelines more reliable, observable, and maintainable.
-
-What Dagster Actually Does
-
-* Orchestrates data pipelines — schedules, runs, and monitors workflows.
-* Manages data assets — treats each dataset or model as a first‑class object with dependencies.
-* Improves reliability — strong typing, built‑in testing, and clear lineage help prevent silent failures.
-* Provides observability — you can see what ran, what failed, and why.
-* Supports AI/ML, analytics, ETL/ELT — works well with warehouses, ML pipelines, and reverse‑ETL.
+This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that complements the existing PCAI stack rather than replacing any component. Dagster’s modular, cloud‑native architecture integrates cleanly with platform services and provides enhanced capabilities for managing data pipelines, tracking lineage, and improving reproducibility. Its developer‑focused design helps teams build, run, and monitor data assets more reliably and maintainably, making it a strong optional addition for workflows that benefit from modern data‑centric orchestration.
 
 ### Why Dagster?
+
+Dagster is a modern, developer‑focused data orchestration platform used to build, run, and monitor data pipelines and data assets. It’s widely used by data engineering and analytics teams to make pipelines more reliable, observable, and maintainable.
 
 Dagster introduces an asset‑centric orchestration model that aligns well with the needs of modern data and AI pipelines. Unlike traditional task‑based schedulers, Dagster treats datasets, models, and intermediate outputs as first‑class assets with explicit lineage and dependency tracking. This approach provides clearer visibility into how data flows across the platform, simplifies debugging, and improves reproducibility—key requirements for enterprise‑grade AI workloads. Dagster’s strong typing, modular pipeline definitions, and built‑in testing capabilities also support software‑engineering best practices, enabling teams to develop, validate, and evolve their pipelines with greater confidence. When integrated into HPE Private Cloud AI, 
 
@@ -30,24 +33,168 @@ Airflow is a mature, widely adopted workflow scheduler that organizes pipelines
 
 In summary, Dagster and Airflow both orchestrate data pipelines, but they approach the problem from different angles. Dagster focuses on data assets, developer experience, and modern observability, making it ideal for contemporary analytics and ML environments. Airflow remains a strong choice for teams needing a stable, task‑based scheduler with a long history and broad integration ecosystem. The best choice depends on whether your workflows are more asset‑driven or task‑driven.
 
-Integration Architecture
-
-Integrating Dagster into HPE Private Cloud AI leverages the platform’s modular, Kubernetes‑native design, allowing Dagster to operate as an additional orchestration service alongside existing components such as Airflow, Kubeflow Pipelines, and Ray clusters. Dagster’s deployment typically consists of a set of containerized services—including the Dagster daemon, web UI, and user code deployments—that run within the platform’s Kubernetes environment. These services interact with HPE Private Cloud AI’s storage, compute, and networking layers through standard interfaces, enabling Dagster to orchestrate pipelines that span data ingestion, transformation, model training, and inference workloads. By using the platform’s built‑in support for container registries, secrets management, and persistent storage, Dagster can be integrated with minimal friction, ensuring that pipelines remain portable, reproducible, and aligned with enterprise operational standards.
-
 ### Prerequisites
 
-Before starting, make sure you have the following:
+Ensure that the following prerequisites are fulfilled:
 
-* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The *kubectl* CLI tool, together with the kubeconfig file for accessing the K8s cluster
 
-### Set up Harbor as a local image registry
+
+* HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
+* Access to an HPE Private Cloud AI workspace (with the Private Cloud AI Administrator role), allowing to performe administrative operations.
+
+
+The deployment examples in the following sections use the kubectl CLI and kubeconfig to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via kubectl is generally not required.
+
+### Integrate *Dagster* framework using *Import Framework*
+
+The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster WebServer* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. Customers need to build the user code image with their own pipelines, and most oftern they want to push the image to a local image registry. 
+
+#### Build the *Dagster* user code image
+
+As the preparation of the Dagster deployment, the following sections describe the process to build the user code image, import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+
+```shell
+$ cd examples/deploy_k8s/
+guoping@guoping-vm ~/CFE/dagster/examples/deploy_k8s $ ls -al
+total 24
+drwxrwxr-x  3 guoping guoping 4096 mars  20 14:01 .
+drwxrwxr-x 37 guoping guoping 4096 mars  19 11:13 ..
+-rw-rw-r--  1 guoping guoping  516 mars  20 14:01 Dockerfile
+drwxrwxr-x  2 guoping guoping 4096 mars  19 11:13 iris_analysis
+-rw-rw-r--  1 guoping guoping  361 mars  19 11:13 pyproject.toml
+-rw-rw-r--  1 guoping guoping    0 mars  19 11:13 py.typed
+-rw-rw-r--  1 guoping guoping  477 mars  19 11:13 README.md
+```
+
+
+```shell
+$ cat Dockerfile
+FROM python:3.11
+
+# Copy the sample Dagster project iris_analysis.
+COPY . /
+
+# This makes sure that logs show up immediately instead of being buffered
+ENV PYTHONUNBUFFERED=1
+
+RUN pip install --upgrade pip
+
+# Install dagster and any other dependencies your project requires
+RUN \
+    pip install \
+        dagster \
+        dagster-postgres \
+        dagster-k8s \
+        # add any other dependencies here
+        pandas
+
+
+WORKDIR /iris_analysis/
+
+# Expose the port that your Dagster instance will run on
+EXPOSE 80
+```
+
+
+```shell
+$ docker build . -t pcaidemo/user-code-example:1.12.19
+[+] Building 188.9s (8/10)                                                                                                                                           docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                           0.1s
+ => => transferring dockerfile: 555B                                                                                                                                           0.0s
+ => [internal] load metadata for docker.io/library/python:3.11                                                                                                                 6.7s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                  0.0s
+ => [internal] load .dockerignore                                                                                                                                              0.0s
+[+] Building 271.3s (9/10)                                                                                                                                           docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                           0.1s
+ => => transferring dockerfile: 555B                                                                                                                                           0.0s
+ => [internal] load metadata for docker.io/library/python:3.11                                                                                                                 6.7s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                  0.0s
+ => [internal] load .dockerignore                                                                                                                                              0.0s
+[+] Building 280.0s (11/11) FINISHED                                                                                                                                 docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                           0.1s
+ => => transferring dockerfile: 555B                                                                                                                                           0.0s
+ => [internal] load metadata for docker.io/library/python:3.11                                                                                                                 6.7s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                  0.0s
+ => [internal] load .dockerignore                                                                                                                                              0.0s
+ => => transferring context: 2B                                                                                                                                                0.0s
+ => [internal] load build context                                                                                                                                              0.1s
+ => => transferring context: 2.08kB                                                                                                                                            0.1s
+ => [1/5] FROM docker.io/library/python:3.11@sha256:ff461875d046c85ecc529e93cf2a0004f29df70566194936214115b36703d866                                                         158.7s
+ => => resolve docker.io/library/python:3.11@sha256:ff461875d046c85ecc529e93cf2a0004f29df70566194936214115b36703d866                                                           0.0s
+ => => sha256:ff461875d046c85ecc529e93cf2a0004f29df70566194936214115b36703d866 10.32kB / 10.32kB                                                                               0.0s
+ => => sha256:990d2ceca3883d62ee15b9e7c06da32a9f9a6bb95d5c0b47548581e6e0a38d50 2.32kB / 2.32kB                                                                                 0.0s
+ => => sha256:e1388005fc3d7fd4f5611bd6b70464d8dc602a6189c9d5689def96add4b74a3a 6.35kB / 6.35kB                                                                                 0.0s
+ => => sha256:ee3a0e7d77f0c84203cab438fcf345647c8121bbd80506a3c692f8608a14c4f4 67.78MB / 67.78MB                                                                              17.9s
+ => => sha256:8f6ad858d0a46fa8ee628532c70b8dc82d06179d543b0b09ec19fc03d4c5b373 49.30MB / 49.30MB                                                                              13.4s
+ => => sha256:b012eb15dff0bce418c03ec940325aee6aa4300d771c325728855697e620c63a 25.62MB / 25.62MB                                                                               5.8s
+ => => sha256:8688d0f2f567884eb217c6f80efa063bdb13a1951e92e6c5cac1ae5b736f5e1b 236.08MB / 236.08MB                                                                            42.6s
+ => => sha256:66063df90a44c93620e1790b680bad5509bc860518ee257a157d6262916b680a 6.09MB / 6.09MB                                                                                15.9s
+ => => extracting sha256:8f6ad858d0a46fa8ee628532c70b8dc82d06179d543b0b09ec19fc03d4c5b373                                                                                     31.6s
+ => => sha256:1589b6e505d3cd8ceb2b87cebc53c22b3bd9b858def90d5c108605bbd58d8b28 23.98MB / 23.98MB                                                                              24.7s
+ => => sha256:8cd65a420aac1587da1c19e7cc7bd6f61b226f69fe9ec6f9d3f6215b9bf33cf2 249B / 249B                                                                                    18.8s
+ => => extracting sha256:b012eb15dff0bce418c03ec940325aee6aa4300d771c325728855697e620c63a                                                                                     10.8s
+ => => extracting sha256:ee3a0e7d77f0c84203cab438fcf345647c8121bbd80506a3c692f8608a14c4f4                                                                                     24.9s
+ => => extracting sha256:8688d0f2f567884eb217c6f80efa063bdb13a1951e92e6c5cac1ae5b736f5e1b                                                                                     66.5s
+ => => extracting sha256:66063df90a44c93620e1790b680bad5509bc860518ee257a157d6262916b680a                                                                                      1.4s
+ => => extracting sha256:1589b6e505d3cd8ceb2b87cebc53c22b3bd9b858def90d5c108605bbd58d8b28                                                                                      4.2s
+ => => extracting sha256:8cd65a420aac1587da1c19e7cc7bd6f61b226f69fe9ec6f9d3f6215b9bf33cf2                                                                                      0.0s
+ => [2/5] COPY . /                                                                                                                                                             4.1s
+ => [3/5] RUN pip install --upgrade pip                                                                                                                                       19.0s
+ => [4/5] RUN     pip install         dagster         dagster-postgres         dagster-k8s         pandas                                                                     82.4s
+ => [5/5] WORKDIR /iris_analysis/                                                                                                                                              0.1s
+ => exporting to image                                                                                                                                                         8.5s
+ => => exporting layers                                                                                                                                                        8.3s
+ => => writing image sha256:e5ccb2007d4d8eb9ab2d964c08a45d343a6775ceb7d012021902dc0dc51dc247                                                                                   0.0s
+ => => naming to docker.io/pcaidemo/user-code-example:1.12.19 
+
+$ docker images
+REPOSITORY                   TAG       IMAGE ID       CREATED              SIZE
+pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1.51GB
+```
+
+### Set up *Harbor* as a local image registry
+
+You can install *Harbor* and set it up as a local image registry in PCAI by following the instructions in the blog post [Setting up Harbor as a local container registry in HPE Private Cloud AI](https://developer.hpe.com/blog/setting-up-harbor-as-a-local-container-registry-in-hpe-private-cloud-ai/).
+
 
 ![](/img/harbor.png)
 
 ![](/img/harbor-user.png)
 
 ### Build and push Dagster user code image
+
+
+```shell
+$ docker login harbor.ai-application.pcai0104.ld7.hpecolo.net
+Username: pcai-admin
+Password:
+
+WARNING! Your credentials are stored unencrypted in '/home/guoping/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+```
+
+
+```shell
+guoping@guoping-vm ~ $ docker tag pcaidemo/user-code-example:1.12.19 harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
+guoping@guoping-vm ~ $ docker push harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
+The push refers to repository [harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example]
+5f70bf18a086: Pushed
+72974f5579e5: Pushed
+e4701c8f7c5b: Pushed
+2b8a04da403b: Pushed
+4ec5e33e2b38: Pushed
+5c262981bdb5: Pushed
+30d39f2c6455: Pushed
+6afcfc3ecd04: Pushed
+817e939a94eb: Pushed
+dd6e353abeff: Pushed
+c5864b4cf4c9: Pushed
+1.12.19: digest: sha256:b877e86abeea7c509dfb029a1d9fba51c45aaa9e84ca84399a92e79c2e2ac442 size: 2634
+```
+
 
 ![](/img/harbor-pacidemo-user-code.png)
 
@@ -57,29 +204,75 @@ Before starting, make sure you have the following:
 
 ![](/img/import-framework-dagster.png)
 
+
+
+```shell
+[root@ai-cluster ~]# k get all -n dagster
+NAME                                                                  READY   STATUS    RESTARTS   AGE
+pod/dagster-daemon-66c46866f8-sc4n7                                   1/1     Running   0          30h
+pod/dagster-dagster-user-deployments-k8s-example-user-code-1-8k86gs   1/1     Running   0          30h
+pod/dagster-dagster-webserver-66447f9b57-9rzmh                        1/1     Running   0          30h
+pod/dagster-postgresql-0                                              1/1     Running   0          30h
+
+NAME                                  TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+service/dagster-dagster-webserver     ClusterIP   10.96.1.6    <none>        80/TCP     30h
+service/dagster-postgresql            ClusterIP   10.96.3.66   <none>        5432/TCP   30h
+service/dagster-postgresql-headless   ClusterIP   None         <none>        5432/TCP   30h
+service/k8s-example-user-code-1       ClusterIP   10.96.3.96   <none>        3030/TCP   30h
+
+NAME                                                                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/dagster-daemon                                             1/1     1            1           30h
+deployment.apps/dagster-dagster-user-deployments-k8s-example-user-code-1   1/1     1            1           30h
+deployment.apps/dagster-dagster-webserver                                  1/1     1            1           30h
+
+NAME                                                                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/dagster-daemon-66c46866f8                                             1         1         1       30h
+replicaset.apps/dagster-dagster-user-deployments-k8s-example-user-code-1-85d9d56f44   1         1         1       30h
+replicaset.apps/dagster-dagster-webserver-66447f9b57                                  1         1         1       30h
+
+NAME                                  READY   AGE
+statefulset.apps/dagster-postgresql   1/1     30h
+```
+
+
 ![](/img/dagster.png)
 
 ![](/img/dagster-overview.png)
 
 ![](/img/dagster-deployment.png)
 
+*'harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19'*.
+
 ![](/img/harbor-audit-logs.png)
 
+
+In the Dagster UI, navigate to the Asset catalog and click the Materialize button to materialize an asset. Dagster will start a Kubernetes job to materialize the asset. You can introspect on the Kubernetes cluster to see this job:
+
+
 ```shell
-$ kubectl create ns cfe-games
-namespace/cfe-games created
- 
-$ kubectl apply -f super-mario/ -n cfe-games
-deployment.apps/mario-deployment created
-service/mario-service created
- 
-$ kubectl apply -f tetris/ -n cfe-games
-deployment.apps/tetris-deployment created
-service/tetris-service created
+$ kubectl 
+NAME                                               STATUS     COMPLETIONS   DURATION   AGE
+dagster-run-c796364d-e720-4d4b-8d5f-5838f05ee2d8   Complete   1/1           9s         25s
 ```
+
+
+![](/img/dagster-catalog.png)
+
+
+![](/img/dagster-catalog-materialization.png)
+
+
+![](/img/dagster-catalog-materialization-overview.png)
+
+
+![](/img/dagster-catalog-materialization-wipe.png)
 
 ### Conclusion
 
 This blog post offers you a comprehensive guide on 
+
+Integration Architecture
+
+Integrating Dagster into HPE Private Cloud AI leverages the platform’s modular, Kubernetes‑native design, allowing Dagster to operate as an additional orchestration service alongside existing components such as Airflow, Kubeflow Pipelines, and Ray clusters. Dagster’s deployment typically consists of a set of containerized services—including the Dagster daemon, web UI, and user code deployments—that run within the platform’s Kubernetes environment. These services interact with HPE Private Cloud AI’s storage, compute, and networking layers through standard interfaces, enabling Dagster to orchestrate pipelines that span data ingestion, transformation, model training, and inference workloads. By using the platform’s built‑in support for container registries, secrets management, and persistent storage, Dagster can be integrated with minimal friction, ensuring that pipelines remain portable, reproducible, and aligned with enterprise operational standards.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise and get more ideas on how you can use it in your everyday operations.
