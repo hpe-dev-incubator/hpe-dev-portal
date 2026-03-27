@@ -15,7 +15,7 @@ tags:
   - Istio VirtualService
   - Kyverno ClusterPolicy
 ---
-HPE Private Cloud AI (PCAI) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
+HPE Private Cloud AI (PCAI) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, *Spark* and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
 
 This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that complements the existing PCAI stack rather than replacing any component. Dagster’s modular, cloud‑native architecture integrates cleanly with platform services and provides enhanced capabilities for managing data pipelines, tracking lineage, and improving reproducibility. Its developer‑focused design helps teams build, run, and monitor data assets more reliably and maintainably, making it a strong optional addition for workflows that benefit from modern data‑centric orchestration.
 
@@ -47,7 +47,9 @@ The deployment examples in the following sections use the kubectl CLI and kubeco
 
 ### Integrate *Dagster* framework using *Import Framework*
 
-The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster WebServer* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. Customers need to build the user code image with their own pipelines, and most oftern they want to push the image to a local image registry. 
+The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
+
+The following sections describe the process to build such a sample user code image, deploy *Harbor* and set it up as the local image registry, and push the built *Dagster* user code image to Harbor registry for late *Dagster* deployment.  
 
 #### Build the *Dagster* user code image
 
@@ -66,6 +68,7 @@ drwxrwxr-x  2 guoping guoping 4096 mars  19 11:13 iris_analysis
 -rw-rw-r--  1 guoping guoping  477 mars  19 11:13 README.md
 ```
 
+Here is the *Dockerfile* that's used for building the *Dagster* user code image.
 
 ```shell
 $ cat Dockerfile
