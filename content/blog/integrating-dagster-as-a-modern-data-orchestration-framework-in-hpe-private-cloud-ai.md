@@ -15,7 +15,7 @@ tags:
   - Istio VirtualService
   - Kyverno ClusterPolicy
 ---
-HPE Private Cloud AI (PCAI) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, *Spark* and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, *Spark* and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
 
 This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that complements the existing PCAI stack rather than replacing any component. Dagster’s modular, cloud‑native architecture integrates cleanly with platform services and provides enhanced capabilities for managing data pipelines, tracking lineage, and improving reproducibility. Its developer‑focused design helps teams build, run, and monitor data assets more reliably and maintainably, making it a strong optional addition for workflows that benefit from modern data‑centric orchestration.
 
@@ -41,6 +41,7 @@ Ensure that the following prerequisites are fulfilled:
 
 * HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
 * Access to an HPE Private Cloud AI workspace (with the Private Cloud AI Administrator role), allowing to performe administrative operations.
+* Docker Engine version 27.3.1 or later, including the default docker CLI, which will be used for building and pushing images.
 
 
 The deployment examples in the following sections use the kubectl CLI and kubeconfig to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via kubectl is generally not required.
@@ -98,6 +99,7 @@ WORKDIR /iris_analysis/
 EXPOSE 80
 ```
 
+Run the following docker command to build the image *'pcaidemo/user-code-example'* with the tag *'1.12.19'*.
 
 ```shell
 $ docker build . -t pcaidemo/user-code-example:1.12.19
@@ -150,6 +152,11 @@ $ docker build . -t pcaidemo/user-code-example:1.12.19
  => => writing image sha256:e5ccb2007d4d8eb9ab2d964c08a45d343a6775ceb7d012021902dc0dc51dc247                                                                                   0.0s
  => => naming to docker.io/pcaidemo/user-code-example:1.12.19 
 
+```
+
+Run below command to verify the image *'pcaidemo/user-code-example'* has been built.
+
+```shell
 $ docker images
 REPOSITORY                   TAG       IMAGE ID       CREATED              SIZE
 pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1.51GB
@@ -157,12 +164,20 @@ pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1
 
 ### Set up *Harbor* as a local image registry
 
+Harbor is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.
+
+This section describe t
 You can install *Harbor* and set it up as a local image registry in PCAI by following the instructions in the blog post [Setting up Harbor as a local container registry in HPE Private Cloud AI](https://developer.hpe.com/blog/setting-up-harbor-as-a-local-container-registry-in-hpe-private-cloud-ai/).
 
 
+After Harbor is deployed via the HPE PCAI Import Framework, an Imported Harbor tile appears under Tools & Frameworks on the Data Science tab. 
+
 ![](/img/harbor.png)
 
+After creating the project *'pcaidemo'* under **Projects** and a user *'pcai-admin'* with assigned role as *'Maintainer'* under **Administration -> Users**, add this user to the project *'pcaidemo'* under *Members* tab.
+
 ![](/img/harbor-user.png)
+
 
 ### Build and push Dagster user code image
 
@@ -178,6 +193,14 @@ https://docs.docker.com/go/credential-store/
 
 Login Succeeded
 ```
+
+$ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai0104.ld7.hpecolo.net/v2/_catalog | jq
+{
+  "repositories": [
+
+    "pcaidemo"
+  ]
+}
 
 
 ```shell
