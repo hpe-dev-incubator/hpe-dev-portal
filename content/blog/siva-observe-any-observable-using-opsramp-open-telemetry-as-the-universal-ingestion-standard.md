@@ -215,3 +215,5 @@ The PoC demonstrates that OpsRamp can serve as the observability backend for any
 I have laid out the full architecture — the components, the signal flows, the protocols, and the resource association mechanism. The picture should be clear: any infrastructure domain that can be instrumented with OpenTelemetry can be observed in OpsRamp using this pattern.
 
 In Part 2, I will walk through the complete installation and verification of every component in the local stack — the Redfish emulator, OTel Collector, Prometheus, Grafana, and Jaeger — running in Docker Compose on a single EC2 instance. I will show exactly how to verify each component is healthy before sending a single signal to OpsRamp.
+
+Stay tuned to the HPE Developer Community blog for more insights on HPE OpsRamp (Hybrid Cloud Observability) and practical ideas to apply it in your daily operations.
