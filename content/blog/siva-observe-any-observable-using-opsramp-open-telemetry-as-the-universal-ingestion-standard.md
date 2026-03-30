@@ -1,11 +1,15 @@
 ---
-title: "Siva Observe any observable using OpsRamp: open telemetry as the
-  universal ingestion standard"
+title: "Observe any observable using OpsRamp: Open telemetry as the universal
+  ingestion standard"
 date: 2026-03-30T12:23:01.584Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
+tags:
+  - OpsRamp
+  - Open Telemetry, Otel
+  - "Redfish , Jaeger ,Prometheus , Grafana "
 ---
 # Observe any observable using OpsRamp: open telemetry as the universal ingestion standard
 
