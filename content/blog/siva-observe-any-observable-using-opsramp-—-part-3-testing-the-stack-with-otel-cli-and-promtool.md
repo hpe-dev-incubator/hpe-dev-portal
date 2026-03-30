@@ -1,6 +1,6 @@
 ---
-title: "Siva Observe any observable using OpsRamp — Part 3: Testing the stack
-  with otel-cli and promtool"
+title: "Observe any observable using OpsRamp — Part 3: Testing the stack with
+  otel-cli and promtool"
 date: 2026-03-30T13:12:00.301Z
 featuredBlog: true
 author: BalaSubramanian Vetrivel
