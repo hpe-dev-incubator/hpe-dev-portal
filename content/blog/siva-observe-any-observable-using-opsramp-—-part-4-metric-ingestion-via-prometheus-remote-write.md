@@ -1,5 +1,5 @@
 ---
-title: "Siva Observe any observable using OpsRamp — Part 4: Metric ingestion via
+title: "Observe any observable using OpsRamp — Part 4: Metric ingestion via
   Prometheus remote write"
 date: 2026-03-30T13:29:12.906Z
 author: Balasubramanian Vetrivel
