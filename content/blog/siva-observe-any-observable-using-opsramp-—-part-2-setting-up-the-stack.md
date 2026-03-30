@@ -1,5 +1,5 @@
 ---
-title: "Siva Observe any observable using OpsRamp — Part 2: Setting up the stack"
+title: "Observe any observable using OpsRamp — Part 2: Setting up the stack"
 date: 2026-03-30T12:36:31.686Z
 featuredBlog: true
 author: Balasubramanian Vetrivel
