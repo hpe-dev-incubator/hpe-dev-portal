@@ -1,6 +1,6 @@
 ---
-title: "Observe any observable using OpsRamp: Open telemetry as the universal
-  ingestion standard"
+title: "Observe any observable using HPE OpsRamp: Open telemetry as the
+  universal ingestion standard"
 date: 2026-03-30T12:23:01.584Z
 featuredBlog: false
 author: BalaSubramanian Vetrivel
