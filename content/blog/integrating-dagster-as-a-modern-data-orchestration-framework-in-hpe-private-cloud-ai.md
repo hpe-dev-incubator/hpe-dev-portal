@@ -154,7 +154,7 @@ $ docker build . -t pcaidemo/user-code-example:1.12.19
 
 ```
 
-Run below command to verify the image *'pcaidemo/user-code-example'* has been built.
+Run below command to verify the image *'pcaidemo/user-code-example'* has been built with its proper tag *'1.12.19'*.
 
 ```shell
 $ docker images
@@ -179,8 +179,9 @@ After creating the project *'pcaidemo'* under **Projects** and a user *'pcai-adm
 ![](/img/harbor-user.png)
 
 
-### Build and push Dagster user code image
+### Push *Dagster* user code image
 
+From the *Linux* client, type the following command to log into the *Harbor* registry using the configured user credentials.
 
 ```shell
 $ docker login harbor.ai-application.pcai0104.ld7.hpecolo.net
@@ -194,6 +195,9 @@ https://docs.docker.com/go/credential-store/
 Login Succeeded
 ```
 
+Run the following command to check the created image repositories.
+
+```shell
 $ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai0104.ld7.hpecolo.net/v2/_catalog | jq
 {
   "repositories": [
@@ -201,7 +205,9 @@ $ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai010
     "pcaidemo"
   ]
 }
+```
 
+Tag the built image with the *Harbor* registry URL, e.g., *'harbor.ai-application.pcai0104.ld7.hpecolo.net'*, and the project name *'pcaidemo'*. Then ru the following command to push the image to the *Harbor* registry.
 
 ```shell
 $ docker tag pcaidemo/user-code-example:1.12.19 harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
@@ -221,6 +227,7 @@ c5864b4cf4c9: Pushed
 1.12.19: digest: sha256:b877e86abeea7c509dfb029a1d9fba51c45aaa9e84ca84399a92e79c2e2ac442 size: 2634
 ```
 
+From the **Projects** page in the *Harbor* console, the image *'pcaaidemo/user-code-example'*  displays under **Repositories** tab.
 
 ![](/img/harbor-pacidemo-user-code.png)
 
