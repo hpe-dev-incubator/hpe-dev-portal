@@ -40,15 +40,15 @@ Ensure that the following prerequisites are fulfilled:
 
 
 * HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
-* Access to an HPE Private Cloud AI workspace (with the Private Cloud AI Administrator role), allowing to performe administrative operations.
-* Docker Engine version 27.3.1 or later, including the default docker CLI, which will be used for building and pushing images.
+* Access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role), allowing to performe administrative operations.
+* Docker Engine version 27.3.1 or later, including the default docker CLI, which will be used for building and pushing *Dagster* user code images.
 
 
 The deployment examples in the following sections use the kubectl CLI and kubeconfig to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via kubectl is generally not required.
 
 ### Integrate *Dagster* framework using *Import Framework*
 
-The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
+The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
 
 The following sections describe the process to build such a sample user code image, deploy *Harbor* and set it up as the local image registry, and push the built *Dagster* user code image to Harbor registry for late *Dagster* deployment.  
 
@@ -204,8 +204,8 @@ $ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai010
 
 
 ```shell
-guoping@guoping-vm ~ $ docker tag pcaidemo/user-code-example:1.12.19 harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
-guoping@guoping-vm ~ $ docker push harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
+$ docker tag pcaidemo/user-code-example:1.12.19 harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
+$ docker push harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
 The push refers to repository [harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example]
 5f70bf18a086: Pushed
 72974f5579e5: Pushed
@@ -233,7 +233,7 @@ c5864b4cf4c9: Pushed
 
 
 ```shell
-[root@ai-cluster ~]# k get all -n dagster
+$ kubectl get all -n dagster
 NAME                                                                  READY   STATUS    RESTARTS   AGE
 pod/dagster-daemon-66c46866f8-sc4n7                                   1/1     Running   0          30h
 pod/dagster-dagster-user-deployments-k8s-example-user-code-1-8k86gs   1/1     Running   0          30h
@@ -299,6 +299,6 @@ dagster-run-c796364d-e720-4d4b-8d5f-5838f05ee2d8   Complete   1/1           9s  
 
 ### Conclusion
 
-This blog post examined the pre-curated orchestration toolchain available in PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer. Its modular architecture and strict separation between infrastructure and user code allow all user-defined pipeline definitions to deploy and execute locally within PCAI environemnt, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enhances the platform with a clean, asset-centric orchestration model that improves pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
+This blog post examined the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and strict separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally inside the PCAI environemnt, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enhances the platform with a clean, asset-oriented orchestration model that improves pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
