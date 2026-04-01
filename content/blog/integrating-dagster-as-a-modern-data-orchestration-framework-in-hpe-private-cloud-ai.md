@@ -152,27 +152,22 @@ pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1
 
 ### Set up *Harbor* as a local image registry
 
- import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+[*Harbor*](https://goharbor.io/) is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.
 
-
-Harbor is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.
-
-This section describe t
 You can install *Harbor* and set it up as a local image registry in PCAI by following the instructions in the blog post [Setting up Harbor as a local container registry in HPE Private Cloud AI](https://developer.hpe.com/blog/setting-up-harbor-as-a-local-container-registry-in-hpe-private-cloud-ai/).
 
 
-After Harbor is deployed via the HPE PCAI Import Framework, an Imported Harbor tile appears under Tools & Frameworks on the Data Science tab. 
+After *Harbor is deployed via the Import Framework, an imported *Harbor* tile appears under **Tools & Frameworks**. 
 
 ![](/img/harbor.png)
 
-After creating the project *'pcaidemo'* under **Projects** and a user *'pcai-admin'* with assigned role as *'Maintainer'* under **Administration -> Users**, add this user to the project *'pcaidemo'* under *Members* tab.
+After creating a project (e.g., *'pcaidemo'*) under **Projects** and a user (e.g., *'pcai-admin'*) with the *Maintainer* role under **Administration -> Users**, add the user to the project *'pcaidemo'* from its *Members* tab.
 
 ![](/img/harbor-user.png)
 
+### Push the *Dagster* user code image
 
-### Push *Dagster* user code image
-
-From the *Linux* client, type the following command to log into the *Harbor* registry using the configured user credentials.
+From the *Linux* client, run the following command to log in to the *Harbor* registry using the user credentials configured above.
 
 ```shell
 $ docker login harbor.ai-application.pcai0104.ld7.hpecolo.net
@@ -186,7 +181,7 @@ https://docs.docker.com/go/credential-store/
 Login Succeeded
 ```
 
-Run the following command to check the created image repositories.
+Run the following command to view the repositories from the *Harbor* registry.
 
 ```shell
 $ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai0104.ld7.hpecolo.net/v2/_catalog | jq
@@ -218,11 +213,13 @@ c5864b4cf4c9: Pushed
 1.12.19: digest: sha256:b877e86abeea7c509dfb029a1d9fba51c45aaa9e84ca84399a92e79c2e2ac442 size: 2634
 ```
 
-In the *Harbor* console, under the *Repositories* tab of the project *'pcaidemo'*, the image *'pcaaidemo/user-code-example'* appears in the list.
+In the *Harbor* console, under the *Repositories* tab of the project *'pcaidemo'*, the image *'pcaidemo/user-code-example'* appears in the list.
 
 ![](/img/harbor-pacidemo-user-code.png)
 
-### Deploy Dagster framework
+ import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+
+### Deploy *Dagster* framework
 
 Based on the official [*Dagster* Helm charts](https://github.com/dagster-io/dagster/tree/master/helm), a revised version, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/dagster), provides PCAI compatible deployment configurations. This updated chart includes the required *Istio VirtualService* and *Kyverno ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. It also incorporates modifications for pulling the user code image from the local *Harbor* registry.
 
@@ -284,33 +281,33 @@ Navigate to **Deployment** and open the *Code locations* tab. The *'k8s-example-
 
 ![](/img/dagster-deployment.png)
 
-In the *Harbor* console, under the *Logs* tab of the project *'pcaidemo'* page, you can see the artifact pull operations for the image *'pcaaidemo/user-code-example'*.
+In the *Harbor* console, under the *Logs* tab of the project *'pcaidemo'*, you can see the artifact pull operations for the image *'pcaidemo/user-code-example'*.
 
 ![](/img/harbor-audit-logs.png)
 
 #### Materialize *Dagster* assets
 
-In the Dagster UI, navigate to the **Catalog**, select the asset *'isris_dataset_size'*, and click the ***Materialize**** button, it starts materializing the sected asset. 
+In the *Dagster* Webserver, navigate to **Catalog**, select the asset *'iris_dataset_size'*, and click the ***Materialize selected*** button. This triggers the materialization process for the asset *'iris_dataset_size'*. 
 
 ![](/img/dagster-catalog.png)
 
-Dagster will start a Kubernetes job to materialize the asset. You can introspect on the Kubernetes cluster to see this job:
+Run the following command to view the job that was started on the cluster to materialize the asset.
 
 ```shell
-$ kubectl 
+$ kubectl get jobs -n dagster
 NAME                                               STATUS     COMPLETIONS   DURATION   AGE
-dagster-run-c796364d-e720-4d4b-8d5f-5838f05ee2d8   Complete   1/1           9s         25s
+dagster-run-044deadf-141d-4b25-89b1-dd74f0a44f89   Complete   1/1           8s         25s
 ```
 
-
-
-
+Once the K8s job completes, the asset *'iris_dataset_size'* appears with a *Materialized* status in the **Catalog**. 
 
 ![](/img/dagster-catalog-materialization.png)
 
+Click the asset *'iris_dataset_size'* to view its overview.
 
 ![](/img/dagster-catalog-materialization-overview.png)
 
+Click ***Wipe materializations*** from the selected asset to remove its materializations.
 
 ![](/img/dagster-catalog-materialization-wipe.png)
 
