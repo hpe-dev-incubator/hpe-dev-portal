@@ -11,7 +11,7 @@ const APIDB = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api`
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
-    avatar={workshop.replay && workshop.replay.avatar}
+    avatar={workshop && workshop.avatar}
     desc={
       workshop.sessionType === 'Workshops-on-Demand'
         ? `${workshop.description.slice(0, 520)}`
