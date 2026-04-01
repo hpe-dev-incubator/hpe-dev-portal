@@ -867,6 +867,8 @@ const ScheduleCard = ({
               sessionType === 'Workshops-on-Demand' ? (
                 <Link to={`${sessionLink}`}>
                   <Button
+                    target='_blank'
+                    rel="noreferrer noopener"
                     label={
                       <Box pad="xsmall">
                         <Text color="text-strong" size={textSize}>
