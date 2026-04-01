@@ -865,7 +865,7 @@ const ScheduleCard = ({
               )}
               {sessionType === 'Coding Challenge' ||
               sessionType === 'Workshops-on-Demand' ? (
-                <Link to={`../${sessionLink}`}>
+                <Link to={`${sessionLink}`}>
                   <Button
                     label={
                       <Box pad="xsmall">
