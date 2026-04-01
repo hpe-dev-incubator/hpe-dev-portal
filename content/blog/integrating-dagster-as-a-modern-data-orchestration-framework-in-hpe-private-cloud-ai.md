@@ -54,11 +54,11 @@ The following sections describe the process to build such a sample user code ima
 
 #### Build the *Dagster* user code image
 
-As the preparation of the Dagster deployment, the following sections describe the process to build the user code image, import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+As preparation for the *Dagster* deployment, this section describes the process for building the *Dagster* user code image. For demonstration purposes, the [*'iris_analysis'*](https://github.com/dagster-io/dagster/tree/master/examples/deploy_k8s) example project from the official [*Dagster*](https://github.com/dagster-io/dagster) GitHub repository is used as the sample for the image build. 
 
 ```shell
 $ cd examples/deploy_k8s/
-guoping@guoping-vm ~/CFE/dagster/examples/deploy_k8s $ ls -al
+$ ls -al
 total 24
 drwxrwxr-x  3 guoping guoping 4096 mars  20 14:01 .
 drwxrwxr-x 37 guoping guoping 4096 mars  19 11:13 ..
@@ -69,37 +69,25 @@ drwxrwxr-x  2 guoping guoping 4096 mars  19 11:13 iris_analysis
 -rw-rw-r--  1 guoping guoping  477 mars  19 11:13 README.md
 ```
 
-Here is the *Dockerfile* that's used for building the *Dagster* user code image.
+The following *Dockerfile* is used to build the sample *Dagster* user code image. In addtion to installing the required libraries (e.g., *dagster*, *dagster-postgres*, *dagster-k8s*, and *pandas*), be sure to update the file paths and port settings to match you own *Dagster* project. 
 
 ```shell
 $ cat Dockerfile
 FROM python:3.11
-
-# Copy the sample Dagster project iris_analysis.
 COPY . /
-
-# This makes sure that logs show up immediately instead of being buffered
 ENV PYTHONUNBUFFERED=1
-
 RUN pip install --upgrade pip
-
-# Install dagster and any other dependencies your project requires
 RUN \
     pip install \
         dagster \
         dagster-postgres \
         dagster-k8s \
-        # add any other dependencies here
         pandas
-
-
 WORKDIR /iris_analysis/
-
-# Expose the port that your Dagster instance will run on
 EXPOSE 80
 ```
 
-Run the following docker command to build the image *'pcaidemo/user-code-example'* with the tag *'1.12.19'*.
+Run the following Docker command to build the image *'pcaidemo/user-code-example'* with the tag *'1.12.19'*.
 
 ```shell
 $ docker build . -t pcaidemo/user-code-example:1.12.19
@@ -164,6 +152,9 @@ pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1
 
 ### Set up *Harbor* as a local image registry
 
+ import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+
+
 Harbor is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and RBAC, ensures images are scanned and free from vulnerabilities, and signs images as trusted.
 
 This section describe t
@@ -207,7 +198,7 @@ $ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai010
 }
 ```
 
-Tag the built image with the *Harbor* registry URL, e.g., *'harbor.ai-application.pcai0104.ld7.hpecolo.net'*, and the project name *'pcaidemo'*. Then ru the following command to push the image to the *Harbor* registry.
+Tag the built image with the *Harbor* registry URL (e.g., *'harbor.ai-application.pcai0104.ld7.hpecolo.net'*) and the project name *'pcaidemo'*. Run the following command to push the image to the *Harbor* registry.
 
 ```shell
 $ docker tag pcaidemo/user-code-example:1.12.19 harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19
@@ -227,17 +218,27 @@ c5864b4cf4c9: Pushed
 1.12.19: digest: sha256:b877e86abeea7c509dfb029a1d9fba51c45aaa9e84ca84399a92e79c2e2ac442 size: 2634
 ```
 
-From the **Projects** page in the *Harbor* console, the image *'pcaaidemo/user-code-example'*  displays under **Repositories** tab.
+In the *Harbor* console, under the *Repositories* tab of the project *'pcaidemo'*, the image *'pcaaidemo/user-code-example'* appears in the list.
 
 ![](/img/harbor-pacidemo-user-code.png)
 
 ### Deploy Dagster framework
 
+Based on the official [*Dagster* Helm charts](https://github.com/dagster-io/dagster/tree/master/helm), a revised version, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/dagster), provides PCAI compatible deployment configurations. This updated chart includes the required *Istio VirtualService* and *Kyverno ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. It also incorporates modifications for pulling the user code image from the local *Harbor* registry.
+
+
+
+Follow the steps below to deploy *Dagster* into PCAI using the Import Framework.   
+
+* In the PCAI left navigation panel, select **Tools & Frameworks**. Click ***Import Framework***.
+
 ![](/img/pcai-tools-frameworks-import-framework.png)
+
+* By following the Import Framework wizard workflow, *Dagster* can be deployed into the PCAI environment within minutes.
 
 ![](/img/import-framework-dagster.png)
 
-
+* Run the following commands to verify the *Dagster* deployment in the namespace 'dagster' of the PCAI K8s cluster:
 
 ```shell
 $ kubectl get all -n dagster
@@ -269,22 +270,31 @@ statefulset.apps/dagster-postgresql   1/1     30h
 
 ### Access *Dagster* framework
 
-#### Connect to *Dagster* deployment
+After *Dagster* is deployed via the Import Framework, an *imported* *Dagster* tile appears under **Tools & Frameworks**.
 
 ![](/img/dagster.png)
 
+#### Connect to *Dagster* deployment
+
+Click ***Open*** on the *Dagster* tile launches the *Dagster* Webserver and directs you to the **Overview** page.
+
 ![](/img/dagster-overview.png)
+
+Navigate to **Deployment** and open the *Code locations* tab. The *'k8s-example-user-code-1'* shows the user code image *'harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19'* pulled from the *Harbor* registry.
 
 ![](/img/dagster-deployment.png)
 
-*'harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19'*.
+In the *Harbor* console, under the *Logs* tab of the project *'pcaidemo'* page, you can see the artifact pull operations for the image *'pcaaidemo/user-code-example'*.
 
 ![](/img/harbor-audit-logs.png)
 
 #### Materialize *Dagster* assets
 
-In the Dagster UI, navigate to the Asset catalog and click the Materialize button to materialize an asset. Dagster will start a Kubernetes job to materialize the asset. You can introspect on the Kubernetes cluster to see this job:
+In the Dagster UI, navigate to the **Catalog**, select the asset *'isris_dataset_size'*, and click the ***Materialize**** button, it starts materializing the sected asset. 
 
+![](/img/dagster-catalog.png)
+
+Dagster will start a Kubernetes job to materialize the asset. You can introspect on the Kubernetes cluster to see this job:
 
 ```shell
 $ kubectl 
@@ -293,7 +303,7 @@ dagster-run-c796364d-e720-4d4b-8d5f-5838f05ee2d8   Complete   1/1           9s  
 ```
 
 
-![](/img/dagster-catalog.png)
+
 
 
 ![](/img/dagster-catalog-materialization.png)
