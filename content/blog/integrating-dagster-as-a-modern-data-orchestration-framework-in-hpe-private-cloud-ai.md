@@ -26,7 +26,7 @@ This blog post introduces *Dagster* as an additional, asset‑oriented orchestra
 
 *Dagster* does not replace existing orchestrators such as *Airflow*, *Kubeflow*, or *Ray*. Instead, it complements them by offering a more data‑centric option for teams that prioritize lineage, observability, and long‑term maintainability. In practice, *Dagster*, *Airflow*, and other orchestration tools often coexist within the same ecosystem, each bringing strengths suited to different workflow styles. *Dagster* excels in asset‑driven, lineage‑aware environments, while tools like *Airflow* remain reliable choices for task‑driven scheduling with extensive integrations. Rather than competing, these tools work together to give teams the flexibility to choose the orchestration model that best fits each part of their data platform.
 
-The following sections describe the process for integrating *Dagster* into PCAI using the Import Framework. Once integrated, *Dagster* becomes an additional orchestration framework within the PCAI environment, providing users with more options to select the approach that best aligns with their workflow and orchestration requirements.
+The following sections describe the process for integrating *Dagster* into PCAI using the *Import Framework*. Once integrated, *Dagster* becomes an additional orchestration framework within the PCAI environment, providing users with more options to select the approach that best aligns with their workflow and orchestration requirements.
 
 ### Prerequisites
 
@@ -38,15 +38,15 @@ Ensure that the following prerequisites are fulfilled:
 
 The deployment examples in the following sections use the kubectl CLI and kubeconfig to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via kubectl is generally not required.
 
-### Integrate *Dagster* framework using *Import Framework*
+### Integrate *Dagster* framework using the *Import Framework*
 
-The official [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
+The official [*Dagster* Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart deploys the core *Dagster* infrastructure, specifically the *Dagster Webserver* and the *Dagster daemon*, using prebuilt images available from *DockerHub*. The *dagster-user-deployments* subchart, by contrast, is responsible for deploying *Dagster* user code, which contains the user-defined pipelines and asset definitions. Because this code is user-specific, customers must build their own user code image and use that image when deploying *Dagster* user code. In many cases, customers prefer to store this image locally within their environment. 
 
-The following sections outline how to build a sample user code image, deploy *Harbor* and set it up as the local image registry, and then push the built *Dagster* user code image to *Harbor* in preparation for the later *Dagster* deployment.  
+The following sections describe how to build a sample user code image, deploy *Harbor* and configure it as the local image registry within PCAI, and push the built *Dagster* user code image to *Harbor* so it can be used for the *Dagster* deployment.  
 
 #### Build the *Dagster* user code image
 
-As preparation for the *Dagster* deployment, this section describes the process for building the *Dagster* user code image. For demonstration purposes, the *['iris_analysis'](https://github.com/dagster-io/dagster/tree/master/examples/deploy_k8s)* example project from the official *[Dagster](https://github.com/dagster-io/dagster)* GitHub repository is used as the sample for the image build. 
+As preparation for the *Dagster* deployment, this section describes the process for building the *Dagster* user code image. For demonstration purposes, the *['iris_analysis'](https://github.com/dagster-io/dagster/tree/master/examples/deploy_k8s)* example project from the official *[Dagster GitHub repository](https://github.com/dagster-io/dagster)* is used as the sample for the user code image build. 
 
 ```shell
 $ cd examples/deploy_k8s/
@@ -147,7 +147,7 @@ pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1
 
 You can install *Harbor* and set it up as a local image registry in PCAI by following the instructions in the blog post [Setting up Harbor as a local container registry in HPE Private Cloud AI](https://developer.hpe.com/blog/setting-up-harbor-as-a-local-container-registry-in-hpe-private-cloud-ai/).
 
-After *Harbor* is deployed via the Import Framework, an imported* Harbor* tile appears under **Tools & Frameworks**. 
+After *Harbor* is deployed via the *Import Framework*, an imported* Harbor* tile appears under **Tools & Frameworks**. 
 
 ![](/img/harbor.png)
 
@@ -155,7 +155,7 @@ Click ***Open*** to launch the *Harbor* console. After creating a project (e.g.,
 
 ![](/img/harbor-user.png)
 
-#### Push the *Dagster* user code image
+#### Push the *Dagster* user code image to *Harbor*
 
 From the *Linux* client, run the following command to log in to the *Harbor* registry using the user credentials configured above.
 
@@ -169,18 +169,6 @@ Configure a credential helper to remove this warning. See
 https://docs.docker.com/go/credential-store/
 
 Login Succeeded
-```
-
-Run the following command to view the repositories from the *Harbor* registry.
-
-```shell
-$ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai0104.ld7.hpecolo.net/v2/_catalog | jq
-{
-  "repositories": [
-
-    "pcaidemo"
-  ]
-}
 ```
 
 Tag the built image with the *Harbor* registry URL (e.g., *'harbor.ai-application.pcai0104.ld7.hpecolo.net'*) and the project name *'pcaidemo'*. Run the following command to push the image to the *Harbor* registry.
@@ -203,6 +191,17 @@ c5864b4cf4c9: Pushed
 1.12.19: digest: sha256:b877e86abeea7c509dfb029a1d9fba51c45aaa9e84ca84399a92e79c2e2ac442 size: 2634
 ```
 
+Run the following command to view the repositories from the *Harbor* registry.
+
+```shell
+$ curl -k -sS --user 'pcai-admin:<hidden>' https://harbor.ai-application.pcai0104.ld7.hpecolo.net/v2/_catalog | jq
+{
+  "repositories": [
+    "pcaidemo/user-code-example"
+  ]
+}
+```
+
 In the *Harbor* console, under the *Repositories* tab of the project *'pcaidemo'*, the image *'pcaidemo/user-code-example'* appears in the list.
 
 ![](/img/harbor-pacidemo-user-code.png)
@@ -213,7 +212,7 @@ This user code image, once pushed to the local *Harbor* registry, will be used f
 
 Based on the official [*Dagster* Helm charts](https://github.com/dagster-io/dagster/tree/master/helm), a revised version, available in the GitHub repository [pcai-helm-examples](https://github.com/GuopingJia/pcai-helm-examples/tree/main/dagster), provides PCAI compatible deployment configurations. This updated chart includes the required *Istio VirtualService* and *Kyverno ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. It also incorporates modifications for pulling the user code image from the local *Harbor* registry.
 
-Follow the steps below to deploy *Dagster* into PCAI using the Import Framework.   
+Follow the steps below to deploy *Dagster* into PCAI using the *Import Framework*.   
 
 * In the PCAI left navigation panel, select **Tools & Frameworks**. Click ***Import Framework***.
 
@@ -255,7 +254,7 @@ statefulset.apps/dagster-postgresql   1/1     30h
 
 ### Access *Dagster* framework
 
-After *Dagster* is deployed via the Import Framework, an *imported* *Dagster* tile appears under **Tools & Frameworks**.
+After *Dagster* is deployed via the *Import Framework*, an *imported* *Dagster* tile appears under **Tools & Frameworks**.
 
 ![](/img/dagster.png)
 
