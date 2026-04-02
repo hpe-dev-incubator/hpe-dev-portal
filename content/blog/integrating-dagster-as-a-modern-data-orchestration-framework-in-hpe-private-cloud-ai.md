@@ -1,7 +1,7 @@
 ---
 title: Integrating Dagster as a modern data orchestration framework in HPE
   Private Cloud AI
-date: 2026-04-02T09:32:51.058Z
+date: 2026-04-02T20:51:38.083Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -16,6 +16,8 @@ tags:
   - Kyverno ClusterPolicy
   - data assets
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 [HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, *Spark* and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
 
 This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that augments the existing PCAI tool stack without replacing any component. Using the *Import Framework*, *Dagster* can be deployed within minutes and integrated seamlessly into the PCAI environment. *Dagster*’s modular architecture cleanly separates the infrastructure layer from the user code layer, allowing the user code package to be built as an independent container image, pushed to the local PCAI image registry, and deployed entirely within the PCAI boundary. This integration approach reinforces data protection and supports strict data sovereignty requirements. Once integrated, *Dagster* provides advanced orchestration capabilities, including asset-level lineage tracking, deterministic reproducibility, and comprehensive observability. Its developer‑focused design enables teams to build, execute, and monitor data assets with greater reliability and maintainability, making it a valuable optional addition within PCAI for workflows that benefit from modern data‑centric orchestration.
