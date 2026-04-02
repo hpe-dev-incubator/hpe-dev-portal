@@ -1,7 +1,7 @@
 ---
 title: Integrating Dagster as a modern data orchestration framework in HPE
   Private Cloud AI
-date: 2026-03-25T16:14:15.611Z
+date: 2026-04-02T09:32:51.058Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -14,10 +14,11 @@ tags:
   - Helm chart
   - Istio VirtualService
   - Kyverno ClusterPolicy
+  - data assets
 ---
 [HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) provides a curated set of pre‑integrated orchestration and machine‑learning (ML) frameworks, including *Airflow*, *Kubeflow*, *Spark* and *Ray*, to streamline the development and operationalization of AI workloads. However, teams that require stronger data‑centric orchestration, asset lineage, and reproducibility may find gaps in the existing toolchain. Traditional task‑based orchestrators such as *Airflow* don’t always provide the asset‑level visibility, modularity, or developer‑friendly workflow needed for modern data engineering practices.
 
-This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that augments the existing PCAI tool stack without replacing any component. Using the *Import Framework*, *Dagster* can be deployed within minutes and integrated seamlessly into the PCAI environment. *Dagster*’s modular architecture cleanly separates the infrastructure layer from the user-code layer, allowing the user-code package to be built as an independent container image, pushed to the local PCAI image registry, and deployed entirely within the PCAI boundary. This integration approach reinforces data protection and supports strict data sovereignty requirements. Once integrated, *Dagster* provides advanced orchestration capabilities, including asset-level lineage tracking, deterministic reproducibility, and comprehensive observability. Its developer‑focused design enables teams to build, execute, and monitor data assets with greater reliability and maintainability, making it a valuable optional addition within PCAI for workflows that benefit from modern data‑centric orchestration.
+This blog post introduces *Dagster* as an additional, asset‑oriented orchestration framework that augments the existing PCAI tool stack without replacing any component. Using the *Import Framework*, *Dagster* can be deployed within minutes and integrated seamlessly into the PCAI environment. *Dagster*’s modular architecture cleanly separates the infrastructure layer from the user code layer, allowing the user code package to be built as an independent container image, pushed to the local PCAI image registry, and deployed entirely within the PCAI boundary. This integration approach reinforces data protection and supports strict data sovereignty requirements. Once integrated, *Dagster* provides advanced orchestration capabilities, including asset-level lineage tracking, deterministic reproducibility, and comprehensive observability. Its developer‑focused design enables teams to build, execute, and monitor data assets with greater reliability and maintainability, making it a valuable optional addition within PCAI for workflows that benefit from modern data‑centric orchestration.
 
 ### Why Dagster?
 
@@ -39,7 +40,7 @@ The deployment examples in the following sections use the kubectl CLI and kubeco
 
 ### Integrate *Dagster* framework using *Import Framework*
 
-The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
+The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
 
 The following sections outline how to build a sample user code image, deploy *Harbor* and set it up as the local image registry, and then push the built *Dagster* user code image to *Harbor* in preparation for the the later *Dagster* deployment.  
 
@@ -146,11 +147,11 @@ pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1
 
 You can install *Harbor* and set it up as a local image registry in PCAI by following the instructions in the blog post [Setting up Harbor as a local container registry in HPE Private Cloud AI](https://developer.hpe.com/blog/setting-up-harbor-as-a-local-container-registry-in-hpe-private-cloud-ai/).
 
-After *Harbor is deployed via the Import Framework, an imported* Harbor* tile appears under **Tools & Frameworks**. 
+After *Harbor* is deployed via the Import Framework, an imported* Harbor* tile appears under **Tools & Frameworks**. 
 
 ![](/img/harbor.png)
 
-After creating a project (e.g., *'pcaidemo'*) under **Projects** and a user (e.g., *'pcai-admin'*) with the *Maintainer* role under **Administration -> Users**, add the user to the project *'pcaidemo'* from its *Members* tab.
+Click ***Open*** to launch the *Harbor* console. After creating a project (e.g., *'pcaidemo'*) under **Projects** and a user (e.g., *'pcai-admin'*) with the *Maintainer* role under **Administration -> Users**, add the user to the project *'pcaidemo'* from its *Members* tab.
 
 ![](/img/harbor-user.png)
 
@@ -206,7 +207,7 @@ In the *Harbor* console, under the *Repositories* tab of the project *'pcaidemo'
 
 ![](/img/harbor-pacidemo-user-code.png)
 
- import the *Harbor* and set it up as the local image registry, and push the user code image to the *Harbor* registry to be used for late deployment. 
+This user code image, once pushed to the local *Harbor* registry, will be used for the *Dagster* user code deployment. 
 
 #### Deploy *Dagster* framework
 
@@ -222,7 +223,7 @@ Follow the steps below to deploy *Dagster* into PCAI using the Import Framework.
 
 ![](/img/import-framework-dagster.png)
 
-* Run the following commands to verify the *Dagster* deployment in the namespace 'dagster' of the PCAI K8s cluster:
+* Run the following commands to verify the *Dagster* deployment in the namespace 'dagster' of the PCAI K8s cluster.
 
 ```shell
 $ kubectl get all -n dagster
@@ -264,7 +265,7 @@ Click ***Open*** on the *Dagster* tile launches the *Dagster* Webserver and dire
 
 ![](/img/dagster-overview.png)
 
-Navigate to **Deployment** and open the *Code locations* tab. The *'k8s-example-user-code-1'* shows the user code image *'harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19'* pulled from the *Harbor* registry.
+Navigate to **Deployment** and open the *Code locations* tab. The entry *'k8s-example-user-code-1'* shows the user code image *'harbor.ai-application.pcai0104.ld7.hpecolo.net/pcaidemo/user-code-example:1.12.19'* pulled from the *Harbor* registry.
 
 ![](/img/dagster-deployment.png)
 
@@ -278,7 +279,7 @@ In the *Dagster* Webserver, navigate to **Catalog**, select the asset *'iris_dat
 
 ![](/img/dagster-catalog.png)
 
-Run the following command to view the job that was started on the cluster to materialize the asset.
+Run the following command to view the K8s job that was started on the cluster to materialize the asset.
 
 ```shell
 $ kubectl get jobs -n dagster
@@ -300,6 +301,6 @@ Click ***Wipe materializations*** from the selected asset to remove its material
 
 ### Conclusion
 
-This blog post examined the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and strict separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally inside the PCAI environemnt, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enhances the platform with a clean, asset-oriented orchestration model that improves pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
+This blog post explored the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and clear separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally within the PCAI environemnt, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enriches the platform with a clean, asset-oriented orchestration approach that enhances pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
