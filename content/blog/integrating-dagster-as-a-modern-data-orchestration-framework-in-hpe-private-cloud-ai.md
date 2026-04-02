@@ -41,7 +41,7 @@ The deployment examples in the following sections use the kubectl CLI and kubeco
 
 The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
 
-The following sections describe the process to build such a sample user code image, deploy *Harbor* and set it up as the local image registry, and push the built *Dagster* user code image to Harbor registry for late *Dagster* deployment.  
+The following sections outline how to build a sample user code image, deploy *Harbor* and set it up as the local image registry, and then push the built *Dagster* user code image to *Harbor* in preparation for the the later *Dagster* deployment.  
 
 #### Build the *Dagster* user code image
 
@@ -140,7 +140,7 @@ REPOSITORY                   TAG       IMAGE ID       CREATED   
 pcaidemo/user-code-example   1.12.19   e5ccb2007d4d   About a minute ago   1.51GB
 ```
 
-### Set up *Harbor* as a local image registry
+#### Set up *Harbor* as a local image registry
 
 *[Harbor](https://goharbor.io/)* is an open-source container registry designed for cloud-native environments like K8s. It securely stores and manages container images with policies and role-based access control (RBAC), ensures images are scanned and free from vulnerabilities, and signs images as trusted.
 
@@ -154,7 +154,7 @@ After creating a project (e.g., *'pcaidemo'*) under **Projects** and a user (e.g
 
 ![](/img/harbor-user.png)
 
-### Push the *Dagster* user code image
+#### Push the *Dagster* user code image
 
 From the *Linux* client, run the following command to log in to the *Harbor* registry using the user credentials configured above.
 
