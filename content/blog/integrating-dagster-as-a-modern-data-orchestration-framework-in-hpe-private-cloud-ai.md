@@ -33,16 +33,16 @@ The following sections describe the process for integrating *Dagster* into PCAI 
 Ensure that the following prerequisites are fulfilled:
 
 * HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
-* Access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role), allowing to performe administrative operations.
+* Access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role), allowing to perform administrative operations.
 * Docker Engine version 27.3.1 or later, including the default docker CLI, which will be used for building and pushing *Dagster* user code images.
 
 The deployment examples in the following sections use the kubectl CLI and kubeconfig to interact with the PCAI Kubernetes (K8s) cluster. However, direct cluster access via kubectl is generally not required.
 
 ### Integrate *Dagster* framework using *Import Framework*
 
-The offical [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
+The official [Dagster Helm charts](https://github.com/dagster-io/dagster/tree/master/helm) contain the main *dagster* chart and the *dagster-user-deployments* subchart. The *dagster* chart is for the *Dagster* infrastructure, which consists of the *Dagster Webserver* and the *Dagster daemon*, while the *dagster-user-deployments* subchart is for the *Dagster* user code, which contains the definitions of user-specific pipelines written in *Dagster*. While the deployment of the *Dagster* infrastructure uses the existing images available from *DockerHub* repositories, customers have to build the user code image with their own pipelines and use their own image to deploy the *Dagster* user code. 
 
-The following sections outline how to build a sample user code image, deploy *Harbor* and set it up as the local image registry, and then push the built *Dagster* user code image to *Harbor* in preparation for the the later *Dagster* deployment.  
+The following sections outline how to build a sample user code image, deploy *Harbor* and set it up as the local image registry, and then push the built *Dagster* user code image to *Harbor* in preparation for the later *Dagster* deployment.  
 
 #### Build the *Dagster* user code image
 
@@ -61,7 +61,7 @@ drwxrwxr-x  2 guoping guoping 4096 mars  19 11:13 iris_analysis
 -rw-rw-r--  1 guoping guoping  477 mars  19 11:13 README.md
 ```
 
-The following *Dockerfile* is used to build the sample *Dagster* user code image. In addtion to installing the required libraries (e.g., *dagster*, *dagster-postgres*, *dagster-k8s*, and *pandas*), be sure to update the file paths and port settings to match you own *Dagster* project. 
+The following *Dockerfile* is used to build the sample *Dagster* user code image. In addition to installing the required libraries (e.g., *dagster*, *dagster-postgres*, *dagster-k8s*, and *pandas*), be sure to update the file paths and port settings to match you own *Dagster* project. 
 
 ```shell
 $ cat Dockerfile
@@ -79,7 +79,7 @@ WORKDIR /iris_analysis/
 EXPOSE 80
 ```
 
-Run the following Docker command to build the image *'pcaidemo/user-code-example'* with the tag *'1.12.19'*.
+Run the following *Docker* command to build the image *'pcaidemo/user-code-example'* with the tag *'1.12.19'*.
 
 ```shell
 $ docker build . -t pcaidemo/user-code-example:1.12.19
@@ -301,6 +301,6 @@ Click ***Wipe materializations*** from the selected asset to remove its material
 
 ### Conclusion
 
-This blog post explored the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and clear separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally within the PCAI environemnt, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enriches the platform with a clean, asset-oriented orchestration approach that enhances pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
+This blog post explored the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the PCAI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and clear separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally within the PCAI environment, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enriches the platform with a clean, asset-oriented orchestration approach that enhances pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
