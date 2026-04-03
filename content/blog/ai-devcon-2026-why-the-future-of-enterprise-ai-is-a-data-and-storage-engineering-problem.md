@@ -25,7 +25,7 @@ Presenters traced the evolution of engineering pipelines across eras. Traditiona
 
 The key insight shared repeatedly was simple but profound: LLMs reason over whatever context they are given—and they do so with complete confidence, even when that context is outdated, duplicated, or wrong.
 
-**Where GenAI Systems Actually Break in Production**
+**Where GenAI systems actually break in production**
 
 Real production examples shared at AI DevCon highlighted how GenAI systems fail in subtle but damaging ways. Many RAG implementations rely on naïve chunking strategies—splitting documents by token count rather than by semantic structure. This fragments meaning, separates definitions from constraints, and causes incomplete context to be retrieved at inference time. Weak or outdated embeddings further amplify the problem, surfacing text that is lexically similar but semantically incorrect.
 
@@ -33,7 +33,7 @@ Perhaps the most concerning failure mode discussed was knowledge freshness drif
 
 These failures make an uncomfortable truth unavoidable: RAG systems are only as reliable as the stored data they retrieve, and storage systems that lack strong versioning, provenance, and refresh guarantees directly undermine AI correctness.
 
-**The Emergence of Semantic Data Quality Pipelines**
+**The emergence of semantic data quality pipelines**
 
 To address these challenges, multiple speakers introduced what is best described as a semantic data quality layer—a new architectural component that sits between raw storage and AI models. Unlike traditional ETL pipelines focused on schema and format, this layer focuses on meaning.
 
