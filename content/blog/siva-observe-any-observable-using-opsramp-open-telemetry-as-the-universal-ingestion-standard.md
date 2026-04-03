@@ -81,7 +81,7 @@ The agent sends all three signal types to the OTel Collector using **OTLP/gRPC**
 
 The OpenTelemetry Collector is the central routing engine of the stack. It is the only component that speaks to both the local observability tools and OpsRamp simultaneously.
 
-The Collector runs three parallel pipelines:
+The collector runs three parallel pipelines:
 
 The **metrics pipeline** receives OTLP metrics from the agent and the httpcheck receiver, processes them through a resource attribute processor, and exports them to Prometheus on port 8889. Prometheus then pushes to OpsRamp via remote_write.
 
