@@ -227,3 +227,44 @@ I have laid out the full architecture — the components, the signal flows, the 
 In Part 2, I will walk through the complete installation and verification of every component in the local stack — the Redfish emulator, OTel Collector, Prometheus, Grafana, and Jaeger — running in Docker Compose on a single EC2 instance. I will show exactly how to verify each component is healthy before sending a single signal to OpsRamp.
 
 Stay tuned to the HPE Developer Community blog for more insights on HPE OpsRamp (Hybrid Cloud Observability) and practical ideas to apply it in your daily operations.
+
+
+## Want to know more?
+ 
+- **OpenTelemetry project:** [opentelemetry.io](https://opentelemetry.io)
+- **OTel specification:** [opentelemetry.io/docs/specs/otel](https://opentelemetry.io/docs/specs/otel/)
+- **OTel Python SDK:** [opentelemetry-python.readthedocs.io](https://opentelemetry-python.readthedocs.io/)
+- **OTel Collector:** [opentelemetry.io/docs/collector](https://opentelemetry.io/docs/collector/)
+- **OTLP protocol:** [opentelemetry.io/docs/specs/otlp](https://opentelemetry.io/docs/specs/otlp/)
+- **DMTF Redfish standard:** [dmtf.org/standards/redfish](https://www.dmtf.org/standards/redfish)
+- **Redfish emulator:** [github.com/DMTF/Redfish-Interface-Emulator](https://github.com/DMTF/Redfish-Interface-Emulator)
+- **OpsRamp OTLP integration:** [docs.opsramp.com](https://docs.opsramp.com/integration/opentelemetry/)
+- **Prometheus remote_write:** [prometheus.io/docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
+- **Jaeger tracing:** [jaegertracing.io](https://www.jaegertracing.io)
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
