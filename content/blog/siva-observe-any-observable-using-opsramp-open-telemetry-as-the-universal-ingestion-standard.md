@@ -11,11 +11,9 @@ tags:
   - Open Telemetry, Otel
   - "Redfish , Jaeger ,Prometheus , Grafana "
 ---
-
-
 *Part 1 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 
----
+- - -
 
 ## Introduction
 
@@ -24,18 +22,16 @@ I have spent considerable time thinking about a fundamental question in modern i
 In this article, I want to share what I built to answer that question: a proof-of-concept that demonstrates how HPE OpsRamp can serve as a universal observability backend for any infrastructure domain, using OpenTelemetry as the sole ingestion standard. I will walk you through the objective, the architecture, every component in the stack, and exactly how they are wired together.
 
 ## What is OpenTelemetry?
- 
+
 OpenTelemetry (OTel) is a [CNCF](https://www.cncf.io/) open-source project that provides a vendor-neutral standard for collecting and exporting telemetry — metrics, logs, and traces — from any application or infrastructure component. It defines a common data model, APIs, SDKs, and a wire protocol (OTLP) that any observability backend can consume.
- 
+
 Rather than instrumenting your code differently for every monitoring tool, you instrument once with OpenTelemetry and route signals wherever you need them.
- 
+
 > **Project home:** [opentelemetry.io](https://opentelemetry.io)
-
-
 
 By the end of this article you will understand the full picture — the what and the why. In subsequent articles I will go deeper into the how: installation, verification, testing, and signal ingestion.
 
----
+- - -
 
 ## The objective: Observe anything, from anywhere, using open standards
 
@@ -49,7 +45,7 @@ The domain does not matter. I used Redfish — the DMTF standard for hardware ma
 
 The key constraint I imposed on myself: **no HPE OpsRamp proprietary agents, no vendor-specific SDKs for signal collection, no webhook-based event ingestion**. Everything flows through open standards.
 
----
+- - -
 
 ## The stack: Five components, one open pipeline
 
@@ -57,7 +53,7 @@ The architecture consists of five components arranged in a clean signal pipeline
 
 
 
-
+![The stack: Five components, one open pipeline](/img/five-stack.jpg "The stack: Five components, one open pipeline")
 
 ### The DMTF Redfish emulator — resource simulation layer
 
@@ -107,7 +103,7 @@ HPE OpsRamp is the management plane that consumes all signals and provides the o
 
 HPE OpsRamp is not configured in advance for this domain. It learns everything about the Redfish infrastructure from the signals it receives, augmented by a one-time resource provisioning step that uses the HPE OpsRamp REST API to create resource entries with full domain attributes before telemetry begins.
 
----
+- - -
 
 ## The communication map: How everything is wired
 
@@ -179,16 +175,16 @@ All subsequent OTel signals carry: type="RESOURCE", uuid="<resourceUUID>"
 
 ### Operational protocols
 
-| Hop | Protocol | Port | Auth | Direction |
-|-----|----------|------|------|-----------|
-| Agent → Collector | OTLP/gRPC | 4317 | None (same host) | Push |
-| Collector → HPE OpsRamp logs | OTLP/gRPC | 443 | OAuth2 Bearer | Push |
-| Prometheus → HPE OpsRamp metrics | HTTPS remote_write | 443 | OAuth2 Bearer | Push |
-| Collector httpcheck → Redfish | HTTP | 5000 | None | Pull |
-| Agent → Redfish | HTTP | 5000 | None | Pull |
-| HPE OpsRamp REST API | HTTPS | 443 | OAuth2 Bearer | Push |
+| Hop                              | Protocol           | Port | Auth             | Direction |
+| -------------------------------- | ------------------ | ---- | ---------------- | --------- |
+| Agent → Collector                | OTLP/gRPC          | 4317 | None (same host) | Push      |
+| Collector → HPE OpsRamp logs     | OTLP/gRPC          | 443  | OAuth2 Bearer    | Push      |
+| Prometheus → HPE OpsRamp metrics | HTTPS remote_write | 443  | OAuth2 Bearer    | Push      |
+| Collector httpcheck → Redfish    | HTTP               | 5000 | None             | Pull      |
+| Agent → Redfish                  | HTTP               | 5000 | None             | Pull      |
+| HPE OpsRamp REST API             | HTTPS              | 443  | OAuth2 Bearer    | Push      |
 
----
+- - -
 
 ## The resource association problem and how I solved it
 
@@ -207,22 +203,22 @@ I solved this with a module called `resource_context.py` — a shared in-memory 
 
 The critical timing constraint is that `agent_resource` — the OTel Resource object for the agent — must be constructed **after** Phase 1 completes, not at module import time. If built at import time, the registry is empty and `uuid` is an empty string. This is a subtle but consequential bug I had to identify and fix explicitly.
 
----
+- - -
 
 ## The observability stack in context
 
 What makes this architecture compelling for a demonstration is not any single component — it is the combination. Each component is an open standard or open-source tool:
 
-- **Redfish** — DMTF open standard for hardware management
-- **OpenTelemetry** — CNCF open standard for telemetry
-- **Prometheus** — CNCF open-source metrics engine
-- **Jaeger** — CNCF open-source distributed tracing
-- **Grafana** — Open-source visualization
-- **HPE OpsRamp** — Commercial management plane consuming all of the above
+* **Redfish** — DMTF open standard for hardware management
+* **OpenTelemetry** — CNCF open standard for telemetry
+* **Prometheus** — CNCF open-source metrics engine
+* **Jaeger** — CNCF open-source distributed tracing
+* **Grafana** — Open-source visualization
+* **HPE OpsRamp** — Commercial management plane consuming all of the above
 
 The PoC demonstrates that HPE OpsRamp can serve as the observability backend for any infrastructure domain instrumented with OpenTelemetry, without requiring its proprietary agents for signal collection. The ingestion path is fully open standard.
 
----
+- - -
 
 ## Conclusion and what comes next
 
@@ -232,43 +228,15 @@ In Part 2, I will walk through the complete installation and verification of eve
 
 Stay tuned to the HPE Developer Community blog for more insights on HPE HPE OpsRamp (Hybrid Cloud Observability) and practical ideas to apply it in your daily operations.
 
-
 ## Want to know more?
- 
-- **OpenTelemetry project:** [opentelemetry.io](https://opentelemetry.io)
-- **OTel specification:** [opentelemetry.io/docs/specs/otel](https://opentelemetry.io/docs/specs/otel/)
-- **OTel Python SDK:** [opentelemetry-python.readthedocs.io](https://opentelemetry-python.readthedocs.io/)
-- **OTel Collector:** [opentelemetry.io/docs/collector](https://opentelemetry.io/docs/collector/)
-- **OTLP protocol:** [opentelemetry.io/docs/specs/otlp](https://opentelemetry.io/docs/specs/otlp/)
-- **DMTF Redfish standard:** [dmtf.org/standards/redfish](https://www.dmtf.org/standards/redfish)
-- **Redfish emulator:** [github.com/DMTF/Redfish-Interface-Emulator](https://github.com/DMTF/Redfish-Interface-Emulator)
-- **HPE OpsRamp OTLP integration:** [docs.opsramp.com](https://docs.opsramp.com/integration/opentelemetry/)
-- **Prometheus remote_write:** [prometheus.io/docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
-- **Jaeger tracing:** [jaegertracing.io](https://www.jaegertracing.io)
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* **OpenTelemetry project:** [opentelemetry.io](https://opentelemetry.io)
+* **OTel specification:** [opentelemetry.io/docs/specs/otel](https://opentelemetry.io/docs/specs/otel/)
+* **OTel Python SDK:** [opentelemetry-python.readthedocs.io](https://opentelemetry-python.readthedocs.io/)
+* **OTel Collector:** [opentelemetry.io/docs/collector](https://opentelemetry.io/docs/collector/)
+* **OTLP protocol:** [opentelemetry.io/docs/specs/otlp](https://opentelemetry.io/docs/specs/otlp/)
+* **DMTF Redfish standard:** [dmtf.org/standards/redfish](https://www.dmtf.org/standards/redfish)
+* **Redfish emulator:** [github.com/DMTF/Redfish-Interface-Emulator](https://github.com/DMTF/Redfish-Interface-Emulator)
+* **HPE OpsRamp OTLP integration:** [docs.opsramp.com](https://docs.opsramp.com/integration/opentelemetry/)
+* **Prometheus remote_write:** [prometheus.io/docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
+* **Jaeger tracing:** [jaegertracing.io](https://www.jaegertracing.io)
