@@ -124,8 +124,8 @@ const SideNav = ({ data }) => {
         HPE EZMERAL
       </NavButton> */}
       <NavButton
-        active={location.pathname === '/hackshack/replays/:replayId'}
-        to="/hackshack/replays/0"
+        active={location.pathname.startsWith('/hackshack/replays')}
+        to="/hackshack/replays"
       >
         REPLAYS
       </NavButton>

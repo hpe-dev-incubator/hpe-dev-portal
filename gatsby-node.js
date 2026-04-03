@@ -85,63 +85,60 @@ exports.createPages = async ({ graphql, actions }) => {
     console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
   }
 
-  // Try to fetch replays, but continue if service is unavailable
+  // Try to fetch workshops (replays data is now part of workshops), but continue if service is unavailable
   try {
     // eslint-disable-next-line max-len
-    const replaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-    const getReplays = await axios({
+    const workshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+    const getWorkshops = await axios({
       method: 'GET',
-      url: replaysApi,
+      url: workshopsApi,
       timeout: 5000, // 5 second timeout
     });
 
-    getReplays.data.forEach(({ id, title, desc, workshop }) => {
-      createPage({
-        path: `/hackshack/replays/${id}`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
-        },
+    getWorkshops.data
+      .filter((workshop) => workshop.replayLink && workshop.replayId)
+      .forEach(({ replayId, name, description, workshopImg, badgeImg }) => {
+        createPage({
+          path: `/hackshack/replays/${replayId}`,
+          component: require.resolve(
+            './src/pages/hackshack/replays/template.js',
+          ),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg,
+          },
+        });
+
+        createPage({
+          path: `/hackshack/workshop/${replayId}`,
+          component: require.resolve(
+            './src/pages/hackshack/replays/template.js',
+          ),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg,
+          },
+        });
+
+        createPage({
+          path: `/hackshack/workshop/${replayId}/finisher-badge`,
+          component: require.resolve(
+            './src/pages/hackshack/replays/template.js',
+          ),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg: badgeImg,
+          },
+        });
       });
-
-      // console.log(`Create pages /hackshack/replays/${id} from ${id}`);
-      // console.log('------------------------------');
-
-      createPage({
-        path: `/hackshack/workshop/${id}`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
-        },
-      });
-
-      // console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
-      // console.log('------------------------------');
-
-      createPage({
-        path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.badgeImg,
-        },
-      });
-
-      // console.log(
-      //   `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
-      // );
-      // console.log('------------------------------');
-    });
   } catch (error) {
-    console.log('Warning: Could not connect to workshop challenge API for replays. Skipping replay pages.');
+    console.log('Warning: Could not connect to workshop challenge API for workshops. Skipping replay pages.');
     console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
   }
 

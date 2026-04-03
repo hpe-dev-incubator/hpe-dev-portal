@@ -18,7 +18,7 @@ const sortReplays = (replayData, current) => {
   const end = [];
 
   replayData.map((replay) => {
-    if (current > replay.id) {
+    if (current > replay.replayId) {
       end.push(replay);
     } else {
       beggining.push(replay);
@@ -29,84 +29,78 @@ const sortReplays = (replayData, current) => {
 };
 
 const ReplayTemplate = (props) => {
-  const getReplaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+  const getWorkshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    const getReplays = () => {
-      axios({
-        method: 'GET',
-        url: getReplaysApi,
-      })
-        .then((response) => {
-          setReplays(response.data);
-        })
-        .catch(() => {
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
-          console.log(error);
-        });
-    };
-    getReplays();
-    // eslint-disable-next-line
-  }, [error, getReplaysApi]);
   const { workshopId, workshopTitle, workshopDesc, workshopImg } =
     props.pageContext;
   const workshopIndex = workshopId
     ? parseInt(props.pageContext.workshopId, 10)
     : 0;
   const [current, setCurrent] = useState(workshopIndex);
+
+  useEffect(() => {
+    const getReplays = () => {
+      axios({
+        method: 'GET',
+        url: getWorkshopsApi,
+      })
+        .then((response) => {
+          const filtered = response.data.filter(
+            (w) => w.replayLink && w.replayId,
+          );
+          setReplays(filtered);
+          // On the index page (no specific workshopId), default to the first replay
+          if (!workshopId && filtered.length > 0) {
+            setCurrent(filtered[0].replayId);
+          }
+        })
+        .catch(() => {
+          setError(
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+          );
+        });
+    };
+    getReplays();
+    // eslint-disable-next-line
+  }, []);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  const selectedReplay = replays.find(({ id }) => id === current);
+  const selectedReplay = replays.find(({ replayId }) => replayId === current);
 
   return (
     <GrommetThemeWrapper>
       <Layout background="/img/BackgroundImages/generic-background.jpg">
         <Box style={{ minHeight: 'calc(100vh - 345px)' }}>
-          <PageHeader title={workshopTitle}>
+          <PageHeader title={workshopTitle || 'Replays'}>
             <SEO
-              title={workshopTitle}
+              title={workshopTitle || 'Replays'}
               description={workshopDesc}
               image={workshopImg}
             />
             {selectedReplay ? (
               <>
                 <Video
-                  videolink={selectedReplay.videoLink}
-                  id={selectedReplay.id}
+                  videolink={selectedReplay.replayLink}
+                  id={selectedReplay.replayId}
                   avatar={selectedReplay.avatar}
-                  desc={selectedReplay.desc}
-                  key={selectedReplay.title}
+                  desc={selectedReplay.description}
+                  key={selectedReplay.name}
                   presenter={selectedReplay.presenter}
                   role={selectedReplay.role}
-                  title={selectedReplay.title}
+                  title={selectedReplay.name}
                   setCurrent={setCurrent}
                   current={current}
                   replaysLength={replays.length}
                   autoplay={autoplay}
-                  notebook={
-                    selectedReplay.workshop && selectedReplay.workshop.notebook
-                  }
-                  sessionType={
-                    selectedReplay.workshop &&
-                    selectedReplay.workshop.sessionType
-                  }
-                  location={
-                    selectedReplay.workshop && selectedReplay.workshop.location
-                  }
-                  capacity={
-                    selectedReplay.workshop && selectedReplay.workshop.capacity
-                  }
-                  workshopTitle={
-                    selectedReplay.workshop && selectedReplay.workshop.name
-                  }
+                  notebook={selectedReplay.notebook}
+                  sessionType={selectedReplay.sessionType}
+                  location={selectedReplay.location}
+                  capacity={selectedReplay.capacity}
+                  workshopTitle={selectedReplay.name}
                   workshopId={workshopId}
-                  workshopDuration={
-                    selectedReplay.workshop && selectedReplay.workshop.duration
-                  }
+                  workshopDuration={selectedReplay.duration}
                 />
                 <Heading color="text" style={{ fontWeight: '500' }} level={2}>
                   UP NEXT
@@ -137,15 +131,15 @@ const ReplayTemplate = (props) => {
               </Box>
             )}
             {sortedReplays.map(
-              ({ desc, presenter, role, title, videoLink, id }) =>
-                id !== current && (
+              ({ description, presenter, role, name, replayLink, replayId }) =>
+                replayId && replayId !== current && (
                   <VideoList
-                    key={title}
-                    id={id}
-                    desc={`${desc.slice(0, 150)}...`}
-                    title={title}
+                    key={name}
+                    id={replayId}
+                    desc={`${description.slice(0, 150)}...`}
+                    title={name}
                     presenter={presenter}
-                    videoLink={videoLink}
+                    videoLink={replayLink}
                     role={role}
                     setCurrent={setCurrent}
                     setAutoPlay={setAutoPlay}
