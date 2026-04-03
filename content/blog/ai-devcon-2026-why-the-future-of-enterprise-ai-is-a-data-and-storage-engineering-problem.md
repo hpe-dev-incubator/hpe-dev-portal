@@ -19,7 +19,7 @@ Across both days, speakers repeatedly demonstrated that many production AI failu
 
 **From models to momentum: The shift toward data-centric AI engineering**
 
-Several sessions, particularly in the Succeeding With AI and GenAI & LLMs tracks, emphasized the industry’s shift away from model‑centric thinking. Large language models are increasingly commoditized—open, swappable, or accessible via APIs. What differentiates successful AI deployments is no longer which model is used, but how effectively organizations manage the data that feeds those models.
+Several sessions, particularly in the **Succeeding with AI and GenAI & LLMs** tracks, emphasized the industry’s shift away from model‑centric thinking. Large language models(LLMs) are increasingly commoditized—open, swappable, or accessible via APIs. What differentiates successful AI deployments is no longer which model is used, but how effectively organizations manage the data that feeds those models.
 
 Presenters traced the evolution of engineering pipelines across eras. Traditional analytics relied on structured data warehouses. Machine learning systems introduced feature pipelines and offline training loops. In contrast, modern GenAI systems depend on knowledge pipelines—continuous data ingestion, semantic chunking, embedding generation, vector indexing, and retrieval‑augmented generation (RAG). Each step builds directly on stored data, and each step is sensitive to data quality, freshness, and lineage.
 
