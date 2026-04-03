@@ -61,7 +61,7 @@ The conference made it clear that trust is the critical currency of enterprise A
 
 For HPE Storage engineering teams, aligning storage capabilities with AI pipelines—rather than treating AI as an external consumer—positions HPE to play a foundational role in customers’ AI strategies. The opportunity is not to compete with AI models or vector databases, but to enable them to operate reliably, securely, and at enterprise scale.
 
-**Closing Thoughts**
+**Closing thoughts**
 
 AI DevCon 2026 reinforced a pivotal industry transition. As AI systems become more capable and autonomous, correctness and reliability are moving upstream—from model architectures into data pipelines and infrastructure design. In this new reality, storage engineering is inseparable from AI engineering.
 
