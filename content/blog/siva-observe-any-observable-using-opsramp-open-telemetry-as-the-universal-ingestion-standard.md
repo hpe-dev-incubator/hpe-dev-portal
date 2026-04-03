@@ -11,9 +11,9 @@ tags:
   - Open Telemetry, Otel
   - "Redfish , Jaeger ,Prometheus , Grafana "
 ---
-# Observe any observable using OpsRamp: open telemetry as the universal ingestion standard
 
-*Part 1 of a series on vendor-neutral observability with OpsRamp and OpenTelemetry*
+
+*Part 1 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 
 ---
 
