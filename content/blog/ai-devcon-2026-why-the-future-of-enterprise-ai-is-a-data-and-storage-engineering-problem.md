@@ -1,13 +1,13 @@
 ---
 title: "AI DevCon 2026: Why the future of enterprise AI is a data and storage engineering problem"
-
+date: 2026-04-03T20:51:38.083
 author: Madhukar Rupakumar
 authorimage: /img/madhukar-profile-pic-copy.jpeg
 thumbnailimage: /img/ai-dev-con2026-copy.jpeg
 disable: false
 tags:
   - AI
-  - " AI at HPE Storage"
+  - Storage
   - AI developer conference
 ---
 AI DevCon 2026, held on 12–13 March 2026 at the NIMHANS Convention Centre in Bengaluru, brought together developers, data engineers, platform architects, DevOps leaders, and AI practitioners working at every layer of the stack. While the conference agenda spanned topics such as GenAI, agentic AI, DevOps with AI, edge inference, and open-source tooling, one theme consistently surfaced across keynotes, technical talks, and hands‑on sessions: AI systems succeed or fail based far more on data engineering and infrastructure than on model sophistication.
