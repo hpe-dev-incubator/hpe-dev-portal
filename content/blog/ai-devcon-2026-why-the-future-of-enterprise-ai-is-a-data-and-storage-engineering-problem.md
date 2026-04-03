@@ -1,9 +1,6 @@
 ---
-title: "AI DevCon 2026: Why the future of enterprise AI is a data and storage
-  engineering problem"
-date: 2026-04-03T13:04:00.000Z
-featuredBlog: false
-priority: ""
+title: "AI DevCon 2026: Why the future of enterprise AI is a data and storage engineering problem"
+
 author: Madhukar Rupakumar
 authorimage: /img/madhukar-profile-pic-copy.jpeg
 thumbnailimage: /img/ai-dev-con2026-copy.jpeg
