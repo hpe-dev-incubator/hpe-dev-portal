@@ -55,6 +55,10 @@ The key constraint I imposed on myself: **no HPE OpsRamp proprietary agents, no 
 
 The architecture consists of five components arranged in a clean signal pipeline. Let me introduce each one and explain its role before describing how they interconnect.
 
+
+
+
+
 ### The DMTF Redfish emulator — resource simulation layer
 
 The DMTF Redfish Interface Emulator is an open-source Python application that implements the Redfish API specification. It simulates a complete hardware infrastructure: 13 chassis, 7 compute systems, and 13 BMC managers — 34 resources in total — each exposing real Redfish endpoints for power consumption, thermal readings, fan speeds, memory, CPU, and hardware events.
