@@ -41,13 +41,13 @@ Incoming data is semantically validated, deduplicated, enriched, and scored befo
 
 This reframes data engineering for AI as a quality‑first discipline. Instead of maximizing data volume, successful teams aggressively curate data relevance, ensuring that models see less data—but better data.
 
-**Agentic AI Raises the Stakes for Infrastructure**
+**Agentic AI raises the stakes for infrastructure**
 
 Agentic AI, a major focus of Day 2, further increases pressure on data and storage foundations. Unlike traditional AI applications, agents are long‑running, stateful, and action‑oriented. They retrieve context, call tools, store intermediate reasoning artifacts, and revisit prior decisions. This creates access patterns that are far more dynamic than classic read‑heavy inference workloads.
 
 From an infrastructure perspective, agents introduce continuous read‑write cycles, ephemeral knowledge states, and frequent context recomposition. Storage systems must handle high concurrency, small object access, frequent updates, and strong consistency—while still supporting compliance, auditability, and isolation. The message from the conference was clear: agentic AI magnifies any weaknesses in the underlying data platform.
 
-**Why This Matters Deeply for HPE Storage**
+**Why this matters deeply for HPE Storage**
 
 For HPE Storage teams, the themes from AI DevCon 2026 are directly relevant. Nearly every AI failure described at the conference maps back to core storage concerns: data freshness, version control, metadata quality, lineage tracking, governance, and performance consistency at scale. In the GenAI era, storage is no longer a passive repository—it actively shapes AI outcomes.
 
@@ -55,7 +55,7 @@ As enterprises deploy RAG systems and AI agents on top of proprietary data, stor
 
 From an HPE perspective, this creates a strategic opportunity. Enterprise customers increasingly need storage platforms that are AI‑aware by design: optimized for rapid re‑indexing, capable of exposing rich metadata, supportive of frequent refresh cycles, and resilient under embedding‑heavy workloads. Storage that enables strong provenance, policy‑driven lifecycle management, and auditability becomes a trust anchor for AI—not just an infrastructure component.
 
-**Storage as an AI Trust Layer**
+**Storage as an AI trust layer**
 
 The conference made it clear that trust is the critical currency of enterprise AI adoption. Models may generate answers, but organizations are accountable for correctness. Storage platforms that support immutable records, versioned datasets, and explainable data sourcing directly contribute to AI trust and regulatory readiness.
 
