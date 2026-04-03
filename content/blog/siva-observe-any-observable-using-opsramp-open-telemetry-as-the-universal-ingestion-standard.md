@@ -39,7 +39,7 @@ By the end of this article you will understand the full picture — the what and
 
 ## The objective: Observe anything, from anywhere, using open standards
 
-The central thesis of this proof-of-concept is deceptively simple.
+The central premise of this proof-of-concept is deceptively simple.
 
 **Before ingestion:** OpsRamp has no knowledge of the target infrastructure. No resources pre-created, no templates configured, no proprietary agents installed.
 
