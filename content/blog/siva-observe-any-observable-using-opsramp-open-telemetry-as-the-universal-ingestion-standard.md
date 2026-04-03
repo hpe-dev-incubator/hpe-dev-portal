@@ -65,7 +65,7 @@ The emulator runs on port 5000 and is the sole source of truth for infrastructur
 
 ### The OTel Python agent — instrumentation layer
 
-This is the custom Python application I wrote for this proof-of-concept. It is the heart of the open standard ingestion story.
+This is the custom Python application I wrote for this proof-of-concept. It is the heart of the open-standard ingestion story.
 
 The agent uses the **OpenTelemetry Python SDK** to instrument Redfish polling in a way that produces three distinct signal types:
 
