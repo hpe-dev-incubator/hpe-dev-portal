@@ -23,6 +23,16 @@ I have spent considerable time thinking about a fundamental question in modern i
 
 In this article, I want to share what I built to answer that question: a proof-of-concept that demonstrates how OpsRamp can serve as a universal observability backend for any infrastructure domain, using OpenTelemetry as the sole ingestion standard. I will walk you through the objective, the architecture, every component in the stack, and exactly how they are wired together.
 
+## What is OpenTelemetry?
+ 
+OpenTelemetry (OTel) is a [CNCF](https://www.cncf.io/) open-source project that provides a vendor-neutral standard for collecting and exporting telemetry — metrics, logs, and traces — from any application or infrastructure component. It defines a common data model, APIs, SDKs, and a wire protocol (OTLP) that any observability backend can consume.
+ 
+Rather than instrumenting your code differently for every monitoring tool, you instrument once with OpenTelemetry and route signals wherever you need them.
+ 
+> **Project home:** [opentelemetry.io](https://opentelemetry.io)
+
+
+
 By the end of this article you will understand the full picture — the what and the why. In subsequent articles I will go deeper into the how: installation, verification, testing, and signal ingestion.
 
 ---
