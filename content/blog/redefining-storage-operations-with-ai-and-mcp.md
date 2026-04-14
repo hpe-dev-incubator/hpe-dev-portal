@@ -27,3 +27,7 @@ Most storage platforms already provide rich APIs. However, APIs are inherently s
 * Understand endpoints and payloads
 * Refer to documentation
 * Write and execute requests
+
+![](/img/hdd.png "High level workflow")
+
+sd
