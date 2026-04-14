@@ -228,7 +228,6 @@ We move from script-driven operations to intent-driven interactions.
 
 #### Call to Action:
 
-* Try setting up an MCP server using your existing API specifications and explore how natural language can simplify your workflows.
-* If you’re already using DSCC, start by exposing a few key operations and experiment with prompts in Visual Studio Code using GitHub Copilot.
+* Start by exploring your existing OpenAPI specifications. Identify a few key operations and expose them through an MCP server. Try interacting with them using natural language in Visual Studio Code with GitHub Copilot.
 * If you have questions or want to explore deeper integrations, feel free to reach out or continue experimenting. This is just the beginning of conversational infrastructure.
 * Please check out the [HPE DEV blog](https://developer.hpe.com/blog) for more articles on this topic.
