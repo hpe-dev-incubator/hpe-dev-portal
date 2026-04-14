@@ -23,7 +23,7 @@ In this post, I’ll show how to use the Model Context Protocol (MCP) with **Vis
 
 ### The Foundation: Why OpenAPI Matters
 
-Before MCP and AI come into the picture, there is a critical enabler—a strong OpenAPI specification.
+Before MCP and AI come into the picture, there is a critical enabler, a strong OpenAPI specification.
 
 A well-designed OpenAPI spec provides:
 
