@@ -2,7 +2,7 @@
 title: Redefining Storage Operations with AI and MCP
 date: 2026-04-22T19:15:10.329Z
 author: Anusha Y
-authorimage: /img/Avatar1.svg
+authorimage: /img/im.jpeg
 disable: false
 ---
 ### The Shift from Scripts to Conversations in Storage Management:
