@@ -111,7 +111,7 @@ Understanding the signal flow is essential before diving into installation and c
 
 ### Signal flow: Metrics
 
-```
+```bash
 Redfish Emulator :5000
       │  HTTP GET (every 15s)
       ▼
@@ -131,7 +131,7 @@ HPE OpsRamp Metrics Explorer
 
 ### Signal flow: Logs and events
 
-```
+```bash
 Redfish Emulator :5000
       │  HTTP GET (EventService polling)
       │  HTTP POST (event push to :9999)
@@ -149,7 +149,7 @@ HPE OpsRamp Log Management
 
 ### Signal flow: Traces
 
-```
+```bash
 OTel Agent (RequestsInstrumentor auto-instrumentation)
       │  OTLP/gRPC :4317  (spans for every HTTP call)
       ▼
@@ -161,7 +161,7 @@ Jaeger UI :16686
 
 ### Signal flow: Resource provisioning
 
-```
+```bash
 HPE OpsRamp REST API (one-time, on agent startup)
       │  POST /tenancy/auth/oauth/token  →  Bearer token
       │  POST /api/v2/tenants/{id}/resources  →  resourceUUID per resource
