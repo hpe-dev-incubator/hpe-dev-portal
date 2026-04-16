@@ -150,7 +150,7 @@ This configuration starts the MCP server locally, loads the OpenAPI specificatio
 
 In Visual Studio Code, install the GitHub Copilot extension and sign in with your GitHub account to start using it. 
 
-To start the MPC server, open the Command Palette (**Ctrl+Shift+p**) and select ‘***MCP: List Servers***’. You should see the server configured in your JSON file (for example, *fleet-openapi*) listed there.
+To start MPC server, open the Command Palette (**Ctrl+Shift+p**) and select ‘***MCP: List Servers***’. You should see the server configured in your JSON file (for example, *fleet-openapi*) listed there.
 
 ![](/img/2listservers.png "List Servers")
 
