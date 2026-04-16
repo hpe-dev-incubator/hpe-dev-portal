@@ -91,7 +91,7 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
 Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token.
 
 * **server-name** → A unique identifier for the MCP server instance. 
-* **type** → Specifies how the MCP server communicates (e.g., stdio, http, websocket). 
+* **type** → Specifies how the MCP server communicates (e.g., stdio, http). 
 * **command** → The executable used to start the MCP server (e.g., npx). 
 * **args** → Command-line arguments passed to the MCP server at startup.
 * **api-base-url** → Base endpoint of the backend service that the MCP server will call.
