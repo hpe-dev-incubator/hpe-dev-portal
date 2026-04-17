@@ -1,8 +1,8 @@
 ---
 title: HPE AI Developer Days
-width: medium
-category: Featured
-priority: 1
+width: large
+category: Featured AI Events
+priority: 0
 link: https://events.bizzabo.com/797906/home
 image: /img/hpe-ai-dev-days-2.png
 imageScale: 1
