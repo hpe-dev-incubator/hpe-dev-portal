@@ -88,7 +88,7 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
 }
 ```
 
-Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token.
+Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the VS Code window, and restart the MCP server.
 
 * **server-name** → A unique identifier for the MCP server instance. 
 * **type** → Specifies how the MCP server communicates (e.g., stdio, http). 
@@ -205,6 +205,20 @@ This removes the need to manually:
 * Parsing responses
 
 Please ensure that the user does not have admin or superuser privileges, as the project is still in its early stages and requires further enhancements in RBAC and guardrails.
+
+### Relationship to HPE GreenLake MCP Documentation
+
+The DSCC MCP integration follows the same core patterns as the GreenLake MCP setup.
+
+You can refer to the GreenLake documentation for:
+
+* MCP server setup
+* Tool definitions
+* Request/response flow
+
+HPE GreenLake MCP reference can be found [here](https://developer.greenlake.hpe.com/docs/greenlake/mcp-server/public).
+
+While DSCC APIs and authorization differ, the overall MCP concepts and configuration remain largely the same and can be reused with minimal changes.
 
 #### Conclusion: From APIs to Conversation
 
