@@ -206,7 +206,7 @@ This removes the need to manually:
 
 Please ensure that the user does not have admin or superuser privileges, as the project is still in its early stages and requires further enhancements in RBAC and guardrails.
 
-### Relationship to HPE GreenLake MCP Documentation
+#### Relationship to HPE GreenLake MCP Documentation
 
 The DSCC MCP integration follows the same core patterns as the GreenLake MCP setup.
 
