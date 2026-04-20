@@ -204,7 +204,7 @@ This removes the need to manually:
 * Handle request formatting
 * Parsing responses
 
-Please ensure that the user does not have admin or superuser privileges, as the project is still in its early stages and requires further enhancements in RBAC and guardrails.
+**Important:** Please ensure that the user does not have admin or superuser privileges, as the project is still in its early stages and requires further enhancements in RBAC and guardrails. For safer execution, use the *operation* tag appropriately.
 
 #### Relationship to HPE GreenLake MCP Documentation
 
