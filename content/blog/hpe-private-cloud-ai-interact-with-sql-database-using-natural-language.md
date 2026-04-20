@@ -19,6 +19,80 @@ HPE AI Essentials is a software and data foundation layer designed to accelerat
 
 ## Architecture
 
+Explain the tools and frameworks used. 
 
+Presto
+
+HPE MLIS
+
+Open-WebUI
+
+MCP
+
+Superset
+
+## Prerequisites
+
+The minimum OpenWebUI version needed is v0.6.31, which supports the MCP server as an external tool. HPE AI Essentials with MCP feature (v1.12 or greater).
+
+## Prepare Data Source
+
+You may connect to your existing database to HPE PCAI using Data Services Connector, available in HPE AI Essentials. Else, you may choose to deploy a database using *Import Framework* feature.
+
+### Deploy Database and load data
+
+https://github.com/ai-solution-eng/frameworks/blob/main/postgresql/postgresql-latest.tar.gz
+
+### Connect Database
+
+### Explore Data Catalog
+
+
+
+## LLM Deployment
 
 Deploy LLM using HPE MLIS framework, available in AI Essentials.
+
+ generate a API Key
+
+
+
+## Chat Interface
+
+ using HPE
+
+### Configure Open-WebUI
+
+steps to configure OpenwebUI
+
+#### Connect to LLM
+
+Steps to conenct to LLM deployed in previous step
+
+#### Configure MCP Server
+
+
+
+## Natural Language to SQL 
+
+The chat interface is ready and you may now interact with the Database.
+
+
+
+## Dashboard
+
+
+
+### Superset configuration
+
+#### Connect Superset to Presto
+
+<Describe steps>
+
+#### Create Datasets
+
+<Describe steps>
+
+#### Dashboard 
+
+<Describe steps>
