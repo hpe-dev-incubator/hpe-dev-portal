@@ -1,15 +1,15 @@
 ---
-title: Redefining Storage Operations with AI and MCP
+title: Redefining storage operations with AI and MCP
 date: 2026-04-19T19:15:10.329Z
 author: Anusha Y
 authorimage: /img/im.jpeg
 disable: false
 ---
-### The Shift from Scripts to Conversations in Storage Management:
+### The shift from scripts to conversations in storage management
 
 Interacting with storage infrastructure today often means navigating dashboards, writing scripts, or manually stitching together API calls. While powerful, these approaches can slow down operations and create a gap between intent and execution, especially when quick insights or actions are needed.
 
-What if you could ask:
+What if you could request:
 
 *Which arrays are running low on capacity?*
 
@@ -17,15 +17,15 @@ What if you could ask:
 
 *And have those actions carried out reliably?*
 
-In this post, I’ll show how to use the Model Context Protocol (MCP) with **Visual Studio Code** and **GitHub Copilot** to enable natural language interaction with storage systems. By leveraging DSCC’s open API specification, you can expose storage operations as AI-understandable capabilities, turning everyday management tasks into simple, conversational workflows.
+In this post, I’ll show you how to use the Model Context Protocol (MCP) with **Visual Studio Code** and **GitHub Copilot** to enable natural language interaction with storage systems. By leveraging Data Service Cloud Console (DSCC)'s open API specification, you can expose storage operations as AI-understandable capabilities, turning everyday management tasks into simple, conversational workflows.
 
-## From Queries to Actions: AI-Driven Storage Control
+## From queries to actions: AI-driven storage control
 
-### The Foundation: Why OpenAPI Matters
+### The foundation: Why OpenAPI matters
 
-Before MCP and AI come into the picture, there is a critical enabler, a strong OpenAPI specification.
+Before MCP and AI came into the picture, there is a critical enabler, a strong OpenAPI specification.
 
-A well-designed OpenAPI spec provides:
+The well-designed OpenAPI spec provides:
 
 * Clearly defined endpoints 
 * Structured request/response schemas 
@@ -39,9 +39,9 @@ This structure is what makes it possible to:
 
 Without a solid API foundation, exposing capabilities to AI would be inconsistent and error-prone.
 
-### The Shift: From APIs to Intent-Driven Operations:
+### The shift: From APIs to intent-driven operations
 
-Most storage platforms already provide rich APIs. However, APIs are inherently structured and require users to:
+Most storage platforms already provide rich APIs. However, APIs are typically structured and require users to:
 
 * Understand endpoints and payloads
 * Refer to documentation
@@ -51,16 +51,16 @@ Most storage platforms already provide rich APIs. However, APIs are inherently s
 
 MCP serves as the translation layer, converting human intent into executable API calls.
 
-**Note:** While this blog demonstrates the setup using **Visual Studio Code** and **GitHub Copilot**, MCP clients are not limited to VS Code. Any compatible AI client can interact with the MCP server. For more information, refer to this [page](https://github.com/ivo-toby/mcp-openapi-server).
+**Note:** While this blog article demonstrates the setup using **Visual Studio Code** and **GitHub Copilot**, MCP clients are not limited to Visual Studio Code. Any compatible AI client can interact with the MCP server. For more information, refer to this [page](https://github.com/ivo-toby/mcp-openapi-server).
 
-### Setting Up MCP with VS Code
+### Setting up MCP with Visual Studio Code
 
 To get started, you configure an MCP server locally and connect it to your API layer. Before setting up and using the MCP server, ensure the following prerequisites are met:
 
 * Install Node.js (version 18.0  or later)
 * Install and sign in to GitHub Copilot with an active license
 
-#### Step 1: Configuring an MCP server
+#### Step 1: Configuring an Model Context Protocol (MCP) server
 
 In Visual Studio Code, start by opening an empty folder. Inside this folder, create a ‘.vscode’ directory to store your workspace configurations. Within the .vscode folder, add a JSON configuration file with the following details: 
 
@@ -88,7 +88,7 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
 }
 ```
 
-Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the VS Code window, and restart the MCP server.
+Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the Visual Studio Code window, and restart the MCP server.
 
 * **server-name** → A unique identifier for the MCP server instance. 
 * **type** → Specifies how the MCP server communicates (e.g., stdio, http). 
@@ -105,7 +105,7 @@ Generate the access token as mentioned in this [blog](https://developer.hpe.com/
 
 Since MCP enables AI-driven interaction with your storage systems, it’s important to control what actions are allowed, especially in production environments.
 
-Using the --operation flag, you can restrict the MCP server to specific HTTP methods.
+Using the **\--operation** flag, you can restrict the MCP server to specific HTTP methods.
 
 ```json
 {
@@ -150,7 +150,7 @@ This configuration starts the MCP server locally, loads the OpenAPI specificatio
 
 In Visual Studio Code, install the GitHub Copilot extension and sign in with your GitHub account to start using it. 
 
-To start MPC server, open the Command Palette (**Ctrl+Shift+p**) and select ‘***MCP: List Servers***’. You should see the server configured in your JSON file (for example, *fleet-openapi*) listed there.
+To start the MCP server, open the Command Palette (**Ctrl+Shift+p**) and select ‘***MCP: List Servers***’. You should see the server configured in your JSON file (for example, *fleet-openapi*) listed there.
 
 ![](/img/2listservers.png "List Servers")
 
@@ -187,7 +187,7 @@ For example, consider the following prompt where the user asks to list storage s
 
 **Note:** The behaviour and responses may vary depending on the LLM used, as different models can interpret prompts and execute actions with varying accuracy and reasoning.
 
-##### What Happens Behind the Scenes
+##### What happens behind the scenes
 
 * The user enters a natural language query (in this case, requesting storage system details)
 * Copilot interprets the intent and identifies the relevant operation (e.g., list storage systems)
@@ -202,11 +202,11 @@ This removes the need to manually:
 * Write API calls 
 * Look up documentation 
 * Handle request formatting
-* Parsing responses
+* Parse responses
 
 **Important:** Please ensure that the user does not have admin or superuser privileges, as the project is still in its early stages and requires further enhancements in RBAC and guardrails. For safer execution, use the *operation* tag appropriately.
 
-#### Relationship to HPE GreenLake MCP Documentation
+#### Relationship to HPE GreenLake MCP documentation
 
 The DSCC MCP integration follows the same core patterns as the GreenLake MCP setup.
 
@@ -216,32 +216,32 @@ You can refer to the GreenLake documentation for:
 * Tool definitions
 * Request/response flow
 
-HPE GreenLake MCP reference can be found [here](https://developer.greenlake.hpe.com/docs/greenlake/mcp-server/public).
+HPE GreenLake MCP references can be found [here](https://developer.greenlake.hpe.com/docs/greenlake/mcp-server/public).
 
 While DSCC APIs and authorization differ, the overall MCP concepts and configuration remain largely the same and can be reused with minimal changes.
 
-#### Conclusion: From APIs to Conversation
+#### Conclusion: From APIs to conversation
 
 What makes this transformation possible is not just MCP or AI, it’s the combination of a strong OpenAPI foundation and a protocol that can leverage it effectively. By layering MCP on top of a well-defined API ecosystem like DSCC, you can unlock a new interaction model where users express intent and systems handle execution.
 
 With tools like Visual Studio Code and GitHub Copilot, users can now manage storage systems using natural language, reducing complexity and speeding up operations.
 
-#### Key Takeaway
+#### Key takeaway
 
 Great APIs don’t just enable integrations—they enable entirely new ways of interaction.
 
 And MCP doesn’t replace APIs—it enhances how we interact with them.
 
-By combining:
+It does so by combining:
 
 * OpenAPI specifications
 * MCP server
 * AI assistants
 
-We move from script-driven operations to intent-driven interactions.
+This enables a shift from script-driven operations to intent-driven interactions.
 
-#### Call to Action:
+#### Call to action:
 
 * Start by exploring your existing OpenAPI specifications. Identify a few key operations and expose them through an MCP server. Try interacting with them using natural language in Visual Studio Code with GitHub Copilot.
-* If you have questions or want to explore deeper integrations, feel free to reach out or continue experimenting. This is just the beginning of conversational infrastructure.
+* If you have questions or want to explore deeper integrations, feel free to reach out [anusha.y@hpe.com](anusha.y@hpe.com) or continue experimenting. This is just the beginning of conversational infrastructure.
 * Please check out the [HPE DEV blog](https://developer.hpe.com/blog) for more articles on this topic.
