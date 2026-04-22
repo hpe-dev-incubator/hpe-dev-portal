@@ -132,7 +132,8 @@ const ReplayTemplate = (props) => {
             )}
             {sortedReplays.map(
               ({ description, presenter, role, name, replayLink, replayId }) =>
-                replayId && replayId !== current && (
+                replayId &&
+                replayId !== current && (
                   <VideoList
                     key={name}
                     id={replayId}

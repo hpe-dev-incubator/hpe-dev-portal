@@ -15,6 +15,7 @@ import {
 import { LinkNext } from 'grommet-icons';
 
 import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
+import DeveloperStoriesSection from '../../components/DeveloperStoriesSection';
 
 const OpenSourceCard = ({ children }) => (
   <Box pad={{ horizontal: 'large', bottom: 'large' }}>
@@ -49,8 +50,8 @@ const Project = ({ title, description, link }) => (
       link && link.match(/^\//g)
         ? () => navigate(link)
         : link
-        ? () => window.open(link)
-        : undefined
+          ? () => window.open(link)
+          : undefined
     }
   >
     {/* <Box flex={false} height="xsmall" width="xsmall">
@@ -125,6 +126,7 @@ const Home = ({ data }) => {
             />
           ))}
       </Box>
+      <DeveloperStoriesSection />
       <OpenSourceCard>
         {projects &&
           projects.map(({ node }) => (
@@ -216,7 +218,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "homepanels" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {
@@ -241,7 +243,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "opensource" } }
         frontmatter: { Featured: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {
