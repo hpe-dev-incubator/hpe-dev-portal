@@ -28,45 +28,61 @@ const matchesCategory = (workshop, category) => {
   return cats.some((c) => c.toLowerCase() === category.toLowerCase());
 };
 
-// Select up to 6 workshops representing different buckets:
-//   Latest (1) → Popular (1) → one per API category → backfill from rest.
-const pickWorkshops = (workshops, categories) => {
+// Select exactly 6 workshops:
+//   2 Latest → 2 Popular → 1 Open Source → 1 HPE GreenLake
+const pickWorkshops = (workshops) => {
   const seen = new Set();
   const result = [];
 
   const add = (workshop, bucket) => {
-    if (!workshop || seen.has(workshop.id)) return;
+    if (!workshop || seen.has(workshop.id)) return false;
     seen.add(workshop.id);
     result.push({ ...workshop, _bucket: bucket });
+    return true;
   };
 
-  // 1. Most recently updated
   const byDate = [...workshops].sort(
     (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
   );
-  add(byDate[0], 'Latest');
+  const popular = workshops.filter((w) => w.popular);
 
-  // 2. Popular
-  add(
-    workshops.find((w) => w.popular && !seen.has(w.id)),
-    'Popular',
-  );
-
-  // 3. One representative per category returned by the API
-  for (const cat of categories) {
-    if (result.length >= 6) break;
-    const match = workshops.find(
-      (w) => !seen.has(w.id) && matchesCategory(w, cat),
-    );
-    if (match) {
-      add(match, cat.charAt(0).toUpperCase() + cat.slice(1));
-    }
+  // 1 & 2. Two most recently updated
+  for (const w of byDate) {
+    if (result.length >= 2) break;
+    add(w, 'Latest');
   }
 
-  // 4. Fill remaining slots chronologically
+  // 3 & 4. Two popular
+  for (const w of popular) {
+    if (result.length >= 4) break;
+    add(w, 'Popular');
+  }
+  // fill with latest if not enough popular
   for (const w of byDate) {
-    if (result.length >= 6) break;
-    if (!seen.has(w.id)) add(w, '');
+    if (result.length >= 4) break;
+    add(w, 'Popular');
+  }
+
+  // 5. One Open Source
+  const openSource = workshops.find(
+    (w) => !seen.has(w.id) && matchesCategory(w, 'open source'),
+  );
+  if (!add(openSource, 'Open Source')) {
+    const fallback = byDate.find((w) => !seen.has(w.id));
+    add(fallback, '');
+  }
+
+  // 6. One HPE GreenLake
+  const greenlake = workshops.find(
+    (w) =>
+      !seen.has(w.id) &&
+      (matchesCategory(w, 'hpe greenlake') ||
+        matchesCategory(w, 'greenlake') ||
+        matchesCategory(w, 'hpe-greenlake')),
+  );
+  if (!add(greenlake, 'HPE GreenLake')) {
+    const fallback = byDate.find((w) => !seen.has(w.id));
+    add(fallback, '');
   }
 
   return result.slice(0, 6);
@@ -84,18 +100,13 @@ const DeveloperStoriesSection = () => {
       return;
     }
 
-    const workshopsReq = axios.get(`${API_BASE}/api/workshops?active=true`);
-    const categoriesReq = axios
-      .get(`${API_BASE}/api/workshops/categories`)
-      .catch(() => ({ data: [] })); // categories are non-fatal
-
-    Promise.all([workshopsReq, categoriesReq])
-      .then(([workshopsRes, categoriesRes]) => {
-        const wods = (workshopsRes.data || []).filter(
+    axios
+      .get(`${API_BASE}/api/workshops?active=true`)
+      .then((res) => {
+        const wods = (res.data || []).filter(
           (w) => w.sessionType === 'Workshops-on-Demand',
         );
-        const cats = categoriesRes.data || [];
-        setStories(pickWorkshops(wods, cats));
+        setStories(pickWorkshops(wods));
       })
       .catch((err) => {
         console.error('DeveloperStoriesSection: failed to load workshops', err);
@@ -192,7 +203,9 @@ const DeveloperStoriesSection = () => {
               workshop.description && workshop.description.length > 130
                 ? `${workshop.description.slice(0, 130).trimEnd()}…`
                 : workshop.description || '';
-            const link = workshop.replayLink || '/hackshack/workshops';
+            const link = workshop.replayId
+              ? `/hackshack/workshop/${workshop.replayId}`
+              : '/hackshack/workshops';
 
             return (
               <StoryCard key={workshop.id}>
@@ -244,10 +257,8 @@ const DeveloperStoriesSection = () => {
 
                   <Anchor
                     href={link}
-                    target={workshop.replayLink ? '_blank' : undefined}
-                    rel={
-                      workshop.replayLink ? 'noreferrer noopener' : undefined
-                    }
+                    target="_blank"
+                    rel="noreferrer noopener"
                     icon={<LinkNext size="small" />}
                     label="Learn more"
                     reverse
