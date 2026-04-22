@@ -4,7 +4,7 @@ dateStart: 2026-04-08T22:01:58.632Z
 dateEnd: 2026-04-08T21:30:58.648Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/8017732319631/WN_ocjkpAfYR1CqKFzSuUnoyA
+link: https://www.youtube.com/watch?v=tEQZqb3C98I
 width: large
 ---
 ## Network Operations Spotlight with PyCentralv2
