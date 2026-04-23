@@ -1,5 +1,5 @@
 ---
-title: "HPE Private Cloud AI: Interact with SQL Database using Natural Language"
+title: "HPE Private Cloud AI: Natural Language to Structured Query Language"
 date: 2026-04-20T08:24:41.751Z
 author: Santosh Nagaraj, Isabelle Steinhauser
 authorimage: /img/Avatar1.svg
@@ -7,7 +7,9 @@ disable: false
 tags:
   - HPE Private Cloud AI, SQL, Natural Language
 ---
-<< Explain about Natural Language(NL) and Structured Query Language(SQL). Importance of this using GenAI to unlock the insights from data.>>>
+In today's data-driven world, two fundamental languages enable us to interact with information: **Natural Language** and **SQL**. Natural language — the way humans naturally communicate — allows us to express ideas, ask questions, and convey intentions effortlessly, whether through speech or text. On the other hand, **SQL (Structured Query Language)** is a specialized language designed for managing and querying structured data stored in databases. While SQL is powerful for precise data retrieval, it often requires technical expertise and familiarity with database schemas.
+
+Bridging the gap between these two languages is crucial for making data accessible and actionable. This is where **Generative AI (GenAI)** comes into play. By leveraging advanced AI models, we can translate natural language queries into SQL commands, enabling anyone — regardless of technical background — to unlock valuable insights from complex, structured datasets. Using GenAI to interpret and generate queries democratizes data analysis, accelerates decision-making, and helps organizations harness their data's full potential for strategic advantage.
 
 This blog post walks you through steps to deploy and configure various tools, required to demonstrate NL to SQL use case on HPE Private Cloud AI. By leveraging these technologies, organizations can enable non-technical users to interact with SQL Database and explore the possibilities of extracting various insights from their data.
 
@@ -47,15 +49,11 @@ https://github.com/ai-solution-eng/frameworks/blob/main/postgresql/postgresql-la
 
 ### Explore Data Catalog
 
-
-
 ## LLM Deployment
 
 Deploy LLM using HPE MLIS framework, available in AI Essentials.
 
  generate a API Key
-
-
 
 ## Chat Interface
 
@@ -71,17 +69,11 @@ Steps to conenct to LLM deployed in previous step
 
 #### Configure MCP Server
 
-
-
-## Natural Language to SQL 
+## Natural Language to SQL
 
 The chat interface is ready and you may now interact with the Database.
 
-
-
 ## Dashboard
-
-
 
 ### Superset configuration
 
@@ -93,6 +85,6 @@ The chat interface is ready and you may now interact with the Database.
 
 <Describe steps>
 
-#### Dashboard 
+#### Dashboard
 
 <Describe steps>
