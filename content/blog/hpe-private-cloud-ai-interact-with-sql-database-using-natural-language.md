@@ -5,7 +5,10 @@ author: Santosh Nagaraj, Isabelle Steinhauser
 authorimage: /img/ai.webp
 disable: false
 tags:
-  - HPE Private Cloud AI, SQL, Natural Language
+  - HPE Private Cloud AI
+  - SQL
+  - Natural Language
+  - MCP
 ---
 In today's data-driven world, two fundamental languages enable us to interact with information: **Natural Language** and **SQL (Structured Query Language)**. Natural language is the way humans naturally communicate. It allows us to express ideas, ask questions, and convey intentions effortlessly, whether through speech or text. On the other hand, **SQL**  is a specialized language designed for managing and querying structured data stored in databases. While SQL is powerful for precise data retrieval, it often requires technical expertise and familiarity with database schemas.
 
@@ -15,9 +18,9 @@ This blog post walks you through steps to deploy and configure various tools, re
 
 ## HPE Private Cloud AI
 
-[HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *NVIDIA Inference Microservices (NIM)* LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
+[HPE Private Cloud AI (HPE PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated *[NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/)* LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
 
-**HPE AI Essentials** is a software and data foundation layer designed to accelerate the development, deployment, and management of artificial intelligence (AI) and GenAI applications. It is part of the **HPE Private Cloud AI** portfolio and provides a curated, ready-to-run suite of open-source and proprietary tools, enabling organizations to move from AI pilots to production quickly.
+**[HPE AI Essentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=About/aie-overview.html)** is a software and data foundation layer designed to accelerate the development, deployment, and management of artificial intelligence (AI) and GenAI applications. It is part of the **HPE Private Cloud AI** portfolio and provides a curated, ready-to-run suite of open-source and proprietary tools, enabling organizations to move from AI pilots to production quickly.
 
 ## Architecture
 
@@ -28,7 +31,8 @@ This blog post walks you through steps to deploy and configure various tools, re
 Ensure that the following prerequisites are fulfilled:
 
 * HPE AI Essentials version 1.12+, which has PrestoMCP 
-* OpenWebUI version v0.6.31, which supports the MCP server as an external tool. 
+* OpenWebUI version v0.6.31+, which supports the MCP server as an external tool.
+* Role 'Private Cloud AI Administrator' assigned to the user. This is required to import PostgreSQL framework.
 * Hugging Face user access token, to download the LLM.
 
 ## Prepare Data Source
@@ -51,7 +55,7 @@ Upload the Helm chart, downloaded from GitHub.
 
 ![](/img/screenshot-2026-04-23-184131.png)
 
-Update the password in line#38.
+Update the PostgreSQL password in line#38.
 
 ![](/img/screenshot-2026-04-23-184251.png)
 
@@ -59,7 +63,7 @@ Review and submit.
 
 ![](/img/screenshot-2026-04-23-184352.png)
 
-In few minutes, the PostgreSQL framework will be in 'Ready' state. 
+Within a few minutes, the PostgreSQL framework is in 'Ready' state. 
 
 ### Load database file
 
@@ -69,9 +73,9 @@ Use the script, *[create_manufacturing_data.py](https://github.com/ai-solution-e
 python ./create_manufacturing_data.py
 ```
 
-On HPE AI Essentials, open your Jupyter Notebook server and upload the generated ".db" file and *[loaddata.py](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/nl-to-sql-mcp-manufacturing/loaddata.py)*. You will need to update the password (that was provided while Importing Postgres), in line #9 of *loaddata.py* script.
+On HPE AI Essentials, open your Jupyter Notebook server and upload the generated ".db" file and *[loaddata.py ](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/nl-to-sql-mcp-manufacturing/loaddata.py)*script. You will need to update the password (that was provided while Importing Postgres), in line #9 of *loaddata.py* script.
 
-After uploading these two files, open a terminal in the JupyterNotebook Server. Execute the following commands,
+After uploading these two files, open a terminal in the Jupyter Notebook Server. Execute the following commands,
 
 ```shell
 pip install psycopg2
@@ -128,19 +132,19 @@ HUGGING_FACE_HUB_TOKEN: <<\*\*Your Hugging Face Token\*\*>>
 
 Arguments: *\--model Qwen/Qwen3-8B --enable-reasoning --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser hermes --port 8080*
 
-![](/img/screenshot-2026-04-23-154820.png)
+![](/img/screenshot-2026-04-23-200031.png)
 
 After creating packaged model, you may deploy the model.
 
 **Deployments** -> Create Deployment
 
-![](/img/screenshot-2026-04-23-155623.png)
+![](/img/screenshot-2026-04-23-200126.png)
 
-![](/img/screenshot-2026-04-23-155639.png)
+![](/img/screenshot-2026-04-23-200220.png)
 
-![](/img/screenshot-2026-04-23-155657.png)
+![](/img/screenshot-2026-04-23-200318.png)
 
-![](/img/screenshot-2026-04-23-155721.png)
+![](/img/screenshot-2026-04-23-200419.png)
 
 After the model gets deployed, go to **HPE AI Essentials -> GenAI -> Model Endpoints.** 
 
@@ -196,4 +200,4 @@ Using chat, you may now interact with the SQL database using natural language.
 
 By using the tools in HPE AI Essentials; HPE MLIS's robust model management, PrestoMCP and Open WebUI's intuitive chat interface, one can create a powerful ecosystem for transforming natural language queries into actionable insights. This comprehensive approach democratizes data access, allowing users to effortlessly interact with complex datasets through conversational interfaces. By enabling natural language to SQL translation, organizations can unlock the full potential of their data which accelerates decision-making, fostering data-driven culture, and gaining valuable insights without requiring deep technical expertise. As AI and data technologies continue to evolve, such implementations will become essential tools for making data more accessible, understandable, and impactful across all levels of an organization. 
 
-Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI use cases.
