@@ -41,9 +41,25 @@ Sample Helm chart for PostgreSQL is available in the GitHub repo, [ai-solution-e
 
 Deploy PostgreSQL on HPE Private Cloud AI using *Import Framework*
 
-*"Pictures of deployment"*
+![](/img/screenshot-2026-04-23-184640.png)
 
+Provide the Name, Description and Icon (from GitHub repo). 
 
+![](/img/screenshot-2026-04-23-184320.png)
+
+Upload the Helm chart, downloaded from GitHub.
+
+![](/img/screenshot-2026-04-23-184131.png)
+
+Update the password in line#38.
+
+![](/img/screenshot-2026-04-23-184251.png)
+
+Review and submit.
+
+![](/img/screenshot-2026-04-23-184352.png)
+
+In few minutes, the PostgreSQL framework will be in 'Ready' state. 
 
 ### Connect Database
 
@@ -158,7 +174,7 @@ In Open WebUI, click on 'New Chat', select 'Manufacturing' and enable the 'PREST
 
 Using chat, you may now interact with the SQL database using natural language.
 
-![](/img/screenshot-2026-04-23-165310.png)
+![](/img/screenshot-2026-04-23-190106.png)
 
 ## Conclusion
 
