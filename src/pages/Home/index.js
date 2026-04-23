@@ -16,6 +16,10 @@ import { LinkNext } from 'grommet-icons';
 
 import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
 import DeveloperStoriesSection from '../../components/DeveloperStoriesSection';
+import WorkshopsOnDemandSection from '../../components/WorkshopsOnDemandSection';
+import HeroBannerSection from '../../components/HeroBannerSection';
+import WhatsNewSection from '../../components/WhatsNewSection';
+import ComingEventsSection from '../../components/ComingEventsSection';
 
 const OpenSourceCard = ({ children }) => (
   <Box pad={{ horizontal: 'large', bottom: 'large' }}>
@@ -82,13 +86,17 @@ const Home = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   const panels = data.home.edges;
-
   const projects = data.opensource.edges;
+  const latestPlatforms = data.latestPlatforms.edges;
+  const events = data.events.edges;
+  const latestBlogs = data.latestBlogs.edges;
 
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
-      <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+      <HeroBannerSection />
+      <WhatsNewSection platforms={latestPlatforms} />
+      <ComingEventsSection events={events} />      {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
         <Box>
           <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
           <Button
@@ -108,8 +116,8 @@ const Home = ({ data }) => {
         <Box align="center">
           {image && <Image src={image} alt="hpedev logo" />}
         </Box>
-      </Box>
-      <Box flex={false} direction="row-responsive" wrap margin="medium">
+      </Box> */}
+      {/* <Box flex={false} direction="row-responsive" wrap margin="medium">
         {panels &&
           panels.map(({ node }) => (
             <Card
@@ -125,8 +133,9 @@ const Home = ({ data }) => {
               author={node.frontmatter.author}
             />
           ))}
-      </Box>
-      <DeveloperStoriesSection />
+      </Box> */}
+      <DeveloperStoriesSection blogs={latestBlogs} />
+      <WorkshopsOnDemandSection />
       <OpenSourceCard>
         {projects &&
           projects.map(({ node }) => (
@@ -176,6 +185,15 @@ Home.propTypes = {
           rawMarkdownBody: PropTypes.string,
         }),
       ),
+    }),
+    latestPlatforms: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    events: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    latestBlogs: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
     }),
     opensource: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -235,6 +253,75 @@ export const pageQuery = graphql`
             active
           }
           rawMarkdownBody
+        }
+      }
+    }
+    latestPlatforms: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "platform" } }
+        frontmatter: { active: { eq: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+      limit: 2
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+            image
+            date
+          }
+        }
+      }
+    }
+    events: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "event" } }
+      }
+      sort: { frontmatter: { dateStart: DESC } }
+      limit: 12
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            dateStart
+            dateEnd
+            category
+            image
+            link
+          }
+        }
+      }
+    }
+    latestBlogs: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+      limit: 6
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            date
+            author
+            authorimage
+            thumbnailimage
+          }
         }
       }
     }

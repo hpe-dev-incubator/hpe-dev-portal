@@ -8,6 +8,7 @@ image: /img/platforms/3PAR -Primera.svg
 width: large
 priority: 13
 frontpage: true
+date: 2022-06-24T17:05:42+02:00
 active: true
 tags:
   - hpe-3par-and-primera

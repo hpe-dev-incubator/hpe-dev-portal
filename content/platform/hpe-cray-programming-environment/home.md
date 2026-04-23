@@ -10,6 +10,7 @@ description: HPE Cray Programming Environment (CPE) suite offers programmers a
 image: /img/platforms/cray_logo_-2018-.svg.png
 width: large
 priority: 5
+date: 2023-12-18T10:54:48+01:00
 active: true
 tags:
   - cray

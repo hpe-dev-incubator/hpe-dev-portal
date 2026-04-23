@@ -473,6 +473,13 @@ collections:
           hint: 'selecting true adds the card on the Platform page',
         }
       - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          required: false,
+          hint: 'date the platform was added or last significantly updated — used to determine order in the What''s New section',
+        }
+      - {
           label: 'Tags',
           name: 'tags',
           widget: 'list',

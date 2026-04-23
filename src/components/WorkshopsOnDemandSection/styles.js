@@ -109,33 +109,3 @@ export const BucketBadge = styled.span`
   text-transform: uppercase;
   align-self: flex-start;
 `;
-
-export const AuthorRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 8px;
-`;
-
-export const AuthorAvatar = styled.img`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  background: #d5d5d5;
-`;
-
-export const AuthorName = styled.span`
-  font-size: 13px;
-  font-weight: 500;
-  color: #292d3a;
-  line-height: 1.3;
-`;
-
-export const PostDate = styled.span`
-  font-size: 12px;
-  color: #606a70;
-  letter-spacing: 0.2px;
-`;

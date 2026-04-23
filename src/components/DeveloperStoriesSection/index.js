@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import { Anchor, Box, Heading, Text, ResponsiveContext } from 'grommet';
+import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Heading, Text, Anchor, ResponsiveContext } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 import {
   CARD_WIDTH,
@@ -14,120 +14,34 @@ import {
   CardBody,
   PrevButton,
   NextButton,
-  BucketBadge,
+  AuthorRow,
+  AuthorAvatar,
+  AuthorName,
+  PostDate,
 } from './styles';
 
-const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
+const dateFormat = Intl.DateTimeFormat('default', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
 
-// Returns true when a workshop's category field (array or string) matches target.
-const matchesCategory = (workshop, category) => {
-  if (!workshop.category) return false;
-  const cats = Array.isArray(workshop.category)
-    ? workshop.category
-    : [workshop.category];
-  return cats.some((c) => c.toLowerCase() === category.toLowerCase());
-};
-
-// Select exactly 6 workshops:
-//   2 Latest → 2 Popular → 1 Open Source → 1 HPE GreenLake
-const pickWorkshops = (workshops) => {
-  const seen = new Set();
-  const result = [];
-
-  const add = (workshop, bucket) => {
-    if (!workshop || seen.has(workshop.id)) return false;
-    seen.add(workshop.id);
-    result.push({ ...workshop, _bucket: bucket });
-    return true;
-  };
-
-  const byDate = [...workshops].sort(
-    (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
-  );
-  const popular = workshops.filter((w) => w.popular);
-
-  // 1 & 2. Two most recently updated
-  for (const w of byDate) {
-    if (result.length >= 2) break;
-    add(w, 'Latest');
-  }
-
-  // 3 & 4. Two popular
-  for (const w of popular) {
-    if (result.length >= 4) break;
-    add(w, 'Popular');
-  }
-  // fill with latest if not enough popular
-  for (const w of byDate) {
-    if (result.length >= 4) break;
-    add(w, 'Popular');
-  }
-
-  // 5. One Open Source
-  const openSource = workshops.find(
-    (w) => !seen.has(w.id) && matchesCategory(w, 'open source'),
-  );
-  if (!add(openSource, 'Open Source')) {
-    const fallback = byDate.find((w) => !seen.has(w.id));
-    add(fallback, '');
-  }
-
-  // 6. One HPE GreenLake
-  const greenlake = workshops.find(
-    (w) =>
-      !seen.has(w.id) &&
-      (matchesCategory(w, 'hpe greenlake') ||
-        matchesCategory(w, 'greenlake') ||
-        matchesCategory(w, 'hpe-greenlake')),
-  );
-  if (!add(greenlake, 'HPE GreenLake')) {
-    const fallback = byDate.find((w) => !seen.has(w.id));
-    add(fallback, '');
-  }
-
-  return result.slice(0, 6);
-};
-
-const DeveloperStoriesSection = () => {
+const DeveloperStoriesSection = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [stories, setStories] = useState([]);
-  const [loading, setLoading] = useState(true);
   const size = useContext(ResponsiveContext);
 
-  useEffect(() => {
-    if (!API_BASE) {
-      setLoading(false);
-      return;
-    }
+  if (blogs.length === 0) return null;
 
-    axios
-      .get(`${API_BASE}/api/workshops?active=true`)
-      .then((res) => {
-        const wods = (res.data || []).filter(
-          (w) => w.sessionType === 'Workshops-on-Demand',
-        );
-        setStories(pickWorkshops(wods));
-      })
-      .catch((err) => {
-        console.error('DeveloperStoriesSection: failed to load workshops', err);
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  // How many full cards are visible based on Grommet breakpoints
   const cardsVisible = size === 'small' ? 1 : size === 'medium' ? 2 : 3;
-  const maxIndex = Math.max(0, stories.length - cardsVisible);
+  const maxIndex = Math.max(0, blogs.length - cardsVisible);
   const translateX = currentIndex * (CARD_WIDTH + CARD_GAP);
 
   const handlePrev = () => setCurrentIndex((i) => Math.max(0, i - 1));
   const handleNext = () => setCurrentIndex((i) => Math.min(maxIndex, i + 1));
 
-  // Hide the section while loading or when no data is available
-  if (loading || stories.length === 0) return null;
-
   return (
     <Section>
-      {/* Section header: title left, carousel nav right */}
+      {/* Section header */}
       <Box
         direction="row"
         justify="between"
@@ -154,20 +68,8 @@ const DeveloperStoriesSection = () => {
             disabled={currentIndex === 0}
             aria-label="Previous stories"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M13 4L7 10L13 16"
-                stroke="#292d3a"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M13 4L7 10L13 16" stroke="#292d3a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </PrevButton>
 
@@ -176,20 +78,8 @@ const DeveloperStoriesSection = () => {
             disabled={currentIndex >= maxIndex}
             aria-label="Next stories"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 4L13 10L7 16"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M7 4L13 10L7 16" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </NextButton>
         </Box>
@@ -198,27 +88,30 @@ const DeveloperStoriesSection = () => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {stories.map((workshop) => {
-            const desc =
-              workshop.description && workshop.description.length > 130
-                ? `${workshop.description.slice(0, 130).trimEnd()}…`
-                : workshop.description || '';
-            const link = workshop.replayId
-              ? `/hackshack/workshop/${workshop.replayId}`
-              : '/hackshack/workshops';
+          {blogs.map(({ node }) => {
+            const { title, date, author, authorimage, thumbnailimage } =
+              node.frontmatter;
+            const slug = node.fields.slug;
+            const excerpt =
+              node.excerpt && node.excerpt.length > 130
+                ? `${node.excerpt.slice(0, 130).trimEnd()}…`
+                : node.excerpt || '';
+            const coverImg = thumbnailimage || authorimage || '';
+            const postDate = date
+              ? dateFormat.format(new Date(date))
+              : '';
 
             return (
-              <StoryCard key={workshop.id}>
+              <StoryCard key={slug}>
                 <CardImageWrapper>
-                  {workshop.workshopImg && (
+                  {coverImg && (
                     <img
-                      src={workshop.workshopImg}
-                      alt={workshop.name}
+                      src={coverImg}
+                      alt={title}
                       style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: 'center bottom',
                         display: 'block',
                       }}
                     />
@@ -227,43 +120,49 @@ const DeveloperStoriesSection = () => {
                 </CardImageWrapper>
 
                 <CardBody>
-                  {workshop._bucket && (
-                    <BucketBadge>{workshop._bucket}</BucketBadge>
-                  )}
-
                   <Heading
                     level={3}
                     margin="none"
                     style={{
                       color: '#292d3a',
-                      fontSize: '24px',
+                      fontSize: '20px',
                       fontWeight: 500,
                       lineHeight: 1.3,
                     }}
                   >
-                    {workshop.name}
+                    {title}
                   </Heading>
 
                   <Text
                     style={{
                       color: '#3e4550',
-                      fontSize: '16px',
+                      fontSize: '15px',
                       lineHeight: 1.6,
                       opacity: 0.75,
                     }}
                   >
-                    {desc}
+                    {excerpt}
                   </Text>
 
                   <Anchor
-                    href={link}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                    href={`/blog${slug}`}
                     icon={<LinkNext size="small" />}
-                    label="Learn more"
+                    label="Read more"
                     reverse
                     style={{ color: '#292d3a', fontWeight: 500 }}
                   />
+
+                  {(author || postDate) && (
+                    <AuthorRow>
+                      {authorimage && (
+                        <AuthorAvatar src={authorimage} alt={author || ''} />
+                      )}
+                      <div>
+                        {author && <AuthorName>{author}</AuthorName>}
+                        {postDate && <PostDate>{postDate}</PostDate>}
+                      </div>
+                    </AuthorRow>
+                  )}
                 </CardBody>
               </StoryCard>
             );
@@ -272,6 +171,10 @@ const DeveloperStoriesSection = () => {
       </CarouselViewport>
     </Section>
   );
+};
+
+DeveloperStoriesSection.propTypes = {
+  blogs: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default DeveloperStoriesSection;
