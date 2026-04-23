@@ -88,7 +88,6 @@ python loaddata.py
 * In **Structured Data** click on **Add New Data Source**
 * Select **PostgreSQL** and click **Create Connection**
 * Fill in the details as below:
-
   * Name* : manufacturingdb
   * Connection URL*: jdbc:postgresql://postgresql.postgres.svc.cluster.local:5432/manufacturing
   * Connection User*: postgres
