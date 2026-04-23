@@ -61,7 +61,7 @@ Review and submit.
 
 In few minutes, the PostgreSQL framework will be in 'Ready' state. 
 
-### Connect Database
+### Load database file
 
 Use the script, *[create_manufacturing_data.py](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/nl-to-sql-mcp-manufacturing/create_manufacturing_data.py)* to create a sample data. Execute the script to create a new ".db" file, which will be used in the following steps.
 
@@ -78,9 +78,25 @@ pip install psycopg2
 python loaddata.py
 ```
 
+### Connect database to HPE AI Essentials
+
+* Navigate to **Data Engineering > Data Sources**
+* In **Structured Data** click on **Add New Data Source**
+* Select **PostgreSQL** and click **Create Connection**
+* Fill in details as below:
+
+  * Name* : manufacturingdb
+  * Connection URL*: jdbc:postgresql://postgresql.postgres.svc.cluster.local:5432/manufacturing
+  * Connection User*: postgres
+  * Connection Password*: "YOUR_DEFINED_PASSWORD"
+  * Click on 'PostgreSQL Advanced Settings'
+  * Case Insensitive Name Matching: Tick
+
+![](/img/screenshot-2026-04-23-191659.png)
+
 ### Explore Data Catalog
 
-Once the data is loaded, you can explore the available data via the Data Catalog.
+Once the data is loaded and database is connected, you can explore the available data via the Data Catalog.
 
 * Navigate to **Data Engineering > Data Catalog**
 * Select **manufacturingdb**
