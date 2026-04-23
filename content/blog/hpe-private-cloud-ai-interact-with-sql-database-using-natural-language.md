@@ -2,7 +2,7 @@
 title: "HPE Private Cloud AI: Natural Language to Structured Query Language"
 date: 2026-04-23T11:35:26.524Z
 author: Santosh Nagaraj, Isabelle Steinhauser
-authorimage: /img/Avatar1.svg
+authorimage: /img/ai.webp
 disable: false
 tags:
   - HPE Private Cloud AI, SQL, Natural Language
