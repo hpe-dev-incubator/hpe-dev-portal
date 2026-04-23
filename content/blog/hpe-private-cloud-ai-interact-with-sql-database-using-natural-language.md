@@ -103,46 +103,64 @@ After creating packaged model, you may deploy the model.
 
 ![](/img/screenshot-2026-04-23-155623.png)
 
+![](/img/screenshot-2026-04-23-155639.png)
 
+![](/img/screenshot-2026-04-23-155657.png)
 
+![](/img/screenshot-2026-04-23-155721.png)
 
+After the model gets deployed, go to **HPE AI Essentials -> GenAI -> Model Endpoints.** 
 
-At the end copy the Model Endpoint and the API tokens to a text file as we will need them in next steps.
+Click on 'Action -> Generate API Token'. Copy the Model Endpoint and the API token to a text file, as you will need them in next steps.
 
-<!--EndFragment-->
-
- generate a API Key
+![](/img/screenshot-2026-04-23-161519.png)
 
 ## Chat Interface
 
- using HPE
-
-### Configure Open-WebUI
-
-steps to configure OpenwebUI
+Use the Open WebUI framework as the chat interface. Follow the steps to configure Open WebUI
 
 #### Connect to LLM
 
-Steps to conenct to LLM deployed in previous step
+* Open Open WebUI
+* Navigate to **Admin Panel >> Settings >> Connections** 
+* Add new 'OpenAI API' connection -- provide the Model Endpoint URL and API token saved in previous step.
+
+![](/img/screenshot-2026-04-23-161912.png)
 
 #### Configure MCP Server
 
+Navigate in Open WebUI to **Admin Panel >> Settings >> External Tools**
+
+* Add a new Tool Server
+* Change the type to MCP Streamable HTTP
+* Add the URL of ezPresto MCP Server, this can be retrieved from Data Engineering >> Data Sources >> MCP Server. Open the menu and click on copy endpoint. 
+* Add the JWT token of the user you want to have the Presto Connections. The MCP agent gets access to all datasources this user has access to.
+* Provide the ID and Name, PrestoMCP
+
+![](/img/screenshot-2026-04-23-162520.png)
+
+As final step in Open WebUI, you need to **Create a Model** that is leveraging the **Qwen3 8b** base model and has the MCP Server as a Tool. 
+
+* Click in OpenWebUI on Workspace. Click **New Model**.
+* Provide your Model a Name for example *Manufacturing* select Qwen/Qwen3-8B as Base Model
+* Edit Visibility to *Public* in case you want the model to be available for everyone to chat
+* Add a System Prompt for example: "Always use 'manufacturingdb' catalog and the schema 'public' for SQL queries. Syntax: catalog.schema.table is how you reference a table in presto"
+* Click on the Advance Params and set *Function Calling* to *Native*, otherwise it will only make one call. You can edit this within your chat as well. Underneath Tools tick the *PrestoMCP Tool* and click Save&Create.
+
+![](/img/screenshot-2026-04-23-163728.png)
+
 ## Natural Language to SQL
 
-The chat interface is ready and you may now interact with the Database.
+In Open WebUI, click on 'New Chat', select 'Manufacturing' and enable the 'PRESTOMCP' tool inside the chat interface.
 
-## Dashboard
+![](/img/screenshot-2026-04-23-164049.png)
 
-### Superset configuration
+Using chat, you may now interact with the SQL database using natural language.
 
-#### Connect Superset to Presto
+![](/img/screenshot-2026-04-23-165310.png)
 
-<Describe steps>
+## Conclusion
 
-#### Create Datasets
+By integrating available tools in HPE AI Essentials; HPE MLIS's robust model management, PrestoMCP and Open WebUI's intuitive chat interface, one can create a powerful ecosystem for transforming natural language queries into actionable insights. This comprehensive approach democratizes data access, allowing users to effortlessly interact with complex datasets through conversational interfaces. By enabling natural language to SQL translation, organizations can unlock the full potential of their data which accelerates decision-making, fostering data-driven culture, and gaining valuable insights without requiring deep technical expertise. As AI and data technologies continue to evolve, such implementations will become essential tools for making data more accessible, understandable, and impactful across all levels of an organization. 
 
-<Describe steps>
-
-#### Dashboard
-
-<Describe steps>
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI.
