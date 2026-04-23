@@ -29,6 +29,7 @@ Ensure that the following prerequisites are fulfilled:
 
 * HPE AI Essentials version 1.12+, which has PrestoMCP 
 * OpenWebUI version v0.6.31, which supports the MCP server as an external tool. 
+* Hugging Face user access token, to download the LLM.
 
 ## Prepare Data Source
 
@@ -57,7 +58,7 @@ On HPE AI Essentials, open your Jupyter Notebook server and upload the generated
 After uploading these two files, open a terminal in the JupyterNotebook Server. Execute the following commands,
 
 ```shell
-pip installpsycopg2
+pip install psycopg2
 python loaddata.py
 ```
 
@@ -77,7 +78,7 @@ Once the data is loaded, you can explore the available data via the Data Catalog
 
 ## LLM Deployment
 
-Deploy **Qwen/Qwen3-8B-Instruct** LLM using HPE MLIS (Machine Learning Inference Software) framework, available in HPE AI Essentials. You may replace Qwen/Qwen3-8B-Instructwith any other model of your choice.
+Deploy **Qwen/Qwen3-8B-Instruct** LLM using HPE MLIS (Machine Learning Inference Software) framework, available in HPE AI Essentials. You may replace Qwen/Qwen3-8B-Instruct with any other model of your choice.
 
 In HPE MLIS, **Packaged Models** -> Create Packaged Model.
 
@@ -91,7 +92,7 @@ Under 'Advanced' tab, set the following,
 
 Environment Variables:
 
-HUGGING_FACE_HUB_TOKEN: <<Your HuggingFace Token>>
+HUGGING_FACE_HUB_TOKEN: <<\*\*Your Hugging Face Token\*\*>>
 
 Arguments: *\--model Qwen/Qwen3-8B --enable-reasoning --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser hermes --port 8080*
 
