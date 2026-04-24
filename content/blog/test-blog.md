@@ -1,8 +1,8 @@
 ---
 title: Content Safety using Guardrails for LLM deployed in HPE Private cloud AI
 date: 2026-04-24T05:43:33.926Z
-author: Thirukkannan.M
-authorimage: /img/Avatar1.svg
+author: Thirukkannan M
+authorimage: /img/thirupp.jpg
 disable: false
 tags:
   - HPE Private cloud AI
