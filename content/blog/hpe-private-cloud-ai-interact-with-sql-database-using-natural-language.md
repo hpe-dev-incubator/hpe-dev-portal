@@ -88,6 +88,7 @@ python loaddata.py
 * In **Structured Data** click on **Add New Data Source**
 * Select **PostgreSQL** and click **Create Connection**
 * Fill in the details as below:
+
   * Name* : manufacturingdb
   * Connection URL*: jdbc:postgresql://postgresql.postgres.svc.cluster.local:5432/manufacturing
   * Connection User*: postgres
@@ -170,7 +171,7 @@ Navigate in Open WebUI to **Admin Panel >> Settings >> External Tools**
 * Add a new Tool Server
 * Change the type to MCP Streamable HTTP
 * Add the URL of ezPresto MCP Server, this can be retrieved from Data Engineering >> Data Sources >> MCP Server. Open the menu and click on copy endpoint. 
-* Add the JWT token of the user you want to have the Presto Connections. The MCP agent gets access to all datasources this user has access to.
+* Add the [JWT token](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=Security/k8s-secret-auth-token.html) of the user you want to have the Presto Connections. The MCP agent gets access to all datasources this user has access to.
 * Provide the ID and Name, PrestoMCP
 
 ![](/img/screenshot-2026-04-23-162520.png)
