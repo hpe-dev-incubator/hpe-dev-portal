@@ -3,12 +3,12 @@ title: "The Long-Context Challenge: A Comparative Analysis of KV-Cache offload
   and TurboQuant"
 date: 2026-04-27T08:51:01.344Z
 author: Andrea Fabrizi (AI Storage Solutions Product Manager)
-authorimage: /img/Avatar1.svg
+authorimage: /img/andrea-fabrizi.png
 disable: false
 ---
 The rapid diffusion of Large Language Models (LLMs) and the explosion of Agentic AI have created a critical infrastructure challenge: efficiently managing the increasingly long inference sessions. As AI agents evolve to manage complex, multi-step workflows, the context window has expanded from thousands to hundreds of thousands of tokens, but the GPU HBM memory can’t keep up with this growth.
 
-This article examines the two predominant architectural methods for addressing this problem: KV-cache offload (the KV-Cache tiered with storage), and Google TurboQuant. 
+In a previous [blog](https://developer.hpe.com/blog/why-storage-is-important-for-kv-cache/), I discussed the importance of storage to  KV cache. Today, I want to examine the two predominant architectural methods for addressing this increasingly long inference sessions management problem: KV-cache offload (the KV-Cache tiered with storage), and Google TurboQuant. 
 
 # The AI Agent Era is also the Era of the Long Sessions
 
@@ -45,20 +45,19 @@ Cons:
 
 ## Comparative
 
-| Feature| KV-Cache offload | Google TurboQuant |
-| -------- | ------- | ------- |
-| Primary Focus  | Dynamic management of session memory (KV Cache) | Compression of model weights |
-| Impact on Context | Directly enables very long contexts (100k+ tokens) | Indirectly enables long contexts by freeing space |
-| Cost Efficiency | High: Uses NVMe SSDs| Medium: Requires quantization pipeline |
-| Latency Impact | Moderate: Dependent on storage speed| Low: mostly compute-bound|
-| Accuracy Impact | None: The model weights remain intact| Potential degradation Quantization noise|
-| Maturity Level | High: Standard in many frameworks and in some innovative storage solutions | Medium: Specific to optimized models (e.g., Gemma)|
-
-
+| Feature           | KV-Cache offload                                                           | Google TurboQuant                                  |
+| ----------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
+| Primary Focus     | Dynamic management of session memory (KV Cache)                            | Compression of model weights                       |
+| Impact on Context | Directly enables very long contexts (100k+ tokens)                         | Indirectly enables long contexts by freeing space  |
+| Cost Efficiency   | High: Uses NVMe SSDs                                                       | Medium: Requires quantization pipeline             |
+| Latency Impact    | Moderate: Dependent on storage speed                                       | Low: mostly compute-bound                          |
+| Accuracy Impact   | None: The model weights remain intact                                      | Potential degradation Quantization noise           |
+| Maturity Level    | High: Standard in many frameworks and in some innovative storage solutions | Medium: Specific to optimized models (e.g., Gemma) |
 
 ## Conclusion
+
 The deployment of AI agents capable of managing long, complex sessions presents a formidable memory challenge.
- 
+
 While Google TurboQuant offers an effective method for KV-cache compression, it doesn’t fully address the core issue of the expanding KV cache, as KV-cache offload does.TurboQuant does not solve the problem of session growth; it simply creates some more space for it. 
 
 In contrast, the KV-cache offload directly addresses the problem by using large, inexpensive storage systems to provide nearly unlimited resources for caching expensive GPU VRAM. By smartly swapping out inactive tokens, it enables AI agents to maintain context windows of unprecedented size without the high costs associated with multi-GPU setups. Moreover, the KV-cache offload is model-agnostic and a more mature solution.
