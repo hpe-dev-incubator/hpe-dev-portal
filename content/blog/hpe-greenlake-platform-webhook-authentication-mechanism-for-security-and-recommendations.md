@@ -4,7 +4,7 @@ title: HPE GreenLake Platform Webhook authentication mechanism for security and
 date: 2026-04-27T07:20:58.618Z
 priority: 0
 author: "Santhosh S and Chethan B "
-authorimage: /img/Avatar1.svg
+authorimage: /img/santhosh.png
 disable: false
 tags:
   - webhooks
