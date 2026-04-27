@@ -48,7 +48,7 @@ Before you begin, make sure you have:
 
 The HPE GreenLake Events API supports three outbound authentication modes that control how the service authenticates itself when delivering events to your endpoint:
 
-|   authType  |  When to Use |
+|   AuthType  |  When to Use |
 |----------|-------------|
 | `""` (empty)   |     Your endpoint is open or handles auth independently |
 | `"APIKey"` | Your endpoint expects a static key in the Authorization header |
