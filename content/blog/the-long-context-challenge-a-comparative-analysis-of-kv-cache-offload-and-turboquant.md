@@ -47,16 +47,12 @@ Cons:
 
 | Feature| KV-Cache offload | Google TurboQuant |
 | -------- | ------- | ------- |
-| Primary Focus  | Dynamic management of session memory (KV Cache)   | Compression of model weights |
+| Primary Focus  | Dynamic management of session memory (KV Cache) | Compression of model weights |
 | Impact on Context | Directly enables very long contexts (100k+ tokens) | Indirectly enables long contexts by freeing space |
-| Cost Efficiency | High: Uses NVMe SSDs | Medium: Requires quantization pipeline |
-| Latency Impact | Moderate: Dependent on storage speed
- | Low: mostly compute-bound |
-| Accuracy Impact | None: The model weights remain intact | Potential degradation Quantization noise |
-| Maturity Level | High: 
-Standard in many frameworks and in some innovative storage solutions. | Medium: 
-Specific to optimized models (e.g., Gemma).|
-|
+| Cost Efficiency | High: Uses NVMe SSDs| Medium: Requires quantization pipeline |
+| Latency Impact | Moderate: Dependent on storage speed| Low: mostly compute-bound|
+| Accuracy Impact | None: The model weights remain intact| Potential degradation Quantization noise|
+| Maturity Level | High: Standard in many frameworks and in some innovative storage solutions | Medium: Specific to optimized models (e.g., Gemma)|
 
 
 
