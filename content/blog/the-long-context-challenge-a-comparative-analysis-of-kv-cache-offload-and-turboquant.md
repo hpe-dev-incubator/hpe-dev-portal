@@ -8,7 +8,7 @@ disable: false
 ---
 The rapid diffusion of large language models (LLMs) and the explosion of agentic AI have created a critical infrastructure challenge: efficiently managing the increasingly long inference sessions. As AI agents evolve to manage complex, multi-step workflows, the context window has expanded from thousands to hundreds of thousands of tokens, but the GPU HBM memory can’t keep up with this growth.
 
-In a previous [blog](https://developer.hpe.com/blog/why-storage-is-important-for-kv-cache/), I discussed the importance of storage to  KV cache. Today, I want to examine the two predominant architectural methods for addressing this increasingly long inference sessions management problem: KV-cache offload (the KV-cache tiered with storage), and Google TurboQuant. 
+In a previous [blog](https://developer.hpe.com/blog/why-storage-is-important-for-kv-cache/), I discussed the importance of storage to  KV-cache. Today, I want to examine the two predominant architectural methods for addressing this increasingly long inference sessions management problem: KV-cache offload (the KV-cache tiered with storage), and Google TurboQuant. 
 
 # A new era of long sessions
 
@@ -16,7 +16,7 @@ The original paradigm of LLM inference, which relied solely on human interaction
 
 This shift has caused a "session explosion" problem. Unlike a simple chatbot, an AI agent might need to keep track of the history of a code review, the results of a database query, and the logs from a file system operation, all at the same time. As a result, the context window has ballooned. A prompt of 100,000 tokens is no longer rare; it is now a normal requirement for enterprise-level agents.
 
-The bottleneck lies in the Key-Value (KV) Cache. In transformer architectures, the KV cache grows quadratically with the sequence length (O(N^2)). For a 100k-token context, the KV cache can consume more memory than the model itself. Standard GPUs have limited VRAM (up to 200 GB). Once the KV cache fills the VRAM, the inference process halts, resulting in Out-Of-Memory (OOM) errors. This can lead to hallucinations, force developers to truncate context (losing important information), or use expensive multi-GPU setups (increasing expense significantly).
+The bottleneck lies in the Key-Value (KV) Cache. In transformer architectures, the KV cache grows quadratically with the sequence length (O(N^2)). For a 100k-token context, the KV cache can consume more memory than the model itself. Standard GPUs have limited VRAM (up to 200 GB). Once the KV-cache fills the VRAM, the inference process halts, resulting in Out-Of-Memory (OOM) errors. This can lead to hallucinations, force developers to truncate context (losing important information), or use expensive multi-GPU setups (increasing expense significantly).
 
 # Introduction to the Technologies
 
@@ -54,7 +54,7 @@ Cons:
 
 ## Comparison
 
-| Feature           | KV-cache offload                                                           | Google TurboQuant                                  |
+| Feature           | KV-cache offload                                                 | Google TurboQuant                                  |
 | ----------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
 | Primary focus     | Dynamic management of session memory (KV Cache)                            | Compression of model weights                       |
 | Impact on Context | Directly enables very long contexts (100k+ tokens)                         | Indirectly enables long contexts by freeing space  |
