@@ -31,7 +31,9 @@ Pros:
 * Scalability: Effectively extends the context window to millions of tokens by utilizing system RAM.
 * Cost-Effective: Leverages cheap, abundant system memory rather than requiring expensive, high-bandwidth GPU memory.
 * Maturity: The concept is well-understood and can be implemented using standard operating system paging mechanisms or custom kernel implementations.
+
 Cons:
+
 * Latency Overhead: Swapping data between CPU RAM and GPU VRAM introduces latency. If the system swaps too aggressively, the AI agent may experience stuttering or slower response times.
 * Complexity: Implementing a robust tiering system requires careful tuning of swap thresholds and eviction policies to balance speed and capacity.
 
@@ -43,9 +45,11 @@ Pros:
 
 * Capacity: Significantly reduces the KV-Cache footprint, creating "headroom" for longer sessions.
 * Throughput: Lower memory bandwidth usage can lead to faster inference speeds on hardware with limited memory bandwidth.
+
 Cons:
-* While touted for high efficiency, some early analyses suggest that the claimed speed advantages depend on specific benchmarks
-* It can be very computationally expensive
+
+* While touted for high efficiency, some early analyses suggest that the claimed speed advantages depend on specific benchmarks.
+* It can be very computationally expensive.
 * It is a partial solution. It reduces the session KV-cache footprint, but it doesn’t fully solve the overall KV-Cache growing problem.
 
 ## Comparative
