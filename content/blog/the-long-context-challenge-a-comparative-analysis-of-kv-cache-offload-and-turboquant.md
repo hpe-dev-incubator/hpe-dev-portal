@@ -55,7 +55,7 @@ Cons:
 ## Comparison
 
 | Feature           | KV-cache offload                                                 | Google TurboQuant                                  |
-| :-----------------: | :--------------------------------------------------------------------------: | :--------------------------------------------------: |
+| :----------------- | :-------------------------------------------------------------------------- | :-------------------------------------------------- |
 | Primary focus     | Dynamic management of session memory (KV Cache)                            | Compression of model weights                       |
 | Impact on Context | Directly enables very long contexts (100k+ tokens)                         | Indirectly enables long contexts by freeing space  |
 | Cost efficiency   | High: Uses NVMe SSDs                                                       | Medium: Requires quantization pipeline             |
