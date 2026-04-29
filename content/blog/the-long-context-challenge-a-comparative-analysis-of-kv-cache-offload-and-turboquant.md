@@ -6,6 +6,34 @@ author: Andrea Fabrizi (AI Storage Solutions Product Manager)
 authorimage: /img/andrea-fabrizi.png
 disable: false
 ---
+<style>
+table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+}
+th, td {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+    text-align: left !important;
+    font-weight: normal !important;
+    padding: 10px !important;
+}
+th {
+    text-align: center !important;
+    font-weight: bold !important;
+    background-color: #f5f5f5;
+    font-weight: bold !important;
+}
+</style>
 The rapid diffusion of large language models (LLMs) and the explosion of agentic AI have created a critical infrastructure challenge: efficiently managing the increasingly long inference sessions. As AI agents evolve to manage complex, multi-step workflows, the context window has expanded from thousands to hundreds of thousands of tokens, but the GPU HBM memory can’t keep up with this growth.
 
 In a previous [blog](https://developer.hpe.com/blog/why-storage-is-important-for-kv-cache/), I discussed the importance of storage to  KV-cache. Today, I want to examine the two predominant architectural methods for addressing this increasingly long inference sessions management problem: KV-cache offload (the KV-cache tiered with storage), and Google TurboQuant. 
