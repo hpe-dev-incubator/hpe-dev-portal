@@ -1,85 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, navigate } from 'gatsby';
-import {
-  Box,
-  Button,
-  Card as GrommetCard,
-  CardHeader,
-  Grid,
-  Heading,
-  Image,
-  Paragraph,
-  Text,
-} from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { graphql } from 'gatsby';
+import { Box, Button, Heading, Image, Text } from 'grommet';
 
 import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
 import DeveloperStoriesSection from '../../components/DeveloperStoriesSection';
 import WorkshopsOnDemandSection from '../../components/WorkshopsOnDemandSection';
+import OpenSourceSection from '../../components/OpenSourceSection';
 import HeroBannerSection from '../../components/HeroBannerSection';
 import WhatsNewSection from '../../components/WhatsNewSection';
 import ComingEventsSection from '../../components/ComingEventsSection';
 
-const OpenSourceCard = ({ children }) => (
-  <Box pad={{ horizontal: 'large', bottom: 'large' }}>
-    <GrommetCard elevation="medium" fill="horizontal">
-      <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
-        <Heading level={2} margin="none">
-          Featured Open Source Projects
-        </Heading>
-        <ButtonLink icon={<LinkNext color="green" />} to="/opensource" />
-      </CardHeader>
-      <Grid
-        columns="small"
-        gap="large"
-        pad={{ horizontal: 'large', bottom: 'large' }}
-      >
-        {children}
-      </Grid>
-    </GrommetCard>
-  </Box>
-);
-
-OpenSourceCard.propTypes = {
-  children: PropTypes.node,
-};
-
-const Project = ({ title, description, link }) => (
-  <Box
-    align="start"
-    gap="medium"
-    /* eslint-disable */
-    onClick={
-      link && link.match(/^\//g)
-        ? () => navigate(link)
-        : link
-          ? () => window.open(link)
-          : undefined
-    }
-  >
-    {/* <Box flex={false} height="xsmall" width="xsmall">
-      <Image src={image} fit="contain" alt="opensource project logo" />
-    </Box> */}
-    <Box>
-      <Text size="large" weight="bold">
-        {title}
-      </Text>
-      <Paragraph truncate margin="none" size="large">
-        {description && description.length > 115
-          ? description.substring(0, 115) + '...'
-          : description}
-      </Paragraph>
-    </Box>
-  </Box>
-);
-
-Project.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  link: PropTypes.string,
-};
 
 const Home = ({ data }) => {
   const { title, image } = data.markdownRemark.frontmatter;
@@ -96,7 +27,8 @@ const Home = ({ data }) => {
       <SEO title={title} />
       <HeroBannerSection />
       <WhatsNewSection platforms={latestPlatforms} />
-      <ComingEventsSection events={events} />      {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+      <ComingEventsSection events={events} />{' '}
+      {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
         <Box>
           <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
           <Button
@@ -136,18 +68,7 @@ const Home = ({ data }) => {
       </Box> */}
       <DeveloperStoriesSection blogs={latestBlogs} />
       <WorkshopsOnDemandSection />
-      <OpenSourceCard>
-        {projects &&
-          projects.map(({ node }) => (
-            <Project
-              key={node.id}
-              image={node.frontmatter.image}
-              title={node.frontmatter.title}
-              description={node.frontmatter.description}
-              link={node.frontmatter.link}
-            />
-          ))}
-      </OpenSourceCard>
+      <OpenSourceSection projects={projects} />
     </Layout>
   );
 };
@@ -279,9 +200,7 @@ export const pageQuery = graphql`
       }
     }
     events: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "event" } }
-      }
+      filter: { fields: { sourceInstanceName: { eq: "event" } } }
       sort: { frontmatter: { dateStart: DESC } }
       limit: 12
     ) {
