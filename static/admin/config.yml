@@ -213,8 +213,9 @@ collections:
           label: 'GitHub Repository URL',
           name: 'github',
           widget: 'string',
-          required: false,
-          hint: 'Full GitHub URL, e.g. https://github.com/org/repo — shown as a clickable GitHub icon on the home page carousel',
+          required: true,
+          hint: 'Full GitHub URL, e.g. https://github.com/org/repo — shown as a clickable GitHub icon on the home page carousel. Required — cards without a GitHub URL are hidden from the carousel.',
+          pattern: ['^https://github\.com/.+', 'Must be a valid https://github.com/... URL'],
         }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Priority', name: 'priority', widget: 'number' }

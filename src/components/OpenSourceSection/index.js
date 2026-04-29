@@ -15,15 +15,10 @@ import {
 
 // GitHub mark SVG — always shown at top of each card
 const GitHubMark = ({ href }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (href) window.open(href, '_blank', 'noreferrer noopener');
-  };
+  if (!href) return null;
   return (
     <a
-      href={href || 'https://github.com'}
-      onClick={handleClick}
+      href={href}
       target="_blank"
       rel="noreferrer noopener"
       aria-label="View on GitHub"
@@ -34,9 +29,9 @@ const GitHubMark = ({ href }) => {
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: '8px',
-        transition: 'opacity 0.15s',
-        opacity: href ? 1 : 0.35,
-        cursor: href ? 'pointer' : 'default',
+        pointerEvents: 'auto',
+        position: 'relative',
+        zIndex: 2,
       }}
     >
       <svg
@@ -185,23 +180,46 @@ const OpenSourceSection = ({ projects = [] }) => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {projects.map(({ node }) => {
+          {projects.filter(({ node }) => node.frontmatter.github).map(({ node }) => {
             const { title, category, link, github } = node.frontmatter;
-            const isExternal = link && link.startsWith('http');
+            const CardLink = ({ children, ...props }) =>
+              github ? (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  {...props}
+                >
+                  {children}
+                </a>
+              ) : (
+                <span {...props}>{children}</span>
+              );
             return (
-              <OsCard
-                key={title}
-                href={link || '#'}
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noreferrer noopener' : undefined}
-              >
-                {/* GitHub icon — always shown, clicks open repo in new tab */}
-                <LogoWrapper>
+              <OsCard key={title} style={{ position: 'relative' }}>
+                <CardLink
+                  aria-label={`Learn more about ${title}`}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    textDecoration: 'none',
+                    zIndex: 0,
+                  }}
+                />
+
+                {/* GitHub icon — z-index above overlay, intercepts its own clicks */}
+                <LogoWrapper style={{ position: 'relative', zIndex: 1 }}>
                   <GitHubMark href={github} />
                 </LogoWrapper>
 
-                {/* Title + category */}
-                <Box gap="12px">
+                <Box
+                  gap="12px"
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    pointerEvents: 'none',
+                  }}
+                >
                   <Box direction="row" justify="between" align="center">
                     <Text
                       style={{

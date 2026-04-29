@@ -24,7 +24,7 @@ export const CarouselTrack = styled.div`
   will-change: transform;
 `;
 
-export const OsCard = styled.a`
+export const OsCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
   width: ${CARD_WIDTH}px;
   border: 1px solid #b1b9be;
@@ -33,13 +33,11 @@ export const OsCard = styled.a`
   flex-direction: column;
   gap: 40px;
   background: #ffffff;
-  cursor: pointer;
   text-decoration: none;
   transition: box-shadow 0.2s ease;
 
   &:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
   }
 `;
 
