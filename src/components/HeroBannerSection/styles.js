@@ -204,7 +204,9 @@ export const NavBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, opacity 0.2s;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
   background: ${({ isPrimary, isDark }) => {
     if (isPrimary) return '#292d3a';
     return isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.06)';

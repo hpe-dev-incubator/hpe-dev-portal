@@ -80,10 +80,8 @@ export const TypeBadge = styled.span`
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.2px;
-  background: ${({ type }) =>
-    type === 'Workshop' ? '#e8f4ee' : '#e8edf8'};
-  color: ${({ type }) =>
-    type === 'Workshop' ? '#1a7a45' : '#1a3a7a'};
+  background: ${({ type }) => (type === 'Workshop' ? '#e8f4ee' : '#e8edf8')};
+  color: ${({ type }) => (type === 'Workshop' ? '#1a7a45' : '#1a3a7a')};
   align-self: flex-start;
 `;
 
@@ -146,7 +144,9 @@ export const NavBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, opacity 0.15s;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
   background: ${({ isPrimary }) =>
     isPrimary ? '#292d3a' : 'rgba(0,0,0,0.06)'};
   color: ${({ isPrimary }) => (isPrimary ? '#ffffff' : '#292d3a')};

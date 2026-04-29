@@ -68,8 +68,20 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
             disabled={currentIndex === 0}
             aria-label="Previous stories"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M13 4L7 10L13 16" stroke="#292d3a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M13 4L7 10L13 16"
+                stroke="#292d3a"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </PrevButton>
 
@@ -78,8 +90,20 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
             disabled={currentIndex >= maxIndex}
             aria-label="Next stories"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M7 4L13 10L7 16" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M7 4L13 10L7 16"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </NextButton>
         </Box>
@@ -97,9 +121,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
                 : node.excerpt || '';
             const coverImg = thumbnailimage || authorimage || '';
-            const postDate = date
-              ? dateFormat.format(new Date(date))
-              : '';
+            const postDate = date ? dateFormat.format(new Date(date)) : '';
 
             return (
               <StoryCard key={slug}>

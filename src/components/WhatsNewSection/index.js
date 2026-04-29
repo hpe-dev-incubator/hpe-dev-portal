@@ -27,7 +27,13 @@ const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
 const MAX_WORKSHOPS = 2;
 
 const ArrowRight = ({ color = '#292d3a' }) => (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    aria-hidden="true"
+  >
     <path
       d="M3 9H15M9 3l6 6-6 6"
       stroke={color}
@@ -39,7 +45,13 @@ const ArrowRight = ({ color = '#292d3a' }) => (
 );
 
 const ChevronLeft = () => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    aria-hidden="true"
+  >
     <path
       d="M14 5L8 11L14 17"
       stroke="currentColor"
@@ -51,7 +63,13 @@ const ChevronLeft = () => (
 );
 
 const ChevronRight = () => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    aria-hidden="true"
+  >
     <path
       d="M8 5L14 11L8 17"
       stroke="currentColor"
@@ -85,7 +103,9 @@ const buildItems = (platformEdges, workshops) => {
         : w.description || '',
     image: w.workshopImg || '',
     date: w.updatedAt || w.createdAt || '2000-01-01',
-    link: w.replayId ? `/hackshack/workshop/${w.replayId}` : '/hackshack/workshops',
+    link: w.replayId
+      ? `/hackshack/workshop/${w.replayId}`
+      : '/hackshack/workshops',
     external: true,
   }));
 

@@ -109,7 +109,10 @@ const WorkshopsOnDemandSection = () => {
         setStories(pickWorkshops(wods));
       })
       .catch((err) => {
-        console.error('WorkshopsOnDemandSection: failed to load workshops', err);
+        console.error(
+          'WorkshopsOnDemandSection: failed to load workshops',
+          err,
+        );
       })
       .finally(() => setLoading(false));
   }, []);

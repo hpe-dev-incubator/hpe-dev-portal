@@ -163,7 +163,9 @@ export const NavBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, opacity 0.15s;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
   background: ${({ isPrimary }) =>
     isPrimary ? '#292d3a' : 'rgba(0,0,0,0.06)'};
   color: ${({ isPrimary }) => (isPrimary ? '#ffffff' : '#292d3a')};

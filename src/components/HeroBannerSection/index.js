@@ -153,11 +153,7 @@ const HeroBannerSection = () => {
             <Slide key={slide.id} bgColor={slide.bgColor}>
               {slide.bgImage && (
                 <>
-                  <SlideBgImage
-                    src={slide.bgImage}
-                    alt=""
-                    isDark={dark}
-                  />
+                  <SlideBgImage src={slide.bgImage} alt="" isDark={dark} />
                   <SlideBgOverlay isDark={dark} bgColor={slide.bgColor} />
                 </>
               )}
@@ -166,17 +162,11 @@ const HeroBannerSection = () => {
                 <SlideTitle isDark={dark}>{slide.title}</SlideTitle>
                 <SlideSubtitle isDark={dark}>{slide.subtitle}</SlideSubtitle>
                 <CTARow>
-                  <PrimaryBtn
-                    href={slide.cta1.href}
-                    isDark={dark}
-                  >
+                  <PrimaryBtn href={slide.cta1.href} isDark={dark}>
                     {slide.cta1.label}
                     <ArrowRight color={dark ? '#292d3a' : '#ffffff'} />
                   </PrimaryBtn>
-                  <GhostBtn
-                    href={slide.cta2.href}
-                    isDark={dark}
-                  >
+                  <GhostBtn href={slide.cta2.href} isDark={dark}>
                     {slide.cta2.label}
                     <ArrowRight color={dark ? '#ffffff' : '#292d3a'} />
                   </GhostBtn>

@@ -24,7 +24,10 @@ import {
   SlideCounter,
 } from './styles';
 
-const monthDay = Intl.DateTimeFormat('default', { month: 'long', day: 'numeric' });
+const monthDay = Intl.DateTimeFormat('default', {
+  month: 'long',
+  day: 'numeric',
+});
 const dayFmt = Intl.DateTimeFormat('default', { day: 'numeric' });
 const yearFmt = Intl.DateTimeFormat('default', { year: 'numeric' });
 
@@ -40,7 +43,13 @@ const formatEventDate = (dateStart, dateEnd) => {
 };
 
 const ArrowRight = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    aria-hidden="true"
+  >
     <path
       d="M3 8H13M8 3l5 5-5 5"
       stroke="currentColor"
@@ -52,14 +61,38 @@ const ArrowRight = () => (
 );
 
 const ChevronLeft = () => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-    <path d="M14 5L8 11L14 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M14 5L8 11L14 17"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const ChevronRight = () => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-    <path d="M8 5L14 11L8 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M8 5L14 11L8 17"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -72,11 +105,19 @@ const ComingEventsSection = ({ events = [] }) => {
   // Sort: upcoming first (ascending), then recent past (descending)
   const upcoming = events
     .filter((e) => new Date(e.node.frontmatter.dateStart) >= now)
-    .sort((a, b) => new Date(a.node.frontmatter.dateStart) - new Date(b.node.frontmatter.dateStart));
+    .sort(
+      (a, b) =>
+        new Date(a.node.frontmatter.dateStart) -
+        new Date(b.node.frontmatter.dateStart),
+    );
 
   const past = events
     .filter((e) => new Date(e.node.frontmatter.dateStart) < now)
-    .sort((a, b) => new Date(b.node.frontmatter.dateStart) - new Date(a.node.frontmatter.dateStart));
+    .sort(
+      (a, b) =>
+        new Date(b.node.frontmatter.dateStart) -
+        new Date(a.node.frontmatter.dateStart),
+    );
 
   const items = [...upcoming, ...past];
 
@@ -101,7 +142,8 @@ const ComingEventsSection = ({ events = [] }) => {
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {items.map(({ node }) => {
-            const { title, dateStart, dateEnd, category, image, link } = node.frontmatter;
+            const { title, dateStart, dateEnd, category, image, link } =
+              node.frontmatter;
             const isUpcoming = new Date(dateStart) >= now;
             const href = link || `/event${node.fields.slug}`;
             const isExternal = !!(link && link.startsWith('http'));
@@ -110,7 +152,9 @@ const ComingEventsSection = ({ events = [] }) => {
               <EventCard
                 key={node.fields.slug}
                 onClick={() =>
-                  isExternal ? window.open(href, '_blank', 'noreferrer') : (window.location.href = href)
+                  isExternal
+                    ? window.open(href, '_blank', 'noreferrer')
+                    : (window.location.href = href)
                 }
               >
                 <EventImageWrapper>
@@ -141,10 +185,20 @@ const ComingEventsSection = ({ events = [] }) => {
 
       <Controls>
         <NavBtnRow>
-          <NavBtn onClick={handlePrev} disabled={index === 0} isPrimary={false} aria-label="Previous">
+          <NavBtn
+            onClick={handlePrev}
+            disabled={index === 0}
+            isPrimary={false}
+            aria-label="Previous"
+          >
             <ChevronLeft />
           </NavBtn>
-          <NavBtn onClick={handleNext} disabled={index >= maxIndex} isPrimary aria-label="Next">
+          <NavBtn
+            onClick={handleNext}
+            disabled={index >= maxIndex}
+            isPrimary
+            aria-label="Next"
+          >
             <ChevronRight />
           </NavBtn>
         </NavBtnRow>
