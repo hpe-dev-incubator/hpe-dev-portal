@@ -4,6 +4,10 @@ date: 2026-05-04T08:51:01.344Z
 author: Andrea Fabrizi (AI Storage Solutions Product Manager)
 authorimage: /img/andrea-fabrizi.png
 disable: false
+tags:
+  - AI
+  - Storage
+  - HPE DEV
 ---
 <style>
 table {
