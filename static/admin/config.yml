@@ -209,6 +209,13 @@ collections:
         }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - {
+          label: 'GitHub Repository URL',
+          name: 'github',
+          widget: 'string',
+          required: false,
+          hint: 'Full GitHub URL, e.g. https://github.com/org/repo — shown as a clickable GitHub icon on the home page carousel',
+        }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Priority', name: 'priority', widget: 'number' }
       - {
@@ -477,7 +484,7 @@ collections:
           name: 'date',
           widget: 'datetime',
           required: false,
-          hint: 'date the platform was added or last significantly updated — used to determine order in the What''s New section',
+          hint: "date the platform was added or last significantly updated — used to determine order in the What's New section",
         }
       - {
           label: 'Tags',

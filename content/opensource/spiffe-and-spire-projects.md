@@ -7,5 +7,6 @@
           image: '/img/platforms/SPIFFEandSpire.svg'
           active: true
           Featured: true
+          github: 'https://github.com/spiffe/spire'
 ---
           

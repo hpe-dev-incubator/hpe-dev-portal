@@ -265,6 +265,7 @@ export const pageQuery = graphql`
             category
             description
             image
+            github
             frontpage
             priority
             link
