@@ -78,6 +78,8 @@ sudo docker compose run --rm otel-cli exec \
 
 Now open Jaeger at `http://<EC2-IP>:16686`, select service `opsramp-redfish-agent`, and click **Find Traces**. You should see a trace named `redfish.poll_cycle` with the attributes attached.
 
+![](/img/find-traces1.jpg)
+
 This confirms the entire trace path: `otel-cli → OTLP/gRPC → collector traces pipeline → Jaeger`.
 
 ### Test 2: Send a nested trace simulating the full poll hierarchy
@@ -108,6 +110,8 @@ done
 ```
 
 Open Jaeger and find the trace. You should see a waterfall with the parent `redfish.poll_cycle` span containing three child `poll.chassis` spans — exactly matching the structure the real agent produces.
+
+![](/img/find-traces2.jpg)
 
 ### Test 3: Send a test log record and verify it reaches the collector
 
@@ -146,6 +150,8 @@ for line in sys.stdin:
 ```
 
 Expected: All Redfish endpoints showing `UP ✓`. If any show DOWN, check that the emulator container is healthy.
+
+![](/img/promql1.jpg)
 
 ### Test 5: Verify collector pipeline counts
 
