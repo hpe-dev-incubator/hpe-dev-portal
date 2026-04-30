@@ -15,55 +15,39 @@ tags:
 ---
 ## Introduction
 
-Have you ever built an integration that receives webhook events, only to realize you have no way to verify the payload actually came from the source you trust — and not a malicious third party? Or perhaps you've needed to rotate your webhook secret without any downtime, leaving a window where events could be missed or rejected? Securing webhook endpoints is one of those challenges that looks simple on the surface but quickly becomes complex when you factor in authentication, payload integrity, key rotation, and endpoint verification.
+In this blog post, I'll walk you through how GreenLake webhook approaches webhook security end-to-end — from registering a webhook with HMAC-SHA256 signature verification, to supporting multiple authentication schemes (OAuth 2.0, API Key, and no-auth), to performing zero-downtime secret rotation using a dual-secret model. By the end, you'll have a clear understanding of how to register, authenticate, and verify webhooks securely, and how to rotate secrets in production without dropping a single event.
 
-In this blog post, I'll walk you through how HPE GreenLake Events API approaches webhook security end-to-end — from registering a webhook with HMAC-SHA256 signature verification, to supporting multiple authentication schemes (OAuth 2.0, API Key, and no-auth), to performing zero-downtime secret rotation using a dual-secret model. By the end, you'll have a clear understanding of how to register, authenticate, and verify webhooks securely, and how to rotate secrets in production without dropping a single event.
-
-## Table of Contents
-
-- [Setting Up Webhook Authentication on HPE GreenLake Events API](#setting-up-webhook-authentication-on-hpe-greenlake-events-api)
-- [Prerequisites](#prerequisites)
-- [Step 1 — Choose Your Authentication Type](#step-1--choose-your-authentication-type)
-- [Step 2 — Register a Webhook with HMAC Secret](#step-2--register-a-webhook-with-hmac-secret)
-- [Step 3 — Handle the Challenge Verification Request](#step-3--handle-the-challenge-verification-request)
-- [Step 4 — Register a Webhook with OAuth 2.0 Authentication](#step-4--register-a-webhook-with-oauth-20-authentication)
-- [Step 5 — Register a Webhook with API Key Authentication](#step-5--register-a-webhook-with-api-key-authentication)
-- [Step 6 — Verifying Payload Signatures on Every Delivery](#step-6--verifying-payload-signatures-on-every-delivery)
-- [Step 7 — Zero-Downtime Secret Rotation with secondarySecret](#step-7--zero-downtime-secret-rotation-with-secondarysecret)
-- [Step 8 — Manually Re-trigger Verification](#step-8--manually-re-trigger-verification)
-- [Summary](#summary)
-
-## Setting Up Webhook Authentication on HPE GreenLake Events API
+## Setting up webhook authentication on GreenLake webhooks
 
 ### Prerequisites
 
 Before you begin, make sure you have:
 
-1. An active HPE GreenLake account with a workspace
+1. An active GreenLake account with a workspace
 2. A publicly accessible HTTPS endpoint to receive webhook events (your destination URL)
 3. An access token for API authentication (obtained via the HPE GreenLake IAM service)
 4. curl or any HTTP client (Postman, etc.) for making API calls
 
-### Step 1 — Choose Your Authentication Type
+### Choose your authentication type
 
-The HPE GreenLake Events API supports three outbound authentication modes that control how the service authenticates itself when delivering events to your endpoint:
+GreenLake webhooks supports three outbound authentication modes that control how the service authenticates itself when delivering events to your endpoint:
 
 |   AuthType |  When to Use |
 |----------|-------------|
-| `""` (empty)   |     Your endpoint is open or handles auth independently |
 | `"APIKey"` | Your endpoint expects a static key in the Authorization header |
 | `"Oauth"` | Your endpoint is protected by an OAuth 2.0 client credentials flow |
+| `NoAuth` (empty) NotRecommended  |     Your endpoint is open or handles auth independently |
 
 > **Note:** Regardless of authType, all webhooks use HMAC-SHA256 signatures so your endpoint can verify payload integrity. authType only governs how the delivery service authenticates outbound requests to your URL.
 
-### Step 2 — Register a Webhook with HMAC Secret
+### Register a webhook with HMAC secret
 
-Every webhook requires a secret — a shared key used to compute HMAC-SHA256 signatures over event payloads. Your endpoint uses this secret to independently verify that each delivery is authentic.
+Every webhook requires a secret — a shared key used to compute HMAC-SHA256 signatures over event payloads. Your endpoint uses this secret to independently verify that each delivery is authentic. The webhook secret length can be from 4 characters to maximum 100 characters. Advised to choose a secret with special characters with good length like more than 20 characters.
 
 **Request:**
 
 ```bash
-curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks \
+curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/webhooks \
   -H "Authorization: Bearer <your-access-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -80,6 +64,7 @@ curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wor
 - **secret** — Your HMAC signing key. Store this securely; it is encrypted at rest using AES-CBC on the server side and never returned in plain text after creation.
 - **challengeRequestEnabled** — When true (the default), the service immediately sends a challenge verification request to your destination URL to confirm it is reachable and correctly configured before activating the webhook.
 - **destination** — Must be an HTTPS URL. Private/internal IP ranges are blocked.
+- **NOTE** — Imagine the already registration destination later resolves to private IPs during delivery of events, the events will be dropped. Ensure to keep the domain name always resolves to public IP.
 
 **Successful response (201 Created):**
 
@@ -89,15 +74,15 @@ curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wor
   "name": "my-webhook",
   "destination": "https://your-endpoint.example.com/events",
   "authType": "",
-  "status": "pending_verification",
+  "status": "pending",
   "challengeRequestEnabled": true,
   "createdAt": "2026-04-20T10:00:00Z"
 }
 ```
 
-### Step 3 — Handle the Challenge Verification Request
+### Handling the challenge verification request
 
-When `challengeRequestEnabled` is true, the service immediately sends a CloudEvents-formatted verification request to your destination URL. Your endpoint must respond correctly or the webhook will remain in `pending_verification` status and no events will be delivered.
+When `challengeRequestEnabled` is true, the service immediately sends a CloudEvents-formatted verification request to your destination URL. Your endpoint must respond correctly or the webhook will remain in `pending` status and no events will be delivered.
 
 **What your endpoint receives (POST):**
 
@@ -159,12 +144,12 @@ def compute_hmac(data: str, secret: str) -> str:
 
 Once the service receives a matching HMAC response, the webhook status transitions to **active** and event delivery begins.
 
-### Step 4 — Register a Webhook with OAuth 2.0 Authentication
+### Register a webhook with OAuth 2.0 authentication
 
 If your endpoint is protected by OAuth 2.0, provide the client credentials so the service can obtain a bearer token before each delivery batch:
 
 ```bash
-curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks \
+curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/webhooks \
   -H "Authorization: Bearer <your-access-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -184,12 +169,12 @@ curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wor
 3. The `clientSecret` is encrypted at rest using AES-CBC — it is never stored in plain text.
 4. On delivery, the request to your endpoint includes: `Authorization: Bearer <access_token>`
 
-### Step 5 — Register a Webhook with API Key Authentication
+### Register a webhook with API key authentication
 
 For simpler endpoints that use a static API key:
 
 ```bash
-curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks \
+curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/webhooks \
   -H "Authorization: Bearer <your-access-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -205,7 +190,7 @@ curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wor
 - The `apiKey` value is sent as `Authorization: <api-key-value>` on every delivery request.
 - The `apiKey` is encrypted at rest using AES-CBC.
 
-### Step 6 — Verifying Payload Signatures on Every Delivery
+### Verifying payload signatures on every delivery
 
 Beyond challenge verification, every event delivery is signed with HMAC-SHA256. Your endpoint should always validate the signature on incoming requests to guard against spoofed payloads.
 
@@ -229,14 +214,14 @@ func isValidSignature(payload []byte, receivedSig, secret string) bool {
 
 > **Security tip:** Always use a constant-time comparison (e.g., `hmac.Equal` in Go, `hmac.compare_digest` in Python) to prevent timing side-channel attacks.
 
-### Step 7 — Zero-Downtime Secret Rotation with secondarySecret
+### Zero-Downtime secret rotation with secondarySecret
 
 When you need to rotate your HMAC secret without dropping events, use the dual-secret model:
 
-#### Phase 1 — Add the new secret as secondarySecret:
+#### Add the new secret as secondarySecret:
 
 ```bash
-curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks/{webhookId} \
+curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/webhooks/{webhookId} \
   -H "Authorization: Bearer <your-access-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -244,12 +229,12 @@ curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wo
   }'
 ```
 
-During this phase, the service accepts challenge/HMAC responses signed with either the old primary secret or the new secondary secret. Deploy your endpoint changes to start accepting both.
+During this phase, the service accepts challenge/HMAC responses signed with both the old primary secret and the new secondary secret. Deploy your endpoint changes to start accepting both. First it will validate primary if its not valid then it will fallback to new secondary.
 
-#### Phase 2 — Promote the new secret to primary:
+#### Promote the new secret to primary:
 
 ```bash
-curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks/{webhookId} \
+curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/webhooks/{webhookId} \
   -H "Authorization: Bearer <your-access-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -260,20 +245,20 @@ curl -X PATCH https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{wo
 
 Once `secondarySecret` is cleared, only the new primary secret is accepted. The old secret is fully retired with zero downtime and no missed events.
 
-### Step 8 — Manually Re-trigger Verification
+### Manually retrigger verification
 
-If your endpoint was temporarily unavailable during initial registration, you can manually re-trigger the challenge verification at any time:
+If your endpoint was temporarily unavailable during initial registration, you can manually retrigger the challenge verification at any time:
 
 ```bash
-curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/workspaces/{workspaceId}/webhooks/{webhookId}/verify \
+curl -X POST https://global.api.greenlake.hpe.com/events/v1beta1/webhooks/{webhookId}/verify \
   -H "Authorization: Bearer <your-access-token>"
 ```
 
-This re-sends the challenge CloudEvent to your destination URL and transitions the webhook back to **active** upon success.
+This resends the challenge CloudEvent to your destination URL and transitions the webhook back to **active** upon success.
 
 ## Summary
 
-### Key Takeaways
+### Key takeaways
 
 Securing webhooks isn't just about locking the front door — it's about verifying who's knocking, confirming the message wasn't tampered with, and being able to change the locks without anyone noticing. Here's what we covered:
 
@@ -284,4 +269,4 @@ Securing webhooks isn't just about locking the front door — it's about verifyi
 - **Zero-downtime secret rotation** is a first-class feature: use `secondarySecret` to run old and new keys in parallel, then promote and retire cleanly.
 - **Always use constant-time comparison** (`hmac.Equal`, `hmac.compare_digest`) when validating signatures on your endpoint to prevent timing attacks.
 
-Webhook security done right protects your integrations, your customers, and your data. With HPE GreenLake Events API, the building blocks are already there — you just need to wire them up correctly.
+Webhook security done right protects your integrations, your customers, and your data. With GreenLake webhooks, the building blocks are already there — you just need to wire them up correctly.
