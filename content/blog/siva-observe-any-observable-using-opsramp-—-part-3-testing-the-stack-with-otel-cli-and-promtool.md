@@ -15,11 +15,11 @@ disable: false
 
 ## Introduction
 
-In Part 2, I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal loads. Before connecting HPE OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
+In [Part 2](https://developer.hpe.com/blog/siva-observe-any-observable-using-opsramp-%E2%80%94-part-2-setting-up-the-stack/), I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal loads. Before connecting HPE OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
 
-In this article I introduce two tools that belong in every observability engineer's toolkit: `otel-cli` for injecting OTel signals directly into the Collector without writing application code, and `promtool` for validating Prometheus configuration and running PromQL queries against live data. Used together, they let me test the entire signal pipeline — from emission to storage to query — before a single line of agent code runs.
+In this article I introduce two tools that belong in every observability engineer's toolkit: [`otel-cli`](https://github.com/equinix-labs/otel-cli) for injecting  OpenTelemetry (OTel) signals signals directly into the Collector without writing application code, and [`promtool`](https://prometheus.io/docs/prometheus/latest/command-line/promtool/) for validating Prometheus configuration and running PromQL queries against live data. Used together, they let me test the entire signal pipeline — from emission to storage to query — before a single line of agent code runs.
 
-Both tools run as Docker containers in the same network as the stack, making them frictionless to add for testing and easy to remove when not needed.
+Both tools run as Docker containers in the same network as the stack, making them frictionless to add for testing and easy to remove when not required.
 
 ---
 
@@ -61,9 +61,9 @@ The `profiles: ["tools"]` declaration means `docker compose up -d` will never st
 
 ## Testing with otel-cli: Injecting signals without code
 
-`otel-cli` is a command-line tool for generating OpenTelemetry signals — spans, metrics, and logs — directly from the shell. It uses the same OTLP protocol as any OTel SDK, so signals it sends are indistinguishable from application-generated signals from the collector's perspective.
+`otel-cli` is a command-line tool for generating OpenTelemetry signals — spans, metrics, and logs — directly from the shell. It uses the same OTLP protocol as any OTel SDK, so the signals it sends are indistinguishable from application-generated signals from the collector's perspective.
 
-This makes it ideal for two testing purposes: confirming that the collector receives and routes signals correctly, and generating known test data for validating downstream systems like Jaeger.
+This makes it ideal for two testing purposes: confirming that the collector receives and routes signals correctly, and generating known test data for validating downstream systems like [Jaeger](https://github.com/jaegertracing/jaeger).
 
 ### Test 1: Send a test span and verify it appears in Jaeger
 
@@ -176,7 +176,7 @@ You should see non-zero counts for the receivers (spans/metrics/logs received) a
 
 ### Test 1: Validate prometheus.yml syntax
 
-Always validate configuration before restarting Prometheus.
+Always validate the configuration before restarting Prometheus.
 
 ```bash
 # Validate configuration file
@@ -334,7 +334,7 @@ The zpages interface at `http://<EC2-IP>:55679` is particularly useful during li
 
 ## Conclusion and what comes next
 
-I now have a fully verified pipeline with two powerful testing tools integrated into the stack. I can inject arbitrary OTel signals without writing application code, validate Prometheus configuration before applying it, and run PromQL queries to confirm data is reaching storage correctly.
+I now have a fully verified the pipeline with two powerful testing tools integrated into the stack. I can inject arbitrary OTel signals without writing application code, validate Prometheus configuration before applying it, and run PromQL queries to confirm data is reaching storage correctly.
 
 More importantly, I have separated concerns cleanly: the local stack works correctly in isolation, tested independently of HPE OpsRamp. This means that when I connect HPE OpsRamp in the next articles, I know exactly what the pipeline delivers and any issues are isolated to the HPE OpsRamp integration layer.
 
