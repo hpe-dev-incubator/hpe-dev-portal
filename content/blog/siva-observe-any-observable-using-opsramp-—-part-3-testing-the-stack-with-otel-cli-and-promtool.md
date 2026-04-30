@@ -1,21 +1,21 @@
 ---
-title: "Observe any observable using OpsRamp — Part 3: Testing the stack with
-  otel-cli and promtool"
+title: "Observe any observable using HPE OpsRamp — Part 3: Testing the stack
+  with otel-cli and promtool"
 date: 2026-03-30T13:12:00.301Z
 featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
 ---
-# Observe any observable using OpsRamp — Part 3: Testing the stack with otel-cli and promtool
 
-*Part 3 of a series on vendor-neutral observability with OpsRamp and OpenTelemetry*
+
+*Part 3 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 
 ---
 
 ## Introduction
 
-In Part 2, I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal load. Before connecting OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
+In Part 2, I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal load. Before connecting HPE OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
 
 In this article I introduce two tools that belong in every observability engineer's toolkit: `otel-cli` for injecting OTel signals directly into the Collector without writing application code, and `promtool` for validating Prometheus configuration and running PromQL queries against live data. Together they let me test the entire signal pipeline — from emission to storage to query — before a single line of agent code runs.
 
@@ -336,6 +336,6 @@ The zpages interface at `http://<EC2-IP>:55679` is particularly useful during li
 
 I now have a fully verified pipeline with two powerful testing tools integrated into the stack. I can inject arbitrary OTel signals without writing application code, validate Prometheus configuration before applying it, and run PromQL queries to confirm data is reaching storage correctly.
 
-More importantly, I have separated concerns cleanly: the local stack works correctly in isolation, tested independently of OpsRamp. This means that when I connect OpsRamp in the next articles, I know exactly what the pipeline delivers and any issues are isolated to the OpsRamp integration layer.
+More importantly, I have separated concerns cleanly: the local stack works correctly in isolation, tested independently of HPE OpsRamp. This means that when I connect HPE OpsRamp in the next articles, I know exactly what the pipeline delivers and any issues are isolated to the HPE OpsRamp integration layer.
 
-In Part 4, I will write the Python instrumentation code — the OTel agent that polls Redfish and produces real per-chassis metrics — and configure the Prometheus `remote_write` path to push those metrics into OpsRamp. The critical design decision in Part 4 is the resource association mechanism: how every metric carries `type="RESOURCE"` and `uuid="<resourceUUID>"` so OpsRamp can link signals to their managed resources.
+In Part 4, I will write the Python instrumentation code — the OTel agent that polls Redfish and produces real per-chassis metrics — and configure the Prometheus `remote_write` path to push those metrics into HPE OpsRamp. The critical design decision in Part 4 is the resource association mechanism: how every metric carries `type="RESOURCE"` and `uuid="<resourceUUID>"` so HPE OpsRamp can link signals to their managed resources.
