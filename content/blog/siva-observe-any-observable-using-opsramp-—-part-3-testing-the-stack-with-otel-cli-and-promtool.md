@@ -15,9 +15,9 @@ disable: false
 
 ## Introduction
 
-In Part 2, I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal load. Before connecting HPE OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
+In Part 2, I built and verified the local observability stack — five containers running cleanly with health checks passing. But verifying that a component is healthy is not the same as verifying that it behaves correctly under realistic signal loads. Before connecting HPE OpsRamp and writing any Python instrumentation code, I want to test every part of the pipeline using purpose-built command-line tools.
 
-In this article I introduce two tools that belong in every observability engineer's toolkit: `otel-cli` for injecting OTel signals directly into the Collector without writing application code, and `promtool` for validating Prometheus configuration and running PromQL queries against live data. Together they let me test the entire signal pipeline — from emission to storage to query — before a single line of agent code runs.
+In this article I introduce two tools that belong in every observability engineer's toolkit: `otel-cli` for injecting OTel signals directly into the Collector without writing application code, and `promtool` for validating Prometheus configuration and running PromQL queries against live data. Used together, they let me test the entire signal pipeline — from emission to storage to query — before a single line of agent code runs.
 
 Both tools run as Docker containers in the same network as the stack, making them frictionless to add for testing and easy to remove when not needed.
 
@@ -31,7 +31,7 @@ I add both tools to `docker-compose.yml` using Docker Compose profiles. A profil
 # Add to docker-compose.yml services section
 
   # otel-cli: Inject OTel spans, metrics, and logs directly via command line
-  # Useful for testing the Collector pipeline without application code
+  # Useful for testing the collector pipeline without application code
   # Reference: https://github.com/equinix-labs/otel-cli
   otel-cli:
     image: ghcr.io/equinix-labs/otel-cli:latest
@@ -61,9 +61,9 @@ The `profiles: ["tools"]` declaration means `docker compose up -d` will never st
 
 ## Testing with otel-cli: Injecting signals without code
 
-`otel-cli` is a command-line tool for generating OpenTelemetry signals — spans, metrics, and logs — directly from the shell. It uses the same OTLP protocol as any OTel SDK, so signals it sends are indistinguishable from application-generated signals from the Collector's perspective.
+`otel-cli` is a command-line tool for generating OpenTelemetry signals — spans, metrics, and logs — directly from the shell. It uses the same OTLP protocol as any OTel SDK, so signals it sends are indistinguishable from application-generated signals from the collector's perspective.
 
-This makes it ideal for two testing purposes: confirming that the Collector receives and routes signals correctly, and generating known test data for validating downstream systems like Jaeger.
+This makes it ideal for two testing purposes: confirming that the collector receives and routes signals correctly, and generating known test data for validating downstream systems like Jaeger.
 
 ### Test 1: Send a test span and verify it appears in Jaeger
 
@@ -80,7 +80,7 @@ sudo docker compose run --rm otel-cli exec \
 
 Now open Jaeger at `http://<EC2-IP>:16686`, select service `opsramp-redfish-agent`, and click **Find Traces**. You should see a trace named `redfish.poll_cycle` with the attributes attached.
 
-This confirms the entire trace path: `otel-cli → OTLP/gRPC → Collector traces pipeline → Jaeger`.
+This confirms the entire trace path: `otel-cli → OTLP/gRPC → collector traces pipeline → Jaeger`.
 
 ### Test 2: Send a nested trace simulating the full poll hierarchy
 
@@ -111,7 +111,7 @@ done
 
 Open Jaeger and find the trace. You should see a waterfall with the parent `redfish.poll_cycle` span containing three child `poll.chassis` spans — exactly matching the structure the real agent produces.
 
-### Test 3: Send a test log record and verify it reaches the Collector
+### Test 3: Send a test log record and verify it reaches the collector
 
 ```bash
 # Send a log record simulating a Redfish hardware event
@@ -122,7 +122,7 @@ sudo docker compose run --rm otel-cli log \
   --attrs "host.name=Chassis-1,type=RESOURCE,redfish.event.severity=Warning,redfish.event.origin=/redfish/v1/Chassis/Chassis-1/Thermal"
 ```
 
-Verify the log reached the Collector:
+Verify the log reached the collector:
 
 ```bash
 sudo docker logs otel-collector 2>&1 | grep -i "temperature\|Chassis-1" | tail -5
@@ -151,7 +151,7 @@ Expected: All Redfish endpoints showing `UP ✓`. If any show DOWN, check that t
 
 ### Test 5: Verify collector pipeline counts
 
-After running the tests above, use the zpages API to confirm the Collector counted the signals.
+After running the tests above, use the zpages API to confirm the collector counted the signals.
 
 ```bash
 # Fetch pipeline stats in text form
@@ -258,12 +258,12 @@ sudo docker compose run --rm \
   check rules /test-rules.yml
 ```
 
-### Test 5: Confirm the Collector self-metrics are scraping
+### Test 5: Confirm the collector self-metrics are scraping
 
-The Collector exposes its own internal metrics on port 8888. Prometheus scrapes these via the `prometheus/self` receiver. Verify they are queryable.
+The collector exposes its own internal metrics on port 8888. Prometheus scrapes these via the `prometheus/self` receiver. Verify they are queryable.
 
 ```bash
-# Check Collector uptime is being tracked
+# Check collector uptime is being tracked
 curl -s "http://localhost:9090/api/v1/query" \
   --data-urlencode 'query=redfish_otelcol_process_uptime_seconds' | \
   python3 -c "
@@ -272,7 +272,7 @@ d=json.load(sys.stdin)
 r=d['data']['result']
 if r:
     uptime=float(r[0]['value'][1])
-    print(f'Collector uptime: {uptime:.0f}s ({uptime/60:.1f} min)')
+    print(f'collector uptime: {uptime:.0f}s ({uptime/60:.1f} min)')
 else:
     print('No uptime metric — check prometheus/self receiver')
 "
@@ -328,7 +328,7 @@ The zpages interface at `http://<EC2-IP>:55679` is particularly useful during li
 
 **`/debug/tracez`** — Shows recently sampled traces. After the otel-cli span tests, you should see `redfish.poll_cycle` and `e2e.test.span` entries here.
 
-**`/debug/servicez`** — Shows Collector version and all active extensions. Confirms that `zpages` and `health_check` extensions are running.
+**`/debug/servicez`** — Shows collector version and all active extensions. Confirms that `zpages` and `health_check` extensions are running.
 
 ---
 
