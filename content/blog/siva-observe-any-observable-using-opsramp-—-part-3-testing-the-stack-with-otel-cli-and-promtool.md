@@ -7,11 +7,9 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
 ---
-
-
 *Part 3 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 
----
+- - -
 
 ## Introduction
 
@@ -21,7 +19,7 @@ In this article I introduce two tools that belong in every observability enginee
 
 Both tools run as Docker containers in the same network as the stack, making them frictionless to add for testing and easy to remove when not required.
 
----
+- - -
 
 ## Adding the testing tools to Docker Compose
 
@@ -57,7 +55,7 @@ I add both tools to `docker-compose.yml` using Docker Compose profiles. A profil
 
 The `profiles: ["tools"]` declaration means `docker compose up -d` will never start these containers. They are invoked with `docker compose run` which starts them, runs the command, and exits.
 
----
+- - -
 
 ## Testing with otel-cli: Injecting signals without code
 
@@ -168,7 +166,7 @@ for kind, count in counts[:10]:
 
 You should see non-zero counts for the receivers (spans/metrics/logs received) and exporters (forwarded to Prometheus, Jaeger, etc.).
 
----
+- - -
 
 ## Testing with promtool: Validating Prometheus configuration
 
@@ -278,7 +276,7 @@ else:
 "
 ```
 
----
+- - -
 
 ## A complete end-to-end pipeline test
 
@@ -318,7 +316,7 @@ echo ""
 echo "=== Pipeline test complete ==="
 ```
 
----
+- - -
 
 ## What to check in the zpages UI during the demo
 
@@ -330,7 +328,7 @@ The zpages interface at `http://<EC2-IP>:55679` is particularly useful during li
 
 **`/debug/servicez`** — Shows collector version and all active extensions. Confirms that `zpages` and `health_check` extensions are running.
 
----
+- - -
 
 ## Conclusion and what comes next
 
@@ -338,4 +336,10 @@ I now have a fully verified the pipeline with two powerful testing tools integra
 
 More importantly, I have separated concerns cleanly: the local stack works correctly in isolation, tested independently of HPE OpsRamp. This means that when I connect HPE OpsRamp in the next articles, I know exactly what the pipeline delivers and any issues are isolated to the HPE OpsRamp integration layer.
 
-In Part 4, I will write the Python instrumentation code — the OTel agent that polls Redfish and produces real per-chassis metrics — and configure the Prometheus `remote_write` path to push those metrics into HPE OpsRamp. The critical design decision in Part 4 is the resource association mechanism: how every metric carries `type="RESOURCE"` and `uuid="<resourceUUID>"` so HPE OpsRamp can link signals to their managed resources.
+In Part 4, I will write the Python instrumentation code — the OTel agent that polls Redfish and produces real per-chassis metrics — and configure the Prometheus `remote_write` path to push those metrics into HPE OpsRamp. The critical design decision in Part 4 is the resource association mechanism: how every metric carries `type="RESOURCE"` and `uuid="<resourceUUID>"` so HPE OpsRamp can link signals to their managed resources.\
+\
+<!--StartFragment-->
+
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more insights on [HPE OpsRamp](https://www.hpe.com/us/en/opsramp.html) (Hybrid Cloud Observability) and practical ideas to apply it in your daily operations.
+
+<!--EndFragment-->
