@@ -11,6 +11,7 @@ tags:
   - events
   - integrity
   - verification
+  - GreenLake
 ---
 ## Introduction
 
