@@ -1,7 +1,7 @@
 ---
 title: "Observe any observable using HPE OpsRamp — Part 3: Testing the stack
   with otel-cli and promtool"
-date: 2026-03-30T13:12:00.301Z
+date: 2026-05-04T13:12:00.301Z
 featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
