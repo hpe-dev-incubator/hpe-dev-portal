@@ -1,6 +1,6 @@
 ---
 title: GreenLake Webhook authentication mechanism for security and recommendations
-date: 2026-04-27T07:20:58.618Z
+date: 2026-05-04T12:21:04.521Z
 priority: 0
 author: "Santhosh S and Chethan B "
 authorimage: /img/santhosh.png
