@@ -1,6 +1,5 @@
 ---
-title: GreenLake Platform Webhook authentication mechanism for security and
-  recommendations
+title: GreenLake Webhook authentication mechanism for security and recommendations
 date: 2026-04-27T07:20:58.618Z
 priority: 0
 author: "Santhosh S and Chethan B "
