@@ -770,3 +770,71 @@ collections:
           field: { label: 'Tag', name: 'tag', widget: 'string' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Topic collection
+  - name: 'topic'
+    label: 'Topics'
+    label_singular: 'Topic'
+    folder: 'content/topic'
+    extension: 'md'
+    create: true
+    publish: false
+    slug: '{{slug}}'
+    preview_path: '/topic/{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          hint: 'Short description displayed on the topic page.',
+        }
+      - {
+          label: 'Keyword',
+          name: 'keyword',
+          widget: 'string',
+          hint: 'Display name used in headings and CTAs.',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          hint: 'Tags used to aggregate matching blogs, events, and platforms onto this topic page.',
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
+      - {
+          label: 'CTA Button Label',
+          name: 'ctaLabel',
+          widget: 'string',
+          required: false,
+          hint: 'Label for the primary call-to-action button.',
+        }
+      - {
+          label: 'CTA Button Link',
+          name: 'ctaLink',
+          widget: 'string',
+          required: false,
+          hint: 'URL for the primary call-to-action button.',
+        }
+      - {
+          label: 'Learn More Link',
+          name: 'learnMoreLink',
+          widget: 'string',
+          required: false,
+          hint: 'External URL for the secondary Learn more link.',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'Controls the order in the Topics dropdown (lower = first).',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          default: true,
+          hint: 'Selecting true shows this topic in the nav dropdown.',
+        }

@@ -30,6 +30,7 @@ function Header() {
   const platforms = data?.platform?.edges;
   const opensource = data?.opensource?.edges;
   const greenlake = data?.greenlake?.edges;
+  const topics = data?.topic?.edges;
 
   const GreenLakeButtonLinks = ({ column }) => {
     /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
@@ -129,6 +130,35 @@ function Header() {
     });
   };
 
+  const TopicDropContent = () => {
+    if (!topics || topics.length === 0) return null;
+    return (
+      <TextAlignLeft>
+        {topics.map((t, index) => {
+          const { slug } = t.node.fields;
+          const { title } = t.node.frontmatter;
+          return (
+            <ButtonLink
+              key={index}
+              label={title}
+              to={`/topic${slug}`}
+              alignSelf="start"
+              fill="horizontal"
+            />
+          );
+        })}
+        <Box border={{ side: 'top', color: 'border' }} margin={{ vertical: 'xsmall' }} />
+        <ButtonLink
+          key="all-topics"
+          label="All Topics"
+          to="/topics"
+          alignSelf="start"
+          fill="horizontal"
+        />
+      </TextAlignLeft>
+    );
+  };
+
   const handleHPESignIn = () => {
     let redirectURI =
       typeof window !== 'undefined'
@@ -179,6 +209,15 @@ function Header() {
     //   label="HPE GreenLake"
     //   to="/platform/hpe-greenlake/home"
     // />,
+    <DropButton
+      key="tp"
+      label="Topics"
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={<TopicDropContent />}
+    />,
     <DropButton
       label="HPE GreenLake cloud"
       align="start"

@@ -150,6 +150,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
   const roleTemplate = path.resolve('./src/templates/role.js');
   const useCasesTemplate = path.resolve('./src/templates/use-case.js');
+  const topicTemplate = path.resolve('./src/templates/topic.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult = await graphql(
@@ -412,13 +413,19 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'use-cases') {
           const { sourceInstanceName, slug } = post.node.fields;
-          // console.log(
-          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          // );
-          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: useCasesTemplate,
+            context: {
+              slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'topic') {
+          const { slug } = post.node.fields;
+          createPage({
+            path: `/topic${slug}`,
+            component: topicTemplate,
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
@@ -488,6 +495,48 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 // Filter the events based on the end date
 exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes(`
+    type TopicVideo {
+      id: String
+      title: String
+    }
+    type MarkdownRemarkFrontmatter {
+      ctaLabel: String
+      ctaLink: String
+      learnMoreLink: String
+      keyword: String
+      videos: [TopicVideo]
+    }
+  `);
+  actions.createTypes([
+    schema.buildObjectType({
+      name: 'MarkdownRemark',
+      interfaces: ['Node'],
+      fields: {
+        isUpcoming: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date(source.frontmatter.dateEnd) > new Date() &&
+            !(
+              new Date() >= new Date(source.frontmatter.dateStart) &&
+              new Date() <= new Date(source.frontmatter.dateEnd)
+            ),
+        },
+        isOngoing: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date() >= new Date(source.frontmatter.dateStart) &&
+            new Date() <= new Date(source.frontmatter.dateEnd),
+        },
+        isPast: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date(source.frontmatter.dateEnd) < new Date(),
+        },
+      },
+    }),
+  ]);
+};
   actions.createTypes([
     schema.buildObjectType({
       name: 'MarkdownRemark',
