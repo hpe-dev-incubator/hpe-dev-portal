@@ -13,6 +13,8 @@ tags:
   - okta
   - aruba
   - hpe-greenlake
+  - tutorial
+  - networking
 ---
 Aruba Central has gone GREEN…GreenLake that is! Aruba Central has recently been integrated into the HPE GreenLake Cloud Platform (GLCP). This provides IT administrators with the ability to view and orchestrate critical network services, such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure. GLCP also supports Single Sign On (SSO) which helps simplify account management.
 

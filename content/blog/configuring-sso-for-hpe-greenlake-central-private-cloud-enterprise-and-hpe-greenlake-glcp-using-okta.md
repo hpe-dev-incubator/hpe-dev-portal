@@ -14,6 +14,7 @@ tags:
   - okta
   - Active Directory
   - hpe-greenlake
+  - tutorial
 ---
 <style>
 li {

@@ -8,12 +8,8 @@ disable: true
 tags:
   - opensource
   - Workshops-on-Demand
+  - tutorial
 ---
-
-
-
-
-
 
 
 

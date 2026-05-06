@@ -8,7 +8,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - HPE Private Cloud AI
+  - hpe-private-cloud-ai
   - Kubernetes
   - Role-based Access Control
   - ClusterRole
@@ -16,6 +16,7 @@ tags:
   - Aggregated ClusterRole
   - RoleBinding
   - Jupyter Notebook
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

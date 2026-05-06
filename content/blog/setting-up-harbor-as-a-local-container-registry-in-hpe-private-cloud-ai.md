@@ -13,6 +13,7 @@ tags:
   - Local Container Registry
   - Docker
   - hpe-private-cloud-ai
+  - tutorial
 ---
 
 

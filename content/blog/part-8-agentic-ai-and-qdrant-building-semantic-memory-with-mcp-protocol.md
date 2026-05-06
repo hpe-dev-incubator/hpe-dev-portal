@@ -8,6 +8,7 @@ tags:
   - MCP
   - Agentic AI
   - Generative AI
+  - tutorial
 ---
 <style>
 li {

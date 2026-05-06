@@ -7,13 +7,14 @@ disable: false
 tags:
   - hpegl
   - PCE
-  - Morpheus
-  - GreenLake
+  - morpheus
+  - hpe-greenLake
   - HCL
   - Terraform
   - OpenTofu
   - VMaaS
   - hpe-greenlake-for-private-cloud-enterprise
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

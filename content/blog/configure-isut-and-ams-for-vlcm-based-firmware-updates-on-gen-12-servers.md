@@ -11,6 +11,7 @@ tags:
   - COM4VC
   - hpe-oneview
   - HPE Gen12
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

@@ -12,6 +12,7 @@ tags:
   - Kubernetes monitoring
   - HPE GreenLake for Private Cloud Enterprise
   - hpe-greenlake-for-private-cloud-enterprise
+  - tutorial
 ---
 ### Introduction
 

@@ -9,6 +9,7 @@ tags:
   - hpe-greenlake
   - hpe-greenlake-platform
   - API
+  - tutorial
 ---
 **Editor's note:** This blog post series may refer to older release of the HPE GreenLake platform APIs. For information about the current release of the HPE GreenLake service APIs, please visit the [HPE GreenLake API catalog](https://developer.greenlake.hpe.com/docs/greenlake/services/).
 

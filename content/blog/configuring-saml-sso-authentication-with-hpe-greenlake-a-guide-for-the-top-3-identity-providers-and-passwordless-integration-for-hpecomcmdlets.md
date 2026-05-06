@@ -10,5 +10,6 @@ tags:
   - sso
   - GreenLake
   - PowerShell
+  - tutorial
 ---
 NONE

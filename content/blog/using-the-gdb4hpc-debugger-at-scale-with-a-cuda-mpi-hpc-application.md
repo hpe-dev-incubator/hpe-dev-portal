@@ -14,6 +14,7 @@ tags:
   - CPE
   - cray
   - hpe-cray-programming-environment
+  - tutorial
 ---
 Command line debuggers for Linux have existed for decades. The GNU debugger (gdb) is the most famous and arguably the most powerful. But gdb has a weakness when it comes to high performance computing (HPC) applications - it can only run on one system at a time. A typical HPC application runs tens of thousands of processes on thousands of systems at once! Classic debuggers like gdb were never designed for that.
 

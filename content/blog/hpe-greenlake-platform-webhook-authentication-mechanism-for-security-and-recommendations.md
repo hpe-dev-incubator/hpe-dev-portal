@@ -12,6 +12,7 @@ tags:
   - integrity
   - verification
   - hpe-greenlake
+  - tutorial
 ---
 ## Introduction
 
