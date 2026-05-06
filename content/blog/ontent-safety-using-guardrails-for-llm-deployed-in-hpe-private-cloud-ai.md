@@ -1,6 +1,6 @@
 ---
 title: Content Safety using Guardrails for LLM deployed in HPE Private cloud AI
-date: 2026-04-24T05:43:33.926Z
+date: 2026-05-05T05:43:00.000Z
 author: Thirukkannan M
 authorimage: /img/thirupp.jpg
 disable: false
@@ -13,25 +13,25 @@ Large Language Models (LLMs) are used extensively to automate complex language-b
 
 AI guardrails are security and governance frameworks that define boundaries for AI models, preventing hallucinations, harmful content, and bias while ensuring data privacy. Popular tools include NVIDIA NeMo Guardrails, Guardrails AI, and Amazon Bedrock Guardrails, which provide input sanitization, output filtering, and regulatory compliance for LLMs.
 
-The NVIDIA NeMo Guardrails library is an open-source Python package for adding programmable guardrails to LLM-based applications. Guardrails make your LLM-based application safer and more secure by blocking inappropriate, off-topic or malicious user inputs or LLM responses.
+The[ NVIDIA NeMo Guardrails library](https://github.com/NVIDIA-NeMo/Guardrails) is an open-source Python package for adding programmable guardrails to LLM-based applications. Guardrails make your LLM-based application safer and more secure by blocking inappropriate, off-topic or malicious user inputs or LLM responses.
 
 This blog post walks through how we can deploy LLM and content safety models in HPE Private cloud AI.
 
 **HPE Private Cloud AI**
 
-HPE Private Cloud AI (HPE PCAI) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA Inference Microservices (NIM) LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
+[HPE Private Cloud AI](https://www.hpe.com/us/en/private-cloud-ai.html) (HPE PCAI) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/) LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
 
-HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models.
+[HPE Machine Learning Inference Software (MLIS)](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=MLIS/mlis.html) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models.
 
-HPE AI Essentials (AIE) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. 
+[HPE AI Essentials (AIE) Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us) is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. 
 
 ![AI Essentials](/img/1_tools.jpg "AI Essentials")
 
 Steps to implement guardrails for LLM deployment in HPE Private cloud AI
 
-1. Deploy an LLM and content safety models with MLIS in Private cloud AI
+1. Deploy an LLM and content safety models with MLIS in Private cloud AI. Sign in to HPE AI Essentials Software as Private Cloud AI Administrator.
 
-* HPE MLIS is accessed by clicking on **HPE MLIS** tile in **Tools & Frameworks** tab.
+* HPE MLIS is accessed by clicking on **HPE MLIS** tile in **Tools & Frameworks** tab. 
 
 ![MLIS in Tools and Frameworks](/img/2_mlis.png "MLIS in Tools and Frameworks")
 
@@ -72,11 +72,10 @@ Verify the new packaged model status is Staged.
 
 * Create Packaged model (Guardrails) in HPE Private cloud AI
 
-HPE Private cloud AI comes bundled with NVIDIA Enterprise. We would create a packaged model for llama-3.1-nemotron-safety-guard-8b-v3:1 using the similar steps above but with modified configuration.
+HPE Private cloud AI comes bundled with [NVIDIA Enterprise](https://www.nvidia.com/en-us/data-center/products/ai-enterprise/?ncid=no-ncid). We would create a packaged model for llama-3.1-nemotron-safety-guard-8b-v3:1 using the similar steps above but with modified configuration.
 
 * Click “Create Packaged Model” button
   Name: nemotron
-
 * Provide the storage configuration details
 
 ![Nemotron storage configuration](/img/6_storage_config_nemo.png "Nemotron storage configuration")
@@ -91,11 +90,10 @@ HPE Private cloud AI comes bundled with NVIDIA Enterprise. We would create a pac
 
 * Next, we select “Deployments” in left navigation of MLIS.
 
-    * Click “Create deployment” and provide name say nemotron-deploy
-    * Click Next and select the Packaged model we created before say nemotron
-    * Click Next and provide “Scaling” details. We could select from fixed to custom scaling values required for the deployment
-    * Click Done.
-
+  * Click “Create deployment” and provide name say nemotron-deploy
+  * Click Next and select the Packaged model we created before say nemotron
+  * Click Next and provide “Scaling” details. We could select from fixed to custom scaling values required for the deployment
+  * Click Done.
 * Deployment is required to be done for both the nemotron and Qwen3 model. Wait for the deployment status to be “Ready”
 
 ![Model deployed](/img/9_model_deployed.png "Model deployed")
@@ -107,7 +105,7 @@ HPE Private cloud AI comes bundled with NVIDIA Enterprise. We would create a pac
 
 * For each of the deployed model click Actions-> Generate API Token
 
-    * Provide details of number of days API token must be valid and then copy the token in the next screen. The token is required for connecting to the model from client application.
+  * Provide details of number of days API token must be valid and then copy the token in the next screen. The token is required for connecting to the model from client application.
 
 ![Model endpoint list](/img/11_model_endpoint_list.png "Model endpoint list")
 
@@ -125,6 +123,7 @@ HPE Private cloud AI comes bundled with NVIDIA Enterprise. We would create a pac
 pip install nemoguardrails
 pip install openai asyncio
 ```
+
 For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/latest/getting-started/installation-guide.html
 
 * Configure guard rails
@@ -132,23 +131,28 @@ For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/
 ```bash
 mkdir config 
 ```
+
 * Save the following as config/config.yaml
 
-    * The configuration details usage of Qwen3-8b for LLM inference endpoint. The input and output are validated based on nemotron model for content safety. The endpoint, model name, and API token have already been generated in HPE AI essentials.
+  * The configuration details usage of Qwen3-8b for LLM inference endpoint. The input and output are validated based on nemotron model for content safety. The endpoint, model name, and API token have already been generated in HPE AI essentials.
 
 ![Guard rails configuration](/img/13_config.png "Guard rails configuration")
 
 * Save the following as config/prompt.yaml 
 
-    * The content of prompt is documented at URL
-https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotron-safety-guard-deployment.html
+  ```
+  * The content of prompt is documented at URL
+  ```
 
-    * The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
+  https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotron-safety-guard-deployment.html
 
+  ```
+  * The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
+  ```
 * Write a sample code to check guardrails in action
 
-    * Create a file main.py
-    * Import key packages as mentioned below:
+  * Create a file main.py
+  * Import key packages as mentioned below:
 
 ```bash
 from dataclasses_json import config
@@ -157,7 +161,9 @@ import asyncio
 from nemoguardrails import LLMRails, RailsConfig
 ```
 
-    * write the code of the client application to call the LLM with guardrails.
+```
+* write the code of the client application to call the LLM with guardrails.
+```
 
 ![Client Application code to call LLM](/img/14_client_app_code.png "Client Application code to call LLM")
 
@@ -174,3 +180,5 @@ Second time with appropriate content (# 130). – what is an Ocean? Response for
 **Conclusion**
 
 Whilst LLMs are becoming more pervasive across the industry, guardrails around LLM is a necessity which cannot be ignored. Guardrails spans several topics including harmful content, restricting topics, detect jail break attempts, multi-modal content safety. HPE Private cloud AI enables scalable deployment and consumption of LLM and guardrails models on premises without sacrificing data privacy and operational control.
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
