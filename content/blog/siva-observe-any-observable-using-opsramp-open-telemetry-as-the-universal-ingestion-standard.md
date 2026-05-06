@@ -7,9 +7,10 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
 tags:
-  - OpsRamp
+  - Ohpe-opsramp
   - Open Telemetry, Otel
   - "Redfish , Jaeger ,Prometheus , Grafana "
+  - tutorial
 ---
 *Part 1 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 

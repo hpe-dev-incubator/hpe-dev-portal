@@ -10,6 +10,8 @@ tags:
   - GenAI
   - opensource
   - LLM
+  - tutorial
+  - ai
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 Generating predictable and reliable outputs from large language models (LLMs) can be challenging, especially when those outputs need to integrate seamlessly with downstream systems. Structured outputs solve this problem by enforcing specific formats, such as JSON, regex patterns, or even formal grammars. vLLM, an open source inference and serving engine for LLMs, has supported structured outputs for a while. However, there is little documentation on how to use it. This is why I decided to contribute and write the [Structured Outputs documentation page](https://docs.vllm.ai/en/latest/usage/structured_outputs.html).

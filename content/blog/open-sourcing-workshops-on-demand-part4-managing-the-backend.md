@@ -7,8 +7,9 @@ author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 tags:
-  - " opensource"
-  - workshops-on-demand
+  - opensource
+  - Workshops-on-Demand
+  - tutorial
 ---
 I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced  the project and how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. Today, I plan to describe to you the management of this backend server. This is what is often referred to as Day2 operations. 
 

@@ -12,6 +12,7 @@ tags:
   - HPE GreenLake for Private Cloud Entreprise
   - hpe-greenlake-for-private-cloud-enterprise
   - SSL/TLS certificates
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

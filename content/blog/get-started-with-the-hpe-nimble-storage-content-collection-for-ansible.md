@@ -9,6 +9,7 @@ thumbnailimage: null
 tags:
   - hpe-nimble-storage
   - ansible
+  - tutorial
 ---
 With the initial release of the [HPE Nimble Storage Content Collection for Ansible](https://community.hpe.com/t5/around-the-storage-block/introducing-hpe-nimble-storage-content-collection-for-ansible/ba-p/7103452), it’s now possible to manage many aspects of a Nimble array using either Red Hat Ansible Tower or open source Ansible. Ansible is an IT automation platform that embraces an idempotent resource model, which is essential in declarative infrastructure management paradigms. In this blog post, we’ll go through a few examples on how to kickstart your Ansible automation projects with the newly released HPE Nimble Storage modules.
 

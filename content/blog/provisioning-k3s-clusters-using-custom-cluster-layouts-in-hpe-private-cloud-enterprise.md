@@ -16,6 +16,8 @@ tags:
   - HPE Morpheus Enterprise
   - Node type
   - Automation task and workflow
+  - morpheus
+  - tutorial
 ---
 This blog post outlines the steps to create a custom cluster layout for provisioning a Kubernetes (K8s) cluster using *K3s*, a lightweight K8s distribution, within the HPE Private Cloud Enterprise environment. By utilizing a list of key Morpheus components, such as *Node Type*, *File Template*, *Option List*, *Input*, *Task*, *Workflow*, and *Cluster Layout*, a custom cluster layout that incorporates the *K3s* install script can be created. Once configured, this custom cluster layout enables provisioning and management of K3s clusters directly from the the Morpheus Clusters page. 
 

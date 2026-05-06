@@ -8,7 +8,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - HPE Private Cloud AI
+  - hpe-private-cloud-ai
   - S3 storage store
   - MinIO
   - Import Framework
@@ -16,6 +16,7 @@ tags:
   - Helm chart
   - vLLM
   - Hagging Face
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

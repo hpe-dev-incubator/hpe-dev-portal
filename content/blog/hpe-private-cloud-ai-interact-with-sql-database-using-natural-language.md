@@ -5,10 +5,11 @@ author: Santosh Nagaraj, Isabelle Steinhauser
 authorimage: /img/ai.webp
 disable: false
 tags:
-  - HPE Private Cloud AI
+  - hpe-private-cloud-ai
   - SQL
   - Natural Language
   - MCP
+  - tutorial
 ---
 In today's data-driven world, two fundamental languages enable us to interact with information: **Natural Language** and **SQL (Structured Query Language)**. Natural language is the way humans naturally communicate. It allows us to express ideas, ask questions, and convey intentions effortlessly, whether through speech or text. On the other hand, **SQL**  is a specialized language designed for managing and querying structured data stored in databases. While SQL is powerful for precise data retrieval, it often requires technical expertise and familiarity with database schemas.
 

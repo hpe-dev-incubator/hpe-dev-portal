@@ -7,6 +7,7 @@ authorimage: /img/guoping.png
 disable: false
 tags:
   - HPE Private Cloud AI
+  - hpe-private-cloud-ai
   - Import Framework
   - Dagster
   - Harbor
@@ -15,6 +16,7 @@ tags:
   - Istio VirtualService
   - Kyverno ClusterPolicy
   - data assets
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 

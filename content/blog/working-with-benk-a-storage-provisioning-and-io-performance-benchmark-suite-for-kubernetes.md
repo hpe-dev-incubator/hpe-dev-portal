@@ -12,6 +12,7 @@ tags:
   - hpe-alletra
   - hpe-nimble-storage
   - hpe-3par-and-primera
+  - tutorial
 ---
 Recently Hewlett Packard Enterprise (HPE) published an open source benchmark suite for storage drivers capable of dynamically provisioning persistent volumes to Kubernetes. The suite is called [Benk](https://github.com/hpe-storage/benk) and it is an acronym that plays with the word bench as in benchmark and Kubernetes. Benk is used internally at HPE for mapping performance metrics around the provisioning process itself as well as for IO performance. It’s still a bit rough around the edges and not feature complete, but it’s still a very useful tool to capture performance across large swaths of configurations with a high degree of automation and repeatability without too much user attendance.
 

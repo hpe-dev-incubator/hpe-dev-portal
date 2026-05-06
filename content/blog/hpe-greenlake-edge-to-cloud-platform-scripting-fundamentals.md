@@ -10,6 +10,7 @@ tags:
   - API
   - hpe-greenlake
   - hpe-greenlake-platform
+  - tutorial
 ---
 <style>
 ul li{

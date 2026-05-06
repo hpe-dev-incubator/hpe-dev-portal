@@ -6,6 +6,9 @@ featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
+tags:
+  - hpe-opsramp
+  - tutorial
 ---
 *Part 3 of a series on vendor-neutral observability with HPE OpsRamp and OpenTelemetry*
 

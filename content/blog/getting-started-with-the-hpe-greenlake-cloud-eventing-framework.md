@@ -9,6 +9,8 @@ disable: false
 tags:
   - hpe-greenlake-cloud
   - webhooks
+  - hpe-greenlake
+  - tutorial
 ---
 <style>
 li {

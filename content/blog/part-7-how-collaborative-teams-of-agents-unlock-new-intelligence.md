@@ -9,6 +9,7 @@ tags:
   - Generative AI
   - "Agents Mode "
   - Agents Communications
+  - tutorial
 ---
 <style>
 li {
