@@ -7,6 +7,7 @@ export const Section = styled.section`
   background: #ffffff;
   padding: 96px max(24px, 8.33%);
   overflow: hidden;
+  margin-top: 24px;
 `;
 
 export const SectionHeader = styled.div`

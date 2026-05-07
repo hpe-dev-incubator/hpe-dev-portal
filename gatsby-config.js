@@ -163,6 +163,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/featuredcards`,
+        name: 'featuredcards',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/skillup`,
         name: 'skillup',
       },

@@ -6,10 +6,11 @@ export const CARD_GAP = 24;
 // 48px horizontal matches Grommet 'large' spacing used by the home page sections.
 export const Section = styled.div`
   background: transparent;
-  padding: 48px;
+  padding: 60px 48px;
+  margin-top: 24px;
 
   @media (max-width: 768px) {
-    padding: 24px;
+    padding: 32px 24px;
   }
 `;
 

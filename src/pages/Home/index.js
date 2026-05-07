@@ -8,9 +8,10 @@ import DeveloperStoriesSection from '../../components/DeveloperStoriesSection';
 import WorkshopsOnDemandSection from '../../components/WorkshopsOnDemandSection';
 import OpenSourceSection from '../../components/OpenSourceSection';
 import HeroBannerSection from '../../components/HeroBannerSection';
+import FeaturedTopicsSection from '../../components/FeaturedTopicsSection';
 import WhatsNewSection from '../../components/WhatsNewSection';
 import ComingEventsSection from '../../components/ComingEventsSection';
-
+import CommunityCardsSection from '../../components/CommunityCardsSection';
 
 const Home = ({ data }) => {
   const { title, image } = data.markdownRemark.frontmatter;
@@ -21,11 +22,13 @@ const Home = ({ data }) => {
   const latestPlatforms = data.latestPlatforms.edges;
   const events = data.events.edges;
   const latestBlogs = data.latestBlogs.edges;
+  const featuredCards = data.featuredCards ? data.featuredCards.edges : [];
 
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
       <HeroBannerSection />
+      <FeaturedTopicsSection cards={featuredCards} />
       <WhatsNewSection platforms={latestPlatforms} />
       <ComingEventsSection events={events} />{' '}
       {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
@@ -69,6 +72,7 @@ const Home = ({ data }) => {
       <DeveloperStoriesSection blogs={latestBlogs} />
       <WorkshopsOnDemandSection />
       <OpenSourceSection projects={projects} />
+      <CommunityCardsSection />
     </Layout>
   );
 };
@@ -129,6 +133,28 @@ Home.propTypes = {
             }),
           }),
           rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+    featuredCards: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string,
+              description: PropTypes.string,
+              cta: PropTypes.string,
+              href: PropTypes.string,
+              icon: PropTypes.string,
+              bgImage: PropTypes.string,
+              bgColor: PropTypes.string,
+              overlay: PropTypes.string,
+              isDark: PropTypes.bool,
+              priority: PropTypes.number,
+              active: PropTypes.bool,
+            }),
+          }),
         }),
       ),
     }),
@@ -269,6 +295,33 @@ export const pageQuery = graphql`
             frontpage
             priority
             link
+          }
+        }
+      }
+    }
+    featuredCards: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "featuredcards" } }
+        frontmatter: { active: { eq: true } }
+      }
+      sort: { frontmatter: { priority: ASC } }
+      limit: 4
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            description
+            cta
+            href
+            icon
+            bgImage
+            bgColor
+            overlay
+            isDark
+            priority
+            active
           }
         }
       }

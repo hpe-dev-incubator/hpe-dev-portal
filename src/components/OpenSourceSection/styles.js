@@ -5,10 +5,11 @@ export const CARD_GAP = 24;
 
 export const Section = styled.div`
   background: #ffffff;
-  padding: 48px;
+  padding: 60px 48px;
+  margin-top: 24px;
 
   @media (max-width: 768px) {
-    padding: 24px;
+    padding: 32px 24px;
   }
 `;
 
