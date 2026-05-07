@@ -11,6 +11,7 @@ tags:
   - iLOrest
   - PyPi
   - ilo-restful-api
+  - tutorial
 ---
 <style>
 li {

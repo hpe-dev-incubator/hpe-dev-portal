@@ -7,6 +7,7 @@ disable: true
 tags:
   - opensource
   - Workshops-on-Demand
+  - tutorial
 ---
 In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decision to open source our Workshops-on-Demand (WoD) project and gave you a comprehensive picture of the project's overall infrastructure. In this second article, I will cover the backend part of the project and explain how to deploy it.
 

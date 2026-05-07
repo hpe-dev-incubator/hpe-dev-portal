@@ -8,10 +8,11 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/balaprofilephoto.png
 disable: false
 tags:
-  - opsramp
+  - hpe-opsramp
   - AI
   - MCP
-  - "OpsRamp MCP server"
+  - OpsRamp MCP server
+  - tutorial
 ---
 <style>
 li {

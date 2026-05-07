@@ -4,6 +4,10 @@ date: 2026-04-19T19:15:10.329Z
 author: Anusha Y
 authorimage: /img/im.jpeg
 disable: false
+tags:
+  - data
+  - MCP
+  - tutorial
 ---
 ### The shift from scripts to conversations in storage management
 

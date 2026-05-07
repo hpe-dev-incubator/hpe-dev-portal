@@ -10,6 +10,7 @@ disable: false
 tags:
   - hpe-greenlake-platform
   - hpe-greenlake
+  - tutorial
 ---
  <style>
 li {

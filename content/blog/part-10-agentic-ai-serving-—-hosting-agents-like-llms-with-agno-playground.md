@@ -11,6 +11,7 @@ tags:
   - Generative AI
   - Monitering
   - Agentic AI
+  - tutorial
 ---
 <style>
 li {

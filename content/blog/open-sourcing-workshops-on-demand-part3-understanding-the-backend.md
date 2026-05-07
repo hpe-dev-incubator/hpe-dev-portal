@@ -6,7 +6,8 @@ authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 tags:
   - opensource
-  - workshops-on-demand
+  - Workshops-on-Demand
+  - tutorial
 ---
 I﻿n the previous [article](https://developer.hpe.com/blog/open-sourcing-workshops-on-demand-part2-deploying-the-backend/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
 

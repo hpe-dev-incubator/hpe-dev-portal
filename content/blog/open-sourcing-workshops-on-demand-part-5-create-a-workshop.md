@@ -6,7 +6,8 @@ authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 tags:
   - Workshops-on-Demand
-  - Open Source
+  - opensource
+  - tutorial
 ---
 I﻿n this article that is part of our series dedicated on [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the steps necessary  to build up a new workshop. In my previous posts, I have already covered most of the pieces on how to set up the infrastructure to support the workshops. Now let's focus a little more on the content creation.
 

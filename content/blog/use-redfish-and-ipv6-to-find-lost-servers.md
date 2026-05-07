@@ -6,7 +6,9 @@ authorimage: /img/fdz-photoprofile.png
 disable: false
 tags:
   - iLO RESTful API
+  - ilo-restful-api
   - Redfish
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 35px; max-width: none; } </style>
 
