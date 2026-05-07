@@ -128,7 +128,7 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
   2.3 Install packages for guardrails
 
-```bash
+```python
 pip install nemoguardrails
 pip install openai asyncio
 ```
@@ -137,7 +137,7 @@ For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/
 
   2.4 Configure guardrails
 
-```bash
+```shell
 mkdir config 
 ```
 
@@ -149,9 +149,7 @@ mkdir config
 
   2.6 Save the following as config/prompt.yaml 
 
- \ 2.6.1 The content of prompt is documented at URL
-
-https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotron-safety-guard-deployment.html
+ \ 2.6.1 The content of prompt is documented at URL: [prompt.yaml](https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotron-safety-guard-deployment.html)
 
 \ 2.6.2 The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
 
@@ -161,7 +159,7 @@ https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotro
 
 \    2.7.2 Import key packages as mentioned below:
 
-```bash
+```python
 from dataclasses_json import config
 from openai import OpenAI
 import asyncio
