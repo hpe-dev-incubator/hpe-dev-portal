@@ -92,6 +92,7 @@
     "url": "git+https://github.com/hpe-dev-incubator/hpe-dev-portal.git"
   },
   "scripts": {
+    "prebuild": "gatsby clean",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "develop:cms": "npx concurrently \"gatsby develop\" \"decap-server\"",
