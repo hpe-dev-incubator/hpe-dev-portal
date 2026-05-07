@@ -29,28 +29,28 @@ This blog post walks you through how you can deploy LLMs and content safety mode
 
 Follow the steps below to implement the NVIDIA NeMo Guardrails included in HPE Private Cloud AI.
 
-1. Deploy an LLM and content safety models with MLIS in Private Cloud AI. Sign in to HPE AI Essentials Software as the Private Cloud AI Administrator.
+1 Deploy an LLM and content safety models with MLIS in Private Cloud AI. Sign in to HPE AI Essentials Software as the Private Cloud AI Administrator.
 
-HPE MLIS is accessed by clicking on the **HPE MLIS** tile in **Tools & Frameworks** tab. 
+  1.1 HPE MLIS is accessed by clicking on the **HPE MLIS** tile in **Tools & Frameworks** tab. 
 
 ![MLIS in Tools and Frameworks](/img/2_mlis.png "MLIS in Tools and Frameworks")
 
-Select **Packaged Models** from left navigation and then click the **Create Packaged Model** button
+  1.2 Select **Packaged Models** from left navigation and then click the **Create Packaged Model** button
 
 ![Packaged Model](/img/3_packaged_model.png "Packaged Model")
 
-Provide the configuration details of LLM model that would be used by the client application. 
-Name: Qwen3-8b
+  1.3 Provide the configuration details of LLM model that would be used by the client application. 
+    1.3.1 Name: Qwen3-8b
 
-Provide the storage configuration details
+  1.4 Provide the storage configuration details
 
 ![packaged model storage configuration](/img/4_storage_config_pm.png "packaged model storage configuration")
 
-Provide resource configuration details
+  1.5 Provide resource configuration details
 
 ![Packaged Model resource configuration](/img/5_resource_config_pm.png "Packaged Model resource configuration")
 
-Provide the advanced configuration details 
+  1.6 Provide the advanced configuration details 
 
 ```bash
 #Environment Variables
@@ -67,62 +67,66 @@ HUGGING_FACE_HUB_TOKEN <hugging_face_token_value>
 
 Note: the values provided above are for the Qwen3-8b model. However, it might vary based on the model being deployed. Reference the model specific documentation and/or Private cloud AI documentation to adjust arguments for model as necessary.
 
-Save the packaged model
+  1.7 Save the packaged model
 
-* Verify the new packaged model status is **Staged**.
+\    1.7.1 Verify the new packaged model status is **Staged**.
 
-Create Packaged model for Guardrails in HPE Private Cloud AI
+  1.8 Create Packaged model for Guardrails in HPE Private Cloud AI
 
-* Next, you would create a packaged model for **llama-3.1-nemotron-safety-guard-8b-v3:1** using the similar steps above, but with modified configuration. This model is available in [NVIDIA Enterprise](https://www.nvidia.com/en-us/data-center/products/ai-enterprise/?ncid=no-ncid) which comes bundled with HPE Private Cloud AI
+\    1.8.1 Next, you would create a packaged model for **llama-3.1-nemotron-safety-guard-8b-v3:1** using the similar steps above, but with modified configuration. This model is available in [NVIDIA Enterprise](https://www.nvidia.com/en-us/data-center/products/ai-enterprise/?ncid=no-ncid) which comes bundled with HPE Private Cloud AI
 
-Click **Create Packaged Model** button
-Name: nemotron
+  1.9 Click **Create Packaged Model** button
+    1.9.1 Name: nemotron
 
-Provide the storage configuration details
+  1.10 Provide the storage configuration details
 
 ![Nemotron storage configuration](/img/6_storage_config_nemo.png "Nemotron storage configuration")
 
-Provide the resource configuration details
+  1.11 Provide the resource configuration details
 
 ![Nemotron resource configuration](/img/7_resource_config_nemo.png "Nemotron resource configuration")
 
-Click the **Save** button to save the packaged model. Verify the model status is shown as **Staged**
+  1.12 Click the **Save** button to save the packaged model. Verify the model status is shown as **Staged**
 
 ![Model staged](/img/8_model_staged.png "Model staged")
 
-Next, select **Deployments** in left navigation of MLIS.
+  1.13 Next, select **Deployments** in left navigation of MLIS.
 
-* Click **Create deployment** and provide name say nemotron-deploy
-* Click Next and select the Packaged model we created before say nemotron
-* Click Next and provide **Scaling** details. We could select from fixed to custom scaling values required for the deployment
-* Click Done.
-* Deployment is required to be done for both the nemotron and Qwen3 model. Wait for the deployment status to be **Ready**
+\    1.13.1 Click **Create deployment** and provide name say nemotron-deploy
+
+\    1.13.2 Click Next and select the Packaged model we created before say nemotron
+
+\    1.13.3 Click Next and provide **Scaling** details. We could select from fixed to custom scaling values required for the deployment
+
+\    1.13.4 Click Done.
+
+\    1.13.5 Deployment is required to be done for both the nemotron and Qwen3 model. Wait for the deployment status to be **Ready**
 
 ![Model deployed](/img/9_model_deployed.png "Model deployed")
 
-Next, close the MLIS page and switch to **HPE AI essentials** page.
+  1.14 Next, close the MLIS page and switch to **HPE AI essentials** page.
 
-Click **Gen AI** -> Model Endpoints
+  1.15 Click **Gen AI** -> Model Endpoints
 
 ![Model endpoints](/img/10_model_endpoints.png "Model endpoints")
 
-For each of the deployed model click Actions-> Generate API Token
+  1.16 For each of the deployed model click Actions-> Generate API Token
 
-* Provide details for the number of days the API token must be valid and then copy the token in the next screen. The token is required to connect to the model from the client application.
+\    1.16.1 Provide details for the number of days the API token must be valid and then copy the token in the next screen. The token is required to connect to the model from the client application.
 
 ![Model endpoint list](/img/11_model_endpoint_list.png "Model endpoint list")
 
-Click on any of the models and make note of the **endpoint** and **model** name details. These details along with API token is required for connecting from client applications.
+  1.17 Click on any of the models and make note of the **endpoint** and **model** name details. These details along with API token is required for connecting from client applications.
 
 ![Model details](/img/12_model_details.png "Model details")
 
-2. Build client application to consume the LLM model with guardrails for input and output. 
+2 Build client application to consume the LLM model with guardrails for input and output. 
 
-Create a project folder say ClientApp and open in VS Code.
+  2.1 Create a project folder say ClientApp and open in VS Code.
 
-Create a virtual environment
+  2.2 Create a virtual environment
 
-Install packages for guardrails
+  2.3 Install packages for guardrails
 
 ```bash
 pip install nemoguardrails
@@ -131,19 +135,19 @@ pip install openai asyncio
 
 For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/latest/getting-started/installation-guide.html
 
-Configure guardrails
+  2.4 Configure guardrails
 
 ```bash
 mkdir config 
 ```
 
-Save the following as config/config.yaml
+  2.5 Save the following as config/config.yaml
 
-* The configuration indicates using Qwen3-8b as the LLM inference endpoint. The input and output are validated based on nemotron model for content safety. The endpoint, model name, and API token have already been generated in HPE AI Essentials.
+\    2.5.1 The configuration indicates using Qwen3-8b as the LLM inference endpoint. The input and output are validated based on nemotron model for content safety. The endpoint, model name, and API token have already been generated in HPE AI Essentials.
 
 ![Guard rails configuration](/img/13_config.png "Guard rails configuration")
 
-Save the following as config/prompt.yaml 
+  2.6 Save the following as config/prompt.yaml 
 
 ```
 * The content of prompt is documented at URL
@@ -155,10 +159,11 @@ https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotro
 * The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
 ```
 
-Write a sample code to check guardrails in action
+  2.7 Write a sample code to check guardrails in action
 
-* Create a file main.py
-* Import key packages as mentioned below:
+\    2.7.1 Create a file main.py
+
+\    2.7.2 Import key packages as mentioned below:
 
 ```bash
 from dataclasses_json import config
@@ -173,13 +178,13 @@ from nemoguardrails import LLMRails, RailsConfig
 
 ![Client Application code to call LLM](/img/14_client_app_code.png "Client Application code to call LLM")
 
-Run the client application two times:
+  2.8 Run the client application two times:
 
-* First run with harmful content (Line # 129) – Tell me a five-step plan to rob a bank. Response for the first run shown below
+\    2.8.1 First run with harmful content (Line # 129) – Tell me a five-step plan to rob a bank. Response for the first run shown below
 
 ![First run response for call with unsafe content](/img/15_first_run_unsafe_content.png "First run response for call with unsafe content")
 
-* Second time with appropriate content (# 130). – what is an Ocean? Response for the second run shown below
+\    2.8.2 Second time with appropriate content (# 130). – what is an Ocean? Response for the second run shown below
 
 ![Second run response safe content](/img/16_second_run_safe_content.png "Second run response safe content")
 
