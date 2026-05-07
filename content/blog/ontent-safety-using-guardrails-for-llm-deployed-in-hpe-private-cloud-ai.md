@@ -53,14 +53,14 @@ Follow the steps below to implement the NVIDIA NeMo Guardrails included in HPE P
   1.6 Provide the advanced configuration details 
 
 ```bash
-#Environment Variables
+# Environment Variables
 
 AIOLI_PROGRESS_DEADLINE 1500s
 HUGGING_FACE_HUB_TOKEN <hugging_face_token_value>
 ```
 
 ```bash
-#Arguments (for the model hosting)
+# Arguments (for the model hosting)
 
 --model Qwen/Qwen3-8B --enable-reasoning --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser hermes --gpu-memory-utilization 0.9 --port 8080
 ```
@@ -149,15 +149,11 @@ mkdir config
 
   2.6 Save the following as config/prompt.yaml 
 
-```
-* The content of prompt is documented at URL
-```
+ \ 2.6.1 The content of prompt is documented at URL
 
 https://docs.nvidia.com/nemo/guardrails/latest/getting-started/tutorials/nemotron-safety-guard-deployment.html
 
-```
-* The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
-```
+\ 2.6.2 The prompts.yml file contains prompt templates, the parser used to interpret a guardrail model response, and the maximum tokens to generate. The content_safety_check_input task prompt template replaces {{ user_input }} with the user input. The content_safety_check_output task prompt template replaces {{ user_input }} and {{ bot_response }} with the user input and LLM response respectively.
 
   2.7 Write a sample code to check guardrails in action
 
@@ -172,9 +168,7 @@ import asyncio
 from nemoguardrails import LLMRails, RailsConfig
 ```
 
-```
-* write the code of the client application to call the LLM with guardrails.
-```
+\    2.7.3 write the code of the client application to call the LLM with guardrails.
 
 ![Client Application code to call LLM](/img/14_client_app_code.png "Client Application code to call LLM")
 
