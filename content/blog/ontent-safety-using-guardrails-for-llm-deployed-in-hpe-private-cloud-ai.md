@@ -80,7 +80,7 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
   1.10 Provide the storage configuration details
 
-![Nemotron storage configuration](/img/6_storage_config_nemo.png "Nemotron storage configuration")
+![Nemotron storage configuration](/img/6_storage_config_nemo_new.jpg "Nemotron storage configuration")
 
   1.11 Provide the resource configuration details
 
@@ -88,7 +88,7 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
   1.12 Click the **Save** button to save the packaged model. Verify the model status is shown as **Staged**
 
-![Model staged](/img/8_model_staged.png "Model staged")
+![Model staged](/img/8_model_staged_new.jpg "Model staged")
 
   1.13 Next, select **Deployments** in left navigation of MLIS.
 
@@ -102,7 +102,7 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
 \    1.13.5 Deployment is required to be done for both the nemotron and Qwen3 model. Wait for the deployment status to be **Ready**
 
-![Model deployed](/img/9_model_deployed.png "Model deployed")
+![Model deployed](/img/9_model_deployed_new.jpg "Model deployed")
 
   1.14 Next, close the MLIS page and switch to **HPE AI essentials** page.
 
@@ -114,11 +114,11 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
 \    1.16.1 Provide details for the number of days the API token must be valid and then copy the token in the next screen. The token is required to connect to the model from the client application.
 
-![Model endpoint list](/img/11_model_endpoint_list.png "Model endpoint list")
+![Model endpoint list](/img/11_model_endpoint_list_new.jpg "Model endpoint list")
 
   1.17 Click on any of the models and make note of the **endpoint** and **model** name details. These details along with API token is required for connecting from client applications.
 
-![Model details](/img/12_model_details.png "Model details")
+![Model details](/img/12_model_details_new.jpg "Model details")
 
 2 Build client application to consume the LLM model with guardrails for input and output. 
 
@@ -128,18 +128,16 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
   2.3 Install packages for guardrails
 
-```python
 pip install nemoguardrails
 pip install openai asyncio
-```
+
 
 For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/latest/getting-started/installation-guide.html
 
-  2.4 Configure guardrails
+  2.4 Configure guardrails by creating a directory in project root using below command
 
-```shell
 mkdir config 
-```
+
 
   2.5 Save the following as config/config.yaml
 
@@ -157,28 +155,23 @@ mkdir config
 
 \    2.7.1 Create a file main.py
 
-\    2.7.2 Import key packages as mentioned below:
+\    2.7.2 Import key packages as mentioned below in line numbers 15 to 17.
 
-```python
-from dataclasses_json import config
-from openai import OpenAI
-import asyncio
-from nemoguardrails import LLMRails, RailsConfig
-```
+![Import packages](/img/17_import_packages.jpg "Import packages")
 
 \    2.7.3 write the code of the client application to call the LLM with guardrails.
 
-![Client Application code to call LLM](/img/14_client_app_code.png "Client Application code to call LLM")
+![Client Application code to call LLM](/img/14_client_app_code_new.jpg "Client Application code to call LLM")
 
   2.8 Run the client application two times:
 
 \    2.8.1 First run with harmful content (Line # 129) – Tell me a five-step plan to rob a bank. Response for the first run shown below
 
-![First run response for call with unsafe content](/img/15_first_run_unsafe_content.png "First run response for call with unsafe content")
+![First run response for call with unsafe content](/img/15_first_run_unsafe_content_new.jpg "First run response for call with unsafe content")
 
 \    2.8.2 Second time with appropriate content (# 130). – what is an Ocean? Response for the second run shown below
 
-![Second run response safe content](/img/16_second_run_safe_content.png "Second run response safe content")
+![Second run response safe content](/img/16_second_run_safe_content_new.jpg "Second run response safe content")
 
 **Conclusion**
 
