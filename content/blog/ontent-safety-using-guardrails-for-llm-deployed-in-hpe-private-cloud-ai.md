@@ -19,15 +19,19 @@ This blog post walks you through how you can deploy LLMs and content safety mode
 
 **HPE Private Cloud AI**
 
-[HPE Private Cloud AI](https://www.hpe.com/us/en/private-cloud-ai.html) (HPE PCAI) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/) LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
+[HPE Private Cloud AI](https://www.hpe.com/us/en/private-cloud-ai.html) (HPE PCAI) solution is a turnkey AI factory comprised of all the pieces you need to get started to develop and deploy AI initiatives.
 
-[HPE Machine Learning Inference Software (MLIS)](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=MLIS/mlis.html) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models.
+HPE PCAI offers a comprehensive, AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/) LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
 
-[HPE AI Essentials (AIE) Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us) is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. 
+[HPE AI Essentials (AIE) Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us) is the integrated software layer within HPE PCAI, that provides the tools for building, deploying, and managing generative AI applications, including [HPE Machine Learning Inference Software (MLIS)](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=MLIS/mlis.html)
+
+MLIS is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models.
+
+[](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us)
 
 ![AI Essentials](/img/1_tools.jpg "AI Essentials")
 
-Follow the steps below to implement the NVIDIA NeMo Guardrails included in HPE Private Cloud AI.
+Follow the steps below to implement the NVIDIA NeMo Guardrails with HPE Private Cloud AI.
 
 1 Deploy an LLM and content safety models with MLIS in Private Cloud AI. Sign in to HPE AI Essentials Software as the Private Cloud AI Administrator.
 
@@ -131,13 +135,11 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 pip install nemoguardrails
 pip install openai asyncio
 
-
 For more details of installation refer: https://docs.nvidia.com/nemo/guardrails/latest/getting-started/installation-guide.html
 
   2.4 Configure guardrails by creating a directory in project root using below command
 
 mkdir config 
-
 
   2.5 Save the following as config/config.yaml
 
