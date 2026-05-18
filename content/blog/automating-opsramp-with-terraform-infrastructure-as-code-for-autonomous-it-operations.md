@@ -86,7 +86,9 @@ provider "opsramp" {
 }
 ```
 
-This configuration allows Terraform or OpenTofu to load the provider for use in subsequent steps. Let's execute these commands to initialize the project:
+This configuration allows Terraform or OpenTofu to load the provider for use in subsequent steps.
+
+Run the following command to initialize the project:
 
 ```shell
 # Terraform
@@ -97,7 +99,7 @@ tofu init
 
 #### Simple scenario
 
-Let’s start with a simple example: creating a Device Group. This resource can group VMware virtual machines based on a custom attribute such as `ENV=PROD`.
+Create the following example file. It contains the declaration of a Device Group. This resource can group VMware virtual machines based on a custom attribute such as `ENV=PROD`.
 
 ```hcl
 # continue main.tf
@@ -127,7 +129,7 @@ After running this command, you should see Terraform report that the resource wa
 
 #### Extended scenario
 
-More complete examples require more resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory that will declare what's needed on each client. 
+More advanced examples require additional resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory that will declare what's needed on each client. 
 
 ```
 # file: modules/client/main.tf
