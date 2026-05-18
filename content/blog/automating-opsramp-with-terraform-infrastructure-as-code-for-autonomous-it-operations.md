@@ -127,7 +127,7 @@ After running this command, you should see Terraform report that the resource wa
 
 #### Extended scenario
 
-More complete examples require more resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory, that will declare what's needed on each client. 
+More complete examples require more resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory that will declare what's needed on each client. 
 
 ```
 # file: modules/client/main.tf
@@ -189,7 +189,7 @@ resource "opsramp_servicemap" "sm_child3" {
 }
 ```
 
-This module uses `client_name` as an input variable to parameterize each client configuratio. Create a variables.tf file within your module:
+This module uses `client_name` as an input variable to parameterize each client configuration. Create a variables.tf file within your module:
 
 ```
 # file: modules/client/varibles.tf
