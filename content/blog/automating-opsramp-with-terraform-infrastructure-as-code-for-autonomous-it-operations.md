@@ -27,11 +27,11 @@ What if you could define all of this declaratively?
 
 What if onboarding could be fully automated using Infrastructure as Code (IaC)?
 
-In this post, we introduce the \[Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp).
+I’m Enrique Larriba, a Solutions Architect passionate about OpsRamp. In this post, I’ll walk you through the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) and show you how it can help automate and streamline your operations.
 
 ## Install
 
-First, ensure you have either \[Terraform](https://developer.hashicorp.com/terraform/install) or \[OpenTofu](https://opentofu.org/docs/intro/install/) installed.
+First, ensure you have either [Terraform](https://developer.hashicorp.com/terraform/install) or [OpenTofu](https://opentofu.org/docs/intro/install/) installed.
 
 #### Option 1: Build from source code
 
@@ -63,7 +63,7 @@ This works across Windows, Linux, and macOS.
 
 The provider requires an OAuth 2.0 API token to authenticate with OpsRamp. You can generate this token using the Custom Integration feature. 
 
-![Custom Integration Configuration Panel](/img/custom-integration.png)
+![Custom Integration Configuration Panel](/img/custom-integration.png "Custom Integration Configuration Panel")
 
 Create a project folder and a file named main.tf. Use your API credentials to configure the provider:
 
@@ -125,13 +125,15 @@ terraform apply
 tofu apply
 ```
 
-After running this command, you should see Terraform report that the resource was created successfully.
+After running this command, you should see Terraform report that the resource group was created successfully.
+
+![Newly created Device Groups](/img/captura-de-pantalla-2026-05-19-151401.png "Newly created Device Groups")
 
 #### Extended scenario
 
 More advanced examples require additional resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory that will declare what's needed on each client. 
 
-```
+```hcl
 # file: modules/client/main.tf
 terraform {
   required_providers {
@@ -193,8 +195,8 @@ resource "opsramp_servicemap" "sm_child3" {
 
 This module uses `client_name` as an input variable to parameterize each client configuration. Create a variables.tf file within your module:
 
-```
-# file: modules/client/varibles.tf
+```hcl
+# file: modules/client/variables.tf
 variable "client_name" {
   description = "Name of the client to be created"
   type        = string
@@ -203,31 +205,36 @@ variable "client_name" {
 
 Then the main.tf file will use our recently created module for client creation. All these clients will be standardized by populating the template.
 
-```
+```hcl
 # file: main.tf
-
+provider "opsramp" {
+  client_id     = "a3MYhKkSA4JR5FNyJDJuuEktsGkdFxmb"
+  client_secret = "*****"
+  endpoint      = "score.api.opsramp.com"
+  tenant        = "02325580-6156-4398-b8b7-f74e31222593"
+}
 module "client_1" {
   source = "./modules/client"
   name = "My first client"
 }
-
 module "client_2" {
   source = "./modules/client"
   name = "My second client"
 }
-
 module "client_3" {
   source = "./modules/client"
   name = "My third client"
 }
 ```
 
-After applying the configuration, the platform creates all required clients with the specified configuration.
+After applying the configuration, the platform creates all required clients.
+
+![Newly created clients and their standard Service Map](/img/captura-de-pantalla-2026-05-19-162444.png "Newly created clients and their standard Service Map")
 
 ## Next steps
 
-Infrastructure as Code enables scalable and repeatable operations. This provider will continue evolving to support more use cases and deeper integration with the OpsRamp API.
+Infrastructure as Code enables scalable and repeatable operations. This provider will continue evolving to support more use cases and deeper integration with the [OpsRamp API](https://develop.opsramp.com/).
 
-We welcome your feedback and contributions. Feel free to open issues, submit feature requests, or contribute directly to the repository.
+We welcome your feedback and contributions. Feel free to open issues, submit feature requests, or contribute directly to the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) repository.
 
 Together, we can move closer to fully Autonomous IT Operations.
