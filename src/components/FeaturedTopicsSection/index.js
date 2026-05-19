@@ -5,6 +5,7 @@ import {
   FeatureCard,
   CardBgImage,
   CardIcon,
+  CardEyebrow,
   CardContent,
   CardTitle,
   CardDescription,
@@ -31,56 +32,20 @@ const ArrowRight = ({ color = '#ffffff' }) => (
 
 ArrowRight.propTypes = { color: PropTypes.string };
 
-// ---------------------------------------------------------------------------
-// Default card data — used as fallback when no CMS cards are provided.
-// ---------------------------------------------------------------------------
-const DEFAULT_CARDS = [
-  {
-    id: 1,
-    title: 'Connect all your clouds to GreenLake',
-    description:
-      'Unify hybrid environments under one control plane, with visibility, governance, and performance built in.',
-    cta: 'See how',
-    href: '/topic/ai-and-data',
-    icon: '/img/platforms/Greenlake.svg',
-    bgImage: '',
-    bgColor: '#1473e6',
-    overlay:
-      'linear-gradient(135deg, rgba(10,50,140,0.85) 0%, rgba(20,115,230,0.7) 60%, rgba(80,160,255,0.5) 100%)',
-    isDark: true,
-  },
-  {
-    id: 2,
-    title: 'Networking for Developers',
-    description:
-      'Code the network. Automate everything. Ship resilient, AI-driven infrastructure that scales without the drama.',
-    cta: "Let's build",
-    href: '/topic/networking',
-    icon: '',
-    bgImage: '',
-    bgColor: '#151e2b',
-    overlay:
-      'linear-gradient(135deg, rgba(21,30,43,0.95) 0%, rgba(40,55,75,0.9) 100%)',
-    isDark: true,
-  },
-];
-
 const FeaturedTopicsSection = ({ cards }) => {
-  const items =
-    cards && cards.length > 0
-      ? cards.map(({ node }) => ({
-          id: node.id,
-          title: node.frontmatter.title,
-          description: node.frontmatter.description,
-          cta: node.frontmatter.cta,
-          href: node.frontmatter.href,
-          icon: node.frontmatter.icon || '',
-          bgImage: node.frontmatter.bgImage || '',
-          bgColor: node.frontmatter.bgColor || '#151e2b',
-          overlay: node.frontmatter.overlay || '',
-          isDark: node.frontmatter.isDark !== false,
-        }))
-      : DEFAULT_CARDS;
+  const items = (cards || []).map(({ node }) => ({
+    id: node.id,
+    eyebrow: node.frontmatter.eyebrow || '',
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    cta: node.frontmatter.cta,
+    href: node.frontmatter.href,
+    icon: node.frontmatter.icon || '',
+    bgImage: node.frontmatter.bgImage || '',
+    bgColor: node.frontmatter.bgColor || '#0a1628',
+    overlay: node.frontmatter.overlay || '',
+    isDark: node.frontmatter.isDark !== false,
+  }));
 
   return (
     <SectionWrapper aria-label="Featured topics">
@@ -92,14 +57,13 @@ const FeaturedTopicsSection = ({ cards }) => {
           overlay={card.overlay}
         >
           {card.bgImage && <CardBgImage src={card.bgImage} alt="" />}
+          {card.eyebrow && <CardEyebrow>{card.eyebrow}</CardEyebrow>}
           <CardContent>
             {card.icon && <CardIcon src={card.icon} alt="" />}
-            <CardTitle isDark={card.isDark}>{card.title}</CardTitle>
-            <CardDescription isDark={card.isDark}>
-              {card.description}
-            </CardDescription>
+            <CardTitle>{card.title}</CardTitle>
+            <CardDescription>{card.description}</CardDescription>
             <CardCTA>
-              {card.cta} <ArrowRight />
+              {card.cta} <ArrowRight color="#292d3a" />
             </CardCTA>
           </CardContent>
         </FeatureCard>
@@ -114,6 +78,7 @@ FeaturedTopicsSection.propTypes = {
       node: PropTypes.shape({
         id: PropTypes.string,
         frontmatter: PropTypes.shape({
+          eyebrow: PropTypes.string,
           title: PropTypes.string,
           description: PropTypes.string,
           cta: PropTypes.string,

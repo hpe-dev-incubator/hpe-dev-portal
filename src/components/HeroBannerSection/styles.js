@@ -54,6 +54,18 @@ export const SlideBgImage = styled.img`
         `}
 `;
 
+// Full-bleed video background for video slides
+export const SlideBgVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+`;
+
 // Gradient that blends the image into the slide background colour
 export const SlideBgOverlay = styled.div`
   position: absolute;

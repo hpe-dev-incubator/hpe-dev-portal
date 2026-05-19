@@ -142,6 +142,7 @@ Home.propTypes = {
           node: PropTypes.shape({
             id: PropTypes.string,
             frontmatter: PropTypes.shape({
+              eyebrow: PropTypes.string,
               title: PropTypes.string,
               description: PropTypes.string,
               cta: PropTypes.string,
@@ -311,6 +312,7 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
+            eyebrow
             title
             description
             cta

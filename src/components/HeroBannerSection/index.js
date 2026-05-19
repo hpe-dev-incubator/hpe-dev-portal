@@ -5,6 +5,7 @@ import {
   SlideTrack,
   Slide,
   SlideBgImage,
+  SlideBgVideo,
   SlideBgOverlay,
   SlideContent,
   SlideTitle,
@@ -31,9 +32,11 @@ const SLIDES = [
       'From concept to production. Models, agents, and infrastructure that actually ship.',
     cta1: { label: 'Read how', href: '#' },
     cta2: { label: 'See examples', href: '#' },
-    theme: 'light',
-    bgColor: '#e4e6ea',
-    bgImage: '', // TODO: '/img/hero/slide1-ai-detection.jpg'
+    theme: 'dark',
+    bgColor: '#0a0e17',
+    bgImage: '',
+    bgVideo: '/img/hero/slide1-ai.mp4', // place your video at static/img/hero/slide1-ai.mp4
+    bgVideoFallback: '/img/hero/slide1-ai-fallback.jpg', // fallback poster image
   },
   {
     id: 2,
@@ -151,7 +154,21 @@ const HeroBannerSection = () => {
           const dark = slide.theme === 'dark';
           return (
             <Slide key={slide.id} bgColor={slide.bgColor}>
-              {slide.bgImage && (
+              {slide.bgVideo && (
+                <>
+                  <SlideBgVideo
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster={slide.bgVideoFallback || ''}
+                  >
+                    <source src={slide.bgVideo} type="video/mp4" />
+                  </SlideBgVideo>
+                  <SlideBgOverlay isDark bgColor={slide.bgColor} />
+                </>
+              )}
+              {!slide.bgVideo && slide.bgImage && (
                 <>
                   <SlideBgImage src={slide.bgImage} alt="" isDark={dark} />
                   <SlideBgOverlay isDark={dark} bgColor={slide.bgColor} />
