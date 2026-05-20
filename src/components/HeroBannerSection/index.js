@@ -32,11 +32,12 @@ const SLIDES = [
       'From concept to production. Models, agents, and infrastructure that actually ship.',
     cta1: { label: 'Read how', href: '#' },
     cta2: { label: 'See examples', href: '#' },
-    theme: 'dark',
-    bgColor: '#0a0e17',
+    theme: 'light',
+    bgColor: '#d4d4d4',
     bgImage: '',
-    bgVideo: '/img/hero/slide1-ai.mp4', // place your video at static/img/hero/slide1-ai.mp4
-    bgVideoFallback: '/img/hero/slide1-ai-fallback.jpg', // fallback poster image
+    bgVideo: '/img/hero/slide1-ai.mp4',
+    bgVideoOpacity: 0.5,
+    bgVideoFallback: '/img/hero/slide1-ai-fallback.jpg',
   },
   {
     id: 2,
@@ -161,11 +162,12 @@ const HeroBannerSection = () => {
                     loop
                     muted
                     playsInline
+                    $opacity={slide.bgVideoOpacity ?? 1}
                     poster={slide.bgVideoFallback || ''}
                   >
                     <source src={slide.bgVideo} type="video/mp4" />
                   </SlideBgVideo>
-                  <SlideBgOverlay isDark bgColor={slide.bgColor} />
+                  <SlideBgOverlay isVideo bgColor={slide.bgColor} />
                 </>
               )}
               {!slide.bgVideo && slide.bgImage && (

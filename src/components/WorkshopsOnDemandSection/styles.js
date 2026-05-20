@@ -3,11 +3,10 @@ import styled from 'styled-components';
 export const CARD_WIDTH = 360;
 export const CARD_GAP = 24;
 
-// 48px horizontal matches Grommet 'large' spacing used by the home page sections.
 export const Section = styled.div`
   background: transparent;
-  padding: 60px 48px;
-  margin-top: 24px;
+  padding: 60px max(24px, 8.33%);
+  overflow: hidden;
 
   @media (max-width: 768px) {
     padding: 32px 24px;

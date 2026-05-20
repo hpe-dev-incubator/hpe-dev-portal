@@ -73,14 +73,15 @@ export const CardEyebrow = styled.p`
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 38px;
   letter-spacing: -0.28px;
   color: rgba(255, 255, 255, 0.9);
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 28px;
   }
 `;
 
@@ -99,7 +100,7 @@ export const CardTitle = styled.h2`
   line-height: 1.12;
   letter-spacing: -1.04px;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0 0 32px;
 `;
 
 export const CardDescription = styled.p`
@@ -118,6 +119,7 @@ export const CardDescription = styled.p`
 export const CardCTA = styled.span`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   min-height: 64px;
   padding: 20px 36px;
@@ -126,6 +128,7 @@ export const CardCTA = styled.span`
   color: #292d3a;
   font-size: 20px;
   font-weight: 500;
+  line-height: 24px;
   white-space: nowrap;
   transition: opacity 0.2s;
 

@@ -55,6 +55,7 @@ export const SlideBgImage = styled.img`
 `;
 
 // Full-bleed video background for video slides
+// Use $opacity (transient prop) to control video dimming without DOM warning
 export const SlideBgVideo = styled.video`
   position: absolute;
   top: 0;
@@ -64,9 +65,10 @@ export const SlideBgVideo = styled.video`
   object-fit: cover;
   pointer-events: none;
   user-select: none;
+  opacity: ${({ $opacity }) => $opacity ?? 1};
 `;
 
-// Gradient that blends the image into the slide background colour
+// Gradient that blends the image/video into the slide background colour
 export const SlideBgOverlay = styled.div`
   position: absolute;
   top: 0;
@@ -74,27 +76,46 @@ export const SlideBgOverlay = styled.div`
   pointer-events: none;
   z-index: 1;
 
-  ${({ isDark, bgColor }) =>
-    isDark
-      ? css`
-          left: 0;
-          width: 100%;
-          background: linear-gradient(
-            to right,
-            ${bgColor || '#151e2b'} 0%,
-            ${bgColor || '#151e2b'}cc 30%,
-            transparent 65%
-          );
-        `
-      : css`
-          right: 0;
-          width: 62%;
-          background: linear-gradient(
-            to right,
-            ${bgColor || '#e4e6ea'} 0%,
-            transparent 38%
-          );
-        `}
+  ${({ isDark, isVideo, bgColor }) => {
+    // Video slides: full-width left-to-right fade from bgColor to transparent
+    // Matches Figma node 1010:911 gradient fill (position 0→1, horizontal)
+    if (isVideo) {
+      return css`
+        left: 0;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          ${bgColor || '#d4d4d4'}cc 0%,
+          ${bgColor || '#d4d4d4'}80 40%,
+          ${bgColor || '#d4d4d4'}33 75%,
+          transparent 100%
+        );
+      `;
+    }
+    // Dark image slides: left-anchored scrim so text is readable
+    if (isDark) {
+      return css`
+        left: 0;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          ${bgColor || '#151e2b'} 0%,
+          ${bgColor || '#151e2b'}cc 30%,
+          transparent 65%
+        );
+      `;
+    }
+    // Light image slides: right-side image blends into bg
+    return css`
+      right: 0;
+      width: 62%;
+      background: linear-gradient(
+        to right,
+        ${bgColor || '#e4e6ea'} 0%,
+        transparent 38%
+      );
+    `;
+  }}
 `;
 
 export const SlideContent = styled.div`

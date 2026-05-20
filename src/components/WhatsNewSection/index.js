@@ -120,6 +120,28 @@ const WhatsNewSection = ({ platforms = [] }) => {
   const [index, setIndex] = useState(0);
   const timerRef = useRef(null);
   const size = useContext(ResponsiveContext);
+  const viewportRef = useRef(null);
+  const [cardWidth, setCardWidth] = useState(CARD_WIDTH);
+
+  const cardsVisible = size === 'small' ? 1 : size === 'medium' ? 2 : 3;
+
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const update = () => {
+      const available = el.offsetWidth;
+      if (available > 0) {
+        const computed = Math.floor(
+          (available - (cardsVisible - 1) * CARD_GAP) / cardsVisible,
+        );
+        setCardWidth(Math.min(computed, CARD_WIDTH));
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [cardsVisible]);
 
   useEffect(() => {
     if (!API_BASE) return;
@@ -137,9 +159,8 @@ const WhatsNewSection = ({ platforms = [] }) => {
 
   const items = buildItems(platforms, workshops);
 
-  const cardsVisible = size === 'small' ? 1 : size === 'medium' ? 2 : 3;
   const maxIndex = Math.max(0, items.length - cardsVisible);
-  const translateX = index * (CARD_WIDTH + CARD_GAP);
+  const translateX = index * (cardWidth + CARD_GAP);
 
   // Reset index if items change
   useEffect(() => {
@@ -164,10 +185,10 @@ const WhatsNewSection = ({ platforms = [] }) => {
         <SectionTitle>What&#39;s new</SectionTitle>
       </SectionHeader>
 
-      <CarouselViewport>
+      <CarouselViewport ref={viewportRef}>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {items.map((item) => (
-            <NewCard key={item.id}>
+            <NewCard key={item.id} $width={cardWidth}>
               <CardImage>
                 {item.image && <img src={item.image} alt={item.title} />}
               </CardImage>

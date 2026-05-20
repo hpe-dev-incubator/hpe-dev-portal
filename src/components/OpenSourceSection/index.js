@@ -114,7 +114,7 @@ const OpenSourceSection = ({ projects = [] }) => {
         direction="row"
         justify="between"
         align="center"
-        margin={{ bottom: 'medium' }}
+        margin={{ bottom: 'large' }}
       >
         <Heading
           level={2}
@@ -180,78 +180,80 @@ const OpenSourceSection = ({ projects = [] }) => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {projects.filter(({ node }) => node.frontmatter.github).map(({ node }) => {
-            const { title, category, link, github } = node.frontmatter;
-            const CardLink = ({ children, ...props }) =>
-              github ? (
-                <a
-                  href={github}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  {...props}
-                >
-                  {children}
-                </a>
-              ) : (
-                <span {...props}>{children}</span>
-              );
-            return (
-              <OsCard key={title} style={{ position: 'relative' }}>
-                <CardLink
-                  aria-label={`Learn more about ${title}`}
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    textDecoration: 'none',
-                    zIndex: 0,
-                  }}
-                />
+          {projects
+            .filter(({ node }) => node.frontmatter.github)
+            .map(({ node }) => {
+              const { title, category, link, github } = node.frontmatter;
+              const CardLink = ({ children, ...props }) =>
+                github ? (
+                  <a
+                    href={github}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    {...props}
+                  >
+                    {children}
+                  </a>
+                ) : (
+                  <span {...props}>{children}</span>
+                );
+              return (
+                <OsCard key={title} style={{ position: 'relative' }}>
+                  <CardLink
+                    aria-label={`Learn more about ${title}`}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      textDecoration: 'none',
+                      zIndex: 0,
+                    }}
+                  />
 
-                {/* GitHub icon — z-index above overlay, intercepts its own clicks */}
-                <LogoWrapper style={{ position: 'relative', zIndex: 1 }}>
-                  <GitHubMark href={github} />
-                </LogoWrapper>
+                  {/* GitHub icon — z-index above overlay, intercepts its own clicks */}
+                  <LogoWrapper style={{ position: 'relative', zIndex: 1 }}>
+                    <GitHubMark href={github} />
+                  </LogoWrapper>
 
-                <Box
-                  gap="12px"
-                  style={{
-                    position: 'relative',
-                    zIndex: 1,
-                    pointerEvents: 'none',
-                  }}
-                >
-                  <Box direction="row" justify="between" align="center">
-                    <Text
-                      style={{
-                        color: '#292d3a',
-                        fontSize: '24px',
-                        fontWeight: 500,
-                        letterSpacing: '-0.5px',
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {title}
-                    </Text>
-                    <LinkOutIcon />
+                  <Box
+                    gap="small"
+                    style={{
+                      position: 'relative',
+                      zIndex: 1,
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    <Box direction="row" justify="between" align="center">
+                      <Text
+                        style={{
+                          color: '#292d3a',
+                          fontSize: '24px',
+                          fontWeight: 500,
+                          letterSpacing: '-0.5px',
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {title}
+                      </Text>
+                      <LinkOutIcon />
+                    </Box>
+
+                    {category && (
+                      <Text
+                        size="medium"
+                        style={{
+                          color: '#3e4550',
+                          opacity: 0.7,
+                          letterSpacing: '-0.2px',
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {category}
+                      </Text>
+                    )}
                   </Box>
-
-                  {category && (
-                    <Text
-                      style={{
-                        color: '#3e4550',
-                        fontSize: '18px',
-                        opacity: 0.7,
-                        letterSpacing: '-0.2px',
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      {category}
-                    </Text>
-                  )}
-                </Box>
-              </OsCard>
-            );
-          })}
+                </OsCard>
+              );
+            })}
         </CarouselTrack>
       </CarouselViewport>
     </Section>

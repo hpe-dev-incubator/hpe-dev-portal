@@ -5,7 +5,7 @@ description: Tools and integrations to monitor, trace, and resolve issues across
 cta: Get started with Observability
 href: '#'
 icon: ''
-bgImage: ''
+bgImage: '/img/featured/card2-observability.jpg'
 bgColor: '#0d1a2e'
 overlay: 'linear-gradient(to bottom, rgba(16,83,171,0) 0%, rgba(16,83,171,1) 100%)'
 isDark: true

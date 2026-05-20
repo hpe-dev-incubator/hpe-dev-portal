@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
 
@@ -99,6 +99,28 @@ const ChevronRight = () => (
 const ComingEventsSection = ({ events = [] }) => {
   const [index, setIndex] = useState(0);
   const size = useContext(ResponsiveContext);
+  const viewportRef = useRef(null);
+  const [cardWidth, setCardWidth] = useState(CARD_WIDTH);
+
+  const cardsVisible = size === 'small' ? 1 : size === 'medium' ? 2 : 3;
+
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const update = () => {
+      const available = el.offsetWidth;
+      if (available > 0) {
+        const computed = Math.floor(
+          (available - (cardsVisible - 1) * CARD_GAP) / cardsVisible,
+        );
+        setCardWidth(Math.min(computed, CARD_WIDTH));
+      }
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [cardsVisible]);
 
   const now = new Date();
 
@@ -121,9 +143,8 @@ const ComingEventsSection = ({ events = [] }) => {
 
   const items = [...upcoming, ...past];
 
-  const cardsVisible = size === 'small' ? 1 : size === 'medium' ? 2 : 3;
   const maxIndex = Math.max(0, items.length - cardsVisible);
-  const translateX = index * (CARD_WIDTH + CARD_GAP);
+  const translateX = index * (cardWidth + CARD_GAP);
 
   const handlePrev = () => setIndex((i) => Math.max(0, i - 1));
   const handleNext = () => setIndex((i) => Math.min(maxIndex, i + 1));
@@ -133,13 +154,13 @@ const ComingEventsSection = ({ events = [] }) => {
   return (
     <Section>
       <SectionHeader>
-        <SectionTitle>Coming events</SectionTitle>
+        <SectionTitle>Upcoming events</SectionTitle>
         <ViewAllLink href="/events">
           View all <ArrowRight />
         </ViewAllLink>
       </SectionHeader>
 
-      <CarouselViewport>
+      <CarouselViewport ref={viewportRef}>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {items.map(({ node }) => {
             const { title, dateStart, dateEnd, category, image, link } =
@@ -151,6 +172,7 @@ const ComingEventsSection = ({ events = [] }) => {
             return (
               <EventCard
                 key={node.fields.slug}
+                $width={cardWidth}
                 onClick={() =>
                   isExternal
                     ? window.open(href, '_blank', 'noreferrer')

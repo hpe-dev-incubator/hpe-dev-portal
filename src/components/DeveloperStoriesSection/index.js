@@ -26,6 +26,12 @@ const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
 });
 
+const DEFAULT_THUMBNAILS = [
+  '/img/dev-stories/thumb-1.jpg',
+  '/img/dev-stories/thumb-2.jpg',
+  '/img/dev-stories/thumb-3.jpg',
+];
+
 const DeveloperStoriesSection = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const size = useContext(ResponsiveContext);
@@ -112,7 +118,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {blogs.map(({ node }) => {
+          {blogs.map(({ node }, index) => {
             const { title, date, author, authorimage, thumbnailimage } =
               node.frontmatter;
             const slug = node.fields.slug;
@@ -120,7 +126,9 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
               node.excerpt && node.excerpt.length > 130
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
                 : node.excerpt || '';
-            const coverImg = thumbnailimage || authorimage || '';
+            const coverImg =
+              thumbnailimage ||
+              DEFAULT_THUMBNAILS[index % DEFAULT_THUMBNAILS.length];
             const postDate = date ? dateFormat.format(new Date(date)) : '';
 
             return (

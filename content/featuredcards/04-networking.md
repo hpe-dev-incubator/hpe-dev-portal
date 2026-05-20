@@ -5,7 +5,7 @@ description: Developer tools, APIs, and guides for building AI-driven, high-perf
 cta: Explore Networking
 href: /topic/networking
 icon: ''
-bgImage: ''
+bgImage: '/img/featured/card4-networking.jpg'
 bgColor: '#0a1520'
 overlay: 'linear-gradient(to bottom, rgba(7,71,56,0.09) 0%, rgba(98,229,246,0.4) 63%, rgba(0,85,218,0.66) 100%)'
 isDark: true

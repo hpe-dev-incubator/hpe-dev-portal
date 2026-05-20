@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const CARD_WIDTH = 400;
-export const CARD_GAP = 24;
+export const CARD_WIDTH = 436;
+export const CARD_GAP = 40;
 
 export const Section = styled.section`
   background: #ffffff;
@@ -56,10 +56,9 @@ export const CarouselTrack = styled.div`
 `;
 
 export const EventCard = styled.div`
-  flex: 0 0 ${CARD_WIDTH}px;
-  width: ${CARD_WIDTH}px;
+  flex: 0 0 ${({ $width }) => $width || CARD_WIDTH}px;
+  width: ${({ $width }) => $width || CARD_WIDTH}px;
   background: #f7f7f7;
-  border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -72,24 +71,25 @@ export const EventCard = styled.div`
 `;
 
 export const EventImageWrapper = styled.div`
-  height: 200px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   background: #e4e6ea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
 
   img {
-    height: 100%;
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
 `;
 
 export const EventBody = styled.div`
-  padding: 28px 28px 32px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -105,23 +105,19 @@ export const EventDate = styled.span`
 `;
 
 export const EventCategory = styled.span`
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 500;
-  background: #e8edf8;
-  color: #1a3a7a;
-  align-self: flex-start;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #3e4550;
 `;
 
 export const EventTitle = styled.h3`
   margin: 0;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.3px;
+  line-height: 34px;
+  letter-spacing: -0.28px;
   color: #292d3a;
 `;
 

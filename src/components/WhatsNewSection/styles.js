@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const CARD_WIDTH = 384;
-export const CARD_GAP = 24;
+export const CARD_WIDTH = 370;
+export const CARD_GAP = 40;
 
 export const Section = styled.section`
   background: #f7f7f7;
@@ -39,11 +39,12 @@ export const CarouselTrack = styled.div`
 `;
 
 export const NewCard = styled.div`
-  flex: 0 0 ${CARD_WIDTH}px;
-  width: ${CARD_WIDTH}px;
+  flex: 0 0 ${({ $width }) => $width || CARD_WIDTH}px;
+  width: ${({ $width }) => $width || CARD_WIDTH}px;
   display: flex;
   flex-direction: column;
-  gap: 46px;
+  background: white;
+  overflow: hidden;
   cursor: pointer;
 
   &:hover .card-title {
@@ -52,14 +53,16 @@ export const NewCard = styled.div`
 `;
 
 export const CardImage = styled.div`
-  height: 259px;
   width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #e0e2e6;
   flex-shrink: 0;
   position: relative;
 
   img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -71,6 +74,7 @@ export const CardBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 32px;
 `;
 
 export const TypeBadge = styled.span`
@@ -88,30 +92,30 @@ export const TypeBadge = styled.span`
 
 export const CardTitle = styled.h3`
   margin: 0;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
+  line-height: 34px;
+  letter-spacing: -0.28px;
   color: #292d3a;
 `;
 
 export const CardDescription = styled.p`
   margin: 0;
-  font-size: 18px;
-  line-height: 1.55;
-  letter-spacing: -0.2px;
-  color: rgba(62, 69, 80, 0.7);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #3e4550;
 `;
 
 export const CardLink = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 18px;
   font-weight: 500;
+  line-height: 24px;
   color: #292d3a;
   text-decoration: none;
-  letter-spacing: -0.2px;
 
   &:hover {
     text-decoration: underline;

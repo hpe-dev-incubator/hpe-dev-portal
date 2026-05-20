@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export const CARD_WIDTH = 352;
+export const CARD_WIDTH = 384;
 export const CARD_GAP = 24;
 
 export const Section = styled.div`
   background: #ffffff;
-  padding: 60px 48px;
-  margin-top: 24px;
+  padding: 96px max(24px, 8.33%);
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 32px 24px;
+    padding: 48px 24px;
   }
 `;
 
@@ -29,10 +29,10 @@ export const OsCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
   width: ${CARD_WIDTH}px;
   border: 1px solid #b1b9be;
-  padding: 40px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
   background: #ffffff;
   text-decoration: none;
   transition: box-shadow 0.2s ease;

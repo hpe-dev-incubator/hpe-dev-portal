@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { LinkNext } from 'grommet-icons';
 import {
   SectionWrapper,
   FeatureCard,
@@ -11,26 +12,6 @@ import {
   CardDescription,
   CardCTA,
 } from './styles';
-
-const ArrowRight = ({ color = '#ffffff' }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 18 18"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M3 9H15M9 3l6 6-6 6"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-ArrowRight.propTypes = { color: PropTypes.string };
 
 const FeaturedTopicsSection = ({ cards }) => {
   const items = (cards || []).map(({ node }) => ({
@@ -63,7 +44,7 @@ const FeaturedTopicsSection = ({ cards }) => {
             <CardTitle>{card.title}</CardTitle>
             <CardDescription>{card.description}</CardDescription>
             <CardCTA>
-              {card.cta} <ArrowRight color="#292d3a" />
+              {card.cta} <LinkNext color="#292d3a" size="small" />
             </CardCTA>
           </CardContent>
         </FeatureCard>
