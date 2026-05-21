@@ -27,9 +27,9 @@ const dateFormat = Intl.DateTimeFormat('default', {
 });
 
 const DEFAULT_THUMBNAILS = [
-  '/img/dev-stories/thumb-1.jpg',
-  '/img/dev-stories/thumb-2.jpg',
-  '/img/dev-stories/thumb-3.jpg',
+  '/img/dev-stories/thumb-1.png',
+  '/img/dev-stories/thumb-2.png',
+  '/img/dev-stories/thumb-3.png',
 ];
 
 const DeveloperStoriesSection = ({ blogs = [] }) => {
