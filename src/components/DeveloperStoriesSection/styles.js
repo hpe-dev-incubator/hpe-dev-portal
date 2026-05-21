@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CARD_WIDTH = 360;
+export const CARD_WIDTH = 480;
 export const CARD_GAP = 24;
 
 export const Section = styled.div`
@@ -30,35 +30,41 @@ export const StoryCard = styled.div`
   border-radius: 24px;
   overflow: hidden;
   background: #f7f7f7;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
-`;
-
-export const CardImageWrapper = styled.div`
   position: relative;
-  height: 200px;
-  overflow: hidden;
-  background: #d5d5d5;
-  flex-shrink: 0;
 `;
 
-export const CardImageGradient = styled.div`
+/* Full-card absolute background layers (image + gradient) */
+export const CardBgLayers = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, rgba(247, 247, 247, 0), #f7f7f7);
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  border-radius: 24px;
+`;
+
+/* Gradient fades image into white over the lower portion of the card */
+export const CardGradient = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(247, 247, 247, 0) 30%, #ffffff 72%);
+`;
+
+/* Creates the visible image-only zone above the text content */
+export const CardImageSpacer = styled.div`
+  height: 300px;
+  flex-shrink: 0;
+  position: relative;
 `;
 
 export const CardBody = styled.div`
-  padding: 24px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  flex: 1;
+  gap: 24px;
+  flex-shrink: 0;
+  position: relative;
 `;
 
 const NavButton = styled.button`
@@ -82,18 +88,18 @@ const NavButton = styled.button`
 `;
 
 export const PrevButton = styled(NavButton)`
-  background: rgba(0, 0, 0, 0.04);
+  background: #b1b9be;
 
   &:not(:disabled):hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: #9aa1a7;
   }
 `;
 
 export const NextButton = styled(NavButton)`
-  background: #292d3a;
+  background: #535c66;
 
   &:not(:disabled):hover {
-    background: #3d4254;
+    background: #3f4850;
   }
 `;
 

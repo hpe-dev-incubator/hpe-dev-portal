@@ -9,22 +9,13 @@ import {
   CarouselViewport,
   CarouselTrack,
   StoryCard,
-  CardImageWrapper,
-  CardImageGradient,
+  CardBgLayers,
+  CardGradient,
+  CardImageSpacer,
   CardBody,
   PrevButton,
   NextButton,
-  AuthorRow,
-  AuthorAvatar,
-  AuthorName,
-  PostDate,
 } from './styles';
-
-const dateFormat = Intl.DateTimeFormat('default', {
-  month: 'long',
-  day: 'numeric',
-  year: 'numeric',
-});
 
 const DEFAULT_THUMBNAILS = [
   '/img/dev-stories/thumb-1.png',
@@ -48,78 +39,25 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
   return (
     <Section>
       {/* Section header */}
-      <Box
-        direction="row"
-        justify="between"
-        align="center"
-        margin={{ bottom: 'medium' }}
+      <Heading
+        level={2}
+        margin={{ bottom: 'large' }}
+        style={{
+          color: '#292d3a',
+          fontSize: '48px',
+          fontWeight: 500,
+          letterSpacing: '-1.04px',
+          lineHeight: 1.1,
+        }}
       >
-        <Heading
-          level={2}
-          margin="none"
-          style={{
-            color: '#292d3a',
-            fontSize: '48px',
-            fontWeight: 500,
-            letterSpacing: '-1.04px',
-            lineHeight: 1.1,
-          }}
-        >
-          Developer stories
-        </Heading>
-
-        <Box direction="row" gap="small">
-          <PrevButton
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            aria-label="Previous stories"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M13 4L7 10L13 16"
-                stroke="#292d3a"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </PrevButton>
-
-          <NextButton
-            onClick={handleNext}
-            disabled={currentIndex >= maxIndex}
-            aria-label="Next stories"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 4L13 10L7 16"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </NextButton>
-        </Box>
-      </Box>
+        Developer stories
+      </Heading>
 
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {blogs.map(({ node }, index) => {
-            const { title, date, author, authorimage, thumbnailimage } =
+            const { title, thumbnailimage } =
               node.frontmatter;
             const slug = node.fields.slug;
             const excerpt =
@@ -129,15 +67,15 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
             const coverImg =
               thumbnailimage ||
               DEFAULT_THUMBNAILS[index % DEFAULT_THUMBNAILS.length];
-            const postDate = date ? dateFormat.format(new Date(date)) : '';
 
             return (
               <StoryCard key={slug}>
-                <CardImageWrapper>
+                {/* Absolute background: image + gradient overlay */}
+                <CardBgLayers aria-hidden="true">
                   {coverImg && (
                     <img
                       src={coverImg}
-                      alt={title}
+                      alt=""
                       style={{
                         width: '100%',
                         height: '100%',
@@ -146,8 +84,11 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                       }}
                     />
                   )}
-                  <CardImageGradient />
-                </CardImageWrapper>
+                  <CardGradient />
+                </CardBgLayers>
+
+                {/* Spacer creates the visible image zone above the text */}
+                <CardImageSpacer />
 
                 <CardBody>
                   <Heading
@@ -155,9 +96,10 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                     margin="none"
                     style={{
                       color: '#292d3a',
-                      fontSize: '20px',
+                      fontSize: '32px',
                       fontWeight: 500,
-                      lineHeight: 1.3,
+                      letterSpacing: '-0.5px',
+                      lineHeight: 1.2,
                     }}
                   >
                     {title}
@@ -166,9 +108,10 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                   <Text
                     style={{
                       color: '#3e4550',
-                      fontSize: '15px',
-                      lineHeight: 1.6,
-                      opacity: 0.75,
+                      fontSize: '18px',
+                      lineHeight: 1.5,
+                      opacity: 0.7,
+                      letterSpacing: '-0.2px',
                     }}
                   >
                     {excerpt}
@@ -179,26 +122,61 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                     icon={<LinkNext size="small" />}
                     label="Read more"
                     reverse
-                    style={{ color: '#292d3a', fontWeight: 500 }}
+                    style={{ color: '#292d3a', fontWeight: 500, fontSize: '20px' }}
                   />
-
-                  {(author || postDate) && (
-                    <AuthorRow>
-                      {authorimage && (
-                        <AuthorAvatar src={authorimage} alt={author || ''} />
-                      )}
-                      <div>
-                        {author && <AuthorName>{author}</AuthorName>}
-                        {postDate && <PostDate>{postDate}</PostDate>}
-                      </div>
-                    </AuthorRow>
-                  )}
                 </CardBody>
               </StoryCard>
             );
           })}
         </CarouselTrack>
       </CarouselViewport>
+
+      {/* Carousel controls — below the carousel, left-aligned per Figma */}
+      <Box direction="row" gap="small" margin={{ top: 'medium' }}>
+        <PrevButton
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+          aria-label="Previous stories"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M13 4L7 10L13 16"
+              stroke="#292d3a"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </PrevButton>
+
+        <NextButton
+          onClick={handleNext}
+          disabled={currentIndex >= maxIndex}
+          aria-label="Next stories"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M7 4L13 10L7 16"
+              stroke="#ffffff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </NextButton>
+      </Box>
     </Section>
   );
 };
