@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const CARD_WIDTH = 360;
-export const CARD_GAP = 24;
+export const CARD_WIDTH = 436;
+export const CARD_GAP = 40;
 
 export const Section = styled.div`
-  background: transparent;
-  padding: 60px max(24px, 8.33%);
+  background: #f7f7f7;
+  padding: 96px max(24px, 8.33%);
   overflow: hidden;
 
   @media (max-width: 768px) {
@@ -27,17 +27,15 @@ export const CarouselTrack = styled.div`
 
 export const StoryCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
-  border-radius: 24px;
   overflow: hidden;
-  background: #f7f7f7;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  background: #ffffff;
   display: flex;
   flex-direction: column;
 `;
 
 export const CardImageWrapper = styled.div`
   position: relative;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #d5d5d5;
   flex-shrink: 0;
@@ -54,10 +52,10 @@ export const CardImageGradient = styled.div`
 `;
 
 export const CardBody = styled.div`
-  padding: 24px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
   flex: 1;
 `;
 
@@ -82,15 +80,15 @@ const NavButton = styled.button`
 `;
 
 export const PrevButton = styled(NavButton)`
-  background: rgba(0, 0, 0, 0.04);
+  background: #b1b9be;
 
   &:not(:disabled):hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: #9aa5ab;
   }
 `;
 
 export const NextButton = styled(NavButton)`
-  background: #292d3a;
+  background: #535c66;
 
   &:not(:disabled):hover {
     background: #3d4254;

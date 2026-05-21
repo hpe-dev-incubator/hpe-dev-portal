@@ -10,11 +10,9 @@ import {
   CarouselTrack,
   StoryCard,
   CardImageWrapper,
-  CardImageGradient,
   CardBody,
   PrevButton,
   NextButton,
-  BucketBadge,
 } from './styles';
 
 const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
@@ -137,73 +135,20 @@ const WorkshopsOnDemandSection = () => {
 
   return (
     <Section>
-      {/* Section header: title left, carousel nav right */}
-      <Box
-        direction="row"
-        justify="between"
-        align="center"
-        margin={{ bottom: 'medium' }}
+      {/* Section header: title only */}
+      <Heading
+        level={2}
+        margin={{ bottom: 'large' }}
+        style={{
+          color: '#3e4550',
+          fontSize: '48px',
+          fontWeight: 500,
+          letterSpacing: '-1.04px',
+          lineHeight: 1.1,
+        }}
       >
-        <Heading
-          level={2}
-          margin="none"
-          style={{
-            color: '#292d3a',
-            fontSize: '48px',
-            fontWeight: 500,
-            letterSpacing: '-1.04px',
-            lineHeight: 1.1,
-          }}
-        >
-          Workshops on Demand
-        </Heading>
-
-        <Box direction="row" gap="small">
-          <PrevButton
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            aria-label="Previous stories"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M13 4L7 10L13 16"
-                stroke="#292d3a"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </PrevButton>
-
-          <NextButton
-            onClick={handleNext}
-            disabled={currentIndex >= maxIndex}
-            aria-label="Next stories"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 4L13 10L7 16"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </NextButton>
-        </Box>
-      </Box>
+        Workshops-on-Demand
+      </Heading>
 
       {/* Carousel */}
       <CarouselViewport>
@@ -213,9 +158,10 @@ const WorkshopsOnDemandSection = () => {
               workshop.description && workshop.description.length > 130
                 ? `${workshop.description.slice(0, 130).trimEnd()}…`
                 : workshop.description || '';
-            const link = workshop.replayId
+            const detailLink = workshop.replayId
               ? `/hackshack/workshop/${workshop.replayId}`
               : '/hackshack/workshops';
+            const isFull = workshop.location === 'FULL';
 
             return (
               <StoryCard key={workshop.id}>
@@ -230,57 +176,194 @@ const WorkshopsOnDemandSection = () => {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      objectPosition: 'center bottom',
+                      objectPosition: 'center center',
                       display: 'block',
                     }}
                   />
-                  <CardImageGradient />
                 </CardImageWrapper>
 
                 <CardBody>
-                  {workshop._bucket && (
-                    <BucketBadge>{workshop._bucket}</BucketBadge>
+                  {/* Text block: heading + author + description */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                    }}
+                  >
+                    <Heading
+                      level={3}
+                      margin="none"
+                      style={{
+                        color: '#292d3a',
+                        fontSize: '28px',
+                        fontWeight: 500,
+                        letterSpacing: '-0.28px',
+                        lineHeight: '34px',
+                      }}
+                    >
+                      {workshop.name}
+                    </Heading>
+
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '12px',
+                      }}
+                    >
+                      {workshop.presenter && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                          }}
+                        >
+                          {workshop.avatar ? (
+                            <img
+                              src={workshop.avatar}
+                              alt=""
+                              style={{
+                                width: 32,
+                                height: 32,
+                                borderRadius: '50%',
+                                objectFit: 'cover',
+                                flexShrink: 0,
+                              }}
+                            />
+                          ) : (
+                            <div
+                              style={{
+                                width: 32,
+                                height: 32,
+                                borderRadius: '50%',
+                                background: '#d5d5d5',
+                                flexShrink: 0,
+                              }}
+                            />
+                          )}
+                          <Text
+                            style={{
+                              fontSize: '16px',
+                              color: '#3e4550',
+                              lineHeight: '24px',
+                            }}
+                          >
+                            by {workshop.presenter}
+                          </Text>
+                        </div>
+                      )}
+
+                      <Text
+                        style={{
+                          color: '#3e4550',
+                          fontSize: '16px',
+                          lineHeight: '24px',
+                        }}
+                      >
+                        {desc}
+                      </Text>
+                    </div>
+                  </div>
+
+                  {/* Button group */}
+                  {isFull ? (
+                    <Text
+                      style={{
+                        fontSize: '16px',
+                        color: '#9aa5ab',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                      }}
+                    >
+                      Currently full, please try again later
+                    </Text>
+                  ) : (
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Anchor
+                        href={workshop.replayLink || detailLink}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        icon={<LinkNext size="small" />}
+                        label="Register"
+                        reverse
+                        color="brand"
+                        style={{ fontWeight: 500, fontSize: '16px' }}
+                      />
+                      <Anchor
+                        href={detailLink}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        label="Learn more"
+                        style={{
+                          color: '#292d3a',
+                          fontWeight: 500,
+                          fontSize: '16px',
+                        }}
+                      />
+                    </div>
                   )}
-
-                  <Heading
-                    level={3}
-                    margin="none"
-                    style={{
-                      color: '#292d3a',
-                      fontSize: '24px',
-                      fontWeight: 500,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {workshop.name}
-                  </Heading>
-
-                  <Text
-                    style={{
-                      color: '#3e4550',
-                      fontSize: '16px',
-                      lineHeight: 1.6,
-                      opacity: 0.75,
-                    }}
-                  >
-                    {desc}
-                  </Text>
-
-                  <Anchor
-                    href={link}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    icon={<LinkNext size="small" />}
-                    label="Learn more"
-                    reverse
-                    style={{ color: '#292d3a', fontWeight: 500 }}
-                  />
                 </CardBody>
               </StoryCard>
             );
           })}
         </CarouselTrack>
       </CarouselViewport>
+
+      {/* Nav buttons below carousel */}
+      <Box direction="row" gap="small" margin={{ top: 'medium' }}>
+        <PrevButton
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+          aria-label="Previous workshops"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M13 4L7 10L13 16"
+              stroke="#292d3a"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </PrevButton>
+
+        <NextButton
+          onClick={handleNext}
+          disabled={currentIndex >= maxIndex}
+          aria-label="Next workshops"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M7 4L13 10L7 16"
+              stroke="#ffffff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </NextButton>
+      </Box>
     </Section>
   );
 };
