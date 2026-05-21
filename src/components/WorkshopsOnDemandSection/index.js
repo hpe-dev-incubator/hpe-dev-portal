@@ -20,10 +20,10 @@ import {
 const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
 
 const DEFAULT_THUMBNAILS = [
-  '/img/workshops/thumb-1.jpg',
-  '/img/workshops/thumb-2.jpg',
-  '/img/workshops/thumb-3.jpg',
-  '/img/workshops/thumb-4.jpg',
+  '/img/workshops/thumb-1.png',
+  '/img/workshops/thumb-2.png',
+  '/img/workshops/thumb-3.png',
+  '/img/workshops/thumb-4.png',
 ];
 
 // Returns true when a workshop's category field (array or string) matches target.
