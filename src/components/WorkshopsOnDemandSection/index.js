@@ -19,6 +19,13 @@ import {
 
 const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
 
+const DEFAULT_THUMBNAILS = [
+  '/img/workshops/thumb-1.jpg',
+  '/img/workshops/thumb-2.jpg',
+  '/img/workshops/thumb-3.jpg',
+  '/img/workshops/thumb-4.jpg',
+];
+
 // Returns true when a workshop's category field (array or string) matches target.
 const matchesCategory = (workshop, category) => {
   if (!workshop.category) return false;
@@ -201,7 +208,7 @@ const WorkshopsOnDemandSection = () => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {stories.map((workshop) => {
+          {stories.map((workshop, index) => {
             const desc =
               workshop.description && workshop.description.length > 130
                 ? `${workshop.description.slice(0, 130).trimEnd()}…`
@@ -213,19 +220,20 @@ const WorkshopsOnDemandSection = () => {
             return (
               <StoryCard key={workshop.id}>
                 <CardImageWrapper>
-                  {workshop.workshopImg && (
-                    <img
-                      src={workshop.workshopImg}
-                      alt={workshop.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center bottom',
-                        display: 'block',
-                      }}
-                    />
-                  )}
+                  <img
+                    src={
+                      workshop.workshopImg ||
+                      DEFAULT_THUMBNAILS[index % DEFAULT_THUMBNAILS.length]
+                    }
+                    alt={workshop.name}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center bottom',
+                      display: 'block',
+                    }}
+                  />
                   <CardImageGradient />
                 </CardImageWrapper>
 
