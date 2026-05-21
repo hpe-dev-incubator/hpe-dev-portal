@@ -47,8 +47,9 @@ const SLIDES = [
     cta1: { label: 'Join the Hackathon', href: '/hackshack' },
     cta2: { label: 'See past events', href: '/hackshack/workshops' },
     theme: 'dark',
-    bgColor: '#151e2b',
-    bgImage: '', // TODO: '/img/hero/slide2-code.jpg'
+    bgColor: '#292d3a',
+    bgVideo: '/img/hero/slide2-code.mp4',
+    bgVideoOpacity: 0.5,
   },
   {
     id: 3,
@@ -58,8 +59,9 @@ const SLIDES = [
     cta1: { label: 'Deploy an AI Workload', href: '#' },
     cta2: { label: 'See examples', href: '#' },
     theme: 'light',
-    bgColor: '#f6f7f9',
-    bgImage: '', // TODO: '/img/hero/slide3-dataviz.jpg'
+    bgColor: '#ffffff',
+    bgVideo: '/img/hero/slide3-dataviz.mp4',
+    bgVideoOpacity: 0.5,
   },
 ];
 

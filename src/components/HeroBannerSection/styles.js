@@ -84,10 +84,8 @@ export const SlideBgOverlay = styled.div`
         left: 0;
         width: 100%;
         background: linear-gradient(
-          to right,
-          ${bgColor || '#d4d4d4'}cc 0%,
-          ${bgColor || '#d4d4d4'}80 40%,
-          ${bgColor || '#d4d4d4'}33 75%,
+          90deg,
+          ${bgColor || '#d4d4d4'} 20.42%,
           transparent 100%
         );
       `;
