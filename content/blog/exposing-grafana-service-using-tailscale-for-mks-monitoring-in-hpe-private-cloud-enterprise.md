@@ -15,6 +15,7 @@ tags:
   - Grafana
   - Kubernetes
   - Kubernetes monitoring
+  - tutorial
 ---
 
 

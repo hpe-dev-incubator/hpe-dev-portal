@@ -10,6 +10,7 @@ tags:
   - PCAI
   - vllm
   - SLM
+  - tutorial
 ---
 Deploying new language models for users to interact with can be challenging for beginners. HPE developed Private Cloud AI to help users set up and implement AI solutions quickly and easily. 
 

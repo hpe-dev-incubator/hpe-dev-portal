@@ -1,93 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, navigate } from 'gatsby';
-import {
-  Box,
-  Button,
-  Card as GrommetCard,
-  CardHeader,
-  Grid,
-  Heading,
-  Image,
-  Paragraph,
-  Text,
-} from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { graphql } from 'gatsby';
+import { Box, Button, Heading, Image, Text } from 'grommet';
 
 import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
-
-const OpenSourceCard = ({ children }) => (
-  <Box pad={{ horizontal: 'large', bottom: 'large' }}>
-    <GrommetCard elevation="medium" fill="horizontal">
-      <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
-        <Heading level={2} margin="none">
-          Featured Open Source Projects
-        </Heading>
-        <ButtonLink icon={<LinkNext color="green" />} to="/opensource" />
-      </CardHeader>
-      <Grid
-        columns="small"
-        gap="large"
-        pad={{ horizontal: 'large', bottom: 'large' }}
-      >
-        {children}
-      </Grid>
-    </GrommetCard>
-  </Box>
-);
-
-OpenSourceCard.propTypes = {
-  children: PropTypes.node,
-};
-
-const Project = ({ title, description, link }) => (
-  <Box
-    align="start"
-    gap="medium"
-    /* eslint-disable */
-    onClick={
-      link && link.match(/^\//g)
-        ? () => navigate(link)
-        : link
-        ? () => window.open(link)
-        : undefined
-    }
-  >
-    {/* <Box flex={false} height="xsmall" width="xsmall">
-      <Image src={image} fit="contain" alt="opensource project logo" />
-    </Box> */}
-    <Box>
-      <Text size="large" weight="bold">
-        {title}
-      </Text>
-      <Paragraph truncate margin="none" size="large">
-        {description && description.length > 115
-          ? description.substring(0, 115) + '...'
-          : description}
-      </Paragraph>
-    </Box>
-  </Box>
-);
-
-Project.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  link: PropTypes.string,
-};
+import DeveloperStoriesSection from '../../components/DeveloperStoriesSection';
+import WorkshopsOnDemandSection from '../../components/WorkshopsOnDemandSection';
+import OpenSourceSection from '../../components/OpenSourceSection';
+import HeroBannerSection from '../../components/HeroBannerSection';
+import FeaturedTopicsSection from '../../components/FeaturedTopicsSection';
+import WhatsNewSection from '../../components/WhatsNewSection';
+import ComingEventsSection from '../../components/ComingEventsSection';
+import CommunityCardsSection from '../../components/CommunityCardsSection';
 
 const Home = ({ data }) => {
   const { title, image } = data.markdownRemark.frontmatter;
   const siteTitle = data.site.siteMetadata.title;
 
   const panels = data.home.edges;
-
   const projects = data.opensource.edges;
+  const latestPlatforms = data.latestPlatforms.edges;
+  const events = data.events.edges;
+  const latestBlogs = data.latestBlogs.edges;
+  const featuredCards = data.featuredCards ? data.featuredCards.edges : [];
 
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
-      <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+      <HeroBannerSection />
+      <FeaturedTopicsSection cards={featuredCards} />
+      <WhatsNewSection platforms={latestPlatforms} />
+      <ComingEventsSection events={events} />{' '}
+      {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
         <Box>
           <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
           <Button
@@ -107,8 +51,8 @@ const Home = ({ data }) => {
         <Box align="center">
           {image && <Image src={image} alt="hpedev logo" />}
         </Box>
-      </Box>
-      <Box flex={false} direction="row-responsive" wrap margin="medium">
+      </Box> */}
+      {/* <Box flex={false} direction="row-responsive" wrap margin="medium">
         {panels &&
           panels.map(({ node }) => (
             <Card
@@ -124,19 +68,11 @@ const Home = ({ data }) => {
               author={node.frontmatter.author}
             />
           ))}
-      </Box>
-      <OpenSourceCard>
-        {projects &&
-          projects.map(({ node }) => (
-            <Project
-              key={node.id}
-              image={node.frontmatter.image}
-              title={node.frontmatter.title}
-              description={node.frontmatter.description}
-              link={node.frontmatter.link}
-            />
-          ))}
-      </OpenSourceCard>
+      </Box> */}
+      <DeveloperStoriesSection blogs={latestBlogs} />
+      <WorkshopsOnDemandSection />
+      <OpenSourceSection projects={projects} />
+      <CommunityCardsSection />
     </Layout>
   );
 };
@@ -175,6 +111,15 @@ Home.propTypes = {
         }),
       ),
     }),
+    latestPlatforms: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    events: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    latestBlogs: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
     opensource: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -188,6 +133,29 @@ Home.propTypes = {
             }),
           }),
           rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+    featuredCards: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              eyebrow: PropTypes.string,
+              title: PropTypes.string,
+              description: PropTypes.string,
+              cta: PropTypes.string,
+              href: PropTypes.string,
+              icon: PropTypes.string,
+              bgImage: PropTypes.string,
+              bgColor: PropTypes.string,
+              overlay: PropTypes.string,
+              isDark: PropTypes.bool,
+              priority: PropTypes.number,
+              active: PropTypes.bool,
+            }),
+          }),
         }),
       ),
     }),
@@ -216,7 +184,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "homepanels" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {
@@ -236,12 +204,80 @@ export const pageQuery = graphql`
         }
       }
     }
+    latestPlatforms: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "platform" } }
+        frontmatter: { active: { eq: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+      limit: 2
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+            image
+            date
+          }
+        }
+      }
+    }
+    events: allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "event" } } }
+      sort: { frontmatter: { dateStart: DESC } }
+      limit: 12
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            dateStart
+            dateEnd
+            category
+            image
+            link
+          }
+        }
+      }
+    }
+    latestBlogs: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { disable: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
+      limit: 6
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            date
+            author
+            authorimage
+            thumbnailimage
+          }
+        }
+      }
+    }
     opensource: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "opensource" } }
         frontmatter: { Featured: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {
@@ -257,9 +293,38 @@ export const pageQuery = graphql`
             category
             description
             image
+            github
             frontpage
             priority
             link
+          }
+        }
+      }
+    }
+    featuredCards: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "featuredcards" } }
+        frontmatter: { active: { eq: true } }
+      }
+      sort: { frontmatter: { priority: ASC } }
+      limit: 4
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            eyebrow
+            title
+            description
+            cta
+            href
+            icon
+            bgImage
+            bgColor
+            overlay
+            isDark
+            priority
+            active
           }
         }
       }

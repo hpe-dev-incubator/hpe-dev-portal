@@ -9,6 +9,9 @@ tags:
   - hybrid-observability-flex-solutions
   - hybrid observability
   - OpsRamp
+  - observability
+  - hpe-opsramp
+  - tutorial
 ---
 <style>
 li {

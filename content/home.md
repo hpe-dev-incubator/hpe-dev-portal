@@ -1,7 +1,7 @@
 ---
 title: Home
 author: HPE
-image: /img/home/HPE-Developer-Community-Hero-1.png
+image: /img/home/HPE-Developer-Community-Hero-3.png
 ---
 # HPE Developer Community
 

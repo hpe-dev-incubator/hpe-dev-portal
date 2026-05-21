@@ -51,7 +51,7 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  
+
   // Try to fetch special badges, but continue if service is unavailable
   try {
     // eslint-disable-next-line
@@ -65,9 +65,8 @@ exports.createPages = async ({ graphql, actions }) => {
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
-        component: require.resolve(
-          './src/pages/hackshack/workshops/template.js',
-        ),
+        component:
+          require.resolve('./src/pages/hackshack/workshops/template.js'),
         context: {
           specialBadgeId: id,
           title,
@@ -81,8 +80,13 @@ exports.createPages = async ({ graphql, actions }) => {
       // console.log('------------------------------');
     });
   } catch (error) {
-    console.log('Warning: Could not connect to workshop challenge API for special badges. Skipping special badge pages.');
-    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
+    console.log(
+      'Warning: Could not connect to workshop challenge API for special badges. Skipping special badge pages.',
+    );
+    console.log(
+      'Error details:',
+      error.code === 'ECONNREFUSED' ? 'API service not running' : error.message,
+    );
   }
 
   // Try to fetch workshops (replays data is now part of workshops), but continue if service is unavailable
@@ -100,9 +104,8 @@ exports.createPages = async ({ graphql, actions }) => {
       .forEach(({ replayId, name, description, workshopImg, badgeImg }) => {
         createPage({
           path: `/hackshack/replays/${replayId}`,
-          component: require.resolve(
-            './src/pages/hackshack/replays/template.js',
-          ),
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
           context: {
             workshopId: replayId,
             workshopTitle: name,
@@ -113,9 +116,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
         createPage({
           path: `/hackshack/workshop/${replayId}`,
-          component: require.resolve(
-            './src/pages/hackshack/replays/template.js',
-          ),
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
           context: {
             workshopId: replayId,
             workshopTitle: name,
@@ -126,9 +128,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
         createPage({
           path: `/hackshack/workshop/${replayId}/finisher-badge`,
-          component: require.resolve(
-            './src/pages/hackshack/replays/template.js',
-          ),
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
           context: {
             workshopId: replayId,
             workshopTitle: name,
@@ -138,8 +139,13 @@ exports.createPages = async ({ graphql, actions }) => {
         });
       });
   } catch (error) {
-    console.log('Warning: Could not connect to workshop challenge API for workshops. Skipping replay pages.');
-    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
+    console.log(
+      'Warning: Could not connect to workshop challenge API for workshops. Skipping replay pages.',
+    );
+    console.log(
+      'Error details:',
+      error.code === 'ECONNREFUSED' ? 'API service not running' : error.message,
+    );
   }
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
@@ -150,6 +156,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
   const roleTemplate = path.resolve('./src/templates/role.js');
   const useCasesTemplate = path.resolve('./src/templates/use-case.js');
+  const topicTemplate = path.resolve('./src/templates/topic.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult = await graphql(
@@ -412,13 +419,19 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'use-cases') {
           const { sourceInstanceName, slug } = post.node.fields;
-          // console.log(
-          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          // );
-          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: useCasesTemplate,
+            context: {
+              slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'topic') {
+          const { slug } = post.node.fields;
+          createPage({
+            path: `/topic${slug}`,
+            component: topicTemplate,
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
@@ -488,6 +501,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 // Filter the events based on the end date
 exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes(`
+    type TopicVideo {
+      id: String
+      title: String
+    }
+    type MarkdownRemarkFrontmatter {
+      ctaLabel: String
+      ctaLink: String
+      learnMoreLink: String
+      keyword: String
+      videos: [TopicVideo]
+      cta: String
+      href: String
+      bgImage: String
+      bgColor: String
+      overlay: String
+      isDark: Boolean
+    }
+  `);
   actions.createTypes([
     schema.buildObjectType({
       name: 'MarkdownRemark',

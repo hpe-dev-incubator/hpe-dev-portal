@@ -14,6 +14,7 @@ tags:
   - Backup and restore
   - HPE GreenLake for Private Cloud Enterprise
   - hpe-greenlake-for-private-cloud-enterprise
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
@@ -23,7 +24,8 @@ tags:
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html) ("containers service"), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-In this blog post, I discuss first the persistent volumes and volume snapshots in K8s. Then, I describe the Container Storage Interface (CSI) and HPE CSI driver for K8s in HPE GreenLake for Private Cloud Enterprise. With a MySQL database instance deployed as a sample stateful application using persistent volume in the cluster, I show the detailed steps used to create a volume snapshot of the database as a backup using HPE CSI driver for K8s. Finally, I demonstrate how to restore the MySQL database using the created volume snapshot.
+In this blog post, I discuss first the persistent volumes and volume snapshots in K8s. Then, I describe the Container Storage Interface (CSI) and HPE CSI driver for K8s in HPE GreenLake for Private Cloud Enterprise. With a MySQL database instance deployed as a sample stateful application using persistent volume in the cluster, I show the detailed steps u
+sed to create a volume snapshot of the database as a backup using HPE CSI driver for K8s. Finally, I demonstrate how to restore the MySQL database using the created volume snapshot.
 
 ### Persistent volumes and volume snapshots  
 

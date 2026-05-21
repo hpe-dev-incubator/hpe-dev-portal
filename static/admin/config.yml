@@ -1,8 +1,10 @@
 backend:
- name: github
- repo: hpe-dev-incubator/hpe-dev-portal
- branch: master
- open_authoring: true
+  name: github
+  repo: hpe-dev-incubator/hpe-dev-portal
+  branch: master
+  open_authoring: true
+
+local_backend: true
 
 publish_mode: editorial_workflow
 site_url: https://developer.hpe.com
@@ -40,16 +42,61 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
-      - { label: 'Author', name: 'author', widget: 'string' } 
-      - { label: 'Category', name: 'category', widget: 'select', options: [ { label: 'none', value: ''}, { label: 'Community', value: 'Community' }, { label: 'Design', value: 'Design' }, { label: 'Workshop', value: 'Workshop' }, { label: 'Event', value: 'Event' },{ label: 'Virtual Event', value: 'Virtual Event' }, { label: 'Open Source', value: 'Open Source' }, { label: 'Feature Blog', value: 'Feature Blog' }, { label: 'Feature Platform', value: 'Feature Platform' } ], default: 'none' }
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
-      - { label: 'Active', name: 'active', widget: 'boolean', hint: 'selecting true adds the card in the Hackshack home page'  }
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image shown next to or above content' }
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          hint: 'used for the filename and tagging',
+        }
+      - { label: 'Author', name: 'author', widget: 'string' }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
+          options:
+            [
+              { label: 'none', value: '' },
+              { label: 'Community', value: 'Community' },
+              { label: 'Design', value: 'Design' },
+              { label: 'Workshop', value: 'Workshop' },
+              { label: 'Event', value: 'Event' },
+              { label: 'Virtual Event', value: 'Virtual Event' },
+              { label: 'Open Source', value: 'Open Source' },
+              { label: 'Feature Blog', value: 'Feature Blog' },
+              { label: 'Feature Platform', value: 'Feature Platform' },
+            ],
+          default: 'none',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the position on the page',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          hint: 'selecting true adds the card in the Hackshack home page',
+        }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['small', 'medium', 'large'],
+          default: 'medium',
+        }
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'image shown next to or above content',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  # Hackshack collection: 
+  # Hackshack collection:
   - name: 'hackshackhome'
     label: 'Hackshack Home Cards'
     folder: 'content/hackshackhome'
@@ -62,18 +109,78 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Hackshack home page'  }
-      - { label: 'Fit Image', name: 'fit', widget: 'select', options: [ 'contain', 'cover' ], default: 'contain', required: true}
-      - { label: 'External Link', name: 'link', widget: 'string', required: false }
-      - { label: 'Navigation Path', name: 'path', widget: 'string', required: false}
-      - { label: 'Image Background Color', name: 'imageBackground', widget: 'select', options: [ 'white', background, 'rgba(0, 86, 122, 0.8);' ], default: 'white', required: true}
-      - { label: 'Description', name: 'description', widget: 'string', required: true}
-      - { label: 'Background Color', name: 'background', widget: 'select', options: [ 'background', 'rgba(0, 86, 122, 0.8);' ], default: 'background', required: true}
-      - { label: 'Button Lable', name: 'label', widget: 'string' , required: true}
-      - { label: 'Priority', name: 'priority', widget: 'number' , required: true }
-      - { label: 'Thumbnail Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on card' , required: true }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true adds the card in the Hackshack home page',
+        }
+      - {
+          label: 'Fit Image',
+          name: 'fit',
+          widget: 'select',
+          options: ['contain', 'cover'],
+          default: 'contain',
+          required: true,
+        }
+      - {
+          label: 'External Link',
+          name: 'link',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Navigation Path',
+          name: 'path',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Image Background Color',
+          name: 'imageBackground',
+          widget: 'select',
+          options: ['white', background, 'rgba(0, 86, 122, 0.8);'],
+          default: 'white',
+          required: true,
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          required: true,
+        }
+      - {
+          label: 'Background Color',
+          name: 'background',
+          widget: 'select',
+          options: ['background', 'rgba(0, 86, 122, 0.8);'],
+          default: 'background',
+          required: true,
+        }
+      - {
+          label: 'Button Lable',
+          name: 'label',
+          widget: 'string',
+          required: true,
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          required: true,
+        }
+      - {
+          label: 'Thumbnail Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'image to appear on card',
+          required: true,
+        }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
-  # Opensource collectionel: 
+  # Opensource collectionel:
   - name: 'opensource'
     label: 'Opensource'
     folder: 'content/opensource'
@@ -86,13 +193,40 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the OpenSource page'  }
-      - { label: 'featuredOnHome', name: 'Featured', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Featured section on the Home page'  }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true adds the card in the OpenSource page',
+        }
+      - {
+          label: 'featuredOnHome',
+          name: 'Featured',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true adds the card in the Featured section on the Home page',
+        }
       - { label: 'Category', name: 'category', widget: 'string' }
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Description', name: 'description', widget: 'string'}
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - {
+          label: 'GitHub Repository URL',
+          name: 'github',
+          widget: 'string',
+          required: true,
+          hint: 'Full GitHub URL, e.g. https://github.com/org/repo — shown as a clickable GitHub icon on the home page carousel. Required — cards without a GitHub URL are hidden from the carousel.',
+          pattern: ['^https://github\.com/.+', 'Must be a valid https://github.com/... URL'],
+        }
+      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Priority', name: 'priority', widget: 'number' }
-      - { label: 'Thumbnail Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on opensource card' }
+      - {
+          label: 'Thumbnail Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'image to appear on opensource card',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Blog collection
   - name: 'blog'
@@ -108,16 +242,64 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Featured', name: 'featuredBlog', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Featured Blog section on the Blog page'  }
-      - { label: 'Priority', name: 'priority', widget: 'number', required: false, hint: 'controls the card position in the Featured Blog section of the blog page' }
-      - { label: 'External Link', name: 'externalLink', widget: 'string', required: false, hint: 'provide link to the blog written outside HPE Developer portal' } 
-      - { label: 'Author', name: 'author', widget: 'string' } 
-      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg", media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
-      - { label: 'Thumbnail Image', name: 'thumbnailimage', required: false, widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'thumbnail image shown next to content' }
-      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the blog page' }
+      - {
+          label: 'Featured',
+          name: 'featuredBlog',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true adds the card in the Featured Blog section on the Blog page',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          required: false,
+          hint: 'controls the card position in the Featured Blog section of the blog page',
+        }
+      - {
+          label: 'External Link',
+          name: 'externalLink',
+          widget: 'string',
+          required: false,
+          hint: 'provide link to the blog written outside HPE Developer portal',
+        }
+      - { label: 'Author', name: 'author', widget: 'string' }
+      - {
+          label: 'Author Image',
+          name: 'authorimage',
+          widget: 'image',
+          default: '/img/Avatar1.svg',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'author image shown next to content',
+        }
+      - {
+          label: 'Thumbnail Image',
+          name: 'thumbnailimage',
+          required: false,
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'thumbnail image shown next to content',
+        }
+      - {
+          label: 'Disable',
+          name: 'disable',
+          widget: 'boolean',
+          default: false,
+          required: false,
+          hint: 'selecting true disable the card on the blog page',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
-  # Event collectionel: 
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
+  # Event collectionel:
   - name: 'event'
     label: 'Events'
     folder: 'content/event'
@@ -132,11 +314,37 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Start Date', name: 'dateStart', widget: 'datetime' }
       - { label: 'End Date', name: 'dateEnd', widget: 'datetime' }
-      - { label: 'Category', name: 'category', widget: 'select', options: [ 'Event', 'Virtual Event' ], default: 'Virtual Event'}
-      - { label: 'Thumbnail Image', name: 'image',  widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'thumbnail image shown next to content' }
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
+          options: ['Event', 'Virtual Event'],
+          default: 'Virtual Event',
+        }
+      - {
+          label: 'Thumbnail Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'thumbnail image shown next to content',
+        }
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['large'],
+          default: 'large',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Newsletter collection
   - name: 'newsletter'
@@ -151,8 +359,8 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Description', name: 'description', widget: 'string'}
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Monthly', name: 'monthly', widget: 'number' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
     # GreenLake collection
@@ -173,14 +381,52 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/greenlake', public_folder: '/img/greenlake', hint: 'image to appear on greenlake page' }
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the greenlake page'}
-      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
-      - { label: 'Active', name: 'active', widget: 'boolean', default: 'true' , required: false, hint: 'selecting true adds the card on the GreenLake page'  }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img/greenlake',
+          public_folder: '/img/greenlake',
+          hint: 'image to appear on greenlake page',
+        }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['large'],
+          default: 'large',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the greenlake page',
+        }
+      - {
+          label: 'Featured',
+          name: 'frontpage',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true displays the card on the dashboard/home page',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          default: 'true',
+          required: false,
+          hint: 'selecting true adds the card on the GreenLake page',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  # Platform collection - TODO: hierarchical content/platform/{name}/home.md 
+  # Platform collection - TODO: hierarchical content/platform/{name}/home.md
   - name: 'platform'
     label: 'Platforms'
     folder: 'content/platform'
@@ -198,14 +444,59 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/platforms', public_folder: '/img/platforms', hint: 'image to appear on platform page' }
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the platform page'}
-      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
-      - { label: 'Active', name: 'active', widget: 'boolean', default: 'true' , required: false, hint: 'selecting true adds the card on the Platform page'  }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img/platforms',
+          public_folder: '/img/platforms',
+          hint: 'image to appear on platform page',
+        }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['large'],
+          default: 'large',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the platform page',
+        }
+      - {
+          label: 'Featured',
+          name: 'frontpage',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true displays the card on the dashboard/home page',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          default: 'true',
+          required: false,
+          hint: 'selecting true adds the card on the Platform page',
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          required: false,
+          hint: "date the platform was added or last significantly updated — used to determine order in the What's New section",
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-# Community collection
+  # Community collection
   - name: 'community'
     label: 'Community'
     folder: 'content/community'
@@ -218,14 +509,32 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Button Label', name: 'linkname', widget: 'string'}
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - { label: 'Button Label', name: 'linkname', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card on the community page'  }
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the community page'}
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on community card' }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true adds the card on the community page',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the community page',
+        }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'image to appear on community card',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-# Campaign collection
+  # Campaign collection
   - name: 'campaign'
     label: 'Campaign'
     folder: 'content/campaign'
@@ -238,10 +547,25 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg",media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
-      - { label: 'Disable', name: 'disable', default: false, widget: 'boolean', required: false, hint: 'selecting true will block the campaign page to be created'  }
+      - {
+          label: 'Author Image',
+          name: 'authorimage',
+          widget: 'image',
+          default: '/img/Avatar1.svg',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'author image shown next to content',
+        }
+      - {
+          label: 'Disable',
+          name: 'disable',
+          default: false,
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true will block the campaign page to be created',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-# Skillup collection
+  # Skillup collection
   - name: 'skillup'
     label: 'Skillup'
     folder: 'content/skillup'
@@ -254,14 +578,33 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Navigation Path', name: 'link', widget: 'string'}
-      - { label: 'Button Label', name: 'linkname', widget: 'string'}
+      - { label: 'Navigation Path', name: 'link', widget: 'string' }
+      - { label: 'Button Label', name: 'linkname', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the skillup page'  }
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the skill up page'}
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on skill up card' }
+      - {
+          label: 'Disable',
+          name: 'disable',
+          widget: 'boolean',
+          default: false,
+          required: false,
+          hint: 'selecting true disable the card on the skillup page',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the skill up page',
+        }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'image to appear on skill up card',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-# Contribute collection
+  # Contribute collection
   - name: 'contribute'
     label: 'Be a Blogger'
     folder: 'content/contribute'
@@ -269,20 +612,20 @@ collections:
     create: false
     publish: false
     slug: 'contribute'
-    preview_path: '/contribute' 
+    preview_path: '/contribute'
     editor:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown'}
-      - label: "Template Card"
-        name: "templateCards"
-        widget: "list"
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Template Card'
+        name: 'templateCards'
+        widget: 'list'
         fields:
-          - {label: 'Template Type', name: 'templateType', widget: 'string' }
-          - {label: 'Template Name', name: 'templateName', widget: 'string' }
-          - {label: 'Template Link', name: 'link', widget: 'string' }
-# OSS Contribute collection
+          - { label: 'Template Type', name: 'templateType', widget: 'string' }
+          - { label: 'Template Name', name: 'templateName', widget: 'string' }
+          - { label: 'Template Link', name: 'link', widget: 'string' }
+  # OSS Contribute collection
   - name: 'osscontribute'
     label: 'Be an open source contributor'
     folder: 'content/osscontribute'
@@ -290,13 +633,13 @@ collections:
     create: false
     publish: false
     slug: 'osscontribute'
-    preview_path: '/osscontribute' 
+    preview_path: '/osscontribute'
     editor:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Body', name: 'body', widget: 'markdown'}
-# Evangelist collection
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Evangelist collection
   - name: 'evangelist'
     label: 'Evangelist'
     folder: 'content/evangelist'
@@ -309,9 +652,14 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'SubTitle', name: 'subtitle', widget: 'string', required: true }
-      - { label: 'Body', name: 'body', widget: 'markdown', required: true}
-# What's your role collection
+      - {
+          label: 'SubTitle',
+          name: 'subtitle',
+          widget: 'string',
+          required: true,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  # What's your role collection
   - name: 'role'
     label: "What's Your Role"
     folder: 'content/role'
@@ -326,14 +674,51 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/role', public_folder: '/img/role', hint: 'image to appear on platform page' }
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the platform page'}
-      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
-      - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true displays the card on the your role page'  }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img/role',
+          public_folder: '/img/role',
+          hint: 'image to appear on platform page',
+        }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['large'],
+          default: 'large',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the platform page',
+        }
+      - {
+          label: 'Featured',
+          name: 'frontpage',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true displays the card on the dashboard/home page',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true displays the card on the your role page',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-# Explore Use Cases collection
+  # Explore Use Cases collection
   - name: 'use-cases'
     label: 'Explore Use Cases'
     folder: 'content/use-cases'
@@ -348,9 +733,108 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/use-case', public_folder: '/img/use-case', hint: 'image to appear on platform page' }
-      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the platform page'}
-      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/static/img/use-case',
+          public_folder: '/img/use-case',
+          hint: 'image to appear on platform page',
+        }
+      - {
+          label: 'Card Size',
+          name: 'width',
+          widget: 'select',
+          options: ['large'],
+          default: 'large',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'controls the card position on the platform page',
+        }
+      - {
+          label: 'Featured',
+          name: 'frontpage',
+          widget: 'boolean',
+          required: false,
+          hint: 'selecting true displays the card on the dashboard/home page',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          required: false,
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Topic collection
+  - name: 'topic'
+    label: 'Topics'
+    label_singular: 'Topic'
+    folder: 'content/topic'
+    extension: 'md'
+    create: true
+    publish: false
+    slug: '{{slug}}'
+    preview_path: '/topic/{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          hint: 'Short description displayed on the topic page.',
+        }
+      - {
+          label: 'Keyword',
+          name: 'keyword',
+          widget: 'string',
+          hint: 'Display name used in headings and CTAs.',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          hint: 'Tags used to aggregate matching blogs, events, and platforms onto this topic page.',
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
+      - {
+          label: 'CTA Button Label',
+          name: 'ctaLabel',
+          widget: 'string',
+          required: false,
+          hint: 'Label for the primary call-to-action button.',
+        }
+      - {
+          label: 'CTA Button Link',
+          name: 'ctaLink',
+          widget: 'string',
+          required: false,
+          hint: 'URL for the primary call-to-action button.',
+        }
+      - {
+          label: 'Learn More Link',
+          name: 'learnMoreLink',
+          widget: 'string',
+          required: false,
+          hint: 'External URL for the secondary Learn more link.',
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'number',
+          hint: 'Controls the order in the Topics dropdown (lower = first).',
+        }
+      - {
+          label: 'Active',
+          name: 'active',
+          widget: 'boolean',
+          default: true,
+          hint: 'Selecting true shows this topic in the nav dropdown.',
+        }

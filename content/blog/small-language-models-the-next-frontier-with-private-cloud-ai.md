@@ -10,5 +10,6 @@ thumbnailimage: https://media.licdn.com/dms/image/v2/D4E12AQE2Rn-P-anXoA/article
 disable: false
 tags:
   - AI
+  - hpe-private-cloud-ai
 ---
 Text

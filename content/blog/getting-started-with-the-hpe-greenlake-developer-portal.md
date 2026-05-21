@@ -10,6 +10,7 @@ tags:
   - API
   - hpe-greenlake
   - hpe-greenlake-platform
+  - tutorial
 ---
 You know about the [HPE Developer Community portal](https://developer.hpe.com/) that provides an entry point to everything you need to know about HPE from a software developer and  IT Ops standpoint, including how to access APIs (application programming interfaces), SDKs (software development kits), and training. The HPE Developer Community portal covers a wide range of HPE products, from HPE OneView, iLO, and Cray to the HPE GreenLake platform. 
 

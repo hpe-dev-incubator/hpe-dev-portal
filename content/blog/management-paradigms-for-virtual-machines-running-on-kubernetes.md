@@ -10,6 +10,7 @@ tags:
   - virtualization
   - ansible
   - kubevirt
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 With the rise of virtual machine containerization, it’s imperative to familiarize ourselves with the different aspects of performing VM management on Kubernetes. From crude CLIs, to declarative GitOps patterns, and further extending to lush UIs where your next VM is just a right-click away, having a handle on each of these disciplines is essential for Kubernetes VM management regardless of which role you're in.
