@@ -14,33 +14,12 @@ import {
   EventCard,
   EventImageWrapper,
   EventBody,
-  EventDate,
   EventCategory,
   EventTitle,
   EventLink,
-  Controls,
   NavBtnRow,
   NavBtn,
-  SlideCounter,
 } from './styles';
-
-const monthDay = Intl.DateTimeFormat('default', {
-  month: 'long',
-  day: 'numeric',
-});
-const dayFmt = Intl.DateTimeFormat('default', { day: 'numeric' });
-const yearFmt = Intl.DateTimeFormat('default', { year: 'numeric' });
-
-const formatEventDate = (dateStart, dateEnd) => {
-  const start = new Date(dateStart);
-  const end = dateEnd ? new Date(dateEnd) : null;
-  let str = monthDay.format(start);
-  if (end && dayFmt.format(end) !== dayFmt.format(start)) {
-    str += `–${dayFmt.format(end)}`;
-  }
-  str += `, ${yearFmt.format(end || start)}`;
-  return str;
-};
 
 const ArrowRight = () => (
   <svg
@@ -163,8 +142,9 @@ const ComingEventsSection = ({ events = [] }) => {
       <CarouselViewport ref={viewportRef}>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {items.map(({ node }) => {
-            const { title, dateStart, dateEnd, category, image, link } =
+            const { title, dateStart, category, image, link } =
               node.frontmatter;
+            const excerpt = node.excerpt || '';
             const isUpcoming = new Date(dateStart) >= now;
             const href = link || `/event${node.fields.slug}`;
             const isExternal = !!(link && link.startsWith('http'));
@@ -184,12 +164,34 @@ const ComingEventsSection = ({ events = [] }) => {
                 </EventImageWrapper>
 
                 <EventBody>
-                  <EventDate>{formatEventDate(dateStart, dateEnd)}</EventDate>
+                  {/* Text block: category + title + description (gap: 12px) */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                    }}
+                  >
+                    {category && <EventCategory>{category}</EventCategory>}
 
-                  {category && <EventCategory>{category}</EventCategory>}
+                    <EventTitle>{title}</EventTitle>
 
-                  <EventTitle>{title}</EventTitle>
+                    {excerpt && (
+                      <p
+                        style={{
+                          margin: 0,
+                          fontSize: '16px',
+                          fontWeight: 400,
+                          lineHeight: '24px',
+                          color: '#3e4550',
+                        }}
+                      >
+                        {excerpt}
+                      </p>
+                    )}
+                  </div>
 
+                  {/* Register / Watch recording link */}
                   <EventLink
                     href={href}
                     target={isExternal ? '_blank' : undefined}
@@ -205,29 +207,24 @@ const ComingEventsSection = ({ events = [] }) => {
         </CarouselTrack>
       </CarouselViewport>
 
-      <Controls>
-        <NavBtnRow>
-          <NavBtn
-            onClick={handlePrev}
-            disabled={index === 0}
-            isPrimary={false}
-            aria-label="Previous"
-          >
-            <ChevronLeft />
-          </NavBtn>
-          <NavBtn
-            onClick={handleNext}
-            disabled={index >= maxIndex}
-            isPrimary
-            aria-label="Next"
-          >
-            <ChevronRight />
-          </NavBtn>
-        </NavBtnRow>
-        <SlideCounter>
-          {Math.min(index + cardsVisible, items.length)} / {items.length}
-        </SlideCounter>
-      </Controls>
+      <NavBtnRow style={{ marginTop: '48px' }}>
+        <NavBtn
+          onClick={handlePrev}
+          disabled={index === 0}
+          isPrimary={false}
+          aria-label="Previous"
+        >
+          <ChevronLeft />
+        </NavBtn>
+        <NavBtn
+          onClick={handleNext}
+          disabled={index >= maxIndex}
+          isPrimary
+          aria-label="Next"
+        >
+          <ChevronRight />
+        </NavBtn>
+      </NavBtnRow>
     </Section>
   );
 };

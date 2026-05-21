@@ -32,14 +32,14 @@ export const ViewAllLink = styled.a`
   gap: 8px;
   font-size: 18px;
   font-weight: 500;
-  color: #292d3a;
+  color: #01a982;
   text-decoration: none;
   letter-spacing: -0.2px;
   white-space: nowrap;
 
   &:hover {
     text-decoration: underline;
-    color: #292d3a;
+    color: #01a982;
   }
 `;
 
@@ -92,7 +92,7 @@ export const EventBody = styled.div`
   padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
   flex: 1;
 `;
 
@@ -127,14 +127,12 @@ export const EventLink = styled.a`
   gap: 8px;
   font-size: 16px;
   font-weight: 500;
-  color: #292d3a;
+  color: #01a982;
   text-decoration: none;
-  margin-top: auto;
-  padding-top: 8px;
 
   &:hover {
     text-decoration: underline;
-    color: #292d3a;
+    color: #01a982;
   }
 `;
 
@@ -163,9 +161,8 @@ export const NavBtn = styled.button`
   transition:
     background 0.15s,
     opacity 0.15s;
-  background: ${({ isPrimary }) =>
-    isPrimary ? '#292d3a' : 'rgba(0,0,0,0.06)'};
-  color: ${({ isPrimary }) => (isPrimary ? '#ffffff' : '#292d3a')};
+  background: ${({ isPrimary }) => (isPrimary ? '#535c66' : '#b1b9be')};
+  color: #ffffff;
 
   &:disabled {
     opacity: 0.3;
