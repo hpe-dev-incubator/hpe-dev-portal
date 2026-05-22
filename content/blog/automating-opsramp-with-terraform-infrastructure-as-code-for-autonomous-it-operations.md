@@ -215,15 +215,15 @@ provider "opsramp" {
 }
 module "client_1" {
   source = "./modules/client"
-  name = "My first client"
+  client_name = "My first client"
 }
 module "client_2" {
   source = "./modules/client"
-  name = "My second client"
+  client_name = "My second client"
 }
 module "client_3" {
   source = "./modules/client"
-  name = "My third client"
+  client_name = "My third client"
 }
 ```
 
