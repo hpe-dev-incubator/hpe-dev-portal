@@ -1,6 +1,6 @@
 ---
-title: "Automating OpsRamp with Terraform: Infrastructure as Code for Autonomous
-  IT Operations"
+title: "Automating HPE OpsRamp Software with Terraform: Infrastructure as Code
+  for autonomous IT operations"
 date: 2026-05-25T08:00:00.000Z
 author: Enrique Larriba
 authorimage: /img/profilepic_198.png
@@ -17,17 +17,17 @@ tags:
 ---
 ## Introduction
 
-HPE OpsRamp Software is a platform for Autonomous IT Operations, providing capabilities such as hybrid observability, AIOps-driven event management, and intelligent automation. It is commonly used by Managed Service Providers (MSPs) and large enterprises as the backbone of their operations and observability teams.
+HPE OpsRamp Software is a platform for driving autonomous IT operations, providing capabilities such as hybrid observability, AIOps-driven event management, and intelligent automation. It is commonly used by managed service providers (MSPs) and large enterprises as the backbone of their operations and observability teams.
 
-Achieving Autonomous IT Operations often requires more than automating infrastructure. It also involves automating the configuration of the systems used to monitor and manage that infrastructure.
+Achieving autonomous IT operations often requires more than automating infrastructure. It also involves automating the configuration of the systems used to monitor and manage that infrastructure.
 
-In OpsRamp, this includes components such as Service Maps, device groups, roles, and permission sets. These configurations often need to be customized for each new client onboarded to the platform.
+In HPE OpsRamp Software, this includes components such as service maps, device groups, roles, and permission sets. These configurations often need to be customized for each new client onboarded to the platform.
 
 What if you could define all of this declaratively?
 
 What if onboarding could be fully automated using Infrastructure as Code (IaC)?
 
-I’m Enrique Larriba, a Solutions Architect passionate about OpsRamp. In this post, I’ll walk you through the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) and show you how it can help automate and streamline your operations.
+I’m Enrique Larriba, a Solutions Architect passionate about HPE OpsRamp Software. In this post, I’ll walk you through the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) and show you how it can help automate and streamline your operations.
 
 ## Install
 
@@ -57,13 +57,13 @@ For example:
 yourproject\.terraform\providers\registry.terraform.io\hpe\opsramp\0.1.3\windows_amd64\terraform-provider-opsramp.exe
 ```
 
-This works across Windows, Linux, and macOS.
+This works across Microsoft Windows, Linux, and Apple macOS.
 
 ## Usage
 
-The provider requires an OAuth 2.0 API token to authenticate with OpsRamp. You can generate this token using the Custom Integration feature. 
+The provider requires an OAuth 2.0 API token to authenticate with the HPE OpsRamp Software. You can generate this token using the custom integration feature. 
 
-![Custom Integration Configuration Panel](/img/custom-integration.png "Custom Integration Configuration Panel")
+![Custom integration feature](/img/custom-integration.png "custom integration feature")
 
 Create a project folder and a file named main.tf. Use your API credentials to configure the provider:
 
@@ -99,7 +99,7 @@ tofu init
 
 #### Simple scenario
 
-Create the following example file. It contains the declaration of a Device Group. This resource can group VMware virtual machines based on a custom attribute such as `ENV=PROD`.
+Create the following example file. It contains the declaration of a device group. This resource can group VMware virtual machines based on a custom attribute such as `ENV=PROD`.
 
 ```hcl
 # continue main.tf
@@ -116,7 +116,7 @@ resource "opsramp_device_group" "device_group_query" {
 
 Place this resource definition below the provider block in main.tf. The tool will take care of creating, updating or deleting resources as needed.
 
-Apply the configuration to create the resources in OpsRamp:
+Apply the configuration to create the resources in HPE OpsRamp Software:
 
 ```shell
 # Terraform
@@ -127,11 +127,11 @@ tofu apply
 
 After running this command, you should see Terraform report that the resource group was created successfully.
 
-![Newly created Device Groups](/img/captura-de-pantalla-2026-05-19-151401.png "Newly created Device Groups")
+![Newly created device groups](/img/captura-de-pantalla-2026-05-19-151401.png "Newly created device groups")
 
 #### Extended scenario
 
-More advanced examples require additional resources. We can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, we will deploy three clients with a standardized service map. First, we need to create a module directory that will declare what's needed on each client. 
+More advanced examples require additional resources. You can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, you will deploy three clients with a standardized service map. First, you need to create a module directory that will declare what's needed on each client. 
 
 ```hcl
 # file: modules/client/main.tf
@@ -203,7 +203,7 @@ variable "client_name" {
 }
 ```
 
-Then the main.tf file will use our recently created module for client creation. All these clients will be standardized by populating the template.
+Then the main.tf file will use the recently created module for client creation. All these clients will be standardized by populating the template.
 
 ```hcl
 # file: main.tf
@@ -233,8 +233,8 @@ After applying the configuration, the platform creates all required clients.
 
 ## Next steps
 
-Infrastructure as Code enables scalable and repeatable operations. This provider will continue evolving to support more use cases and deeper integration with the [OpsRamp API](https://develop.opsramp.com/).
+Infrastructure as Code enables scalable and repeatable operations. This provider will continue evolving to support more use cases and deeper integration with the HPE OpsRamp Software [API](https://develop.opsramp.com/).
 
-We welcome your feedback and contributions. Feel free to open issues, submit feature requests, or contribute directly to the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) repository.
+Your feedback and contributions are welcomed. Feel free to open issues, submit feature requests, or contribute directly to the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) repository.
 
-Together, we can move closer to fully Autonomous IT Operations.
+Together, we can move closer to fully autonomous IT operations.
