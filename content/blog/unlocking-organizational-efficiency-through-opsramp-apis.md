@@ -5,6 +5,10 @@ author: Kheni Sandip
 authorimage: /img/kheni-sandip.jpg
 disable: false
 ---
+![]()
+
+![]()
+
 OpsRamp, as a unified IT operations and observability platform, provides a set of common services that help organizations monitor, manage, and automate their IT environments. These services commonly include alerting and event intake, monitoring, resource management, and integrations with external systems. 
 
 The OpsRamp platform exposes these capabilities through a collection of RESTful application programming interfaces (APIs) so that administrators and operators can interact with the platform programmatically—beyond what is available through the UI. 
@@ -104,3 +108,20 @@ OpsRamp APIs use a bearer token as an authorization type to ensure that all REST
 
 * Verify that you get a status code of 200 for a successful response with a token value in the response body. As you can see from the image below, we have got “200 OK” response code.
 
+![](/img/opramps-api8.png)
+
+* The Generate Access Token request can define a post-response script in the Scripts tab (Postman Tests script) to programmatically set the collection variable BearerToken. The programmatically defined token is then used to authenticate any subsequent REST API calls. 
+
+![](/img/opramps-api9.png)
+
+```json
+const jsonData = pm.response.json(); 
+pm.collectionVariables.set("BearerToken", jsonData.access_token);
+```
+
+**Note:** Make sure you select Correct Environment While executing the Token API to get the variables properly.
+
+**Make subsequent secure REST API calls to OpsRamp platform services**
+All subsequent REST API requests are authenticated by presenting the access token as the authorization bearer token to OpsRamp APIs. The service validates the access token, and if valid, serves the request. In this blog, we validate the access token by creating an alert using a single API call. 
+
+![](/img/opramps-api10.png)
