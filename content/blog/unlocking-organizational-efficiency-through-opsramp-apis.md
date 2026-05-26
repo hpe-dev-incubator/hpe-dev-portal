@@ -47,3 +47,5 @@ To generate API credentials in OpsRamp, proceed as follows: 
    ![](/img/opramps-api2.png)
 
    ![](/img/opramps-api3.png)
+
+   ![](/img/opramps-api4.png)
