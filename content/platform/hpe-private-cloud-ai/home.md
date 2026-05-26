@@ -77,15 +77,13 @@ This demo showcases the built-in machine learning services that simplify and aut
 
 [![Fast track innovation](https://img.youtube.com/vi/THeg2DwrF4c/hqdefault.jpg)](https://www.youtube.com/watch?v=THeg2DwrF4c)
 
+### Discover new HPE AI Essentials features:
 
-### Discover new HPE AI Essentials features: 
 HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.
-
-
 
 <a href="https://www.hpe.com/us/en/resource-library.video.the-ai-factory-just-got-smarter-new-hpe-ai-essentials-features.v100007807.html/restype/video/search/ai%20essentials?jumpId=in_VGtoRLredirect" target="_blank">
 
-![AI Essentials](/img/pcai-nvidia-ai-q-blueprint.png "Nvidia's AI-Q Blueprint on top of Private Cloud AI")
+![AI Essentials](/img/pcai-ai-essentials.png "AI Essentials")
 
 </a>
 
