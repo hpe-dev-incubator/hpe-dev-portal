@@ -67,20 +67,17 @@ Environment > Create Environment.
 
 ![](/img/opramps-api5.png)
 
-Define the current value of the collection variables to match your OpsRamp tenant context: 
+![](/img/opramps-api6.png)
 
+Define the current value of the collection variables to match your OpsRamp tenant context: 
 
 **BaseUrl:** This variable defines the base URL of your OpsRamp REST API requests. OpsRamp supports tenant-specific API endpoints and also custom-branded URLs. Use the API endpoint you noted from your Custom Integration or your tenant API base. 
 
-
 **ClientId and ClientSecret:** These variables must be set to the Key (ClientId) and Secret (ClientSecret) generated in your Custom Integration. They are used to request an OAuth access token using the client_credentials grant type.
-
 
 **TokenUrl:** This variable is the OAuth token endpoint (Access Token URL) shown in your Custom Integration. Your internal guide shows this token endpoint as /auth/oauth/token on your POD URL. 
 
-
 **TenantId:** This variable is the tenant identifier used to scope API calls. In OpsRamp APIs, the tenant identifier appears in the path (for example, /api/v2/tenants/{clientId}/...). 
-
 
 **BearerToken:** Do not edit this variable manually. Keep it empty. It will be set automatically when you run the Generate Access Token request using a post-response script. 
 
@@ -101,4 +98,9 @@ Define the current value of the collection variables to match your OpsRamp tenan
 
 OpsRamp APIs use a bearer token as an authorization type to ensure that all REST API requests access authorized platform services securely. So, you first need to obtain a token from the OAuth authorization server before you can make any REST API calls to OpsRamp APIs. To do so, proceed as follows:
 
-From your collection, generate the token using the Generate Access Token request and click the Send button. 
+* From your collection, generate the token using the Generate Access Token request and click the Send button. 
+
+![](/img/opramps-api7.png)
+
+* Verify that you get a status code of 200 for a successful response with a token value in the response body. As you can see from the image below, we have got “200 OK” response code.
+
