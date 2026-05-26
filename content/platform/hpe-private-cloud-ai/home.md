@@ -17,14 +17,11 @@ li {
 }
 </style>
 
-You’re an AI/ML practitioner, not an infrastructure manager. But AI development is bogged down by: 
+Deploy AI in days, not months, with a turnkey private cloud platform. Co-engineered with NVIDIA, HPE Private Cloud AI delivers a complete, secure AI workbench with a unified data lakehouse and rapidly deployable models and use cases for production deployment in hours.
 
-* Spending excessive amounts of time waiting for data that delays model training and iteration cycles 
-* Limited compute and storage resources that slow down exploring new model architectures, tuning, and scaling experiments 
-* Security risks that slow down development as well as the ability to quickly test and deploy new models  
-* Struggling to keep pace with an ecosystem of constantly changing tool sets and frameworks 
+Offered in a variety of sizes to suit your needs — including a system designed specifically for developers — HPE Private Cloud AI provides a pre-configured, validated platform that removes the complexity of building your own environment.
 
-HPE Private Cloud AI is a pre-configured, end-to-end solution for enterprise AI that integrates high-performance compute, storage, networking and AI software so you can focus on what you need to do: build innovative AI solutions. A built-in software ecosystem of tools and frameworks streamlines lifecycles so you can deploy into production without wrangling data, tools, or infrastructure.   
+![HPE Private Cloud AI](/img/pcai-offering.png "HPE Private Cloud AI")
 
 [Learn more about HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
 
@@ -37,7 +34,6 @@ The HPE Private Cloud AI developer system aims to abstract away the underlying i
 This system is ready to run out-of-the-box to reduce the burden of infrastructure provisioning and management. With its built-in, end-to-end software platform, you gain direct, unified access to open-source and NVIDIA tools, enabling you to focus on critical tasks by eliminating hardware-software interoperability headaches. Got custom or third-party tools you want to use? No problem. Import them into the software model catalog along with NVIDIA Blueprints to accelerate your specialized AI workflows.
 
 But this development environment isn’t just for ideation; it’s designed to be the starting point for production AI. As your models mature and demand enterprise-grade scale and reliability, you can seamlessly transition AI workflows to the HPE Private Cloud family, leveraging its proven architecture and unified management for true enterprise-grade AI.
-
 
 # Technical Demos
 
@@ -74,7 +70,6 @@ In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI ar
 Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment.
 
 [![HPE Private Cloud AI technical demo](https://img.youtube.com/vi/5uRoHXD2Sks/hqdefault.jpg)](https://www.youtube.com/watch?v=5uRoHXD2Sks)
-
 
 # Resources
 
