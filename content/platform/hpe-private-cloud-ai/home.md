@@ -71,7 +71,7 @@ In this video, Isabelle Steinhauser demonstrates NVIDIA’s AI-Q Blueprint runni
 
 </a>
 
-### Discover new HPE AI Essentials features:
+### Discover new HPE AI Essentials features
 
 HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.
 
