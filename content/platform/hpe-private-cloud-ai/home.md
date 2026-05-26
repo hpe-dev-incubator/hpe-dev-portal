@@ -37,8 +37,6 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 # Overview Demos
 
-
-
 ![PCAI Overview](/img/pcai-overview.png "PCAI Overview")
 
 ### Simplify AI from Infrastructure to Model Deployment
