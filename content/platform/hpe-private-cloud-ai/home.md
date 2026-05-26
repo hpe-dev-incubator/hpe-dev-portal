@@ -71,12 +71,6 @@ In this video, Isabelle Steinhauser demonstrates NVIDIA’s AI-Q Blueprint runni
 
 </a>
 
-### Fast track innovation: how HPE simplifies model deployment
-
-This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
-
-[![Fast track innovation](https://img.youtube.com/vi/THeg2DwrF4c/hqdefault.jpg)](https://www.youtube.com/watch?v=THeg2DwrF4c)
-
 ### Discover new HPE AI Essentials features:
 
 HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.
@@ -86,6 +80,14 @@ HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. 
 ![AI Essentials](/img/pcai-ai-essentials.png "AI Essentials")
 
 </a>
+
+### Fast track innovation: how HPE simplifies model deployment
+
+This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
+
+![Fast track innovation: how HPE simplifies model deployment](/img/pcai-fast-track-innovation.png "Fast track innovation: how HPE simplifies model deployment")
+
+[![Fast track innovation](https://img.youtube.com/vi/THeg2DwrF4c/hqdefault.jpg)](https://www.youtube.com/watch?v=THeg2DwrF4c)
 
 ### Building a generative AI foundation with HPE Private Cloud AI
 
