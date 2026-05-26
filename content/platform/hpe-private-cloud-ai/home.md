@@ -1,6 +1,6 @@
 ---
 title: HPE Private Cloud AI
-version: "1.0"
+version: "2.0"
 description: Streamline your AI development lifecycle with integrated tools and resources
 image: /img/platforms/hpe-private-cloud-ai-image-landing-page.png
 width: large
