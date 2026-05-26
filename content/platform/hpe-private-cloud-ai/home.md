@@ -85,9 +85,11 @@ HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. 
 
 This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
 
+<a href="https://www.youtube.com/watch?v=THeg2DwrF4c">
+
 ![Fast track innovation: how HPE simplifies model deployment](/img/pcai-fast-track-innovation.png "Fast track innovation: how HPE simplifies model deployment")
 
-[![Fast track innovation](https://img.youtube.com/vi/THeg2DwrF4c/hqdefault.jpg)](https://www.youtube.com/watch?v=THeg2DwrF4c)
+</a>
 
 ### Building a generative AI foundation with HPE Private Cloud AI
 
