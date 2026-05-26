@@ -9,6 +9,8 @@ active: true
 tags:
   - hpe-private-cloud-ai
 ---
+![]()
+
 <style>
 li {
    font-size: 27px;
@@ -29,14 +31,15 @@ Offered in a variety of sizes to suit your needs — including a system designed
 
 This pre-configured, end-to-end solution for AI developers integrates high-performance compute, storage, networking, and AI Essentials software so you can focus on what you need to do: get started building innovative AI solutions. The built-in ecosystem of software tools and frameworks streamlines development so you can deploy AI solutions into production without wrangling data, tools, or infrastructure.
 
-
 With its built-in, end-to-end software platform, you gain direct, unified access to open-source and NVIDIA tools, enabling you to focus on critical tasks by eliminating hardware-software interoperability headaches. Got custom or third-party tools you want to use? No problem. Import them into the software model catalog along with NVIDIA Blueprints to accelerate your specialized AI workflows.
-
 
 This development environment isn’t just for ideation; it’s designed to be the starting point for production AI. As your models mature and demand enterprise-grade scale and reliability, you can seamlessly transition AI workflows to the HPE Private Cloud family, leveraging its proven architecture and unified management for true enterprise-grade AI.
 
-
 # Overview Demos
+
+
+
+![PCAI Overview](/img/pcai-overview.png "PCAI Overview")
 
 ### Simplify AI from Infrastructure to Model Deployment
 
