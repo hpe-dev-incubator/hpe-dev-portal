@@ -35,25 +35,31 @@ With its built-in, end-to-end software platform, you gain direct, unified access
 
 This development environment isn’t just for ideation; it’s designed to be the starting point for production AI. As your models mature and demand enterprise-grade scale and reliability, you can seamlessly transition AI workflows to the HPE Private Cloud family, leveraging its proven architecture and unified management for true enterprise-grade AI.
 
-# Overview Demos
+## Overview Demos
+
+<a href="https://www.youtube.com/watch?v=MB6dhzpesgM" target="_blank">
 
 ![PCAI Overview](/img/pcai-overview.png "PCAI Overview")
+
+</a>
+
+## Technical Demos
 
 ### Simplify AI from Infrastructure to Model Deployment
 
 Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the complexities of AI infrastructure, streamlines data pipelines, and simplifies model deployment.
 
-<a href="https://www.brighttalk.com/webcast/19535/640132?utm_source=HPE&utm_medium=brighttalk&utm_campaign=640132" target="_blank">
+<a href="https://www.hpe.com/my/en/resource-library.video.hpe-private-cloud-ai-simplify-ai-from-infrastructure-to-model-deployment.v100007030.html" target="_blank">
 
 ![Simplify AI from Infrastructure to Model](/img/simplify-ai-from-infrastructure-to-model-deployment-500-281.png)
 
 </a>
 
-### Simplify Data Pipelines: HPE AI Essentials Demo for Data Teams
+### Nvidia's AI-Q Blueprint on top of Private Cloud AI
 
-See how HPE AI Essentials simplifies the creation of powerful data pipelines using Apache Airflow and Apache Spark. 
 
-[![Simplify Data Pipelines](https://img.youtube.com/vi/e0IUMJKpqGg/hqdefault.jpg)](https://www.youtube.com/watch?v=e0IUMJKpqGg)
+In this video, Isabelle Steinhauser demonstrates NVIDIA’s AI-Q Blueprint running on Private Cloud AI, highlighting its architecture and deployment advantages.
+
 
 ### Fast track innovation: how HPE simplifies model deployment
 
