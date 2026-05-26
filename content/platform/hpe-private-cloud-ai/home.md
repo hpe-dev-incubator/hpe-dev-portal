@@ -107,13 +107,13 @@ Join Randy Thomasson to delve into offering role-specific walkthroughs for admin
 
 ## HPE Private Cloud AI Documentation
 
-* [Product Documentation](https://www.hpe.com/psnow/product-documentation?oid=1014847366&cc=my&lc=en&jumpid=in_pdp-psnow-docs)
-* [Administration Guide](https://hpe.com/support/PCAIUserGuide)
-* [HPE AI Essentials Software](https://www.hpe.com/support/AIEDocs)
+* [Product Documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007655en_us&page=GUID-33D37640-E8D8-46BE-B319-AAA414136886.html)
+* [Administration Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007592en_us)
+* [HPE AI Essentials Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us)
 
 ## Tutorials – HPE AI Essentials
 
-[Tutorials for AI Essentials Software on HPE Private Cloud AI ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.7.0)
+[Tutorials for AI Essentials Software on HPE Private Cloud AI ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.12.0)
 
 ## Analyst Reports
 
