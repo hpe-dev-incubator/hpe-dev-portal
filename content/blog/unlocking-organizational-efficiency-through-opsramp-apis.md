@@ -82,4 +82,23 @@ Define the current value of the collection variables to match your OpsRamp tenan
 **TenantId:** This variable is the tenant identifier used to scope API calls. In OpsRamp APIs, the tenant identifier appears in the path (for example, /api/v2/tenants/{clientId}/...). 
 
 
-**BearerToken:** Do not edit this variable manually. Keep it empty. It will be set automatically when you run the Generate Access Token request using a post-response script.
+**BearerToken:** Do not edit this variable manually. Keep it empty. It will be set automatically when you run the Generate Access Token request using a post-response script. 
+
+```json
+{ 
+  "BaseUrl": "https://<your-tenant>.api.opsramp.com", 
+  "TokenUrl": "https://<PODname>/auth/oauth/token", 
+  "TenantId": "<Your TenantId>", 
+  "ClientId": "<Your Key>", 
+  "ClientSecret": "<Your Secret>", 
+  "BearerToken": "" 
+} 
+```
+
+**Note:** Do not edit other variables. Keep them empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman scripts.
+
+**Acquire an OAuth access token as your session bearer token**
+
+OpsRamp APIs use a bearer token as an authorization type to ensure that all REST API requests access authorized platform services securely. So, you first need to obtain a token from the OAuth authorization server before you can make any REST API calls to OpsRamp APIs. To do so, proceed as follows:
+
+From your collection, generate the token using the Generate Access Token request and click the Send button. 
