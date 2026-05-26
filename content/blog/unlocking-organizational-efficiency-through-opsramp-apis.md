@@ -9,17 +9,17 @@ disable: false
 
 ![]()
 
-OpsRamp, as a unified IT operations and observability platform, provides a set of common services that help organizations monitor, manage, and automate their IT environments. These services commonly include alerting and event intake, monitoring, resource management, and integrations with external systems. 
+HPE OpsRamp, as a unified IT operations and observability platform, provides a set of common services that help organizations monitor, manage, and automate their IT environments. These services commonly include alerting and event intake, monitoring, resource management, and integrations with external systems. 
 
-The OpsRamp platform exposes these capabilities through a collection of RESTful application programming interfaces (APIs) so that administrators and operators can interact with the platform programmatically—beyond what is available through the UI. 
+The HPE OpsRamp platform exposes these capabilities through a collection of RESTful application programming interfaces (APIs) so that administrators and operators can interact with the platform programmatically—beyond what is available through the UI. 
 
-If you are looking for a quick way to discover what you can do with the OpsRamp APIs using popular tools that don’t require programming (such as Postman), this blog post is for you. You can use these APIs to integrate external monitoring tools for alert ingestion, automate operational workflows, and retrieve platform data for reporting and analytics. 
+If you are looking for a quick way to discover what you can do with the HPE OpsRamp APIs using popular tools that don’t require programming (such as Postman), this blog post is for you. You can use these APIs to integrate external monitoring tools for alert ingestion, automate operational workflows, and retrieve platform data for reporting and analytics. 
 
-In Part 1 of this series, we will get started by generating API credentials, defining Postman collection variables, obtaining an OAuth access token, and making one subsequent secure REST API call end-to-end: creating an alert in OpsRamp via API. 
+In Part 1 of this series, we will get started by generating API credentials, defining Postman collection variables, obtaining an OAuth access token, and making one subsequent secure REST API call end-to-end: creating an alert in HPE OpsRamp via API. 
 
-**Introducing the foundational APIs for OpsRamp** 
+**Introducing the foundational APIs for  HPE OpsRamp** 
 
-The foundational APIs for OpsRamp are designed to enable IT administrators and IT operators to automate IT operations by programmatically interacting with platform services and resources. These APIs conform to REST principles, use JSON payloads, and support standard HTTP request methods such as GET and POST. 
+The foundational APIs for HPE OpsRamp are designed to enable IT administrators and IT operators to automate IT operations by programmatically interacting with platform services and resources. These APIs conform to REST principles, use JSON payloads, and support standard HTTP request methods such as GET and POST. 
 
 For example, with OpsRamp APIs you can: 
 
@@ -33,7 +33,7 @@ OpsRamp API documentation: [OpsRamp Developer Portal](https://develop.opsramp.c
 
 Postman is an API platform for building and using APIs. You can sign into your Postman account either from the web application or from the desktop application. In this blog, we use Postman to configure collection variables once, generate an OAuth access token, and then make subsequent secure REST API calls. You can use any other software like Insomnia, Hoppscotch etc. instead of Postman.
 
-**Preparing to use the OpsRamp APIs** 
+**Preparing to use the HPE OpsRamp APIs** 
 
 As an IT administrator or a developer, before you can work with OpsRamp APIs, you will need to generate API client credentials (ClientId and ClientSecret) and capture your TenantId (tenant can be partner, client or service provider ID) and token endpoint. The internal OpsRamp guide achieves this by creating a Custom Integration configured for OAuth2. 
 
