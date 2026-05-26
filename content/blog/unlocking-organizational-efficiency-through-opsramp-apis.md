@@ -125,3 +125,36 @@ pm.collectionVariables.set("BearerToken", jsonData.access_token);
 All subsequent REST API requests are authenticated by presenting the access token as the authorization bearer token to OpsRamp APIs. The service validates the access token, and if valid, serves the request. In this blog, we validate the access token by creating an alert using a single API call. 
 
 ![](/img/opramps-api10.png)
+
+**Example: Create an alert in OpsRamp using Postman** 
+
+To create an alert in OpsRamp, use the Alerts API endpoint shown in the internal guide. Configure the request in Postman as follows. 
+
+* Method: POST 
+* Request URL: {{BaseUrl}}/api/v2/tenants/{{TenantId}}/alert 
+* Headers: Authorization: bearer {{BearerToken}}, Content-Type: application/json, Accept: application/json
+
+In the Body tab, select raw → JSON and paste the following payload:
+
+```json
+{ 
+  "serviceName": "Postman", 
+  "device": { 
+    "id": "{{resourceId}}" 
+  }, 
+  "subject": "Test API Alert for CustomerSuccess", 
+  "currentState": "CRITICAL", 
+  "app": "OPSRAMP", 
+  "component": "CPU", 
+  "description": "api calls" 
+} 
+```
+
+Click Send. If successful, the API returns an identifier for the created alert: (Below is Dummy response) 
+
+```json
+  "0f53640b-d358-4b20-b896-f72ef7eb81cb" 
+] 
+```
+
+![](/img/opramps-api11.png)
