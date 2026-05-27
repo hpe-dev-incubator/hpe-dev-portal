@@ -58,7 +58,7 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ## Overview Demos:
 
-<img src="/img/pcai-fast-track-innovation.png" alt="drawing" style="width:200px;"/>
+![Overview Demos](/img/pcai-overview.png "Overview Demos")
 
 | Demo                                                                        | Description                                                                                                                                                                                                                                                                                                                                          | Link                                                 |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -66,6 +66,8 @@ This development environment isn’t just for ideation; it’s designed to be th
 | Unleashing AI Innovation: Dive into the HPE Private Cloud AI Software Stack | Whether you're a data scientist or a private cloud operator, this webinar will teach you how to harness these capabilities to deploy and scale AI solutions with unprecedented efficiency and reliability. The session will feature a live demonstration and practical use cases, offering actionable strategies to supercharge your AI initiatives. | [Video](https://www.youtube.com/watch?v=6zj7biG74uk) |
 
 ## Technical Demos:
+
+![](/img/pcai-nvidia-ai-q-blueprint.png)
 
 <br/>
 
@@ -83,6 +85,13 @@ This development environment isn’t just for ideation; it’s designed to be th
 - - -
 
 # Resources
+
+## Github Repositories
+
+* [Validated Nvidia Blueprints](https://github.com/ai-solution-eng/blueprints)
+* [AI Demos](https://github.com/ai-solution-eng/ai-solution-demos)
+* [Demo Frameworks -- NOT FOR Production](https://github.com/ai-solution-eng/frameworks)
+
 
 ## HPE Private Cloud AI Documentation
 
