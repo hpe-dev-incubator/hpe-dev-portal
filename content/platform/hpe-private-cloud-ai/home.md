@@ -52,9 +52,9 @@ Offered in a variety of sizes to suit your needs — including a system designed
 
 ![HPE Private Cloud AI](/img/pcai-hw-ref-arch.png "HPE Private Cloud AI")
 
-![](/img/pcai-matrix.png)
 
-[Learn more about HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
+
+![](/img/pcai-matrix.png)
 
 # HPE Private Cloud AI developer system - Accelerate AI development
 
