@@ -37,6 +37,7 @@ With its built-in, end-to-end software platform, you gain direct, unified access
 
 This development environment isn’t just for ideation; it’s designed to be the starting point for production AI. As your models mature and demand enterprise-grade scale and reliability, you can seamlessly transition AI workflows to the HPE Private Cloud family, leveraging its proven architecture and unified management for true enterprise-grade AI.
 
+---
 ## Overview Demo:
 
 ### HPE Private Cloud AI Overview
@@ -51,17 +52,9 @@ Follow Steeve Mancini as he showcases how private cloud infrastructure empowers 
 
 ## Technical Demos:
 
-### Table for videos test:
----
-
-<br/>
-
-
-## <span style="color:black; font-family:Arial; font-size:1em"> Technical Demos:</span>
 
 
 
-<div align="left">
 Check the following demos:
 <br/>
 
@@ -77,47 +70,14 @@ Check the following demos:
 | HPE Private Cloud AI technical demo | Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment. | [Video](https://www.youtube.com/watch?v=5uRoHXD2Sks) |
 
 
-</div>
 
-
-  >  <span style="color:blue; font-family:Arial; font-size:1em"> *You can think of the KV cache as a model's “High-Bandwidth memory (HBM) scratchpad.”*</span>
 
 <br/>
 
 ---
 
 
-### Discover new HPE AI Essentials features
 
-HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.
-
-<a href="https://www.hpe.com/us/en/resource-library.video.the-ai-factory-just-got-smarter-new-hpe-ai-essentials-features.v100007807.html/restype/video/search/ai%20essentials?jumpId=in_VGtoRLredirect" target="_blank">
-
-![AI Essentials](/img/pcai-ai-essentials.png "AI Essentials")
-
-</a>
-
-### Fast track innovation: how HPE simplifies model deployment
-
-This demo showcases the built-in machine learning services that simplify and automate model development and deployment. 
-
-<a href="https://www.youtube.com/watch?v=THeg2DwrF4c">
-
-![Fast track innovation: how HPE simplifies model deployment](/img/pcai-fast-track-innovation.png "Fast track innovation: how HPE simplifies model deployment")
-
-</a>
-
-### Building a generative AI foundation with HPE Private Cloud AI
-
-In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI architecture and infrastructure needed to deploy generative AI at enterprise scale.
-
-[![HPE Private Cloud AI architecture for GenAI](https://img.youtube.com/vi/AIG4-O9ZVRY/hqdefault.jpg)](https://www.youtube.com/watch?v=AIG4-O9ZVRY)
-
-### HPE Private Cloud AI technical demo
-
-Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment.
-
-[![HPE Private Cloud AI technical demo](https://img.youtube.com/vi/5uRoHXD2Sks/hqdefault.jpg)](https://www.youtube.com/watch?v=5uRoHXD2Sks)
 
 # Resources
 
