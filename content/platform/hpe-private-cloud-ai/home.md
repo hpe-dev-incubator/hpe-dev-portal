@@ -98,9 +98,9 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ## Github Repositories
 
-* [Validated Nvidia Blueprints](https://github.com/ai-solution-eng/blueprints)
-* [AI Demos](https://github.com/ai-solution-eng/ai-solution-demos)
-* [Demo Frameworks -- NOT FOR Production](https://github.com/ai-solution-eng/frameworks)
+* [Validated Nvidia Blueprints ![](Github)](https://github.com/ai-solution-eng/blueprints)
+* [AI Demos ![](Github)](https://github.com/ai-solution-eng/ai-solution-demos)
+* [Demo Frameworks -- NOT FOR Production ![](Github)](https://github.com/ai-solution-eng/frameworks)
 
 ## HPE Private Cloud AI Documentation
 
@@ -110,7 +110,7 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ## Tutorials - HPE AI Essentials
 
-[Tutorials for AI Essentials Software on HPE Private Cloud AI ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.12.0)
+* [Tutorials for AI Essentials Software on HPE Private Cloud AI ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.12.0)
 
 ## Analyst Reports
 
