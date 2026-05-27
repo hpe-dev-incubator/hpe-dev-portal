@@ -38,8 +38,6 @@ th {
 }
 </style>
 
-
-
 ![HPE Private Cloud AI](/img/hpe-private-cloud-ai-image-landing-page.png "HPE Private Cloud AI")
 
 Deploy AI in days, not months, with a turnkey private cloud platform. Co-engineered with NVIDIA, HPE Private Cloud AI delivers a complete, secure AI workbench with a unified data lakehouse and rapidly deployable models and use cases for production deployment in hours.
@@ -68,7 +66,7 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ## Overview Demos:
 
-![Overview Demos](/img/pcai-overview.png "Overview Demos")
+![Overview Demos](/img/pcai-console-final.png "Overview Demos")
 
 | Demo                                                                        | Description                                                                                                                                                                                                                                                                                                                                          | Link                                                 |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -77,7 +75,7 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ## Technical Demos:
 
-![](/img/pcai-nvidia-ai-q-blueprint.png)
+![](/img/pcai-tech-console.png)
 
 <br/>
 
