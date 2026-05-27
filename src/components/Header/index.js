@@ -13,14 +13,150 @@ import {
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink } from '..';
+import { ButtonLink } from '../Link';
 import { UserMenu } from './UserMenu';
+
+const HEADER_TEXT_COLOR = '#3e4550';
+const HEADER_CHEVRON_COLOR = '#676767';
+
+const MainHeader = styled(GrommetHeader)`
+  min-height: 80px;
+`;
 
 const TextAlignLeft = styled(Box)`
   & > a {
     text-align: left;
     font-weight: 400;
     padding-right: 30px;
+  }
+`;
+
+const BrandLinkContent = styled(Box)`
+  gap: 12px;
+`;
+
+const BrandLogo = styled.img`
+  width: 104px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+`;
+
+const BrandLabel = styled.span`
+  color: #2f3a48;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 500;
+`;
+
+const HeaderItemLabel = styled.span`
+  color: ${HEADER_TEXT_COLOR};
+  font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1;
+`;
+
+const HeaderNavLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 16px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+`;
+
+const HeaderDropButton = styled(DropButton)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 8px 0 16px;
+    gap: 4px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  && svg {
+    stroke: ${HEADER_CHEVRON_COLOR};
+  }
+`;
+
+const HeaderSearchLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 16px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+`;
+
+const HeaderSearchIconLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 24px;
+    min-width: 24px;
+    padding: 0;
+    margin-left: 24px;
+    color: ${HEADER_TEXT_COLOR};
+  }
+`;
+
+const JoinCommunityButton = styled(ButtonLink)`
+  && {
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid #01a982;
+    background: transparent;
+    color: #292d3a;
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
   }
 `;
 
@@ -147,7 +283,10 @@ function Header() {
             />
           );
         })}
-        <Box border={{ side: 'top', color: 'border' }} margin={{ vertical: 'xsmall' }} />
+        <Box
+          border={{ side: 'top', color: 'border' }}
+          margin={{ vertical: 'xsmall' }}
+        />
         <ButtonLink
           key="all-topics"
           label="All Topics"
@@ -209,17 +348,17 @@ function Header() {
     //   label="HPE GreenLake"
     //   to="/platform/hpe-greenlake/home"
     // />,
-    <DropButton
+    <HeaderDropButton
       key="tp"
-      label="Topics"
+      label={<HeaderItemLabel>Topics</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
       dropContent={<TopicDropContent />}
     />,
-    <DropButton
-      label="HPE GreenLake cloud"
+    <HeaderDropButton
+      label={<HeaderItemLabel>HPE GreenLake cloud</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -245,8 +384,8 @@ function Header() {
         </TextAlignLeft>
       }
     />,
-    <DropButton
-      label="Products"
+    <HeaderDropButton
+      label={<HeaderItemLabel>Products</HeaderItemLabel>}
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
@@ -271,8 +410,8 @@ function Header() {
         </TextAlignLeft>
       }
     />,
-    <DropButton
-      label="OpenSource"
+    <HeaderDropButton
+      label={<HeaderItemLabel>OpenSource</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -305,21 +444,55 @@ function Header() {
     //   alignSelf="start"
     // />,
     // <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
-    <ButtonLink align="start" key="ev" label="Events" to="/events" />,
-    <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
-
-    <ButtonLink align="start" key="cm" label="Community" to="/community" />,
-  ];
-
-  navLinks.push(
-    <ButtonLink
+    <HeaderNavLink
       align="start"
       key="bl"
-      label="Blog"
+      label={<HeaderItemLabel>Blog</HeaderItemLabel>}
       to="/blog"
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
-  );
+    <HeaderNavLink
+      align="start"
+      key="ev"
+      label={<HeaderItemLabel>Events</HeaderItemLabel>}
+      to="/events"
+    />,
+    <HeaderNavLink
+      align="start"
+      key="su"
+      label={<HeaderItemLabel>Training</HeaderItemLabel>}
+      to="/skillup"
+    />,
+
+    ...(size === 'small'
+      ? [
+          <HeaderNavLink
+            align="start"
+            key="cm"
+            label={<HeaderItemLabel>Join the Community</HeaderItemLabel>}
+            to="/community"
+          />,
+        ]
+      : [
+          <JoinCommunityButton
+            align="start"
+            key="cm"
+            label="Join the Community"
+            to="/community"
+          />,
+        ]),
+    ...(size !== 'small'
+      ? [
+          <HeaderSearchIconLink
+            align="start"
+            key="search-icon"
+            to="/search"
+            icon={<Search />}
+            aria-label="Search"
+          />,
+        ]
+      : []),
+  ];
 
   // if (!userDetail) {
   //   navLinks.push(
@@ -334,33 +507,50 @@ function Header() {
   // }
   if (size === 'small') {
     navLinks.push(
-      <ButtonLink
+      <HeaderNavLink
         align="start"
         to="/search"
         icon={<Search />}
-        label="Search"
+        label={<HeaderItemLabel>Search</HeaderItemLabel>}
         reverse
       />,
     );
   }
 
   return (
-    <GrommetHeader
+    <MainHeader
+      align="center"
       justify="between"
-      pad={{ horizontal: 'medium', vertical: 'small' }}
+      pad={
+        size === 'small'
+          ? { horizontal: 'medium', vertical: 'small' }
+          : { horizontal: '160px', vertical: '0' }
+      }
     >
       <Box flex={false}>
-        <ButtonLink label="HPE Developer" to="/" />
+        <ButtonLink
+          label={
+            <BrandLinkContent direction="row" align="center">
+              <BrandLogo src="/img/home/HPE%20Logo.png" alt="HPE" />
+              <BrandLabel>Developer</BrandLabel>
+            </BrandLinkContent>
+          }
+          to="/"
+        />
       </Box>
       {size === 'small' ? (
         <DropButton
           icon={<Menu />}
-          dropAlign={{ top: 'bottom' }}
-          dropContent={<Nav direction="column">{navLinks}</Nav>}
+          dropAlign={{ top: 'bottom', right: 'right' }}
+          dropContent={
+            <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+              <Nav direction="column">{navLinks}</Nav>
+            </Box>
+          }
         />
       ) : (
-        <Box flex="shrink" overflow="hidden" pad="2px">
-          <Nav direction="row" gap="medium">
+        <Box flex="shrink" overflow="visible" pad="2px">
+          <Nav direction="row" gap="none">
             {navLinks.map((l, index) => (
               <Box key={index} flex={false}>
                 {l}
@@ -368,15 +558,6 @@ function Header() {
             ))}
           </Nav>
         </Box>
-      )}
-      {size !== 'small' && (
-        <ButtonLink
-          align="start"
-          to="/search"
-          icon={<Search />}
-          label="Search"
-          reverse
-        />
       )}
       {userDetail && <UserMenu userInfo={userDetail} />}
 
@@ -387,7 +568,7 @@ function Header() {
         src="https://origin-qa-www-hpe-com.ext.hpe.com/us/en/service-pages/hfws-cookie.html"
         style={{ display: 'none' }}
       /> */}
-    </GrommetHeader>
+    </MainHeader>
   );
 }
 

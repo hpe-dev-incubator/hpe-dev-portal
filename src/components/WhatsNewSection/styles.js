@@ -8,6 +8,10 @@ export const Section = styled.section`
   padding: 96px max(24px, 8.33%);
   overflow: hidden;
   margin-top: 24px;
+
+  @media (max-width: 768px) {
+    padding: 48px 32px;
+  }
 `;
 
 export const SectionHeader = styled.div`

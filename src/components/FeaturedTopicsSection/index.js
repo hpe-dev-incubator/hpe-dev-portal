@@ -1,17 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
+import { Box, Heading, Text } from 'grommet';
 import { LinkNext } from 'grommet-icons';
-import {
-  SectionWrapper,
-  FeatureCard,
-  CardBgImage,
-  CardIcon,
-  CardEyebrow,
-  CardContent,
-  CardTitle,
-  CardDescription,
-  CardCTA,
-} from './styles';
+import { ButtonLink } from '../Link';
+import { SectionWrapper, FeatureCard, CardBgImage } from './styles';
 
 const FeaturedTopicsSection = ({ cards }) => {
   const items = (cards || []).map(({ node }) => ({
@@ -33,20 +26,132 @@ const FeaturedTopicsSection = ({ cards }) => {
       {items.map((card) => (
         <FeatureCard
           key={card.id}
-          href={card.href}
+          role="link"
+          tabIndex={0}
           bgColor={card.bgColor}
           overlay={card.overlay}
+          onClick={() => {
+            if (card.href?.startsWith('http')) {
+              window.open(card.href, '_blank', 'noopener,noreferrer');
+              return;
+            }
+            navigate(card.href || '/');
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              if (card.href?.startsWith('http')) {
+                window.open(card.href, '_blank', 'noopener,noreferrer');
+                return;
+              }
+              navigate(card.href || '/');
+            }
+          }}
         >
           {card.bgImage && <CardBgImage src={card.bgImage} alt="" />}
-          {card.eyebrow && <CardEyebrow>{card.eyebrow}</CardEyebrow>}
-          <CardContent>
-            {card.icon && <CardIcon src={card.icon} alt="" />}
-            <CardTitle>{card.title}</CardTitle>
-            <CardDescription>{card.description}</CardDescription>
-            <CardCTA>
-              {card.cta} <LinkNext color="#292d3a" size="small" />
-            </CardCTA>
-          </CardContent>
+
+          <Text
+            size="28px"
+            weight={500}
+            color="white"
+            margin="none"
+            style={{
+              lineHeight: '38px',
+              letterSpacing: '-0.28px',
+              opacity: 0.9,
+              zIndex: 1,
+            }}
+          >
+            {card.eyebrow}
+          </Text>
+
+          <Box direction="column" gap="32px" width="100%" style={{ zIndex: 1 }}>
+            {card.icon && (
+              <Box
+                as="img"
+                src={card.icon}
+                alt=""
+                width="64px"
+                height="64px"
+                round="16px"
+                flex={false}
+              />
+            )}
+
+            <Heading
+              level={2}
+              margin="none"
+              color="white"
+              style={{
+                fontSize: '52px',
+                fontWeight: 500,
+                lineHeight: '58px',
+                letterSpacing: '-1.04px',
+                maxWidth: '100%',
+              }}
+            >
+              {card.title}
+            </Heading>
+
+            <Text
+              size="20px"
+              color="white"
+              margin="none"
+              style={{
+                lineHeight: '30px',
+                letterSpacing: '-0.2px',
+                opacity: 0.8,
+                maxWidth: '100%',
+              }}
+            >
+              {card.description}
+            </Text>
+
+            <Box
+              style={{
+                minHeight: '64px',
+                alignSelf: 'flex-start',
+                width: 'fit-content',
+              }}
+              onClick={(event) => event.stopPropagation()}
+              onKeyDown={(event) => event.stopPropagation()}
+            >
+              <ButtonLink
+                to={card.href || '/'}
+                target={card.href?.startsWith('http') ? '_blank' : undefined}
+                rel={
+                  card.href?.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
+                label={
+                  <Text
+                    as="span"
+                    size="20px"
+                    weight={500}
+                    color="#292d3a"
+                    margin="none"
+                    style={{ lineHeight: '24px', whiteSpace: 'nowrap' }}
+                  >
+                    {card.cta}
+                  </Text>
+                }
+                icon={<LinkNext color="#292d3a" size="24px" />}
+                reverse
+                plain={false}
+                background={{ color: 'white' }}
+                round="full"
+                pad={{ horizontal: '36px', vertical: '20px' }}
+                gap="12px"
+                style={{
+                  borderRadius:
+                    'var(--button-primary-medium-borderRadius, 9999px)',
+                  background: 'var(--button-primary-rest-background, #FFF)',
+                  opacity: 1,
+                }}
+              />
+            </Box>
+          </Box>
         </FeatureCard>
       ))}
     </SectionWrapper>

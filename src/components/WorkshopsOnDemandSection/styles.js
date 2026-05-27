@@ -9,7 +9,7 @@ export const Section = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 32px 24px;
+    padding: 48px 32px;
   }
 `;
 

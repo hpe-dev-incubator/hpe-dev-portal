@@ -5,11 +5,15 @@ import theme from './theme';
 import './reset.css';
 import { Footer, Header } from '../index';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, fullWidth = false }) => {
   return (
     <Grommet theme={theme}>
-      <Box direction="row" justify="center">
-        <Box basis="xxlarge" flex="shrink">
+      <Box direction="row" justify={fullWidth ? undefined : 'center'}>
+        <Box
+          basis={fullWidth ? undefined : 'xxlarge'}
+          flex="shrink"
+          fill={fullWidth ? 'horizontal' : undefined}
+        >
           <Header />
           <Main flex={false} fill={undefined} overflow="visible">
             {children}
@@ -23,6 +27,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  fullWidth: PropTypes.bool,
 };
 
 export default Layout;

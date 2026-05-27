@@ -4,12 +4,12 @@ export const CARD_WIDTH = 480;
 export const CARD_GAP = 24;
 
 export const Section = styled.div`
-  background: transparent;
+  background: #f7f7f7;
   padding: 96px max(24px, 8.33%);
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 48px 24px;
+    padding: 48px 32px;
   }
 `;
 
@@ -48,7 +48,11 @@ export const CardBgLayers = styled.div`
 export const CardGradient = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(247, 247, 247, 0) 30%, #ffffff 72%);
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 247, 247, 0) 30%,
+    #ffffff 72%
+  );
 `;
 
 /* Creates the visible image-only zone above the text content */

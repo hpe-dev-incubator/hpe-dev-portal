@@ -8,7 +8,8 @@ import {
   Text,
   Button,
   Anchor,
-  Tag,
+  Select,
+  ResponsiveContext,
 } from 'grommet';
 import { FormNext, Play } from 'grommet-icons';
 import { Layout, SEO, ButtonLink, Link } from '../components';
@@ -27,12 +28,6 @@ const SOURCE_TYPE_LABELS = {
   greenlake: 'Platform',
 };
 
-const TYPE_COLORS = {
-  Blog: 'brand',
-  Event: 'accent-2',
-  Platform: 'accent-3',
-};
-
 const FILTER_OPTIONS = [
   { label: 'All resources', value: 'all' },
   { label: 'Blogs', value: 'blog' },
@@ -40,6 +35,8 @@ const FILTER_OPTIONS = [
   { label: 'Platforms', value: 'platform' },
   { label: 'Multimedia', value: 'multimedia' },
 ];
+
+const SORT_OPTIONS = ['Newest first', 'Oldest first'];
 
 function VideoCard({ video }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/mqdefault.jpg`;
@@ -100,10 +97,11 @@ VideoCard.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 function TopicTemplate({ data }) {
   const topic = data.markdownRemark;
+  const size = React.useContext(ResponsiveContext);
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { title, description, ctaLabel, ctaLink, learnMoreLink, videos } =
@@ -111,6 +109,7 @@ function TopicTemplate({ data }) {
 
   const allResources = data.allMarkdownRemark.edges;
   const [activeFilter, setActiveFilter] = useState('all');
+  const [sortOrder, setSortOrder] = useState('Newest first');
 
   const resourcesForDisplay = (() => {
     if (activeFilter === 'all' || activeFilter === 'multimedia')
@@ -130,97 +129,145 @@ function TopicTemplate({ data }) {
   const showResources = activeFilter !== 'multimedia';
   const showVideos = activeFilter === 'all' || activeFilter === 'multimedia';
 
+  const sortedResourcesForDisplay = [...resourcesForDisplay].sort((a, b) => {
+    const aDate = new Date(a.node.frontmatter.date || 0).getTime();
+    const bDate = new Date(b.node.frontmatter.date || 0).getTime();
+    return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
+  });
+
   const totalCount =
     activeFilter === 'all'
       ? allResources.length + (videos?.length || 0)
       : activeFilter === 'multimedia'
-      ? videos?.length || 0
-      : resourcesForDisplay.length;
+        ? videos?.length || 0
+        : resourcesForDisplay.length;
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth>
       <SEO title={title} description={description} />
-      <Box
-        flex
-        overflow="auto"
-        pad={{ horizontal: 'xlarge', vertical: 'large' }}
-        gap="large"
-      >
-        {/* Breadcrumb */}
-        <Box direction="row" gap="xsmall" align="center">
-          <Link to="/topics" size="small" color="text-weak">
-            Topic
-          </Link>
-          <Text size="small" color="text-weak">
-            /
-          </Text>
-          <Text size="small">{title}</Text>
-        </Box>
+      <Box flex overflow="auto" gap="large">
+        <Box
+          background={{
+            image: 'url(/img/topics/TopicBg.jpg)',
+            size: 'cover',
+            position: 'center',
+          }}
+        >
+          <Box pad={{ horizontal: 'xlarge', vertical: 'large' }} gap="large">
+            {/* Breadcrumb */}
+            <Box direction="row" gap="xsmall" align="center">
+              <Link to="/topics" size="small" color="white">
+                Topic
+              </Link>
+              <Text size="small" color="white">
+                /
+              </Text>
+              <Text size="small" color="white">
+                {title}
+              </Text>
+            </Box>
 
-        {/* Hero */}
-        <Box gap="medium" width={{ max: 'large' }}>
-          <Heading level={1} margin="none" size="large">
-            {title}
-          </Heading>
-          <Text size="large" color="text-weak">
-            {description}
-          </Text>
-          <Box direction="row" gap="small" wrap>
-            {ctaLabel && ctaLink && (
-              <ButtonLink
-                label={
-                  <Box direction="row" align="center" gap="xsmall">
-                    <Text>{ctaLabel}</Text>
-                    <FormNext size="small" />
-                  </Box>
-                }
-                to={ctaLink}
-                primary
-              />
-            )}
-            {learnMoreLink && (
-              <Anchor
-                href={learnMoreLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                label="Learn more"
-              />
-            )}
+            {/* Hero */}
+            <Box gap="medium" width={{ max: 'large' }}>
+              <Heading level={1} margin="none" size="large" color="white">
+                {title}
+              </Heading>
+              <Text size="large" color="white">
+                {description}
+              </Text>
+              <Box direction="row" wrap gap="medium" align="center">
+                {ctaLabel && ctaLink && (
+                  <ButtonLink
+                    label={
+                      <Text size="medium" weight="bold" color="dark-1">
+                        {ctaLabel}
+                      </Text>
+                    }
+                    icon={<FormNext size="small" color="dark-1" />}
+                    reverse
+                    to={ctaLink}
+                    plain={false}
+                    background={{ color: 'white' }}
+                    border={{ color: 'black', size: 'xsmall' }}
+                    round="full"
+                    size="large"
+                    pad={{ horizontal: 'large', vertical: 'medium' }}
+                    gap="small"
+                    style={{
+                      borderRadius:
+                        'var(--button-primary-medium-borderRadius, 9999px)',
+                      background: 'var(--button-primary-rest-background, #FFF)',
+                      opacity: 1,
+                    }}
+                  />
+                )}
+                {learnMoreLink && (
+                  <Anchor
+                    href={learnMoreLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    label={
+                      <Text size="medium" weight="bold" color="white">
+                        Learn more
+                      </Text>
+                    }
+                  />
+                )}
+              </Box>
+            </Box>
           </Box>
         </Box>
 
         {/* Resources + Videos section */}
-        <Box>
-          <Text size="large" weight="bold" margin={{ bottom: 'medium' }}>
-            {totalCount} resource{totalCount !== 1 ? 's' : ''} for
-            &ldquo;{title}&rdquo;
-          </Text>
+        <Box pad={{ horizontal: 'xlarge', vertical: 'large' }}>
+          <Box
+            direction="row"
+            justify="between"
+            align="center"
+            wrap
+            margin={{ bottom: 'medium' }}
+          >
+            <Text size="xxlarge" weight="bold" margin="none">
+              {totalCount} resource{totalCount !== 1 ? 's' : ''} for &ldquo;
+              {title}&rdquo;
+            </Text>
+            <Box width={size === 'small' ? 'full' : 'small'}>
+              <Select
+                options={SORT_OPTIONS}
+                value={sortOrder}
+                onChange={({ option }) => setSortOrder(option)}
+                size="medium"
+              />
+            </Box>
+          </Box>
 
-          <Box direction="row-responsive" gap="large">
+          <Box direction={size === 'small' ? 'column' : 'row'} gap="large">
             {/* Sidebar filters */}
             <Box
               flex={false}
-              width="small"
-              gap="xsmall"
-              pad={{ top: 'xsmall' }}
+              width={size === 'small' ? 'full' : '336px'}
+              // gap="xsmall"
             >
               {FILTER_OPTIONS.map(({ label, value }) => (
                 <Button
                   key={value}
                   plain
                   onClick={() => setActiveFilter(value)}
+                  fill="horizontal"
                 >
                   <Box
-                    pad={{ vertical: 'xsmall', horizontal: 'small' }}
-                    round="small"
+                    pad={{ top: 'medium', horizontal: 'medium' }}
+                    round="16px"
                     background={
-                      activeFilter === value ? 'light-2' : 'transparent'
+                      activeFilter === value
+                        ? { color: 'black', opacity: 'xxsmall' }
+                        : 'transparent'
                     }
                   >
                     <Text
-                      size="small"
+                      size="medium"
                       weight={activeFilter === value ? 'bold' : 'normal'}
-                      color={activeFilter === value ? 'brand' : 'text'}
+                      color="#606A70"
                     >
                       {label}
                     </Text>
@@ -230,27 +277,25 @@ function TopicTemplate({ data }) {
             </Box>
 
             {/* Content area */}
-            <Box flex gap="large">
+            <Box flex gap="large" width={size === 'small' ? 'full' : '1192px'}>
               {/* Resource list */}
               {showResources && (
-                <Box gap="small">
-                  {resourcesForDisplay.length === 0 ? (
+                <Box gap="large">
+                  {sortedResourcesForDisplay.length === 0 ? (
                     <Text color="text-weak">
                       No resources found for this filter.
                     </Text>
                   ) : (
-                    resourcesForDisplay.map(({ node }) => {
+                    sortedResourcesForDisplay.map(({ node }, index) => {
                       const {
                         title: resourceTitle,
                         date,
-                        tags,
                         author,
                       } = node.frontmatter;
                       const { slug, sourceInstanceName } = node.fields;
                       const typeLabel =
                         SOURCE_TYPE_LABELS[sourceInstanceName] ||
                         sourceInstanceName;
-                      const badgeColor = TYPE_COLORS[typeLabel] || 'brand';
                       const href = `/${sourceInstanceName}${slug}`;
                       const formattedDate = date
                         ? dateFormat.format(new Date(date))
@@ -259,64 +304,62 @@ function TopicTemplate({ data }) {
                       return (
                         <Box
                           key={slug}
-                          pad="medium"
-                          round="small"
-                          border={{ color: 'border', size: 'small' }}
-                          gap="xsmall"
-                          elevation="xsmall"
+                          gap="medium"
+                          pad={{ bottom: 'medium' }}
+                          border={
+                            index < sortedResourcesForDisplay.length - 1
+                              ? {
+                                  side: 'bottom',
+                                  color: '#D4D8DB',
+                                  size: 'xsmall',
+                                }
+                              : undefined
+                          }
                         >
                           <Box
                             direction="row"
                             gap="small"
                             align="center"
                             wrap
+                            pad={{ vertical: 'medium' }}
+                            round="16px"
+                            background={{ color: 'black', opacity: 'xxsmall' }}
                           >
                             {formattedDate && (
-                              <Text size="xsmall" color="text-weak">
+                              <Text size="medium" color="#606A70">
                                 {formattedDate}
                               </Text>
                             )}
-                            <Box
-                              pad={{
-                                horizontal: 'small',
-                                vertical: 'xxsmall',
-                              }}
-                              round="large"
-                              background={badgeColor}
-                            >
-                              <Text
-                                size="xsmall"
-                                color="white"
-                                weight="bold"
-                              >
-                                {typeLabel}
+                            <Box width="1px" height="24px" background="#D4D8DB">
+                              <Text size="xsmall" color="transparent">
+                                |
                               </Text>
                             </Box>
+                            <Text size="medium" color="#606A70">
+                              {typeLabel}
+                            </Text>
                             {author && (
-                              <Text size="xsmall" color="text-weak">
+                              <Text size="small" color="text-weak">
                                 by {author}
                               </Text>
                             )}
                           </Box>
                           <Link to={href}>
-                            <Text weight="bold">{resourceTitle}</Text>
+                            <Text
+                              size={size === 'small' ? 'xlarge' : 'xxlarge'}
+                              weight="bold"
+                              color="#292D3A"
+                            >
+                              {resourceTitle}
+                            </Text>
                           </Link>
                           {node.excerpt && (
-                            <Text size="small" color="text-weak">
+                            <Text
+                              size={size === 'small' ? 'large' : 'xlarge'}
+                              color="#606A70"
+                            >
                               {node.excerpt}
                             </Text>
-                          )}
-                          {tags && tags.length > 0 && (
-                            <Box
-                              direction="row"
-                              gap="xsmall"
-                              wrap
-                              margin={{ top: 'xsmall' }}
-                            >
-                              {tags.slice(0, 5).map((tag) => (
-                                <Tag key={tag} name={tag} size="small" />
-                              ))}
-                            </Box>
                           )}
                         </Box>
                       );
@@ -428,9 +471,7 @@ export const pageQuery = graphql`
       sort: { frontmatter: { date: DESC } }
       filter: {
         fields: {
-          sourceInstanceName: {
-            in: ["blog", "event", "platform", "greenlake"]
-          }
+          sourceInstanceName: { in: ["blog", "event", "platform", "greenlake"] }
         }
         frontmatter: { tags: { regex: $tagRE }, disable: { ne: true } }
       }

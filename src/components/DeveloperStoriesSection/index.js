@@ -57,8 +57,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {blogs.map(({ node }, index) => {
-            const { title, thumbnailimage } =
-              node.frontmatter;
+            const { title, thumbnailimage } = node.frontmatter;
             const slug = node.fields.slug;
             const excerpt =
               node.excerpt && node.excerpt.length > 130
@@ -122,7 +121,11 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                     icon={<LinkNext size="small" />}
                     label="Read more"
                     reverse
-                    style={{ color: '#292d3a', fontWeight: 500, fontSize: '20px' }}
+                    style={{
+                      color: '#292d3a',
+                      fontWeight: 500,
+                      fontSize: '20px',
+                    }}
                   />
                 </CardBody>
               </StoryCard>

@@ -132,7 +132,7 @@ export const SlideContent = styled.div`
 export const SlideTitle = styled.h2`
   margin: 0;
   font-size: clamp(36px, 4.5vw, 72px);
-  font-family: 'Source Sans Pro', 'Metric', 'HPE_Graphik', sans-serif;
+  font-family: 'HPE Graphik', 'Metric', Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -1.04px;

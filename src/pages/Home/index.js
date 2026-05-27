@@ -25,7 +25,7 @@ const Home = ({ data }) => {
   const featuredCards = data.featuredCards ? data.featuredCards.edges : [];
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth>
       <SEO title={title} />
       <HeroBannerSection />
       <FeaturedTopicsSection cards={featuredCards} />
