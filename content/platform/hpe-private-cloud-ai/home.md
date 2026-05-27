@@ -50,7 +50,9 @@ Offered in a variety of sizes to suit your needs — including a system designed
 
 </div>
 
-![HPE Private Cloud AI](/img/pcai-offering.png "HPE Private Cloud AI")
+![HPE Private Cloud AI](/img/pcai-hw-ref-arch.png "HPE Private Cloud AI")
+
+![](/img/pcai-matrix.png)
 
 [Learn more about HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
 
