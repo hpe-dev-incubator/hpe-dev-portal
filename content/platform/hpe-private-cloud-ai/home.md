@@ -56,17 +56,13 @@ This development environment isn’t just for ideation; it’s designed to be th
 
 ---
 
-## Overview Demo:
+## Overview Demos:
 
-### HPE Private Cloud AI Overview
+| Demo    | Description | Link |
+| -------- | ------- | -------- |
+| HPE Private Cloud AI Overview  | Follow Steeve Mancini as he showcases how private cloud infrastructure empowers organizations to harness the power of artificial intelligence while maintaining full control over data security and compliance.    |  [Video](https://www.youtube.com/watch?v=MB6dhzpesgM)|
+| Unleashing AI Innovation: Dive into the HPE Private Cloud AI Software Stack| Whether you're a data scientist or a private cloud operator, this webinar will teach you how to harness these capabilities to deploy and scale AI solutions with unprecedented efficiency and reliability. The session will feature a live demonstration and practical use cases, offering actionable strategies to supercharge your AI initiatives.     | [Video](https://www.youtube.com/watch?v=6zj7biG74uk) |
 
-Follow Steeve Mancini as he showcases how private cloud infrastructure empowers organizations to harness the power of artificial intelligence while maintaining full control over data security and compliance.
-
-<a href="https://www.youtube.com/watch?v=MB6dhzpesgM" target="_blank">
-
-![PCAI Overview](/img/pcai-overview.png "PCAI Overview")
-
-</a>
 
 ## Technical Demos:
 
@@ -102,7 +98,7 @@ Check the following demos:
 * [Administration Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007592en_us)
 * [HPE AI Essentials Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us)
 
-## Tutorials – HPE AI Essentials
+## Tutorials - HPE AI Essentials
 
 [Tutorials for AI Essentials Software on HPE Private Cloud AI ![](Github)](https://github.com/HPEEzmeral/aie-tutorials/tree/aie-1.12.0)
 
