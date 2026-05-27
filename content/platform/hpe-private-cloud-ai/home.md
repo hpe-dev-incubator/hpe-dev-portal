@@ -42,6 +42,12 @@ Deploy AI in days, not months, with a turnkey private cloud platform. Co-enginee
 
 Offered in a variety of sizes to suit your needs — including a system designed specifically for developers — HPE Private Cloud AI provides a pre-configured, validated platform that removes the complexity of building your own environment.
 
+<div align="center">
+
+**Right-sized for every AI journey**
+
+</div>
+
 ![HPE Private Cloud AI](/img/pcai-offering.png "HPE Private Cloud AI")
 
 [Learn more about HPE Private Cloud AI](https://hpe.com/private-cloud-ai)
