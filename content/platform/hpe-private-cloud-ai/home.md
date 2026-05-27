@@ -76,9 +76,6 @@ Check the following demos:
 
 ---
 
-
-
-
 # Resources
 
 ## HPE Private Cloud AI Documentation
