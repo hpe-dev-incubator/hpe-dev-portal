@@ -51,6 +51,10 @@ Follow Steeve Mancini as he showcases how private cloud infrastructure empowers 
 
 ## Technical Demos:
 
+### Table for videos test:
+
+
+
 ### Simplify AI from Infrastructure to Model Deployment
 
 Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the complexities of AI infrastructure, streamlines data pipelines, and simplifies model deployment.
