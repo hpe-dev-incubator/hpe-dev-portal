@@ -9,15 +9,32 @@ active: true
 tags:
   - hpe-private-cloud-ai
 ---
-![]()
-
-![]()
-
 <style>
-li {
-   font-size: 27px;
-   line-height: 33px;
-   max-width: none;
+table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+}
+th, td {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+    text-align: left !important;
+    font-weight: normal !important;
+    padding: 10px !important;
+}
+th {
+    text-align: center !important;
+    font-weight: bold !important;
+    background-color: #f5f5f5;
+    font-weight: bold !important;
 }
 </style>
 
