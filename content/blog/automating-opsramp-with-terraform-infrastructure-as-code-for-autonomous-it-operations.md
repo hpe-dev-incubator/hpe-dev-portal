@@ -17,7 +17,7 @@ tags:
 ---
 ## Introduction
 
-HPE OpsRamp Software is a platform for driving autonomous IT operations, providing capabilities such as hybrid observability, AIOps-driven event management, and intelligent automation. It is commonly used by managed service providers (MSPs) and large enterprises as the backbone of their operations and observability teams.
+[HPE OpsRamp Software](https://www.hpe.com/us/en/opsramp.html) is a platform for driving autonomous IT operations, providing capabilities such as hybrid observability, AIOps-driven event management, and intelligent automation. It is commonly used by managed service providers (MSPs) and large enterprises as the backbone of their operations and observability teams.
 
 Achieving autonomous IT operations often requires more than automating infrastructure. It also involves automating the configuration of the systems used to monitor and manage that infrastructure.
 
@@ -65,7 +65,9 @@ The provider requires an OAuth 2.0 API token to authenticate with the HPE OpsRam
 
 ![Custom integration feature](/img/custom-integration.png "custom integration feature")
 
-Create a project folder and a file named main.tf. Use your API credentials to configure the provider:
+Create a project folder and a file named *main.tf*. The OpsRamp platform provides a *tenant_id*, a key (*client_id*, following the OAuth 2.0 standard), and a secret (*client_secret*) to configure the provider.
+
+The permissions granted by these credentials depend on the role assigned during their creation. In this example,  the **Partner Administrator** role is used, but you can restrict access to only the permissions required for your use case.
 
 ```hcl
 # file: main.tf
@@ -73,16 +75,16 @@ terraform {
   required_providers {
     opsramp = {
       source = "registry.terraform.io/HPE/opsramp"
-      version = ">=0.1.3"
+      version = ">=0.1.4"
     }
   }
 }
 
 provider "opsramp" {
-  client_id     = "a3MYhKkSA4JR5FNyJDJuuEktsGkdFxmb"
+  client_id     = "00000000000000000000000000000000"
   client_secret = "*****"
   endpoint      = "score.api.opsramp.com"
-  tenant        = "02325580-6156-4398-b8b7-f74e31222593"
+  tenant        = "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -139,7 +141,7 @@ terraform {
   required_providers {
     opsramp = {
       source = "registry.terraform.io/HPE/opsramp"
-      version = ">=0.1.3"
+      version = ">=0.1.4"
     }
   }
 }
@@ -208,10 +210,10 @@ Then the main.tf file will use the recently created module for client creation. 
 ```hcl
 # file: main.tf
 provider "opsramp" {
-  client_id     = "a3MYhKkSA4JR5FNyJDJuuEktsGkdFxmb"
+  client_id     = "00000000000000000000000000000000"
   client_secret = "*****"
   endpoint      = "score.api.opsramp.com"
-  tenant        = "02325580-6156-4398-b8b7-f74e31222593"
+  tenant        = "00000000-0000-0000-0000-000000000000"
 }
 module "client_1" {
   source = "./modules/client"
@@ -237,4 +239,4 @@ Infrastructure as Code enables scalable and repeatable operations. This provider
 
 Your feedback and contributions are welcomed. Feel free to open issues, submit feature requests, or contribute directly to the [Terraform Provider for OpsRamp](https://github.com/HPE/terraform-provider-opsramp) repository.
 
-Together, we can move closer to fully autonomous IT operations.
+Continue exploring the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE OpsRamp and discover new ways to use it in your daily operations. By learning, sharing, and contributing as a community, we can move closer to fully autonomous IT operations.
