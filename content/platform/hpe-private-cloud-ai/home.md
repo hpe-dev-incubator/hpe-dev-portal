@@ -54,41 +54,39 @@ With its built-in, end-to-end software platform, you gain direct, unified access
 
 This development environment isn’t just for ideation; it’s designed to be the starting point for production AI. As your models mature and demand enterprise-grade scale and reliability, you can seamlessly transition AI workflows to the HPE Private Cloud family, leveraging its proven architecture and unified management for true enterprise-grade AI.
 
----
+- - -
 
 ## Overview Demos:
 
-| Demo    | Description | Link |
-| -------- | ------- | -------- |
-| HPE Private Cloud AI Overview  | Follow Steeve Mancini as he showcases how private cloud infrastructure empowers organizations to harness the power of artificial intelligence while maintaining full control over data security and compliance.    |  [Video](https://www.youtube.com/watch?v=MB6dhzpesgM)|
-| Unleashing AI Innovation: Dive into the HPE Private Cloud AI Software Stack| Whether you're a data scientist or a private cloud operator, this webinar will teach you how to harness these capabilities to deploy and scale AI solutions with unprecedented efficiency and reliability. The session will feature a live demonstration and practical use cases, offering actionable strategies to supercharge your AI initiatives.     | [Video](https://www.youtube.com/watch?v=6zj7biG74uk) |
 
+
+
+
+<img src="/img/pcai-fast-track-innovation.png" alt="drawing" style="width:200px;"/>
+
+
+
+| Demo                                                                        | Description                                                                                                                                                                                                                                                                                                                                          | Link                                                 |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| HPE Private Cloud AI Overview                                               | Follow Steeve Mancini as he showcases how private cloud infrastructure empowers organizations to harness the power of artificial intelligence while maintaining full control over data security and compliance.                                                                                                                                      | [Video](https://www.youtube.com/watch?v=MB6dhzpesgM) |
+| Unleashing AI Innovation: Dive into the HPE Private Cloud AI Software Stack | Whether you're a data scientist or a private cloud operator, this webinar will teach you how to harness these capabilities to deploy and scale AI solutions with unprecedented efficiency and reliability. The session will feature a live demonstration and practical use cases, offering actionable strategies to supercharge your AI initiatives. | [Video](https://www.youtube.com/watch?v=6zj7biG74uk) |
 
 ## Technical Demos:
 
-
-
-
-Check the following demos:
 <br/>
 
-
-
-| Demo    | Description | Link |
-| -------- | ------- | -------- |
-| Simplify AI from Infrastructure to Model Deployment  | Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the complexities of AI infrastructure, streamlines data pipelines, and simplifies model deployment.    |  [Video](https://www.hpe.com/my/en/resource-library.video.hpe-private-cloud-ai-simplify-ai-from-infrastructure-to-model-deployment.v100007030.html)|
-| Nvidia's AI-Q Blueprint on top of Private Cloud AI | In this video, Isabelle Steinhauser demonstrates NVIDIA’s AI-Q Blueprint running on Private Cloud AI, highlighting its architecture and deployment advantages.     | [Video](https://www.youtube.com/watch?v=HrimNjJz6Uo) |
-| Discover new HPE AI Essentials features    | HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.    | [Video](https://www.hpe.com/us/en/resource-library.video.the-ai-factory-just-got-smarter-new-hpe-ai-essentials-features.v100007807.html/restype/video/search/ai%20essentials?jumpId=in_VGtoRLredirect) |
-| Fast track innovation: how HPE simplifies model deployment / object storage | This demo showcases the built-in machine learning services that simplify and automate model development and deployment.  | [Video](https://www.youtube.com/watch?v=THeg2DwrF4c) |
-| Building a generative AI foundation with HPE Private Cloud AI | In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI architecture and infrastructure needed to deploy generative AI at enterprise scale. | [Video](https://www.youtube.com/watch?v=AIG4-O9ZVRY) |
-| HPE Private Cloud AI technical demo | Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment. | [Video](https://www.youtube.com/watch?v=5uRoHXD2Sks) |
-
-
-
+| Demo                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Simplify AI from Infrastructure to Model Deployment                         | Join Randy Thomasson as he demonstrates how HPE Private Cloud AI removes the complexities of AI infrastructure, streamlines data pipelines, and simplifies model deployment.                                                             | [Video](https://www.hpe.com/my/en/resource-library.video.hpe-private-cloud-ai-simplify-ai-from-infrastructure-to-model-deployment.v100007030.html)                                                     |
+| Nvidia's AI-Q Blueprint on top of Private Cloud AI                          | In this video, Isabelle Steinhauser demonstrates NVIDIA’s AI-Q Blueprint running on Private Cloud AI, highlighting its architecture and deployment advantages.                                                                           | [Video](https://www.youtube.com/watch?v=HrimNjJz6Uo)                                                                                                                                                   |
+| Discover new HPE AI Essentials features                                     | HPE AI Essentials is the AI/ML powerhouse integrated into HPE Private Cloud AI. This video showcases how it simplifies AI/ML lifecycles while accelerating development, deployment, and management of AI use cases.                      | [Video](https://www.hpe.com/us/en/resource-library.video.the-ai-factory-just-got-smarter-new-hpe-ai-essentials-features.v100007807.html/restype/video/search/ai%20essentials?jumpId=in_VGtoRLredirect) |
+| Fast track innovation: how HPE simplifies model deployment / object storage | This demo showcases the built-in machine learning services that simplify and automate model development and deployment.                                                                                                                  | [Video](https://www.youtube.com/watch?v=THeg2DwrF4c)                                                                                                                                                   |
+| Building a generative AI foundation with HPE Private Cloud AI               | In this video, Alex Ollman provides a deep dive into the HPE Private Cloud AI architecture and infrastructure needed to deploy generative AI at enterprise scale.                                                                        | [Video](https://www.youtube.com/watch?v=AIG4-O9ZVRY)                                                                                                                                                   |
+| HPE Private Cloud AI technical demo                                         | Join Randy Thomasson to delve into offering role-specific walkthroughs for administrators focusing on user and GPU management, data engineers exploring data pipeline construction, and data scientists learning about model deployment. | [Video](https://www.youtube.com/watch?v=5uRoHXD2Sks)                                                                                                                                                   |
 
 <br/>
 
----
+- - -
 
 # Resources
 
