@@ -14,8 +14,8 @@ import ComingEventsSection from '../../components/ComingEventsSection';
 import CommunityCardsSection from '../../components/CommunityCardsSection';
 
 const Home = ({ data }) => {
-  const { title, image } = data.markdownRemark.frontmatter;
   const siteTitle = data.site.siteMetadata.title;
+  const title = data.markdownRemark?.frontmatter?.title || siteTitle;
 
   const panels = data.home.edges;
   const projects = data.opensource.edges;
@@ -173,7 +173,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: "/" } }) {
+    markdownRemark(fields: { sourceInstanceName: { eq: "home" } }) {
       excerpt
       frontmatter {
         title

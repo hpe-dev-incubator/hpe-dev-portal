@@ -9,8 +9,9 @@ export const SectionWrapper = styled.section`
   margin-top: 24px;
   box-sizing: border-box;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
+    flex-wrap: nowrap;
     padding: 0 24px;
     margin-top: 16px;
     gap: 24px;
@@ -44,9 +45,10 @@ export const FeatureCard = styled.div`
     padding: 64px 48px;
   }
 
-  @media (max-width: 768px) {
-    flex: 1 0 100%;
-    min-height: 480px;
+  @media (max-width: 1024px) {
+    flex: none;
+    width: 100%;
+    min-height: auto;
     padding: 48px 24px;
   }
 `;
@@ -59,4 +61,26 @@ export const CardBgImage = styled.img`
   object-fit: cover;
   object-position: center;
   z-index: 0;
+`;
+
+export const CardTitle = styled.h2`
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 58px;
+  letter-spacing: -1.04px;
+  color: white;
+  margin: 0;
+  max-width: 100%;
+
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -0.72px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.56px;
+  }
 `;

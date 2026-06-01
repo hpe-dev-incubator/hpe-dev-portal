@@ -159,7 +159,7 @@ const HeroBannerSection = () => {
                   {slide.subtitle}
                 </SlideSubtitle>
 
-                <CTARow direction="row" align="center" gap="20px" wrap>
+                <CTARow direction="row" align="center" gap="20px">
                   <PrimaryBtn
                     to={slide.cta1.href}
                     label={

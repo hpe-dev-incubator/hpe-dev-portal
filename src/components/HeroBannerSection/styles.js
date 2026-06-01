@@ -27,8 +27,8 @@ export const Slide = styled.div`
     var(--spacing-3xlarge, 96px);
 
   @media (max-width: 768px) {
-    min-height: 720px;
-    padding: 144px 32px 96px;
+    min-height: 560px;
+    padding: 80px 24px 56px;
   }
 `;
 
@@ -132,7 +132,7 @@ export const SlideContent = styled(Box)`
 
   @media (max-width: 768px) {
     max-width: 100%;
-    padding-top: 72px;
+    padding-top: 0;
   }
 `;
 
@@ -144,6 +144,10 @@ export const SlideTitle = styled(Heading)`
   line-height: 1;
   letter-spacing: -1.04px;
   color: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
+
+  @media (max-width: 768px) {
+    font-size: 48px;
+  }
 
   @media (max-width: 480px) {
     font-size: 44px;

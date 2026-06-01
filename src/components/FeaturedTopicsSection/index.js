@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Text } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 import { ButtonLink } from '../Link';
-import { SectionWrapper, FeatureCard, CardBgImage } from './styles';
+import { SectionWrapper, FeatureCard, CardBgImage, CardTitle } from './styles';
 
 const FeaturedTopicsSection = ({ cards }) => {
   const items = (cards || []).map(({ node }) => ({
@@ -78,20 +78,7 @@ const FeaturedTopicsSection = ({ cards }) => {
               />
             )}
 
-            <Heading
-              level={2}
-              margin="none"
-              color="white"
-              style={{
-                fontSize: '52px',
-                fontWeight: 500,
-                lineHeight: '58px',
-                letterSpacing: '-1.04px',
-                maxWidth: '100%',
-              }}
-            >
-              {card.title}
-            </Heading>
+            <CardTitle>{card.title}</CardTitle>
 
             <Text
               size="20px"

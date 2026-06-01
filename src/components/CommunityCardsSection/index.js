@@ -29,7 +29,6 @@ const CtaCard = styled.a`
   padding: 96px 72px;
   text-decoration: none;
   background-color: ${({ bgColor }) => bgColor};
-  overflow: hidden;
   cursor: pointer;
   transition: filter 0.2s;
 
@@ -39,7 +38,7 @@ const CtaCard = styled.a`
   }
 
   @media (max-width: 768px) {
-    padding: 96px 72px;
+    padding: 64px 32px;
   }
 `;
 
