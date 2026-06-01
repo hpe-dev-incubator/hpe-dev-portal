@@ -2,7 +2,7 @@
 title: LLM finetuning for mere mortals
 dateStart: 2024-08-27T22:01:13.541Z
 dateEnd: 2024-08-28T21:59:13.556Z
-category: Virtual Event
+category: Meetup
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=GpjCOrlYt0M&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

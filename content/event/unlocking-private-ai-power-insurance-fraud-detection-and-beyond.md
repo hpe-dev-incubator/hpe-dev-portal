@@ -2,7 +2,7 @@
 title: "Unlocking Private AI Power: Insurance Fraud Detection and Beyond"
 dateStart: 2025-02-18T23:01:31.764Z
 dateEnd: 2025-02-19T22:30:31.776Z
-category: Virtual Event
+category: Munch & Learn
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=BYzF2Twg8UY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
