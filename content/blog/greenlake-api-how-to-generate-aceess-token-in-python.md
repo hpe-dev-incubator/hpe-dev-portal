@@ -9,6 +9,7 @@ tags:
   - hpe-greenlake-platform
   - hpe-greenlake
   - API
+  - tutorial
 ---
 Accessing and organizing audit logs is crucial for keeping your system secure, meeting compliance requirements, and running operations smoothly. HPE GreenLake’s audit logs are essential for tracking activities and spotting any unusual behavior that might indicate a security threat.
 

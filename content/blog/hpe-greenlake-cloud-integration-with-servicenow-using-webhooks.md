@@ -7,6 +7,8 @@ disable: false
 tags:
   - webhooks
   - hpe-greenlake-cloud
+  - tutorial
+  - hybrid-cloud
 ---
 <style>
 li {

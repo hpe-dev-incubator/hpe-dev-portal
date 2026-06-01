@@ -6,11 +6,13 @@ author: Rajeev Kallur
 authorimage: /img/rajeev_new.jpg
 disable: false
 tags:
+  - ilo-restful-api
   - appaccount
   - ilorest
   - application account
   - iLO7
   - ilorest 7.x
+  - tutorial
 ---
 
 ## Introduction

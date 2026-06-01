@@ -6,6 +6,11 @@ priority: 5
 author: Santosh Nagaraj & Claudio Calderon
 authorimage: /img/santosh-picture.jpg
 disable: false
+tags:
+  - hpe-private-cloud-ai
+  - LLM
+  - tutorial
+
 ---
 LLM (Large language Model) observability and cost management are critical for deploying reliable, secure, and financially sustainable AI applications. By tracking metrics like token usage, latency, and output quality, teams can prevent runaway costs, reduce hallucinations, and ensure regulatory compliance.
 

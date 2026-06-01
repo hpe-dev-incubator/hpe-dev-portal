@@ -8,7 +8,7 @@ tags:
   - API
   - OpenAPI
   - OpenAPI specification
-  - OpsRamp
+  - hpe-opsramp
   - Yaml
 ---
 The [OpenAPI specification](https://www.openapis.org) (OAS)  is one of the most widely followed API contracts. It is language-agonistic.

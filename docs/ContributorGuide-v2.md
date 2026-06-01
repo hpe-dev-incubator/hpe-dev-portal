@@ -817,5 +817,13 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Open Source Advocate page** | opensource |
   | **Cloud Architect page**  | cloud-architect |
   | **DevOps & Site Reliability Engineer** | devops ; sre ; site-reliability-engineer |
+
  
-  
+  | **Topics**    | **Associated Tags**  |
+  | --------------- | -------------------- |
+  | **Artificial Intelligence**   | ai |
+  | **Data**   | data  |
+  | **Hybrid Cloud**  | hybrid-cloud |
+  | **Observability** | observability |
+  | **Networking**  | networking |
+  | **Software and Services** | software ; services |

@@ -13,6 +13,7 @@ tags:
   - api
   - greenlake-api
   - data-services-on-the-hpe-greenlake-platform
+  - tutorial
 ---
 <style>
 li {

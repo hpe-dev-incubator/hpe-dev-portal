@@ -18,6 +18,7 @@ tags:
   - HPE GreenLake
   - Cribl
   - hpe-ezmeral
+  - tutorial
 ---
 Hewlett Packard Enterprise and [Cribl](https://cribl.io/) bring together breakthrough technology to optimize and modernize observability data management, offering new levels of performance and platform independence.
 

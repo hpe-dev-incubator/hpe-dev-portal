@@ -7,6 +7,8 @@ authorimage: /img/tb07112025.png
 disable: false
 tags:
   - data-services-on-the-hpe-greenlake-platform
+  - hpe-greenlake
+  - tutorial
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
