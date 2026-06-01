@@ -4,7 +4,7 @@ dateStart: 2026-05-20T22:01:58.632Z
 dateEnd: 2026-05-20T21:30:58.648Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/7417769573221/WN_COR_W9XMQtq4FYC5JhL__g
+link: https://www.youtube.com/watch?v=jIVcG1NIsfw
 width: large
 ---
 ## Automate what happens next using HPE OpsRamp Process Automation
