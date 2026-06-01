@@ -11,21 +11,31 @@ frontpage: true
 active: true
 tags:
   - aruba
+  - HPE Networking
+  - juniper
 ---
 Supercharge your network operations with HPE Aruba Networking Developer Hub. Find help and resources to automate networks and quickly build powerful applications by integrating with HPE Aruba Networking products. Find APIs and guides, visit the Code Exchange, and join our community of Airheads.
 
-* [Check out the HPE Aruba Networking Developer Hub](https://devhub.arubanetworks.com/)    
-* [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home/digestviewer?communitykey=ea467413-8db4-4c49-b5f8-1a12f193e959&tab=digestviewer)    
-* [Simplify network operations with HPE Aruba Networking and Ansible](https://www.ansible.com/integrations/networks/aruba)    
-* [Leverage the HPE Aruba Networking GitHub repository](https://github.com/aruba)    
-
+* [Check out the HPE Networking Developer Hub](https://developer.networking.hpe.com/)    
+* Join the conversation at the HPE Networking Developer Communities:
+ * [HPE Aruba Networking](https://developer.networking.hpe.com/#developer-communities)
+ * [Juniper](https://community.juniper.net/home)    
+  
 
 ## Resources
 
-* [HPE Aruba Networking Central API reference](https://developer.arubanetworks.com/hpe-aruba-networking-central/docs/rest-api-getting-started)    
-* [Getting Started with Ansible and HPE Aruba Networking Central](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)    
-* [HPE Aruba Networking Central Postman collections](https://github.com/aruba/aruba-postman-collections)     
-* [HPE Aruba Networking Code Exchange](https://devhub.arubanetworks.com/code-exchange)      
+### Github Repositories:
+
+* [HPE Aruba Networking ![](Github)](https://github.com/aruba)
+* [HPE Juniper ![](Github)](https://github.com/juniper)
+
+### Documentation:
+
+* [HPE Networking Code Exchange](https://developer.networking.hpe.com/code-exchange/)  
+* [HPE Aruba Networking Central API reference](https://developer.arubanetworks.com/hpe-aruba-networking-central/docs/rest-api-getting-started)  
+* [HPE Aruba Networking Central Postman collections](https://github.com/aruba/aruba-postman-collections)  
+* [Getting Started with Ansible and HPE Aruba Networking Central](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)         
+* [Simplify network operations with HPE Aruba Networking and Ansible](https://www.ansible.com/integrations/networks/aruba)    
 
 ## Any questions on Aruba?
 
