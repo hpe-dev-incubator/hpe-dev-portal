@@ -2,7 +2,7 @@
 title: Introduction to HPE GreenLake cloud webhooks
 dateStart: 2025-02-25T23:01:37.237Z
 dateEnd: 2025-02-26T22:30:37.252Z
-category: Virtual Event
+category: Meetup
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=CPiMcIjXyVA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

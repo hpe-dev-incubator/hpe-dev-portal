@@ -2,7 +2,7 @@
 title: Sustainably Scaling AI Adoption
 dateStart: 2025-08-05T22:01:09.909Z
 dateEnd: 2025-08-06T21:30:09.928Z
-category: Virtual Event
+category: AI Jam Session
 image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=AmL_k-I6dSY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

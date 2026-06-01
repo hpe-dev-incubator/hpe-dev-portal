@@ -2,7 +2,7 @@
 title: Developing and deploying AI in the enterprise
 dateStart: 2025-04-22T22:01:11.537Z
 dateEnd: 2025-04-23T21:30:11.553Z
-category: Virtual Event
+category: AI Jam Session
 image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=Dau7swlAkJY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

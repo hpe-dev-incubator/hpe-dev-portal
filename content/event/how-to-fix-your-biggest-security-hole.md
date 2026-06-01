@@ -2,7 +2,7 @@
 title: How to fix your biggest security hole
 dateStart: 2024-11-19T23:01:07.135Z
 dateEnd: 2024-11-20T22:30:07.153Z
-category: Virtual Event
+category: Munch & Learn
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=mgla3ovDlXA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
