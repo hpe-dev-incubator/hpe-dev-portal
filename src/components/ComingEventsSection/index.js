@@ -133,7 +133,7 @@ const ComingEventsSection = ({ events = [] }) => {
   return (
     <Section>
       <SectionHeader>
-        <SectionTitle>Upcoming events</SectionTitle>
+        <SectionTitle>Events</SectionTitle>
         <ViewAllLink href="/events">
           View all <ArrowRight />
         </ViewAllLink>

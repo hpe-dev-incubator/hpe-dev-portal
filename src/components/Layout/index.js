@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Grommet, Box, Main } from 'grommet';
 import theme from './theme';
 import './reset.css';
-import { Footer, Header } from '../index';
+import { Header } from '../index';
 
 const Layout = ({ children, fullWidth = false }) => {
   return (
@@ -18,7 +18,6 @@ const Layout = ({ children, fullWidth = false }) => {
           <Main flex={false} fill={undefined} overflow="visible">
             {children}
           </Main>
-          <Footer />
         </Box>
       </Box>
     </Grommet>

@@ -53,7 +53,7 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <div id="hpe_slim_footer" className="hpe_slim_footer" />
+        <div id="footer" className="footer" style={{ paddingTop: '24px' }} />
         {props.postBodyComponents}
         <div
           dangerouslySetInnerHTML={{

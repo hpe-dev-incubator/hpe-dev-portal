@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Grommet, Box, Main } from 'grommet';
 import theme from './theme';
 import './reset.css';
-import { Footer, Header } from '../index';
+import { Header } from '../index';
 
 const LayoutSideBar = ({ children, sidebarContent }) => {
   return (
@@ -29,7 +29,6 @@ const LayoutSideBar = ({ children, sidebarContent }) => {
               {children}
             </Main>
           </Box>
-          <Footer />
         </Box>
       </Box>
     </Grommet>
