@@ -78,7 +78,7 @@ export const EventImageWrapper = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #e4e6ea;
+  background: #ffffff;
   flex-shrink: 0;
   overflow: hidden;
 
@@ -88,6 +88,7 @@ export const EventImageWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
 `;

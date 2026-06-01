@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Box, Text } from 'grommet';
+import { FormNext, FormPrevious, LinkNext } from 'grommet-icons';
 
 import {
   HeroWrapper,
@@ -10,9 +12,11 @@ import {
   SlideContent,
   SlideTitle,
   SlideSubtitle,
+  CTAButtonLabel,
   CTARow,
   PrimaryBtn,
   GhostBtn,
+  GhostExternalBtn,
   HeroControls,
   NavBtnRow,
   NavBtn,
@@ -28,24 +32,31 @@ const SLIDES = [
   {
     id: 1,
     title: "Let's talk AI",
-    subtitle:
-      'From concept to production. Models, agents, and infrastructure that actually ship.',
-    cta1: { label: 'Read how', href: '#' },
-    cta2: { label: 'See examples', href: '#' },
+    subtitle: 'From concept to production. Models, agents, and infrastructure.',
+    cta1: { label: 'Learn more', href: '/topic/ai-and-data' },
+    cta2: {
+      label: 'View solutions',
+      href: 'https://www.hpe.com/us/en/solutions/ai-artificial-intelligence.html',
+      newTab: true,
+    },
     theme: 'light',
-    bgColor: '#d4d4d4',
+    bgColor: '#f1f2f4',
     bgImage: '',
     bgVideo: '/img/hero/slide1-ai.mp4',
-    bgVideoOpacity: 0.5,
+    bgVideoOpacity: 0.32,
     bgVideoFallback: '/img/hero/slide1-ai-fallback.jpg',
   },
   {
     id: 2,
-    title: 'Ship in 48 Hours',
+    title: 'Learn, build, & deploy',
     subtitle:
       'Build, break, and iterate alongside engineers solving real AI and infrastructure challenges—then demo what you ship.',
-    cta1: { label: 'Join the Hackathon', href: '/hackshack' },
-    cta2: { label: 'See past events', href: '/hackshack/workshops' },
+    cta1: {
+      label: 'Join the hackathon',
+      href: 'https://events.bizzabo.com/797906/home',
+      newTab: true,
+    },
+    cta2: { label: 'See other events', href: '/events/' },
     theme: 'dark',
     bgColor: '#292d3a',
     bgVideo: '/img/hero/slide2-code.mp4',
@@ -53,11 +64,15 @@ const SLIDES = [
   },
   {
     id: 3,
-    title: 'Run AI in Production, Not Just in Notebooks',
+    title: 'Run AI in production',
     subtitle:
-      'Deploy, scale, and observe LLM and GPU workloads with Kubernetes-native controls and enterprise policy.',
-    cta1: { label: 'Deploy an AI Workload', href: '#' },
-    cta2: { label: 'See examples', href: '#' },
+      'Deploy, scale, and observe LLM and GPU workloads with Kubernetes-native controls and enterprise policies on HPE Private Cloud AI.',
+    cta1: { label: 'Learn more', href: '/platform/hpe-private-cloud-ai/home/' },
+    cta2: {
+      label: 'Convince your CEO',
+      href: 'https://www.hpe.com/psnow/doc/a00146294enw',
+      newTab: true,
+    },
     theme: 'light',
     bgColor: '#ffffff',
     bgVideo: '/img/hero/slide3-dataviz.mp4',
@@ -66,66 +81,14 @@ const SLIDES = [
 ];
 
 const AUTO_ADVANCE_MS = 5000;
-
-const ArrowRight = ({ color }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 18 18"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M3 9H15M9 3l6 6-6 6"
-      stroke={color || 'currentColor'}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ChevronLeft = ({ color }) => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M14 5L8 11L14 17"
-      stroke={color || 'currentColor'}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ChevronRight = ({ color }) => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M8 5L14 11L8 17"
-      stroke={color || 'currentColor'}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const ENABLE_AUTO_ADVANCE = false;
 
 const HeroBannerSection = () => {
   const [index, setIndex] = useState(0);
   const timerRef = useRef(null);
 
   const startTimer = useCallback(() => {
+    if (!ENABLE_AUTO_ADVANCE) return;
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % SLIDES.length);
@@ -133,28 +96,32 @@ const HeroBannerSection = () => {
   }, []);
 
   useEffect(() => {
+    if (!ENABLE_AUTO_ADVANCE) return undefined;
     startTimer();
     return () => clearInterval(timerRef.current);
   }, [startTimer]);
 
   const handlePrev = () => {
     setIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
-    startTimer();
+    if (ENABLE_AUTO_ADVANCE) startTimer();
   };
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % SLIDES.length);
-    startTimer();
+    if (ENABLE_AUTO_ADVANCE) startTimer();
   };
-
-  const activeSlide = SLIDES[index];
-  const isDark = activeSlide.theme === 'dark';
 
   return (
     <HeroWrapper>
       <SlideTrack index={index}>
         {SLIDES.map((slide) => {
           const dark = slide.theme === 'dark';
+          const primaryText = dark ? '#292d3a' : '#ffffff';
+          const primaryBg = dark ? '#ffffff' : '#292d3a';
+          const secondaryText = dark ? '#ffffff' : '#292d3a';
+          const secondaryIcon = '#01a982';
+          const previousIconColor = dark ? 'rgba(255,255,255,0.8)' : '#b1b9be';
+
           return (
             <Slide key={slide.id} bgColor={slide.bgColor}>
               {slide.bgVideo && (
@@ -169,61 +136,127 @@ const HeroBannerSection = () => {
                   >
                     <source src={slide.bgVideo} type="video/mp4" />
                   </SlideBgVideo>
-                  <SlideBgOverlay isVideo bgColor={slide.bgColor} />
+                  <SlideBgOverlay
+                    $isVideo
+                    $isDark={dark}
+                    bgColor={slide.bgColor}
+                  />
                 </>
               )}
               {!slide.bgVideo && slide.bgImage && (
                 <>
                   <SlideBgImage src={slide.bgImage} alt="" isDark={dark} />
-                  <SlideBgOverlay isDark={dark} bgColor={slide.bgColor} />
+                  <SlideBgOverlay $isDark={dark} bgColor={slide.bgColor} />
                 </>
               )}
 
-              <SlideContent>
-                <SlideTitle isDark={dark}>{slide.title}</SlideTitle>
-                <SlideSubtitle isDark={dark}>{slide.subtitle}</SlideSubtitle>
-                <CTARow>
-                  <PrimaryBtn href={slide.cta1.href} isDark={dark}>
-                    {slide.cta1.label}
-                    <ArrowRight color={dark ? '#292d3a' : '#ffffff'} />
-                  </PrimaryBtn>
-                  <GhostBtn href={slide.cta2.href} isDark={dark}>
-                    {slide.cta2.label}
-                    <ArrowRight color={dark ? '#ffffff' : '#292d3a'} />
-                  </GhostBtn>
+              <SlideContent direction="column" gap="32px">
+                <SlideTitle level={2} margin="none" $isDark={dark}>
+                  {slide.title}
+                </SlideTitle>
+
+                <SlideSubtitle as="p" margin="none" $isDark={dark}>
+                  {slide.subtitle}
+                </SlideSubtitle>
+
+                <CTARow direction="row" align="center" gap="20px" wrap>
+                  <PrimaryBtn
+                    to={slide.cta1.href}
+                    label={
+                      <CTAButtonLabel
+                        size="20px"
+                        weight={500}
+                        color={primaryText}
+                      >
+                        {slide.cta1.label}
+                      </CTAButtonLabel>
+                    }
+                    icon={<LinkNext color={primaryText} size="24px" />}
+                    reverse
+                    plain={false}
+                    background={primaryBg}
+                    round="full"
+                    pad={{ horizontal: '36px', vertical: '20px' }}
+                    gap="12px"
+                    $isDark={dark}
+                  />
+
+                  {slide.cta2.newTab ? (
+                    <GhostExternalBtn
+                      to={slide.cta2.href}
+                      label={
+                        <CTAButtonLabel
+                          size="20px"
+                          weight={500}
+                          color={secondaryText}
+                        >
+                          {slide.cta2.label}
+                        </CTAButtonLabel>
+                      }
+                      icon={<LinkNext color={secondaryIcon} size="24px" />}
+                      reverse
+                      plain
+                      round="full"
+                      pad={{ horizontal: '36px', vertical: '20px' }}
+                      gap="12px"
+                      $isDark={dark}
+                    />
+                  ) : (
+                    <GhostBtn
+                      to={slide.cta2.href}
+                      label={
+                        <CTAButtonLabel
+                          size="20px"
+                          weight={500}
+                          color={secondaryText}
+                        >
+                          {slide.cta2.label}
+                        </CTAButtonLabel>
+                      }
+                      icon={<LinkNext color={secondaryIcon} size="24px" />}
+                      reverse
+                      plain
+                      round="full"
+                      pad={{ horizontal: '36px', vertical: '20px' }}
+                      gap="12px"
+                      $isDark={dark}
+                    />
+                  )}
                 </CTARow>
               </SlideContent>
+
+              <HeroControls direction="row" align="center" gap="40px">
+                <NavBtnRow direction="row" align="center" gap="12px">
+                  <NavBtn
+                    plain
+                    onClick={handlePrev}
+                    disabled={false}
+                    icon={
+                      <FormPrevious color={previousIconColor} size="16px" />
+                    }
+                    aria-label="Previous slide"
+                    $isDark={dark}
+                    $isPrimary={false}
+                  />
+                  <NavBtn
+                    plain
+                    onClick={handleNext}
+                    disabled={false}
+                    icon={<FormNext color="#ffffff" size="16px" />}
+                    aria-label="Next slide"
+                    $isDark={dark}
+                    $isPrimary
+                  />
+                </NavBtnRow>
+
+                <SlideCounter as="span" $isDark={dark}>
+                  {index + 1} / {SLIDES.length}
+                </SlideCounter>
+              </HeroControls>
             </Slide>
           );
         })}
       </SlideTrack>
-
-      {/* Controls: rendered once outside the track, theme from active slide */}
-      <HeroControls>
-        <NavBtnRow>
-          <NavBtn
-            onClick={handlePrev}
-            disabled={false}
-            isDark={isDark}
-            isPrimary={false}
-            aria-label="Previous slide"
-          >
-            <ChevronLeft color={isDark ? 'rgba(255,255,255,0.8)' : '#292d3a'} />
-          </NavBtn>
-          <NavBtn
-            onClick={handleNext}
-            disabled={false}
-            isDark={isDark}
-            isPrimary
-            aria-label="Next slide"
-          >
-            <ChevronRight color="#ffffff" />
-          </NavBtn>
-        </NavBtnRow>
-        <SlideCounter isDark={isDark}>
-          {index + 1} / {SLIDES.length}
-        </SlideCounter>
-      </HeroControls>
     </HeroWrapper>
   );
 };

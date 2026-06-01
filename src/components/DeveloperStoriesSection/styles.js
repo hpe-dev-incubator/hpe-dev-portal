@@ -62,6 +62,23 @@ export const CardImageSpacer = styled.div`
   position: relative;
 `;
 
+/* Badge overlaid at the bottom-left of the image area */
+export const CardBadge = styled.span`
+  position: absolute;
+  bottom: 24px;
+  left: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3e4550;
+  z-index: 2;
+  pointer-events: none;
+  letter-spacing: 0.1px;
+`;
+
 export const CardBody = styled.div`
   padding: 48px;
   display: flex;

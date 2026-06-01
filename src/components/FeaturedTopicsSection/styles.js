@@ -11,9 +11,9 @@ export const SectionWrapper = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 16px;
+    padding: 0 24px;
     margin-top: 16px;
-    gap: 16px;
+    gap: 24px;
   }
 `;
 
@@ -46,7 +46,7 @@ export const FeatureCard = styled.div`
 
   @media (max-width: 768px) {
     flex: 1 0 100%;
-    min-height: 360px;
+    min-height: 480px;
     padding: 48px 24px;
   }
 `;

@@ -4,9 +4,10 @@ export const CARD_WIDTH = 384;
 export const CARD_GAP = 24;
 
 export const Section = styled.div`
-  background: #ffffff;
+  background: #f7f7f7;
   padding: 96px max(24px, 8.33%);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 
   @media (max-width: 768px) {
     padding: 48px 32px;
@@ -14,7 +15,8 @@ export const Section = styled.div`
 `;
 
 export const CarouselViewport = styled.div`
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
 `;
 
@@ -28,6 +30,7 @@ export const CarouselTrack = styled.div`
 export const OsCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
   width: ${CARD_WIDTH}px;
+  box-sizing: border-box;
   border: 1px solid #b1b9be;
   padding: 48px;
   display: flex;

@@ -206,7 +206,7 @@ const WhatsNewSection = ({ platforms = [] }) => {
                   rel={item.external ? 'noreferrer noopener' : undefined}
                 >
                   Learn more
-                  <ArrowRight />
+                  <ArrowRight color="#01a982" />
                 </CardLink>
               </CardBody>
             </NewCard>

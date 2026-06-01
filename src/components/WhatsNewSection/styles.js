@@ -77,20 +77,17 @@ export const CardImage = styled.div`
 export const CardBody = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   padding: 32px;
 `;
 
 export const TypeBadge = styled.span`
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  background: ${({ type }) => (type === 'Workshop' ? '#e8f4ee' : '#e8edf8')};
-  color: ${({ type }) => (type === 'Workshop' ? '#1a7a45' : '#1a3a7a')};
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #3e4550;
   align-self: flex-start;
 `;
 
@@ -115,15 +112,15 @@ export const CardLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  color: #292d3a;
+  color: #01a982;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
-    color: #292d3a;
+    color: #01a982;
   }
 
   svg {
@@ -175,4 +172,8 @@ export const SlideCounter = styled.span`
   line-height: 1.5;
   letter-spacing: -0.2px;
   color: #606a70;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

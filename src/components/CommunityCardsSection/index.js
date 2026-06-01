@@ -14,8 +14,8 @@ const SectionWrapper = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 16px;
-    gap: 16px;
+    padding: 0 24px;
+    gap: 24px;
   }
 `;
 
@@ -39,7 +39,7 @@ const CtaCard = styled.a`
   }
 
   @media (max-width: 768px) {
-    padding: 64px 32px;
+    padding: 96px 72px;
   }
 `;
 
@@ -67,10 +67,6 @@ const CardTitle = styled.h2`
   @media (max-width: 1024px) {
     font-size: 36px;
     line-height: 1.2;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 28px;
   }
 `;
 

@@ -1,9 +1,9 @@
 ---
-title: Monitor your full stack with AI-powered observability tools
+title: Deploy, monitor, and recover with AI-powered tools
 eyebrow: 'See everything. Fix faster.'
-description: Tools and integrations to monitor, trace, and resolve issues across your infrastructure and applications.
-cta: Get started with Observability
-href: '#'
+description:  Integrated orchestration, observability, and data protection that abstracts infrastructure complexity.
+cta: Learn about our software
+href: '/topic/software-and-services/'
 icon: ''
 bgImage: '/img/featured/card2-observability.jpg'
 bgColor: '#0d1a2e'

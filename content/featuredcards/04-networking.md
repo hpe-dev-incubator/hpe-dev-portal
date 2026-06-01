@@ -2,8 +2,8 @@
 title: Design and automate networking built for scale
 eyebrow: 'Code the network. Ship resilient apps.'
 description: Developer tools, APIs, and guides for building AI-driven, high-performance network infrastructure.
-cta: Explore Networking
-href: /topic/networking
+cta: Explore HPE Networking
+href: https://developer.networking.hpe.com/
 icon: ''
 bgImage: '/img/featured/card4-networking.jpg'
 bgColor: '#0a1520'

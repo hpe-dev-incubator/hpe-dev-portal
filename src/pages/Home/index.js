@@ -27,11 +27,12 @@ const Home = ({ data }) => {
   return (
     <Layout title={siteTitle} fullWidth>
       <SEO title={title} />
-      <HeroBannerSection />
-      <FeaturedTopicsSection cards={featuredCards} />
-      <WhatsNewSection platforms={latestPlatforms} />
-      <ComingEventsSection events={events} />{' '}
-      {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+      <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
+        <HeroBannerSection />
+        <FeaturedTopicsSection cards={featuredCards} />
+        <WhatsNewSection platforms={latestPlatforms} />
+        <ComingEventsSection events={events} />{' '}
+        {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
         <Box>
           <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
           <Button
@@ -52,7 +53,7 @@ const Home = ({ data }) => {
           {image && <Image src={image} alt="hpedev logo" />}
         </Box>
       </Box> */}
-      {/* <Box flex={false} direction="row-responsive" wrap margin="medium">
+        {/* <Box flex={false} direction="row-responsive" wrap margin="medium">
         {panels &&
           panels.map(({ node }) => (
             <Card
@@ -69,10 +70,11 @@ const Home = ({ data }) => {
             />
           ))}
       </Box> */}
-      <DeveloperStoriesSection blogs={latestBlogs} />
-      <WorkshopsOnDemandSection />
-      <OpenSourceSection projects={projects} />
-      <CommunityCardsSection />
+        <DeveloperStoriesSection blogs={latestBlogs} />
+        <WorkshopsOnDemandSection />
+        <OpenSourceSection projects={projects} />
+        <CommunityCardsSection />
+      </Box>
     </Layout>
   );
 };

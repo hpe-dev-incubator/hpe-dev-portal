@@ -198,7 +198,8 @@ const ComingEventsSection = ({ events = [] }) => {
                     rel={isExternal ? 'noreferrer noopener' : undefined}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    {isUpcoming ? 'Register' : 'Watch recording'} <ArrowRight />
+                    {isUpcoming ? 'Register now' : 'Watch recording'}{' '}
+                    <ArrowRight />
                   </EventLink>
                 </EventBody>
               </EventCard>

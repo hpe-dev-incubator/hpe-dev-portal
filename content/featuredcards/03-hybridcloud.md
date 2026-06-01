@@ -3,7 +3,7 @@ title: Connect all your clouds to GreenLake
 eyebrow: 'Hybrid cloud. Fully managed.'
 description: Unify hybrid environments under one control plane, with visibility, governance, and performance built in.
 cta: Discover GreenLake
-href: /greenlake
+href: https://common.cloud.hpe.com/
 icon: ''
 bgImage: '/img/featured/card3-greenlake.jpg'
 bgColor: '#101e14'

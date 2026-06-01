@@ -12,6 +12,7 @@ import {
   CardBgLayers,
   CardGradient,
   CardImageSpacer,
+  CardBadge,
   CardBody,
   PrevButton,
   NextButton,
@@ -87,7 +88,9 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                 </CardBgLayers>
 
                 {/* Spacer creates the visible image zone above the text */}
-                <CardImageSpacer />
+                <CardImageSpacer>
+                  <CardBadge>Blog</CardBadge>
+                </CardImageSpacer>
 
                 <CardBody>
                   <Heading
@@ -119,7 +122,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                   <Anchor
                     href={`/blog${slug}`}
                     icon={<LinkNext size="small" />}
-                    label="Read more"
+                    label="Learn more"
                     reverse
                     style={{
                       color: '#292d3a',
