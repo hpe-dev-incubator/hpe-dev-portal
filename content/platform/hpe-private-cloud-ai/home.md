@@ -60,14 +60,18 @@ Streamline the development and secure deployment of AI workloads with the integr
 
 <div align="center">
 
-    ![](/img/screenshot-2026-06-02-at-17.55.51.png)
+![](/img/screenshot-2026-06-02-at-17.55.51.png)
 
 </div>
 
-
 As agentic AI simplifies automation and provides consistent profitability from AI workloads, the importance of rapid productivity, reliability, and data protection, has never been greater. To accelerate the development and delivery of agentic AI across industries, Hewlett Packard Enterprise and NVIDIA® are introducing new developer-focused solutions and capabilities to their end-to-end enterprise AI platform HPE Private Cloud AI, including a turnkey development system designed to fast-track the proving and validation of AI projects.
 
-**Instant AI development environment**
+
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <div>
+
+ **Instant AI development environment**
 
 * Ready to run out of the box
 * Prove and validate AI projects faster than ever
@@ -78,10 +82,12 @@ As agentic AI simplifies automation and provides consistent profitability from A
 * Two NVIDIA H100 NVL 96GB GPUs 
 * 32 TB of integrated storage
 * Fully integrated control node included
-* End-to-end AI software platform 
+* End-to-end AI software platform
+  </div>
+  <div>
+
 
 **Scalable and predictable**
-
 * Clear upgrade paths to production environments
 * Predictable and lower TCO than private cloud
 * Unified experience across all HPE Private Cloud AI solutions 
@@ -91,7 +97,8 @@ As agentic AI simplifies automation and provides consistent profitability from A
 * Pretrained models for rapid prototyping
 * Easy data integration across public and private sources 
 * Deep insight into platform performance operations and resource management
-
+  </div>
+</div>
 - - -
 
 ## Overview Demos:
