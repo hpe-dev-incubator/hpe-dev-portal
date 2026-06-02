@@ -10,7 +10,7 @@ tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ****
 
 ## **Agentic AI in Action: Building Secure Clinical Workflows with HPE Private Cloud AI & Sickbay**
 

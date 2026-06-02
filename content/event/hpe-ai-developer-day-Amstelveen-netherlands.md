@@ -10,9 +10,9 @@ tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ****
 
-## **build an AI agent in a sovereign environment**
+## **Build an AI agent in a sovereign environment**
 
 ### Amstelveen, Netherlands
 

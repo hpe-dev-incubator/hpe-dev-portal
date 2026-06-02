@@ -10,7 +10,7 @@ tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ** **
 
 ## **Crea tu propio AI Agent con HPE & Nvidia**
 

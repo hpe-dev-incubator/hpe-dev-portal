@@ -2,7 +2,7 @@
 title: "Enhancing NLP with Retrieval-Augmented Generation: A Practical Demonstration"
 dateStart: 2024-09-17T22:01:31.313Z
 dateEnd: 2024-09-18T21:59:31.329Z
-category: Virtual Event
+category: Munch & Learn
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=TQPvK-pFAD8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
