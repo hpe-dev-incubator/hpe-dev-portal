@@ -58,7 +58,12 @@ Streamline the development and secure deployment of AI workloads with the integr
 
 # HPE Private Cloud AI developer system - Accelerate AI development
 
-![](/img/screenshot-2026-06-02-at-17.55.51.png)
+<div align="center">
+
+    ![](/img/screenshot-2026-06-02-at-17.55.51.png)
+
+</div>
+
 
 As agentic AI simplifies automation and provides consistent profitability from AI workloads, the importance of rapid productivity, reliability, and data protection, has never been greater. To accelerate the development and delivery of agentic AI across industries, Hewlett Packard Enterprise and NVIDIA® are introducing new developer-focused solutions and capabilities to their end-to-end enterprise AI platform HPE Private Cloud AI, including a turnkey development system designed to fast-track the proving and validation of AI projects.
 
