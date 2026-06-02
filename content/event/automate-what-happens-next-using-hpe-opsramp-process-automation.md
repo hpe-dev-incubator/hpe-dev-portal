@@ -2,8 +2,8 @@
 title: "Automate what happens next using HPE OpsRamp Process Automation"
 dateStart: 2026-05-20T22:01:58.632Z
 dateEnd: 2026-05-20T21:30:58.648Z
-category: Virtual Event
-image: /img/event-meetups-newlogo-400x400.png
+category: Meetup
+image: /img/HPE20260129_HOU_SOC_Sc01_0728_450_0_72_RGB.jpg
 link: https://www.youtube.com/watch?v=jIVcG1NIsfw
 width: large
 ---

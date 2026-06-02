@@ -3,7 +3,7 @@ title: HPE AI Developer Day Bogota, Colombia
 dateStart: 2026-02-24T08:00:36.204Z
 dateEnd: 2026-02-24T16:30:36.215Z
 category: HPE AI Developer Day
-image: /img/hpe-ai-dev-days.png
+image: /img/hpe202509281998_450_0_72_rgb.jpg
 link: https://events.bizzabo.com/797906/page/5472192/columbia-information
 width: large
 tags:

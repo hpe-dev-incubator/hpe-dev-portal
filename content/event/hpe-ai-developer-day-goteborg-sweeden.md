@@ -3,7 +3,7 @@ title: HPE AI Developer Day Göteborg, Sweden
 dateStart: 2026-03-25T08:30:36.204Z
 dateEnd: 2026-03-25T16:00:36.215Z
 category: HPE AI Developer Day
-image: /img/hpe-ai-dev-days.png
+image: /img/hpe202601291824_450_0_72_rgb.jpg
 link: https://events.bizzabo.com/797906/page/5605984/sweden-information
 width: large
 tags:
