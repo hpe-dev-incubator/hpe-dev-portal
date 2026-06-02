@@ -42,9 +42,6 @@ Deploy AI in days, not months, with a turnkey private cloud platform. Co-enginee
 
 HPE Private Cloud AI is a purpose-built solution designed to provide fast and easy deployment of private AI applications with a focus on inferencing, Retrieval-Augmented Generation (RAG), and fine-tuning. HPE Private Cloud AI is a codeveloped Hewlett Packard Enterprise and NVIDIA enterprise purpose-built solution, including a completed infrastructure, software portfolio, and AI model library managed through HPE GreenLake to offer a private AI in a box. HPE Private Cloud AI offers enterprise customers the ability to leverage NVIDIA® AI Enterprise (NVAIE) portfolio, including NVIDIA Inferencing Microservices (NIM), and HPE portfolio of curated market-adopted open-source AI tools and platforms with full private control of their data.
 
-Simplify AI deployments with a production-ready, turnkey solution
-
-Streamline the development and secure deployment of AI workloads with the integrated HPE and NVIDIA solution. HPE Private Cloud AI provides a pre-configured, validated platform that removes the complexity of building your own environment.
 
 <div align="center">
 
@@ -61,6 +58,8 @@ Streamline the development and secure deployment of AI workloads with the integr
 ![](/img/pcai-matrix.png)
 
 # HPE Private Cloud AI developer system - Accelerate AI development
+
+Streamline the development and secure deployment of AI workloads with the integrated HPE and NVIDIA solution. HPE Private Cloud AI provides a pre-configured, validated platform that removes the complexity of building your own environment.
 
 <div align="center">
 
