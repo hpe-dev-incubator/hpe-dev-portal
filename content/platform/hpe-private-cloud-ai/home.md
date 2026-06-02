@@ -52,7 +52,11 @@ Streamline the development and secure deployment of AI workloads with the integr
 
 </div>
 
+<div align="center">
+
 ![HPE Private Cloud AI](/img/screenshot-2026-06-02-at-17.44.21.png "HPE Private Cloud AI")
+
+</div>
 
 ![](/img/pcai-matrix.png)
 
