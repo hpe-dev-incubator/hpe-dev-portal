@@ -120,7 +120,9 @@ const ComingEventsSection = ({ events = [] }) => {
         new Date(a.node.frontmatter.dateStart),
     );
 
-  const items = [...upcoming, ...past];
+  const MAX_CARDS = 8;
+  const pastToShow = past.slice(0, Math.max(0, MAX_CARDS - upcoming.length));
+  const items = [...upcoming, ...pastToShow].slice(0, MAX_CARDS);
 
   const maxIndex = Math.max(0, items.length - cardsVisible);
   const translateX = index * (cardWidth + CARD_GAP);

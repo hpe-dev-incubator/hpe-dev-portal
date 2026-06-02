@@ -2,8 +2,8 @@
 title: "Network Operations Spotlight with PyCentralv2"
 dateStart: 2026-04-08T22:01:58.632Z
 dateEnd: 2026-04-08T21:30:58.648Z
-category: Virtual Event
-image: /img/event-meetups-newlogo-400x400.png
+category: Meetup
+image: /img/events/events4.jpg
 link: https://www.youtube.com/watch?v=tEQZqb3C98I
 width: large
 ---

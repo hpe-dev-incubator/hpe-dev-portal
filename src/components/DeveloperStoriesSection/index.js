@@ -22,6 +22,9 @@ const DEFAULT_THUMBNAILS = [
   '/img/dev-stories/thumb-1.png',
   '/img/dev-stories/thumb-2.png',
   '/img/dev-stories/thumb-3.png',
+  '/img/dev-stories/developer1.jpg',
+  '/img/dev-stories/developer2.jpg',
+  '/img/dev-stories/developer3.jpg',
 ];
 
 const DeveloperStoriesSection = ({ blogs = [] }) => {

@@ -27,8 +27,8 @@ const Home = ({ data }) => {
   return (
     <Layout title={siteTitle} fullWidth>
       <SEO title={title} />
+      <HeroBannerSection />
       <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
-        <HeroBannerSection />
         <FeaturedTopicsSection cards={featuredCards} />
         <WhatsNewSection platforms={latestPlatforms} />
         <ComingEventsSection events={events} />{' '}

@@ -153,7 +153,14 @@ function TopicTemplate({ data }) {
             position: 'center',
           }}
         >
-          <Box pad={{ horizontal: 'xlarge', vertical: 'large' }} gap="large">
+          <Box
+            pad={{ vertical: 'large' }}
+            style={{
+              paddingLeft: 'max(24px, calc((100% - 1600px) / 2))',
+              paddingRight: 'max(24px, calc((100% - 1600px) / 2))',
+            }}
+            gap="large"
+          >
             {/* Breadcrumb */}
             <Box direction="row" gap="xsmall" align="center">
               <Link to="/topics" size="small" color="white">
@@ -219,7 +226,13 @@ function TopicTemplate({ data }) {
         </Box>
 
         {/* Resources + Videos section */}
-        <Box pad={{ horizontal: 'xlarge', vertical: 'large' }}>
+        <Box
+          pad={{ vertical: 'large' }}
+          style={{
+            paddingLeft: 'max(24px, calc((100% - 1600px) / 2))',
+            paddingRight: 'max(24px, calc((100% - 1600px) / 2))',
+          }}
+        >
           <Box
             direction="row"
             justify="between"

@@ -1,7 +1,7 @@
 ---
-title: Design and automate networking built for scale
-eyebrow: 'Code the network. Ship resilient apps.'
-description: Developer tools, APIs, and guides for building AI-driven, high-performance network infrastructure.
+title: Modernize your network for the AI era
+eyebrow: 'AI native. Modern networking.'
+description: Developer tools, APIs, and guides for building automated workflows.
 cta: Explore HPE Networking
 href: https://developer.networking.hpe.com/
 icon: ''

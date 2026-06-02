@@ -1,9 +1,9 @@
 ---
-title: HPE AI Developer Day Houston, US
+title: Agentic AI in Action Houston, US
 dateStart: 2026-07-09T13:00:36.204Z
 dateEnd: 2026-07-09T16:30:36.215Z
-category: Event
-image: /img/hpe-ai-dev-days-houston26.png
+category: HPE AI Developer Day
+image: /img/events/events2.jpg
 link: https://events.bizzabo.com/797906/page/6049799/houston
 width: large
 tags:

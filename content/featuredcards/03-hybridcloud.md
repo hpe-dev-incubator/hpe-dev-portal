@@ -1,5 +1,5 @@
 ---
-title: Connect all your clouds to GreenLake
+title: Connect all your clouds with GreenLake
 eyebrow: 'Hybrid cloud. Fully managed.'
 description: Unify hybrid environments under one control plane, with visibility, governance, and performance built in.
 cta: Discover GreenLake

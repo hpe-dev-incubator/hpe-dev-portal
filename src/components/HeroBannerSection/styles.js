@@ -23,7 +23,7 @@ export const Slide = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--spacing-4xlarge, 144px) max(24px, 8.33%)
+  padding: var(--spacing-4xlarge, 144px) max(24px, calc((100% - 1600px) / 2))
     var(--spacing-3xlarge, 96px);
 
   @media (max-width: 768px) {
