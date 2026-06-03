@@ -3,7 +3,7 @@ title: HPE AI Developer Day Houston, US
 dateStart: 2026-07-09T13:00:36.204Z
 dateEnd: 2026-07-09T16:30:36.215Z
 category: HPE AI Developer Day
-image: /img/HPE202509273929_450_0_72_RGB.jpg
+image: /img/kadanza/HPE202509273929_450_0_72_RGB.jpg
 link: https://events.bizzabo.com/797906/page/6049799/houston
 width: large
 tags:
