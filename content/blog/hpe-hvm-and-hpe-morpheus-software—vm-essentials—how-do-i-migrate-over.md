@@ -7,5 +7,6 @@ authorimage: /img/diegodelgado.jpeg
 disable: false
 tags:
   - morpheus
+  - tutorial
 ---
 external blog
