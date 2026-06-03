@@ -5,7 +5,7 @@ export const CARD_GAP = 24;
 
 export const Section = styled.div`
   background: #f7f7f7;
-  padding: 96px max(24px, 8.33%);
+  padding: 96px max(24px, 8.33%, calc((100% - 1600px) / 2));
   overflow-x: hidden;
   overflow-y: visible;
 

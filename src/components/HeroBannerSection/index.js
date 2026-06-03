@@ -150,7 +150,11 @@ const HeroBannerSection = () => {
                 </>
               )}
 
-              <SlideContent direction="column" gap="32px">
+              <SlideContent
+                direction="column"
+                gap="32px"
+                data-testid={`slide-${slide.id}`}
+              >
                 <SlideTitle level={2} margin="none" $isDark={dark}>
                   {slide.title}
                 </SlideTitle>
@@ -159,7 +163,7 @@ const HeroBannerSection = () => {
                   {slide.subtitle}
                 </SlideSubtitle>
 
-                <CTARow direction="row" align="center" gap="20px">
+                <CTARow direction="row" align="start" gap="2px">
                   <PrimaryBtn
                     to={slide.cta1.href}
                     label={
@@ -182,50 +186,37 @@ const HeroBannerSection = () => {
                   />
 
                   {slide.cta2.newTab ? (
-                    <GhostExternalBtn
-                      to={slide.cta2.href}
-                      label={
-                        <CTAButtonLabel
-                          size="20px"
-                          weight={500}
-                          color={secondaryText}
-                        >
-                          {slide.cta2.label}
-                        </CTAButtonLabel>
-                      }
-                      icon={<LinkNext color={secondaryIcon} size="24px" />}
-                      reverse
-                      plain
-                      round="full"
-                      pad={{ horizontal: '36px', vertical: '20px' }}
-                      gap="12px"
-                      $isDark={dark}
-                    />
+                    <GhostExternalBtn to={slide.cta2.href} plain $isDark={dark}>
+                      <CTAButtonLabel
+                        size="20px"
+                        weight={500}
+                        color={secondaryText}
+                      >
+                        {slide.cta2.label}
+                      </CTAButtonLabel>
+                      <LinkNext color={secondaryIcon} size="24px" />
+                    </GhostExternalBtn>
                   ) : (
-                    <GhostBtn
-                      to={slide.cta2.href}
-                      label={
-                        <CTAButtonLabel
-                          size="20px"
-                          weight={500}
-                          color={secondaryText}
-                        >
-                          {slide.cta2.label}
-                        </CTAButtonLabel>
-                      }
-                      icon={<LinkNext color={secondaryIcon} size="24px" />}
-                      reverse
-                      plain
-                      round="full"
-                      pad={{ horizontal: '36px', vertical: '20px' }}
-                      gap="12px"
-                      $isDark={dark}
-                    />
+                    <GhostBtn to={slide.cta2.href} plain $isDark={dark}>
+                      <CTAButtonLabel
+                        size="20px"
+                        weight={500}
+                        color={secondaryText}
+                      >
+                        {slide.cta2.label}
+                      </CTAButtonLabel>
+                      <LinkNext color={secondaryIcon} size="24px" />
+                    </GhostBtn>
                   )}
                 </CTARow>
               </SlideContent>
 
-              <HeroControls direction="row" align="center" gap="40px">
+              <HeroControls
+                direction="row"
+                align="center"
+                gap="40px"
+                data-testid={`controls-${slide.id}`}
+              >
                 <NavBtnRow direction="row" align="center" gap="12px">
                   <NavBtn
                     plain

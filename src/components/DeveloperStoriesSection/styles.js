@@ -5,7 +5,7 @@ export const CARD_GAP = 24;
 
 export const Section = styled.div`
   background: #f7f7f7;
-  padding: 96px max(24px, 8.33%);
+  padding: 96px max(24px, 8.33%, calc((100% - 1600px) / 2));
   overflow: hidden;
 
   @media (max-width: 768px) {
@@ -50,8 +50,8 @@ export const CardGradient = styled.div`
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(247, 247, 247, 0) 30%,
-    #ffffff 72%
+    rgba(247, 247, 247, 0) 28%,
+    #ffffff 75%
   );
 `;
 

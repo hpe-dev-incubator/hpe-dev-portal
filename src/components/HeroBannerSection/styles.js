@@ -17,18 +17,21 @@ export const SlideTrack = styled.div`
 export const Slide = styled.div`
   position: relative;
   flex: 0 0 100%;
-  min-height: 800px;
   overflow: hidden;
   background-color: ${({ bgColor }) => bgColor || '#e4e6ea'};
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: var(--spacing-4xlarge, 144px) max(24px, calc((100% - 1600px) / 2))
-    var(--spacing-3xlarge, 96px);
+  align-items: flex-start;
+  gap: 64px;
+  padding: 96px max(24px, calc((100% - 1600px) / 2)) 0;
 
   @media (max-width: 768px) {
-    min-height: 560px;
-    padding: 80px 24px 56px;
+    height: 722px;
+    padding: 144px 32px 96px;
+    justify-content: space-between;
+    flex-shrink: 0;
+    align-self: stretch;
+    gap: 0;
   }
 `;
 
@@ -128,11 +131,10 @@ export const SlideContent = styled(Box)`
   position: relative;
   z-index: 2;
   max-width: 568px;
-  padding-top: var(--spacing-2xlarge, 72px);
+  padding-top: 72px;
 
   @media (max-width: 768px) {
     max-width: 100%;
-    padding-top: 0;
   }
 `;
 
@@ -145,12 +147,8 @@ export const SlideTitle = styled(Heading)`
   letter-spacing: -1.04px;
   color: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
 
-  @media (max-width: 768px) {
-    font-size: 48px;
-  }
-
   @media (max-width: 480px) {
-    font-size: 44px;
+    font-size: 48px;
   }
 `;
 
@@ -160,12 +158,7 @@ export const SlideSubtitle = styled(Text)`
   line-height: 1.25;
   letter-spacing: -0.2px;
   color: ${({ $isDark }) =>
-    $isDark ? 'rgba(255,255,255,0.72)' : 'rgba(62,69,80,0.72)'};
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-    line-height: 1.4;
-  }
+    $isDark ? 'rgba(255,255,255,0.70)' : 'rgba(62,69,80,0.70)'};
 `;
 
 export const CTAButtonLabel = styled(Text)`
@@ -176,6 +169,11 @@ export const CTAButtonLabel = styled(Text)`
 export const CTARow = styled(Box)`
   position: relative;
   z-index: 2;
+
+  @media (max-width: 530px) {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
 `;
 
 const ctaBase = css`
@@ -205,8 +203,13 @@ export const PrimaryBtn = styled(ButtonLink)`
 
 export const GhostBtn = styled(ButtonLink)`
   ${ctaBase}
-  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 36px;
   background: transparent;
+  border: none;
   color: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
 
   &:hover {
@@ -218,8 +221,13 @@ export const GhostBtn = styled(ButtonLink)`
 
 export const GhostExternalBtn = styled(ExternalButtonLink)`
   ${ctaBase}
-  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 36px;
   background: transparent;
+  border: none;
   color: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
 
   &:hover {

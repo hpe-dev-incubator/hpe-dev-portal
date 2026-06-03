@@ -312,6 +312,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach((post, index) => {
+      // Skip nodes where onCreateNode did not set fields (e.g. no filesystem parent).
+      if (!post.node.fields) return;
       // Don't create a page for any markdown file which are asides.
       if (!post.node.frontmatter.isAside) {
         if (post.node.fields.sourceInstanceName === 'blog') {
@@ -480,8 +482,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
-    const { sourceInstanceName, absolutePath } = getNode(node.parent);
-    // console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
+    const parent = getNode(node.parent);
+    if (!parent) return; // skip nodes without a filesystem parent
+    const { sourceInstanceName } = parent;
+    // console.log(`==== onCreateNode ${sourceInstanceName}`);
     const value = createFilePath({ node, getNode });
     const date = new Date(node.frontmatter.date);
     const year = date.getFullYear();

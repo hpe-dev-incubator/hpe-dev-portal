@@ -407,6 +407,7 @@ function Header() {
   // const iframeRef = useRef();
 
   const PlatformButtonLinks = ({ column }) => {
+    if (!platforms?.length) return null;
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
     const rightColumn = platforms.filter((platform, index) => index % 2);
     const platformsColumn = column === 'left' ? leftColumn : rightColumn;
@@ -428,6 +429,7 @@ function Header() {
   };
 
   const OpenSourceButtonLinks = ({ column }) => {
+    if (!opensource?.length) return null;
     const leftColumn = opensource.filter((os, index) => index % 2 === 0);
     const rightColumn = opensource.filter((os, index) => index % 2);
     const osColumn = column === 'left' ? leftColumn : rightColumn;
@@ -447,38 +449,6 @@ function Header() {
         />
       );
     });
-  };
-
-  const TopicDropContent = () => {
-    if (!topics || topics.length === 0) return null;
-    return (
-      <TextAlignLeft>
-        {topics.map((t, index) => {
-          const { slug } = t.node.fields;
-          const { title } = t.node.frontmatter;
-          return (
-            <ButtonLink
-              key={index}
-              label={title}
-              to={`/topic${slug}`}
-              alignSelf="start"
-              fill="horizontal"
-            />
-          );
-        })}
-        <Box
-          border={{ side: 'top', color: 'border' }}
-          margin={{ vertical: 'xsmall' }}
-        />
-        <ButtonLink
-          key="all-topics"
-          label="All Topics"
-          to="/topics"
-          alignSelf="start"
-          fill="horizontal"
-        />
-      </TextAlignLeft>
-    );
   };
 
   const handleHPESignIn = () => {
@@ -538,10 +508,36 @@ function Header() {
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
-      dropContent={<TopicDropContent />}
+      dropContent={
+        <TextAlignLeft>
+          {(topics || []).map((t, index) => {
+            const { slug } = t.node.fields;
+            const { title } = t.node.frontmatter;
+            return (
+              <ButtonLink
+                key={index}
+                label={title}
+                to={`/topic${slug}`}
+                alignSelf="start"
+                fill="horizontal"
+              />
+            );
+          })}
+          <Box
+            border={{ side: 'top', color: 'border' }}
+            margin={{ vertical: 'xsmall' }}
+          />
+          <ButtonLink
+            label="All Topics"
+            to="/topics"
+            alignSelf="start"
+            fill="horizontal"
+          />
+        </TextAlignLeft>
+      }
     />,
     <HeaderDropButton
-      label={<HeaderItemLabel>HPE GreenLake cloud</HeaderItemLabel>}
+      label={<HeaderItemLabel>GreenLake</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -739,7 +735,7 @@ function Header() {
     },
     {
       key: 'greenlake',
-      label: 'HPE GreenLake cloud',
+      label: 'GreenLake',
       children: mobileGreenlakeChildren,
     },
     {
@@ -781,6 +777,7 @@ function Header() {
                   </MobileBrandLinkContent>
                 }
                 to="/"
+                plain
               />
 
               <MobileActions direction="row" align="center">
@@ -852,6 +849,7 @@ function Header() {
                   </BrandLinkContent>
                 }
                 to="/"
+                plain
               />
             </Box>
             <Box flex="shrink" overflow="visible" pad="2px">

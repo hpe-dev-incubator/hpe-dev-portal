@@ -30,49 +30,17 @@ const Home = ({ data }) => {
       <HeroBannerSection />
       <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
         <FeaturedTopicsSection cards={featuredCards} />
-        <WhatsNewSection platforms={latestPlatforms} />
-        <ComingEventsSection events={events} />{' '}
-        {/* <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        <Box>
-          <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
-          <Button
-            label="Join the Community"
-            primary
-            reverse
-            icon={<Image src="/img/home/hpe-element.png" />}
-            href="/community"
-            style={{
-              backgroundColor: '#01A982',
-              borderRadius: '100px',
-              color: '#ffffff',
-              width: 300,
-            }}
-          />
-        </Box>
-        <Box align="center">
-          {image && <Image src={image} alt="hpedev logo" />}
-        </Box>
-      </Box> */}
-        {/* <Box flex={false} direction="row-responsive" wrap margin="medium">
-        {panels &&
-          panels.map(({ node }) => (
-            <Card
-              key={node.id}
-              category={node.frontmatter.category}
-              width={node.frontmatter.width}
-              content={node.rawMarkdownBody}
-              link={node.frontmatter.link}
-              image={node.frontmatter.image}
-              imageScale={node.frontmatter.imageScale}
-              reverse={node.frontmatter.reverse}
-              title={node.frontmatter.title}
-              author={node.frontmatter.author}
-            />
-          ))}
-      </Box> */}
-        <DeveloperStoriesSection blogs={latestBlogs} />
+      </Box>
+      <WhatsNewSection platforms={latestPlatforms} />
+      <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
+        <ComingEventsSection events={events} />
+      </Box>
+      <DeveloperStoriesSection blogs={latestBlogs} />
+      <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
         <WorkshopsOnDemandSection />
-        <OpenSourceSection projects={projects} />
+      </Box>
+      <OpenSourceSection projects={projects} />
+      <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
         <CommunityCardsSection />
       </Box>
     </Layout>
