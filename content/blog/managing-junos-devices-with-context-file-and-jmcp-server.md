@@ -6,5 +6,9 @@ externalLink: https://community.juniper.net/blogs/christian-graf/2026/02/26/mana
 author: Christian Graf
 authorimage: /img/hpe-networking-rami-x.png
 disable: false
+tags:
+  - juniper
+  - hpe networking
+  - MCP
 ---
 external blog
