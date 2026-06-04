@@ -1,6 +1,6 @@
 ---
 title: "Network Operations Spotlight with PyCentralv2"
-active: true
+active: false
 fit: contain
 path: https://www.youtube.com/watch?v=tEQZqb3C98I
 imageBackground: white
