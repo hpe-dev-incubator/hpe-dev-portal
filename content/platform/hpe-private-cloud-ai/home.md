@@ -38,10 +38,13 @@ th {
 }
 </style>
 
+
+
+NVIDIA AI Computing by HPE is a joint portfolio that enables organizations to deploy AI easily, securely, and effectively. It brings together technology, people, and economics to give organizations of all types and levels of technical expertise a faster, more flexible path to achieve the best possible ROI.
+
 Deploy AI in days, not months, with a turnkey private cloud platform. Co-engineered with NVIDIA, HPE Private Cloud AI delivers a complete, secure AI workbench with a unified data lakehouse and rapidly deployable models and use cases for production deployment in hours.
 
 HPE Private Cloud AI is a purpose-built solution designed to provide fast and easy deployment of private AI applications with a focus on inferencing, Retrieval-Augmented Generation (RAG), and fine-tuning. HPE Private Cloud AI is a codeveloped Hewlett Packard Enterprise and NVIDIA enterprise purpose-built solution, including a completed infrastructure, software portfolio, and AI model library managed through HPE GreenLake to offer a private AI in a box. HPE Private Cloud AI offers enterprise customers the ability to leverage NVIDIA® AI Enterprise (NVAIE) portfolio, including NVIDIA Inferencing Microservices (NIM), and HPE portfolio of curated market-adopted open-source AI tools and platforms with full private control of their data.
-
 
 <div align="center">
 
@@ -69,8 +72,6 @@ Streamline the development and secure deployment of AI workloads with the integr
 
 As agentic AI simplifies automation and provides consistent profitability from AI workloads, the importance of rapid productivity, reliability, and data protection, has never been greater. To accelerate the development and delivery of agentic AI across industries, Hewlett Packard Enterprise and NVIDIA® are introducing new developer-focused solutions and capabilities to their end-to-end enterprise AI platform HPE Private Cloud AI, including a turnkey development system designed to fast-track the proving and validation of AI projects.
 
-
-
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
   <div>
 
@@ -86,11 +87,9 @@ As agentic AI simplifies automation and provides consistent profitability from A
 * 32 TB of integrated storage
 * Fully integrated control node included
 * End-to-end AI software platform
-  </div>
-  <div>
-
 
 **Scalable and predictable**
+
 * Clear upgrade paths to production environments
 * Predictable and lower TCO than private cloud
 * Unified experience across all HPE Private Cloud AI solutions 
@@ -100,8 +99,7 @@ As agentic AI simplifies automation and provides consistent profitability from A
 * Pretrained models for rapid prototyping
 * Easy data integration across public and private sources 
 * Deep insight into platform performance operations and resource management
-  </div>
-</div>
+
 - - -
 
 ## Overview Demos:
@@ -130,9 +128,28 @@ As agentic AI simplifies automation and provides consistent profitability from A
 
 <br/>
 
+
+
+
 - - -
 
 # Resources
+
+## Use cases
+
+* [Content and code generation](https://www.hpe.com/us/en/private-cloud-ai.html#tab1)
+* [Customer support resolution](https://www.hpe.com/us/en/private-cloud-ai.html#tab2)
+* [Detection and prediction](https://www.hpe.com/us/en/private-cloud-ai.html#tab3)
+* [Employee onboarding and training](https://www.hpe.com/us/en/private-cloud-ai.html#tab4)
+* [Knowledge base copilots](https://www.hpe.com/us/en/private-cloud-ai.html#tab5
+)
+* [Self-service portals](https://www.hpe.com/us/en/private-cloud-ai.html#tab6
+)
+[Virtual agents and chatbots](https://www.hpe.com/us/en/private-cloud-ai.html#tab7
+)
+* [Visual computing](https://www.hpe.com/us/en/private-cloud-ai.html#tab8
+)
+
 
 ## Github Repositories
 
