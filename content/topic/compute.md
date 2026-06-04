@@ -16,8 +16,8 @@ tags:
 priority: 4
 active: true
 ctaLabel: Get started with Compute
-ctaLink: /platforms
-learnMoreLink: https://www.hpe.com/us/en/servers.html
+ctaLink: /greenlake/hpe-greenlake-for-compute-ops-management/home/
+learnMoreLink: https://www.hpe.com/us/en/compute.html
 videos:
   - id: TKl_gRJnoxk
     title: "HPE Compute Ops Management APIs and the DevOps ecosystem: Updates and developer tools"

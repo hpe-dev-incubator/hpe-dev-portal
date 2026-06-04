@@ -28,7 +28,7 @@ export const CarouselTrack = styled.div`
 export const StoryCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
   overflow: hidden;
-  background: #ffffff;
+  background: #f7f7f7;
   display: flex;
   flex-direction: column;
 `;

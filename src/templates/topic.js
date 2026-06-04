@@ -11,9 +11,27 @@ import {
   Select,
   ResponsiveContext,
 } from 'grommet';
-import { FormNext, Play } from 'grommet-icons';
-import { Layout, SEO, ButtonLink, Link } from '../components';
+import { LinkNext, Play } from 'grommet-icons';
+import {
+  Layout,
+  SEO,
+  ButtonLink,
+  ExternalButtonLink,
+  Link,
+} from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
+import {
+  HeroBanner,
+  HeroBgImage,
+  HeroGradient,
+  HeroContent,
+  BreadcrumbRow,
+  BreadcrumbText,
+  HeroBody,
+  HeroTitle,
+  HeroDescription,
+  CtaRow,
+} from './topic.styles';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -146,84 +164,84 @@ function TopicTemplate({ data }) {
     <Layout title={siteTitle} fullWidth>
       <SEO title={title} description={description} />
       <Box flex overflow="auto" gap="large">
-        <Box
-          background={{
-            image: 'url(/img/topics/TopicBg.jpg)',
-            size: 'cover',
-            position: 'center',
-          }}
-        >
-          <Box
-            pad={{ vertical: 'large' }}
-            style={{
-              paddingLeft: 'max(24px, calc((100% - 1600px) / 2))',
-              paddingRight: 'max(24px, calc((100% - 1600px) / 2))',
-            }}
-            gap="large"
-          >
+        <HeroBanner>
+          {/* Background image at 30% opacity */}
+          <HeroBgImage
+            src="/img/topics/TopicBg.jpg"
+            aria-hidden="true"
+            alt=""
+          />
+          {/* Right-side gradient overlay */}
+          <HeroGradient aria-hidden="true" />
+          {/* Content */}
+          <HeroContent>
             {/* Breadcrumb */}
-            <Box direction="row" gap="xsmall" align="center">
-              <Link to="/topics" size="small" color="white">
-                Topic
-              </Link>
-              <Text size="small" color="white">
-                /
-              </Text>
-              <Text size="small" color="white">
-                {title}
-              </Text>
-            </Box>
+            <BreadcrumbRow>
+              <img
+                src="/img/topics/sparkle.png"
+                width="32"
+                height="31"
+                aria-hidden="true"
+                alt=""
+              />
+              <BreadcrumbText>Topic / {title}</BreadcrumbText>
+            </BreadcrumbRow>
 
             {/* Hero */}
-            <Box gap="medium" width={{ max: 'large' }}>
-              <Heading level={1} margin="none" size="large" color="white">
-                {title}
-              </Heading>
-              <Text size="large" color="white">
-                {description}
-              </Text>
-              <Box direction="row" wrap gap="medium" align="center">
-                {ctaLabel && ctaLink && (
-                  <ButtonLink
-                    label={
-                      <Text size="medium" weight="bold" color="dark-1">
-                        {ctaLabel}
-                      </Text>
-                    }
-                    icon={<FormNext size="small" color="dark-1" />}
-                    reverse
-                    to={ctaLink}
-                    plain={false}
-                    background={{ color: 'white' }}
-                    border={{ color: 'black', size: 'xsmall' }}
-                    round="full"
-                    size="large"
-                    pad={{ horizontal: 'large', vertical: 'medium' }}
-                    gap="small"
-                    style={{
-                      borderRadius:
-                        'var(--button-primary-medium-borderRadius, 9999px)',
-                      background: 'var(--button-primary-rest-background, #FFF)',
-                      opacity: 1,
-                    }}
-                  />
-                )}
+            <HeroBody>
+              <HeroTitle>{title}</HeroTitle>
+              <HeroDescription>{description}</HeroDescription>
+              <CtaRow>
+                {ctaLabel &&
+                  ctaLink &&
+                  (() => {
+                    const CtaBtn = ctaLink.startsWith('http')
+                      ? ExternalButtonLink
+                      : ButtonLink;
+                    return (
+                      <CtaBtn
+                        label={
+                          <Text size="20px" color="dark-1">
+                            {ctaLabel}
+                          </Text>
+                        }
+                        icon={<LinkNext size="20px" color="dark-1" />}
+                        reverse
+                        to={ctaLink}
+                        plain={false}
+                        background={{ color: 'white' }}
+                        border={{ color: 'black', size: 'xsmall' }}
+                        round="full"
+                        size="large"
+                        pad={{ horizontal: 'large', vertical: 'medium' }}
+                        gap="small"
+                        style={{
+                          borderRadius:
+                            'var(--button-primary-medium-borderRadius, 9999px)',
+                          background:
+                            'var(--button-primary-rest-background, #FFF)',
+                          opacity: 1,
+                        }}
+                      />
+                    );
+                  })()}
                 {learnMoreLink && (
                   <Anchor
                     href={learnMoreLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
                     label={
-                      <Text size="medium" weight="bold" color="white">
+                      <Text size="20px" color="white">
                         Learn more
                       </Text>
                     }
                   />
                 )}
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+              </CtaRow>
+            </HeroBody>
+          </HeroContent>
+        </HeroBanner>
 
         {/* Resources + Videos section */}
         <Box
@@ -254,13 +272,9 @@ function TopicTemplate({ data }) {
             </Box>
           </Box>
 
-          <Box direction={size === 'small' ? 'column' : 'row'} gap="large">
+          <Box direction={size === 'small' ? 'column' : 'row'} gap="72px">
             {/* Sidebar filters */}
-            <Box
-              flex={false}
-              width={size === 'small' ? 'full' : '336px'}
-              // gap="xsmall"
-            >
+            <Box flex={false} width={size === 'small' ? 'full' : '336px'}>
               {FILTER_OPTIONS.map(({ label, value }) => (
                 <Button
                   key={value}
@@ -269,18 +283,19 @@ function TopicTemplate({ data }) {
                   fill="horizontal"
                 >
                   <Box
-                    pad={{ top: 'medium', horizontal: 'medium' }}
+                    pad={{ vertical: '20px', horizontal: '24px' }}
                     round="16px"
                     background={
                       activeFilter === value
-                        ? { color: 'black', opacity: 'xxsmall' }
+                        ? 'rgba(0,0,0,0.04)'
                         : 'transparent'
                     }
+                    data-testid={`filter-${value}`}
                   >
                     <Text
-                      size="medium"
-                      weight={activeFilter === value ? 'bold' : 'normal'}
-                      color="#606A70"
+                      size="20px"
+                      weight={activeFilter === value ? '500' : 'normal'}
+                      color={activeFilter === value ? '#292d3a' : '#606A70'}
                     >
                       {label}
                     </Text>
@@ -357,10 +372,10 @@ function TopicTemplate({ data }) {
                               </Text>
                             )}
                           </Box>
-                          <Link to={href}>
+                          <Link to={href} style={{ textDecoration: 'none' }}>
                             <Text
                               size={size === 'small' ? 'xlarge' : 'xxlarge'}
-                              weight="bold"
+                              weight="500"
                               color="#292D3A"
                             >
                               {resourceTitle}
@@ -410,13 +425,6 @@ function TopicTemplate({ data }) {
               )}
             </Box>
           </Box>
-        </Box>
-
-        {/* Back link */}
-        <Box>
-          <Link to="/topics" size="small">
-            ← All Topics
-          </Link>
         </Box>
       </Box>
     </Layout>

@@ -18,14 +18,20 @@ import {
   NextButton,
 } from './styles';
 
-const DEFAULT_THUMBNAILS = [
-  '/img/dev-stories/thumb-1.png',
-  '/img/dev-stories/thumb-2.png',
-  '/img/dev-stories/thumb-3.png',
+const DEVELOPER_THUMBNAILS = [
   '/img/dev-stories/developer1.jpg',
   '/img/dev-stories/developer2.jpg',
   '/img/dev-stories/developer3.jpg',
+  '/img/dev-stories/developer4.jpg',
+  '/img/dev-stories/developer5.jpg',
 ];
+
+const getThumbnail = (title, index) => {
+  const lower = (title || '').toLowerCase();
+  if (lower.includes('opsramp')) return '/img/dev-stories/OpsRamp.jpg';
+  if (lower.includes('morpheus')) return '/img/dev-stories/Morpheus.jpg';
+  return DEVELOPER_THUMBNAILS[index % DEVELOPER_THUMBNAILS.length];
+};
 
 const DeveloperStoriesSection = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,9 +73,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
               node.excerpt && node.excerpt.length > 130
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
                 : node.excerpt || '';
-            const coverImg =
-              thumbnailimage ||
-              DEFAULT_THUMBNAILS[index % DEFAULT_THUMBNAILS.length];
+            const coverImg = thumbnailimage || getThumbnail(title, index);
 
             return (
               <StoryCard key={slug}>
@@ -91,11 +95,10 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                 </CardBgLayers>
 
                 {/* Spacer creates the visible image zone above the text */}
-                <CardImageSpacer>
-                  <CardBadge>Blog</CardBadge>
-                </CardImageSpacer>
+                <CardImageSpacer />
 
                 <CardBody>
+                  <CardBadge>Blog</CardBadge>
                   <Heading
                     level={3}
                     margin="none"
@@ -124,7 +127,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
 
                   <Anchor
                     href={`/blog${slug}`}
-                    icon={<LinkNext size="small" />}
+                    icon={<LinkNext size="small" color="brand" />}
                     label="Learn more"
                     reverse
                     style={{

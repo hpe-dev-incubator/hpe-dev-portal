@@ -523,7 +523,7 @@ function Header() {
               />
             );
           })}
-          <Box
+          {/* <Box
             border={{ side: 'top', color: 'border' }}
             margin={{ vertical: 'xsmall' }}
           />
@@ -532,7 +532,7 @@ function Header() {
             to="/topics"
             alignSelf="start"
             fill="horizontal"
-          />
+          /> */}
         </TextAlignLeft>
       }
     />,

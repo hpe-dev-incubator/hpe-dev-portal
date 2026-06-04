@@ -16,7 +16,7 @@ tags:
 priority: 5
 active: true
 ctaLabel: Get started with Storage
-ctaLink: /platforms
+ctaLink: https://developer.hpe.com/platform/hpe-alletra/home/
 learnMoreLink: https://www.hpe.com/us/en/storage.html
 videos:
   - id: aReR7DF1iIY

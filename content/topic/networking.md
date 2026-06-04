@@ -15,8 +15,8 @@ tags:
 priority: 3
 active: true
 ctaLabel: Get started with Networking
-ctaLink: /platforms
-learnMoreLink: https://www.arubanetworks.com/
+ctaLink: https://developer.networking.hpe.com/get-started/home/
+learnMoreLink: https://developer.networking.hpe.com/
 videos:
   - id: R4oo-7ACuLg
     title: "Getting Started with HPE Aruba Networking Central automation"

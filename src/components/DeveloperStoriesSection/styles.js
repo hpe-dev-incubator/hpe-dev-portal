@@ -49,9 +49,8 @@ export const CardGradient = styled.div`
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(247, 247, 247, 0) 28%,
-    #ffffff 75%
+    rgba(247, 247, 247, 0) 16%,
+    rgb(255, 255, 255) 55%
   );
 `;
 
@@ -62,21 +61,19 @@ export const CardImageSpacer = styled.div`
   position: relative;
 `;
 
-/* Badge overlaid at the bottom-left of the image area */
+/* Badge shown at the top of the card body */
 export const CardBadge = styled.span`
-  position: absolute;
-  bottom: 24px;
-  left: 32px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 9999px;
-  padding: 4px 12px;
+  display: flex;
+  align-self: flex-start;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: #fff3dd;
   font-size: 13px;
   font-weight: 500;
   color: #3e4550;
-  z-index: 2;
-  pointer-events: none;
-  letter-spacing: 0.1px;
 `;
 
 export const CardBody = styled.div`
