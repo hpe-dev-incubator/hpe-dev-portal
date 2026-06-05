@@ -2,8 +2,8 @@
 title: "Implementing a complete Workshop-on-Demand infrastructure in less than an hour"
 dateStart: 2025-12-17T22:01:58.632Z
 dateEnd: 2025-12-17T21:30:58.648Z
-category: Virtual Event
-image: /img/event-meetups-newlogo-400x400.png
+category: Meetup
+image: /img/kadanza/wod-463578713_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=RSt7ewTulPE
 width: large
 ---

@@ -2,8 +2,8 @@
 title: "Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2"
 dateStart: 2026-02-25T04:00:00.632Z
 dateEnd: 2026-02-25T05:00:00.648Z
-category: Virtual Event
-image: /img/event-meetups-newlogo-400x400.png
+category: Meetup
+image: /img/kadanza/hpe-net-1435220773_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=5QFTzwk9VrU
 width: large
 ---

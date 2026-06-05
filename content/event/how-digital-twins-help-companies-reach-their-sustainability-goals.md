@@ -2,7 +2,7 @@
 title: How digital twins help companies reach their sustainability goals
 dateStart: 2024-06-11T22:01:28.648Z
 dateEnd: 2024-06-12T21:59:28.717Z
-category: Virtual Event
+category: Munch & Learn
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=WUlH17ruIek&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

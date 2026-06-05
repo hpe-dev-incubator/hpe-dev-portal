@@ -2,8 +2,8 @@
 title: "Open Source at HPE: Three Pillars, Many Paths"
 dateStart: 2026-03-18T16:00:15.207Z
 dateEnd: 2026-03-18T17:00:15.214Z
-category: Virtual Event
-image: /img/event-munch-and-learn-newlogo400x400.png
+category: Munch & Learn
+image: /img/kadanza/hpe202302221429_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=c3L13ELQ51o
 width: large
 ---

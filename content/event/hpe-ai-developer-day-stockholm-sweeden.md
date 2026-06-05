@@ -2,15 +2,15 @@
 title: HPE AI Developer Day Stockholm, Sweden
 dateStart: 2026-03-24T08:30:36.204Z
 dateEnd: 2026-03-24T16:00:36.215Z
-category: Event
-image: /img/hpe-ai-dev-days.png
+category: HPE AI Developer Day
+image: /img/kadanza/hpe202601290440_450_0_72_rgb.jpg
 link: https://edgetocloud.se/event/hpe-private-cloud-ai-developer-day-framtidens-ai-losningar-for-offentlig-sektor
 width: large
 tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ** **
 
 ## **Build your own AI Agent with HPE & Nvidia**
 

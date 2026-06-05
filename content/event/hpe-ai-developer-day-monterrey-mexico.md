@@ -2,15 +2,15 @@
 title: HPE AI Developer Day Monterrey, Mexico
 dateStart: 2026-01-29T08:00:36.204Z
 dateEnd: 2026-01-29T16:30:36.215Z
-category: Event
-image: /img/hpe-ai-dev-days.png
+category: HPE AI Developer Day
+image: /img/kadanza/hpe-dev-mexico-1487035108_450_0_72_rgb.jpg
 link: https://events.bizzabo.com/797906/page/5472191/monterrey-information
 width: large
 tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ** **
 
 ## **Crea tu propio AI Agent con HPE & Nvidia**
 

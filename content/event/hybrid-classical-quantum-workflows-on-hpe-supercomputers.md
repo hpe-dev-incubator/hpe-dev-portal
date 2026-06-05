@@ -2,7 +2,7 @@
 title: Hybrid Classical-Quantum Workflows on HPE Supercomputers
 dateStart: 2024-10-15T22:01:27.517Z
 dateEnd: 2024-10-16T21:30:27.538Z
-category: Virtual Event
+category: Munch & Learn
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=dO_5qXqfu5o&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

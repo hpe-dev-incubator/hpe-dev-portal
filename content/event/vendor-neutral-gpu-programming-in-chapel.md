@@ -2,7 +2,7 @@
 title: Vendor-Neutral GPU Programming in Chapel
 dateStart: 2024-07-30T22:01:40.023Z
 dateEnd: 2024-07-31T21:00:24.372Z
-category: Virtual Event
+category: Meetup
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=nj-WqhGEy24&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

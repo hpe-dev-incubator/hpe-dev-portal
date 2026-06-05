@@ -3,7 +3,7 @@ title: "NVIDIA NIM Agents Blueprints - Do your own AI: Multimodal PDF Data
   Extraction 101"
 dateStart: 2024-10-29T23:01:20.796Z
 dateEnd: 2024-10-30T22:30:20.811Z
-category: Virtual Event
+category: Meetup
 image: /img/event-meetups-newlogo-400x400.png
 link: https://developer.hpe.com/campaign/meetups/
 width: large

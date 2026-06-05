@@ -1,18 +1,18 @@
 ---
-title: HPE AI Developer Day HAmstelvenn, Netherlands
+title: HPE AI Developer Day Hamstelvenn, Netherlands
 dateStart: 2026-09-22T09:30:36.204Z
 dateEnd: 2026-09-22T16:00:36.215Z
-category: Event
-image: /img/hpe-ai-dev-days.png
+category: HPE AI Developer Day
+image: /img/kadanza/HPE202509270791_450_0_72_RGB.jpg
 link: https://events.bizzabo.com/797906/page/6020635/amstelveen
 width: large
 tags:
   - HPE DEV
   - AI
 ---
-# **HPE AI Developer Day**
+# ** **
 
-## **build an AI agent in a sovereign environment**
+## **Build an AI agent in a sovereign environment**
 
 ### Amstelveen, Netherlands
 

@@ -3,8 +3,8 @@ title: "Work Smarter: Natural Language Access to your infrastructure via
   GreenLake MCP"
 dateStart: 2026-01-28T16:00:15.207Z
 dateEnd: 2026-01-28T17:00:15.214Z
-category: Virtual Event
-image: /img/event-munch-and-learn-newlogo400x400.png
+category: Munch & Learn
+image: /img/kadanza/hpe20160627190_300_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=-RYmpXaGl2o
 width: large
 ---
