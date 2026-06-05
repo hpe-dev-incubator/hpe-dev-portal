@@ -15,8 +15,8 @@ tags:
   - mlops
   - artificial-intelligence
 ctaLabel: Get started with AI
-ctaLink: /platforms
-learnMoreLink: https://www.hpe.com/us/en/solutions/artificial-intelligence.html
+ctaLink: /platform/hpe-private-cloud-ai/home/
+learnMoreLink: https://www.hpe.com/us/en/solutions/artificial-intelligence/nvidia-collaboration.html
 priority: 1
 active: true
 videos:
