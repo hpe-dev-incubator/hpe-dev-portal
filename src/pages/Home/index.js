@@ -22,6 +22,7 @@ const Home = ({ data }) => {
   const latestPlatforms = data.latestPlatforms.edges;
   const events = data.events.edges;
   const latestBlogs = data.latestBlogs.edges;
+  const latestNewsletter = data.latestNewsletter.edges;
   const featuredCards = data.featuredCards ? data.featuredCards.edges : [];
 
   return (
@@ -31,7 +32,11 @@ const Home = ({ data }) => {
       <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
         <FeaturedTopicsSection cards={featuredCards} />
       </Box>
-      <WhatsNewSection platforms={latestPlatforms} />
+      <WhatsNewSection
+        platforms={latestPlatforms}
+        newsletters={latestNewsletter}
+        events={events}
+      />
       <Box width="100%" style={{ maxWidth: '1920px', margin: '0 auto' }}>
         <ComingEventsSection events={events} />
       </Box>
@@ -82,6 +87,9 @@ Home.propTypes = {
       ),
     }),
     latestPlatforms: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    latestNewsletter: PropTypes.shape({
       edges: PropTypes.arrayOf(PropTypes.shape({})),
     }),
     events: PropTypes.shape({
@@ -214,6 +222,22 @@ export const pageQuery = graphql`
             category
             image
             link
+          }
+        }
+      }
+    }
+    latestNewsletter: allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "newsletter" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            link
+            description
           }
         }
       }

@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { ResponsiveContext } from 'grommet';
 
+import CarouselNavButtons from '../CarouselNavButtons';
+
 import {
   CARD_WIDTH,
   CARD_GAP,
@@ -18,8 +20,6 @@ import {
   CardDescription,
   CardLink,
   Controls,
-  NavBtnRow,
-  NavBtn,
   SlideCounter,
 } from './styles';
 
@@ -44,44 +44,7 @@ const ArrowRight = ({ color = '#292d3a' }) => (
   </svg>
 );
 
-const ChevronLeft = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M14 5L8 11L14 17"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ChevronRight = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M8 5L14 11L8 17"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-// Merge platform GraphQL nodes + workshop API results, sort by date desc
-const buildItems = (platformEdges, workshops) => {
+const buildItems = (platformEdges, workshops, newsletterEdges, eventEdges) => {
   const platformItems = platformEdges.map(({ node }) => ({
     id: `platform-${node.fields.slug}`,
     type: 'Platform',
@@ -109,13 +72,42 @@ const buildItems = (platformEdges, workshops) => {
     external: true,
   }));
 
-  return [...platformItems, ...workshopItems].sort(
-    (a, b) => new Date(b.date) - new Date(a.date),
-  );
+  const newsletterItems = newsletterEdges.slice(0, 1).map(({ node }) => {
+    const desc = node.frontmatter.description || '';
+    return {
+      id: `newsletter-${node.frontmatter.link}`,
+      type: 'Newsletter',
+      title: node.frontmatter.title,
+      description:
+        desc.length > 120 ? `${desc.slice(0, 120).trimEnd()}…` : desc,
+      image: '/img/newsletter/Newsletter.jpg',
+      date: node.frontmatter.date || '2000-01-01',
+      link: node.frontmatter.link,
+      external: false,
+    };
+  });
+
+  const eventItems = eventEdges.slice(0, 1).map(({ node }) => ({
+    id: `event-${node.fields.slug}`,
+    type: 'Event',
+    title: node.frontmatter.title,
+    description: node.excerpt || '',
+    image: node.frontmatter.image || '',
+    date: node.frontmatter.dateStart || '2000-01-01',
+    link: `/event${node.fields.slug}`,
+    external: false,
+  }));
+
+  return [
+    ...platformItems,
+    ...newsletterItems,
+    ...eventItems,
+    ...workshopItems,
+  ].sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
 // eslint-disable-next-line react/prop-types
-const WhatsNewSection = ({ platforms = [] }) => {
+const WhatsNewSection = ({ platforms = [], newsletters = [], events = [] }) => {
   const [workshops, setWorkshops] = useState([]);
   const [index, setIndex] = useState(0);
   const timerRef = useRef(null);
@@ -157,7 +149,7 @@ const WhatsNewSection = ({ platforms = [] }) => {
       .catch(() => {});
   }, []);
 
-  const items = buildItems(platforms, workshops);
+  const items = buildItems(platforms, workshops, newsletters, events);
 
   const maxIndex = Math.max(0, items.length - cardsVisible);
   const translateX = index * (cardWidth + CARD_GAP);
@@ -215,24 +207,14 @@ const WhatsNewSection = ({ platforms = [] }) => {
       </CarouselViewport>
 
       <Controls>
-        <NavBtnRow>
-          <NavBtn
-            onClick={handlePrev}
-            disabled={index === 0}
-            isPrimary={false}
-            aria-label="Previous"
-          >
-            <ChevronLeft />
-          </NavBtn>
-          <NavBtn
-            onClick={handleNext}
-            disabled={index >= maxIndex}
-            isPrimary
-            aria-label="Next"
-          >
-            <ChevronRight />
-          </NavBtn>
-        </NavBtnRow>
+        <CarouselNavButtons
+          onPrev={handlePrev}
+          onNext={handleNext}
+          disablePrev={index === 0}
+          disableNext={index >= maxIndex}
+          ariaLabelPrev="Previous"
+          ariaLabelNext="Next"
+        />
         <SlideCounter>
           {Math.min(index + cardsVisible, items.length)} / {items.length}
         </SlideCounter>

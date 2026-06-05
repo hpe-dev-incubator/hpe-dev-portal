@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text, Anchor, ResponsiveContext } from 'grommet';
+import { Heading, Text, Anchor, ResponsiveContext } from 'grommet';
 import { LinkNext } from 'grommet-icons';
+import CarouselNavButtons from '../CarouselNavButtons';
 import {
   CARD_WIDTH,
   CARD_GAP,
@@ -14,8 +15,6 @@ import {
   CardImageSpacer,
   CardBadge,
   CardBody,
-  PrevButton,
-  NextButton,
 } from './styles';
 
 const DEVELOPER_THUMBNAILS = [
@@ -143,52 +142,14 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
         </CarouselTrack>
       </CarouselViewport>
 
-      {/* Carousel controls — below the carousel, left-aligned per Figma */}
-      <Box direction="row" gap="small" margin={{ top: 'medium' }}>
-        <PrevButton
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          aria-label="Previous stories"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M13 4L7 10L13 16"
-              stroke="#292d3a"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </PrevButton>
-
-        <NextButton
-          onClick={handleNext}
-          disabled={currentIndex >= maxIndex}
-          aria-label="Next stories"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M7 4L13 10L7 16"
-              stroke="#ffffff"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </NextButton>
-      </Box>
+      <CarouselNavButtons
+        onPrev={handlePrev}
+        onNext={handleNext}
+        disablePrev={currentIndex === 0}
+        disableNext={currentIndex >= maxIndex}
+        ariaLabelPrev="Previous stories"
+        ariaLabelNext="Next stories"
+      />
     </Section>
   );
 };

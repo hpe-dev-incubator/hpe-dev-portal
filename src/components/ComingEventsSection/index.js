@@ -1,6 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
+import CarouselNavButtons from '../CarouselNavButtons';
 
 import {
   CARD_WIDTH,
@@ -17,8 +18,6 @@ import {
   EventCategory,
   EventTitle,
   EventLink,
-  NavBtnRow,
-  NavBtn,
 } from './styles';
 
 const ArrowRight = () => (
@@ -33,42 +32,6 @@ const ArrowRight = () => (
       d="M3 8H13M8 3l5 5-5 5"
       stroke="currentColor"
       strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ChevronLeft = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M14 5L8 11L14 17"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ChevronRight = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M8 5L14 11L8 17"
-      stroke="currentColor"
-      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -210,24 +173,14 @@ const ComingEventsSection = ({ events = [] }) => {
         </CarouselTrack>
       </CarouselViewport>
 
-      <NavBtnRow style={{ marginTop: '48px' }}>
-        <NavBtn
-          onClick={handlePrev}
-          disabled={index === 0}
-          isPrimary={false}
-          aria-label="Previous"
-        >
-          <ChevronLeft />
-        </NavBtn>
-        <NavBtn
-          onClick={handleNext}
-          disabled={index >= maxIndex}
-          isPrimary
-          aria-label="Next"
-        >
-          <ChevronRight />
-        </NavBtn>
-      </NavBtnRow>
+      <CarouselNavButtons
+        onPrev={handlePrev}
+        onNext={handleNext}
+        disablePrev={index === 0}
+        disableNext={index >= maxIndex}
+        ariaLabelPrev="Previous"
+        ariaLabelNext="Next"
+      />
     </Section>
   );
 };

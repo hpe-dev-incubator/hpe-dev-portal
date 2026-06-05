@@ -10,7 +10,6 @@ tags:
   - HPE DEV
   - AI
 ---
-# ****
 
 ## **Build an AI agent in a sovereign environment**
 

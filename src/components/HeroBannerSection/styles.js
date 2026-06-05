@@ -23,7 +23,7 @@ export const Slide = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 64px;
-  padding: 96px max(24px, calc((100% - 1600px) / 2)) 0;
+  padding: 96px max(24px, calc((100% - 1600px) / 2)) 96px;
 
   @media (max-width: 768px) {
     height: 722px;
@@ -197,6 +197,20 @@ export const PrimaryBtn = styled(ButtonLink)`
   color: ${({ $isDark }) => ($isDark ? '#292d3a' : '#ffffff')};
 
   &:hover {
+    opacity: 1;
+    background: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
+    color: ${({ $isDark }) => ($isDark ? '#292d3a' : '#ffffff')};
+  }
+`;
+
+export const PrimaryExternalBtn = styled(ExternalButtonLink)`
+  ${ctaBase}
+  background: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
+  color: ${({ $isDark }) => ($isDark ? '#292d3a' : '#ffffff')};
+
+  &:hover {
+    opacity: 1;
+    background: ${({ $isDark }) => ($isDark ? '#ffffff' : '#292d3a')};
     color: ${({ $isDark }) => ($isDark ? '#292d3a' : '#ffffff')};
   }
 `;
@@ -256,11 +270,11 @@ export const NavBtn = styled(Button)`
   min-height: 56px;
   padding: 20px 0;
   background: ${({ $isPrimary, $isDark }) => {
-    if ($isPrimary) return '#292d3a';
+    if ($isPrimary) return $isDark ? 'rgba(255,255,255,0.9)' : '#292d3a';
     return $isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.04)';
   }};
   color: ${({ $isPrimary, $isDark }) => {
-    if ($isPrimary) return '#ffffff';
+    if ($isPrimary) return $isDark ? '#292d3a' : '#ffffff';
     return $isDark ? 'rgba(255,255,255,0.8)' : '#292d3a';
   }};
 

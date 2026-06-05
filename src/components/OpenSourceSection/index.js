@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, Text, ResponsiveContext } from 'grommet';
+import CarouselNavButtons from '../CarouselNavButtons';
 import {
   CARD_WIDTH,
   CARD_GAP,
@@ -9,8 +10,6 @@ import {
   CarouselTrack,
   OsCard,
   LogoWrapper,
-  PrevButton,
-  NextButton,
 } from './styles';
 
 // GitHub mark SVG — always shown at top of each card
@@ -109,13 +108,8 @@ const OpenSourceSection = ({ projects = [] }) => {
 
   return (
     <Section>
-      {/* Header row: title + nav buttons */}
-      <Box
-        direction="row"
-        justify="between"
-        align="center"
-        margin={{ bottom: 'large' }}
-      >
+      {/* Header row: title only */}
+      <Box margin={{ bottom: 'large' }}>
         <Heading
           level={2}
           margin="none"
@@ -129,52 +123,6 @@ const OpenSourceSection = ({ projects = [] }) => {
         >
           Open source
         </Heading>
-
-        <Box direction="row" gap="small">
-          <PrevButton
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            aria-label="Previous open source projects"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M13 4L7 10L13 16"
-                stroke="#292d3a"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </PrevButton>
-
-          <NextButton
-            onClick={handleNext}
-            disabled={currentIndex >= maxIndex}
-            aria-label="Next open source projects"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 4L13 10L7 16"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </NextButton>
-        </Box>
       </Box>
 
       {/* Carousel */}
@@ -256,6 +204,14 @@ const OpenSourceSection = ({ projects = [] }) => {
             })}
         </CarouselTrack>
       </CarouselViewport>
+      <CarouselNavButtons
+        onPrev={handlePrev}
+        onNext={handleNext}
+        disablePrev={currentIndex === 0}
+        disableNext={currentIndex >= maxIndex}
+        ariaLabelPrev="Previous open source projects"
+        ariaLabelNext="Next open source projects"
+      />
     </Section>
   );
 };

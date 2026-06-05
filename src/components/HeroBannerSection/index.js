@@ -15,6 +15,7 @@ import {
   CTAButtonLabel,
   CTARow,
   PrimaryBtn,
+  PrimaryExternalBtn,
   GhostBtn,
   GhostExternalBtn,
   HeroControls,
@@ -120,7 +121,11 @@ const HeroBannerSection = () => {
           const primaryBg = dark ? '#ffffff' : '#292d3a';
           const secondaryText = dark ? '#ffffff' : '#292d3a';
           const secondaryIcon = '#01a982';
-          const previousIconColor = dark ? 'rgba(255,255,255,0.8)' : '#b1b9be';
+          const prevIconColor = dark ? 'rgba(255,255,255,0.8)' : '#292d3a';
+          const nextIconColor = dark ? '#292d3a' : '#ffffff';
+
+          const Cta1Btn = slide.cta1.newTab ? PrimaryExternalBtn : PrimaryBtn;
+          const Cta2Btn = slide.cta2.newTab ? GhostExternalBtn : GhostBtn;
 
           return (
             <Slide key={slide.id} bgColor={slide.bgColor}>
@@ -164,7 +169,7 @@ const HeroBannerSection = () => {
                 </SlideSubtitle>
 
                 <CTARow direction="row" align="start" gap="2px">
-                  <PrimaryBtn
+                  <Cta1Btn
                     to={slide.cta1.href}
                     label={
                       <CTAButtonLabel
@@ -185,29 +190,16 @@ const HeroBannerSection = () => {
                     $isDark={dark}
                   />
 
-                  {slide.cta2.newTab ? (
-                    <GhostExternalBtn to={slide.cta2.href} plain $isDark={dark}>
-                      <CTAButtonLabel
-                        size="20px"
-                        weight={500}
-                        color={secondaryText}
-                      >
-                        {slide.cta2.label}
-                      </CTAButtonLabel>
-                      <LinkNext color={secondaryIcon} size="24px" />
-                    </GhostExternalBtn>
-                  ) : (
-                    <GhostBtn to={slide.cta2.href} plain $isDark={dark}>
-                      <CTAButtonLabel
-                        size="20px"
-                        weight={500}
-                        color={secondaryText}
-                      >
-                        {slide.cta2.label}
-                      </CTAButtonLabel>
-                      <LinkNext color={secondaryIcon} size="24px" />
-                    </GhostBtn>
-                  )}
+                  <Cta2Btn to={slide.cta2.href} plain $isDark={dark}>
+                    <CTAButtonLabel
+                      size="20px"
+                      weight={500}
+                      color={secondaryText}
+                    >
+                      {slide.cta2.label}
+                    </CTAButtonLabel>
+                    <LinkNext color={secondaryIcon} size="24px" />
+                  </Cta2Btn>
                 </CTARow>
               </SlideContent>
 
@@ -222,9 +214,7 @@ const HeroBannerSection = () => {
                     plain
                     onClick={handlePrev}
                     disabled={false}
-                    icon={
-                      <FormPrevious color={previousIconColor} size="16px" />
-                    }
+                    icon={<FormPrevious color={prevIconColor} size="16px" />}
                     aria-label="Previous slide"
                     $isDark={dark}
                     $isPrimary={false}
@@ -233,7 +223,7 @@ const HeroBannerSection = () => {
                     plain
                     onClick={handleNext}
                     disabled={false}
-                    icon={<FormNext color="#ffffff" size="16px" />}
+                    icon={<FormNext color={nextIconColor} size="16px" />}
                     aria-label="Next slide"
                     $isDark={dark}
                     $isPrimary

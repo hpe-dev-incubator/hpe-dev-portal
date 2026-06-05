@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { Anchor, Box, Heading, Text, ResponsiveContext } from 'grommet';
+import { Anchor, Heading, Text, ResponsiveContext } from 'grommet';
 import { LinkNext } from 'grommet-icons';
+import CarouselNavButtons from '../CarouselNavButtons';
 import {
   CARD_WIDTH,
   CARD_GAP,
@@ -11,65 +12,9 @@ import {
   StoryCard,
   CardImageWrapper,
   CardBody,
-  PrevButton,
-  NextButton,
 } from './styles';
 
 const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
-
-const DEFAULT_THUMBNAILS = [
-  '/img/workshops/thumb-1.png',
-  '/img/workshops/thumb-2.png',
-  '/img/workshops/thumb-3.png',
-  '/img/workshops/thumb-4.png',
-];
-
-const FALLBACK_WORKSHOP_CARDS = [
-  {
-    id: 'fallback-workshop-card-1',
-    name: 'Getting started with HPE Developer workshops',
-    presenter: 'HPE Developer Team',
-    description:
-      'Explore recorded sessions and hands-on workshop content from HPE Developer events.',
-    workshopImg: '/img/workshops/thumb-1.png',
-    replayLink: '/hackshack/workshops',
-    replayId: null,
-    location: 'OPEN',
-  },
-  {
-    id: 'fallback-workshop-card-2',
-    name: 'Cloud-native automation workshop highlights',
-    presenter: 'HPE Developer Team',
-    description:
-      'Catch up on practical automation and operations sessions from recent workshops.',
-    workshopImg: '/img/workshops/thumb-2.png',
-    replayLink: '/hackshack/workshops',
-    replayId: null,
-    location: 'OPEN',
-  },
-  {
-    id: 'fallback-workshop-card-3',
-    name: 'AI and data engineering workshop replays',
-    presenter: 'HPE Developer Team',
-    description:
-      'Browse AI-focused workshop recordings and implementation walkthroughs on demand.',
-    workshopImg: '/img/workshops/thumb-3.png',
-    replayLink: '/hackshack/workshops',
-    replayId: null,
-    location: 'OPEN',
-  },
-  {
-    id: 'fallback-workshop-card-4',
-    name: 'Networking and observability workshop sessions',
-    presenter: 'HPE Developer Team',
-    description:
-      'Review networking and observability workshop content from the HPE Developer catalog.',
-    workshopImg: '/img/workshops/thumb-4.png',
-    replayLink: '/hackshack/workshops',
-    replayId: null,
-    location: 'OPEN',
-  },
-];
 
 // Returns true when a workshop's category field (array or string) matches target.
 const matchesCategory = (workshop, category) => {
@@ -148,7 +93,6 @@ const WorkshopsOnDemandSection = () => {
 
   useEffect(() => {
     if (!API_BASE) {
-      setStories(FALLBACK_WORKSHOP_CARDS);
       setLoading(false);
       return;
     }
@@ -160,18 +104,13 @@ const WorkshopsOnDemandSection = () => {
           (w) => w.sessionType === 'Workshops-on-Demand',
         );
         const selectedWorkshops = pickWorkshops(wods);
-        setStories(
-          selectedWorkshops.length > 0
-            ? selectedWorkshops
-            : FALLBACK_WORKSHOP_CARDS,
-        );
+        setStories(selectedWorkshops);
       })
       .catch((err) => {
         console.error(
           'WorkshopsOnDemandSection: failed to load workshops',
           err,
         );
-        setStories(FALLBACK_WORKSHOP_CARDS);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -372,52 +311,14 @@ const WorkshopsOnDemandSection = () => {
         </CarouselTrack>
       </CarouselViewport>
 
-      {/* Nav buttons below carousel */}
-      <Box direction="row" gap="small" margin={{ top: 'medium' }}>
-        <PrevButton
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          aria-label="Previous workshops"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M13 4L7 10L13 16"
-              stroke="#292d3a"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </PrevButton>
-
-        <NextButton
-          onClick={handleNext}
-          disabled={currentIndex >= maxIndex}
-          aria-label="Next workshops"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M7 4L13 10L7 16"
-              stroke="#ffffff"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </NextButton>
-      </Box>
+      <CarouselNavButtons
+        onPrev={handlePrev}
+        onNext={handleNext}
+        disablePrev={currentIndex === 0}
+        disableNext={currentIndex >= maxIndex}
+        ariaLabelPrev="Previous workshops"
+        ariaLabelNext="Next workshops"
+      />
     </Section>
   );
 };

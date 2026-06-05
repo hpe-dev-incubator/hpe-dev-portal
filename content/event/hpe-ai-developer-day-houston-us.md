@@ -10,7 +10,6 @@ tags:
   - HPE DEV
   - AI
 ---
-# ****
 
 ## **Agentic AI in Action: Building Secure Clinical Workflows with HPE Private Cloud AI & Sickbay**
 

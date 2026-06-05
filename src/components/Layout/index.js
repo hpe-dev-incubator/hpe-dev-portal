@@ -8,13 +8,13 @@ import { Header } from '../index';
 const Layout = ({ children, fullWidth = false }) => {
   return (
     <Grommet theme={theme}>
+      <Header />
       <Box direction="row" justify={fullWidth ? undefined : 'center'}>
         <Box
           basis={fullWidth ? undefined : 'xxlarge'}
           flex="shrink"
           fill={fullWidth ? 'horizontal' : undefined}
         >
-          <Header />
           <Main flex={false} fill={undefined} overflow="visible">
             {children}
           </Main>
