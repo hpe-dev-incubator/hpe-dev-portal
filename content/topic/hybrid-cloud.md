@@ -15,8 +15,8 @@ tags:
 priority: 2
 active: true
 ctaLabel: Get started with Hybrid Cloud
-ctaLink: /platforms
-learnMoreLink: https://www.hpe.com/us/en/hybrid-cloud.html
+ctaLink: /greenlake/hpe-greenlake-platform/home/
+learnMoreLink: https://www.hpe.com/us/en/solutions/cloud.html
 videos:
   - id: HFRDexDyr88
     title: "Hybrid observability in HPE GreenLake Flex Solutions – Part 1"
