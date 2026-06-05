@@ -41,19 +41,19 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
         </noscript>
-        <div id="header_wrapper">
+        {/* <div id="header_wrapper">
           <div
             id="hpe_slim_header"
             className="hpe_slim_header"
             style={{ pointerEvents: 'none' }}
           />
-        </div>
+        </div> */}
         <div
           key="body"
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <div id="hpe_slim_footer" className="hpe_slim_footer" />
+        <div id="footer" className="footer" style={{ paddingTop: '24px' }} />
         {props.postBodyComponents}
         <div
           dangerouslySetInnerHTML={{
@@ -65,6 +65,11 @@ export default function HTML(props) {
           function pageLoaded() {
             var header = document.getElementById('hpe_slim_header');	
             var headerWrapper = document.getElementById('header_wrapper');	
+
+            if (!header || !headerWrapper) {
+              return;
+            }
+
             var timer;	
             headerWrapper.addEventListener('mouseover', function(event) {	
               timer = setTimeout(function() {	

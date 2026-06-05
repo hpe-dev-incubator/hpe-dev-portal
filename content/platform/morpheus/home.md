@@ -6,6 +6,7 @@ description: Morpheus is a vendor-agnostic management platform for multi-cloud
 image: /img/platforms/morpheus-logo-192x187.png
 width: large
 priority: 7
+date: 2024-12-05T11:31:31+01:00
 active: true
 tags:
   - morpheus
