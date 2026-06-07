@@ -23,18 +23,30 @@ learnMoreLink: https://www.hpe.com/us/en/software.html
 videos:
   - id: spVROIPJM3E
     title: "Streamline app development with open source Grommet"
+    author: "Pramod Sareddy"
   - id: unjFHzs81Zw
     title: "Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy"
+    author: "Florian Buehr"
   - id: j9Tu1ufWVGk
     title: "API 101 - API basics and the value they provide"
+    author: "Didier Lalli"
+    authorimage: "/img/didier-lalli-192x192.png"
   - id: CPiMcIjXyVA
     title: "Introduction to webhooks on HPE GreenLake cloud"
+    author: "Pramod Sareddy"
   - id: Rv9V5BWoRKE
     title: "Ansible 101 - Introduction to Ansible concepts"
+    author: "Frederic Passeron"
+    authorimage: "/img/frederic-passeron-hpedev-192.jpg"
   - id: uVNBmrB-qkU
     title: "Python 101 - Introduction to Python programming language"
+    author: "Frederic Passeron"
+    authorimage: "/img/frederic-passeron-hpedev-192.jpg"
   - id: _0XJnr8U0sU
     title: "Decoupled policy enforcement with Open Policy Agent"
+    author: "Pramod Sareddy"
   - id: zlRJUl_aF04
     title: "DevOps Alert: Tool Sprawl. Complexity. Burnout. Help!"
+    author: "Didier Lalli"
+    authorimage: "/img/didier-lalli-192x192.png"
 ---

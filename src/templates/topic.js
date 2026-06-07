@@ -31,6 +31,17 @@ import {
   HeroTitle,
   HeroDescription,
   CtaRow,
+  VideoCardWrapper,
+  VideoThumbnail,
+  VideoOverlay,
+  VideoPlayButton,
+  VideoCardBody,
+  VideoCardTitle,
+  VideoAuthorRow,
+  VideoAuthorAvatar,
+  VideoAuthorName,
+  VideoWatchLink,
+  VideoGrid,
 } from './topic.styles';
 
 const dateFormat = Intl.DateTimeFormat('default', {
@@ -56,57 +67,61 @@ const FILTER_OPTIONS = [
 
 const SORT_OPTIONS = ['Newest first', 'Oldest first'];
 
+function getInitials(name) {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2)
+    return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+  return name.substring(0, 2).toUpperCase();
+}
+
 function VideoCard({ video }) {
-  const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/mqdefault.jpg`;
+  const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
   const videoUrl = `https://www.youtube.com/watch?v=${video.id}`;
 
   return (
-    <Box
-      round="small"
-      overflow="hidden"
-      elevation="small"
+    <VideoCardWrapper
       onClick={() => window.open(videoUrl, '_blank', 'noopener,noreferrer')}
-      style={{ cursor: 'pointer' }}
-      focusIndicator={false}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) =>
+        (e.key === 'Enter' || e.key === ' ') &&
+        window.open(videoUrl, '_blank', 'noopener,noreferrer')
+      }
     >
-      <Box style={{ position: 'relative' }}>
-        <img
-          src={thumbnailUrl}
-          alt={video.title}
-          style={{
-            width: '100%',
-            display: 'block',
-            aspectRatio: '16/9',
-            objectFit: 'cover',
-          }}
-        />
-        <Box
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
-          align="center"
-          justify="center"
-          background={{ color: 'black', opacity: 'weak' }}
+      <VideoThumbnail>
+        <img src={thumbnailUrl} alt={video.title} />
+        <VideoOverlay>
+          <VideoPlayButton>
+            <Play color="#01a982" size="20px" />
+          </VideoPlayButton>
+        </VideoOverlay>
+      </VideoThumbnail>
+
+      <VideoCardBody>
+        <VideoCardTitle className="video-title">{video.title}</VideoCardTitle>
+        {video.author && (
+          <VideoAuthorRow>
+            <VideoAuthorAvatar>
+              {video.authorimage ? (
+                <img src={video.authorimage} alt={video.author} />
+              ) : (
+                <span>{getInitials(video.author)}</span>
+              )}
+            </VideoAuthorAvatar>
+            <VideoAuthorName>by {video.author}</VideoAuthorName>
+          </VideoAuthorRow>
+        )}
+        <VideoWatchLink
+          href={videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
-          <Box
-            pad="small"
-            round="full"
-            background={{ color: 'white', opacity: 'strong' }}
-          >
-            <Play size="small" color="brand" />
-          </Box>
-        </Box>
-      </Box>
-      <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-        <Text size="xsmall" weight="bold" color="text">
-          {video.title}
-        </Text>
-      </Box>
-    </Box>
+          Watch now
+          <LinkNext color="#01a982" size="20px" />
+        </VideoWatchLink>
+      </VideoCardBody>
+    </VideoCardWrapper>
   );
 }
 
@@ -114,6 +129,8 @@ VideoCard.propTypes = {
   video: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    author: PropTypes.string,
+    authorimage: PropTypes.string,
   }).isRequired,
 };
 
@@ -404,14 +421,11 @@ function TopicTemplate({ data }) {
                       Multimedia
                     </Heading>
                   )}
-                  <Grid
-                    columns={{ count: 'fill', size: 'medium' }}
-                    gap="medium"
-                  >
+                  <VideoGrid>
                     {videos.map((video) => (
                       <VideoCard key={video.id} video={video} />
                     ))}
-                  </Grid>
+                  </VideoGrid>
                   <Box>
                     <Anchor
                       href="https://www.youtube.com/playlist?list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY"
@@ -444,6 +458,8 @@ TopicTemplate.propTypes = {
           PropTypes.shape({
             id: PropTypes.string,
             title: PropTypes.string,
+            author: PropTypes.string,
+            authorimage: PropTypes.string,
           }),
         ),
       }).isRequired,
@@ -484,6 +500,8 @@ export const pageQuery = graphql`
         videos {
           id
           title
+          author
+          authorimage
         }
       }
     }
