@@ -6,6 +6,9 @@ category: Meetup
 image: /img/events/events1.jpg
 link: https://www.youtube.com/watch?v=5QFTzwk9VrU
 width: large
+tags:
+- hpe networking
+- networking
 ---
 ## Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2
 

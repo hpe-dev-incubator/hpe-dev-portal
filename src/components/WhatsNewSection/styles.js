@@ -48,11 +48,6 @@ export const NewCard = styled.div`
   flex-direction: column;
   background: white;
   overflow: hidden;
-  cursor: pointer;
-
-  &:hover .card-title {
-    text-decoration: underline;
-  }
 `;
 
 export const CardImage = styled.div`

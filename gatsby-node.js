@@ -524,6 +524,9 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       bgColor: String
       overlay: String
       isDark: Boolean
+      active: Boolean
+      youtubeid: String
+      youtubelink: String
     }
   `);
   actions.createTypes([

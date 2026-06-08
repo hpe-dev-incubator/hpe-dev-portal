@@ -42,6 +42,8 @@ const SLIDES = [
     },
     theme: 'light',
     bgColor: '#f1f2f4',
+    bgGradient:
+      'linear-gradient(90deg, #E5E5E5 20%, rgba(212, 212, 212, 0.02) 80%)',
     bgImage: '',
     bgVideo: '/img/hero/slide1-ai.mp4',
     bgVideoOpacity: 0.32,
@@ -145,6 +147,7 @@ const HeroBannerSection = () => {
                     $isVideo
                     $isDark={dark}
                     bgColor={slide.bgColor}
+                    $bgGradient={slide.bgGradient}
                   />
                 </>
               )}
