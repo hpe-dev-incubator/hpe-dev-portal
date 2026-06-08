@@ -30,7 +30,7 @@ OpsRamp API documentation: [OpsRamp Developer Portal](https://develop.opsramp.c
 
 **Postman** 
 
-Postman is an API platform for building and using APIs. You can sign into your Postman account either from the web application or from the desktop application. In this blog, we use Postman to configure collection variables once, generate an OAuth access token, and then make subsequent secure REST API calls. You can use any other software like Insomnia, Hoppscotch etc. instead of Postman.
+Postman is an API platform for building and using APIs. You can sign into your Postman account either from the web application or from the desktop application. In this blog post, I am showing how to use Postman to configure collection variables once, generate an OAuth access token, and then make subsequent secure REST API calls. You can use any other software like Insomnia, Hoppscotch etc. instead of Postman.
 
 **Preparing to use the HPE OpsRamp APIs** 
 
@@ -56,7 +56,7 @@ To generate API credentials in OpsRamp, proceed as follows: 
 6. Click Generate Key and copy Tenant ID, Key (ClientId), and Secret (ClientSecret). 
 7. Make a note of the Access Token URL shown by the integration.
 
-**Important note:** You will be able to copy the Secret only at the time of creation. If you close the integration page, the secret will not be available for copying, and you will need to create a new integration to generate a new secret.
+**Important note:** You will be able to copy the **secret** only at the time of creation. If you close the integration page, the secret will not be available for copying, and you will need to create a new integration to generate a new secret.
 
 **Setting the Postman collection for the OpsRamp APIs**
 
@@ -74,11 +74,11 @@ Environment > Create Environment.
 
 Define the current value of the collection variables to match your OpsRamp tenant context: 
 
-**BaseUrl:** This variable defines the base URL of your OpsRamp REST API requests. OpsRamp supports tenant-specific API endpoints and also custom-branded URLs. Use the API endpoint you noted from your Custom Integration or your tenant API base. 
+**BaseUrl:** This variable defines the base URL of your OpsRamp REST API requests. OpsRamp supports tenant-specific API endpoints and also custom-branded URLs. Use the API endpoint you noted from your custom integration or your tenant API base. 
 
 **ClientId and ClientSecret:** These variables must be set to the Key (ClientId) and Secret (ClientSecret) generated in your Custom Integration. They are used to request an OAuth access token using the client_credentials grant type.
 
-**TokenUrl:** This variable is the OAuth token endpoint (Access Token URL) shown in your Custom Integration. Your internal guide shows this token endpoint as /auth/oauth/token on your POD URL. 
+**TokenUrl:** This variable is the OAuth token endpoint (Access Token URL) shown in your custom integration. Your internal guide shows this token endpoint as /auth/oauth/token on your POD URL. 
 
 **TenantId:** This variable is the tenant identifier used to scope API calls. In OpsRamp APIs, the tenant identifier appears in the path (for example, /api/v2/tenants/{clientId}/...). 
 
