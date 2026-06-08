@@ -1,5 +1,5 @@
 ---
-title: Unlocking organizational efficiency through OpsRamp APIs
+title: Unlocking organizational efficiency through HPE OpsRamp APIs
 date: 2026-06-08T07:08:08.796Z
 author: Kheni Sandip
 authorimage: /img/kheni-sandip.jpg
