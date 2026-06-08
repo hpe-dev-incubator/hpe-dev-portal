@@ -8,12 +8,16 @@ description: >-
 keyword: AI
 tags:
   - AI
+  - hpe-private-cloud-ai
   - machine-learning
   - deep-learning
   - data-science
   - llm
   - mlops
   - artificial-intelligence
+  - cray
+  - CPE
+  - swarm-learning
 ctaLabel: Get started with AI
 ctaLink: /platform/hpe-private-cloud-ai/home/
 learnMoreLink: https://www.hpe.com/us/en/solutions/artificial-intelligence/nvidia-collaboration.html

@@ -13,6 +13,11 @@ tags:
   - ilo
   - dragonhpc
   - chapel
+  - hpe-nonstop
+  - hpe-oneview
+  - hpe-oneview-global-dashboard
+  - ilo-restful-api
+  - Redfish
 priority: 4
 active: true
 ctaLabel: Get started with Compute
