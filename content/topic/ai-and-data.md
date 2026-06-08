@@ -8,6 +8,7 @@ description: >-
 keyword: AI
 tags:
   - AI
+  - hpe-private-cloud-ai
   - machine-learning
   - deep-learning
   - data-science

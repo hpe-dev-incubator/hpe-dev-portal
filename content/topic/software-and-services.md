@@ -15,6 +15,16 @@ tags:
   - grommet
   - spiffe
   - spire
+  - hpe-opsramp
+  - opsramp
+  - morpheus
+  - hpe-complete-care-itops
+  - activation-and-onboarding-in-hpe-complete-care-service-itops
+  - hpe-ezmeral
+  - hpe-ezmeral-data-fabric
+  - spiffe-and-spire-projects
+  - zerto
+  - recovery
 priority: 6
 active: true
 ctaLabel: Get started with Software & Services

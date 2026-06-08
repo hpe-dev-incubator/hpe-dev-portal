@@ -6,6 +6,7 @@ category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=5pejLKu32Js&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large
+
 ---
 ## Accelerate public sector AI use cases using a powerful ML Ops platform
 

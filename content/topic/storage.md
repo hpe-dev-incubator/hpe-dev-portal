@@ -13,6 +13,13 @@ tags:
   - 3par
   - backup
   - data-fabric
+  - hpe-3par-and-primera
+  - hpe-alletra
+  - hpe-alletra-6000
+  - hpe-alletra-9000
+  - hpe-ezmeral-data-fabric
+  - hpe-nimble-storage
+  - hpe-simplivity
 priority: 5
 active: true
 ctaLabel: Get started with Storage
