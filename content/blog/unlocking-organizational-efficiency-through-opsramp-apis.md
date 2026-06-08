@@ -105,7 +105,7 @@ OpsRamp APIs use a bearer token as an authorization type to ensure that all REST
 
 ![](/img/opramps-api7.png)
 
-* Verify that you get a status code of 200 for a successful response with a token value in the response body. As you can see from the image below, we have got “200 OK” response code.
+* Verify that you get a status code of 200 for a successful response with a token value in the response body. As you can see from the image below, I get a “200 OK” response code.
 
 ![](/img/opramps-api8.png)
 
@@ -121,7 +121,8 @@ pm.collectionVariables.set("BearerToken", jsonData.access_token);
 **Note:** Make sure you select Correct Environment While executing the Token API to get the variables properly.
 
 **Make subsequent secure REST API calls to OpsRamp platform services**
-All subsequent REST API requests are authenticated by presenting the access token as the authorization bearer token to OpsRamp APIs. The service validates the access token, and if valid, serves the request. In this blog, we validate the access token by creating an alert using a single API call. 
+
+All subsequent REST API requests are authenticated by presenting the access token as the authorization bearer token to OpsRamp APIs. The service validates the access token, and if valid, serves the request. In this blog post, the access token is validated by creating an alert using a single API call.
 
 ![](/img/opramps-api10.png)
 
