@@ -8,17 +8,13 @@ tags:
   - hpe-opsramp
   - tutorial
 ---
-![]()
-
-![]()
-
 HPE OpsRamp, as a unified IT operations and observability platform, provides a set of common services that help organizations monitor, manage, and automate their IT environments. These services commonly include alerting and event intake, monitoring, resource management, and integrations with external systems. 
 
 The HPE OpsRamp platform exposes these capabilities through a collection of RESTful application programming interfaces (APIs) so that administrators and operators can interact with the platform programmatically—beyond what is available through the UI. 
 
 If you are looking for a quick way to discover what you can do with the HPE OpsRamp APIs using popular tools that don’t require programming (such as Postman), this blog post is for you. You can use these APIs to integrate external monitoring tools for alert ingestion, automate operational workflows, and retrieve platform data for reporting and analytics. 
 
-In Part 1 of this series, we will get started by generating API credentials, defining Postman collection variables, obtaining an OAuth access token, and making one subsequent secure REST API call end-to-end: creating an alert in HPE OpsRamp via API. 
+In Part 1 of this series, I will start by showing you how to generate API credentials, define Postman collection variables, obtain an OAuth access token, and make one subsequent secure REST API call end-to-end: creating an alert in HPE OpsRamp via API. 
 
 **Introducing the foundational APIs for  HPE OpsRamp** 
 
@@ -38,7 +34,7 @@ Postman is an API platform for building and using APIs. You can sign into your 
 
 **Preparing to use the HPE OpsRamp APIs** 
 
-As an IT administrator or a developer, before you can work with OpsRamp APIs, you will need to generate API client credentials (ClientId and ClientSecret) and capture your TenantId (tenant can be partner, client or service provider ID) and token endpoint. The internal OpsRamp guide achieves this by creating a Custom Integration configured for OAuth2. 
+As an IT administrator or a developer, before you can work with OpsRamp APIs, you will need to generate API client credentials (ClientId and ClientSecret) and capture your TenantId (tenant can be partner, client or service provider ID) and token endpoint. The internal OpsRamp guide achieves this by creating a custom integration configured for OAuth2. 
 
 To generate API credentials in OpsRamp, proceed as follows: 
 
