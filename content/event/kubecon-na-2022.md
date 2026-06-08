@@ -3,11 +3,14 @@ title: KubeCon NA 2022
 dateStart: 2022-10-23T22:01:23.187Z
 dateEnd: 2022-10-28T21:59:23.232Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- cloud-native
+- kubernetes
+- open-source
 image: /img/kunecon-na-2022-eventcard.png
 link: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/
 width: large
-tags:
-  - KubeCon
 ---
 ## KubeCon NA 2022
 

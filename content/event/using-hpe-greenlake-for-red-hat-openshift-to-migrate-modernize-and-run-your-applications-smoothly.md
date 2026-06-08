@@ -4,6 +4,10 @@ title: Using HPE GreenLake for Red Hat OpenShift to migrate, modernize and run
 dateStart: 2024-05-28T22:01:45.082Z
 dateEnd: 2024-05-29T21:59:45.112Z
 category: Meetup
+tags:
+- hybrid-cloud
+- kubernetes
+- hpe-greenlake
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=ScHOpRElCBE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

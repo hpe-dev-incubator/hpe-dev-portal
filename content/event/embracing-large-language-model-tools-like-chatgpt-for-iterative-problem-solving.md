@@ -3,6 +3,11 @@ title: Embracing large language model tools like ChatGPT for iterative problem s
 dateStart: 2023-05-23T22:01:00.000Z
 dateEnd: 2023-05-24T21:59:00.000Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- llm
+- artificial-intelligence
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=zAm5CpOHfH4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

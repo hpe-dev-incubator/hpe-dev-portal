@@ -4,6 +4,10 @@ title: "Going from containers, to pods, to Kubernetes – help for your develope
 dateStart: 2023-10-25T15:00:00.000Z
 dateEnd: 2023-10-25T16:00:00.000Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- kubernetes
+- containers
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=Hy4MsJgxG8k&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

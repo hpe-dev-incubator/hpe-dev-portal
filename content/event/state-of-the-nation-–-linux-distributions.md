@@ -3,6 +3,10 @@ title: State of the Nation – Linux distributions
 dateStart: 2023-09-19T22:01:33.071Z
 dateEnd: 2023-09-20T21:59:33.127Z
 category: Virtual Event
+tags:
+- servers
+- containers
+- open-source
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=dFYLyy7oL-Q&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&t=4s&pp=iAQB
 width: large

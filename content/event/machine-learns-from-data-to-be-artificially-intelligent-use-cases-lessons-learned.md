@@ -3,6 +3,10 @@ title: Machines learn from data to be artificially intelligent
 dateStart: 2022-08-16T22:01:17.460Z
 dateEnd: 2022-08-17T21:59:17.486Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://youtu.be/3KOFDciS3WU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large

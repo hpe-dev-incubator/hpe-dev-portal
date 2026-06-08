@@ -4,6 +4,11 @@ title: "Machine Learning Data Version Control (DVC): Reproducibility and
 dateStart: 2022-09-28T15:00:00.000Z
 dateEnd: 2022-09-28T16:00:00.000Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- open-source
 image: /img/Meetups_192_192.svg
 link: https://www.youtube.com/watch?v=sgkN09LkCP4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large

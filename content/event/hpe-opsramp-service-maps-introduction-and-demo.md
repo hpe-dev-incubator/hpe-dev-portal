@@ -3,6 +3,9 @@ title: "HPE OpsRamp Service Maps - Introduction and Demo"
 dateStart: 2026-06-24T22:01:58.632Z
 dateEnd: 2026-06-26T21:30:58.648Z
 category: Meetup
+tags:
+- hpe-opsramp
+- opsramp
 image: /img/events/hpe202601291868_450_0_72_rgb.jpg
 link: https://hpe.zoom.us/webinar/register/9517805612560/WN_QiEMFNthTDC9PUO4tRZrAA
 width: large

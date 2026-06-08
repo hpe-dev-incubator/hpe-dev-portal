@@ -3,6 +3,10 @@ title: "IT New Year’s resolution: Build an ethical and trustworthy AI system"
 dateStart: 2025-01-21T23:01:11.329Z
 dateEnd: 2025-01-22T22:30:11.342Z
 category: AI Jam Session
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
 image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=SyWMeZ23isw&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

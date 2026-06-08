@@ -3,13 +3,16 @@ title: Storage & Applications in Kubernetes
 dateStart: 2022-03-16T23:01:00.000Z
 dateEnd: 2022-03-17T22:59:59.268Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- kubernetes
+- containers
+- storage
+- data-management
+- alletra
 image: /img/k8s-storage-apps-512.jpg
 link: https://learning.kasten.io/resources/storage-and-applications-in-kubernetes-webinar/?utm_campaign=Webinars-Learning&utm_source=hpe&utm_content=storage-applications-031722
 width: large
-tags:
-  - hpe-nimble-storage
-  - hpe-alletra
-  - hpe-3par-and-primera
 ---
 ## Storage & Applications in Kubernetes 
 

@@ -3,11 +3,16 @@ title: KubeCon NA 2021
 dateStart: 2021-10-11T05:00:26.391Z
 dateEnd: 2021-10-15T21:59:00.000Z
 category: Event
+tags:
+- hybrid-cloud
+- cloud-native
+- kubernetes
+- containers
+- open-source
+- spiffe
 image: /img/kubeconna2021-event-card-image.png
 link: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/
 width: large
-tags:
-  - KubeCon
 ---
 ## KubeCon NA 2021
 #### Oct 11-15, 2021 NA Los Angeles + Virtual

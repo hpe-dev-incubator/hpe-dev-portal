@@ -3,6 +3,9 @@ title: Collaborating at scale with Postman
 dateStart: 2023-03-28T22:01:02.922Z
 dateEnd: 2023-03-29T21:59:03.039Z
 category: Virtual Event
+tags:
+- api
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=LuXNpIEzYgg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

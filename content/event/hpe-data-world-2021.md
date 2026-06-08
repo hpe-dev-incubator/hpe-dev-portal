@@ -3,6 +3,8 @@ title: HPE Data World 2021
 dateStart: 2021-12-07T16:00:51.279Z
 dateEnd: 2021-12-07T17:00:51.298Z
 category: Virtual Event
+tags:
+- hybrid-cloud
 image: /img/hpe-data-world-2021.png
 link: https://www.hpe.com/h41382/dataworld2021/
 width: large

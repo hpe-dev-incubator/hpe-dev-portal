@@ -4,6 +4,8 @@ title: Extraordinary claims require extraordinary engineering (and TAMO isn’t 
 dateStart: 2023-03-14T23:01:14.694Z
 dateEnd: 2023-03-15T22:59:14.761Z
 category: Virtual Event
+tags:
+- hybrid-cloud
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=wVY7uZstDWA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

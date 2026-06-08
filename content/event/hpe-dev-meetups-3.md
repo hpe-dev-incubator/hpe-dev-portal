@@ -3,6 +3,11 @@ title: "Styra - Decoupled policy enforcement with Open Policy Agent"
 dateStart: 2022-04-27T16:00:51.279Z
 dateEnd: 2022-04-27T17:00:51.298Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- cloud-native
+- kubernetes
+- containers
 image: /img/Meetups_192_192.svg
 link: https://hpe.zoom.us/webinar/register/4016457084795/WN_TDOiJjVuQbW7vfSs3WYJeA
 width: large

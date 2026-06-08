@@ -3,6 +3,11 @@ title: Secure GenAI Adoption for all!
 dateStart: 2024-02-20T23:01:49.855Z
 dateEnd: 2024-02-21T22:59:49.885Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- llm
+- artificial-intelligence
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=FSEMz8fvpYE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

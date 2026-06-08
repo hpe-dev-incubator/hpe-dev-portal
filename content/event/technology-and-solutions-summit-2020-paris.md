@@ -5,9 +5,9 @@ dateEnd: 2021-03-18T20:00:00.000Z
 image: /img/home/Workshops_on_demand_192_192.svg
 link: https://h41382.www4.hpe.com/tss/
 width: large
-tags:
-  - Technology Summit
 category: Virtual Event
+tags:
+- hybrid-cloud
 ---
 ## HPE Technology and Solutions Summit 2021
 March 15-18, 2021 - Virtual

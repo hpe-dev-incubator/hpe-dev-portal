@@ -3,12 +3,13 @@ title: Build an AI agent Amstelveen, Netherlands
 dateStart: 2026-09-22T09:30:36.204Z
 dateEnd: 2026-09-22T16:00:36.215Z
 category: HPE AI Developer Day
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
 image: /img/events/events1.jpg
 link: https://events.bizzabo.com/797906/page/6020635/amstelveen
 width: large
-tags:
-  - HPE DEV
-  - AI
 ---
 
 ## **Build an AI agent in a sovereign environment**

@@ -3,6 +3,12 @@ title: Enabling business automation using HPE GreenLake platform foundational AP
 dateStart: 2024-03-26T23:01:32.086Z
 dateEnd: 2024-03-27T22:59:32.121Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- hpe-greenlake
+- automation
+- api
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=Uv0kKyVfjgg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

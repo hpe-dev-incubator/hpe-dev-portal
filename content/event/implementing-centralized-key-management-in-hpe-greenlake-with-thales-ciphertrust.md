@@ -4,6 +4,10 @@ title: Implementing Centralized Key Management in HPE GreenLake with Thales
 dateStart: 2024-06-25T22:01:22.765Z
 dateEnd: 2024-06-26T21:59:22.829Z
 category: Meetup
+tags:
+- hybrid-cloud
+- hpe-greenlake
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=A77yVzNtIKs&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
