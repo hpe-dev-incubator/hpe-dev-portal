@@ -5,12 +5,13 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
-import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
+
+const APIDB = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api`
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
-  avatar={workshop.replay && workshop.replay.avatar}
+    avatar={workshop && workshop.avatar}
     desc={
       workshop.sessionType === 'Workshops-on-Demand'
         ? `${workshop.description.slice(0, 520)}`
@@ -19,8 +20,8 @@ const renderScheduleCard = (workshop, i) => (
     id={workshop.sessionId}
     key={i}
     DBid={workshop.id}
-    presenter={workshop.replay && workshop.replay.presenter}
-    role={workshop.replay && workshop.replay.role}
+    presenter={workshop.presenter}
+    role={workshop.role}
     sessionLink={workshop.replayLink}
     sessionType={workshop.sessionType}
     title={workshop.name}
@@ -32,71 +33,62 @@ const renderScheduleCard = (workshop, i) => (
   />
 );
 
+// Returns true if a workshop belongs to a given category.
+// Handles both array-type and string-type category fields, case-insensitively.
+const workshopMatchesCategory = (workshop, category) => {
+  if (!workshop.category) return false;
+  const cats = Array.isArray(workshop.category)
+    ? workshop.category
+    : [workshop.category];
+  return cats.some((c) => c.toLowerCase() === category.toLowerCase());
+};
+
 const Workshop = (props) => {
-  const getWorkshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
-  const [workshops, setworkshops] = useState([]);
+  const [workshops, setWorkshops] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [error, setError] = useState('');
-  const arr = [];
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
 
   const latestWorkshops = workshops
     .slice()
-    .sort((a, b) => {
-      return new Date(b.updatedAt) - new Date(a.updatedAt);
-    })
+    .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     .slice(0, 10);
 
-  useEffect(() => {
-    const getToken = () => {
-      AuthService.login().then(
-        () => {
-          /* eslint-disable no-use-before-define */
-          getWorkshops(AuthService.getCurrentUser().accessToken);
-          /* eslint-enable no-use-before-define */
-        },
-        (err) => {
-          console.log('Error: ', err);
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
-        },
-      );
-    };
+  const popularWorkshops = workshops.filter((w) => w.popular);
 
-    const getWorkshops = (token) => {
-      axios({
-        method: 'GET',
-        url: getWorkshopsApi,
-        headers: { 'x-access-token': token },
-      })
-        .then((response) => {
-          // Map created
-          response.data.forEach((workshop) => {
-            if (workshop.sessionType === 'Workshops-on-Demand')
-              arr.push({ ...workshop });
-          });
-          setworkshops(arr);
-        })
-        .catch((err) => {
-          if (err.response.status === 401) {
-            AuthService.login().then(() => getToken());
-          } else {
-            console.log('catch error', err);
-            setError(
-              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-            );
+  useEffect(() => {
+    axios
+      .get(`${APIDB}/workshops?active=true`)
+      .then((response) => {
+        const arr = [];
+        response.data.forEach((workshop) => {
+          if (workshop.sessionType === 'Workshops-on-Demand') {
+            arr.push({ ...workshop });
           }
         });
-    };
-    getToken();
-    // eslint-disable-next-line
-    const queryParams = new URLSearchParams(window.location.search);
-    const tab = queryParams.get('activeTab');
-    if (tab) setIndex(+tab);
+        setWorkshops(arr);
+      })
+      .catch((err) => {
+        console.log('Error fetching workshops', err);
+        setError(
+          'Oops..something went wrong. The WoD team is addressing the problem. Please try again later!',
+        );
+      });
+
+    axios
+      .get(`${APIDB}/workshops/categories`)
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((err) => {
+        console.log('Error fetching categories', err);
+        // Non-fatal: tabs beyond All / Latest / Popular simply won't appear.
+      });
   }, []);
 
   const { title, description, badgeImg } = props.pageContext;
+
 
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
@@ -112,63 +104,43 @@ const Workshop = (props) => {
         </MainTitle>
         {workshops.length > 0 ? (
           <Tabs activeIndex={index} onActive={onActive} justify="start">
-            <Tab title={`All (${workshops.length})`}>
+            <Tab title="All">
               <CardGrid pad={{ top: 'medium' }} key="all">
-                {workshops.map((workshop, i) =>renderScheduleCard(workshop, i))}
+                {workshops.map((workshop, i) =>
+                  renderScheduleCard(workshop, i),
+                )}
               </CardGrid>
             </Tab>
-            <Tab title={`Latest (${latestWorkshops.length})`}>
+            <Tab title="Latest">
               <CardGrid pad={{ top: 'medium' }} key="ltst">
-                {latestWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+                {latestWorkshops.map((workshop, i) =>
+                  renderScheduleCard(workshop, i),
+                )}
               </CardGrid>
             </Tab>
-            <Tab title={`Popular (${workshops.filter(workshop => workshop.popular).length})`}>
+            <Tab title="Popular">
               <CardGrid pad={{ top: 'medium' }} key="pop">
                 {workshops.map(
-                  (workshop, i) => workshop.popular && renderScheduleCard(workshop, i),
-                )}
-              </CardGrid>
-            </Tab>
-            <Tab title={`Open Source (${workshops.filter(workshop => workshop.category && workshop.category.includes('open source')).length})`}>
-              <CardGrid pad={{ top: 'medium' }} key="os">
-                {workshops.map(
                   (workshop, i) =>
-                    workshop.category &&
-                    workshop.category.includes('open source') &&
-                    renderScheduleCard(workshop, i),
+                    workshop.popular && renderScheduleCard(workshop, i),
                 )}
               </CardGrid>
             </Tab>
-            <Tab title={`HPE GreenLake (${workshops.filter(workshop => workshop.category && workshop.category.includes('hpe greenlake')).length})`}>
-              <CardGrid pad={{ top: 'medium' }} key="hpee">
-                {workshops.map(
-                  (workshop, i) =>
-                    workshop.category &&
-                    workshop.category.includes('hpe greenlake') &&
-                    renderScheduleCard(workshop, i),
-                )}
+          {/* One tab per category returned by GET /workshops/categories */}
+          {categories.map((category) => (
+            <Tab
+              key={category}
+              title={category.charAt(0).toUpperCase() + category.slice(1)}
+            >
+              <CardGrid pad={{ top: 'medium' }}>
+                {workshops
+                  .filter((workshop) =>
+                    workshopMatchesCategory(workshop, category),
+                  )
+                  .map((workshop, i) => renderScheduleCard(workshop, i))}
               </CardGrid>
             </Tab>
-            <Tab title={`HPE Ezmeral (${workshops.filter(workshop => workshop.category && workshop.category.includes('hpe ezmeral')).length})`}>
-              <CardGrid pad={{ top: 'medium' }} key="hpee">
-                {workshops.map(
-                  (workshop, i) =>
-                    workshop.category &&
-                    workshop.category.includes('hpe ezmeral') &&
-                    renderScheduleCard(workshop, i),
-                )}
-              </CardGrid>
-            </Tab>
-            <Tab title={`Infrastructure (${workshops.filter(workshop => workshop.category && workshop.category.includes('infrastructure')).length})`}>
-              <CardGrid pad={{ top: 'medium' }} key="ifa">
-                {workshops.map(
-                  (workshop, i) =>
-                    workshop.category &&
-                    workshop.category.includes('infrastructure') &&
-                    renderScheduleCard(workshop, i),
-                )}
-              </CardGrid>
-            </Tab>
+          ))}
           </Tabs>
         ) : (
           <Box

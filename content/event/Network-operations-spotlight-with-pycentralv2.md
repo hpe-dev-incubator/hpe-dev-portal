@@ -3,9 +3,12 @@ title: "Network Operations Spotlight with PyCentralv2"
 dateStart: 2026-04-08T22:01:58.632Z
 dateEnd: 2026-04-08T21:30:58.648Z
 category: Meetup
-image: /img/kadanza/hpe202601302777_450_0_72_rgb.jpg
+image: /img/events/events4.jpg
 link: https://www.youtube.com/watch?v=tEQZqb3C98I
 width: large
+tags:
+- hpe networking
+- networking
 ---
 ## Network Operations Spotlight with PyCentralv2
 

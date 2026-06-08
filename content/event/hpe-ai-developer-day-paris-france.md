@@ -1,24 +1,24 @@
 ---
-title: HPE AI Developer Day Paris, France
+title: Create your own AI agent Paris, France
 dateStart: 2026-03-10T08:00:36.204Z
 dateEnd: 2026-03-10T16:30:36.215Z
 category: HPE AI Developer Day
-image: /img/kadanza/hpe202601290937_450_0_72_rgb.jpg
+image: /img/events/events8.jpg
 link: https://events.bizzabo.com/797906/page/5526657/paris-information
 width: large
 tags:
   - HPE DEV
   - AI
 ---
-# **H **
+# **H**
 
 ## **Créez votre propre agent AI avec HPE et Nvidia**
 
 ### Paris, France
+
 Le 10 Mars 2026
 
 Construisez et déployez une véritable solution d'IA dans le cadre d'un atelier en petit groupe animé par des conseillers HPE et NVIDIA, et repartez avec les outils, les compétences et la confiance nécessaires pour renouveler l'expérience.
 HPE Developer Day est un événement d'une journée conçu pour vous aider à passer de vos ambitions en matière d'IA à des résultats concrets.
-
 
 ###### [Inscription](https://events.bizzabo.com/797906/page/5526657/paris-information)
