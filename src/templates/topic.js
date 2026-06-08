@@ -76,7 +76,8 @@ function getInitials(name) {
 
 function VideoCard({ video }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
-  const videoUrl = `https://www.youtube.com/watch?v=${video.id}`;
+  const videoUrl =
+    video.youtubelink || `https://www.youtube.com/watch?v=${video.id}`;
 
   return (
     <VideoCardWrapper
@@ -131,6 +132,7 @@ VideoCard.propTypes = {
     title: PropTypes.string.isRequired,
     author: PropTypes.string,
     authorimage: PropTypes.string,
+    youtubelink: PropTypes.string,
   }).isRequired,
 };
 
@@ -139,10 +141,15 @@ function TopicTemplate({ data }) {
   const size = React.useContext(ResponsiveContext);
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  const { title, description, ctaLabel, ctaLink, learnMoreLink, videos } =
+  const { title, description, ctaLabel, ctaLink, learnMoreLink } =
     topic.frontmatter;
 
-  const allResources = data.allMarkdownRemark.edges;
+  const allResources = data.allMarkdownRemark.edges.filter(
+    ({ node }) => node.fields.sourceInstanceName !== 'video',
+  );
+  const videoEdges = data.allMarkdownRemark.edges.filter(
+    ({ node }) => node.fields.sourceInstanceName === 'video',
+  );
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortOrder, setSortOrder] = useState('Newest first');
 
@@ -152,8 +159,9 @@ function TopicTemplate({ data }) {
     if (activeFilter === 'platform') {
       return allResources.filter(
         ({ node }) =>
-          node.fields.sourceInstanceName === 'platform' ||
-          node.fields.sourceInstanceName === 'greenlake',
+          (node.fields.sourceInstanceName === 'platform' ||
+            node.fields.sourceInstanceName === 'greenlake') &&
+          node.frontmatter.active !== false,
       );
     }
     return allResources.filter(
@@ -163,6 +171,21 @@ function TopicTemplate({ data }) {
 
   const showResources = activeFilter !== 'multimedia';
   const showVideos = activeFilter === 'all' || activeFilter === 'multimedia';
+
+  const videos = [...videoEdges]
+    .sort((a, b) => {
+      const aDate = new Date(a.node.frontmatter.date || 0).getTime();
+      const bDate = new Date(b.node.frontmatter.date || 0).getTime();
+      return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
+    })
+    .map(({ node }) => ({
+      id: node.frontmatter.youtubeid,
+      title: node.frontmatter.title,
+      author: node.frontmatter.author,
+      authorimage: node.frontmatter.authorimage,
+      youtubelink: node.frontmatter.youtubelink,
+      date: node.frontmatter.date,
+    }));
 
   const sortedResourcesForDisplay = [...resourcesForDisplay].sort((a, b) => {
     const aDate = new Date(a.node.frontmatter.date || 0).getTime();
@@ -497,12 +520,6 @@ export const pageQuery = graphql`
         ctaLabel
         ctaLink
         learnMoreLink
-        videos {
-          id
-          title
-          author
-          authorimage
-        }
       }
     }
     allMarkdownRemark(
@@ -510,7 +527,9 @@ export const pageQuery = graphql`
       sort: { frontmatter: { date: DESC } }
       filter: {
         fields: {
-          sourceInstanceName: { in: ["blog", "event", "platform", "greenlake"] }
+          sourceInstanceName: {
+            in: ["blog", "event", "platform", "greenlake", "video"]
+          }
         }
         frontmatter: { tags: { regex: $tagRE }, disable: { ne: true } }
       }
@@ -527,6 +546,10 @@ export const pageQuery = graphql`
             date
             tags
             author
+            active
+            youtubeid
+            youtubelink
+            authorimage
           }
         }
       }

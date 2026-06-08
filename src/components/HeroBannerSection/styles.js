@@ -82,9 +82,14 @@ export const SlideBgOverlay = styled.div`
   pointer-events: none;
   z-index: 1;
 
-  ${({ $isDark, $isVideo, bgColor }) => {
+  ${({ $isDark, $isVideo, bgColor, $bgGradient }) => {
     if ($isVideo) {
       if (!$isDark) {
+        if ($bgGradient) {
+          return css`
+            background: ${$bgGradient};
+          `;
+        }
         return css`
           background: linear-gradient(
             90deg,

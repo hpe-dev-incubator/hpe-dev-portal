@@ -6,6 +6,9 @@ category: Meetup
 image: /img/events/events4.jpg
 link: https://www.youtube.com/watch?v=tEQZqb3C98I
 width: large
+tags:
+- hpe networking
+- networking
 ---
 ## Network Operations Spotlight with PyCentralv2
 
