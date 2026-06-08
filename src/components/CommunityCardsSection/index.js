@@ -8,13 +8,13 @@ import styled from 'styled-components';
 const SectionWrapper = styled.section`
   display: flex;
   gap: 24px;
-  padding: 0 24px;
+  padding: 0 24px 24px;
   margin-top: 24px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 24px;
+    padding: 0 24px 24px;
     gap: 24px;
   }
 `;

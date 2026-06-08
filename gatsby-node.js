@@ -509,6 +509,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     type TopicVideo {
       id: String
       title: String
+      author: String
+      authorimage: String
     }
     type MarkdownRemarkFrontmatter {
       ctaLabel: String
