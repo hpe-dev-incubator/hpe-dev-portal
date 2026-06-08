@@ -118,7 +118,7 @@ const jsonData = pm.response.json();
 pm.collectionVariables.set("BearerToken", jsonData.access_token);
 ```
 
-**Note:** Make sure you select Correct Environment While executing the Token API to get the variables properly.
+**Note:** Make sure you select Correct Environment while executing the Token API to get the variables properly.
 
 **Make subsequent secure REST API calls to OpsRamp platform services**
 
