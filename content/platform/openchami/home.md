@@ -7,7 +7,6 @@ image: /img/platforms/openchami.png
 width: large
 priority: 6
 frontpage: true
-date: 2026-01-21T11:04:37-06:00
 active: true
 tags:
   - open source

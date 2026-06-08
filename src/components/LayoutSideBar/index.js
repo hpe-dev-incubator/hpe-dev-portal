@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Grommet, Box, Main } from 'grommet';
 import theme from './theme';
 import './reset.css';
-import { Header } from '../index';
+import { Footer, Header } from '../index';
 
 const LayoutSideBar = ({ children, sidebarContent }) => {
   return (
     <Grommet theme={theme}>
-      <Header />
       <Box direction="row" justify="start" margin="none" pad="none">
         <Box basis="xxlarge" flex="shrink" margin="none" pad="none">
+          <Header />
           <Box direction="row" flex margin="none" pad="none">
             {/* Sidebar */}
             {sidebarContent && (
@@ -29,6 +29,7 @@ const LayoutSideBar = ({ children, sidebarContent }) => {
               {children}
             </Main>
           </Box>
+          <Footer />
         </Box>
       </Box>
     </Grommet>

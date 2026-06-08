@@ -14,7 +14,6 @@ const VideoList = ({
   setCurrent,
   setAutoPlay,
 }) => {
-  if (!id) return null;
   return (
     <Link to={`/hackshack/replays/${id}`}>
       <Button

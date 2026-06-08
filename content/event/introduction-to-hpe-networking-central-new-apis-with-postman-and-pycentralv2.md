@@ -3,12 +3,9 @@ title: "Introduction to HPE Networking Central's new APIs with Postman and PyCen
 dateStart: 2026-02-25T04:00:00.632Z
 dateEnd: 2026-02-25T05:00:00.648Z
 category: Meetup
-image: /img/events/events1.jpg
+image: /img/kadanza/hpe-net-1435220773_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=5QFTzwk9VrU
 width: large
-tags:
-- hpe networking
-- networking
 ---
 ## Introduction to HPE Networking Central's new APIs with Postman and PyCentralv2
 

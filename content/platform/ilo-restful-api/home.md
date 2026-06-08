@@ -6,7 +6,6 @@ image: /img/platforms/iLOrestfulAPI.svg
 width: medium
 priority: 19
 frontpage: true
-date: 2024-12-05T11:38:35+01:00
 active: true
 tags:
   - ilo-restful-api

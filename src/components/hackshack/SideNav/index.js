@@ -124,8 +124,8 @@ const SideNav = ({ data }) => {
         HPE EZMERAL
       </NavButton> */}
       <NavButton
-        active={location.pathname.startsWith('/hackshack/replays')}
-        to="/hackshack/replays"
+        active={location.pathname === '/hackshack/replays/:replayId'}
+        to="/hackshack/replays/0"
       >
         REPLAYS
       </NavButton>
@@ -196,7 +196,7 @@ const SideNav = ({ data }) => {
           />
           <ButtonLink align="start" key="yr" label="Your Role" to="/role" />
           <ButtonLink align="start" key="ev" label="Events" to="/events" />
-          <ButtonLink align="start" key="su" label="Training" to="/skillup" />
+          <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />
           <ButtonLink
             align="start"
             key="bl"

@@ -74,7 +74,7 @@ function SEO({ description, lang, meta, title, image }) {
       ].concat(meta)}
     >
       <script src="//h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-2-2-0/jquery.js" />
-      <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js&color_scheme=dark" />
+      <script src="//h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&hide_head_text=true" />
     </Helmet>
   );
 }

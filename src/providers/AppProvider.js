@@ -118,25 +118,6 @@ const AppProvider = ({ children }) => {
           }
         }
       }
-      topic: allMarkdownRemark(
-        filter: {
-          fields: { sourceInstanceName: { eq: "topic" } }
-          frontmatter: { active: { eq: true } }
-        }
-        sort: {frontmatter: {priority: ASC}}
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              priority
-            }
-          }
-        }
-      }
     }
   `);
 

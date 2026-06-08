@@ -23,7 +23,9 @@ import {
   CircleInformation,
 } from 'grommet-icons';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import { CardWrapper, ContrastLayer } from './styles';
+import AuthService from '../../../services/auth.service';
 import { AppContext } from '../../../providers/AppProvider';
 import Share from '../Share';
 
@@ -62,12 +64,18 @@ export const UnregisterLayer = ({
         method: 'GET',
         // eslint-disable-next-line max-len
         url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
+        headers: {
+          'x-access-token': AuthService.getCurrentUser().accessToken,
+        },
       })
         .then((customerData) => {
           axios({
             method: 'GET',
             // eslint-disable-next-line max-len
             url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
+            headers: {
+              'x-access-token': AuthService.getCurrentUser().accessToken,
+            },
           }).then((studentData) => {
             if (formData.username !== studentData.data.username) {
               setUserNameError('User name not found');
@@ -79,6 +87,9 @@ export const UnregisterLayer = ({
                 method: 'PUT',
                 // eslint-disable-next-line max-len
                 url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+                headers: {
+                  'x-access-token': AuthService.getCurrentUser().accessToken,
+                },
               })
                 .then(() => {
                   setUnregisterLayer(false);
@@ -256,6 +267,9 @@ export const SignupLayer = ({
         axios({
           method: 'POST',
           url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
+          headers: {
+            'x-access-token': AuthService.getCurrentUser().accessToken,
+          },
           data: { ...formData, email: formData.email.toLowerCase() },
         })
           .then((response) => {
@@ -272,11 +286,15 @@ export const SignupLayer = ({
             }
           })
           .catch((err) => {
-            console.log('err', err);
-            setError({
-              status: err.response.status,
-              message: err.response.data.message,
-            });
+            if (err.response.status === 401) {
+              AuthService.login().then(() => postCustomer());
+            } else {
+              console.log('err', err);
+              setError({
+                status: err.response.status,
+                message: err.response.data.message,
+              });
+            }
           });
       };
       postCustomer();
@@ -337,25 +355,13 @@ export const SignupLayer = ({
             error={emailError}
             required
           >
-            <TextInput
-              name="email"
-              value={formData.email}
-              onChange={setFormData}
-            />
+            <TextInput name="email" value={formData.email} onChange={setFormData} />
           </FormField>
           <FormField label="Full Name" name="name" required>
-            <TextInput
-              name="name"
-              value={formData.name}
-              onChange={setFormData}
-            />
+            <TextInput name="name" value={formData.name} onChange={setFormData}/>
           </FormField>
           <FormField label="Company Name" name="company" required>
-            <TextInput
-              name="company"
-              value={formData.company}
-              onChange={setFormData}
-            />
+            <TextInput name="company" value={formData.company} onChange={setFormData} />
           </FormField>
           <Box
             margin={{ top: 'medium' }}
@@ -631,14 +637,13 @@ const ScheduleCard = ({
 
   const [hover, setHover] = useState(false);
   // const resetFormData = () => {
-  const handlechange = (e) => {
-    const { name, value, type, checked } = e.target || '';
-    const inputvalue = type === 'checkbox' ? checked : value;
-    setFormData({
+    const handlechange=(e)=>{
+      const { name, value, type, checked } = e.target || '';
+      const inputvalue= (type==='checkbox') ? checked : value ;
+      setFormData({
       ...formData,
-      [name]: inputvalue,
-    });
-  };
+      [name]:inputvalue,
+    });};
   // };
 
   const checkHover = (e) => {
@@ -660,6 +665,7 @@ const ScheduleCard = ({
       axios({
         method: 'GET',
         url: `${uri}${DBid}`,
+        headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
         .then((res) => {
           if (res.data.capacity <= 0) {
@@ -667,7 +673,9 @@ const ScheduleCard = ({
           }
         })
         .catch((err) => {
-          console.log('error', err);
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getWorkshopbyID());
+          }
         });
     };
     if (
@@ -864,18 +872,17 @@ const ScheduleCard = ({
               )}
               {sessionType === 'Coding Challenge' ||
               sessionType === 'Workshops-on-Demand' ? (
-                <Button
-                  href={sessionLink}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  label={
-                    <Box pad="xsmall">
-                      <Text color="text-strong" size={textSize}>
-                        Learn more
-                      </Text>
-                    </Box>
-                  }
-                />
+                <Link to={`../${sessionLink}`}>
+                  <Button
+                    label={
+                      <Box pad="xsmall">
+                        <Text color="text-strong" size={textSize}>
+                          Learn more
+                        </Text>
+                      </Box>
+                    }
+                  />
+                </Link>
               ) : (
                 <Box direction="row" gap="medium">
                   <Button

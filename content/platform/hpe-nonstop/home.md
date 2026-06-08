@@ -6,7 +6,6 @@ description: HPE NonStop is HPE’s self-healing platform which allows
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 6
-date: 2025-08-11T13:59:29+02:00
 active: true
 tags:
   - hpe-nonstop

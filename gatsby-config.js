@@ -85,7 +85,7 @@ module.exports = {
       resolve: 'gatsby-plugin-styled-components',
     },
     {
-      resolve: 'gatsby-plugin-decap-cms',
+      resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
@@ -163,13 +163,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/featuredcards`,
-        name: 'featuredcards',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `${__dirname}/content/skillup`,
         name: 'skillup',
       },
@@ -179,13 +172,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: 'assets',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/topic`,
-        name: 'topic',
       },
     },
     {
@@ -228,13 +214,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/hackshackhome`,
         name: 'hackshackhome',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/video`,
-        name: 'video',
       },
     },
     {
@@ -564,7 +543,7 @@ module.exports = {
           { name: 'path', store: true },
           { name: 'sourceInstanceName', store: true },
           { name: 'author', store: true },
-          { name: 'externalLink', store: true },
+          {name: 'externalLink',store:true}
         ],
         filterNodes: (node) => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
@@ -587,7 +566,7 @@ module.exports = {
                   )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
             author: (node) => node.frontmatter.author,
-            externalLink: (node) => node.frontmatter.externalLink,
+            externalLink:(node)=> node.frontmatter.externalLink
           },
         },
       },

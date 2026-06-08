@@ -15,7 +15,6 @@ tags:
 ## **Crea tu propio AI Agent con HPE & Nvidia**
 
 ### Bogota, Colombia
-
 February 24, 2026
 
 Únase a nosotros en un taller práctico y envolvente en el que aprenderá a diseñar e implementar casos de uso de IA generativa del mundo real en HPE Private Cloud AI, con tecnología NVIDIA AI Enterprise Software.

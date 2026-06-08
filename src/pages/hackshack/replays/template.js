@@ -10,6 +10,7 @@ import {
   Video,
   PageHeader,
 } from '../../../components/hackshack';
+import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
 import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 
@@ -18,7 +19,7 @@ const sortReplays = (replayData, current) => {
   const end = [];
 
   replayData.map((replay) => {
-    if (current > replay.replayId) {
+    if (current > replay.id) {
       end.push(replay);
     } else {
       beggining.push(replay);
@@ -29,78 +30,96 @@ const sortReplays = (replayData, current) => {
 };
 
 const ReplayTemplate = (props) => {
-  const getWorkshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+  const getReplaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    const getReplays = () => {
+      axios({
+        method: 'GET',
+        url: getReplaysApi,
+      })
+        .then((response) => {
+          setReplays(response.data);
+        })
+        .catch(() => {
+          setError(
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+          );
+          console.log(error);
+        });
+    };
+    const getToken = () => {
+      AuthService.login().then(
+        () => {
+          getReplays(AuthService.getCurrentUser().accessToken);
+        },
+        () => {
+          setError(
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+          );
+        },
+      );
+    };
+    getToken();
+    // eslint-disable-next-line
+  }, [error, getReplaysApi]);
   const { workshopId, workshopTitle, workshopDesc, workshopImg } =
     props.pageContext;
   const workshopIndex = workshopId
     ? parseInt(props.pageContext.workshopId, 10)
     : 0;
   const [current, setCurrent] = useState(workshopIndex);
-
-  useEffect(() => {
-    const getReplays = () => {
-      axios({
-        method: 'GET',
-        url: getWorkshopsApi,
-      })
-        .then((response) => {
-          const filtered = response.data.filter(
-            (w) => w.replayLink && w.replayId,
-          );
-          setReplays(filtered);
-          // On the index page (no specific workshopId), default to the first replay
-          if (!workshopId && filtered.length > 0) {
-            setCurrent(filtered[0].replayId);
-          }
-        })
-        .catch(() => {
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
-        });
-    };
-    getReplays();
-    // eslint-disable-next-line
-  }, []);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  const selectedReplay = replays.find(({ replayId }) => replayId === current);
+  const selectedReplay = replays.find(({ id }) => id === current);
 
   return (
     <GrommetThemeWrapper>
       <Layout background="/img/BackgroundImages/generic-background.jpg">
         <Box style={{ minHeight: 'calc(100vh - 345px)' }}>
-          <PageHeader title={workshopTitle || 'Replays'}>
+          <PageHeader title={workshopTitle}>
             <SEO
-              title={workshopTitle || 'Replays'}
+              title={workshopTitle}
               description={workshopDesc}
               image={workshopImg}
             />
             {selectedReplay ? (
               <>
                 <Video
-                  videolink={selectedReplay.replayLink}
-                  id={selectedReplay.replayId}
+                  videolink={selectedReplay.videoLink}
+                  id={selectedReplay.id}
                   avatar={selectedReplay.avatar}
-                  desc={selectedReplay.description}
-                  key={selectedReplay.name}
+                  desc={selectedReplay.desc}
+                  key={selectedReplay.title}
                   presenter={selectedReplay.presenter}
                   role={selectedReplay.role}
-                  title={selectedReplay.name}
+                  title={selectedReplay.title}
                   setCurrent={setCurrent}
                   current={current}
                   replaysLength={replays.length}
                   autoplay={autoplay}
-                  notebook={selectedReplay.notebook}
-                  sessionType={selectedReplay.sessionType}
-                  location={selectedReplay.location}
-                  capacity={selectedReplay.capacity}
-                  workshopTitle={selectedReplay.name}
+                  notebook={
+                    selectedReplay.workshop && selectedReplay.workshop.notebook
+                  }
+                  sessionType={
+                    selectedReplay.workshop &&
+                    selectedReplay.workshop.sessionType
+                  }
+                  location={
+                    selectedReplay.workshop && selectedReplay.workshop.location
+                  }
+                  capacity={
+                    selectedReplay.workshop && selectedReplay.workshop.capacity
+                  }
+                  workshopTitle={
+                    selectedReplay.workshop && selectedReplay.workshop.name
+                  }
                   workshopId={workshopId}
-                  workshopDuration={selectedReplay.duration}
+                  workshopDuration={
+                    selectedReplay.workshop && selectedReplay.workshop.duration
+                  }
                 />
                 <Heading color="text" style={{ fontWeight: '500' }} level={2}>
                   UP NEXT
@@ -131,16 +150,15 @@ const ReplayTemplate = (props) => {
               </Box>
             )}
             {sortedReplays.map(
-              ({ description, presenter, role, name, replayLink, replayId }) =>
-                replayId &&
-                replayId !== current && (
+              ({ desc, presenter, role, title, videoLink, id }) =>
+                id !== current && (
                   <VideoList
-                    key={name}
-                    id={replayId}
-                    desc={`${description.slice(0, 150)}...`}
-                    title={name}
+                    key={title}
+                    id={id}
+                    desc={`${desc.slice(0, 150)}...`}
+                    title={title}
                     presenter={presenter}
-                    videoLink={replayLink}
+                    videoLink={videoLink}
                     role={role}
                     setCurrent={setCurrent}
                     setAutoPlay={setAutoPlay}

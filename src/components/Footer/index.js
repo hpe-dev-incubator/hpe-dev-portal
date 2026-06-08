@@ -5,6 +5,8 @@ import { Box, Heading, Anchor } from 'grommet';
 import axios from 'axios';
 import { EmailCapture } from '../../containers';
 import Feedback from '../Feedback/index';
+import AuthService from '../../services/auth.service';
+// import { AppContext } from '../../providers/AppProvider';
 
 export const Footer = () => {
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(undefined);
@@ -12,18 +14,33 @@ export const Footer = () => {
     axios({
       method: 'POST',
       url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/email/send-feedback`,
+      headers: {
+        'x-access-token': AuthService.getCurrentUser().accessToken,
+      },
       data: {
         message: data.message,
         email: data.email,
         proxy: 'hackshack',
       },
     })
-      .then(() => {
+      .then((response) => {
         setIsSubmissionSuccess(true);
+        console.log('response', response);
+        if (response?.data?.status === 200) {
+          console.log('success');
+        } else {
+          console.log('failure');
+        }
       })
       .catch((err) => {
         setIsSubmissionSuccess(false);
-        console.log('err', err);
+        if (err.response) {
+          if (err.response.status === 401) {
+            AuthService.login().then(() => sendEmail());
+          } else {
+            console.log('err', err);
+          }
+        }
       });
   };
   return (
@@ -114,7 +131,7 @@ export const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Feedback
+        <Feedback
         style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
         position="right"
         headerText="Help us improve the Community"

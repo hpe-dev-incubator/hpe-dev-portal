@@ -25,6 +25,9 @@ import {
   Questions,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import AuthService from '../../services/auth.service';
+
+const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
 export const SuccessLayer = ({ setLayer, size, emailId, reset }) => (
   <Layer position="center" style={{ borderRadius: '4px 0px 0px 4px' }}>
@@ -138,16 +141,17 @@ function Evangelist({ data }) {
 
   const emailValidation = (email) => {
     if (email) {
-      const lastAtPos = email.lastIndexOf('@');
-      const lastDotPos = email.lastIndexOf('.');
+      const emailtemp = email;
+      const lastAtPos = emailtemp.lastIndexOf('@');
+      const lastDotPos = emailtemp.lastIndexOf('.');
 
       if (
         !(
           lastAtPos < lastDotPos &&
           lastAtPos > 0 &&
-          email.indexOf('@@') === -1 &&
+          emailtemp.indexOf('@@') === -1 &&
           lastDotPos > 2 &&
-          email.length - lastDotPos > 2
+          emailtemp.length - lastDotPos > 2
         )
       ) {
         setEmailError('Email is not valid');
@@ -165,6 +169,9 @@ function Evangelist({ data }) {
         axios({
           method: 'POST',
           url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/evangelist`,
+          headers: {
+            'x-access-token': AuthService.getCurrentUser().accessToken,
+          },
           data: { ...formData, emailId: formData.emailId.toLowerCase() },
         })
           .then((response) => {
@@ -178,11 +185,15 @@ function Evangelist({ data }) {
             }
           })
           .catch((err) => {
-            console.log('err', err);
-            setError({
-              status: err.response.status,
-              message: err.response.data.message,
-            });
+            if (err.response.status === 401) {
+              AuthService.login().then(() => postEvangelist());
+            } else {
+              console.log('err', err);
+              setError({
+                status: err.response.status,
+                message: err.response.data.message,
+              });
+            }
           });
       };
       postEvangelist();

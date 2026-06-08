@@ -7,6 +7,5 @@
           image: '/img/platforms/Chapel.svg'
           Featured: true
           active: true
-          github: 'https://github.com/chapel-lang/chapel'
 ---
           

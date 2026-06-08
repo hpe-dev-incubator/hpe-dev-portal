@@ -5,6 +5,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
+import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
 
 const Student = (props) => {
@@ -17,6 +18,20 @@ const Student = (props) => {
   const onActive = (nextIndex) => setIndex(nextIndex);
 
   useEffect(() => {
+    const getToken = () => {
+      AuthService.login().then(
+        () => {
+          getCustomers(AuthService.getCurrentUser().accessToken);
+        },
+        (err) => {
+          console.log('Error: ', err);
+          setError(
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+          );
+        },
+      );
+    };
+
     // get the details from customers table where lastEmailSent = 'credentials' or 'expiring'
     // this customer data will have a studentId
     // Make getStudents API call by studentId and display the username and password.
@@ -24,6 +39,7 @@ const Student = (props) => {
       axios({
         method: 'GET',
         url: getCustomerApi,
+        headers: { 'x-access-token': token },
       })
         .then((response) => {
           if (response.data.length) {
@@ -34,7 +50,7 @@ const Student = (props) => {
             );
             if (filteredData.length) {
               filteredData.forEach((item) => {
-                getStudents(item.studentId);
+                getStudents(token, item.studentId);
               });
             } else {
               setError('There are currently no active students. Stay tuned!');
@@ -42,17 +58,21 @@ const Student = (props) => {
           }
         })
         .catch((err) => {
-          console.log('err', err);
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getToken());
+          } else {
+            setError(
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+            );
+          }
         });
     };
 
-    const getStudents = (studentId) => {
+    const getStudents = (token, studentId) => {
       axios({
         method: 'GET',
         url: `${getStudentsApi}/${studentId}`,
+        headers: { 'x-access-token': token },
       })
         .then((response) => {
           arr.push({ ...response.data });
@@ -63,12 +83,16 @@ const Student = (props) => {
             setError('There are currently no active students. Stay tuned!');
         })
         .catch((err) => {
-          setError(
-            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
-          );
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getToken());
+          } else {
+            setError(
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
+            );
+          }
         });
     };
-    getCustomers();
+    getToken();
   }, []);
 
   console.log('students in students ', students);

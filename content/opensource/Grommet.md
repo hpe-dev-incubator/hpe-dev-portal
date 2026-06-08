@@ -7,6 +7,5 @@
           image: '/img/platforms/Grommet.svg'
           Featured: true
           active: true
-          github: 'https://github.com/grommet/grommet'
 ---
           

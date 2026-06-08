@@ -36,11 +36,11 @@ function Skillup({ data }) {
   const siteTitle = siteMetadata.title;
   return (
     <Layout title={siteTitle}>
-      <SEO title="Training" />
+      <SEO title="Skill Up" />
       <PageDescription
         image="/img/skillup/skill_up.svg"
-        title="Training"
-        alt="training dev logo"
+        title="Skill Up"
+        alt="skillup dev logo"
       >
         <Paragraph size="large">
           With technology constantly evolving, it can be challenging to keep up.
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "skillup" } }
         frontmatter: { disable: { ne: true } }
       }
-      sort: { frontmatter: { priority: ASC } }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {
