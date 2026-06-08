@@ -161,8 +161,8 @@ Click Send. If successful, the API returns an identifier for the created alert: 
 
 **Summary**
 
-In this blog post, we took the first step towards programmatically interacting with OpsRamp platform services. We generated API credentials using a Custom Integration configured with OAuth2, defined reusable Postman collection variables, and acquired an OAuth access token to securely authenticate the API requests. Using this foundation, we made your first subsequent secure REST API call to create an alert in OpsRamp, demonstrating how external systems can integrate directly with the platform for alert ingestion and automation. 
+This blog post describes the first step towards programmatically interacting with OpsRamp platform services. It shows how to generate API credentials using a custom integration configured with OAth2, define reusable Postman collection variables, and acquire an OAuth access token to securely authenticate the API requests. Using this foundation, you will be able to make your first subsequent secure REST API call to create an alert in OpsRamp and demonstrate how external systems can integrate directly with the platform for alert ingestion and automation.
 With this setup in place, you can extend your workflows further by integrating OpsRamp APIs into monitoring tools, automation pipelines, or external platforms for real-time operations and visibility. 
 
 
-Please keep coming back to the [HPE Developer Community blog ](https://developer.hpe.com/blog/)to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations. Together, we can move closer to fully autonomous IT operations.
+Please keep coming back to the [HPE Developer Community blog ](https://developer.hpe.com/blog/)to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
