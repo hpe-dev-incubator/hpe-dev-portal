@@ -7,6 +7,7 @@ disable: false
 tags:
   - hpe-opsramp
   - tutorial
+  - api
 ---
 HPE OpsRamp, as a unified IT operations and observability platform, provides a set of common services that help organizations monitor, manage, and automate their IT environments. These services commonly include alerting and event intake, monitoring, resource management, and integrations with external systems. 
 
