@@ -7,5 +7,6 @@ youtubelink: "https://www.youtube.com/watch?v=Rv9V5BWoRKE"
 date: "2023-05-01"
 tags:
   - automation
+  - open-source
 disable: false
 ---
