@@ -248,7 +248,7 @@ export const pageQuery = graphql`
         frontmatter: { disable: { ne: true } }
       }
       sort: { frontmatter: { date: DESC } }
-      limit: 6
+      limit: 8
     ) {
       edges {
         node {

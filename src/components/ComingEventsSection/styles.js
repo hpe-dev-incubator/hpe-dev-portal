@@ -62,15 +62,14 @@ export const CarouselTrack = styled.div`
 export const EventCard = styled.div`
   flex: 0 0 ${({ $width }) => $width || CARD_WIDTH}px;
   width: ${({ $width }) => $width || CARD_WIDTH}px;
-  background: #f7f7f7;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: background 0.2s;
 
   &:hover {
-    box-shadow: 0 8px 32px rgba(41, 45, 58, 0.12);
+    background: #f7f7f7;
   }
 `;
 
