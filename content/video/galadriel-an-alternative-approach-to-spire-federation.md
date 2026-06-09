@@ -7,5 +7,6 @@ youtubelink: "https://www.youtube.com/watch?v=IfaBCBXJBdw"
 date: "2023-12-01"
 tags:
   - open-source
+  - security
 disable: false
 ---

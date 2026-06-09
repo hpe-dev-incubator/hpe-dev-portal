@@ -6,6 +6,7 @@ youtubeid: "nDa_NQPbbVY"
 youtubelink: "https://www.youtube.com/watch?v=nDa_NQPbbVY"
 date: "2023-05-01"
 tags:
-  - networking
+  - hybrid-cloud
+  - hpe-opsramp
 disable: false
 ---

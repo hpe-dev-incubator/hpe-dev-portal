@@ -7,5 +7,7 @@ youtubelink: "https://www.youtube.com/watch?v=a1GVV-b9hCI"
 date: "2024-08-01"
 tags:
   - compute
+  - hpe-opsramp
+  - hybrid-cloud
 disable: false
 ---

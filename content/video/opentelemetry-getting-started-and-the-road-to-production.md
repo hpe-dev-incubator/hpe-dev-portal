@@ -6,6 +6,6 @@ youtubeid: "odi9isyZOrU"
 youtubelink: "https://www.youtube.com/watch?v=odi9isyZOrU"
 date: "2023-09-01"
 tags:
-  - networking
+  - open-source
 disable: false
 ---

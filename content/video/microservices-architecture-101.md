@@ -6,6 +6,6 @@ youtubeid: "qyyxQU37ZyQ"
 youtubelink: "https://www.youtube.com/watch?v=qyyxQU37ZyQ"
 date: "2023-11-01"
 tags:
-  - api
+  - kubernetes
 disable: false
 ---

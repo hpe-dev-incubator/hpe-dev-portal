@@ -6,6 +6,6 @@ youtubeid: "CPiMcIjXyVA"
 youtubelink: "https://www.youtube.com/watch?v=CPiMcIjXyVA"
 date: "2023-07-01"
 tags:
-  - open-source
+  - hybrid-cloud
 disable: false
 ---

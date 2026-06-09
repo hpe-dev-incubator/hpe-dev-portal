@@ -7,5 +7,6 @@ youtubelink: "https://www.youtube.com/watch?v=WUlH17ruIek"
 date: "2024-01-01"
 tags:
   - hybrid-cloud
+  - AI
 disable: false
 ---
