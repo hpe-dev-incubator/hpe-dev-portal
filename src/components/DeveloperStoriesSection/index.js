@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Heading, Text, Anchor, ResponsiveContext } from 'grommet';
 import { LinkNext } from 'grommet-icons';
@@ -18,23 +18,28 @@ import {
 } from './styles';
 
 const DEVELOPER_THUMBNAILS = [
-  '/img/dev-stories/developer1.jpg',
-  '/img/dev-stories/developer2.jpg',
-  '/img/dev-stories/developer3.jpg',
-  '/img/dev-stories/developer4.jpg',
-  '/img/dev-stories/developer5.jpg',
+  '/img/dev-stories/dev-story-0.jpg',
+  '/img/dev-stories/dev-story-1.jpg',
+  '/img/dev-stories/dev-story-2.jpg',
+  '/img/dev-stories/dev-story-3.jpg',
+  '/img/dev-stories/dev-story-4.jpg',
+  '/img/dev-stories/dev-story-5.jpg',
+  '/img/dev-stories/dev-story-6.jpg',
+  '/img/dev-stories/dev-story-7.jpg',
+  '/img/dev-stories/dev-story-8.jpg',
+  '/img/dev-stories/opsramp-terraform.png',
 ];
 
-const getThumbnail = (title, index) => {
-  const lower = (title || '').toLowerCase();
-  if (lower.includes('opsramp')) return '/img/dev-stories/OpsRamp.jpg';
-  if (lower.includes('morpheus')) return '/img/dev-stories/Morpheus.jpg';
-  return DEVELOPER_THUMBNAILS[index % DEVELOPER_THUMBNAILS.length];
-};
+const getThumbnail = () =>
+  DEVELOPER_THUMBNAILS[Math.floor(Math.random() * DEVELOPER_THUMBNAILS.length)];
+
+const shuffleThumbnails = () =>
+  [...DEVELOPER_THUMBNAILS].sort(() => Math.random() - 0.5);
 
 const DeveloperStoriesSection = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const size = useContext(ResponsiveContext);
+  const shuffledThumbnails = useMemo(shuffleThumbnails, []);
 
   if (blogs.length === 0) return null;
 
@@ -72,7 +77,9 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
               node.excerpt && node.excerpt.length > 130
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
                 : node.excerpt || '';
-            const coverImg = thumbnailimage || getThumbnail(title, index);
+            const coverImg =
+              thumbnailimage ||
+              shuffledThumbnails[index % shuffledThumbnails.length];
 
             return (
               <StoryCard key={slug}>

@@ -84,7 +84,7 @@ const SLIDES = [
 ];
 
 const AUTO_ADVANCE_MS = 5000;
-const ENABLE_AUTO_ADVANCE = false;
+const ENABLE_AUTO_ADVANCE = true;
 
 const HeroBannerSection = () => {
   const [index, setIndex] = useState(0);

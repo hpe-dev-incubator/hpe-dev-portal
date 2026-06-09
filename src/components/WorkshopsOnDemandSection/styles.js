@@ -28,9 +28,14 @@ export const CarouselTrack = styled.div`
 export const StoryCard = styled.div`
   flex: 0 0 ${CARD_WIDTH}px;
   overflow: hidden;
-  background: #f7f7f7;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #f7f7f7;
+  }
 `;
 
 export const CardImageWrapper = styled.div`
@@ -47,7 +52,7 @@ export const CardImageGradient = styled.div`
   left: 0;
   right: 0;
   height: 80px;
-  background: linear-gradient(to bottom, rgba(247, 247, 247, 0), #f7f7f7);
+  background: linear-gradient(to bottom, transparent, #ffffff);
   pointer-events: none;
 `;
 
