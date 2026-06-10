@@ -99,23 +99,25 @@ OpsRamp supports all major ITSM entities required for day to day operations:
 
 <div align="center">
 
-Entity Type     | Purpose     |
-| -------- | ------- |
-| Service Request | Low risk, pre approved user requests |
-| Incident | Service disruptions or failures  |
-| Problem    | Root cause analysis for recurring issues     |
-| Change | Controlled changes with approvals  | 
-| Task | One time scheduled operational activities  |
-| Time Bound| Recurring or scheduled access activities with approvals | 
+| Entity Type     | Purpose                                                 |
+| --------------- | ------------------------------------------------------- |
+| Service Request | Low risk, pre approved user requests                    |
+| Incident        | Service disruptions or failures                         |
+| Problem         | Root cause analysis for recurring issues                |
+| Change          | Controlled changes with approvals                       |
+| Task            | One time scheduled operational activities               |
+| Time Bound      | Recurring or scheduled access activities with approvals |
+
 </div>
 
-**Callout** — Best Practice 
+***Callout*** — Best Practice 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
 
-###  Service Desk Configuration
+### Service Desk Configuration
+
 OpsRamp allows deep configuration without customization overhead. 
 
-#### Configuration Components 
+#### Configuration Components
 
 * Settings (Rules & Behavior) 
 * Custom Forms (Business Context) 
@@ -126,6 +128,7 @@ OpsRamp allows deep configuration without customization overhead.
 * Status Change Reasons
 
 #### Settings
+
 Settings allows admins to define how different ticket entities behave during their lifecycle.
 
 * Ticket conversations, email notifications, SLA, approvals, etc
@@ -133,26 +136,35 @@ Settings allows admins to define how different ticket entities behave during the
 #### Customize ticket fields using Custom Forms
 
 Custom Forms help customize tickets with:
-* Addition of custom fields to ticket entities to capture business specific information
 
+* Addition of custom fields to ticket entities to capture business specific information
 * Custom fields use in alert policy filters
 * Custom fields visibility restriction to specific users.
 
-
 #### Organize using Categories
+
 Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report and analyse ticket trends.
 
+#### Workflow Governance with Status Flows
 
-#### Workflow Governance with Status Flows 
-Clear Ownership at Every Stage
+Clear Ownership at Every Stage of Ticket Flow
 
-Ticket Flow
-
-[New → Open → Pending / On-Hold → Resolved → Closed]
-
+\[New → Open → Pending / On-Hold → Resolved → Closed]
 
 * Ensures accountability 
 * Prevents uncontrolled state changes 
 * Improves SLA compliance 
 
-Callout - Ticket Flow can be customized per user’s need using Status Flows
+***Callout*** - Ticket Flow can be customized per user’s need using Status Flows
+
+#### Intelligent Prioritization Framework
+
+Impact × Urgency = Priority 
+
+OpsRamp derives ticket priority using a structured Priority Matrix. 
+
+* Business Impact: Scope of service disruption 
+* Urgency: Time sensitivity of resolution 
+
+**Consistency Benefit**:
+Every team prioritizes tickets the same way—reducing subjectivity and escalation noise.
