@@ -95,9 +95,9 @@ Command Center
 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams.
 
-<div align="center">
 OpsRamp supports all major ITSM entities required for day to day operations:
 
+<div align="center">
 
 Entity Type     | Purpose     |
 | -------- | ------- |
@@ -108,3 +108,51 @@ Entity Type     | Purpose     |
 | Task | One time scheduled operational activities  |
 | Time Bound| Recurring or scheduled access activities with approvals | 
 </div>
+
+**Callout** — Best Practice 
+Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
+
+###  Service Desk Configuration
+OpsRamp allows deep configuration without customization overhead. 
+
+#### Configuration Components 
+
+* Settings (Rules & Behavior) 
+* Custom Forms (Business Context) 
+* Business Impacts and Urgencies
+* Categories (Logical Grouping) 
+* Status Flow (Controlled Transitions) 
+* Priority Matrix
+* Status Change Reasons
+
+#### Settings
+Settings allows admins to define how different ticket entities behave during their lifecycle.
+
+* Ticket conversations, email notifications, SLA, approvals, etc
+
+#### Customize ticket fields using Custom Forms
+
+Custom Forms help customize tickets with:
+* Addition of custom fields to ticket entities to capture business specific information
+
+* Custom fields use in alert policy filters
+* Custom fields visibility restriction to specific users.
+
+
+#### Organize using Categories
+Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report and analyse ticket trends.
+
+
+#### Workflow Governance with Status Flows 
+Clear Ownership at Every Stage
+
+Ticket Flow
+
+[New → Open → Pending / On-Hold → Resolved → Closed]
+
+
+* Ensures accountability 
+* Prevents uncontrolled state changes 
+* Improves SLA compliance 
+
+Callout - Ticket Flow can be customized per user’s need using Status Flows
