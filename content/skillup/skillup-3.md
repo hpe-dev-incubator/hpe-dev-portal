@@ -1,5 +1,5 @@
 ---
-title: HPE AI Developer Day
+title: HPE AI Developer Days
 link: https://events.bizzabo.com/797906/home
 linkname: Get the details
 description: Build and deploy a real AI solution in a small-group workshop guided by HPE and NVIDIA advisors - and leave with the tools, skills, and confidence to do it again.
