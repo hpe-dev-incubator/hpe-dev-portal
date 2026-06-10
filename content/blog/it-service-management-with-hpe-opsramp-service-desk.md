@@ -75,33 +75,36 @@ Key Business Outcomes
 * Automation
 * Reporting 
 
-#### Navigation Overview 
+#### Navigation Overview
+
 Command Center
- 
- 
-           └── Tickets (Operations & Views) 
+
+```
+       └── Tickets (Operations & Views) 
+```
+
  Setup
- 
-      └── Account 
-        
-               └── Service Desk (Configuration & Automation) 
 
+```
+  └── Account 
+    
+           └── Service Desk (Configuration & Automation) 
+```
 
-### Core ITSM Capabilities 
+### Core ITSM Capabilities
 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams.
 
-
-
 <div align="center">
 OpsRamp supports all major ITSM entities required for day to day operations:
- 
-| Entity Type     | Purpose     |
+
+
+Entity Type     | Purpose     |
 | -------- | ------- |
 | Service Request | Low risk, pre approved user requests |
-| L1/L2 cache | KV cache slices currently in use |
-| RAM    | Overall KV cache across all layers    | Working set for model inference |
-| SSD / object storage | Prompt, documents | Fed in before KV cache populates |
-| Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
- 
+| Incident | Service disruptions or failures  |
+| Problem    | Root cause analysis for recurring issues     |
+| Change | Controlled changes with approvals  | 
+| Task | One time scheduled operational activities  |
+| Time Bound| Recurring or scheduled access activities with approvals | 
 </div>
