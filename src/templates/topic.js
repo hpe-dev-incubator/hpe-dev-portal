@@ -359,12 +359,14 @@ function TopicTemplate({ data }) {
                         title: resourceTitle,
                         date,
                         author,
+                        externalLink,
                       } = node.frontmatter;
                       const { slug, sourceInstanceName } = node.fields;
                       const typeLabel =
                         SOURCE_TYPE_LABELS[sourceInstanceName] ||
                         sourceInstanceName;
-                      const href = `/${sourceInstanceName}${slug}`;
+                      const href =
+                        externalLink || `/${sourceInstanceName}${slug}`;
                       const formattedDate = date
                         ? dateFormat.format(new Date(date))
                         : null;
@@ -412,15 +414,32 @@ function TopicTemplate({ data }) {
                               </Text>
                             )}
                           </Box>
-                          <Link to={href} style={{ textDecoration: 'none' }}>
-                            <Text
-                              size={size === 'small' ? 'xlarge' : 'xxlarge'}
-                              weight="500"
-                              color="#292D3A"
+                          {externalLink ? (
+                            <Anchor
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ textDecoration: 'none' }}
                             >
-                              {resourceTitle}
-                            </Text>
-                          </Link>
+                              <Text
+                                size={size === 'small' ? 'xlarge' : 'xxlarge'}
+                                weight="500"
+                                color="#292D3A"
+                              >
+                                {resourceTitle}
+                              </Text>
+                            </Anchor>
+                          ) : (
+                            <Link to={href} style={{ textDecoration: 'none' }}>
+                              <Text
+                                size={size === 'small' ? 'xlarge' : 'xxlarge'}
+                                weight="500"
+                                color="#292D3A"
+                              >
+                                {resourceTitle}
+                              </Text>
+                            </Link>
+                          )}
                           {node.excerpt && (
                             <Text
                               size={size === 'small' ? 'large' : 'xlarge'}
@@ -547,6 +566,7 @@ export const pageQuery = graphql`
             tags
             author
             active
+            externalLink
             youtubeid
             youtubelink
             authorimage
