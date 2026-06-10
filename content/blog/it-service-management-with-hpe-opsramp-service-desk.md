@@ -71,10 +71,10 @@ Key Business Outcomes
 <div align="center">
 Here’s how to map KV cache to conventional storage concepts:
  
-| Storage concept    | LLM equivalent | Explanation |
-| -------- | ------- | ------- |
-| Registers  | Tensor cores, attention units    | Compute engines |
-| L1/L2 cache | KV cache slices currently in use     | Immediate access attention data |
+| Storage concept    | LLM equivalent    |
+| -------- | ------- |
+| Registers  | Tensor cores, attention units |
+| L1/L2 cache | KV cache slices currently in use |
 | RAM    | Overall KV cache across all layers    | Working set for model inference |
 | SSD / object storage | Prompt, documents | Fed in before KV cache populates |
 | Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
