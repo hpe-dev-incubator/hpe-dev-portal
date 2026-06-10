@@ -10,6 +10,7 @@ tags:
 - spiffe
 - spire
 - spiffe-and-spire-projects
+- security
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=IfaBCBXJBdw&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

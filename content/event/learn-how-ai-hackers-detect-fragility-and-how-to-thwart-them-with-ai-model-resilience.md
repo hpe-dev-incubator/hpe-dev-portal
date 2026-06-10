@@ -8,6 +8,7 @@ tags:
 - AI
 - machine-learning
 - artificial-intelligence
+- security
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=CMASNlKuTao&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

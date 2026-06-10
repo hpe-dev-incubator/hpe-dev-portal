@@ -8,6 +8,7 @@ tags:
 - hybrid-cloud
 - hpe-greenlake
 - management
+- security
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=A77yVzNtIKs&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

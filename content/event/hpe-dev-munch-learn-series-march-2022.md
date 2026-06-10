@@ -7,6 +7,7 @@ tags:
 - open-source
 - spiffe
 - spire
+- security
 image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large

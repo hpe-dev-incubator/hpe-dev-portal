@@ -5,6 +5,7 @@ dateEnd: 2023-04-26T21:58:37.980Z
 category: Virtual Event
 tags:
 - hybrid-cloud
+- devops
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=LbCw7Z7KT1U&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

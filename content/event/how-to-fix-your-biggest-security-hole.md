@@ -5,6 +5,7 @@ dateEnd: 2024-11-20T22:30:07.153Z
 category: Munch & Learn
 tags:
 - hybrid-cloud
+- security
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=mgla3ovDlXA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

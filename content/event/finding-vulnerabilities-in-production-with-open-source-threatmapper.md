@@ -8,6 +8,7 @@ tags:
 - kubernetes
 - containers
 - open-source
+- security
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large

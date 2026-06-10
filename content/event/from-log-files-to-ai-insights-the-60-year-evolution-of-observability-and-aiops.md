@@ -9,6 +9,7 @@ tags:
 - machine-learning
 - artificial-intelligence
 - management
+- hpe-opsramp
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=VnKSnf7G4-4&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

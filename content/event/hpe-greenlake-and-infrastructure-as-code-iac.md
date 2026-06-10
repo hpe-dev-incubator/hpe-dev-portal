@@ -8,6 +8,7 @@ tags:
 - devops
 - hpe-greenlake
 - automation
+- api
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
