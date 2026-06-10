@@ -1,5 +1,5 @@
 ---
-title: IT Service Management with HPE OpsRamp Service Desk
+title: HPE OpsRamp Service Desk Overview
 date: 2026-06-10T09:35:11.564Z
 priority: ""
 author: Sudhir K
@@ -51,11 +51,11 @@ HPE OpsRamp Service Desk delivers a modern IT Service Management (ITSM) experien
 
 HPE OpsRamp supports all key IT service management scenarios through standardized entities: 
 
-* Incidents for service disruptions
-* Service Requests for pre approved user needs 
-* Problems to address root causes 
-* Changes with controlled approvals 
-* Tasks & Time Bound Activities for operational execution
+* **Incidents** for service disruptions
+* **Service Requests** for pre approved user needs 
+* **Problems** to address root causes 
+* **Changes** with controlled approvals 
+* **Tasks** & **Time Bound** activities for operational execution
 
 Why HPE OpsRamp Service Desk?
 
@@ -68,16 +68,40 @@ Key Business Outcomes
 * Clear visibility with role based access and reporting 
 * Designed for Simplicity and Scale
 
-<div align="center">
-Here’s how to map KV cache to conventional storage concepts:
+**Service Desk** provides a single experience for: 
+
+* Ticket Operations
+* Configuration 
+* Automation
+* Reporting 
+
+#### Navigation Overview 
+Command Center
  
-| Storage concept    | LLM equivalent    |
+ 
+           └── Tickets (Operations & Views) 
+ Setup
+ 
+      └── Account 
+        
+               └── Service Desk (Configuration & Automation) 
+
+
+### Core ITSM Capabilities 
+
+Standardized entities ensure consistent reporting, automation, and SLA tracking across teams.
+
+
+
+<div align="center">
+OpsRamp supports all major ITSM entities required for day to day operations:
+ 
+| Entity Type     | Purpose     |
 | -------- | ------- |
-| Registers  | Tensor cores, attention units |
+| Service Request | Low risk, pre approved user requests |
 | L1/L2 cache | KV cache slices currently in use |
 | RAM    | Overall KV cache across all layers    | Working set for model inference |
 | SSD / object storage | Prompt, documents | Fed in before KV cache populates |
 | Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
  
 </div>
-
