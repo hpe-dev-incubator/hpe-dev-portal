@@ -10,6 +10,35 @@ tags:
   - HPE OpsRamp Service Desk
   - hpe-opsramp
 ---
+<style>
+table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+}
+th, td {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid grey;
+    text-align: left !important;
+    font-weight: normal !important;
+    padding: 10px !important;
+}
+th {
+    text-align: center !important;
+    font-weight: bold !important;
+    background-color: #f5f5f5;
+    font-weight: bold !important;
+}
+</style>
+
 A Unified, Automated, and Insight Driven ITSM Platform 
 
 ## Purpose of This Guide
@@ -27,3 +56,28 @@ HPE OpsRamp supports all key IT service management scenarios through standardize
 * Problems to address root causes 
 * Changes with controlled approvals 
 * Tasks & Time Bound Activities for operational execution
+
+Why HPE OpsRamp Service Desk?
+
+Key Business Outcomes
+
+* Centralized ticket management
+* Faster incident resolution 
+* Consistent service delivery with SLA enforcement 
+* Reduced manual effort through automation 
+* Clear visibility with role based access and reporting 
+* Designed for Simplicity and Scale
+
+<div align="center">
+Here’s how to map KV cache to conventional storage concepts:
+ 
+| Storage concept    | LLM equivalent | Explanation |
+| -------- | ------- | ------- |
+| Registers  | Tensor cores, attention units    | Compute engines |
+| L1/L2 cache | KV cache slices currently in use     | Immediate access attention data |
+| RAM    | Overall KV cache across all layers    | Working set for model inference |
+| SSD / object storage | Prompt, documents | Fed in before KV cache populates |
+| Cold storage | Archived corpora, vector DB, documents | Retrieved only as needed |
+ 
+</div>
+
