@@ -3,12 +3,16 @@ title: "HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster
 dateStart: 2022-03-30T16:00:51.279Z
 dateEnd: 2022-03-30T17:00:51.298Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- data-science
+- artificial-intelligence
+- hybrid-cloud
+- automation
 image: /img/Meetups_192_192.svg
 link: https://hpe.zoom.us/webinar/register/8216432918970/WN_h-SgJ0_kRmiUIm-A3GEPiA
 width: large
-tags:
-  - Meetups
-  - hpe-ezmeral
 ---
 ## Meetups
 

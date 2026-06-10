@@ -3,12 +3,13 @@ title: Create your own AI agent Paris, France
 dateStart: 2026-03-10T08:00:36.204Z
 dateEnd: 2026-03-10T16:30:36.215Z
 category: HPE AI Developer Day
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
 image: /img/events/events8.jpg
 link: https://events.bizzabo.com/797906/page/5526657/paris-information
 width: large
-tags:
-  - HPE DEV
-  - AI
 ---
 # **H**
 

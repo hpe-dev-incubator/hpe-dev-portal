@@ -3,12 +3,16 @@ title: Getting Started with Aruba Central automation
 dateStart: 2024-02-27T23:01:00.318Z
 dateEnd: 2024-02-28T22:59:21.527Z
 category: Virtual Event
+tags:
+- networking
+- aruba
+- network-automation
+- automation
+- api
+- hpe networking
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=R4oo-7ACuLg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
-tags:
-- hpe networking
-- networking
 ---
 ## Getting Started with Aruba Central automation
 

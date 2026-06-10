@@ -3,12 +3,15 @@ title: HPE AI Developer Days San Jose, California
 dateStart: 2026-01-26T09:30:51.820Z
 dateEnd: 2026-01-26T15:00:51.828Z
 category: HPE AI Developer Day
+tags:
+- AI
+- hpe-private-cloud-ai
+- machine-learning
+- artificial-intelligence
+- hybrid-cloud
 image: /img/kadanza/hpe-san-jose-1224893561_450_0_72_rgb.jpg
 link: https://events.bizzabo.com/797906/page/5472193/bay-area-information
 width: large
-tags:
-  - HPE DEV
-  - AI
 ---
 # ** **
 

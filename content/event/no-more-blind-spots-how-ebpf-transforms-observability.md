@@ -3,6 +3,11 @@ title: "No more blind spots: How eBPF transforms observability"
 dateStart: 2025-03-25T23:01:55.464Z
 dateEnd: 2025-03-26T22:30:55.477Z
 category: Meetup
+tags:
+- hybrid-cloud
+- networking
+- open-source
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=qH93yD5KSL8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

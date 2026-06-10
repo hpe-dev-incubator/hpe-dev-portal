@@ -4,6 +4,10 @@ title: Accelerating scientific research through high performance computing
 dateStart: 2023-02-14T23:01:10.039Z
 dateEnd: 2023-02-15T22:59:10.101Z
 category: Virtual Event
+tags:
+- data-science
+- hpc
+- open-source
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=DnmhTj1PVIU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

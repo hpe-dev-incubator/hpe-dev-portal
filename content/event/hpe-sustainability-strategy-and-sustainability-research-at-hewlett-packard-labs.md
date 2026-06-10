@@ -3,6 +3,8 @@ title: HPE Sustainability Strategy and Sustainability Research at Hewlett Packar
 dateStart: 2022-10-18T22:01:01.542Z
 dateEnd: 2022-10-19T21:59:01.558Z
 category: Virtual Event
+tags:
+- hybrid-cloud
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=SUgdVsncWrk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large

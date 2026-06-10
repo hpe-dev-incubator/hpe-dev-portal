@@ -3,6 +3,12 @@ title: Optimizing deep neural network inference workloads
 dateStart: 2023-11-14T23:01:04.402Z
 dateEnd: 2023-11-15T22:59:04.454Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- deep-learning
+- artificial-intelligence
+- networking
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=Ck5dVgp68uA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

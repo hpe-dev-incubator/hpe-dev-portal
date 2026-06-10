@@ -3,11 +3,15 @@ title: Golden Age of AI, Dark Ages of AI Infrastructure
 dateStart: 2022-02-16T16:00:51.279Z
 dateEnd: 2022-02-16T17:00:51.298Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- deep-learning
+- artificial-intelligence
+- open-source
 image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
-tags:
-  - determined-ai
 ---
 
 ### Golden Age of AI, Dark Ages of AI Infrastructure

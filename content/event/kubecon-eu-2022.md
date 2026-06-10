@@ -3,11 +3,14 @@ title: KubeCon EU 2022
 dateStart: 2022-05-16T06:00:34.562Z
 dateEnd: 2022-05-20T21:59:00.996Z
 category: Event
+tags:
+- hybrid-cloud
+- cloud-native
+- kubernetes
+- open-source
 image: /img/kubeconeu-2022-event-card-image.png
 link: https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/
 width: large
-tags:
-  - KubeCon
 ---
 ## KubeCon EU 2022
 #### May 16-20, 2022 EU Valencia, Spain + Virtual

@@ -4,6 +4,13 @@ title: "HPE Compute Ops Management APIs and the DevOps ecosystem: Updates and
 dateStart: 2025-06-17T22:01:58.632Z
 dateEnd: 2025-06-18T21:30:58.648Z
 category: Meetup
+tags:
+- compute
+- hybrid-cloud
+- devops
+- hpe-greenlake
+- api
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=TKl_gRJnoxk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

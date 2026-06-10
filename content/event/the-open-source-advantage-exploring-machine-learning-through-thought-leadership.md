@@ -4,6 +4,12 @@ title: "The open-source advantage: Exploring machine learning through thought
 dateStart: 2023-10-17T22:01:28.976Z
 dateEnd: 2023-10-18T21:59:29.024Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- open-source
+- hpe-ezmeral
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=BgirPJNDtxs&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

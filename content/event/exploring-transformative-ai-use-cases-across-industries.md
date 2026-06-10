@@ -3,6 +3,13 @@ title: Exploring Transformative AI Use Cases Across Industries
 dateStart: 2024-08-20T22:01:30.910Z
 dateEnd: 2024-08-21T21:30:30.927Z
 category: VMunch & Learn
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- automation
+- management
+- data-management
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=XEJqcdWj790&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

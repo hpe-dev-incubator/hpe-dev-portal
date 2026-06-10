@@ -3,6 +3,11 @@ title: World Artificial Intelligence Cannes Festival
 dateStart: 2022-04-13T22:01:58.575Z
 dateEnd: 2022-04-16T21:59:58.595Z
 category: Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- swarm-learning
 image: /img/waicf-event-image.png
 link: https://worldaicannes.com/
 width: large

@@ -3,6 +3,11 @@ title: "Lessons in AI for retailers: Transforming the shopping experience"
 dateStart: 2025-05-13T22:01:47.026Z
 dateEnd: 2025-05-14T21:30:47.043Z
 category: AI Jam Session
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- management
 image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=_8gnUunB7bM&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

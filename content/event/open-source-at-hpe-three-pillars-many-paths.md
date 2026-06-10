@@ -3,6 +3,11 @@ title: "Open Source at HPE: Three Pillars, Many Paths"
 dateStart: 2026-03-18T16:00:15.207Z
 dateEnd: 2026-03-18T17:00:15.214Z
 category: Munch & Learn
+tags:
+- networking
+- open-source
+- storage
+- data-management
 image: /img/events/events7.jpg
 link: https://www.youtube.com/watch?v=c3L13ELQ51o
 width: large

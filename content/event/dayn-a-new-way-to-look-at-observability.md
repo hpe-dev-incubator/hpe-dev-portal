@@ -3,6 +3,9 @@ title: DayN+ - A new way to look at observability
 dateStart: 2025-04-15T22:01:37.826Z
 dateEnd: 2025-04-16T21:30:37.839Z
 category: Munch & Learn
+tags:
+- hybrid-cloud
+- management
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=nDa_NQPbbVY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

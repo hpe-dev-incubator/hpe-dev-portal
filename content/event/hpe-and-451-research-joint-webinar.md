@@ -3,6 +3,8 @@ title: HPE and 451 Research joint webinar
 dateStart: 2024-09-16T22:01:16.801Z
 dateEnd: 2024-09-17T21:30:16.823Z
 category: Meetup
+tags:
+- hybrid-cloud
 image: /img/451-partner-webinar338x310.png
 link: https://hpe.zoom.us/webinar/register/WN_n98IKYO1QSqlOdXrN9SUDA#/registration
 width: large

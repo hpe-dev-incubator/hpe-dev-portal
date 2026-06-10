@@ -3,11 +3,14 @@ title: HPE Discover 2022
 dateStart: 2022-06-27T22:00:02.294Z
 dateEnd: 2022-06-30T21:59:02.320Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- hybrid-cloud
 image: /img/hpe-discover-2022-event.png
 link: https://www.hpe.com/us/en/discover.html
 width: large
-tags:
-  - Discover
 ---
 ## HPE Discover 2022
 ### Join the HPE Developer Community team in the Hack Shack

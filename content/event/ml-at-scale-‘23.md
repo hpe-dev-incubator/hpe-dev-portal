@@ -3,6 +3,11 @@ title: ML-at-Scale ‘23
 dateStart: 2023-09-11T22:01:42.109Z
 dateEnd: 2023-09-13T21:59:00.000Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- open-source
 image: /img/ml-at-scale-hopin-1500x600-copy.png
 link: https://hopin.com/events/ml-at-scale-23
 width: large

@@ -3,11 +3,12 @@ title: What's a data fabric and how does it work?
 dateStart: 2021-01-27T16:00:00.000Z
 dateEnd: 2021-01-27T17:00:00.000Z
 category: Virtual Event
+tags:
+- data-management
+- data-fabric
 image: /img/Munch_and_Learn_192_192.svg
 link: /campaign/munch-and-learn/
 width: large
-tags:
-  - hpedev
 ---
 ## Munch & Learn series
 What's a data fabric and how does it work?

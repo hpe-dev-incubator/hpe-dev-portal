@@ -3,6 +3,10 @@ title: Exploring HPE GreenLake Platform APIs through use cases
 dateStart: 2023-12-12T23:01:48.854Z
 dateEnd: 2023-12-13T22:59:48.885Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- hpe-greenlake
+- api
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=IM7W89Vt7zQ&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

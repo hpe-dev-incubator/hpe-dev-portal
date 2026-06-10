@@ -3,6 +3,12 @@ title: HPE GreenLake and Infrastructure-as-Code (IaC)
 dateStart: 2023-01-24T23:01:54.733Z
 dateEnd: 2023-01-25T22:59:54.811Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- devops
+- hpe-greenlake
+- automation
+- api
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=zUo8Ag2IXqk&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

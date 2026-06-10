@@ -3,6 +3,11 @@ title: The Transformative Impact of Generative AI on Telco Products
 dateStart: 2024-04-16T22:01:21.295Z
 dateEnd: 2024-04-17T21:59:21.335Z
 category: Munch & Learn
+tags:
+- AI
+- machine-learning
+- llm
+- artificial-intelligence
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=61ghjMnc-JU&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

@@ -4,6 +4,11 @@ title: Automated continuous deployment of container-based applications onto HPE
 dateStart: 2023-11-28T23:01:42.052Z
 dateEnd: 2023-11-29T22:59:42.089Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- containers
+- devops
+- hpe-greenlake
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=WlFohNTqv8w&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

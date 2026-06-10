@@ -3,6 +3,11 @@ title: "Automate what happens next using HPE OpsRamp Process Automation"
 dateStart: 2026-05-20T22:01:58.632Z
 dateEnd: 2026-05-20T21:30:58.648Z
 category: Meetup
+tags:
+- automation
+- management
+- hpe-opsramp
+- opsramp
 image: /img/events/events3.jpg
 link: https://www.youtube.com/watch?v=jIVcG1NIsfw
 width: large

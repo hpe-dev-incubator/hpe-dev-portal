@@ -4,6 +4,8 @@ title: "Calling all citizen developers: Can low-code platforms accelerate your
 dateStart: 2022-11-16T16:00:00.000Z
 dateEnd: 2022-11-16T17:00:00.000Z
 category: Virtual Event
+tags:
+- hybrid-cloud
 image: /img/Munch_and_Learn_192_192.svg
 link: https://www.youtube.com/watch?v=zc_54fq8PoY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large

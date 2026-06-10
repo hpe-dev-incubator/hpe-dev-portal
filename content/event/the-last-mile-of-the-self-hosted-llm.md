@@ -3,6 +3,13 @@ title: The last mile of the self-hosted LLM
 dateStart: 2023-11-07T16:30:00.000Z
 dateEnd: 2023-11-07T19:00:00.000Z
 category: Event
+tags:
+- AI
+- machine-learning
+- data-science
+- llm
+- artificial-intelligence
+- networking
 image: https://secure.meetupstatic.com/photos/event/7/9/7/8/600_516451096.webp?w=384
 link: https://www.meetup.com/london-data-science-group/events/296562152/
 width: large
