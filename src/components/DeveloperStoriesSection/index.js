@@ -28,6 +28,7 @@ const DEVELOPER_THUMBNAILS = [
   '/img/dev-stories/dev-story-7.jpg',
   '/img/dev-stories/dev-story-8.jpg',
   '/img/dev-stories/opsramp-terraform.jpg',
+  '/img/dev-stories/opsramp-dashboard.jpg',
 ];
 
 const getThumbnail = () =>
