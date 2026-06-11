@@ -3,11 +3,11 @@ title: The 9th Annual Chapel Implementers and Users Workshop (CHIUW)
 dateStart: 2022-06-09T15:00:00.000Z
 dateEnd: 2022-06-11T00:00:00.667Z
 category: Virtual Event
+tags:
+- chapel
 image: /img/chapel_192_192.svg
 link: https://chapel-lang.org/CHIUW2022.html
 width: large
-tags:
-  - chapel
 ---
 ## CHIUW 2022
 

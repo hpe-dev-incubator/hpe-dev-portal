@@ -3,6 +3,10 @@ title: Cool AI Use Case, Now What?
 dateStart: 2024-10-01T22:01:00.000Z
 dateEnd: 2024-10-02T21:30:41.009Z
 category: AI Jam Session
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
 image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=gxpcBISePhE&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

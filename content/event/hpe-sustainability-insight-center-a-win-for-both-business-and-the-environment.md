@@ -4,6 +4,8 @@ title: "HPE Sustainability Insight Center: A Win for both Business and the
 dateStart: 2025-05-20T22:01:01.766Z
 dateEnd: 2025-05-21T21:30:01.780Z
 category: Munch & Learn
+tags:
+- hybrid-cloud
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=1H0M-c7g744&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

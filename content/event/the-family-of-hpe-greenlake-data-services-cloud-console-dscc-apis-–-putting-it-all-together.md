@@ -3,6 +3,13 @@ title: The data services family of APIs for HPE GreenLake – Putting it all tog
 dateStart: 2024-04-23T22:01:23.098Z
 dateEnd: 2024-04-24T21:59:23.131Z
 category: Meetup
+tags:
+- hybrid-cloud
+- hpe-greenlake
+- automation
+- api
+- storage
+- data-management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=-ffzhc6TzoA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

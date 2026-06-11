@@ -3,6 +3,11 @@ title: Observability in action
 dateStart: 2023-07-25T22:01:34.108Z
 dateEnd: 2023-07-26T21:59:34.176Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- management
+- hpe-opsramp
+- opsramp
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=ogBb_IPXorM&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

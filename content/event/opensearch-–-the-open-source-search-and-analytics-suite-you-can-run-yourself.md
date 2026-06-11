@@ -4,6 +4,8 @@ title: "OpenSearch – The open-source search and analytics suite you can run
 dateStart: 2022-06-22T15:01:00.000Z
 dateEnd: 2022-06-22T15:59:00.000Z
 category: Virtual Event
+tags:
+- open-source
 image: /img/event-meetups-newlogo-400x400.png
 link: https://developer.hpe.com/campaign/meetups
 width: large

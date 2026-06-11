@@ -3,6 +3,11 @@ title: HPE Machine Learning Development Environment and the Open Source ML Advan
 dateStart: 2023-05-30T22:01:55.243Z
 dateEnd: 2023-05-31T21:59:55.313Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- artificial-intelligence
+- open-source
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=e8Fv4IWl38s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

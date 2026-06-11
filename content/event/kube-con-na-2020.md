@@ -5,9 +5,14 @@ dateEnd: 2020-11-20T20:00:00.000Z
 image: /img/events/KubeconLogo.svg
 link: https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2020/
 width: large
-tags:
-  - KubeCon
 category: Virtual Event
+tags:
+- hybrid-cloud
+- cloud-native
+- kubernetes
+- containers
+- open-source
+- spiffe
 ---
 ## KubeCon NA 2020
 November 17-20, 2020 NA

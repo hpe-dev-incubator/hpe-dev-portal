@@ -3,11 +3,14 @@ title: "HPE Webinar: Is there life after Hadoop?"
 dateStart: 2021-08-26T11:00:00.000Z
 dateEnd: 2021-08-26T21:59:43.878Z
 category: Virtual Event
+tags:
+- compute
+- hybrid-cloud
+- open-source
+- hpe-ezmeral
 image: /img/brighttalk-logo-large.png
 link: https://www.brighttalk.com/webcast/12641/503646?utm_source=HewlettPackardEnterprise&utm_medium=brighttalk&utm_campaign=503646
 width: large
-tags:
-  - hpedev
 ---
 ## HPE Webinar: 
 ## Is there life after Hadoop?

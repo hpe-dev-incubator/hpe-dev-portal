@@ -3,6 +3,12 @@ title: Using HPE GreenLake edge-to-cloud platform to build a private cloud
 dateStart: 2024-01-23T23:01:18.279Z
 dateEnd: 2024-01-24T22:59:18.327Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- hpe-greenlake
+- automation
+- api
+- management
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=Rm1z2pHtyw0&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

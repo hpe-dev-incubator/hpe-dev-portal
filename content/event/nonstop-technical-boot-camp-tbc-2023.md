@@ -3,11 +3,13 @@ title: NonStop Technical Boot Camp (TBC) 2023
 dateStart: 2023-09-12T09:58:22.120Z
 dateEnd: 2023-09-14T09:58:22.159Z
 category: Event
+tags:
+- hpe-nonstop
+- hybrid-cloud
+- devops
 image: https://images.squarespace-cdn.com/content/v1/5ca77ecc11f7841fe54add82/6a20c389-633f-4f3e-a9db-4349fc8beb04/NonStop2023-WebsiteBanner-02_1.png?format=2500w
 link: https://www.nonstoptbc.com
 width: large
-tags:
-  - hpe-nonstop
 ---
 ## NonStop Technical Boot Camp (TBC) 2023
 

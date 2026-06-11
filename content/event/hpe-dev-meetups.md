@@ -3,11 +3,13 @@ title: Quarkus - Supersonic Subatomic Java
 dateStart: 2022-01-26T16:00:51.279Z
 dateEnd: 2022-01-26T17:00:51.298Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- kubernetes
+- containers
 image: /img/Meetups_192_192.svg
 link: https://developer.hpe.com/campaign/meetups
 width: large
-tags:
-  - Meetups
 ---
 ## Meetups
 

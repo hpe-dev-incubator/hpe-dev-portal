@@ -6,6 +6,7 @@ image: /img/platforms/Oneview.svg
 width: large
 priority: 16
 frontpage: true
+date: 2022-06-24T17:04:12+02:00
 active: true
 tags:
   - hpe-oneview

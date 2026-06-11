@@ -7,7 +7,7 @@ import { graphql } from 'gatsby';
 import { Layout, SEO } from '../../components';
 import { AppContext } from '../../providers/AppProvider';
 
-const image = '/images/hero-pic.png';
+const image = '/images/hero-pic2.png';
 const buttonStyle = {
   backgroundColor: '#dcdcdc',
   borderRadius: '100px',
@@ -116,9 +116,12 @@ export default function Slacksignup() {
               alt="slack logo"
             />
             <p style={{ fontWeight: 400, fontSize: '22px' }}>
-              Where you’ll find all things software at HPE. Join us to
-              collaborate and build applications and integrations with HPE
-              products using the latest software and open source technologies
+
+              <b>Unlock Your Developer Potential with the HPE Developer Community Slack!</b><br /><br />
+              Join a vibrant, dynamic space where innovation, collaboration, and learning thrive! The HPE Developer Community Slack workspace is your go-to hub for connecting with fellow developers, sharing ideas, and staying ahead of the latest technologies. <br />
+              <br />
+
+              Don’t miss out on the power of community. Get involved today and elevate your development journey!
             </p>
           </Box>
           <Text size="large">Email</Text>
@@ -143,15 +146,21 @@ export default function Slacksignup() {
               type="submit"
               onSubmit={onsubmit}
               icon={
-                <Image
-                  src="/img/home/hpe-element.png"
-                  style={{ width: '50px' }}
-                />
+            <Image
+              style={{
+                height: '20px',
+                width: '25px',
+                float: 'right',
+              }}
+              src="/img/community/slack.svg"
+              alt="slack logo"
+            />
               }
               style={{
-                backgroundColor: '#01A982',
-                borderRadius: '100px',
-                color: '#ffffff',
+                backgroundColor: '#ffffff',
+                border: '1px solid #0cb135',
+                borderRadius: '200px',
+                color: '#000200',
                 width: '250px',
                 position: 'relative',
                 height: '40px',

@@ -3,6 +3,8 @@ title: Intel Innovation 2022
 dateStart: 2022-09-27T14:41:12.997Z
 dateEnd: 2022-09-28T14:41:13.024Z
 category: Event
+tags:
+- hybrid-cloud
 image: /img/intelinnovation.jpg
 link: https://www.intel.com/content/www/us/en/events/on-event-series/innovation.html
 width: large

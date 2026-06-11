@@ -3,6 +3,13 @@ title: "ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE"
 dateStart: 2025-03-19T11:01:17.432Z
 dateEnd: 2025-03-19T22:30:17.452Z
 category: Munch & Learn
+tags:
+- AI
+- hpe-private-cloud-ai
+- machine-learning
+- llm
+- artificial-intelligence
+- hybrid-cloud
 image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=cAXwX3Yb62c&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

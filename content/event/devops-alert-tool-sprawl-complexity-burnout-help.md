@@ -3,6 +3,12 @@ title: "DevOps Alert: Tool Sprawl. Complexity. Burnout. Help!"
 dateStart: 2023-09-26T22:01:07.227Z
 dateEnd: 2023-09-27T21:59:07.305Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- kubernetes
+- containers
+- devops
+- management
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=zlRJUl_aF04&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

@@ -3,6 +3,9 @@ title: The Hack Shack at Discover 2023
 dateStart: 2023-06-19T22:01:33.080Z
 dateEnd: 2023-06-22T21:59:33.203Z
 category: Event
+tags:
+- hybrid-cloud
+- hpe-greenlake
 image: /img/hpe-discover2023-event-card-840-320.png
 link: https://www.hpe.com/us/en/discover.html
 width: large

@@ -6,6 +6,7 @@ link: /platform/openchami/home
 description: HPC System Management for Cloud Engineers and HPC Sysadmins
 priority: 25
 Featured: true
-image: /img/openchami.png
+github: 'https://github.com/OpenCHAMI/ochami'
+image: /img/platforms/chami.jpg
 ---
 HPC System Management for Cloud Engineers and HPC Sysadmins

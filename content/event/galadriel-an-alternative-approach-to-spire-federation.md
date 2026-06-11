@@ -3,6 +3,14 @@ title: Galadriel -  An alternative approach to SPIRE federation
 dateStart: 2023-02-21T23:01:23.328Z
 dateEnd: 2023-02-22T22:59:23.470Z
 category: Virtual Event
+tags:
+- hybrid-cloud
+- cloud-native
+- open-source
+- spiffe
+- spire
+- spiffe-and-spire-projects
+- security
 image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=IfaBCBXJBdw&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large

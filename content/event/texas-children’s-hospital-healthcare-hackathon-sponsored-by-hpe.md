@@ -3,6 +3,8 @@ title: Texas Children’s Hospital Healthcare Hackathon
 dateStart: 2021-05-14T17:00:16.742Z
 dateEnd: 2021-05-24T04:55:16.756Z
 category: Virtual Event
+tags:
+- hybrid-cloud
 image: /img/events/texas-children-hospital-cover-image.png
 link: https://www.hackerearth.com/challenges/hackathon/texas-childrens-hospital-healthcare-hackathon/
 width: large
