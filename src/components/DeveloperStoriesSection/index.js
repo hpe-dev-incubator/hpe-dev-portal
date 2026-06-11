@@ -27,7 +27,7 @@ const DEVELOPER_THUMBNAILS = [
   '/img/dev-stories/dev-story-6.jpg',
   '/img/dev-stories/dev-story-7.jpg',
   '/img/dev-stories/dev-story-8.jpg',
-  '/img/dev-stories/opsramp-terraform.png',
+  '/img/dev-stories/opsramp-terraform.jpg',
 ];
 
 const getThumbnail = () =>
