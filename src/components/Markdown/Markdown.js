@@ -40,13 +40,43 @@ const deepMerge = (target, ...sources) => {
   return output;
 };
 
+const headingStyles = {
+  1: {
+    fontSize: 'clamp(40px, 5vw, 68px)',
+    fontWeight: 500,
+    lineHeight: 'clamp(46px, 5.5vw, 74px)',
+    letterSpacing: 'clamp(-0.8px, -0.04em, -2.72px)',
+  },
+  2: {
+    fontSize: 'clamp(32px, 3.5vw, 52px)',
+    fontWeight: 500,
+    lineHeight: 'clamp(38px, 4vw, 58px)',
+    letterSpacing: 'clamp(-0.32px, -0.03vw, -1.04px)',
+  },
+  3: {
+    fontSize: 'clamp(26px, 3.1vw, 36px)',
+    fontWeight: 500,
+    letterSpacing: 'clamp(0px, -0.02vw, -0.36px)',
+    lineHeight: 'clamp(32px, 3.6vw, 42px)',
+  },
+  4: {
+    fontSize: '28px',
+    fontWeight: 500,
+    letterSpacing: '-0.28px',
+    lineHeight: '33.992px',
+  },
+};
+
 const GrommetMarkdown = forwardRef(
   ({ children, components, options, theme, ...rest }, ref) => {
     const heading = [1, 2, 3, 4].reduce((obj, level) => {
       const result = { ...obj };
       result[`h${level}`] = {
         component: Heading,
-        props: { level },
+        props: {
+          level,
+          ...(headingStyles[level] ? { style: headingStyles[level] } : {}),
+        },
       };
       return result;
     }, {});
@@ -83,3 +113,4 @@ const GrommetMarkdown = forwardRef(
 );
 
 export { GrommetMarkdown };
+export { headingStyles };
