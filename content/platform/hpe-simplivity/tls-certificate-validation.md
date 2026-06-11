@@ -6,6 +6,7 @@ image: /img/simplivity.jpg
 frontpage: false
 priority: 2
 tags: ["hpe-simplivity"]
+disable: true
 ---
 
 Disabling/enabling TLS certificate validation on HPE OmniStack for vSphere

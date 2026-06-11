@@ -566,7 +566,7 @@ module.exports = {
           { name: 'author', store: true },
           { name: 'externalLink', store: true },
         ],
-        filterNodes: (node) => !!node.frontmatter,
+        filterNodes: (node) => !!node.frontmatter && !!node.fields,
         // How to resolve each field's value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the
