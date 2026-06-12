@@ -260,3 +260,25 @@ Designed to help users manage workload efficiently
 Operational and Executive Visibility 
 
 ![](/img/opsramp-sd-6.png)
+
+#### Ticket Details Report
+
+* Transaction level data 
+* Audits and deep operational analysis 
+
+![](/img/opsramp-sd-7.png)
+
+#### Ticket Insights Report
+
+Key Metrics: 
+
+* Ticket volumes and trends 
+* Priority and status breakdown 
+* Open vs resolved tickets 
+* Productivity averages per day 
+
+![](/img/opsramp-sd-8.png)
+
+**Insight to Action** 
+
+Measure performance, identify bottlenecks, and drive continuous improvement.
