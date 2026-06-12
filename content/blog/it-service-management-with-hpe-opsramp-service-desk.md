@@ -222,3 +222,18 @@ Triggered by:
 #### Scheduled Tasks
 
 *Setup --> Account --> Service Desk --> Scheduled Tasks*
+
+### Persona Based User Experience
+
+* Purpose Driven Access Control
+* Security & Governance Advantage 
+  Role based access ensures visibility without compromising control. 
+
+<div align="center">
+
+| Persona       | Capabilities                                        |
+| ------------- | --------------------------------------------------- |
+| Regular User  | Full ticket lifecycle management                    |
+| Business User | View only or comment based access (RBAC controlled) |
+
+</div>
