@@ -41,7 +41,7 @@ th {
 
 A Unified, Automated, and Insight Driven ITSM Platform 
 
-## Purpose of This Guide
+### Purpose of This Guide
 
 This document provides an overview of HPE OpsRamp Service Desk capabilities, configuration areas, automation features, and reporting. It is intended to help users understand how the platform works.
 
@@ -127,6 +127,8 @@ OpsRamp allows deep configuration without customization overhead.
 * Priority Matrix
 * Status Change Reasons
 
+![](/img/opsramp-sd-1.png)
+
 #### Settings
 
 Settings allows admins to define how different ticket entities behave during their lifecycle.
@@ -168,3 +170,50 @@ OpsRamp derives ticket priority using a structured Priority Matrix.
 
 **Consistency Benefit**:
 Every team prioritizes tickets the same way—reducing subjectivity and escalation noise.
+
+#### Accountability with Status Change Reasons
+
+**Visibility Drives Better Outcomes** 
+By capturing reasons for every status change, OpsRamp: 
+
+* Improves audit and compliance readiness 
+* Clarifies ticket history 
+* Strengthens operational transparency
+
+### Service Desk Automation
+
+Built In Automation That Scales IT Operations
+
+![](/img/opsramp-sd-2.png)
+
+#### Service Level Agreements (SLAs)
+
+*Setup --> Account --> Service Desk --> Service Level Agreements*
+
+* Priority based response and resolution timers 
+* Automated breach prevention 
+* Applicable to Incidents and Service Requests 
+
+#### Notifications
+
+*Setup --> Account --> Service Desk --> Notifications*
+
+Triggered by: 
+
+* Ticket creation or updates 
+* Status changes 
+* Priority thresholds 
+* Source (manual, email, integration, policy) 
+
+#### Auto Close Policies 
+*Setup --> Account --> Service Desk --> Auto Close Policies*
+* Reduces ticket backlog
+* Ensures system hygiene 
+
+#### Canned Response
+Setup --> Account --> Service Desk --> Canned Response
+* Faster, consistent user communication 
+* Automated recurring operational activities 
+
+#### Scheduled Tasks 
+Setup --> Account --> Service Desk --> Scheduled Tasks
