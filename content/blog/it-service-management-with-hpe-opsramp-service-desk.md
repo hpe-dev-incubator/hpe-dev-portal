@@ -173,8 +173,7 @@ Every team prioritizes tickets the same way—reducing subjectivity and escalati
 
 #### Accountability with Status Change Reasons
 
-**Visibility Drives Better Outcomes** 
-By capturing reasons for every status change, OpsRamp: 
+*Visibility Drives Better Outcomes* by capturing reasons for every status change, OpsRamp: 
 
 * Improves audit and compliance readiness 
 * Clarifies ticket history 
