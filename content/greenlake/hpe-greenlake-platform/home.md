@@ -24,7 +24,7 @@ ul li:first-child {
 }
 </style>
 
-HPE GreenLake cloud is a modular hybrid cloud platform that enables enterprises to unlock insights and innovate faster by deploying a single cloud operating model everywhere. 
+HPE GreenLake cloud is a modular hybrid cloud platform that enables enterprises to unlock insights and innovate faster by deploying a single cloud operating model everywhere.
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 
@@ -34,11 +34,15 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 
 The HPE GreenLake cloud APIs:
 
-* Conform to the OpenAPI 3.x specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
-* Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
-* Use a single OAuth token to access all APIs.
-* Are built to be secure and highly available.
-* Are RESTful for flexible implementation.
+- Conform to the OpenAPI 3.x specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
+
+- Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
+
+- Use a single OAuth token to access all APIs.
+
+- Are built to be secure and highly available.
+
+- Are RESTful for flexible implementation.
 
 We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more.
 
@@ -68,7 +72,7 @@ Create, read, and update physical locations used for shipping and support.
 
 >>[Visit locations management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)
 
-### Audit Log 
+### Audit Log
 
 Read details about user actions for accountability.
 
@@ -79,7 +83,6 @@ Read details about user actions for accountability.
 Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
 
 >>[Visit Wellness API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)
-
 
 Learn more about the unified HPE GreenLake cloud experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
