@@ -191,15 +191,37 @@ function TopicTemplate({ data }) {
       date: node.frontmatter.date,
     }));
 
-  const sortedResourcesForDisplay = [...resourcesForDisplay].sort((a, b) => {
-    const aDate = new Date(
-      a.node.frontmatter.date || a.node.frontmatter.dateStart || 0,
-    ).getTime();
-    const bDate = new Date(
-      b.node.frontmatter.date || b.node.frontmatter.dateStart || 0,
-    ).getTime();
-    return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
-  });
+  const sortedResourcesForDisplay = (() => {
+    const arr = [...resourcesForDisplay];
+    // For events with default sort: upcoming first (ascending), then recent past (descending)
+    if (activeFilter === 'event' && sortOrder !== 'Oldest first') {
+      const now = new Date();
+      const upcoming = arr
+        .filter((r) => new Date(r.node.frontmatter.dateStart || 0) >= now)
+        .sort(
+          (a, b) =>
+            new Date(a.node.frontmatter.dateStart || 0) -
+            new Date(b.node.frontmatter.dateStart || 0),
+        );
+      const past = arr
+        .filter((r) => new Date(r.node.frontmatter.dateStart || 0) < now)
+        .sort(
+          (a, b) =>
+            new Date(b.node.frontmatter.dateStart || 0) -
+            new Date(a.node.frontmatter.dateStart || 0),
+        );
+      return [...upcoming, ...past];
+    }
+    return arr.sort((a, b) => {
+      const aDate = new Date(
+        a.node.frontmatter.date || a.node.frontmatter.dateStart || 0,
+      ).getTime();
+      const bDate = new Date(
+        b.node.frontmatter.date || b.node.frontmatter.dateStart || 0,
+      ).getTime();
+      return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
+    });
+  })();
 
   const totalCount =
     activeFilter === 'all'
