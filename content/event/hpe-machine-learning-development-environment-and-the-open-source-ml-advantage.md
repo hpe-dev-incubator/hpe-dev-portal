@@ -12,8 +12,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=e8Fv4IWl38s&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## HPE Machine Learning Development Environment and the Open Source ML Advantage
-
-May 31, 2023
-
 Built upon the widely popular open source Determined Training Platform, the HPE Machine Learning Development Environment (MLDE) helps developers and scientists focus on innovation by removing the complexity and cost associated with machine learning model development. In this meetup, you’ll be exposed to the Determined platform and how it integrates the latest, innovative open source AI/ML technologies, including PyTorch, TensorFlow, and DeepSpeed, and new libraries to further accelerate distributed ML model training.

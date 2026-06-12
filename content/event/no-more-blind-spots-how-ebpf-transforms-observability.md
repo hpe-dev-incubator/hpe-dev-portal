@@ -12,8 +12,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=qH93yD5KSL8&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## No more blind spots: How eBPF transforms observability
-
-March 26, 2025
-
 In the world of modern cloud-native applications, traditional observability tools often fall short, leaving critical blind spots in performance monitoring, security, and troubleshooting. Enter eBPF (Extended Berkeley Packet Filter), a revolutionary technology that allows deep, low-overhead visibility into the Linux kernel without modifying application code or adding intrusive instrumentation. Join this session to explore how eBPF can transform observability by enabling real-time insights into system behavior, network traffic, and application performance. 

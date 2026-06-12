@@ -12,8 +12,6 @@ image: /img/events/events7.jpg
 link: https://www.youtube.com/watch?v=c3L13ELQ51o
 width: large
 ---
-## Open Source at HPE: Three Pillars, Many Paths
-
 03/18/2026
 
 Join us for a cross-pillar conversation on how HPE uses open source to enable platforms, power science, and scale infrastructure.

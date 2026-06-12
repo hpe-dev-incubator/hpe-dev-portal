@@ -13,8 +13,4 @@ image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=Ck5dVgp68uA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Optimizing deep neural network inference workloads
-
-November 15, 2023
-
 AI, and specifically deep learning, is driving significant advancements in many vertical markets. Whether within the computer vision or natural language processing domain, deploying this technology at scale requires overcoming many challenges and constraints. In this session, learn about deep neural network inference optimization techniques, their pros and cons, and how to use them together to optimize inference performance.

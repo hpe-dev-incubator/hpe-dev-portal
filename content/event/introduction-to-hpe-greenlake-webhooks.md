@@ -11,8 +11,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=CPiMcIjXyVA&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Introduction to HPE GreenLake cloud webhooks
-
-February 26, 2025
-
 This presentation introduces a new webhook functionality within HPE GreenLake cloud; one that enables platform services and applications to seamlessly publish events to external customer HTTP endpoints. Join this session to learn about the architecture, features, and benefits of this new webhook functionality, highlighting its potential to enhance platform extensibility and streamline integrations with customer systems.

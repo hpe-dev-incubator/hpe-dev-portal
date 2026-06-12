@@ -11,8 +11,4 @@ image: /img/event-munch-and-learn-newlogo400x400.png
 link: https://www.youtube.com/watch?v=dFYLyy7oL-Q&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1&t=4s&pp=iAQB
 width: large
 ---
-## State of the Nation – Linux distributions
-
-September 20, 2023
-
 Hear about the latest trends in Linux. Learn what happened to CentOS, the reasons why Red Hat no longer posts source code, and explore new minimal container deployment operating systems like CoreOS and SLE-Micro. In this session, Craig Lamparter of the HPE Linux Enablement Lab will discuss these topics as well as identify which Linux distributions are supported on HPE servers and why.

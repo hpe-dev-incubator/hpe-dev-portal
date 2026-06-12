@@ -11,8 +11,6 @@ image: https://images.squarespace-cdn.com/content/v1/5ca77ecc11f7841fe54add82/6a
 link: https://www.nonstoptbc.com
 width: large
 ---
-## NonStop Technical Boot Camp (TBC) 2023
-
 September 12-14, 2023
 
 Do not miss this opportunity to be the first to discover solutions for cyber resilience and hybrid cloud to help you stay ahead of the pack. At this event, systemadmins, architects, DBAs, DevOps practitioners and new comers will meet and hear from a thriving community that continues to define the gold standard for building the most reliable IT solutions! Register for the conference and book your hotel room now!

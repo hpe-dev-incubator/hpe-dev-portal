@@ -13,13 +13,4 @@ image: /img/kadanza/hpe-san-jose-1224893561_450_0_72_rgb.jpg
 link: https://events.bizzabo.com/797906/page/5472193/bay-area-information
 width: large
 ---
-
-## Build your own AI Agent with HPE & Nvidia
-
-### San Jose, California
-
-January 26, 2026
-
 Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
-
-#### [Register](https://events.bizzabo.com/797906/page/5472193/bay-area-information)

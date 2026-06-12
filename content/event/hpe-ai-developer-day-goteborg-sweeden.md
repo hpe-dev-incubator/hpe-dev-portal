@@ -13,13 +13,4 @@ image: /img/events/events5.jpg
 link: https://events.bizzabo.com/797906/page/5605984/sweden-information
 width: large
 ---
-
-## Build your own AI Agent with HPE & Nvidia
-
-### Göteborg, Sweden
-
-March 25, 2026
-
 Join us for an immersive, hands-on workshop where you’ll learn how to design and deploy real-world generative AI use cases on HPE Private Cloud AI, powered by NVIDIA AI Enterprise Software.
-
-#### [Register](https://events.bizzabo.com/797906/page/5605984/sweden-information)

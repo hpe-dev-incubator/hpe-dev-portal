@@ -15,8 +15,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=IfaBCBXJBdw&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Galadriel -  An alternative approach to SPIRE federation
-
-February 22, 2023
-
 SPIFFE and SPIRE contribute to strong identification and attestation of workloads in cloud native environments. A more scalable alternative to its current federation method, Galadriel, proposes to facilitate SPIRE federation of multiple trust domains via a central exchange hub. Join this Meetup to learn more about some of the limitations of the current federation method and how Galadriel’s architecture aims to address these, providing a simpler, more scalable solution.
