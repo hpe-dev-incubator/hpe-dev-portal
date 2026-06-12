@@ -44,13 +44,17 @@ To generate API credentials in OpsRamp, proceed as follows: 
 3. Go to Setup → Account → Integrations and ensure you are in the correct client. 
 4. Search for Custom Integration and add a new one. 
 
-![](/img/opramps-api1.png)
+![](/img/integration.png)
+
+
+
+![](/img/configure.png)
 
 5. Open the integration. In the Inbound tab, select Authentication Type as OAUTH2 and set Role as Client Administrator (or any role with API access). 
 
-![](/img/opramps-api2.png)
+![](/img/inbound1.png)
 
-![](/img/opramps-api3.png)
+![](/img/inbound2.png)
 
 ![](/img/opramps-api4.png)
 
@@ -69,9 +73,9 @@ The collection uses Postman collection variables that are available throughout a
 
 Environment > Create Environment.
 
-![](/img/opramps-api5.png)
+![](/img/postman1.png)
 
-![](/img/opramps-api6.png)
+![](/img/postman2.png)
 
 Define the current value of the collection variables to match your OpsRamp tenant context: 
 
@@ -112,7 +116,7 @@ OpsRamp APIs use a bearer token as an authorization type to ensure that all REST
 
 * The Generate Access Token request can define a post-response script in the Scripts tab (Postman Tests script) to programmatically set the collection variable BearerToken. The programmatically defined token is then used to authenticate any subsequent REST API calls. 
 
-![](/img/opramps-api9.png)
+![](/img/postman3.png)
 
 ```json
 const jsonData = pm.response.json(); 
@@ -125,7 +129,7 @@ pm.collectionVariables.set("BearerToken", jsonData.access_token);
 
 All subsequent REST API requests are authenticated by presenting the access token as the authorization bearer token to OpsRamp APIs. The service validates the access token, and if valid, serves the request. In this blog post, the access token is validated by creating an alert using a single API call.
 
-![](/img/opramps-api10.png)
+![](/img/postman4.png)
 
 **Example: Create an alert in OpsRamp using Postman** 
 
@@ -164,6 +168,5 @@ Click Send. If successful, the API returns an identifier for the created alert: 
 
 This blog post describes the first step towards programmatically interacting with OpsRamp platform services. It shows how to generate API credentials using a custom integration configured with OAth2, define reusable Postman collection variables, and acquire an OAuth access token to securely authenticate the API requests. Using this foundation, you will be able to make your first subsequent secure REST API call to create an alert in OpsRamp and demonstrate how external systems can integrate directly with the platform for alert ingestion and automation.
 With this setup in place, you can extend your workflows further by integrating OpsRamp APIs into monitoring tools, automation pipelines, or external platforms for real-time operations and visibility. 
-
 
 Please keep coming back to the [HPE Developer Community blog ](https://developer.hpe.com/blog/)to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
