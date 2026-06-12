@@ -6,7 +6,7 @@ description: Morpheus is a vendor-agnostic management platform for multi-cloud
 image: /img/platforms/morpheus-logo-192x187.png
 width: large
 priority: 7
-date: 2024-12-05T11:31:31+01:00
+date: 2025-12-05T11:31:31+01:00
 active: true
 tags:
   - morpheus
@@ -16,9 +16,11 @@ Morpheus, a Hewlett Packard Enterprise company, is a vendor-agnostic management 
 Learn more at [www.morpheusdata.com](https://morpheusdata.com/).
 
 ## API Documentation
+
 The Morpheus platform offers an extensive REST API to manage the configuration of the platform as well as deploy workloads to the various clouds that the platform supports. Detailed information about the REST API and how to use it can be found in the [Morpheus API documentation](https://apidocs.morpheusdata.com).
 
 ## Plugin Developer Portal
+
 The Morpheus platform offers a robust plugin framework that enables developers to build integrations to extend the native platform functionality. The framework includes providers for creating custom reports, cloud integrations, UI integrations, and more. Start building integrations with your environment by browsing through the [Morpheus developer portal](https://developer.morpheusdata.com).
 
 ## Morpheus Integrations
@@ -30,4 +32,5 @@ The Morpheus platform offers a robust plugin framework that enables developers t
 * **Morpheus CLI:** The Morpheus CLI is a Ruby-based command line tool for interacting with the Morpheus platform. The CLI can be used to programmatically manage the platform or deploy workloads using a YAML or JSON payload. Detailed information about the Morpheus CLI and how to use it can be found in the [CLI documentation](https://clidocs.morpheusdata.com).
 
 ## Gain hands-on experience with Morpheus
-The Morpheus platform includes a community edition that enables users to get hands-on experience with the Morpheus platform. The platform can be quickly deployed on a single Linux server running in a home lab, datacenter, or public cloud environment. Get started with the community edition at [https://morpheusdata.com/community](https://morpheusdata.com/community). 
+
+The Morpheus platform includes a community edition that enables users to get hands-on experience with the Morpheus platform. The platform can be quickly deployed on a single Linux server running in a home lab, datacenter, or public cloud environment. Get started with the community edition at [https://morpheusdata.com/community](https://morpheusdata.com/community).

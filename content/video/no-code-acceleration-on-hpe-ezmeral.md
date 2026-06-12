@@ -1,6 +1,6 @@
 ---
 title: "No-Code Acceleration on HPE Ezmeral"
-author: "HPE Developer Team"
+author: "Ashvin Kumar"
 authorimage: "/img/Avatar1.svg"
 youtubeid: "2A195hVR5Qk"
 youtubelink: "https://www.youtube.com/watch?v=2A195hVR5Qk"

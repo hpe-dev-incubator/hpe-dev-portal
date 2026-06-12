@@ -1,6 +1,6 @@
 ---
 title: "The open-source advantage: Exploring machine learning through thought leadership"
-author: "HPE Developer Team"
+author: "Amber Graner"
 authorimage: "/img/Avatar6.svg"
 youtubeid: "BgirPJNDtxs"
 youtubelink: "https://www.youtube.com/watch?v=BgirPJNDtxs"

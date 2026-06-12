@@ -1,6 +1,6 @@
 ---
 title: "Introduction to HPE Ezmeral Container platform REST API"
-author: "HPE Developer Team"
+author: "Denis Choukroun"
 authorimage: "/img/Avatar1.svg"
 youtubeid: "dVifpvY657w"
 youtubelink: "https://www.youtube.com/watch?v=dVifpvY657w"

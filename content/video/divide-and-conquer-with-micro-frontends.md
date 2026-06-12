@@ -1,6 +1,6 @@
 ---
 title: "Divide and conquer with Micro Frontends"
-author: "HPE Developer Team"
+author: "Vishal Sharma"
 authorimage: "/img/Avatar1.svg"
 youtubeid: "LbCw7Z7KT1U"
 youtubelink: "https://www.youtube.com/watch?v=LbCw7Z7KT1U"
