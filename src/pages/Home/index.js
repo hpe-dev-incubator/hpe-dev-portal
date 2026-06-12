@@ -269,7 +269,7 @@ export const pageQuery = graphql`
     opensource: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "opensource" } }
-        frontmatter: { featuredBlog: { eq: true } }
+        frontmatter: { active: { eq: true } }
       }
       sort: { frontmatter: { priority: ASC } }
     ) {

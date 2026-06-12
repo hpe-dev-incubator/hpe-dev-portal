@@ -12,13 +12,5 @@ image: /img/Meetups_192_192.svg
 link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
-## Meetups
-
-### Streamlit - The fastest way to build and share data science apps
-
-February 23, 2022
-
 Poor tooling slows down data science and machine learning projects. Projects often develop a unique ecosystem of bug-ridden and unmaintainable internal tools to analyze data through a patchwork of Jupyter Notebooks and Flask apps.
  In this talk, you’ll be introduced to **Streamlit**, the fastest way to build and share data apps as Python scripts to help alleviate this issue.
-
-

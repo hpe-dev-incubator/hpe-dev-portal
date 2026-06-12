@@ -11,8 +11,6 @@ image: /img/black-background-transparent-.png
 link: https://determined-ai.devpost.com/
 width: large
 ---
-## Determined AI Model Training Hackathon
-
 February 20, 2023 - April 17, 2023
 
 The Determined Community Team is running a hackathon! Build and train an ML model using Determined to win cash prizes.

@@ -6,6 +6,7 @@ image: /img/platforms/Greenlake.svg
 width: large
 priority: 1
 active: false
+date: 2024-12-01T11:31:31+01:00
 tags:
   - hpe-complete-care-itops
   - activation-and-onboarding-in-hpe-complete-care-service-itops

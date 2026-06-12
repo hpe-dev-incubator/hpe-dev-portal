@@ -7,6 +7,7 @@ description: A set of tools to guide the choice of the best hardware/software
   environment for a given deep learning workload.
 image: /img/platforms/HPEDeepLearningCookbook.svg
 frontpage: true
+date: 2021-12-05T11:31:31+01:00
 active: false
 tags:
   - hpe-deep-learning-cookbook

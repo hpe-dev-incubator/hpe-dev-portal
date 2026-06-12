@@ -6,6 +6,7 @@ image: /img/platforms/dragon_deployment.jpg
 width: large
 priority: 4
 active: false
+date: 2019-12-05T11:31:31+01:00
 tags:
   - dragonhpc
 ---

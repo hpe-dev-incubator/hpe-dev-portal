@@ -20,7 +20,6 @@ import {
   CardDescription,
   CardLink,
   Controls,
-  SlideCounter,
 } from './styles';
 
 const API_BASE = process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT;
@@ -215,9 +214,6 @@ const WhatsNewSection = ({ platforms = [], newsletters = [], events = [] }) => {
           ariaLabelPrev="Previous"
           ariaLabelNext="Next"
         />
-        <SlideCounter>
-          {Math.min(index + cardsVisible, items.length)} / {items.length}
-        </SlideCounter>
       </Controls>
     </Section>
   );

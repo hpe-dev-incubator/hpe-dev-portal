@@ -9,8 +9,4 @@ image: /img/kadanza/wod-463578713_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=RSt7ewTulPE
 width: large
 ---
-## Implementing a complete Workshop-on-Demand infrastructure in less than an hour
-
-December 17, 2025
-
 Join our next meetup session to witness how quick and easy it can be to deploy a Workshop-on-Demand infrastructure so that you can deliver your own on-demand training sessions. Bruno Cornec (a former HPE Linux Distinguished Technologist) and Frederic Passeron from HPE Developer Community will demonstrate how you can achieve this goal.

@@ -15,8 +15,6 @@ image: /img/kadanza/hpe20160627190_300_450_0_72_rgb.jpg
 link: https://www.youtube.com/watch?v=-RYmpXaGl2o
 width: large
 ---
-## Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP
-
 01/28/2026
 
 Managing infrastructure often means navigating complex consoles, learning APIs, and manually generating reports. But what if there was an easier way?

@@ -14,8 +14,4 @@ image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=Dau7swlAkJY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Developing and deploying AI in the enterprise
-
-April 23, 2025
-
 Integrating the right software into your enterprise AI infrastructure is crucial to deploying AI applications successfully today. In this session, we'll discuss the ever-changing developer ecosystem, how machine learning workflows have evolved, and how HPE Private Cloud AI can give your teams the ability to move more quickly. Lastly, we will show how to create agentic workflows using tools like Langflow and explore recent advancements in the ecosystem with ready-to-deploy blueprints.

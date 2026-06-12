@@ -13,8 +13,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=zlRJUl_aF04&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## DevOps Alert: Tool Sprawl. Complexity. Burnout. Help!
-September 27, 2023
-
-Today’s DevOps teams are finding it even more difficult to develop and deploy features to meet customers’ expectations, even with the ubiquity of free and “easy-to-implement” tools at their disposal. In this session, learn how to address DevOps challenges like tool sprawl and managing Kubernetes application operations across hybrid and multi-cloud landscapes through a centralized GitOps-centric approach. 
-
+Today’s DevOps teams are finding it even more difficult to develop and deploy features to meet customers’ expectations, even with the ubiquity of free and “easy-to-implement” tools at their disposal. In this session, learn how to address DevOps challenges like tool sprawl and managing Kubernetes application operations across hybrid and multi-cloud landscapes through a centralized GitOps-centric approach.

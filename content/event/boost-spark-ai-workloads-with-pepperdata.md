@@ -14,8 +14,5 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=N36DTliNmck&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1
 width: large
 ---
-## Boost Spark AI workloads with Pepperdata
-October 26, 2022
-
 HPE combines the power and versatility of Apache Spark with the robust, enterprise-grade HPE Ezmeral Runtime Enterprise to support running analytics at scale against large data sources. But what do you do once adoption scales to the point where dozens or hundreds of data scientists and data analysts are running massive amounts of Spark applications?
 In this talk, we’ll learn how HPE is partnering with Pepperdata to bring detailed observability via Pepperdata’s Platform and Application Spotlight, and more importantly, deliver automated, near real-time, autonomous optimization of cluster container resources via Pepperdata’s Capacity Optimizer, without the need for Spark developers to change a single line of code.

@@ -14,7 +14,6 @@ image: /img/Munch_and_Learn_192_192.svg
 link: /campaign/munch-and-learn/
 width: large
 ---
-## Munch & Learn series
 Explore Containerization and MLOps
 
 February 24, 2021

@@ -13,8 +13,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=A77yVzNtIKs&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Implementing Centralized Key Management in HPE GreenLake with Thales CipherTrust
-
-June 26, 2024
-
 Driven by the proliferation in data silos across edge-to-cloud estates, deepening security compliance regulations, and the expansion of data sovereignty requirements, organizations and governments worldwide are mandating the deployment of data protection technologies, such as Centralized Key Management. In this session, you will learn about the exciting new partnership between HPE GreenLake and Thales, the worldwide leader in digital trust and data security. Here, you’ll be introduced to the new Centralized Key Management solution offering on HPE GreenLake.

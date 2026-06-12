@@ -9,8 +9,4 @@ image: /img/intelinnovation.jpg
 link: https://www.intel.com/content/www/us/en/events/on-event-series/innovation.html
 width: large
 ---
-## Intel Innovation 2022
-
-#### September 27-28, 2022 San Jose, California
-
 Attend the Intel Innovation developer conference and explore the latest break-throughs in tech-accelerating computing. Visit the HPE booth and hear more about what the HPE Developer Community is doing by engaging with the booth staff.

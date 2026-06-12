@@ -9,8 +9,6 @@ image: /img/events/texas-children-hospital-cover-image.png
 link: https://www.hackerearth.com/challenges/hackathon/texas-childrens-hospital-healthcare-hackathon/
 width: large
 ---
-## Texas Children’s Hospital Healthcare Hackathon
-
 Sponsored by HPE
 
 May 14-24, 2021

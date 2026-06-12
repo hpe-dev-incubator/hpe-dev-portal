@@ -13,8 +13,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=Uv0kKyVfjgg&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Enabling business automation using HPE GreenLake platform foundational APIs
-
-March 27, 2024
-
-The HPE GreenLake edge-to-cloud platform, now offers application programming interfaces (APIs) for many common services, such as workspace management, identity and access management, device and subscription, locations, audit logs, and wellness. In this session, explore using the HPE GreenLake Developer Portal to access them and see how to invoke these APIs using an OpenAPI tool, such as Postman. We’ll demonstrate this using some of the most popular scripting languages (i.e. Bash, PowerShell and Python). 
+The HPE GreenLake edge-to-cloud platform, now offers application programming interfaces (APIs) for many common services, such as workspace management, identity and access management, device and subscription, locations, audit logs, and wellness. In this session, explore using the HPE GreenLake Developer Portal to access them and see how to invoke these APIs using an OpenAPI tool, such as Postman. We’ll demonstrate this using some of the most popular scripting languages (i.e. Bash, PowerShell and Python).

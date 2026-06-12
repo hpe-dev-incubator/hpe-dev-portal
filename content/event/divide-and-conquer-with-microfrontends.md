@@ -10,8 +10,4 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=LbCw7Z7KT1U&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Divide and conquer with MicroFrontends
-
-April 26, 2023
-
 Micro Frontend, a design paradigm that extends the concepts of micro services to the frontend world, helps scale team development processes to deliver complex frontends. It allows teams to develop multiple micro frontends in parallel, helping build modern complex applications and empowering users to transform legacy apps in a gradual manner by rebuilding the app in parts. Join us to hear Vishal Sharma discuss using micro frontends and how to best split teams to achieve the desired results.

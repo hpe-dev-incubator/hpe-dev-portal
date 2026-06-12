@@ -11,8 +11,4 @@ image: /img/ai-jam-400.jpg
 link: https://www.youtube.com/watch?v=AmL_k-I6dSY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## Sustainably Scaling AI Adoption
-
-August 6, 2025
-
 AI-capable infrastructure configurations are introducing new computing, energy, and cooling demands on our data centers and technology stacks. Our engineering capabilities around efficiency, design, and cooling are now at the forefront of progress as we balance resources, costs, and outcomes. Join leading minds at HPE as we explore sustainable AI solutions for the enterprise and data center technologies that can enable the AI workloads of the future.
