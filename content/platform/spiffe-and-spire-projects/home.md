@@ -9,6 +9,7 @@ width: medium
 priority: 7
 frontpage: true
 active: false
+date: 2023-12-05T11:31:31+01:00
 tags:
   - spiffe-and-spire-projects
 ---

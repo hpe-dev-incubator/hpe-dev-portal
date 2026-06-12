@@ -7,6 +7,7 @@ image: /img/platforms/logo-determine-ai-216px.svg
 width: large
 priority: 6
 active: false
+date: 2020-12-05T11:31:31+01:00
 tags:
   - determined
   - determined-AI

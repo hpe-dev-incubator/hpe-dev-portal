@@ -7,6 +7,7 @@ image: /img/platforms/smartsim.svg
 width: large
 priority: 10
 active: false
+date: 2022-12-05T11:31:31+01:00
 tags:
   - SmartSim
 ---

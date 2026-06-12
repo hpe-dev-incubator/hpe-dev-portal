@@ -8,6 +8,7 @@ image: /img/platforms/opsramp1.jpg
 width: large
 priority: 8
 active: true
+date: 2026-05-05T11:31:31+01:00
 tags:
   - hpe-opsramp
   - opsramp
