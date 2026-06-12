@@ -237,3 +237,11 @@ Triggered by:
 | Business User | View only or comment based access (RBAC controlled) |
 
 </div>
+
+#### Regular User
+
+![](/img/opsramp-sd-3.png)
+
+#### Business User
+
+![](/img/opsramp-sd-4.png)
