@@ -256,7 +256,19 @@ Designed to help users manage workload efficiently
 
 ### Reporting & Insights
 
-Operational and Executive Visibility 
+*Operational and Executive Visibility*
+
+Ticket Details and Ticket Insights reporting apps can be accessed by clicking the Export icon on the ticket listing page or navigating to “Reports” on the main menu.
+
+
+
+![](/img/opsramp-sd-11.png)
+
+
+
+
+
+
 
 ![](/img/opsramp-sd-6.png)
 
@@ -309,6 +321,5 @@ For organizations looking to standardize IT operations, improve service quality,
 ***Call to Action*** 
 
 If you have any questions regarding this blog post, please refer to OpsRamp Service Desk documentation here and can also reach out to me at sudhir.kanigiri@hpe.com
-
 
 Please check out the [HPE DEV blog](https://developer.hpe.com/blog) for more articles on this topic.
