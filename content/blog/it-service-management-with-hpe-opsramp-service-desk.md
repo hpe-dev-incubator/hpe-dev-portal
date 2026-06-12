@@ -205,15 +205,20 @@ Triggered by:
 * Priority thresholds 
 * Source (manual, email, integration, policy) 
 
-#### Auto Close Policies 
+#### Auto Close Policies
+
 *Setup --> Account --> Service Desk --> Auto Close Policies*
+
 * Reduces ticket backlog
 * Ensures system hygiene 
 
 #### Canned Response
-Setup --> Account --> Service Desk --> Canned Response
+
+*Setup --> Account --> Service Desk --> Canned Response*
+
 * Faster, consistent user communication 
 * Automated recurring operational activities 
 
-#### Scheduled Tasks 
-Setup --> Account --> Service Desk --> Scheduled Tasks
+#### Scheduled Tasks
+
+*Setup --> Account --> Service Desk --> Scheduled Tasks*
