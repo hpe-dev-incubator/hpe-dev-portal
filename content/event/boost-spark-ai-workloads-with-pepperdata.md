@@ -15,6 +15,7 @@ link: https://www.youtube.com/watch?v=N36DTliNmck&list=PLtS6YX0YOX4fWMwKbp9blyI1
 width: large
 ---
 ## Boost Spark AI workloads with Pepperdata
+
 October 26, 2022
 
 HPE combines the power and versatility of Apache Spark with the robust, enterprise-grade HPE Ezmeral Runtime Enterprise to support running analytics at scale against large data sources. But what do you do once adoption scales to the point where dozens or hundreds of data scientists and data analysts are running massive amounts of Spark applications?

@@ -9,7 +9,7 @@ image: /img/hpe-data-world-2021.png
 link: https://www.hpe.com/h41382/dataworld2021/
 width: large
 ---
-# HPE Data World 2021 
+## HPE Data World 2021
 
 ### 3D virtual event
 

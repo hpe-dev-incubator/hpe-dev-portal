@@ -12,7 +12,7 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://www.youtube.com/watch?v=Hy4MsJgxG8k&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY
 width: large
 ---
-## **Going from containers, to pods, to Kubernetes – help for your developer environments!** 
+## **Going from containers, to pods, to Kubernetes – help for your developer environments!**
 
 October 25, 2023
 

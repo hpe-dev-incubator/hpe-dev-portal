@@ -14,7 +14,7 @@ link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 ---
 
-### Golden Age of AI, Dark Ages of AI Infrastructure
+## Golden Age of AI, Dark Ages of AI Infrastructure
 
 February 16, 2022
 

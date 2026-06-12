@@ -11,6 +11,7 @@ link: https://www.hpe.com/us/en/discover.html
 width: large
 ---
 ## HPE Discover 2023
+
 ### The Hack Shack at Discover 2023
 
 Las Vegas, June 20-22

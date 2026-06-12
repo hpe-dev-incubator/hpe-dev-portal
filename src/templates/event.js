@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading } from 'grommet';
 
 import { Content, Layout, Markdown, SEO, Link } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
@@ -15,45 +15,38 @@ const MarkdownLayout = styled(Markdown)`
     padding-top: 0;
   }
 `;
-const handleDate = (dateStart, dateEnd, dateFormat) => {
-  let dateString = dateFormat.format(new Date(dateStart));
-  if (dateStart !== dateEnd) {
-    dateString = `${dateString} - ${dateFormat.format(new Date(dateEnd))}`;
-  }
-  return <Text size="large">{dateString}</Text>;
-};
-
 function EventTemplate({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  const dateFormat = Intl.DateTimeFormat('default', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
   const { rawMarkdownBody, excerpt } = post;
-  const { dateStart, dateEnd, title, tags } = post.frontmatter;
+  const { title, tags } = post.frontmatter;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={excerpt} />
-      <Box direction="row-responsive" pad="large">
-        <Box gap="medium">
-          <Heading margin="none">{title}</Heading>
-          {handleDate(dateStart, dateEnd, dateFormat)}
-        </Box>
+      <Box pad="large">
         <Content margin={{ vertical: 'large' }}>
           <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
           {tags && (
-            <Box direction="row-responsive" align="baseline" gap="small">
+            <Box align="baseline" gap="small">
               <Heading level={2} margin={{ vertical: 'none' }}>
-                Tags:
+                Tags
               </Heading>
-              {tags.map((tag) => (
-                <Link to={`/blog/tag/${tag}`} key={tag} size="xxlarge">
-                  {tag}
-                </Link>
-              ))}
+              <Box
+                direction="row-responsive"
+                align="baseline"
+                style={{ display: 'inline-block' }}
+              >
+                {tags.map((tag, index) => (
+                  <Link
+                    to={`/blog/tag/${tag.toLowerCase().trim()}`}
+                    key={tag}
+                    size="xxlarge"
+                  >
+                    {tag + (index !== tags.length - 1 ? ',' : '')}
+                  </Link>
+                ))}
+              </Box>
             </Box>
           )}
         </Content>
@@ -74,8 +67,6 @@ EventTemplate.propTypes = {
       excerpt: PropTypes.string,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
-        dateStart: PropTypes.string,
-        dateEnd: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
     }).isRequired,

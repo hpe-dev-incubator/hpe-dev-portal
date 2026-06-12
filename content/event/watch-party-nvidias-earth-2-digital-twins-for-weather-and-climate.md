@@ -13,6 +13,6 @@ width: large
 ---
 ## N﻿VIDIA Watch Party: NVIDIA'S EARTH-2: DIGITAL TWINS FOR WEATHER AND CLIMATE
 
-#### S﻿eptember 22, 2022
+### September 22, 2022
 
 Join this interactive session to hear industry experts from NVIDIA and HPE discuss NVIDIA’s Earth-2 digital twin project, which continues to advance what is possible in the application of AI to meteorology.

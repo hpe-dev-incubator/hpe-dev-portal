@@ -14,7 +14,7 @@ link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R
 width: large
 ---
 
-### Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers
+## Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers
 
 April 20, 2022
 

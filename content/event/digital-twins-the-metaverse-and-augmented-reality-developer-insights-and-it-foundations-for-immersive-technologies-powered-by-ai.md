@@ -17,4 +17,3 @@ width: large
 June 14, 2023
 
 In this Munch & Learn session, learn about digital twins, the metaverse, and augmented reality, including their application in industries, the role of AI, and developer factors. You’ll get to view real-world examples showing how they can transform industries and create amazing immersive experiences.
-

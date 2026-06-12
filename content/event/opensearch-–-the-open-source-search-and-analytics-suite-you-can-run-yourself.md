@@ -10,7 +10,7 @@ image: /img/event-meetups-newlogo-400x400.png
 link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
-# OpenSearch – The open-source search and analytics suite you can run yourself 	
+## OpenSearch – The open-source search and analytics suite you can run yourself  
 
 June 22, 2022
 

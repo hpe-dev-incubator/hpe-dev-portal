@@ -10,7 +10,7 @@ link: https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4fWMwKbp9blyI1
 width: large
 ---
 ## Running reliable systems Part 2: SLO Math
-D﻿ecember 14, 2022
 
+December 14, 2022
 
 Learn how to set Service-Level Objectives (SLOs) that reflect the expectations of your customers by using mathematical probability and implementing SLO-based reliability at many layers in the stack.

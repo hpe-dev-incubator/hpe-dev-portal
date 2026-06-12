@@ -11,6 +11,6 @@ width: large
 ---
 ## **Open Source Summit Europe 2022**
 
-#### 13-16 September, 2022
+### 13-16 September, 2022
 
 Open Source Summit is the premier event for open source developers, technologists, and community leaders to collaborate, share information, solve problems, and gain knowledge, furthering open source innovation and ensuring a sustainable open source ecosystem. It is the gathering place for open-source code and community contributors.

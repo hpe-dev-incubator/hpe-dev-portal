@@ -12,9 +12,11 @@ image: /img/brighttalk-logo-large.png
 link: https://www.brighttalk.com/webcast/12641/503646?utm_source=HewlettPackardEnterprise&utm_medium=brighttalk&utm_campaign=503646
 width: large
 ---
-## HPE Webinar: 
+## HPE Webinar
+
 ## Is there life after Hadoop?
-### Of course there is!
+
+### Of course there is
 
 #### August 26, 2021
 

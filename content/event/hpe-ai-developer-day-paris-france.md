@@ -11,7 +11,6 @@ image: /img/events/events8.jpg
 link: https://events.bizzabo.com/797906/page/5526657/paris-information
 width: large
 ---
-# **H**
 
 ## **Créez votre propre agent AI avec HPE et Nvidia**
 
@@ -22,4 +21,4 @@ Le 10 Mars 2026
 Construisez et déployez une véritable solution d'IA dans le cadre d'un atelier en petit groupe animé par des conseillers HPE et NVIDIA, et repartez avec les outils, les compétences et la confiance nécessaires pour renouveler l'expérience.
 HPE Developer Day est un événement d'une journée conçu pour vous aider à passer de vos ambitions en matière d'IA à des résultats concrets.
 
-###### [Inscription](https://events.bizzabo.com/797906/page/5526657/paris-information)
+#### [Inscription](https://events.bizzabo.com/797906/page/5526657/paris-information)
