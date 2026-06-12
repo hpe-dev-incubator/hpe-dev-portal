@@ -99,9 +99,6 @@ const ComingEventsSection = ({ events = [] }) => {
     <Section>
       <SectionHeader>
         <SectionTitle>Events</SectionTitle>
-        <ViewAllLink href="/events">
-          View all <ArrowRight />
-        </ViewAllLink>
       </SectionHeader>
 
       <CarouselViewport ref={viewportRef}>

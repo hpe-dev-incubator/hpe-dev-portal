@@ -27,6 +27,9 @@ export default function HTML(props) {
         <meta content="CORP" name="bu" />
         <meta content="products" name="page_content" />
         {props.headComponents}
+        <link rel="icon" sizes="32x32" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
         <style
           dangerouslySetInnerHTML={{
             __html: `

@@ -23,6 +23,8 @@ import {
   SectionHeader,
   ResponsiveGrid,
 } from '../components';
+import { headingStyles } from '../components/Markdown/Markdown';
+import { bodyTextStyles } from '../components/Markdown';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -144,11 +146,11 @@ function BlogPostTemplate({ data }) {
           </Box>
           <Content gap="large" margin={{ vertical: 'large', right: '74px' }}>
             <Box gap="small">
-              <Text size="xlarge" weight={500}>
-                {author}
-              </Text>
-              <Heading margin="none">{title}</Heading>
-              <Text size="xlarge">{dateFormat.format(new Date(date))}</Text>
+              <Text style={bodyTextStyles}>{author}</Text>
+              <Heading level={1} margin="none" style={headingStyles[1]}>
+                {title}
+              </Heading>
+              <Text style={bodyTextStyles}>{dateFormat.format(new Date(date))}</Text>
               <Location>
                 {({ location }) => {
                   return (

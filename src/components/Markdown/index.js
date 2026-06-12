@@ -62,12 +62,19 @@ AnchorButton.propTypes = {
   children: PropTypes.any,
 };
 
+export const bodyTextStyles = {
+  fontSize: 'clamp(16px, 1.5vw, 20px)',
+  fontWeight: 400,
+  lineHeight: 'clamp(24px, 2.2vw, 30px)',
+  letterSpacing: 'clamp(0px, 0.01vw, -0.2px)',
+};
+
 const components = {
   p: {
     component: Paragraph,
     props: {
       fill: true,
-      size: 'xlarge',
+      style: bodyTextStyles,
     },
   },
   hr: {

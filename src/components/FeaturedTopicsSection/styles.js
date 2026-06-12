@@ -22,10 +22,10 @@ export const FeatureCard = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 40px;
   flex: 1 0 calc(50% - 12px);
   min-width: 0;
-  min-height: 630px;
   padding: 96px;
   overflow: hidden;
   text-decoration: none;
