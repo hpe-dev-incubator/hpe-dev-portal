@@ -174,8 +174,12 @@ function TopicTemplate({ data }) {
 
   const videos = [...videoEdges]
     .sort((a, b) => {
-      const aDate = new Date(a.node.frontmatter.date || 0).getTime();
-      const bDate = new Date(b.node.frontmatter.date || 0).getTime();
+      const aDate = new Date(
+        a.node.frontmatter.date || a.node.frontmatter.dateStart || 0,
+      ).getTime();
+      const bDate = new Date(
+        b.node.frontmatter.date || b.node.frontmatter.dateStart || 0,
+      ).getTime();
       return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
     })
     .map(({ node }) => ({
@@ -188,8 +192,12 @@ function TopicTemplate({ data }) {
     }));
 
   const sortedResourcesForDisplay = [...resourcesForDisplay].sort((a, b) => {
-    const aDate = new Date(a.node.frontmatter.date || 0).getTime();
-    const bDate = new Date(b.node.frontmatter.date || 0).getTime();
+    const aDate = new Date(
+      a.node.frontmatter.date || a.node.frontmatter.dateStart || 0,
+    ).getTime();
+    const bDate = new Date(
+      b.node.frontmatter.date || b.node.frontmatter.dateStart || 0,
+    ).getTime();
     return sortOrder === 'Oldest first' ? aDate - bDate : bDate - aDate;
   });
 
@@ -358,6 +366,7 @@ function TopicTemplate({ data }) {
                       const {
                         title: resourceTitle,
                         date,
+                        dateStart,
                         author,
                         externalLink,
                       } = node.frontmatter;
@@ -367,9 +376,10 @@ function TopicTemplate({ data }) {
                         sourceInstanceName;
                       const href =
                         externalLink || `/${sourceInstanceName}${slug}`;
-                      const formattedDate = date
-                        ? dateFormat.format(new Date(date))
-                        : null;
+                      const formattedDate =
+                        date || dateStart
+                          ? dateFormat.format(new Date(date || dateStart))
+                          : null;
 
                       return (
                         <Box
@@ -563,6 +573,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            dateStart
             tags
             author
             active
