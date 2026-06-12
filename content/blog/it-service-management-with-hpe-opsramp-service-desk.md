@@ -270,7 +270,13 @@ Ticket Details and Ticket Insights reporting apps can be accessed by clicking th
 
 
 
+
+
 ![](/img/opsramp-sd-6.png)
+
+
+
+
 
 #### Ticket Details Report
 
