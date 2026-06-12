@@ -245,3 +245,18 @@ Triggered by:
 #### Business User
 
 ![](/img/opsramp-sd-4.png)
+
+### Ticket Views
+
+Designed to help users manage workload efficiently
+
+* Quick Views: Predefined filters 
+* Custom Views: User saved filters 
+
+![](/img/opsramp-sd-5.png)
+
+### Reporting & Insights
+
+Operational and Executive Visibility 
+
+![](/img/opsramp-sd-6.png)
