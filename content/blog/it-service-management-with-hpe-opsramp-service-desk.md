@@ -45,7 +45,6 @@ A Unified, Automated, and Insight Driven ITSM Platform
 
 Have you often wondered whether HPE OpsRamp offers IT Service Management (ITSM) capabilities and what features does it offer?
 
-
 In this post, I will provide an Overview of HPE OpsRamp Service Desk capabilities, configuration areas, automation features, and reporting.
 
 It is intended to help users understand how they can access various service desk features to achieve key business outcomes.
@@ -309,13 +308,15 @@ For tools outside the standard integration catalog, OpsRamp provides a Custom Ti
 
 ### Conclusion
 
+***Key Takeaways***
+
 * OpsRamp Service Desk ITSM, built for modern enterprises, transforms IT operations from reactive to proactive service management — combining automation, governance, and insight in a single platform
 * Whether you’re scaling service operations, improving SLA adherence, or seeking better visibility, OpsRamp Service Desk provides the foundation for efficient, future ready IT service management. 
 * OpsRamp Service Desk combines robust ITSM fundamentals with structured workflows, persona based experiences, and actionable reporting.
 
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, OpsRamp Service Desk provides a powerful foundation.
 
-***Call to Action*** 
+***Call to Action***
 
 If you have any questions regarding this blog post, please refer to OpsRamp Service Desk documentation here and can also reach out to me at sudhir.kanigiri@hpe.com
 
