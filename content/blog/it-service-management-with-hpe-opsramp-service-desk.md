@@ -43,7 +43,12 @@ A Unified, Automated, and Insight Driven ITSM Platform
 
 ### Purpose of This Guide
 
-This document provides an overview of HPE OpsRamp Service Desk capabilities, configuration areas, automation features, and reporting. It is intended to help users understand how the platform works.
+Have you often wondered whether HPE OpsRamp offers IT Service Management (ITSM) capabilities and what features does it offer?
+
+
+In this post, I will provide an Overview of HPE OpsRamp Service Desk capabilities, configuration areas, automation features, and reporting.
+
+It is intended to help users understand how they can access various service desk features to achieve key business outcomes.
 
 ### Overview
 
@@ -260,23 +265,9 @@ Designed to help users manage workload efficiently
 
 Ticket Details and Ticket Insights reporting apps can be accessed by clicking the Export icon on the ticket listing page or navigating to “Reports” on the main menu.
 
-
-
 ![](/img/opsramp-sd-11.png)
 
-
-
-
-
-
-
-
-
 ![](/img/opsramp-sd-6.png)
-
-
-
-
 
 #### Ticket Details Report
 
