@@ -2,8 +2,8 @@
 title: HPE OpsRamp Service Desk Overview
 date: 2026-06-10T09:35:11.564Z
 priority: ""
-author: Sudhir K
-authorimage: /img/Avatar1.svg
+author: Sudhir Kanigiri
+authorimage: /img/hpe-dev-logo.png
 disable: false
 tags:
   - ITSM
