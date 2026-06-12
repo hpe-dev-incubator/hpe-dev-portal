@@ -181,7 +181,7 @@ Every team prioritizes tickets the same way—reducing subjectivity and escalati
 
 ### Service Desk Automation
 
-Built In Automation That Scales IT Operations
+*Built In Automation That Scales IT Operations*
 
 ![](/img/opsramp-sd-2.png)
 
@@ -287,7 +287,7 @@ Ticket Details and Ticket Insights reporting apps can be accessed by clicking th
 
 #### Ticket Insights Report
 
-Key Metrics: 
+*Key Metrics*: 
 
 * Ticket volumes and trends 
 * Priority and status breakdown 
@@ -296,7 +296,7 @@ Key Metrics:
 
 ![](/img/opsramp-sd-8.png)
 
-**Insight to Action**
+*Insight to Action*
 
 Measure performance, identify bottlenecks, and drive continuous improvement.
 
