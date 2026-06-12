@@ -7,6 +7,7 @@ tags:
 - AI
 - machine-learning
 - artificial-intelligence
+- hybrid-cloud
 image: /img/events/events1.jpg
 link: https://events.bizzabo.com/797906/page/6020635/amstelveen
 width: large

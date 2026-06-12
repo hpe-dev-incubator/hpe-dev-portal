@@ -1,6 +1,6 @@
 ---
 title: "Quantum computing insights from HP Labs: Extraordinary Claims Require Extraordinary Engineering"
-author: "HPE Developer Team"
+author: "Kirk Bresniker"
 authorimage: "/img/Avatar1.svg"
 youtubeid: "wVY7uZstDWA"
 youtubelink: "https://www.youtube.com/watch?v=wVY7uZstDWA"

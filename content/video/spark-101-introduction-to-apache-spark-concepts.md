@@ -1,6 +1,6 @@
 ---
 title: "Spark 101 - Introduction to Apache Spark Concepts"
-author: "HPE Developer Team"
+author: "Gerhard Wenzel"
 authorimage: "/img/Avatar1.svg"
 youtubeid: "QSZTlnqbdKs"
 youtubelink: "https://www.youtube.com/watch?v=QSZTlnqbdKs"

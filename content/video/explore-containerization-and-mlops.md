@@ -1,6 +1,6 @@
 ---
 title: "Explore Containerization and MLOps"
-author: "HPE Developer Team"
+author: "Tom Phelan"
 authorimage: "/img/Avatar2.svg"
 youtubeid: "r2546wYcNdc"
 youtubelink: "https://www.youtube.com/watch?v=r2546wYcNdc"
