@@ -307,7 +307,9 @@ For tools outside the standard integration catalog, OpsRamp provides a Custom Ti
 
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, OpsRamp Service Desk provides a powerful foundation.
 
-***Call to Action:*** 
+***Call to Action*** 
 
 If you have any questions regarding this blog post, please refer to OpsRamp Service Desk documentation here and can also reach out to me at sudhir.kanigiri@hpe.com
-Please check out the HPE DEV blog for more articles on this topic.
+
+
+Please check out the [HPE DEV blog](https://developer.hpe.com/blog) for more articles on this topic.
