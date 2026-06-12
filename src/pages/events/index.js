@@ -24,6 +24,15 @@ const year = Intl.DateTimeFormat('default', {
   year: 'numeric',
 });
 
+const formatEventDate = (dateStart, dateEnd) => {
+  if (!dateStart) return '';
+  const start = new Date(dateStart);
+  const end = dateEnd ? new Date(dateEnd) : start;
+  const base = monthDay.format(start);
+  const multiDay = day.format(end) > day.format(start);
+  return `${base}${multiDay ? ` - ${day.format(end)}` : ''}, ${year.format(end)}`;
+};
+
 const columns = {
   small: ['auto'],
   medium: ['auto', 'auto'],
@@ -75,6 +84,11 @@ function Events({ data }) {
               key={node.id}
               category={node.frontmatter.category}
               width={node.frontmatter.width}
+              title={node.frontmatter.title}
+              date={formatEventDate(
+                node.frontmatter.dateStart,
+                node.frontmatter.dateEnd,
+              )}
               content={node.rawMarkdownBody}
               link={node.frontmatter.link}
               image={node.frontmatter.image}
@@ -90,6 +104,11 @@ function Events({ data }) {
               key={node.id}
               category={node.frontmatter.category}
               width={node.frontmatter.width}
+              title={node.frontmatter.title}
+              date={formatEventDate(
+                node.frontmatter.dateStart,
+                node.frontmatter.dateEnd,
+              )}
               content={node.rawMarkdownBody}
               link={node.frontmatter.link}
               image={node.frontmatter.image}
@@ -111,16 +130,11 @@ function Events({ data }) {
                 key={node.id}
                 category={node.frontmatter.category}
                 width={node.frontmatter.width}
-                // content={node.rawMarkdownBody}
                 title={node.frontmatter.title}
-                date={`${monthDay.format(new Date(node.frontmatter.dateStart))}
-                ${
-                  node.frontmatter.dateEnd &&
-                  day.format(new Date(node.frontmatter.dateEnd)) >
-                    day.format(new Date(node.frontmatter.dateStart))
-                    ? `- ${day.format(new Date(node.frontmatter.dateEnd))}`
-                    : ''
-                }${`, ${year.format(new Date(node.frontmatter.dateEnd))}`}`}
+                date={formatEventDate(
+                  node.frontmatter.dateStart,
+                  node.frontmatter.dateEnd,
+                )}
                 link={node.frontmatter.link}
                 image={node.frontmatter.image}
                 basis="auto"
@@ -204,7 +218,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isPast: { eq: true }
       }
-      sort: {frontmatter: {dateStart: DESC}}
+      sort: { frontmatter: { dateStart: DESC } }
     ) {
       edges {
         node {
@@ -232,7 +246,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isUpcoming: { eq: true }
       }
-      sort: {frontmatter: {dateStart: ASC}}
+      sort: { frontmatter: { dateStart: ASC } }
     ) {
       edges {
         node {
@@ -247,6 +261,7 @@ export const pageQuery = graphql`
             title
             image
             category
+            dateStart
             dateEnd
             link
             width
@@ -259,7 +274,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isOngoing: { eq: true }
       }
-      sort: {frontmatter: {dateStart: ASC}}
+      sort: { frontmatter: { dateStart: ASC } }
     ) {
       edges {
         node {
