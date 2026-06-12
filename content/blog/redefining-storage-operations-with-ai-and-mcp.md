@@ -57,6 +57,51 @@ MCP serves as the translation layer, converting human intent into executable API
 
 **Note:** While this blog article demonstrates the setup using **Visual Studio Code** and **GitHub Copilot**, MCP clients are not limited to Visual Studio Code. Any compatible AI client can interact with the MCP server. For more information, refer to this [page](https://github.com/ivo-toby/mcp-openapi-server).
 
+### Security and Authorization
+
+While MCP introduces a new conversational interface for interacting with storage infrastructure, it does not introduce a new security model. Every request initiated through the DSCC MCP server is authenticated and authorized using the same mechanisms that protect the Data Services Cloud Console APIs. As a result, AI assistants operate within the permissions of the authenticated user and cannot perform actions beyond the privileges already granted.
+
+#### Bearer Token Authentication
+
+DSCC public APIs are secured using OAuth 2.0 bearer tokens. Every API request initiated by the MCP server must include a valid bearer token in the Authorization header:
+
+Authorization: Bearer <access_token>
+
+The bearer token represents the authenticated identity and associated permissions of the HPE GreenLake account accessing DSCC resources. As a result, every request executed by an AI assistant through the MCP server is evaluated against the same authorization policies as any other DSCC API request.
+
+The security model is built on three core principles:
+
+* Bearer tokens are short-lived and security-scoped.
+* Tokens are supplied to the MCP server as standard HTTP request headers.
+* The MCP server never bypasses or elevates DSCC authorization checks.
+
+**Important**: MCP enables new interaction patterns, not new privileges. Exposing DSCC functionality through AI assistants does not weaken the platform's existing security posture.
+
+#### Bearer Token Lifetime and Expiration
+
+For security reasons, DSCC bearer tokens are issued with a limited lifetime. Once a token expires, API requests using that token will fail with an authorization error until a new token is obtained.
+
+When integrating with the MCP server, clients should treat token expiration as part of the normal authentication lifecycle.
+
+Keep the following considerations in mind:
+
+* Token lifetime is controlled by the HPE GreenLake authentication service.
+* Bearer tokens are intended to be short-lived credentials and should never be treated as permanent secrets.
+* Applications should anticipate token expiration and implement automatic renewal mechanisms.
+
+Since token lifetimes may vary depending on the deployment environment or authentication configuration, client applications should avoid hardcoding expiration assumptions and instead rely on programmatic renewal workflows.
+
+#### Obtaining a DSCC Bearer Token
+
+DSCC APIs use OAuth 2.0 bearer tokens issued by the HPE GreenLake authentication service.
+
+To obtain a bearer token, first create a Personal API Client in your DSCC workspace and then use it to generate an access token. Refer to the HPE GreenLake documentation for detailed instructions on creating a Personal API Client and generating an access token.
+
+**Note**: 
+
+1. Bearer tokens have a limited lifetime. When a token expires, generate a new token by repeating this process.
+2. A Personal API Client is scoped to a single DSCC workspace. If you need to access resources in multiple workspaces, you must create a separate Personal API Client and generate a corresponding access token for each workspace.
+
 ### Setting up MCP with Visual Studio Code
 
 To get started, you configure an MCP server locally and connect it to your API layer. Before setting up and using the MCP server, ensure the following prerequisites are met:
@@ -77,7 +122,7 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
       "args": [
         "-y",
         "@ivotoby/openapi-mcp-server",
-        "--api-base-url", "https://fleetscale-app.qa.cds.hpe.com",
+        "--api-base-url", BASE_URL,
         "--headers", "Authorization:Bearer BEARER_TOKEN",
         "--openapi-spec", "https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml",
         "--name", "fleet-openapi",
@@ -92,7 +137,12 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
 }
 ```
 
-Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/). Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the Visual Studio Code window, and restart the MCP server.
+The valid DSCC base URLs are:
+ * US: https://console-us1.data.cloud.hpe.com
+ * EU: https://console-eu1.data.cloud.hpe.com
+ * JP: https://console-jp1.data.cloud.hpe.com
+
+Generate the access token as mentioned above. Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the Visual Studio Code window, and restart the MCP server.
 
 * **server-name** → A unique identifier for the MCP server instance. 
 * **type** → Specifies how the MCP server communicates (e.g., stdio, http). 
