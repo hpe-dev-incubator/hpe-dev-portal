@@ -234,10 +234,10 @@ Triggered by:
 
 <div align="center">
 
-| Persona       | Capabilities                                        |
-| ------------- | --------------------------------------------------- |
-| Regular User  | Full ticket lifecycle management                    |
-| Business User | View only or comment based access (RBAC controlled) |
+| Persona       | Capabilities                                                     |
+| ------------- | ---------------------------------------------------------------- |
+| Regular User  | Full ticket lifecycle management                                 |
+| Business User | View only or comment based access (Role based access controlled) |
 
 </div>
 
