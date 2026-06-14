@@ -32,7 +32,10 @@ const Layout = ({ children, background }) => {
   return (
     <ResponsiveLayout justify="between" layer={layer}>
       <Box>
-        <Grommet theme={lightTheme}>
+        <Grommet
+          theme={lightTheme}
+          style={{ position: 'sticky', top: 0, zIndex: 10 }}
+        >
           {location.pathname.includes('/hackshack') && size !== 'small' ? (
             <HPEDevHeader data={data} />
           ) : (
