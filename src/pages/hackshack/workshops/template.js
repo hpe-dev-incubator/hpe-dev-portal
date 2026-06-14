@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
+import { Anchor, Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
+import { FormPreviousLink } from 'grommet-icons';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
 import { SEO } from '../../../components';
 
-const APIDB = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api`
+const APIDB = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api`;
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
@@ -50,6 +51,15 @@ const Workshop = (props) => {
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
 
+  // Parse ?id= query param to show a single workshop when linked from home page
+  const searchParams =
+    typeof window !== 'undefined'
+      ? new URLSearchParams(window.location.search)
+      : null;
+  const linkedId = searchParams
+    ? parseInt(searchParams.get('id'), 10) || null
+    : null;
+
   const latestWorkshops = workshops
     .slice()
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
@@ -89,6 +99,9 @@ const Workshop = (props) => {
 
   const { title, description, badgeImg } = props.pageContext;
 
+  const linkedWorkshop = linkedId
+    ? workshops.find((w) => w.id === linkedId)
+    : null;
 
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
@@ -102,7 +115,23 @@ const Workshop = (props) => {
             Workshops-on-Demand
           </Heading>
         </MainTitle>
-        {workshops.length > 0 ? (
+
+        {/* Single-workshop view: linked from home page via ?id= */}
+        {linkedWorkshop ? (
+          <Box>
+            <Anchor
+              href="/hackshack/workshops"
+              icon={<FormPreviousLink />}
+              label="View all workshops"
+              color="brand"
+              margin={{ bottom: 'medium' }}
+              style={{ width: 'fit-content' }}
+            />
+            <CardGrid pad={{ top: 'small' }}>
+              {renderScheduleCard(linkedWorkshop, 0)}
+            </CardGrid>
+          </Box>
+        ) : workshops.length > 0 ? (
           <Tabs activeIndex={index} onActive={onActive} justify="start">
             <Tab title="All">
               <CardGrid pad={{ top: 'medium' }} key="all">
@@ -126,21 +155,21 @@ const Workshop = (props) => {
                 )}
               </CardGrid>
             </Tab>
-          {/* One tab per category returned by GET /workshops/categories */}
-          {categories.map((category) => (
-            <Tab
-              key={category}
-              title={category.charAt(0).toUpperCase() + category.slice(1)}
-            >
-              <CardGrid pad={{ top: 'medium' }}>
-                {workshops
-                  .filter((workshop) =>
-                    workshopMatchesCategory(workshop, category),
-                  )
-                  .map((workshop, i) => renderScheduleCard(workshop, i))}
-              </CardGrid>
-            </Tab>
-          ))}
+            {/* One tab per category returned by GET /workshops/categories */}
+            {categories.map((category) => (
+              <Tab
+                key={category}
+                title={category.charAt(0).toUpperCase() + category.slice(1)}
+              >
+                <CardGrid pad={{ top: 'medium' }}>
+                  {workshops
+                    .filter((workshop) =>
+                      workshopMatchesCategory(workshop, category),
+                    )
+                    .map((workshop, i) => renderScheduleCard(workshop, i))}
+                </CardGrid>
+              </Tab>
+            ))}
           </Tabs>
         ) : (
           <Box

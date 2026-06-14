@@ -151,7 +151,8 @@ const WorkshopsOnDemandSection = () => {
               workshop.description && workshop.description.length > 130
                 ? `${workshop.description.slice(0, 130).trimEnd()}…`
                 : workshop.description || '';
-            const detailLink = workshop.replayId
+            const registerLink = `/hackshack/workshops?id=${workshop.id}`;
+            const replayLink = workshop.replayId
               ? `/hackshack/workshop/${workshop.replayId}`
               : '/hackshack/workshops';
             const isFull = workshop.location === 'FULL';
@@ -282,9 +283,7 @@ const WorkshopsOnDemandSection = () => {
                       }}
                     >
                       <Anchor
-                        href={workshop.replayLink || detailLink}
-                        target="_blank"
-                        rel="noreferrer noopener"
+                        href={registerLink}
                         icon={<LinkNext size="small" />}
                         label="Register"
                         reverse
@@ -292,10 +291,12 @@ const WorkshopsOnDemandSection = () => {
                         style={{ fontWeight: 500, fontSize: '16px' }}
                       />
                       <Anchor
-                        href={detailLink}
+                        href={replayLink}
                         target="_blank"
                         rel="noreferrer noopener"
-                        label="Learn more"
+                        label={
+                          workshop.replayLink ? 'Watch replay' : 'Learn more'
+                        }
                         style={{
                           color: '#292d3a',
                           fontWeight: 500,
