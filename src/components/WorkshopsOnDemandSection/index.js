@@ -291,7 +291,7 @@ const WorkshopsOnDemandSection = () => {
                         style={{ fontWeight: 500, fontSize: '16px' }}
                       />
                       <Anchor
-                        href={replayLink}
+                        href={workshop.replayLink || replayLink}
                         target="_blank"
                         rel="noreferrer noopener"
                         label={
