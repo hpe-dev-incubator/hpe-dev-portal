@@ -51,7 +51,7 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  
+
   // Try to fetch special badges, but continue if service is unavailable
   try {
     // eslint-disable-next-line
@@ -65,9 +65,8 @@ exports.createPages = async ({ graphql, actions }) => {
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
-        component: require.resolve(
-          './src/pages/hackshack/workshops/template.js',
-        ),
+        component:
+          require.resolve('./src/pages/hackshack/workshops/template.js'),
         context: {
           specialBadgeId: id,
           title,
@@ -81,68 +80,72 @@ exports.createPages = async ({ graphql, actions }) => {
       // console.log('------------------------------');
     });
   } catch (error) {
-    console.log('Warning: Could not connect to workshop challenge API for special badges. Skipping special badge pages.');
-    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
+    console.log(
+      'Warning: Could not connect to workshop challenge API for special badges. Skipping special badge pages.',
+    );
+    console.log(
+      'Error details:',
+      error.code === 'ECONNREFUSED' ? 'API service not running' : error.message,
+    );
   }
 
-  // Try to fetch replays, but continue if service is unavailable
+  // Try to fetch workshops (replays data is now part of workshops), but continue if service is unavailable
   try {
     // eslint-disable-next-line max-len
-    const replaysApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-    const getReplays = await axios({
+    const workshopsApi = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+    const getWorkshops = await axios({
       method: 'GET',
-      url: replaysApi,
+      url: workshopsApi,
       timeout: 5000, // 5 second timeout
     });
 
-    getReplays.data.forEach(({ id, title, desc, workshop }) => {
-      createPage({
-        path: `/hackshack/replays/${id}`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
-        },
+    getWorkshops.data
+      .filter((workshop) => workshop.replayLink && workshop.replayId)
+      .forEach(({ replayId, name, description, workshopImg, badgeImg }) => {
+        createPage({
+          path: `/hackshack/replays/${replayId}`,
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg,
+          },
+        });
+
+        createPage({
+          path: `/hackshack/workshop/${replayId}`,
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg,
+          },
+        });
+
+        createPage({
+          path: `/hackshack/workshop/${replayId}/finisher-badge`,
+          component:
+            require.resolve('./src/pages/hackshack/replays/template.js'),
+          context: {
+            workshopId: replayId,
+            workshopTitle: name,
+            workshopDesc: description,
+            workshopImg: badgeImg,
+          },
+        });
       });
-
-      // console.log(`Create pages /hackshack/replays/${id} from ${id}`);
-      // console.log('------------------------------');
-
-      createPage({
-        path: `/hackshack/workshop/${id}`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
-        },
-      });
-
-      // console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
-      // console.log('------------------------------');
-
-      createPage({
-        path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.badgeImg,
-        },
-      });
-
-      // console.log(
-      //   `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
-      // );
-      // console.log('------------------------------');
-    });
   } catch (error) {
-    console.log('Warning: Could not connect to workshop challenge API for replays. Skipping replay pages.');
-    console.log('Error details:', error.code === 'ECONNREFUSED' ? 'API service not running' : error.message);
+    console.log(
+      'Warning: Could not connect to workshop challenge API for workshops. Skipping replay pages.',
+    );
+    console.log(
+      'Error details:',
+      error.code === 'ECONNREFUSED' ? 'API service not running' : error.message,
+    );
   }
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
@@ -153,6 +156,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
   const roleTemplate = path.resolve('./src/templates/role.js');
   const useCasesTemplate = path.resolve('./src/templates/use-case.js');
+  const topicTemplate = path.resolve('./src/templates/topic.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult = await graphql(
@@ -308,6 +312,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach((post, index) => {
+      // Skip nodes where onCreateNode did not set fields (e.g. no filesystem parent).
+      if (!post.node.fields) return;
       // Don't create a page for any markdown file which are asides.
       if (!post.node.frontmatter.isAside) {
         if (post.node.fields.sourceInstanceName === 'blog') {
@@ -415,13 +421,19 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'use-cases') {
           const { sourceInstanceName, slug } = post.node.fields;
-          // console.log(
-          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          // );
-          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: useCasesTemplate,
+            context: {
+              slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'topic') {
+          const { slug } = post.node.fields;
+          createPage({
+            path: `/topic${slug}`,
+            component: topicTemplate,
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
@@ -470,8 +482,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
-    const { sourceInstanceName, absolutePath } = getNode(node.parent);
-    // console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
+    const parent = getNode(node.parent);
+    if (!parent) return; // skip nodes without a filesystem parent
+    const { sourceInstanceName } = parent;
+    // console.log(`==== onCreateNode ${sourceInstanceName}`);
     const value = createFilePath({ node, getNode });
     const date = new Date(node.frontmatter.date);
     const year = date.getFullYear();
@@ -491,6 +505,30 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 // Filter the events based on the end date
 exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes(`
+    type TopicVideo {
+      id: String
+      title: String
+      author: String
+      authorimage: String
+    }
+    type MarkdownRemarkFrontmatter {
+      ctaLabel: String
+      ctaLink: String
+      learnMoreLink: String
+      keyword: String
+      videos: [TopicVideo]
+      cta: String
+      href: String
+      bgImage: String
+      bgColor: String
+      overlay: String
+      isDark: Boolean
+      active: Boolean
+      youtubeid: String
+      youtubelink: String
+    }
+  `);
   actions.createTypes([
     schema.buildObjectType({
       name: 'MarkdownRemark',

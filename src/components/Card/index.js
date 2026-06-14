@@ -152,8 +152,8 @@ export const Card = ({
             link && link.match(/^\//g)
               ? navigate(link)
               : link
-              ? window.open(link)
-              : undefined;
+                ? window.open(link)
+                : undefined;
           }}
         >
           <CardHeader
@@ -196,7 +196,11 @@ export const Card = ({
                     {title}
                   </Heading>
                 )}
-                {date && <Text>{date}</Text>}
+                {date && (
+                  <Text size="large" style={{ marginBottom: 16 }}>
+                    {date}
+                  </Text>
+                )}
                 {content && (
                   <MarkdownLayout components={cardComponents}>
                     {content}

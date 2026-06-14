@@ -6,6 +6,7 @@ image: /img/simplivity.jpg
 frontpage: false
 priority: 2
 tags: ["hpe-simplivity"]
+disable: true
 ---
 
 Revoking an OAuth 2 token

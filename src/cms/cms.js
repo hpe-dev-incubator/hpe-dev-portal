@@ -1,7 +1,4 @@
-import CMS from 'netlify-cms-app';
-import cloudinary from 'netlify-cms-media-library-cloudinary';
-
-CMS.registerMediaLibrary(cloudinary);
+import CMS from 'decap-cms-app';
 
 const injectCustomStyle = () => {
   const style = document.createElement('style');

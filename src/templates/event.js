@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text } from 'grommet';
 
-import { Content, Layout, Markdown, SEO, Link } from '../components';
+import { Content, Layout, Markdown, SEO } from '../components';
+import { Link } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -15,45 +16,99 @@ const MarkdownLayout = styled(Markdown)`
     padding-top: 0;
   }
 `;
-const handleDate = (dateStart, dateEnd, dateFormat) => {
-  let dateString = dateFormat.format(new Date(dateStart));
-  if (dateStart !== dateEnd) {
-    dateString = `${dateString} - ${dateFormat.format(new Date(dateEnd))}`;
+
+const EventButton = styled.a`
+  display: inline-block;
+  background-color: rgba(23, 235, 160, 1);
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  &:hover {
+    background-color: rgba(13, 200, 135, 1);
   }
-  return <Text size="large">{dateString}</Text>;
-};
+`;
+
+const dateFormat = new Intl.DateTimeFormat('default', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+function formatDateRange(dateStart, dateEnd) {
+  if (!dateStart) return null;
+  const startStr = dateFormat.format(new Date(dateStart));
+  if (!dateEnd) return startStr;
+  const startDay = new Date(dateStart).toDateString();
+  const endDay = new Date(dateEnd).toDateString();
+  if (startDay === endDay) return startStr;
+  return `${startStr} \u2013 ${dateFormat.format(new Date(dateEnd))}`;
+}
 
 function EventTemplate({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  const dateFormat = Intl.DateTimeFormat('default', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
   const { rawMarkdownBody, excerpt } = post;
-  const { dateStart, dateEnd, title, tags } = post.frontmatter;
+  const { title, tags, dateStart, dateEnd, link } = post.frontmatter;
+
+  const dateString = formatDateRange(dateStart, dateEnd);
+  const now = new Date();
+  const isUpcoming = dateEnd ? new Date(dateEnd) > now : false;
+  const isYouTube =
+    link && (link.includes('youtube.com') || link.includes('youtu.be'));
+  const showLink = link && (isUpcoming || isYouTube);
+  const linkLabel = isUpcoming ? 'Register' : 'Watch recording';
+
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={excerpt} />
-      <Box direction="row-responsive" pad="large">
-        <Box gap="medium">
-          <Heading margin="none">{title}</Heading>
-          {handleDate(dateStart, dateEnd, dateFormat)}
-        </Box>
+      <Box pad="large">
         <Content margin={{ vertical: 'large' }}>
+          <Box gap="small" margin={{ bottom: 'medium' }}>
+            <Heading level={1} margin="none">
+              {title}
+            </Heading>
+            {dateString && (
+              <Text size="large" color="#606A70">
+                {dateString}
+              </Text>
+            )}
+          </Box>
           <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+          {showLink && (
+            <Box margin={{ top: 'medium', bottom: 'small' }} align="start">
+              <EventButton
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {linkLabel}
+              </EventButton>
+            </Box>
+          )}
           {tags && (
-            <Box direction="row-responsive" align="baseline" gap="small">
+            <Box align="baseline" gap="small" margin={{ top: 'large' }}>
               <Heading level={2} margin={{ vertical: 'none' }}>
-                Tags:
+                Tags
               </Heading>
-              {tags.map((tag) => (
-                <Link to={`/blog/tag/${tag}`} key={tag} size="xxlarge">
-                  {tag}
-                </Link>
-              ))}
+              <Box
+                direction="row-responsive"
+                align="baseline"
+                style={{ display: 'inline-block' }}
+              >
+                {tags.map((tag, index) => (
+                  <Link
+                    to={`/blog/tag/${tag.toLowerCase().trim()}`}
+                    key={tag}
+                    size="xxlarge"
+                  >
+                    {tag + (index !== tags.length - 1 ? ',' : '')}
+                  </Link>
+                ))}
+              </Box>
             </Box>
           )}
         </Content>
@@ -76,6 +131,7 @@ EventTemplate.propTypes = {
         title: PropTypes.string,
         dateStart: PropTypes.string,
         dateEnd: PropTypes.string,
+        link: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
     }).isRequired,
@@ -100,6 +156,7 @@ export const pageQuery = graphql`
         tags
         dateStart
         dateEnd
+        link
       }
     }
   }

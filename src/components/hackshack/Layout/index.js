@@ -7,12 +7,13 @@ import React, {
 } from 'react';
 import { useLocation } from '@reach/router';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext, Text, Button } from 'grommet';
+import { Grommet, Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 import { ResponsiveLayout, StyledLayer } from './styles';
 import { Header as HackShackHeader, SideNav } from '../index';
 import { Header as HPEDevHeader } from '../../index';
 import { AppContext } from '../../../providers/AppProvider';
+import lightTheme from '../../Layout/theme';
 
 const Layout = ({ children, background }) => {
   const size = useContext(ResponsiveContext);
@@ -29,23 +30,31 @@ const Layout = ({ children, background }) => {
   });
 
   return (
-    <ResponsiveLayout
-      background={{
-        image: `url(${background})`,
-        size: '100%',
-        position: 'top center',
-      }}
-      justify="between"
-      layer={layer}
-    >
+    <ResponsiveLayout justify="between" layer={layer}>
       <Box>
-        {location.pathname.includes('/hackshack') && size !== 'small' ? (
-          <HPEDevHeader data={data} />
-        ) : (
-          <HackShackHeader setLayer={setLayer} />
-        )}
+        <Grommet
+          theme={lightTheme}
+          style={{ position: 'sticky', top: 0, zIndex: 10 }}
+        >
+          {location.pathname.includes('/hackshack') && size !== 'small' ? (
+            <HPEDevHeader data={data} />
+          ) : (
+            <HackShackHeader setLayer={setLayer} />
+          )}
+        </Grommet>
 
-        <Box direction="row">
+        <Box
+          background={
+            background
+              ? {
+                  image: `url(${background})`,
+                  size: '100%',
+                  position: 'top center',
+                }
+              : undefined
+          }
+          direction="row"
+        >
           {location.pathname.includes('/hackshack') && size !== 'small' && (
             <Box margin={{ top: 'xlarge', left: 'large' }}>
               <SideNav data={data} />

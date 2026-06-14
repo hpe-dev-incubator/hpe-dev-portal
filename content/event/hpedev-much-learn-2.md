@@ -3,13 +3,17 @@ title: Explore Containerization and MLOps
 dateStart: 2021-02-24T16:00:00.000Z
 dateEnd: 2021-02-24T17:00:00.000Z
 category: Virtual Event
+tags:
+- AI
+- machine-learning
+- mlops
+- artificial-intelligence
+- hybrid-cloud
+- kubernetes
 image: /img/Munch_and_Learn_192_192.svg
 link: /campaign/munch-and-learn/
 width: large
-tags:
-  - hpedev
 ---
-## Munch & Learn series
 Explore Containerization and MLOps
 
 February 24, 2021

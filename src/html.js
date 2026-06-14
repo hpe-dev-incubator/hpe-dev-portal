@@ -27,6 +27,9 @@ export default function HTML(props) {
         <meta content="CORP" name="bu" />
         <meta content="products" name="page_content" />
         {props.headComponents}
+        <link rel="icon" sizes="32x32" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -41,19 +44,19 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
         </noscript>
-        <div id="header_wrapper">
+        {/* <div id="header_wrapper">
           <div
             id="hpe_slim_header"
             className="hpe_slim_header"
             style={{ pointerEvents: 'none' }}
           />
-        </div>
+        </div> */}
         <div
           key="body"
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <div id="hpe_slim_footer" className="hpe_slim_footer" />
+        <div id="footer" className="footer" />
         {props.postBodyComponents}
         <div
           dangerouslySetInnerHTML={{
@@ -65,6 +68,11 @@ export default function HTML(props) {
           function pageLoaded() {
             var header = document.getElementById('hpe_slim_header');	
             var headerWrapper = document.getElementById('header_wrapper');	
+
+            if (!header || !headerWrapper) {
+              return;
+            }
+
             var timer;	
             headerWrapper.addEventListener('mouseover', function(event) {	
               timer = setTimeout(function() {	

@@ -5,6 +5,7 @@ description: Simplivity aside links
 tags: ["hpe-simplivity"]
 frontpage: false
 isAside: true
+disable: true
 ---
 ### About the API
 

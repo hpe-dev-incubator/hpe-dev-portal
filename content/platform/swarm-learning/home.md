@@ -7,6 +7,7 @@ image: /img/platforms/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg
 width: large
 priority: 3
 frontpage: false
+date: 2024-12-06T17:54:51+01:00
 active: true
 tags:
   - swarm-learning

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import {
   Box,
@@ -10,11 +10,25 @@ import {
   // Menu as HeaderMenu,
   ResponsiveContext,
 } from 'grommet';
-import { Menu, Search, FormDown } from 'grommet-icons';
+import { Menu, Search, FormUp, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink } from '..';
+import { ButtonLink } from '../Link';
 import { UserMenu } from './UserMenu';
+
+const HEADER_TEXT_COLOR = '#3e4550';
+const HEADER_CHEVRON_COLOR = '#676767';
+
+const MainHeader = styled(GrommetHeader)`
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 80px;
+`;
+
+const HeaderOuter = styled(Box)`
+  width: 100%;
+`;
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -24,12 +38,318 @@ const TextAlignLeft = styled(Box)`
   }
 `;
 
+const BrandLinkContent = styled(Box)`
+  gap: 12px;
+`;
+
+const BrandLogo = styled.img`
+  width: 104px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+`;
+
+const BrandLabel = styled.span`
+  color: #2f3a48;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 500;
+`;
+
+const HeaderItemLabel = styled.span`
+  color: ${HEADER_TEXT_COLOR};
+  font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1;
+`;
+
+const HeaderNavLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 16px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+`;
+
+const HeaderDropButton = styled(DropButton)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 8px 0 16px;
+    gap: 4px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  && svg {
+    stroke: ${HEADER_CHEVRON_COLOR};
+  }
+`;
+
+const HeaderSearchLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    padding: 0 16px;
+    color: ${HEADER_TEXT_COLOR};
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+`;
+
+const HeaderSearchIconLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 24px;
+    min-width: 24px;
+    padding: 0;
+    margin-left: 24px;
+    color: ${HEADER_TEXT_COLOR};
+  }
+`;
+
+const JoinCommunityButton = styled(ButtonLink)`
+  && {
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid #01a982;
+    background: transparent;
+    color: #292d3a;
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+  }
+`;
+
+const MobileMainRow = styled(Box)`
+  min-height: 70px;
+  border-bottom: 1px solid #e7e9eb;
+`;
+
+const MobileActions = styled(Box)`
+  gap: 16px;
+`;
+
+const MobileSearchIconLink = styled(ButtonLink)`
+  && {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+  }
+`;
+
+const MobileMenuButton = styled(Button)`
+  && {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    color: #01a982;
+  }
+
+  && > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const MobileMenuPanel = styled(Box)`
+  width: 100vw;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  background: #f2f2f2;
+`;
+
+const MobileBrandLinkContent = styled(Box)`
+  gap: 12px;
+`;
+
+const MobileBrandLogo = styled.img`
+  width: 90px;
+  height: 26px;
+  display: block;
+  object-fit: contain;
+`;
+
+const MobileBrandText = styled.span`
+  color: #2f3a48;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 500;
+`;
+
+const MobileAccordionSection = styled(Box)`
+  width: 100%;
+`;
+
+const MobileSubItemsContainer = styled(Box)`
+  width: 100%;
+  background: #ffffff;
+  max-height: 280px;
+  overflow-y: auto;
+`;
+
+const MobileNavStack = styled(Box)`
+  padding: 0 32px;
+`;
+
+const MobileNavParentButton = styled.button`
+  width: 100%;
+  min-height: 56px;
+  border: none;
+  border-bottom: 1px solid #d4d8db;
+  background: transparent;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #292d3a;
+  font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+`;
+
+const MobileNavRowLink = styled(ButtonLink)`
+  && {
+    width: 100%;
+    min-height: 56px;
+    border-bottom: 1px solid #d4d8db;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: #f2f2f2;
+    color: #292d3a;
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  && > span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+const MobileSubNavRowLink = styled(ButtonLink)`
+  && {
+    width: 100%;
+    min-height: 50px;
+    border-bottom: 1px solid #e7e9eb;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 24px 0 32px;
+    background: #ffffff;
+    color: #3e4550;
+    font-family: 'HPE Graphik', 'MetricHPE', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  && > span {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const MobilePrimaryLabel = styled.span`
+  color: #292d3a;
+`;
+
 function Header() {
   const { data, user: userDetail } = useContext(AppContext);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState({
+    topics: false,
+    greenlake: false,
+    products: false,
+    opensource: false,
+  });
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setMobileExpanded({
+      topics: false,
+      greenlake: false,
+      products: false,
+      opensource: false,
+    });
+  };
+
+  const toggleMobileSection = (key) => {
+    setMobileExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   const platforms = data?.platform?.edges;
   const opensource = data?.opensource?.edges;
   const greenlake = data?.greenlake?.edges;
+  const topics = data?.topic?.edges;
 
   const GreenLakeButtonLinks = ({ column }) => {
     /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
@@ -87,6 +407,7 @@ function Header() {
   // const iframeRef = useRef();
 
   const PlatformButtonLinks = ({ column }) => {
+    if (!platforms?.length) return null;
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
     const rightColumn = platforms.filter((platform, index) => index % 2);
     const platformsColumn = column === 'left' ? leftColumn : rightColumn;
@@ -108,6 +429,7 @@ function Header() {
   };
 
   const OpenSourceButtonLinks = ({ column }) => {
+    if (!opensource?.length) return null;
     const leftColumn = opensource.filter((os, index) => index % 2 === 0);
     const rightColumn = opensource.filter((os, index) => index % 2);
     const osColumn = column === 'left' ? leftColumn : rightColumn;
@@ -179,8 +501,43 @@ function Header() {
     //   label="HPE GreenLake"
     //   to="/platform/hpe-greenlake/home"
     // />,
-    <DropButton
-      label="HPE GreenLake cloud"
+    <HeaderDropButton
+      key="tp"
+      label={<HeaderItemLabel>Topics</HeaderItemLabel>}
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          {(topics || []).map((t, index) => {
+            const { slug } = t.node.fields;
+            const { title } = t.node.frontmatter;
+            return (
+              <ButtonLink
+                key={index}
+                label={title}
+                to={`/topic${slug}`}
+                alignSelf="start"
+                fill="horizontal"
+              />
+            );
+          })}
+          {/* <Box
+            border={{ side: 'top', color: 'border' }}
+            margin={{ vertical: 'xsmall' }}
+          />
+          <ButtonLink
+            label="All Topics"
+            to="/topics"
+            alignSelf="start"
+            fill="horizontal"
+          /> */}
+        </TextAlignLeft>
+      }
+    />,
+    <HeaderDropButton
+      label={<HeaderItemLabel>GreenLake</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -206,8 +563,8 @@ function Header() {
         </TextAlignLeft>
       }
     />,
-    <DropButton
-      label="Products"
+    <HeaderDropButton
+      label={<HeaderItemLabel>Products</HeaderItemLabel>}
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
@@ -232,8 +589,8 @@ function Header() {
         </TextAlignLeft>
       }
     />,
-    <DropButton
-      label="OpenSource"
+    <HeaderDropButton
+      label={<HeaderItemLabel>OpenSource</HeaderItemLabel>}
       align="start"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
@@ -266,21 +623,55 @@ function Header() {
     //   alignSelf="start"
     // />,
     // <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
-    <ButtonLink align="start" key="ev" label="Events" to="/events" />,
-    <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
-
-    <ButtonLink align="start" key="cm" label="Community" to="/community" />,
-  ];
-
-  navLinks.push(
-    <ButtonLink
+    <HeaderNavLink
       align="start"
       key="bl"
-      label="Blog"
+      label={<HeaderItemLabel>Blog</HeaderItemLabel>}
       to="/blog"
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
-  );
+    <HeaderNavLink
+      align="start"
+      key="ev"
+      label={<HeaderItemLabel>Events</HeaderItemLabel>}
+      to="/events"
+    />,
+    <HeaderNavLink
+      align="start"
+      key="su"
+      label={<HeaderItemLabel>Training</HeaderItemLabel>}
+      to="/skillup"
+    />,
+
+    ...(size === 'small'
+      ? [
+          <HeaderNavLink
+            align="start"
+            key="cm"
+            label={<HeaderItemLabel>Join the Community</HeaderItemLabel>}
+            to="/community"
+          />,
+        ]
+      : [
+          <JoinCommunityButton
+            align="start"
+            key="cm"
+            label="Join the Community"
+            to="/community"
+          />,
+        ]),
+    ...(size !== 'small'
+      ? [
+          <HeaderSearchIconLink
+            align="start"
+            key="search-icon"
+            to="/search"
+            icon={<Search />}
+            aria-label="Search"
+          />,
+        ]
+      : []),
+  ];
 
   // if (!userDetail) {
   //   navLinks.push(
@@ -293,54 +684,187 @@ function Header() {
   //     />,
   //   );
   // }
-  if (size === 'small') {
-    navLinks.push(
-      <ButtonLink
-        align="start"
-        to="/search"
-        icon={<Search />}
-        label="Search"
-        reverse
-      />,
-    );
-  }
+  const mobilePrimaryLinks = [
+    { key: 'blog', label: 'Blog', to: '/blog' },
+    { key: 'events', label: 'Events', to: '/events' },
+    { key: 'training', label: 'Training', to: '/skillup' },
+    { key: 'community', label: 'Join the Community', to: '/community' },
+  ];
+
+  const mobileTopicsChildren = [
+    ...((topics || []).map((t, index) => ({
+      key: `topic-${index}`,
+      label: t.node.frontmatter.title,
+      to: `/topic${t.node.fields.slug}`,
+    })) || []),
+    { key: 'topic-all', label: 'All Topics', to: '/topics' },
+  ];
+
+  const mobileGreenlakeChildren = (greenlake || []).map((item, index) => ({
+    key: `greenlake-${index}`,
+    label: item.node.frontmatter.title,
+    to: `/greenlake${item.node.fields.slug}`,
+  }));
+
+  const mobileProductsChildren = [
+    { key: 'products-all', label: 'All Products', to: '/platforms' },
+    ...((platforms || []).map((item, index) => ({
+      key: `platform-${index}`,
+      label: item.node.frontmatter.title,
+      to: `/platform${item.node.fields.slug}`,
+    })) || []),
+  ];
+
+  const mobileOpenSourceChildren = [
+    { key: 'opensource-all', label: 'All Open Source', to: '/opensource' },
+    ...((opensource || []).map((item, index) => {
+      const s = item.node.fields.slug.toLowerCase();
+      return {
+        key: `opensource-${index}`,
+        label: item.node.frontmatter.title,
+        to: `/platform${s}home`,
+      };
+    }) || []),
+  ];
+
+  const mobileExpandableSections = [
+    {
+      key: 'topics',
+      label: 'Topics',
+      children: mobileTopicsChildren,
+    },
+    {
+      key: 'greenlake',
+      label: 'GreenLake',
+      children: mobileGreenlakeChildren,
+    },
+    {
+      key: 'products',
+      label: 'Products',
+      children: mobileProductsChildren,
+    },
+    {
+      key: 'opensource',
+      label: 'OpenSource',
+      children: mobileOpenSourceChildren,
+    },
+  ];
 
   return (
-    <GrommetHeader
-      justify="between"
-      pad={{ horizontal: 'medium', vertical: 'small' }}
-    >
-      <Box flex={false}>
-        <ButtonLink label="HPE Developer" to="/" />
-      </Box>
-      {size === 'small' ? (
-        <DropButton
-          icon={<Menu />}
-          dropAlign={{ top: 'bottom' }}
-          dropContent={<Nav direction="column">{navLinks}</Nav>}
-        />
-      ) : (
-        <Box flex="shrink" overflow="hidden" pad="2px">
-          <Nav direction="row" gap="medium">
-            {navLinks.map((l, index) => (
-              <Box key={index} flex={false}>
-                {l}
-              </Box>
-            ))}
-          </Nav>
-        </Box>
-      )}
-      {size !== 'small' && (
-        <ButtonLink
-          align="start"
-          to="/search"
-          icon={<Search />}
-          label="Search"
-          reverse
-        />
-      )}
-      {userDetail && <UserMenu userInfo={userDetail} />}
+    <HeaderOuter>
+      <MainHeader
+        align={size === 'small' ? undefined : 'center'}
+        justify={size === 'small' ? undefined : 'between'}
+        pad={
+          size === 'small'
+            ? { horizontal: '0', vertical: '0' }
+            : { horizontal: '160px', vertical: '0' }
+        }
+      >
+        {size === 'small' ? (
+          <Box width="100%">
+            <MobileMainRow
+              direction="row"
+              align="center"
+              justify="between"
+              pad={{ horizontal: '32px', vertical: '20px' }}
+            >
+              <ButtonLink
+                label={
+                  <MobileBrandLinkContent direction="row" align="center">
+                    <MobileBrandLogo src="/img/home/HPE%20Logo.png" alt="HPE" />
+                    <MobileBrandText>Developer</MobileBrandText>
+                  </MobileBrandLinkContent>
+                }
+                to="/"
+                plain
+              />
 
+              <MobileActions direction="row" align="center">
+                <MobileSearchIconLink
+                  to="/search"
+                  icon={<Search size="24px" />}
+                  aria-label="Search"
+                />
+
+                <MobileMenuButton
+                  icon={<Menu size="24px" color="#01a982" />}
+                  onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                />
+              </MobileActions>
+            </MobileMainRow>
+
+            {isMobileMenuOpen && (
+              <MobileMenuPanel>
+                {mobileExpandableSections.map((section) => (
+                  <MobileAccordionSection key={section.key}>
+                    <MobileNavParentButton
+                      type="button"
+                      onClick={() => toggleMobileSection(section.key)}
+                    >
+                      <span>{section.label}</span>
+                      {mobileExpanded[section.key] ? (
+                        <FormUp size="18px" color="#01a982" />
+                      ) : (
+                        <FormDown size="18px" color="#b1b9be" />
+                      )}
+                    </MobileNavParentButton>
+
+                    {mobileExpanded[section.key] && (
+                      <MobileSubItemsContainer>
+                        {section.children.map((child) => (
+                          <MobileSubNavRowLink
+                            key={child.key}
+                            label={child.label}
+                            to={child.to}
+                            onClick={closeMobileMenu}
+                          />
+                        ))}
+                      </MobileSubItemsContainer>
+                    )}
+                  </MobileAccordionSection>
+                ))}
+
+                {mobilePrimaryLinks.map((item) => (
+                  <MobileNavRowLink
+                    key={item.key}
+                    to={item.to}
+                    onClick={closeMobileMenu}
+                    label={
+                      <MobilePrimaryLabel>{item.label}</MobilePrimaryLabel>
+                    }
+                  />
+                ))}
+              </MobileMenuPanel>
+            )}
+          </Box>
+        ) : (
+          <>
+            <Box flex={false}>
+              <ButtonLink
+                label={
+                  <BrandLinkContent direction="row" align="center">
+                    <BrandLogo src="/img/home/HPE%20Logo.png" alt="HPE" />
+                    <BrandLabel>Developer</BrandLabel>
+                  </BrandLinkContent>
+                }
+                to="/"
+                plain
+              />
+            </Box>
+            <Box flex="shrink" overflow="visible" pad="2px">
+              <Nav direction="row" gap="none">
+                {navLinks.map((l, index) => (
+                  <Box key={index} flex={false}>
+                    {l}
+                  </Box>
+                ))}
+              </Nav>
+            </Box>
+          </>
+        )}
+        {userDetail && <UserMenu userInfo={userDetail} />}
+      </MainHeader>
       {/* <iframe
         title="cookie-session"
         ref={iframeRef}
@@ -348,7 +872,7 @@ function Header() {
         src="https://origin-qa-www-hpe-com.ext.hpe.com/us/en/service-pages/hfws-cookie.html"
         style={{ display: 'none' }}
       /> */}
-    </GrommetHeader>
+    </HeaderOuter>
   );
 }
 

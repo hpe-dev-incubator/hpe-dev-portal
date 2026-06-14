@@ -4,7 +4,7 @@ title: "Automating HPE OpsRamp Software with Terraform: Infrastructure as Code
 date: 2026-05-25T08:00:00.000Z
 author: Enrique Larriba
 authorimage: /img/blog_440894421_450_0_72_rgb.jpg
-thumbnailimage: /img/thumbnail.png
+thumbnailimage: /img/dev-stories/dev-story-9.jpg
 disable: false
 tags:
   - hpe-opsramp
@@ -61,7 +61,7 @@ This works across Microsoft Windows, Linux, and Apple macOS.
 
 ## Usage
 
-The provider requires an OAuth 2.0 API token to authenticate with the HPE OpsRamp Software. You can generate this token using the custom integration feature. 
+The provider requires an OAuth 2.0 API token to authenticate with the HPE OpsRamp Software. You can generate this token using the custom integration feature.
 
 ![Custom integration feature](/img/custom-integration.png "custom integration feature")
 
@@ -133,7 +133,7 @@ After running this command, you should see Terraform report that the resource gr
 
 #### Extended scenario
 
-More advanced examples require additional resources. You can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, you will deploy three clients with a standardized service map. First, you need to create a module directory that will declare what's needed on each client. 
+More advanced examples require additional resources. You can automatically create clients, the unit of multitenancy; service maps, roles, users, groups, and more. In the following example, you will deploy three clients with a standardized service map. First, you need to create a module directory that will declare what's needed on each client.
 
 ```hcl
 # file: modules/client/main.tf

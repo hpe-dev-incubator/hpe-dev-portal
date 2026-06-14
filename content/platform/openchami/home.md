@@ -3,10 +3,11 @@ title: OpenCHAMI
 version: "1.0"
 description: OpenCHAMI is an open-source, composable toolkit for
   high-performance computing (HPC) and AI infrastructure management.
-image: /img/platforms/openchami.png
+image: /img/platforms/chami.jpg
 width: large
 priority: 6
 frontpage: true
+date: 2026-01-21T11:04:37-06:00
 active: true
 tags:
   - open source

@@ -23,9 +23,7 @@ import {
   CircleInformation,
 } from 'grommet-icons';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import { CardWrapper, ContrastLayer } from './styles';
-import AuthService from '../../../services/auth.service';
 import { AppContext } from '../../../providers/AppProvider';
 import Share from '../Share';
 
@@ -64,18 +62,12 @@ export const UnregisterLayer = ({
         method: 'GET',
         // eslint-disable-next-line max-len
         url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
-        headers: {
-          'x-access-token': AuthService.getCurrentUser().accessToken,
-        },
       })
         .then((customerData) => {
           axios({
             method: 'GET',
             // eslint-disable-next-line max-len
             url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
-            headers: {
-              'x-access-token': AuthService.getCurrentUser().accessToken,
-            },
           }).then((studentData) => {
             if (formData.username !== studentData.data.username) {
               setUserNameError('User name not found');
@@ -87,9 +79,6 @@ export const UnregisterLayer = ({
                 method: 'PUT',
                 // eslint-disable-next-line max-len
                 url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
-                headers: {
-                  'x-access-token': AuthService.getCurrentUser().accessToken,
-                },
               })
                 .then(() => {
                   setUnregisterLayer(false);
@@ -267,9 +256,6 @@ export const SignupLayer = ({
         axios({
           method: 'POST',
           url: `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
-          headers: {
-            'x-access-token': AuthService.getCurrentUser().accessToken,
-          },
           data: { ...formData, email: formData.email.toLowerCase() },
         })
           .then((response) => {
@@ -286,15 +272,11 @@ export const SignupLayer = ({
             }
           })
           .catch((err) => {
-            if (err.response.status === 401) {
-              AuthService.login().then(() => postCustomer());
-            } else {
-              console.log('err', err);
-              setError({
-                status: err.response.status,
-                message: err.response.data.message,
-              });
-            }
+            console.log('err', err);
+            setError({
+              status: err.response.status,
+              message: err.response.data.message,
+            });
           });
       };
       postCustomer();
@@ -303,44 +285,38 @@ export const SignupLayer = ({
   return (
     <Layer
       position="right"
-      full={size === 'large' ? true : 'vertical'}
-      style={{ borderRadius: '4px 0px 0px 4px' }}
-      background={
-        size === 'large'
-          ? {
-              image: 'url(/img/hackshack/gremlin-signup.png)',
-              size: 'cover',
-              position: 'center',
-              repeat: 'no-repeat',
-              opacity: '0.99',
-            }
-          : {
-              color: '#333333',
-            }
-      }
+      full="vertical"
+      modal={false}
+      onClickOutside={() => setLayer(false)}
+      onEsc={() => setLayer(false)}
+      style={{
+        borderRadius: '4px 0px 0px 4px',
+        top: '80px',
+        height: 'calc(100vh - 80px)',
+        boxShadow: '-4px 0 16px rgba(0,0,0,0.15)',
+      }}
     >
-      <Button
-        onClick={() => {
-          // reset();
-          setLayer(false);
-        }}
-        alignSelf="end"
-        icon={<FormClose />}
-        margin={{ top: 'medium', right: 'medium' }}
-      />
       <Box
-        overflow="auto"
-        height="950px"
+        background="white"
+        height="100%"
         width={size === 'small' ? '100%' : '500px'}
         direction="column"
-        pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
-        margin={size === 'large' ? { right: '100px' } : { right: '0' }}
+        pad={{ top: 'medium', bottom: 'large', horizontal: 'large' }}
+        overflow="auto"
         alignSelf="end"
       >
-        <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
-          Register
-        </Heading>
-        <Text color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
+        <Box
+          direction="row"
+          justify="between"
+          align="center"
+          margin={{ bottom: 'small' }}
+        >
+          <Heading level={3} margin="none">
+            Register
+          </Heading>
+          <Button onClick={() => setLayer(false)} icon={<FormClose />} plain />
+        </Box>
+        <Text margin={{ bottom: 'medium' }}>
           {title} {sessionType === 'Workshops-on-Demand' ? 'workshop' : ''}
         </Text>
         <Form
@@ -355,13 +331,25 @@ export const SignupLayer = ({
             error={emailError}
             required
           >
-            <TextInput name="email" value={formData.email} onChange={setFormData} />
+            <TextInput
+              name="email"
+              value={formData.email}
+              onChange={setFormData}
+            />
           </FormField>
           <FormField label="Full Name" name="name" required>
-            <TextInput name="name" value={formData.name} onChange={setFormData}/>
+            <TextInput
+              name="name"
+              value={formData.name}
+              onChange={setFormData}
+            />
           </FormField>
           <FormField label="Company Name" name="company" required>
-            <TextInput name="company" value={formData.company} onChange={setFormData} />
+            <TextInput
+              name="company"
+              value={formData.company}
+              onChange={setFormData}
+            />
           </FormField>
           <Box
             margin={{ top: 'medium' }}
@@ -471,6 +459,7 @@ export const SignupLayer = ({
               justify="center"
               margin={{ top: 'medium' }}
               background="status-critical"
+              round="xsmall"
             >
               <Text alignSelf="center">{error.message}</Text>
             </Box>
@@ -504,72 +493,57 @@ export const SuccessLayer = ({
 }) => (
   <Layer
     position="right"
-    full={size === 'large' ? true : 'vertical'}
-    style={{ borderRadius: '4px 0px 0px 4px' }}
-    background={
-      size === 'large'
-        ? {
-            image: 'url(/img/hackshack/gremlin-signup.png)',
-            size: 'cover',
-            position: 'center',
-            repeat: 'no-repeat',
-            opacity: '0.99',
-          }
-        : {
-            color: '#333333',
-          }
-    }
+    full="vertical"
+    modal={false}
+    onClickOutside={() => setLayer(false)}
+    onEsc={() => setLayer(false)}
+    style={{
+      borderRadius: '4px 0px 0px 4px',
+      top: '80px',
+      height: 'calc(100vh - 80px)',
+      boxShadow: '-4px 0 16px rgba(0,0,0,0.15)',
+    }}
   >
-    <Button
-      alignSelf="end"
-      onClick={() => setLayer(false)}
-      icon={<FormClose />}
-      margin={{ top: 'medium', right: 'medium' }}
-    />
     <Box
+      background="white"
       height="100%"
       width={size === 'small' ? '100%' : '500px'}
       direction="column"
-      pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
+      pad={{ top: 'medium', bottom: 'large', horizontal: 'large' }}
+      overflow="auto"
       alignSelf="end"
     >
-      <StatusGood size="large" />
-      <Box margin={{ bottom: 'medium', top: 'small' }}>
-        <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
-          {sessionType === 'Coding Challenge'
-            ? 'Challenge Accepted!'
-            : "You're Registered!"}
-        </Heading>
-        <Text color="#ffffff">
-          You have been signed up for this{' '}
-          {sessionType === 'Coding Challenge' ? 'Challenge' : 'workshop'}. Head
-          over to your email ({email}) to learn what happens next.
-        </Text>
+      <Box
+        direction="row"
+        justify="between"
+        align="center"
+        margin={{ bottom: 'medium' }}
+      >
+        <Box direction="row" align="center" gap="small">
+          <StatusGood color="status-ok" size="medium" />
+          <Heading level={3} margin="none">
+            {sessionType === 'Coding Challenge'
+              ? 'Challenge Accepted!'
+              : "You're Registered!"}
+          </Heading>
+        </Box>
+        <Button onClick={() => setLayer(false)} icon={<FormClose />} plain />
       </Box>
-      <Box>
-        <Text>Your registration info:</Text>
-        <Text>
-          {' '}
-          <Text color="#ffffff" weight="bold">
-            {name}
-          </Text>{' '}
-          is signed up for{' '}
-          <Text color="#ffffff" weight="bold">
-            {title}
-          </Text>
-        </Text>
-      </Box>
-      <Box margin={{ top: 'large' }}>
-        <Button
-          alignSelf="start"
-          label="close"
-          onClick={() => {
-            // reset();
-            setLayer(false);
-          }}
-          primary
-        />
-      </Box>
+      <Text margin={{ bottom: 'small' }}>
+        You have been signed up for this{' '}
+        {sessionType === 'Coding Challenge' ? 'Challenge' : 'workshop'}. Head
+        over to your email ({email}) to learn what happens next.
+      </Text>
+      <Text margin={{ bottom: 'medium' }}>
+        <Text weight="bold">{name}</Text> is signed up for{' '}
+        <Text weight="bold">{title}</Text>
+      </Text>
+      <Button
+        alignSelf="start"
+        label="Close"
+        onClick={() => setLayer(false)}
+        primary
+      />
     </Box>
   </Layer>
 );
@@ -637,13 +611,14 @@ const ScheduleCard = ({
 
   const [hover, setHover] = useState(false);
   // const resetFormData = () => {
-    const handlechange=(e)=>{
-      const { name, value, type, checked } = e.target || '';
-      const inputvalue= (type==='checkbox') ? checked : value ;
-      setFormData({
+  const handlechange = (e) => {
+    const { name, value, type, checked } = e.target || '';
+    const inputvalue = type === 'checkbox' ? checked : value;
+    setFormData({
       ...formData,
-      [name]:inputvalue,
-    });};
+      [name]: inputvalue,
+    });
+  };
   // };
 
   const checkHover = (e) => {
@@ -665,7 +640,6 @@ const ScheduleCard = ({
       axios({
         method: 'GET',
         url: `${uri}${DBid}`,
-        headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
         .then((res) => {
           if (res.data.capacity <= 0) {
@@ -673,9 +647,7 @@ const ScheduleCard = ({
           }
         })
         .catch((err) => {
-          if (err.response.status === 401) {
-            AuthService.login().then(() => getWorkshopbyID());
-          }
+          console.log('error', err);
         });
     };
     if (
@@ -872,17 +844,18 @@ const ScheduleCard = ({
               )}
               {sessionType === 'Coding Challenge' ||
               sessionType === 'Workshops-on-Demand' ? (
-                <Link to={`../${sessionLink}`}>
-                  <Button
-                    label={
-                      <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize}>
-                          Learn more
-                        </Text>
-                      </Box>
-                    }
-                  />
-                </Link>
+                <Button
+                  href={sessionLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  label={
+                    <Box pad="xsmall">
+                      <Text color="text-strong" size={textSize}>
+                        Learn more
+                      </Text>
+                    </Box>
+                  }
+                />
               ) : (
                 <Box direction="row" gap="medium">
                   <Button

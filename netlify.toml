@@ -1,11 +1,11 @@
 # example netlify.toml
 [build]
-  command = "yarn build"
+  command = "gatsby clean && yarn build"
   functions = "functions"
   publish = "public"
 
 [context.deploy-preview.environment]
-  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackondemand.hpedev.io"
+  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
 [context.staging.environment] # 'staging' is a branch name
   GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackondemand.hpedev.io"
 [context.testing.environment]

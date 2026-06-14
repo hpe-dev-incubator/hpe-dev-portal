@@ -8,6 +8,7 @@ image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 priority: 1
 active: false
+date: 2023-10-05T11:31:31+01:00
 tags:
   - hpe-ezmeral
   - hpe-ezmeral-data-fabric

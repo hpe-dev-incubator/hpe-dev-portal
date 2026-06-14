@@ -3,12 +3,15 @@ title: "Network Operations Spotlight with PyCentralv2"
 dateStart: 2026-04-08T22:01:58.632Z
 dateEnd: 2026-04-08T21:30:58.648Z
 category: Meetup
-image: /img/kadanza/hpe202601302777_450_0_72_rgb.jpg
+tags:
+- networking
+- aruba
+- network-automation
+- automation
+- api
+- management
+image: /img/events/events4.jpg
 link: https://www.youtube.com/watch?v=tEQZqb3C98I
 width: large
 ---
-## Network Operations Spotlight with PyCentralv2
-
-April 08, 2026
-
 Return for our second session of the HPE Networking Automation Team’s Developer Meetup series! This session will focus on the Automation Team’s PyCentral software development kit (SDK) for HPE Aruba Networking Central. PyCentral is the Automation Team’s very own Python SDK built to integrate automation with network operations. PyCentral handles authentication, request formatting, and error handling with PE Aruba Networking Central's Rest APIs while exposing simple Python functions. The SDK has received numerous enhancements  including the integration a full suite of support materials for configuration, monitoring, troubleshooting, and streaming. Follow along as the Automation team guides you through a series of demos showcasing the power of automating network operations with PyCentral.
