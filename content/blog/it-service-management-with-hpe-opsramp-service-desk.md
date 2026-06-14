@@ -1,5 +1,5 @@
 ---
-title: An overview of IT service management using HPE OpsRamp Software Service Desk
+title: Overview of IT service management using HPE OpsRamp Software Service Desk
 date: 2026-06-10T09:35:11.564Z
 priority: ""
 author: Sudhir Kanigiri
@@ -9,6 +9,10 @@ tags:
   - ITSM
   - HPE OpsRamp Service Desk
   - hpe-opsramp
+  - service management
+  - ticket configuration
+  - ticket workflows
+  - ticket automation
 ---
 <style>
 table {
