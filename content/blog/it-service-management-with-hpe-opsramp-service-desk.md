@@ -1,5 +1,5 @@
 ---
-title: HPE OpsRamp Service Desk Overview
+title: An overview of IT service management using HPE OpsRamp Software Service Desk
 date: 2026-06-10T09:35:11.564Z
 priority: ""
 author: Sudhir Kanigiri
