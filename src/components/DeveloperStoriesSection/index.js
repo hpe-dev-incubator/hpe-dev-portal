@@ -72,8 +72,9 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
           {blogs.map(({ node }, index) => {
-            const { title, thumbnailimage } = node.frontmatter;
+            const { title, thumbnailimage, externalLink } = node.frontmatter;
             const slug = node.fields.slug;
+            const blogHref = externalLink || `/blog${slug}`;
             const excerpt =
               node.excerpt && node.excerpt.length > 130
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
@@ -133,7 +134,9 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
                   </Text>
 
                   <Anchor
-                    href={`/blog${slug}`}
+                    href={blogHref}
+                    target={externalLink ? '_blank' : undefined}
+                    rel={externalLink ? 'noopener noreferrer' : undefined}
                     icon={<LinkNext size="small" color="brand" />}
                     label="Learn more"
                     reverse
