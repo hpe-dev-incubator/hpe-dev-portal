@@ -108,6 +108,7 @@ Home.propTypes = {
               category: PropTypes.string,
               description: PropTypes.string,
               image: PropTypes.string,
+              Featured: PropTypes.bool,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -262,6 +263,7 @@ export const pageQuery = graphql`
             author
             authorimage
             thumbnailimage
+            externalLink
           }
         }
       }
@@ -269,7 +271,7 @@ export const pageQuery = graphql`
     opensource: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "opensource" } }
-        frontmatter: { active: { eq: true } }
+        frontmatter: { active: { eq: true }, Featured: { eq: true } }
       }
       sort: { frontmatter: { priority: ASC } }
     ) {
@@ -289,6 +291,7 @@ export const pageQuery = graphql`
             image
             github
             frontpage
+            Featured
             priority
             link
           }
