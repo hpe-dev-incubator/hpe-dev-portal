@@ -1,6 +1,6 @@
 ---
           title: "HPE Open source"
-          category: Opensource
+          category: Open source
           link: https://developer.hpe.com/opensource
           description: Open-source resources from HPE.
           priority: 1
