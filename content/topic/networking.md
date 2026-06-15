@@ -18,5 +18,5 @@ tags:
 priority: 3
 active: true
 ctaLabel: Get started with Networking
-ctaLink: <https://developer.networking.hpe.com/get-started/home/>
-learnMoreLink: <https://developer.networking.hpe.com/--->
+ctaLink: https://developer.networking.hpe.com/get-started/home
+learnMoreLink: https://developer.networking.hpe.com---
