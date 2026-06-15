@@ -5,7 +5,7 @@
           description: Open-source resources from HPE.
           priority: 1
           image: '/img/platforms/SPIFFEandSpire.svg'
-          active: true
+          active: false
           Featured: true
           github: 'https://github.com/hpe'
 ---
