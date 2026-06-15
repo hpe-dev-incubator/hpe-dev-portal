@@ -53,9 +53,9 @@ const SLIDES = [
     id: 2,
     title: 'Learn, build, & deploy',
     subtitle:
-      'Build, break, and iterate alongside engineers solving real AI and infrastructure challenges—then demo what you ship.',
+      'Build, break, and iterate alongside engineers solving real AI challenges—then demo what you build.',
     cta1: {
-      label: 'Join the hackathon',
+      label: 'Register now',
       href: 'https://events.bizzabo.com/797906/home',
       newTab: true,
     },
