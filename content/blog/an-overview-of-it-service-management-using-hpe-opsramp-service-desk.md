@@ -10,30 +10,32 @@ tags:
 ---
 <style>
 table {
-    display: table;
-    width: 100%;
+    display: block;
+    width: max-content !important;
     max-width: 100%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    -webkit-box-shadow: none;
+    overflow: auto;
+     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    border: 1px solid grey;
+    border:1px solid grey;
 }
-th, td {
-    -webkit-box-shadow: none;
+td {
+   -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    border: 1px solid grey;
+    border:1px solid grey;
     text-align: left !important;
-    font-weight: normal !important;
+     font-weight: normal !important;
     padding: 10px !important;
 }
-th {
-    text-align: center !important;
-    font-weight: bold !important;
-    background-color: #f5f5f5;
-    font-weight: bold !important;
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important;
+  padding: 20px !important;
+  font-weight: bold !important;
 }
 </style>
 
@@ -301,4 +303,4 @@ For tools outside the standard integration catalog, HPE OpsRamp Software provide
 
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, HPE OpsRamp Software Service Desk provides a powerful foundation.
 
-Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
+Please keep coming back to the [HPE Developer Community blog section](https://developer.hpe.com/blog/) to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
