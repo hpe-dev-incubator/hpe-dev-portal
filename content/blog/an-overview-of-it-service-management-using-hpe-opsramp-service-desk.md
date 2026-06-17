@@ -307,4 +307,8 @@ For tools outside the standard integration catalog, HPE OpsRamp Software provide
 
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, HPE OpsRamp Software Service Desk provides a powerful foundation.
 
-Please keep coming back to the [HPE Developer Community blog section](https://developer.hpe.com/blog/) to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
+## Call to Action
+
+If you have any questions regarding this blog post, please refer to OpsRamp Service Desk documentation here and can also reach out to me at sudhir.kanigiri@hpe.com
+
+Please check out the [HPE Developer Community blog section](https://developer.hpe.com/blog/) for more articles on this topic.
