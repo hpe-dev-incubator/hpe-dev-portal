@@ -266,3 +266,18 @@ Key metrics:
 * Productivity averages per day 
 
 ![](/img/opsramp-servicedesk8.png "Figure 8. Service Desk ticket insights report")
+
+**Insight to action**
+
+Measure performance, identify bottlenecks, and drive continuous improvement
+
+**Seamless integrations**
+
+Email integration
+
+* Create incidents, service requests, or change requests directly from email 
+* Automatic parsing and categorization 
+* Zero manual intervention
+
+
+ 
