@@ -249,3 +249,10 @@ Operational and executive visibility
 
 
 ![](/img/opsramp-servicedesk6.png "Figure 6. Service Desk reporting apps")
+
+**Ticket Details report**
+ 
+* Transaction level data 
+* Audits and deep operational analysis 
+
+
