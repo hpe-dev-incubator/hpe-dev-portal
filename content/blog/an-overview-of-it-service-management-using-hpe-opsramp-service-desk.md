@@ -246,4 +246,6 @@ Designed to help users manage workload efficiently
 **Reporting & insights**
 
 Operational and executive visibility 
-	
+
+
+![](/img/opsramp-servicedesk6.png "Figure 6. Service Desk reporting apps")
