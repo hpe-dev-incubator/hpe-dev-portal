@@ -4,6 +4,9 @@ date: 2026-06-17T15:43:00.000Z
 author: Sudhir Kanigiri
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - hpe-opsramp
+  - hybrid-cloud
 ---
 <style>
 table {
