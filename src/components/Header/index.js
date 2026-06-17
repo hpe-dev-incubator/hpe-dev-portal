@@ -40,6 +40,7 @@ const TextAlignLeft = styled(Box)`
 
 const BrandLinkContent = styled(Box)`
   gap: 12px;
+  align-items: baseline;
 `;
 
 const BrandLogo = styled.img`

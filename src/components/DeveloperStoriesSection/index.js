@@ -17,7 +17,12 @@ import {
   CardBody,
 } from './styles';
 
-const DEVELOPER_THUMBNAILS = [
+const OPSRAMP_THUMBNAILS = [
+  '/img/dev-stories/opsramp-terraform.jpg',
+  '/img/dev-stories/opsramp-dashboard.jpg',
+];
+
+const REGULAR_THUMBNAILS = [
   '/img/dev-stories/dev-story-0.jpg',
   '/img/dev-stories/dev-story-1.jpg',
   '/img/dev-stories/dev-story-2.jpg',
@@ -27,20 +32,41 @@ const DEVELOPER_THUMBNAILS = [
   '/img/dev-stories/dev-story-6.jpg',
   '/img/dev-stories/dev-story-7.jpg',
   '/img/dev-stories/dev-story-8.jpg',
-  '/img/dev-stories/opsramp-terraform.jpg',
-  '/img/dev-stories/opsramp-dashboard.jpg',
 ];
 
-const getThumbnail = () =>
-  DEVELOPER_THUMBNAILS[Math.floor(Math.random() * DEVELOPER_THUMBNAILS.length)];
-
-const shuffleThumbnails = () =>
-  [...DEVELOPER_THUMBNAILS].sort(() => Math.random() - 0.5);
+const fisherYates = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
 
 const DeveloperStoriesSection = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const size = useContext(ResponsiveContext);
-  const shuffledThumbnails = useMemo(shuffleThumbnails, []);
+
+  const thumbnailMap = useMemo(() => {
+    const map = {};
+    const shuffledOpsramp = fisherYates(OPSRAMP_THUMBNAILS);
+    const shuffledRegular = fisherYates(REGULAR_THUMBNAILS);
+    let opsrampCount = 0;
+    let regularCount = 0;
+    blogs.forEach(({ node }) => {
+      const slug = node.fields.slug;
+      if (slug.toLowerCase().includes('opsramp')) {
+        // cycle only if somehow more opsramp blogs than opsramp images
+        map[slug] = shuffledOpsramp[opsrampCount % shuffledOpsramp.length];
+        opsrampCount += 1;
+      } else {
+        // enough regular images for the query limit — no cycling needed
+        map[slug] = shuffledRegular[regularCount % shuffledRegular.length];
+        regularCount += 1;
+      }
+    });
+    return map;
+  }, [blogs]);
 
   if (blogs.length === 0) return null;
 
@@ -71,7 +97,7 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
       {/* Carousel */}
       <CarouselViewport>
         <CarouselTrack style={{ transform: `translateX(-${translateX}px)` }}>
-          {blogs.map(({ node }, index) => {
+          {blogs.map(({ node }) => {
             const { title, thumbnailimage, externalLink } = node.frontmatter;
             const slug = node.fields.slug;
             const blogHref = externalLink || `/blog${slug}`;
@@ -79,9 +105,12 @@ const DeveloperStoriesSection = ({ blogs = [] }) => {
               node.excerpt && node.excerpt.length > 130
                 ? `${node.excerpt.slice(0, 130).trimEnd()}…`
                 : node.excerpt || '';
-            const coverImg =
-              thumbnailimage ||
-              shuffledThumbnails[index % shuffledThumbnails.length];
+            const isOpsramp = slug.toLowerCase().includes('opsramp');
+            // Opsramp blogs always use opsramp images from thumbnailMap;
+            // other blogs use their own thumbnailimage if set, else thumbnailMap.
+            const coverImg = isOpsramp
+              ? thumbnailMap[slug]
+              : thumbnailimage || thumbnailMap[slug];
 
             return (
               <StoryCard key={slug}>
