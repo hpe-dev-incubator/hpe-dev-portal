@@ -247,12 +247,11 @@ Designed to help users manage workload efficiently
 
 Operational and executive visibility 
 
-
 ![](/img/opsramp-servicedesk6.png "Figure 6. Service Desk reporting apps")
 
 **Ticket Details report**
- 
+
 * Transaction level data 
 * Audits and deep operational analysis 
 
-
+![](/img/opsramp-servicedesk7.png "Figure 7. Service Desk ticket details report")
