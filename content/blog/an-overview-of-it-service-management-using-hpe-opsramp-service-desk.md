@@ -91,7 +91,6 @@ Standardized entities ensure consistent reporting, automation, and SLA tracking 
 
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations:
 
-
 <div align="left">
 
 
@@ -106,7 +105,6 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 
 </div>
-
 
 **Best practice**
 
