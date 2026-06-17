@@ -144,7 +144,7 @@ Custom Forms help customize tickets with
 Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report, and analyze ticket trends.
 
 Clear ownership at every stage 
-Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
+Ticket Flow => /[New → Open → Pending / OnHold → Resolved → Closed]
 
 * Ensures accountability
 * Prevents uncontrolled state changes 
@@ -191,7 +191,7 @@ Setup → Account → Service Desk → Service Level Agreements
 Setup → Account → Service Desk → Notifications
 
 
- Triggered by: 
+Triggered by: 
 
 * Ticket creation or updates 
 * Status changes 
