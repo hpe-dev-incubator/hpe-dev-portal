@@ -207,7 +207,7 @@ Setup → Account → Service Desk → Auto Close Policies
 
 **Canned response**
 
-Setup &rarr; Account &rarr; Service Desk &rarr; Canned Response
+Setup → Account → Service Desk → Canned Response
 
 * Faster, consistent user communication 
 * Automated recurring operational activities
