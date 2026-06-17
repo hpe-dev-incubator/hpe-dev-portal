@@ -210,7 +210,7 @@ Setup → Account → Service Desk → Auto Close Policies
 Setup  Account  Service Desk  Canned Response
 
 * Faster, consistent user communication 
-* Automated recurring operational activities 
+* Automated recurring operational activities
 
 **Scheduled tasks**
 
