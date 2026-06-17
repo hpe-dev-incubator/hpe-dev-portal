@@ -224,7 +224,7 @@ Purpose driven access control
 <div align="left">
 
 | **Persona**       | **Capabilities**                                                   |
-| ----------------- | ------------------------------------------------------------------ |
+| ----------------- | ---------------------------------------------------------- |
 | **Regular User**  | Full ticket lifecycle management                                   |
 | **Business User** | View only or comment based access (RBAC) Role Based Access Control |
 
