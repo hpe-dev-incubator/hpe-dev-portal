@@ -255,3 +255,14 @@ Operational and executive visibility
 * Audits and deep operational analysis 
 
 ![](/img/opsramp-servicedesk7.png "Figure 7. Service Desk ticket details report")
+
+**Ticket Insights report** 
+
+Key metrics:
+
+* Ticket volumes and trends 
+* Priority and status breakdown 
+* Open vs resolved tickets 
+* Productivity averages per day 
+
+![](/img/opsramp-servicedesk8.png "Figure 8. Service Desk ticket insights report")
