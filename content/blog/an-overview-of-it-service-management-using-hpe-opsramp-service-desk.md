@@ -1,7 +1,7 @@
 ---
 title: An Overview of IT Service Management using HPE OpsRamp Service Desk
 date: 2026-06-17T15:43:00.000Z
-author: Kanigiri, Sudhir
+author: Sudhir Kanigiri
 authorimage: /img/Avatar1.svg
 disable: false
 ---
@@ -284,12 +284,18 @@ Email integration
 **Custom ticketing integrations**
 
 For tools outside the standard integration catalog, HPE OpsRamp Software provides **a custom ticketing integration framework**, enabling API based connectivity with third party or in house applications. 
+
+![](/img/opsramp-servicedesk10.png "Figure 10. Custom ticket integration")
+
+## Conclusion
+
+
+* HPE OpsRamp Software Service Desk ITSM, built for modern enterprises, transforms IT operations from reactive to proactive service management—combining automation, governance, and insight in a single platform.
  
+* Whether you’re scaling service operations, improving SLA adherence, or seeking better visibility, HPE OpsRamp Software Service Desk provides the foundation for efficient, future ready IT service management.
 
+* HPE OpsRamp Software Service Desk combines robust ITSM fundamentals with structured workflows, persona based experiences, and actionable reporting.
 
-
-Conclusion 
-•	HPE OpsRamp Software Service Desk ITSM, built for modern enterprises, transforms IT operations from reactive to proactive service management—combining automation, governance, and insight in a single platform. 
-•	Whether you’re scaling service operations, improving SLA adherence, or seeking better visibility, HPE OpsRamp Software Service Desk provides the foundation for efficient, future ready IT service management. 
-•	HPE OpsRamp Software Service Desk combines robust ITSM fundamentals with structured workflows, persona based experiences, and actionable reporting.
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, HPE OpsRamp Software Service Desk provides a powerful foundation.
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Opsramp and get more ideas on how you can use it in your everyday operations.
