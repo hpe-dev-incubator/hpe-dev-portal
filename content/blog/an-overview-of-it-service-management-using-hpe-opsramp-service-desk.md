@@ -233,3 +233,12 @@ Role based access ensures visibility without compromising control.
  **Business User**
 
 ![](/img/opsramp-servidedesk4.png "Figure 4. Service Desk business user")
+
+Ticket Views
+
+* Quick Views: Predefined filters 
+* Custom Views: User saved filters
+
+Designed to help users manage workload efficiently
+
+![](/img/opsramp-servicedesk5.png "Figure 5. Service Desk views")
