@@ -78,7 +78,18 @@ Core ITSM capabilities
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations: 
 
-
+<div align="center">
+Here’s how to map KV cache to conventional storage concepts:
+ 
+| **Entity type**     | **Purpose**  | 
+| -------- | ------- | 
+| Registers  | Tensor cores, attention units    | 
+| L1/L2 cache | KV cache slices currently in use     | 
+| RAM    | Overall KV cache across all layers    | 
+| SSD / object storage | Prompt, documents | 
+| Cold storage | Archived corpora, vector DB, documents |
+ 
+</div>
 
 
 
