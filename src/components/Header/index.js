@@ -35,7 +35,11 @@ const TextAlignLeft = styled(Box)`
   & > a {
     text-align: left;
     font-weight: 400;
-    padding-right: 30px;
+    padding: 0 30px;
+    margin-bottom: 26px;
+   }
+  & > a:first-of-type {
+    margin-top: 26px;
   }
 `;
 

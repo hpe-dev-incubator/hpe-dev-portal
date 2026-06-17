@@ -7,12 +7,12 @@ import { AppContext } from '../../../providers/AppProvider';
 
 const defaultBodyStyles = {
   padding: '10px',
-  fontSize: '14px',
+  fontSize: '18px',
   display: 'block !important',
 };
 const defaultMessageStyles = {
   boxSizing: 'border-box',
-  padding: '10px 10px 10px 10px',
+  padding: '10px',
   overflow: 'hidden',
   // width: '300px',
   fontFamily: 'arial',

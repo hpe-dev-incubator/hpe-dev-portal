@@ -328,7 +328,7 @@ function TopicTemplate({ data }) {
             wrap
             margin={{ bottom: 'medium' }}
           >
-            <Text size="xxlarge" weight="bold" margin="none">
+            <Text size="xxlarge" weight="500" margin="none">
               {totalCount} resource{totalCount !== 1 ? 's' : ''} for &ldquo;
               {title}&rdquo;
             </Text>
@@ -407,7 +407,7 @@ function TopicTemplate({ data }) {
                         <Box
                           key={slug}
                           gap="medium"
-                          pad={{ bottom: 'medium' }}
+                          pad={{ bottom: 'large' }}
                           border={
                             index < sortedResourcesForDisplay.length - 1
                               ? {
@@ -423,7 +423,7 @@ function TopicTemplate({ data }) {
                             gap="small"
                             align="center"
                             wrap
-                            pad={{ vertical: 'medium' }}
+                            pad={{ vertical: '20px' }}
                             round="16px"
                             background={{ color: 'black', opacity: 'xxsmall' }}
                           >
