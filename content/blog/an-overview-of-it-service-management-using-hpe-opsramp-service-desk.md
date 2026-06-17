@@ -33,9 +33,11 @@ th {
     font-weight: bold !important;
 }
 </style>
+
 A unified, automated, and insight driven ITSM platform 
 
-## Overview 
+## Overview
+
 HPE OpsRamp Software Service Desk delivers a modern IT service management (ITSM) experience that unifies people, processes, and automation—enabling IT teams to operate with speed, clarity, and scale.  Built on ITIL aligned principles, HPE OpsRamp Software Service Desk helps organizations manage incidents, service requests, changes, and operational workflows from a single, intuitive platform—while delivering real time insight and governance. 
 
 HPE OpsRamp Software supports the key IT service management scenarios through standardized entities: 
@@ -57,6 +59,7 @@ Why HPE OpsRamp Software Service Desk?
 * Designed for simplicity and scale
 
 **Service Desk** provides a single experience for: 
+
 * Ticket operations 
 * Configuration 
 * Automation 
@@ -66,13 +69,17 @@ Why HPE OpsRamp Software Service Desk?
 
 Command center 
 
-      └── Tickets (operations & views)
+```
+  └── Tickets (operations & views)
+```
 
  Setup
- 
-      └── Account 
 
-          └── Service Desk (configuration & automation) 
+```
+  └── Account 
+
+      └── Service Desk (configuration & automation) 
+```
 
 Core ITSM capabilities 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
@@ -81,7 +88,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 <div align="center">
 Here’s how to map KV cache to conventional storage concepts:
  
-| **Entity type**     | **Purpose**  | 
+| \*\*Entity type\*\*     | \*\*Purpose\*\*  | 
 | -------------- | ------------- | 
 | Service request   | Tensor cores, attention units    | 
 | Incident  | KV cache slices currently in use     | 
@@ -92,5 +99,69 @@ Here’s how to map KV cache to conventional storage concepts:
  
 </div>
 
+**Best practice**
+
+Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
+
+Service Desk configuration
+HPE OpsRamp Software allows deep configuration without customization overhead. 
+Configuration components 
+
+* Settings (rules & behavior) 
+* Custom Forms (business context) 
+* Business Impacts and Urgencies
+* Categories (logical grouping) 
+* Status Flow (controlled transitions) 
+* Priority Matrix
+* Status Change Reasons
+
+![](/img/opsramp-servicedesk1.png "Figure 1. Service Desk configurations")
+
+**Settings**
+
+Settings allows admins to define how different ticket entities behave during their lifecycle.
+* Ticket conversations, email notifications, SLA, approvals, etc.
+
+**Customize ticket fields using Custom Forms**
+
+Custom Forms help customize tickets with
+* Addition of custom fields to ticket entities to capture business specific information
+* Custom fields use in alert policy filters
+* Custom fields visibility restriction to specific users
+
+**Organize using categories**
+
+Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report, and analyze ticket trends.
+
+Clear ownership at every stage 
+Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
+* Ensures accountability
+* Prevents uncontrolled state changes 
+* Improves SLA compliance
+
+Ticket Flow can be customized per user’s need using Status Flows
+
+Intelligent prioritization framework 
+Impact × urgency = priority 
+HPE OpsRamp Software derives ticket priority using a structured **Priority Matrix**.
+ 
+* Business impact: Scope of service disruption 
+* Urgency: Time sensitivity of resolution
+
+**Consistency benefit:**
+
+Every team prioritizes tickets the same way—reducing subjectivity and escalation noise. 
+ 
+**Accountability with Status Change Reasons**
+ 
+Visibility drives better outcomes 
+By capturing reasons for every status change, HPE OpsRamp Software: 
+* Improves audit and compliance readiness 
+* Clarifies ticket history 
+* Strengthens operational transparency 
+ 
+**Service Desk automation**
+
+Built in automation that scales IT operations 
 
 
