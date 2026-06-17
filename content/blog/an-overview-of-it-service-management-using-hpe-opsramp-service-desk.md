@@ -226,4 +226,9 @@ Purpose driven access control
 
 Role based access ensures visibility without compromising control. 
 
+**Regular User**
+
 ![](/img/opsramp-servicedesk3.png "Figure 3. Service Desk regular user")
+
+** Business User**
+
