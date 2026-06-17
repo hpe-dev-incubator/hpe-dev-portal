@@ -94,6 +94,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 <div align="left">
 
+
 | **Entity type** | **Purpose**                                              |
 | --------------- | -------------------------------------------------------- |
 | Service request | Tensor cores, attention units                            |
@@ -102,6 +103,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 | Change          | Prompt, documents                                        |
 | Task            | Archived corpora, vector DB, documents                   |
 | Time bound      | Recurring or scheduled access activities with approvals. |
+
 
 </div>
 
