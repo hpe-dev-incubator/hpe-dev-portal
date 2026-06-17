@@ -88,7 +88,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 <div align="center">
 Here’s how to map KV cache to conventional storage concepts:
  
-| \*\*Entity type\*\*     | \*\*Purpose\*\*  | 
+| \\*\\*Entity type\\*\\*     | \\*\\*Purpose\\*\\*  | 
 | -------------- | ------------- | 
 | Service request   | Tensor cores, attention units    | 
 | Incident  | KV cache slices currently in use     | 
@@ -120,11 +120,13 @@ Configuration components
 **Settings**
 
 Settings allows admins to define how different ticket entities behave during their lifecycle.
+
 * Ticket conversations, email notifications, SLA, approvals, etc.
 
 **Customize ticket fields using Custom Forms**
 
 Custom Forms help customize tickets with
+
 * Addition of custom fields to ticket entities to capture business specific information
 * Custom fields use in alert policy filters
 * Custom fields visibility restriction to specific users
@@ -134,7 +136,8 @@ Custom Forms help customize tickets with
 Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report, and analyze ticket trends.
 
 Clear ownership at every stage 
-Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
+Ticket Flow => \[New → Open → Pending / OnHold → Resolved → Closed]
+
 * Ensures accountability
 * Prevents uncontrolled state changes 
 * Improves SLA compliance
@@ -144,24 +147,25 @@ Ticket Flow can be customized per user’s need using Status Flows
 Intelligent prioritization framework 
 Impact × urgency = priority 
 HPE OpsRamp Software derives ticket priority using a structured **Priority Matrix**.
- 
+
 * Business impact: Scope of service disruption 
 * Urgency: Time sensitivity of resolution
 
 **Consistency benefit:**
 
 Every team prioritizes tickets the same way—reducing subjectivity and escalation noise. 
- 
+
 **Accountability with Status Change Reasons**
- 
+
 Visibility drives better outcomes 
 By capturing reasons for every status change, HPE OpsRamp Software: 
+
 * Improves audit and compliance readiness 
 * Clarifies ticket history 
 * Strengthens operational transparency 
- 
+
 **Service Desk automation**
 
 Built in automation that scales IT operations 
 
-
+![](/img/opsramp-servicedesk2.png "Figure 2. Service Desk automation")
