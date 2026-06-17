@@ -83,13 +83,14 @@ Command center
 
 Core ITSM capabilities 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
+
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations: 
 
 <div align="center">
-Here’s how to map KV cache to conventional storage concepts:
+
  
-| \\*\\*Entity type\\*\\*     | \\*\\*Purpose\\*\\*  | 
-| -------------- | ------------- | 
+| **Entity type**    | **Purpose**  | 
+| -------------- | --------- | 
 | Service request   | Tensor cores, attention units    | 
 | Incident  | KV cache slices currently in use     | 
 | Problem    | Overall KV cache across all layers    | 
@@ -215,3 +216,9 @@ Purpose driven access control
 | **Business User** | View only or comment based access (RBAC) Role Based Access Control    | 
  
 </div>
+
+**Security & governance advantage**
+
+Role based access ensures visibility without compromising control. 
+
+
