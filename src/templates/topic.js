@@ -271,7 +271,7 @@ function TopicTemplate({ data }) {
                     return (
                       <CtaBtn
                         label={
-                          <Text size="20px" color="dark-1">
+                          <Text size="20px" color="dark-1" weight="500">
                             {ctaLabel}
                           </Text>
                         }
