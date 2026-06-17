@@ -21,7 +21,7 @@ const HEADER_CHEVRON_COLOR = '#676767';
 
 const MainHeader = styled(GrommetHeader)`
   width: 100%;
-  max-width: 1920px;  
+  max-width: 1920px;
   margin: 0 auto;
   min-height: 80px;
 `;
