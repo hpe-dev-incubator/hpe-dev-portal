@@ -203,10 +203,11 @@ Setup  Account  Service Desk  Canned Response
  
 Setup → Account → Service Desk → Scheduled Tasks
 
+Persona based user experience
 
-<div align="center">
-Persona based user experience 
 Purpose driven access control 
+<div align="center">
+
 
 | **Persona**    | **Capabilities** | 
 | -------------- | ------------- | 
