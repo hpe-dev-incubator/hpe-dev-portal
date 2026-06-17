@@ -169,3 +169,48 @@ By capturing reasons for every status change, HPE OpsRamp Software:
 Built in automation that scales IT operations 
 
 ![](/img/opsramp-servicedesk2.png "Figure 2. Service Desk automation")
+
+**Service level agreements**
+
+Setup → Account → Service Desk → Service Level Agreements
+* Priority based response and resolution timers 
+* Automated breach prevention 
+* Applicable to incidents and service requests
+
+**Notifications** 
+
+Setup → Account → Service Desk → Notifications
+
+     Triggered by: 
+* Ticket creation or updates 
+* Status changes 
+* Priority thresholds 
+* Source (manual, email, policy driven) 
+
+**Auto close policies**
+
+Setup → Account → Service Desk → Auto Close Policies
+* Reduces ticket backlog
+* Ensures system hygiene
+ 
+**Canned response**
+
+Setup  Account  Service Desk  Canned Response
+* Faster, consistent user communication 
+* Automated recurring operational activities 
+
+**Scheduled tasks**
+ 
+Setup → Account → Service Desk → Scheduled Tasks
+
+
+<div align="center">
+Persona based user experience 
+Purpose driven access control 
+
+| **Persona**    | **Capabilities** | 
+| -------------- | ------------- | 
+| **Regular User**   | Full ticket lifecycle management     | 
+| **Business User** | View only or comment based access (RBAC) Role Based Access Control    | 
+ 
+</div>
