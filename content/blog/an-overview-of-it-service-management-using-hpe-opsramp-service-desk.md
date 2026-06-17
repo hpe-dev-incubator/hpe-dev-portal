@@ -279,5 +279,4 @@ Email integration
 * Automatic parsing and categorization 
 * Zero manual intervention
 
-
- 
+![](/img/opsramp-servicedesk9.png "Figure 9. Email integration")
