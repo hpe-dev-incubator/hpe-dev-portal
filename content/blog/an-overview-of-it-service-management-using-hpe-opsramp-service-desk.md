@@ -242,3 +242,8 @@ Ticket Views
 Designed to help users manage workload efficiently
 
 ![](/img/opsramp-servicedesk5.png "Figure 5. Service Desk views")
+
+**Reporting & insights**
+
+Operational and executive visibility 
+	
