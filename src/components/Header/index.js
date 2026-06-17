@@ -21,13 +21,14 @@ const HEADER_CHEVRON_COLOR = '#676767';
 
 const MainHeader = styled(GrommetHeader)`
   width: 100%;
-  max-width: 1920px;
+  max-width: 1920px;  
   margin: 0 auto;
   min-height: 80px;
 `;
 
 const HeaderOuter = styled(Box)`
   width: 100%;
+  background: #F7F7F7;
 `;
 
 const TextAlignLeft = styled(Box)`
@@ -39,7 +40,7 @@ const TextAlignLeft = styled(Box)`
 `;
 
 const BrandLinkContent = styled(Box)`
-  gap: 12px;
+  gap: 16px;
   align-items: baseline;
 `;
 
@@ -54,7 +55,8 @@ const BrandLabel = styled.span`
   color: #2f3a48;
   font-size: 24px;
   line-height: 1;
-  font-weight: 500;
+  letter-spacing: -1px;
+  font-weight: 400;
 `;
 
 const HeaderItemLabel = styled.span`
