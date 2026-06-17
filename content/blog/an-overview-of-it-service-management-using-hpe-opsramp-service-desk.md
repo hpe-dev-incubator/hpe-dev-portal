@@ -89,7 +89,8 @@ Command center
 Core ITSM capabilities 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
 
-HPE OpsRamp Software supports the major ITSM entities required for day to day operations: 
+HPE OpsRamp Software supports the major ITSM entities required for day to day operations:
+
 
 <div align="left">
 
@@ -103,6 +104,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 | Time bound      | Recurring or scheduled access activities with approvals. |
 
 </div>
+
 
 **Best practice**
 
@@ -216,9 +218,10 @@ Setup → Account → Service Desk → Scheduled Tasks
 
 Persona based user experience
 
-Purpose driven access control 
+Purpose driven access control
 
-<div align="center">
+
+<div align="left">
 
 | **Persona**       | **Capabilities**                                                   |
 | ----------------- | ------------------------------------------------------------------ |
@@ -226,6 +229,7 @@ Purpose driven access control
 | **Business User** | View only or comment based access (RBAC) Role Based Access Control |
 
 </div>
+
 
 **Security & governance advantage**
 
