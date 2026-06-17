@@ -88,16 +88,15 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 <div align="center">
 
- 
-| **Entity type**    | **Purpose**  | 
-| -------------- | --------- | 
-| Service request   | Tensor cores, attention units    | 
-| Incident  | KV cache slices currently in use     | 
-| Problem    | Overall KV cache across all layers    | 
-| Change  | Prompt, documents | 
-| Task| Archived corpora, vector DB, documents |
-| Time bound   | Recurring or scheduled access activities with approvals. |
- 
+| **Entity type** | **Purpose**                                              |
+| --------------- | -------------------------------------------------------- |
+| Service request | Tensor cores, attention units                            |
+| Incident        | KV cache slices currently in use                         |
+| Problem         | Overall KV cache across all layers                       |
+| Change          | Prompt, documents                                        |
+| Task            | Archived corpora, vector DB, documents                   |
+| Time bound      | Recurring or scheduled access activities with approvals. |
+
 </div>
 
 **Best practice**
@@ -174,6 +173,7 @@ Built in automation that scales IT operations
 **Service level agreements**
 
 Setup → Account → Service Desk → Service Level Agreements
+
 * Priority based response and resolution timers 
 * Automated breach prevention 
 * Applicable to incidents and service requests
@@ -182,7 +182,10 @@ Setup → Account → Service Desk → Service Level Agreements
 
 Setup → Account → Service Desk → Notifications
 
-     Triggered by: 
+```
+ Triggered by: 
+```
+
 * Ticket creation or updates 
 * Status changes 
 * Priority thresholds 
@@ -191,34 +194,36 @@ Setup → Account → Service Desk → Notifications
 **Auto close policies**
 
 Setup → Account → Service Desk → Auto Close Policies
+
 * Reduces ticket backlog
 * Ensures system hygiene
- 
+
 **Canned response**
 
 Setup  Account  Service Desk  Canned Response
+
 * Faster, consistent user communication 
 * Automated recurring operational activities 
 
 **Scheduled tasks**
- 
+
 Setup → Account → Service Desk → Scheduled Tasks
 
 Persona based user experience
 
 Purpose driven access control 
+
 <div align="center">
 
+| **Persona**       | **Capabilities**                                                   |
+| ----------------- | ------------------------------------------------------------------ |
+| **Regular User**  | Full ticket lifecycle management                                   |
+| **Business User** | View only or comment based access (RBAC) Role Based Access Control |
 
-| **Persona**    | **Capabilities** | 
-| -------------- | ------------- | 
-| **Regular User**   | Full ticket lifecycle management     | 
-| **Business User** | View only or comment based access (RBAC) Role Based Access Control    | 
- 
 </div>
 
 **Security & governance advantage**
 
 Role based access ensures visibility without compromising control. 
 
-
+![](/img/opsramp-servicedesk3.png "Figure 3. Service Desk regular user")
