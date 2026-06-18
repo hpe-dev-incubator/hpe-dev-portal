@@ -85,10 +85,12 @@ Setup
          └── Service Desk (configuration & automation) 
 
 
-Core ITSM capabilities 
+Core ITSM capabilities
+
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
 
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations:
+
 
 <div align="left">
 
@@ -107,11 +109,12 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 **Best practice**
 
-Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
+***Standardized entities ensure consistent reporting, automation, and SLA tracking across teams.***
 
 Service Desk configuration
-HPE OpsRamp Software allows deep configuration without customization overhead. 
-Configuration components 
+HPE OpsRamp Software allows deep configuration without customization overhead.
+ 
+**Configuration components** 
 
 * Settings (rules & behavior) 
 * Custom Forms (business context) 
