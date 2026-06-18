@@ -188,7 +188,7 @@ Built in automation that scales IT operations
 
 Setup → Account → Service Desk → Service Level Agreements
 
-* Priority based response and resolution timers 
+* Priority-based response and resolution timers 
 * Automated breach prevention 
 * Applicable to incidents and service requests
 
@@ -245,7 +245,7 @@ Role based access ensures visibility without compromising control.
 
 ![](/img/opsramp-servicedesk3.png "Figure 3. Service Desk regular user")
 
- **Business User**
+**Business User**
 
 ![](/img/opsramp-servidedesk4.png "Figure 4. Service Desk business user")
 
@@ -266,7 +266,7 @@ Operational and executive visibility
 
 **Ticket Details report**
 
-* Transaction level data 
+* Transaction-level data 
 * Audits and deep operational analysis 
 
 ![](/img/opsramp-servicedesk7.png "Figure 7. Service Desk ticket details report")
