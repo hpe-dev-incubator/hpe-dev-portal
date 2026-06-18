@@ -28,18 +28,23 @@ const MainHeader = styled(GrommetHeader)`
 
 const HeaderOuter = styled(Box)`
   width: 100%;
+  background: #F7F7F7;
 `;
 
 const TextAlignLeft = styled(Box)`
   & > a {
     text-align: left;
     font-weight: 400;
-    padding-right: 30px;
+    padding: 0 30px;
+    margin-bottom: 26px;
+   }
+  & > a:first-of-type {
+    margin-top: 26px;
   }
 `;
 
 const BrandLinkContent = styled(Box)`
-  gap: 12px;
+  gap: 16px;
   align-items: baseline;
 `;
 
@@ -54,7 +59,8 @@ const BrandLabel = styled.span`
   color: #2f3a48;
   font-size: 24px;
   line-height: 1;
-  font-weight: 500;
+  letter-spacing: -1px;
+  font-weight: 400;
 `;
 
 const HeaderItemLabel = styled.span`
