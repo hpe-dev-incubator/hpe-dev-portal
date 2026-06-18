@@ -28,9 +28,11 @@ An AI Agent can autonomously act leveraging tools provided. In our example the A
 
 ## Prerequisites
 
-For this tutorial we require a feature in newer Private Cloud AI versions, specifically the ezPresto MCP Server, which is supported since AIE 1.12.
+For this tutorial we require a feature in newer Private Cloud AI versions, specifically the ezPresto MCP Server, which is supported since **AIE 1.12**.
 
-You will need at least 1 free GPU in your platform or a model with tool calling enabled, that's already deployed.
+You will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in this instruction is using a GPU.
+
+Also you require a **HuggingFace account** in order to deploy the LLM.
 
 ## Import additional Frameworks
 
@@ -40,7 +42,7 @@ When importing additional Frameworks into the platform we require a Helm Chart. 
 
 In order to import additional Frameworks navigate within AIE to 'Tools & Frameworks' and find the green button Import Framework on the top right.
 
-**INSERT PICTURE**
+![import Framework](/img/importframework.png)
 
 ### Import Langflow
 
@@ -60,7 +62,7 @@ You can use different models of course following the deployment instructions. As
 
 For Model Deployment we first need to create a Packaged Model so it appears unter our GenAI>Model Catalog. Luckily the Embedding Model we want to use comes as part of the pre-selected NVIDIA NIMs configured ready to deploy. Therefore let's navigate to GenAI-Model Catalog. Identify the NVIDIA Embedding Model and click 'Deploy'. 
 
-**INSERT PICTURE**
+![Deploy Embedding Model](/img/deploy_embedding.png)
 
 As a Autoscaling Policy for now we define 'Fixed 1'. Autoscaling policies are a very cool feature to dynamically adapt the models to the demand of end-users, if you are interested in learning more about it check [this](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&docLocale=en_US&page=MLIS/deployments/manage-autoscaling-template.html) out.
 
@@ -68,7 +70,20 @@ As a Autoscaling Policy for now we define 'Fixed 1'. Autoscaling policies are a 
 
 In order to deploy a model that is not yet found within the Model Catalog we need to create a Packaged Model first. In order to do so navigate to Tools & Frameworks > MLIS. Within MLIS you can create registries pointing to HuggingFace, NVIDIA NGC or also a S3 storage.
 
-TO BE CONTINUED
+For now we just skip the regostry creation and create our Packaged Model using the following:
+
+* Name: qwen3-8b
+* Registry: None
+* Model format: Custom
+* Image: vllm/vllm-openai:v0.9.0
+* (for 1.9 and greater) Model category: llm
+* (for 1.9 and greater) Enable local caching
+* Resource Template: Custom
+* CPU: 1-> 8
+* Memory: 8Gi -> 32Gi
+* GPU: 1 -> 1
+* Advanced Environment Variables: HUGGING_FACE_HUB_TOKEN your HuggingfaceToken
+* Arguments: --model Qwen/Qwen3-8B --enable-reasoning --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser hermes --port 8080
 
 ## Data Source Setup
 
@@ -138,6 +153,8 @@ To establish a connection to the ezPresto MCP Server navigate within Langflow to
 * Type: `Streamable HTTP/SSE`
 * Name: `ezpresto`
 * Streamable HTTP/SSE URL:  take this from AIE navigating to Data Engineering > Data Sources > MCP Server
+
+  ![](/img/ezprestomcp.png)
 * Headers
 
   * 'Authorization' 'Bearer YOURJWTTOKEN' to retrieve your JWT token, within AIE 1.12 this expires per default every 30 minutes. With newer releases you can create an longer lived application token.
