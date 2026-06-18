@@ -1,6 +1,6 @@
 ---
 title: "HPE Private Cloud AI: Build your first Agent"
-date: 2026-06-18T12:54:00.000Z
+date: 2026-06-18T16:43:00.000Z
 featuredBlog: true
 author: Isabelle Steinhauser
 authorimage: /img/steinhauser_isabelle-copy-copy.jpg
