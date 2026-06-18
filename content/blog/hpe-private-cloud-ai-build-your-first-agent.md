@@ -115,7 +115,19 @@ When the connection is successful, if it was created as private (lock icon), cli
 
 Navigate to Tools & Frameworks within AIE, search for your freshly deployed 'Qdrant' and click 'Open'. You might need to append /dashboard at the end of the URL. You should be able to see the Qdrant UI. Navigate to 'Console' in the Qdrant UI. Copy paste the following code in order to create a new Collection named 'anywhere':
 
-**ADD CODE**
+**`PUT /collections/anywhere`**
+
+**`{`**
+
+ **` "vectors": {`**
+
+ **`   "size": 1024,`**
+
+ **`   "distance": "Cosine"`**
+
+ **` }`**
+
+**`}`**
 
 Click the 'RUN' button in order to execute.
 
