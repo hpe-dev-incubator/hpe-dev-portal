@@ -44,7 +44,7 @@ A unified, automated, and insight driven ITSM platform
 
 ## Overview
 
-HPE OpsRamp Software Service Desk delivers a modern IT service management (ITSM) experience that unifies people, processes, and automation—enabling IT teams to operate with speed, clarity, and scale.  Built on ITIL aligned principles, HPE OpsRamp Software Service Desk helps organizations manage incidents, service requests, changes, and operational workflows from a single, intuitive platform—while delivering real time insight and governance. 
+HPE OpsRamp Software Service Desk delivers a modern IT service management (ITSM) experience that unifies people, processes, and automation—enabling IT teams to operate with speed, clarity, and scale.  Built on ITIL aligned principles, HPE OpsRamp Software Service Desk helps organizations manage incidents, service requests, changes, and operational workflows from a single, intuitive platform—while delivering real time insight and governance.  
 
 HPE OpsRamp Software supports the key IT service management scenarios through standardized entities: 
 
@@ -52,7 +52,7 @@ HPE OpsRamp Software supports the key IT service management scenarios through st
 * **Service requests** for preapproved user needs 
 * **Problems** to address root causes 
 * **Changes** with controlled approvals 
-* **Tasks & time bound activities** for operational implementation
+* **Tasks & time-bound activities** for operational implementation
 
 Why HPE OpsRamp Software Service Desk? 
 **Key business outcomes** 
@@ -61,7 +61,7 @@ Why HPE OpsRamp Software Service Desk?
 * Faster incident resolution 
 * Consistent service delivery with service level agreement (SLA) enforcement 
 * Reduced manual effort through automation 
-* Clear visibility with role based access and reporting 
+* Clear visibility with role-based access and reporting 
 * Designed for simplicity and scale
 
 **Service Desk** provides a single experience for: 
@@ -75,17 +75,15 @@ Why HPE OpsRamp Software Service Desk?
 
 Command center 
 
-```
-  └── Tickets (operations & views)
-```
+       └── Tickets (operations & views)
 
- Setup
 
-```
-  └── Account 
+Setup
 
-      └── Service Desk (configuration & automation) 
-```
+       └── Account 
+
+         └── Service Desk (configuration & automation) 
+
 
 Core ITSM capabilities 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
