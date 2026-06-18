@@ -156,7 +156,9 @@ Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
 ***Ticket Flow can be customized per user’s need using Status Flows***
 
 Intelligent prioritization framework 
-Impact × urgency = priority 
+
+Impact × urgency = priority
+ 
 HPE OpsRamp Software derives ticket priority using a structured **Priority Matrix**.
 
 * Business impact: Scope of service disruption 
@@ -169,6 +171,7 @@ Every team prioritizes tickets the same way—reducing subjectivity and escalati
 **Accountability with Status Change Reasons**
 
 Visibility drives better outcomes 
+
 By capturing reasons for every status change, HPE OpsRamp Software: 
 
 * Improves audit and compliance readiness 
