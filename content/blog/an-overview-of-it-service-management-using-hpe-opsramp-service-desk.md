@@ -144,14 +144,16 @@ Custom Forms help customize tickets with
 
 Categories help to streamline and organize tickets by grouping similar types of requests. This will further help sort, filter, report, and analyze ticket trends.
 
+**Workflow governance with Status Flows** 
+
 Clear ownership at every stage 
-Ticket Flow => /[New → Open → Pending / OnHold → Resolved → Closed]
+Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
 
 * Ensures accountability
 * Prevents uncontrolled state changes 
 * Improves SLA compliance
 
-Ticket Flow can be customized per user’s need using Status Flows
+***Ticket Flow can be customized per user’s need using Status Flows***
 
 Intelligent prioritization framework 
 Impact × urgency = priority 
