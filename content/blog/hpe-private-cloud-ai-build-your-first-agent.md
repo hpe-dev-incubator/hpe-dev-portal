@@ -24,7 +24,7 @@ HPE AI Essentials (AIE) Software is the integrated software layer that provides
 
 ## Use Case
 
-An AI Agent can autonomously act leveraging tools provided. In our example the AI Agent gets triggered by a users chat message. As tools we will use a regular RAG (Retrieval Augmented Generation) for retrieving information out of a PDF and the ezPresto MCP Server that has tools available to retrieve information from a Database. We provide two sets of sample data, one for a flight support agent to answer questions regarding refunds, and one for citizen passport queries, to answer questions around requested passports. In this tutorial we will take the flight support agent example. In order to use the Citizen Passport queries use the according [dataset](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow/data/passport). 
+An AI Agent can autonomously act leveraging tools provided. In our example the AI Agent gets triggered by a users chat message. As tools we will use a regular RAG (Retrieval Augmented Generation) for retrieving information out of a PDF and the ezPresto MCP (Model Context Protocol) Server that has tools available to retrieve information from a Database. We provide two sets of sample data, one for a flight support agent to answer questions regarding refunds, and one for citizen passport queries, to answer questions around requested passports. In this tutorial we will take the flight support agent example. In order to use the Citizen Passport queries use the according [dataset](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow/data/passport). 
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ Navigate to Data Engineering > Data Sources > Data Volumes. We will use a CSV Fi
 
 You can name the folders differently, but then you will need to adapt the Adding Datasource instructions.
 
-**INSERT PICTURE**
+![Upload CSV File](/img/upload_customer_data_aie_ui.png)
 
 ### Add as datasource
 
@@ -92,6 +92,82 @@ Once the file is uploaded we want to connect is a datasource. You could also use
 
 **Advanced Field File Type:** CSV
 
-When the connection is successful, if it was created as private (lock icon), click the three docs on the new `fakecustomerinfo` card and select "Change to public access" to make it public (globe icon), this gives all the users on the platform access to that datasource.
+When the connection is successful, if it was created as private (lock icon), click the three dots on the new `fakecustomerinfo` card and select "Change to public access" to make it public (globe icon), this gives all the users on the platform access to that datasource.
 
-TO BE CONTINUED
+![hive Connection Settings](/img/hive_connection_settings.png)
+
+## Prep Vector Database
+
+Navigate to Tools & Frameworks within AIE, search for your freshly deployed 'Qdrant' and click 'Open'. You might need to append /dashboard at the end of the URL. You should be able to see the Qdrant UI. Navigate to 'Console' in the Qdrant UI. Copy paste the following code in order to create a new Collection named 'anywhere':
+
+**ADD CODE**
+
+Click the 'RUN' button in order to execute.
+
+![Qdrant create Collection](/img/create_qdrant_collection.png)
+
+## Prep Langflow
+
+Go to Tools & Frameworks and open Langflow.
+Go to the top right menu next to the profile picture and proceed to settings.
+
+
+![Settings in Langflow](/img/settings.png)
+
+Select Global Variables and create the following:
+
+* **`NV_EMBEDQA_E5_V5_NIM`** : Set this to your embedding model endpoint URL, can be retrieved via GenAI > Model Endpoints. Don't forget to add /v1 .
+* **`NV_EMBEDQA_E5_V5_NIM_TOKEN` :** Set this to the token for your embedding model, you can create one at GenAI > Model Endpoints.
+* **`LLM_ENDPOINT`** : Set this to your LLM endpoint URL, can be retrieved via GenAI > Model Endpoints. Don't forget to add /v1 .
+* **`LLM_TOKEN`** : Set this to the token for your LLM, you can create one at GenAI > Model Endpoints.
+* **`QDRANT_ENDPOINT`** : Set this to the Kubernetes Cluster internal endpoint of qdrant which is http://qdrant.qdrant.svc.cluster.local in case you chose a different namespace please adapt the endpoint http://qdrant.YOURNAMESPACE.svc.cluster.local 
+* **`QDRANT_COLLECTION`** : Set this to 'anywhere'
+
+Our Langflow Flow will use these global variables. Another thing we need to configure is the connection to the ezPresto MCP Server. This MCP Server has 5 tools:
+
+* execute_query: this executes a SQL query, input: SQL query, output: response
+* get_table_schema: this gives you the table schema of a specific table, input: catalogname, schema, table, ouptut: table schema
+* list_catalogs: this lists all the catalogs (all data sources connected), input: none, ouput: catalogs
+* list_schemas: this lists all available schemas for a catalog, input: catalog, output: schemas
+* list_tables: this lists all available tables for a schema, input: catalogname and schema, output: tables
+
+With these tools our AI Agent will be able to do what we can as a human, when we browse the data available in Data Engineering > Data Catalog.
+
+To establish a connection to the ezPresto MCP Server navigate within Langflow to Settings > MCP Servers. Add a new one with the following configuration:
+
+* Type: `Streamable HTTP/SSE`
+* Name: `ezpresto`
+* Streamable HTTP/SSE URL:  take this from AIE navigating to Data Engineering > Data Sources > MCP Server
+* Headers
+
+  * 'Authorization' 'Bearer YOURJWTTOKEN' to retrieve your JWT token, within AIE 1.12 this expires per default every 30 minutes. With newer releases you can create an longer lived application token.
+
+In order to retrieve your JWT token open a Jupyter Notebook server in your AIE. For that navigate to 'Notebooks', select your personal user project, start your default notebook server by clicking on the 3 dots and start. Launch your Jupyter Notebook Server, open a terminal window and execute the following: `cat /etc/secrets/ezua/.auth_token`
+
+With that our preparation steps are concluded and we can proceed to upload our Flow. 
+
+## Build your first Agent
+
+Navigate within Langflow to the Project Overview (from settings click the Langflow logo in the top left corner).
+
+Upload this [flow](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/basic-agent-langflow/langflow-agent-v1-5-passport-localvectordb-mcp.json) by clicking the upload icon next to Folders. 
+
+![Upload Flow in Langflow](/img/flowupload.png)
+
+Open the flow by clicking on it. Make sure to upload the [PDF file](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/basic-agent-langflow/data/flight/anywhere_airlines_refund_policy.pdf) you want to use for the RAG portion in the 'Read File' component. Make sure that the components are using the Global Variables: the Qdrant component, the NVIDIA model and the NVIDIA Embeddings. For each component you have a play button, if you click the Playbutton of the Qdrant component in the "Data Ingestion" Area it executes the Qdrant component but before that all components connected to it. By executing that flow the PDF file was chunked, embedded using the Embedding model and stored in the vectorDB inside the anywhere collection. 
+
+To interact with your agent click on the top right corner on Playground. A Chatwindow opens. If you send a message here, the whole flow from Chat Input to Chat Output gets triggered. The agent decides on your message which tool or tools to use in order to answer your message. 
+
+For the flight support agent ask something like: "My name is John and my flight is A105, I was downgraded to coach from first class, what is my refund?" 
+
+The agent should return the correct answer of 90$ after calling both tools FlightPolicy and ezprestomcp requesting the schema of the table before executing a query.
+
+## Credits
+
+Credits where Credits are due:
+
+**Alejandro Morales Martinez** - the original founder of the flight support agent case
+
+**Francesco Caliva** - for helping me improve the adapted version and test out the documentation around it
+
+**Claudio Calderon** - for helping us keeping it up to date
