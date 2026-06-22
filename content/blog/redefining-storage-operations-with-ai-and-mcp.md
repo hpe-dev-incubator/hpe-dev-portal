@@ -137,11 +137,6 @@ In Visual Studio Code, start by opening an empty folder. Inside this folder, cre
 }
 ```
 
-The valid DSCC base URLs are:
- * US: https://console-us1.data.cloud.hpe.com
- * EU: https://console-eu1.data.cloud.hpe.com
- * JP: https://console-jp1.data.cloud.hpe.com
-
 Generate the access token as mentioned above. Replace the BEARER_TOKEN with the generated access token. Bearer tokens are short-lived and security-scoped; they should not be treated as static secrets. When a token expires, update it in the JSON file, reload the Visual Studio Code window, and restart the MCP server.
 
 * **server-name** → A unique identifier for the MCP server instance. 
@@ -154,6 +149,15 @@ Generate the access token as mentioned above. Replace the BEARER_TOKEN with the 
 * **tools** → Controls which capabilities (APIs/actions) are exposed to the AI. 
 * **"tools": "all"** → Exposes all available tools without filtering.
 * **tag** → Filters tools based on OpenAPI tags (logical grouping).
+
+Endpoints are the base URLs to which API requests are sent. HPE Block Storage provides region-specific endpoints, and the endpoint you use depends on the region where your Data Services Cloud Console (DSCC) instance is deployed.
+
+The following endpoint URLs correspond to the supported DSCC regions as of **June 2026**. Since endpoint information may change over time, refer to the latest [documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/block-storage/public#endpoints) to verify the most current and supported endpoint URLs.
+
+* US West: [https://us-west.api.greenlake.hpe.com](https://us-west.api.greenlake.hpe.com/)
+* EU West: [https://eu-west.api.greenlake.hpe.com](https://eu-west.api.greenlake.hpe.com/)
+* EU Central: [https://eu-central.api.greenlake.hpe.com](https://eu-central.api.greenlake.hpe.com/)
+* AP NorthEast: [https://ap-northeast.api.greenlake.hpe.com](https://ap-northeast.api.greenlake.hpe.com/)
 
 ##### Restricting Operations for Safer Execution:
 
