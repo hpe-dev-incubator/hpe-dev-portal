@@ -74,14 +74,11 @@ Why HPE OpsRamp Software Service Desk?
 ## Navigation overview
 
 Command center 
-
        └── Tickets (operations & views)
 
 
 Setup
-
        └── Account 
-
          └── Service Desk (configuration & automation) 
 
 
