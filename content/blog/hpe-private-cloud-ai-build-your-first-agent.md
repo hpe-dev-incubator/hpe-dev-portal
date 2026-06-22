@@ -20,7 +20,7 @@ This article provides step by step instructions to build your first AI agent on 
 
 HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution designed to simplify the deployment, management, and monitoring of machine learning (ML) models at scale. It specifically targets the complexities of moving models from development into production, with a particular focus on large language models.
 
-HPE AI Essentials (AIE) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. It provides a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like Langflow.
+[HPE AI Essentials (AIE)](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. It provides a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like Langflow.
 
 ## Use Case
 
@@ -119,13 +119,13 @@ Navigate to Tools & Frameworks within AIE, search for your freshly deployed 'Qdr
 
 **`{`**
 
- **` "vectors": {`**
+ **`"vectors": {`**
 
- **`   "size": 1024,`**
+ **`"size": 1024,`**
 
- **`   "distance": "Cosine"`**
+ **`"distance": "Cosine"`**
 
- **` }`**
+ **`}`**
 
 **`}`**
 
@@ -137,7 +137,6 @@ Click the 'RUN' button in order to execute.
 
 Go to Tools & Frameworks and open Langflow.
 Go to the top right menu next to the profile picture and proceed to settings.
-
 
 ![Settings in Langflow](/img/settings.png)
 
@@ -200,3 +199,5 @@ Credits where Credits are due:
 **Francesco Caliva** - for helping me improve the adapted version and test out the documentation around it
 
 **Claudio Calderon** - for helping us keeping it up to date
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
