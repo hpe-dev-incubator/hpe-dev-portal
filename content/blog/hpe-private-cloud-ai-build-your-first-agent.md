@@ -12,7 +12,7 @@ tags:
   - agent
   - tutorial
 ---
-This article provides step by step instructions to build your first AI agent on HPEs Private Cloud AI. To simplify things we will be using Langflow, which is a tool to provide a no-code UI experience. It can be adapted to other UI-based tools like for example N8N.
+This article provides step by step instructions to build your first AI agent on HPEs Private Cloud AI. To simplify things Langflow will be used, which is a tool to provide a no-code UI experience. It can be adapted to other UI-based tools like for example N8N.
 
 ## HPE Private Cloud AI
 
@@ -24,21 +24,21 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 ## Use Case
 
-An AI Agent can autonomously act leveraging tools provided. In our example the AI Agent gets triggered by a users chat message. As tools we will use a regular RAG (Retrieval Augmented Generation) for retrieving information out of a PDF and the ezPresto MCP (Model Context Protocol) Server that has tools available to retrieve information from a Database. We provide two sets of sample data, one for a flight support agent to answer questions regarding refunds, and one for citizen passport queries, to answer questions around requested passports. In this tutorial we will take the flight support agent example. In order to use the Citizen Passport queries use the according [dataset](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow/data/passport). 
+An AI Agent can autonomously act leveraging tools provided. In our example the AI Agent gets triggered by a users chat message. As tools regular RAG (Retrieval Augmented Generation) will be provided for retrieving information out of a PDF and the ezPresto MCP (Model Context Protocol) Server that has tools available to retrieve information from a Database. There are two sets of sample data to choose from, one for a flight support agent to answer questions regarding refunds, and one for citizen passport queries, to answer questions around requested passports. In this tutorial we will take the flight support agent example. In order to use the Citizen Passport queries use the according [dataset](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow/data/passport). 
 
 ## Prerequisites
 
-For this tutorial we require a feature in newer Private Cloud AI versions, specifically the ezPresto MCP Server, which is supported since **AIE 1.12**.
+This tutorial requires a feature avialble in newer Private Cloud AI versions—specifically the ezPresto MCP Server, supported since **AIE 1.12**.
 
 You will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in this instruction is using a GPU.
 
-Also you require a **HuggingFace account** in order to deploy the LLM.
+You also need a **HuggingFace account** to deploy the LLM.
 
 ## Import additional Frameworks
 
-We require two additional Frameworks for this tutorial: Langflow and Qdrant. As mentioned Langflow is a low-code/no-code interface we will use to build our agent. Qdrant is the vectordatabase we will be using. Langflow supports also other vectordatabases, feel free to swap it to a different one.
+Two additional Frameworks are required for this tutorial: Langflow and Qdrant. As mentioned Langflow is a low-code/no-code interface used to build our agent. Qdrant is the vectordatabase used. Langflow supports also other vectordatabases, feel free to swap it to a different one.
 
-When importing additional Frameworks into the platform we require a Helm Chart. A Helm Chart is a deployment method for Kubernetes Clusters, which AIE basically is. You can find a repository of prepared helm charts [here](https://github.com/ai-solution-eng/frameworks/tree/main). If you have another application you would like to bring into AIE follow [these instructions](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=ManageClusters/importing-applications.html). Please keep in mind, with additional software you might bring additional vulnerabilities into your platform, so be mindful about what you're importing.
+When importing additional Frameworks into the platform a Helm Chart is required. A Helm Chart is a deployment method for Kubernetes Clusters, which AIE basically is. You can find a repository of prepared helm charts [here](https://github.com/ai-solution-eng/frameworks/tree/main). If you have another application you would like to bring into AIE follow [these instructions](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&page=ManageClusters/importing-applications.html). Please keep in mind, with additional software you might bring additional vulnerabilities into your platform, so be mindful about what you're importing.
 
 In order to import additional Frameworks navigate within AIE to 'Tools & Frameworks' and find the green button Import Framework on the top right.
 
@@ -54,23 +54,23 @@ Leverage the icon and Helmchart you can find [here](https://github.com/ai-soluti
 
 ## Deploy Models in Private Cloud AI
 
-We will be using two models in this use case: an Embedding Model for the RAG tool and a LLM as agent.
+Two models are leveraged in this use case: an Embedding Model for the RAG tool and a LLM as agent.
 
-You can use different models of course following the deployment instructions. As an example let's deploy the **nvidia/nv-embedqa-e5-v5** as Embedding Model and **Qwen/Qwen3-8B-Instruct** as LLM. You could also use Nemotron for example.
+You can decide to use other models than the once described here. As an example let's deploy the **nvidia/nv-embedqa-e5-v5** as Embedding Model and **Qwen/Qwen3-8B-Instruct** as LLM. You could also use Nemotron for example.
 
 ### Deploy NVIDIA Embedding Model
 
-For Model Deployment we first need to create a Packaged Model so it appears unter our GenAI>Model Catalog. Luckily the Embedding Model we want to use comes as part of the pre-selected NVIDIA NIMs configured ready to deploy. Therefore let's navigate to GenAI-Model Catalog. Identify the NVIDIA Embedding Model and click 'Deploy'. 
+For Model Deployment a Packaged Model is required so it appears unter our GenAI>Model Catalog. Luckily the Embedding Model we want to use comes as part of the pre-selected NVIDIA NIMs configured ready to deploy. Therefore let's navigate to GenAI-Model Catalog. Identify the NVIDIA Embedding Model and click 'Deploy'. 
 
 ![Deploy Embedding Model](/img/deploy_embedding.png)
 
-As a Autoscaling Policy for now we define 'Fixed 1'. Autoscaling policies are a very cool feature to dynamically adapt the models to the demand of end-users, if you are interested in learning more about it check [this](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&docLocale=en_US&page=MLIS/deployments/manage-autoscaling-template.html) out.
+As a Autoscaling Policy for now select 'Fixed 1'. Autoscaling policies are a very cool feature to dynamically adapt the models to the demand of end-users, if you are interested in learning more about it check [this](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us&docLocale=en_US&page=MLIS/deployments/manage-autoscaling-template.html) out.
 
 ### Deploy Qwen as LLM
 
-In order to deploy a model that is not yet found within the Model Catalog we need to create a Packaged Model first. In order to do so navigate to Tools & Frameworks > MLIS. Within MLIS you can create registries pointing to HuggingFace, NVIDIA NGC or also a S3 storage.
+In order to deploy a model that is not yet found within the Model Catalog, creating a Packaged Model is required. In order to do so navigate to Tools & Frameworks > MLIS. Within MLIS you can create registries pointing to HuggingFace, NVIDIA NGC or also a S3 storage.
 
-For now we just skip the regostry creation and create our Packaged Model using the following:
+To create your Packaged Model, use the following configuration (skip registry creation for now):
 
 * Name: qwen3-8b
 * Registry: None
@@ -89,7 +89,7 @@ For now we just skip the regostry creation and create our Packaged Model using t
 
 ### Upload CSV File
 
-Navigate to Data Engineering > Data Sources > Data Volumes. We will use a CSV File today. Therefore download the sample CSV file [here](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/basic-agent-langflow/data/flight/fake_customer_info.csv) . Navigate to 'shared' and create a new folder called 'langflow-demo'. Navigate into this folder by clicking on it. Create a sub-directory within that folder and name it 'fake_customer_data'. Navigate by clicking on it, click the Upload Button and upload the CSV file.
+Navigate to Data Engineering > Data Sources > Data Volumes, where you will upload a CSV File. Therefore download the sample CSV file [here](https://github.com/ai-solution-eng/ai-solution-demos/blob/main/basic-agent-langflow/data/flight/fake_customer_info.csv) . Navigate to 'shared' and create a new folder called 'langflow-demo'. Navigate into this folder by clicking on it. Create a sub-directory within that folder and name it 'fake_customer_data'. Navigate by clicking on it, click the Upload Button and upload the CSV file.
 
 You can name the folders differently, but then you will need to adapt the Adding Datasource instructions.
 
@@ -97,7 +97,7 @@ You can name the folders differently, but then you will need to adapt the Adding
 
 ### Add as datasource
 
-Once the file is uploaded we want to connect is a datasource. You could also use a database instead of a CSV file if you wanted to. Within AIE navigate to Data Engineering > Data Sources > Structured Data. Click 'Add New Datasource'. Select 'Hive'. Add the connection filling in the following details 
+Once the file is uploaded the next step is to connect is a datasource. You could also use a database instead of a CSV file if you wanted to. Within AIE navigate to Data Engineering > Data Sources > Structured Data. Click 'Add New Datasource'. Select 'Hive'. Add the connection filling in the following details:
 
 **Name:** fakecustomerinfo
 
@@ -149,7 +149,7 @@ Select Global Variables and create the following:
 * **`QDRANT_ENDPOINT`** : Set this to the Kubernetes Cluster internal endpoint of qdrant which is http://qdrant.qdrant.svc.cluster.local in case you chose a different namespace please adapt the endpoint http://qdrant.YOURNAMESPACE.svc.cluster.local 
 * **`QDRANT_COLLECTION`** : Set this to 'anywhere'
 
-Our Langflow Flow will use these global variables. Another thing we need to configure is the connection to the ezPresto MCP Server. This MCP Server has 5 tools:
+Our Langflow Flow will use these global variables. Another thing that needs to be configured is the connection to the ezPresto MCP Server. This MCP Server has 5 tools:
 
 * execute_query: this executes a SQL query, input: SQL query, output: response
 * get_table_schema: this gives you the table schema of a specific table, input: catalogname, schema, table, ouptut: table schema
@@ -172,7 +172,7 @@ To establish a connection to the ezPresto MCP Server navigate within Langflow to
 
 In order to retrieve your JWT token open a Jupyter Notebook server in your AIE. For that navigate to 'Notebooks', select your personal user project, start your default notebook server by clicking on the 3 dots and start. Launch your Jupyter Notebook Server, open a terminal window and execute the following: `cat /etc/secrets/ezua/.auth_token`
 
-With that our preparation steps are concluded and we can proceed to upload our Flow. 
+With that the preparation steps are concluded and you can proceed to upload our Flow. 
 
 ## Build your first Agent
 
