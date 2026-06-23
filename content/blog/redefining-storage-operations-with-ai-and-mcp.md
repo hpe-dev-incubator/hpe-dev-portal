@@ -5,6 +5,8 @@ author: Anusha Y
 authorimage: /img/im.jpeg
 disable: false
 tags:
+  - AI
+  - Storage
   - data
   - MCP
   - tutorial
