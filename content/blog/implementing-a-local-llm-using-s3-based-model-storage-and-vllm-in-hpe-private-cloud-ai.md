@@ -2,8 +2,7 @@
 title: Implementing a local LLM using S3-based model storage and vLLM in HPE
   Private Cloud AI
 date: 2026-03-17T14:18:20.561Z
-featuredBlog: true
-priority: 3
+featuredBlog: false
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
