@@ -5,6 +5,11 @@ date: 2026-06-24T13:37:00.000Z
 author: Balasubramanian Vetrivel
 authorimage: /img/balasubramanian-photo-new.jpg
 disable: false
+tags:
+  - hpe-opsramp
+  - tutorial
+  - hybrid-cloud
+  - observability
 ---
 *Part 4 of a series on vendor-neutral observability with OpsRamp and OpenTelemetry*
 
