@@ -17,7 +17,7 @@ tags:
 
 ## Introduction
 
-In Part 3, I tested the local stack end-to-end using `otel-cli` and `promtool`, confirming that every component of the pipeline works correctly in isolation. Now I am ready to write the actual Python instrumentation code and push real metrics into HPE OpsRamp.
+In [Part 3](https://developer.hpe.com/blog/siva-observe-any-observable-using-opsramp-%E2%80%94-part-3-testing-the-stack-with-otel-cli-and-promtool), I tested the local stack end-to-end using `otel-cli` and `promtool`, confirming that every component of the pipeline works correctly in isolation. Now I am ready to write the actual Python instrumentation code and push real metrics into HPE OpsRamp.
 
 This article covers the complete metric ingestion path: from the Redfish emulator through the Open Telemetry Python SDK (OTel) Python SDK, through the OTel Collector, through Prometheus `remote_write`, and finally into HPE OpsRamp's Metrics Explorer. I will walk through the code in detail — the per-chassis OTel Resource design, the metric instrument definitions, the poll cycle implementation — and then show exactly how to configure Prometheus `remote_write` and verify the configuration in OpsRamp.
 
