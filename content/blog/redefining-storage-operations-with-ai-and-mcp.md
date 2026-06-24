@@ -1,6 +1,6 @@
 ---
 title: Redefining storage operations with AI and MCP
-date: 2026-04-19T19:15:10.329Z
+date: 2026-06-26T00:45:00.000Z
 author: Anusha Y
 authorimage: /img/im.jpeg
 disable: false
