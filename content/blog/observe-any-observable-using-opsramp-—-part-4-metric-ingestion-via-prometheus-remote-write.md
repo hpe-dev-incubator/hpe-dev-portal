@@ -28,7 +28,8 @@ The most important design decision in this entire path is one I will return to r
 ## The metric ingestion architecture
 
 Before diving into code, let me make the complete metric flow clear.
-```
+
+```bash
 Redfish Emulator :5000
       │  HTTP GET /redfish/v1/Chassis/Chassis-1/Power
       │  HTTP GET /redfish/v1/Chassis/Chassis-1/Thermal
