@@ -97,7 +97,7 @@ Since token lifetimes may vary depending on the deployment environment or authen
 
 DSCC APIs use OAuth 2.0 bearer tokens issued by the HPE GreenLake authentication service.
 
-To obtain a bearer token, first create a Personal API Client in your DSCC workspace and then use it to generate an access token. Refer to the HPE GreenLake documentation for detailed instructions on creating a Personal API Client and generating an access token.
+To obtain a bearer token, first create a Personal API Client in your DSCC workspace and then use it to generate an access token. Refer to the [HPE GreenLake documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) for detailed instructions on creating a Personal API Client and generating an access token.
 
 **Note**: 
 
