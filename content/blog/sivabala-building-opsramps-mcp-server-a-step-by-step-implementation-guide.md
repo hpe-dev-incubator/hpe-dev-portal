@@ -2,8 +2,6 @@
 title: "Building an MCP server to take advantage of OpsRamp monitoring - A
   Step-by-Step Implementation Guide Part 2"
 date: 2026-02-25T22:44:12.993Z
-featuredBlog: true
-priority: 2
 author: BalaSubramanian Vetrivel
 authorimage: /img/balaprofilephoto.png
 disable: false

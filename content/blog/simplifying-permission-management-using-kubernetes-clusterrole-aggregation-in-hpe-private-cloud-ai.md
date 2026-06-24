@@ -2,8 +2,7 @@
 title: Simplifying permission management using Kubernetes ClusterRole
   aggregation in HPE Private Cloud AI
 date: 2026-02-17T07:36:43.381Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
