@@ -67,7 +67,6 @@ The `uuid` value must be the `resourceUUID` that HPE OpsRamp assigned when the r
 I solve this with a module called `resource_context.py` — an in-memory registry that maps each resource hostname to its full identity. Phase 1 (provisioning) populates this registry. Phase 2 (instrumentation) reads from it.
 
 ### resource_context.py — the identity registry
-
 ```python
 # resource_context.py
 # Shared in-memory registry: hostname → OpsRamp resource identity
