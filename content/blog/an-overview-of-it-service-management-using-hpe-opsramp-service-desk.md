@@ -45,7 +45,7 @@ Why HPE OpsRamp Software Service Desk?
 
 ![](/img/sd-nav-overview.png)
 
-Core ITSM capabilities
+**Core ITSM capabilities**
 
 Standardized entities ensure consistent reporting, automation, and SLA tracking across teams. 
 
