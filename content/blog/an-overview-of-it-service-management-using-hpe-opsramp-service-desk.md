@@ -39,7 +39,6 @@ thead tr:first-child td {
   font-weight: bold !important;
 }
 </style>
-
 A unified, automated, and insight driven ITSM platform 
 
 ## Overview
