@@ -9,36 +9,6 @@ tags:
   - hybrid-cloud
   - ITSM
 ---
-<style>
-table {
-    display: block;
-    width: max-content !important;
-    max-width: 100%;
-    overflow: auto;
-     -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-}
-td {
-   -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-    text-align: left !important;
-     font-weight: normal !important;
-    padding: 10px !important;
-}
-thead tr:first-child td {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border:1px solid grey;
-  text-align: center !important;
-  padding: 20px !important;
-  font-weight: bold !important;
-}
-</style>
 A unified, automated, and insight driven ITSM platform 
 
 ## Overview
@@ -81,17 +51,7 @@ Standardized entities ensure consistent reporting, automation, and SLA tracking 
 
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations:
 
-<div align="left">
-
-| **Entity type** | **Purpose**                                               |
-| --------------- | -------------------------------------------------------   |
-| Service request | Low risk, preapproved user requests                       |
-| Incident        | Service disruptions or failures                           |
-| Problem         | Root cause analysis for recurring issues                  |
-| Change          | Controlled changes with approvals                         |
-| Task            | One time scheduled operational activities                 |
-| Time bound      | Recurring or scheduled access activities with approvals   |
-</div>
+![](/img/sd-table1.png)
 
 **Best practice**
 
@@ -211,13 +171,7 @@ Persona based user experience
 
 Purpose driven access control
 
-<div align="left">
-
-| **Persona**       | **Capabilities**                                                   |
-| ----------------- | ------------------------------------------------------------------ |
-| **Regular User**  | Full ticket lifecycle management                                   |
-| **Business User** | View only or comment based access (RBAC) Role Based Access Control |
-</div>
+![](/img/sd-table2.png)
 
 **Security & governance advantage**
 
