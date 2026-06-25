@@ -218,7 +218,6 @@ Purpose driven access control
 | ----------------- | ------------------------------------------------------------------ |
 | **Regular User**  | Full ticket lifecycle management                                   |
 | **Business User** | View only or comment based access (RBAC) Role Based Access Control |
-
 </div>
 
 **Security & governance advantage**
