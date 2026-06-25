@@ -96,13 +96,13 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 
 | **Entity type** | **Purpose**                                              |
-| --------------- | -------------------------------------------------------- |
+| --------------- | :------------------------------------------------------: |
 | Service request | Low risk, preapproved user requests                      |
 | Incident        | Service disruptions or failures                          |
 | Problem         | Root cause analysis for recurring issues                 |
 | Change          | Controlled changes with approvals                        |
 | Task            | One time scheduled operational activities                |
-| Time bound      | Recurring or scheduled access activities with approvals |
+| Time bound      | Recurring or scheduled access activities with approvals  |
 
 
 </div>
