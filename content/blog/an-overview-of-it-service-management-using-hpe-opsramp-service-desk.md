@@ -75,14 +75,14 @@ Why HPE OpsRamp Software Service Desk?
 
 Command center 
 
-       \└── \Tickets (operations & views)
+       └── Tickets (operations & views)
 
 
 Setup
 
-       \└── \Account 
+       └──Account 
 
-         \└──\ Service Desk (configuration & automation) 
+         └── Service Desk (configuration & automation) 
 
 
 Core ITSM capabilities
