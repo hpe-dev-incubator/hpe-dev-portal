@@ -74,17 +74,7 @@ Why HPE OpsRamp Software Service Desk?
 
 ## Navigation overview
 
-Command center 
-
-       └── Tickets (operations & views)
-
-
-Setup
-
-       └──Account 
-
-         └── Service Desk (configuration & automation) 
-
+![](/img/sd-nav-overview.png)
 
 Core ITSM capabilities
 
@@ -92,17 +82,17 @@ Standardized entities ensure consistent reporting, automation, and SLA tracking 
 
 HPE OpsRamp Software supports the major ITSM entities required for day to day operations:
 
-
 <div align="left">
 
-| **Entity type** | **Purpose**                                                     |
-| --------------- | :---------------------------------------------------------------------: |
-| Service request | Low risk, preapproved user requests                                                  |
-| Incident        | Service disruptions or failures                                |
-| Problem         | Root cause analysis for recurring issues                       |
-| Change          | Controlled changes with approvals                              |
-| Task            | One time scheduled operational activities                      |
-| Time bound      | Recurring or scheduled access activities with approvals        |
+| **Entity type** | **Purpose**                                             |
+| --------------- | ------------------------------------------------------- |
+| Service request | Low risk, preapproved user requests                     |
+| Incident        | Service disruptions or failures                         |
+| Problem         | Root cause analysis for recurring issues                |
+| Change          | Controlled changes with approvals                       |
+| Task            | One time scheduled operational activities               |
+| Time bound      | Recurring or scheduled access activities with approvals |
+
 </div>
 
 **Best practice**
@@ -111,7 +101,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 
 Service Desk configuration
 HPE OpsRamp Software allows deep configuration without customization overhead.
- 
+
 **Configuration components** 
 
 * Settings (rules & behavior) 
@@ -145,7 +135,7 @@ Categories help to streamline and organize tickets by grouping similar types of 
 **Workflow governance with Status Flows** 
 
 Clear ownership at every stage 
-Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
+Ticket Flow => \[New → Open → Pending / OnHold → Resolved → Closed]
 
 * Ensures accountability
 * Prevents uncontrolled state changes 
@@ -156,7 +146,7 @@ Ticket Flow => [New → Open → Pending / OnHold → Resolved → Closed]
 Intelligent prioritization framework 
 
 Impact × urgency = priority
- 
+
 HPE OpsRamp Software derives ticket priority using a structured **Priority Matrix**.
 
 * Business impact: Scope of service disruption 
@@ -194,7 +184,6 @@ Setup → Account → Service Desk → Service Level Agreements
 
 Setup → Account → Service Desk → Notifications
 
-
 Triggered by: 
 
 * Ticket creation or updates 
@@ -224,16 +213,14 @@ Persona based user experience
 
 Purpose driven access control
 
-
 <div align="left">
 
-| **Persona**       | **Capabilities**                                           |
-| ----------------- | ---------------------------------------------------------- |
+| **Persona**       | **Capabilities**                                                   |
+| ----------------- | ------------------------------------------------------------------ |
 | **Regular User**  | Full ticket lifecycle management                                   |
 | **Business User** | View only or comment based access (RBAC) Role Based Access Control |
 
 </div>
-
 
 **Security & governance advantage**
 
@@ -302,11 +289,8 @@ For tools outside the standard integration catalog, HPE OpsRamp Software provide
 
 ## Conclusion
 
-
 * HPE OpsRamp Software Service Desk ITSM, built for modern enterprises, transforms IT operations from reactive to proactive service management—combining automation, governance, and insight in a single platform.
- 
 * Whether you’re scaling service operations, improving SLA adherence, or seeking better visibility, HPE OpsRamp Software Service Desk provides the foundation for efficient, future ready IT service management.
-
 * HPE OpsRamp Software Service Desk combines robust ITSM fundamentals with structured workflows, persona based experiences, and actionable reporting.
 
 For organizations looking to standardize IT operations, improve service quality, and scale efficiently, HPE OpsRamp Software Service Desk provides a powerful foundation.
