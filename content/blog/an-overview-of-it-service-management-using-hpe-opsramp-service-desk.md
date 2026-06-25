@@ -1,8 +1,8 @@
 ---
 title: An Overview of IT Service Management using HPE OpsRamp Service Desk
-date: 2026-06-17T15:43:00.000Z
+date: 2026-06-25T14:42:00.000Z
 author: Sudhir Kanigiri
-authorimage: /img/Avatar1.svg
+authorimage: /img/sudhir-kanigiri.png
 disable: false
 tags:
   - hpe-opsramp
