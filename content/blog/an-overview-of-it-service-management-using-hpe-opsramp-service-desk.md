@@ -144,7 +144,7 @@ Setup → Account → Service Desk → Notifications
 
 Triggered by: 
 
-* Ticket creation or updates 
+* Ticket creation or updates
 * Status changes 
 * Priority thresholds 
 * Source (manual, email, policy driven) 
