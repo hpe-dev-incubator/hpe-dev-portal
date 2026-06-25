@@ -54,7 +54,8 @@ HPE OpsRamp Software supports the key IT service management scenarios through st
 * **Changes** with controlled approvals 
 * **Tasks & time-bound activities** for operational implementation
 
-Why HPE OpsRamp Software Service Desk? 
+Why HPE OpsRamp Software Service Desk?
+
 **Key business outcomes** 
 
 * Centralized ticket management
