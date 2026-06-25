@@ -58,6 +58,7 @@ HPE OpsRamp Software supports the major ITSM entities required for day to day op
 ***Standardized entities ensure consistent reporting, automation, and SLA tracking across teams.***
 
 Service Desk configuration
+
 HPE OpsRamp Software allows deep configuration without customization overhead.
 
 **Configuration components** 
