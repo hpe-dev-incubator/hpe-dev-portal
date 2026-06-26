@@ -15,7 +15,13 @@ tags:
   - Istio VirtualService
   - Kyverno ClusterPolicy
 ---
-[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) runs large scale AI and machine learning workloads on top of Kubernetes clusters, where reliability and rapid troubleshooting are essential. With thousands of Pods distributed across more than a hundred clusters, even small disruptions can impact training pipelines, inference services, or data processing jobs. Because Kubernetes Pods are inherently ephemeral, restart events are common and can be triggered by memory pressure (e.g., OOMKilled), CPU contention, probe failures, infrastructure instability, or application level crashes.
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) operates large‑scale AI and machine learning (ML) workloads on top of a Kubernetes (K8s) cluster. Thousands of K8s Pods running long-lived, resource-intensive jobs run continuously in this large cluster environment. Due to K8s inherently ephemeral design, Pod restarts are both common and expected. Some Pod restarts can disrupt long‑running training jobs, interrupt inference services, or degrade the performance of data pipelines operating in the cluster. To maintain reliability at PCAI scale, there is a need to understand the reason behind every Pod restart event proactively, giving engineering teams early visibility into potential issues and enabling faster remediation before they impact AI workloads. 
+
+This blog post introduces an automated restart‑analysis pipeline to eliminate this operational burden. Whenever a K8s Pod restarts, the system automatically triggers the Pod info collector, gathers node conditions, Pod events, and contextual signals, and publishes the results directly to Slack. Engineers receive immediate, actionable insight without running a single command.
+
+This automation improves observability on the PCAI cluster, accelerates root‑cause identification, and reduces manual overhead — ensuring PCAI workloads remain stable, predictable, and easier to support. 
+
+ where reliability and fast diagnosis are critical. With thousands of K8s Pods running long-lived, resource-intensive jobs, such as training pipelines and inference services, distributed across more than a hundred clusters, even small disruptions can impact  or data processing jobs. Because Kubernetes Pods are inherently ephemeral, restart events are common and can be triggered by memory pressure (e.g., OOMKilled), CPU contention, probe failures, infrastructure instability, or application level crashes.
 
 
 The real challenge is not that Pods restart — it’s understanding why they restart at PCAI scale.
@@ -23,6 +29,10 @@ Although Kubernetes provides built in commands to inspect node conditions, event
 
 
 This repetitive troubleshooting loop slows down incident response and increases operational overhead for our engineering teams.
+
+
+
+(may move it to the below section late) The blog details how the automation works, how it leverages existing open‑source tooling, and how it transforms Pod troubleshooting in HPE Private Cloud AI.
 
 
 To address this, we developed an automated approach that integrates with PCAI’s existing Kubernetes infrastructure. Instead of requiring engineers to fetch diagnostics manually, our system automatically detects each Pod restart event and uses k8s pod info collector to gather node status, Pod events, and relevant context. The collected information is then published directly to Slack, giving engineers immediate visibility into the root cause without running a single command.
