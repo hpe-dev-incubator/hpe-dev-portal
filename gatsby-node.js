@@ -239,10 +239,6 @@ exports.createPages = async ({ graphql, actions }) => {
   //   paginatedCollectionQuery('morpheus'),
   // );
 
-  const othersQueryResult = await graphql(
-    paginatedCollectionQuery('others-posts'),
-  );
-
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);
   setPagination(ezmeralRuntimeQueryResult);
@@ -270,8 +266,6 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(hpeNonStopQueryResult);
   // setPagination(hpeOpsrampQueryResult);
   // setPagination(hpeMorpheusQueryResult);
-  setPagination(othersQueryResult);
-
   return graphql(`
     {
       allMarkdownRemark(
