@@ -19,8 +19,20 @@ tags:
 
 This blog post introduces an automated restart‑analysis pipeline designed to eliminate this manual operational burden. Whenever a Pod restarts, the system automatically triggers the Pod info collector, gathers node conditions, Pod events, and contextual signals, and publishes a structured diagnostic report directly to *Slack*. Engineers receive immediate, actionable insight without running a single command. This automation improves observability on the PCAI cluster, accelerates root‑cause identification, and reduces manual overhead, ensuring PCAI workloads remain stable, predictable, and easier to support. 
 
+### The mystery behind every Pod rstart
 
- where reliability and fast diagnosis are critical. With thousands of K8s Pods running long-lived, resource-intensive jobs, such as training pipelines and inference services, distributed across more than a hundred clusters, even small disruptions can impact  or data processing jobs. Because Kubernetes Pods are inherently ephemeral, restart events are common and can be triggered by memory pressure (e.g., OOMKilled), CPU contention, probe failures, infrastructure instability, or application level crashes.
+In large Kubernetes environments, Pod restarts are unavoidable. They can be triggered by memory pressure, transient node instability, failing liveness or readiness probes, application crashes, or simply the platform’s normal reconciliation behavior. Most of the time, these restarts are harmless. But in AI‑ and data‑intensive platforms like HPE Private Cloud AI, even a single unexpected restart can ripple across the system — slowing long‑running training jobs, interrupting inference services, or degrading user‑facing performance.
+
+The real challenge isn’t that Pods restart. It’s understanding why they restart, and doing it quickly enough to prevent small issues from escalating into major incidents. At scale, this becomes a tedious, error‑prone routine: engineers jumping between kubectl commands, combing through logs, checking events, and trying to reconstruct what happened moments before the restart. Multiply that by dozens or hundreds of Pods, and the operational burden becomes overwhelming.
+
+Fortunately, this entire troubleshooting workflow can be automated using existing tooling. This blog post outlines one such automation pipeline built around k8s‑pod‑restart-info-collector — an open‑source utility that quietly solves a noisy problem. Developed by the Airwallex engineering team, it acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack workspace.
+
+At its core, the project is a custom Kubernetes controller powered by the client‑go library. It continuously watches Pod lifecycle changes through the Kubernetes API, and the moment a restart occurs, it springs into action. The controller gathers everything an engineer would normally hunt down manually: restart reasons, timestamps, logs, events, and other contextual signals that explain why the Pod restarted and what happened immediately beforehand.
+
+Once collected, the tool formats these insights into a clean, structured report and posts it to your chosen Slack channel. The result is a lightweight, automated observability loop that keeps teams informed without dashboards, polling, or guesswork — delivering automatic detection, automatic collection, and automatic visibility for every Pod restart.
+
+
+where reliability and fast diagnosis are critical. With thousands of K8s Pods running long-lived, resource-intensive jobs, such as training pipelines and inference services, distributed across more than a hundred clusters, even small disruptions can impact  or data processing jobs. Because Kubernetes Pods are inherently ephemeral, restart events are common and can be triggered by memory pressure (e.g., OOMKilled), CPU contention, probe failures, infrastructure instability, or application level crashes.
 
 
 The real challenge is not that Pods restart — it’s understanding why they restart at PCAI scale.
