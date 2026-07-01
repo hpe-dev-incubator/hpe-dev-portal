@@ -7,7 +7,7 @@ tags:
 - hpe-opsramp
 - opsramp
 image: /img/events/hpe202601291868_450_0_72_rgb.jpg
-link: https://hpe.zoom.us/webinar/register/9517805612560/WN_QiEMFNthTDC9PUO4tRZrAA
+link: https://www.youtube.com/watch?v=T-XBFDkRfrg
 width: large
 ---
 Join our next HPE Developer Community Meetup to learn more about HPE OpsRamp Service Maps.

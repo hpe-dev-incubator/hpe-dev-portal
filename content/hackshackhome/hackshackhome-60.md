@@ -1,6 +1,6 @@
 ---
 title: "Automate what happens next using HPE OpsRamp Process Automation"
-active: true
+active: false
 fit: contain
 path: https://www.youtube.com/watch?v=jIVcG1NIsfw
 imageBackground: white
