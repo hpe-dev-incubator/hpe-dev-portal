@@ -110,7 +110,7 @@ window.HPEHF_CFG = {
       {title: 'Blog', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Blog'},
       {title: 'Events', href: '/events', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Events'},
       {title: 'Skill Up', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Skill Up'},
-      {title: 'Community', href: '/community', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community'}
+      {title: 'Join the Community', href: '/community', newWindow: false, type: 'cta', dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community'}
     ]
   },
   headerSearch: {
