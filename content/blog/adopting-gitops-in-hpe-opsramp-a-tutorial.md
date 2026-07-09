@@ -23,7 +23,7 @@ Fortunately, the first challenge has already been resolved by version control so
 
 This post is a tutorial on how to set up a basic GitOps environment with GitHub as configuration and secret credentials version-controlled repository and Amazon Web Services (AWS) S3 as shared storage for the state file.
 
-## Requirements.
+## Requirements
 
 For this tutorial we will use:
 
@@ -75,4 +75,61 @@ Log into your AWS account, on IAM [create an OIDC identity provider](https://doc
 
 Then create a S3 bucket and take note of its name and the region where it is located.
 
+## Configuring the backend
+
+We are going now to change our configuration so it uses the AWS S3 backend to store the state file. We can create a `backend.tf` file in our configuration that looks like this:
+
+```
+terraform {
+  backend "s3" {
+    bucket = var.opentofu_state_bucket
+    key    = "hpe_opsramp/opentofu.tfstate"
+    region = var.aws_region
+  }
+}
+```
+
+We will need to declare these variables in the configuration, for instance in `variables.tf`:
+
+```
+variable "hpe_opsramp_client_id" {
+  type = string
+}
+
+variable "hpe_opsramp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "hpe_opsramp_endpoint" {
+  type = string
+}
+
+variable "hpe_opsramp_tenant" {
+  type = string
+}
+
+variable "aws_region" {
+  type = string
+}
+
+variable "opentofu_state_bucket" {
+  type = string
+}
+```
+
+We have also added the HPE OpsRamp variables we will use when configuring the provider in our configuration file.
+
+## Configuring the repository variables and secrets
+
+We will now head back to Github, and in the repository settings we are going to click on the "Secrets and Variables", and then "Actions" link.
+
+We are going to create three repository [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets): `AWS_ROLE_ARN` with the value we obtained we configured the AWS role, `HPE_OPSRAMP_CLIENT_ID` and `HPE_OPSRAMP_CLIENT_SECRET` with the client credentials we obtained from the custom integration.
+
+We are then going to create four new repository [variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables), to store the non-sensitive values we will need for our provisioning activities:
+
+1. `AWS_REGION`: this is the region where your S3 bucket is hosted.
+2. `OPENTOFU_STATE_BUCKET`: this is the name of the S3 bucket where we are going to store the state file.
+3. `HPE_OPSRAMP_ENDPOINT`: this is the api.opsramp.com URL that we obtained in the custom integration.
+4. `HPE_OPSRAMP_TENANT`: also from the custom integration documentation, this is the tenant id.
 
