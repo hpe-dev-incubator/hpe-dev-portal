@@ -133,3 +133,5 @@ We are then going to create four new repository [variables](https://docs.github.
 3. `HPE_OPSRAMP_ENDPOINT`: this is the api.opsramp.com URL that we obtained in the custom integration.
 4. `HPE_OPSRAMP_TENANT`: also from the custom integration documentation, this is the tenant id.
 
+These are the bare minimum variables and secrets we need to define to get our setup working, this same functionality can be used in other resources in our configuration, for instance to store a client / tenant name which changes with the environment.
+
