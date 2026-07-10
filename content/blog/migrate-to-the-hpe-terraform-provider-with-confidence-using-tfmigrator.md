@@ -5,5 +5,9 @@ externalLink: https://community.hpe.com/t5/the-cloud-experience-everywhere/migra
 author: Stuart Stent
 authorimage: /img/stuart-stent.png
 disable: false
+tags:
+  - morpheus
+  - hybrid-cloud
+  - terraform
 ---
-External Blog
+external Blog
