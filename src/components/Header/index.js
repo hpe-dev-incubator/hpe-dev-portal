@@ -13,7 +13,7 @@ import {
 import { Menu, Search, FormUp, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink } from '../Link';
+import { ButtonLink, ExternalButtonLink } from '../Link';
 import { UserMenu } from './UserMenu';
 
 const HEADER_TEXT_COLOR = '#3e4550';
@@ -28,7 +28,7 @@ const MainHeader = styled(GrommetHeader)`
 
 const HeaderOuter = styled(Box)`
   width: 100%;
-  background: #F7F7F7;
+  background: #f7f7f7;
 `;
 
 const TextAlignLeft = styled(Box)`
@@ -37,7 +37,7 @@ const TextAlignLeft = styled(Box)`
     font-weight: 400;
     padding: 0 30px;
     margin-bottom: 26px;
-   }
+  }
   & > a:first-of-type {
     margin-top: 26px;
   }
@@ -415,8 +415,13 @@ function Header() {
 
   const PlatformButtonLinks = ({ column }) => {
     if (!platforms?.length) return null;
-    const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
-    const rightColumn = platforms.filter((platform, index) => index % 2);
+    const even = 2 * Math.floor(platforms.length / 2);
+    const leftColumn = platforms.filter(
+      (_, index) => index % 2 === 0 && index < even,
+    );
+    const rightColumn = platforms.filter(
+      (_, index) => index % 2 !== 0 || index >= even,
+    );
     const platformsColumn = column === 'left' ? leftColumn : rightColumn;
 
     return platformsColumn.map((platform, index) => {
@@ -587,6 +592,13 @@ function Header() {
           />
           <Box direction="row">
             <TextAlignLeft>
+              <ExternalButtonLink
+                key="hpe-networking"
+                label="HPE Networking"
+                to="https://developer.networking.hpe.com"
+                alignSelf="start"
+                fill="horizontal"
+              />
               <PlatformButtonLinks column="left" />
             </TextAlignLeft>
             <TextAlignLeft>
@@ -715,6 +727,12 @@ function Header() {
 
   const mobileProductsChildren = [
     { key: 'products-all', label: 'All Products', to: '/platforms' },
+    {
+      key: 'products-hpe-networking',
+      label: 'HPE Networking',
+      to: 'https://developer.arubanetworks.com',
+      external: true,
+    },
     ...((platforms || []).map((item, index) => ({
       key: `platform-${index}`,
       label: item.node.frontmatter.title,
@@ -819,14 +837,23 @@ function Header() {
 
                     {mobileExpanded[section.key] && (
                       <MobileSubItemsContainer>
-                        {section.children.map((child) => (
-                          <MobileSubNavRowLink
-                            key={child.key}
-                            label={child.label}
-                            to={child.to}
-                            onClick={closeMobileMenu}
-                          />
-                        ))}
+                        {section.children.map((child) =>
+                          child.external ? (
+                            <MobileSubNavRowLink
+                              as={ExternalButtonLink}
+                              key={child.key}
+                              label={child.label}
+                              to={child.to}
+                            />
+                          ) : (
+                            <MobileSubNavRowLink
+                              key={child.key}
+                              label={child.label}
+                              to={child.to}
+                              onClick={closeMobileMenu}
+                            />
+                          ),
+                        )}
                       </MobileSubItemsContainer>
                     )}
                   </MobileAccordionSection>
