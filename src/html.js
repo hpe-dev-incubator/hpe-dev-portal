@@ -35,7 +35,8 @@ export default function HTML(props) {
             __html: `
             :root { color-scheme: only light; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; }`,
+            #header { background-color: #ffffff; }
+            .hpehf-centered-content { padding-left: max(24px, calc((100% - 1600px) / 2)) !important; padding-right: max(24px, calc((100% - 1600px) / 2)) !important; box-sizing: border-box !important; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -78,38 +79,38 @@ window.HPEHF_CFG = {
       {title: 'Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Products',
         navLinks: [
           {title: 'All Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Products'},
-          {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
-          {title: 'HPE Swarm Learning', href: '/platform/hpe-swarm-learning/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'},
-          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
-          {title: 'HPE NonStop', href: '/platform/hpe-nonstop/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE NonStop'},
-          {title: 'OpenCHAMI', href: '/platform/openchami/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
-          {title: 'Morpheus', href: '/platform/morpheus-cloud-management-platform/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Morpheus'},
-          {title: 'HPE OpsRamp', href: '/platform/opsramp/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
-          {title: 'Zerto', href: '/platform/zerto/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Zerto'},
-          {title: 'HPE Alletra', href: '/platform/hpe-alletra/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Alletra'},
-          {title: 'HPE 3PAR and Primera', href: '/platform/hpe-3par-and-primera/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE 3PAR and Primera'},
-          {title: 'HPE Nimble Storage', href: '/platform/nimble-storage/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Nimble Storage'},
-          {title: 'HPE OneView', href: '/platform/hpe-oneview/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView'},
-          {title: 'HPE OneView Global Dashboard', href: '/platform/hpe-oneview-global-dashboard/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView Global Dashboard'},
-          {title: 'HPE SimpliVity', href: '/platform/hpe-simplivity/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE SimpliVity'},
-          {title: 'iLO RESTful API', href: '/platform/ilo-restful-api/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|iLO RESTful API'}
+          {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
+          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'},
+          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
+          {title: 'HPE NonStop', href: '/platform/hpe-nonstop/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE NonStop'},
+          {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
+          {title: 'Morpheus', href: '/platform/morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Morpheus'},
+          {title: 'HPE OpsRamp', href: '/platform/hpe-opsramp/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
+          {title: 'Zerto', href: '/platform/zerto/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Zerto'},
+          {title: 'HPE Alletra', href: '/platform/hpe-alletra/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Alletra'},
+          {title: 'HPE 3PAR and Primera', href: '/platform/hpe-3par-and-primera/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE 3PAR and Primera'},
+          {title: 'HPE Nimble Storage', href: '/platform/hpe-nimble-storage/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Nimble Storage'},
+          {title: 'HPE OneView', href: '/platform/hpe-oneview/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView'},
+          {title: 'HPE OneView Global Dashboard', href: '/platform/hpe-oneview-global-dashboard/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView Global Dashboard'},
+          {title: 'HPE SimpliVity', href: '/platform/hpe-simplivity/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE SimpliVity'},
+          {title: 'iLO RESTful API', href: '/platform/ilo-restful-api/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|iLO RESTful API'}
         ]
       },
       {title: 'Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Open Source',
         navLinks: [
           {title: 'Chapel', href: '/platform/chapel/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Chapel'},
-          {title: 'Determined AI', href: '/platform/determined-ai/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Determined AI OS'},
+          {title: 'Determined AI', href: '/platform/determined-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Determined AI OS'},
           {title: 'DragonHPC', href: '/platform/dragonhpc/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|DragonHPC'},
           {title: 'Grommet', href: '/platform/grommet/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Grommet'},
           {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
-          {title: 'OpenCHAMI', href: '/platform/openchami/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
+          {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
           {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'},
           {title: 'All Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Open Source'}
         ]
       },
       {title: 'Blog', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Blog'},
       {title: 'Events', href: '/events', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Events'},
-      {title: 'Skill Up', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Skill Up'},
+      {title: 'Training', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Training'},
       {title: 'Join the Community', href: '/community', newWindow: false, type: 'cta', dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community'}
     ]
   },
