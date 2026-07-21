@@ -1,6 +1,6 @@
 ---
 title: "The inference economy: why enterprise AI is moving closer to the data"
-date: 2026-07-28T09:01:00.000Z
+date: 2026-07-22T11:39:00.000Z
 featuredBlog: true
 priority: ""
 author: Aaron Lamond | Worldwide Product Marketing | Enterprise AI | HPE ProLiant
