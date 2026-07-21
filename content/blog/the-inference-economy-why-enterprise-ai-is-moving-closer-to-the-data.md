@@ -6,6 +6,12 @@ priority: ""
 author: Aaron Lamond | Worldwide Product Marketing | Enterprise AI | HPE ProLiant
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
+tags:
+  - Edge Computing, Edge AI, AI Inference, Enterprise AI, Inference Economy,
+    Intelligent Edge, AI Infrastructure, HPE ProLiant, HPE ProLiant Compute
+    EL2000, HPE ProLiant DL145, Hybrid AI, Operational AI, Manufacturing AI,
+    Retail Analytics, Telecom Edge Computing, Data Sovereignty, Real-Time
+    Decision Making
 ---
 a {
     text-decoration: none;
