@@ -89,11 +89,11 @@ The future of enterprise AI is not a single location where all intelligence live
 
 Centralized infrastructure will continue to play a critical role in training, refining, and optimizing models. These environments act as AI factories, producing the intelligence that powers modern applications.
 
-But intelligence has to travel beyond the factory.It has to reach the factory floor, the retail store, the network edge, and the remote operational site where decisions are actually made.
+But intelligence has to travel beyond the factory. It has to reach the factory floor, the retail store, the network edge, and the remote operational site where decisions are actually made.
 
 That is where edge infrastructure becomes essential.
 
-*Think of it as a network of AI microfactories.* Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
+*Think of it as a network of AI micro factories.* Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
 
 a {
     text-decoration: none;
@@ -118,8 +118,6 @@ The **HPE ProLiant DL145** extends enterprise-class compute to highly distribute
 
 *Together, these platforms help organizations close the distance between data and decisions.*
 
-
-
 a {
     text-decoration: none;
     color: #464feb;
@@ -131,15 +129,14 @@ tr th {
     background-color: #f5f5f5;
 }
 
-
-### **The real opportunity is not creating more data. It's acting on it faster.**
+### **The real opportunity is not creating more data. It's doing more with it**
 
 As data continues to grow across factories, stores, networks, and remote operations, moving everything back to a central location becomes harder, slower, and more expensive.
 
 That is why organizations are rethinking where AI runs. By bringing inference closer to where data is created, they can reduce unnecessary data movement, accelerate decisions, and unlock value at the point of action.
 
-In the end, success is not about collecting more data.
-
-It's about moving less of it, learning more from it, and acting on it faster.
+In the end, success is not about collecting more data. It's about moving less of it, learning more from it, and acting on it faster.
 
 That is the promise of the inference economy. And it is why enterprise AI is moving closer to the edge.
+
+Learn about purpose-built, secure AI-ready compute please visit [www.hpe.com/ProLiant/edge-computing](www.hpe.com/ProLiant/edge-computing)
