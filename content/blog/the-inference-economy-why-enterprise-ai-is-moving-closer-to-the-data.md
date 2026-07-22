@@ -35,7 +35,6 @@ Every day, factories, retail stores, telecommunications networks, and remote fac
 
 Increasingly, organizations are realizing that the hidden cost of AI is not just compute. It is moving data.
 
-
 ### **The business doesn't care about data. It cares about decisions.**
 
 Imagine a modern manufacturing plant. Thousands of products move through production every hour while cameras and sensors inspect, monitor, and measure every step of the process. Millions of data points may be generated every day, but the business is not interested in collecting data for its own sake.
@@ -43,8 +42,6 @@ Imagine a modern manufacturing plant. Thousands of products move through product
 What matters is finding the one defect that could impact quality.The same principle applies everywhere. Retailers want to know when shelves are empty. Telecommunications providers need to spot network problems before customers notice. Transportation operators want to identify equipment issues before delays occur.
 
 *The value is not in the data itself. The value is in the moment a decision is made.*
-
-
 
 ### **The next era of AI will be defined by inference, not training**
 
@@ -69,8 +66,6 @@ That is where edge infrastructure becomes essential.
 
 *Think of it as a network of AI micro factories.* Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
 
-
-
 ### **Bringing intelligence to where business happens**
 
 This shift creates new infrastructure requirements. Many edge locations do not have the luxury of dedicated data center space, abundant power, on-site IT resource or even air conditioning. They require platforms specifically designed for distributed environments while still delivering enterprise-grade performance, reliability, and security.
@@ -82,8 +77,6 @@ The **HPE ProLiant Compute EL2000** is purpose-built for organizations that need
 The **HPE ProLiant DL145** extends enterprise-class compute to highly distributed environments such as manufacturing facilities, retail locations, and telecommunications sites. It allows organizations to run AI closer to operational data sources, helping transform information into action where it matters most.
 
 *These platforms close the distance between data and decisions.*
-
-
 
 ### **The real opportunity is not creating more data. It's doing more with it**
 
