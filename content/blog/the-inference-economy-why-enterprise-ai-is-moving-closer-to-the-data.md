@@ -53,7 +53,8 @@ The real business value of AI is created during inference, when a model analyzes
 
 In other words, intelligence generates value when it is used, not when it is created. That is why so many organizations are rethinking where AI runs. Instead of sending every piece of data to centralized infrastructure, they are increasingly bringing AI closer to where the data is generated. 
 
-*Not because it is trendy. Because it makes economic sense.*
+<span style="color:blue; font-family:Arial; font-size:1em"> *Not because it is trendy. Because it makes economic sense.*
+</span>
 
 
 ### **AI factories create intelligence. The edge puts it to work.**
@@ -66,7 +67,7 @@ But intelligence has to travel beyond the factory. It has to reach the factory f
 
 That is where edge infrastructure becomes essential.
 
-*Think of it as a network of AI micro factories.* Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
+<span style="color:blue; font-family:Arial; font-size:1em">*Think of it as a network of AI micro factories.*</span> Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
 
 ### **Bringing intelligence to where business happens**
 
@@ -78,7 +79,7 @@ The **HPE ProLiant Compute EL2000** is purpose-built for organizations that need
 
 The **HPE ProLiant DL145** extends enterprise-class compute to highly distributed environments such as manufacturing facilities, retail locations, and telecommunications sites. It allows organizations to run AI closer to operational data sources, helping transform information into action where it matters most.
 
-*These platforms close the distance between data and decisions.*
+<span style="color:blue; font-family:Arial; font-size:1em">*These platforms close the distance between data and decisions.*</span>
 
 ### **The real opportunity is not creating more data. It's doing more with it**
 
@@ -88,7 +89,7 @@ That is why organizations are rethinking where AI runs. By bringing inference cl
 
 In the end, success is not about collecting more data. It's about moving less of it, learning more from it, and acting on it faster.
 
-*That is the promise of the inference economy*. And it is why enterprise AI is moving closer to the edge.
+<span style="color:blue; font-family:Arial; font-size:1em">*That is the promise of the inference economy*</span>. And it is why enterprise AI is moving closer to the edge.
 
 Learn more about purpose-built, secure AI-ready compute here [www.hpe.com/ProLiant/edge-computing](www.hpe.com/ProLiant/edge-computing)
 
