@@ -151,7 +151,7 @@ It is time now to [clone the GitHub repository](https://docs.github.com/en/repos
 
 We are then going to set GitHub Actions to run the OpenTofu plan and apply operations for us. The ''main'' branch will represent our desired state, so we are going to trigger the plan operation when a pull request is opened with proposed changes to ''main'', and we will run plan and apply when the pull request is approved and merged into ''main''.
 
-In our repo we are going to create file `.github/workflows/opentofu.yml`. The first few lines of the file will configure when the workflow is going to triggers, as explained above. We are also pinning a working OpenTofu version:
+In our repo we are going to create file `.github/workflows/opentofu.yml`. The first few lines of the file will configure when the workflow is going to trigger, as explained above. We are also pinning a working OpenTofu version:
 
 ```
 # .github/workflows/opentofu.yml
@@ -180,7 +180,7 @@ env:
   TOFU_VERSION: "1.11.7"
 ```   
 
-We are now going to define the ''plan'' steps. We are going to checkout the configuration, set up OpenTofu in the runner, configure the AWS credentials we need to access the S3 bucket that contains the state file, format the configuration, initialize OpenTofu, validate the configuration, run the plan operation, leave a comment in the pull request with the output of the previous steps, and upload the plan as an artifact.
+We are now going to define the ''plan'' steps. We are going to checkout the configuration, [set up OpenTofu](https://github.com/marketplace/actions/opentofu-setup-tofu) in the runner, configure the AWS credentials we need to access the S3 bucket that contains the state file, format the configuration, initialize OpenTofu, validate the configuration, run the plan operation, leave a comment in the pull request with the output of the previous steps, and upload the plan as an artifact.
 
 Note that we are injecting the repository variables (e.g. `${{ vars.HPE_OPSRAMP_ENDPOINT }}`) and secrets (e.g. `${{ secrets.HPE_OPSRAMP_CLIENT_SECRET }}`) as environment variables in the runner, prefixed by `TF_VAR_` so OpenTofu will pick those up and use them where needed.
 
