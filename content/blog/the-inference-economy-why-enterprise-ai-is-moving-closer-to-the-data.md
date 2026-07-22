@@ -24,16 +24,6 @@ tags:
   - Manufacturing AI,
   - Real-Time Decision Making
 ---
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
 
 ### **What if the biggest cost of AI isn't AI at all?**
 
@@ -45,16 +35,6 @@ Every day, factories, retail stores, telecommunications networks, and remote fac
 
 Increasingly, organizations are realizing that the hidden cost of AI is not just compute. It is moving data.
 
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
 
 ### **The business doesn't care about data. It cares about decisions.**
 
@@ -64,16 +44,7 @@ What matters is finding the one defect that could impact quality.The same princi
 
 *The value is not in the data itself. The value is in the moment a decision is made.*
 
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
+
 
 ### **The next era of AI will be defined by inference, not training**
 
@@ -85,16 +56,6 @@ In other words, intelligence generates value when it is used, not when it is cre
 
 *Not because it is trendy. Because it makes economic sense.*
 
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
 
 ### **AI factories create intelligence. The edge puts it to work.**
 
@@ -108,16 +69,7 @@ That is where edge infrastructure becomes essential.
 
 *Think of it as a network of AI micro factories.* Instead of transporting vast amounts of raw data back to a central location, enterprises can process information closer to where it is created and act on insights in real time.
 
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
+
 
 ### **Bringing intelligence to where business happens**
 
@@ -131,16 +83,7 @@ The **HPE ProLiant DL145** extends enterprise-class compute to highly distribute
 
 *These platforms close the distance between data and decisions.*
 
-a {
-    text-decoration: none;
-    color: #464feb;
-}
-tr th, tr td {
-    border: 1px solid #e6e6e6;
-}
-tr th {
-    background-color: #f5f5f5;
-}
+
 
 ### **The real opportunity is not creating more data. It's doing more with it**
 
@@ -153,3 +96,5 @@ In the end, success is not about collecting more data. It's about moving less of
 *That is the promise of the inference economy*. And it is why enterprise AI is moving closer to the edge.
 
 Learn more about purpose-built, secure AI-ready compute here [www.hpe.com/ProLiant/edge-computing](www.hpe.com/ProLiant/edge-computing)
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about AI and get more insights on how you can use it in your everyday operations.
