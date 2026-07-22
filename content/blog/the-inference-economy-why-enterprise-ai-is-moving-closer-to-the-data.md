@@ -41,7 +41,9 @@ Imagine a modern manufacturing plant. Thousands of products move through product
 
 What matters is finding the one defect that could impact quality.The same principle applies everywhere. Retailers want to know when shelves are empty. Telecommunications providers need to spot network problems before customers notice. Transportation operators want to identify equipment issues before delays occur.
 
-*The value is not in the data itself. The value is in the moment a decision is made.*
+<span style="color:blue; font-family:Arial; font-size:1em"> *The value is not in the data itself. The value is in the moment a decision is made.*
+</span>
+
 
 ### **The next era of AI will be defined by inference, not training**
 
