@@ -14,7 +14,7 @@
     "axios": "^1.15.2",
     "babel-plugin-styled-components": "^2.1.4",
     "decap-cms-app": "3.6.4",
-    "dompurify": "^3.4.0",
+    "dompurify": "^3.4.12",
     "dotenv": "^16.6.1",
     "formik": "^2.4.9",
     "gatsby": "^5.16.1",
