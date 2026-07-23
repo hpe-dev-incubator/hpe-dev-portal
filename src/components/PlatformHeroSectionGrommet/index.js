@@ -1,6 +1,6 @@
 import { Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 
 const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
   const allItems = [
