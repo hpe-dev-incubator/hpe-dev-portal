@@ -1,21 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import { graphql, Link } from 'gatsby';
+import { Anchor, Box, Text } from 'grommet';
+import { Book, Catalog, CircleQuestion, FormPreviousLink } from 'grommet-icons';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Box, Heading } from 'grommet';
-import { FormPreviousLink } from 'grommet-icons';
+import styled from 'styled-components';
 import {
   BlogCard,
-  Content,
-  Layout,
-  LayoutSideBar,
-  Markdown,
-  SEO,
-  SectionHeader,
-  ResponsiveGrid,
   ButtonLink,
   Card,
+  Content,
+  LayoutSideBar,
+  Markdown,
+  ResponsiveGrid,
+  SectionHeader,
+  SEO,
 } from '../components';
+import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -46,6 +46,61 @@ const MarkdownLayout = styled(Markdown)`
     line-height: 24px;
     font-weight: 700;
   }
+
+  .resource-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .resource-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+  .resource-card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0faf6;
+    border-radius: 8px;
+    margin-bottom: 4px;
+  }
+  .resource-card-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .resource-card-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1a1a;
+  }
+  .resource-card-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .resource-card-link {
+    color: #17eba0 !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .resource-card-link:hover {
+    text-decoration: underline !important;
+  }
 `;
 
 const columns = {
@@ -60,6 +115,122 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
+
+const CARD_ICONS = [Catalog, Book, CircleQuestion];
+
+// Extract the first plain-text paragraph from raw markdown as the hero description,
+// skipping any leading <style>...</style> blocks, headings, or list items.
+function extractDescriptionAndBody(rawBody) {
+  const lines = rawBody.split('\n');
+  const descLines = [];
+  let bodyStartIdx = 0;
+  let inDesc = false;
+  let inStyle = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Track <style>...</style> blocks and skip them entirely
+    if (!inDesc && !inStyle && /^<style\b/i.test(trimmed)) {
+      inStyle = true;
+      continue;
+    }
+    if (inStyle) {
+      if (/<\/style>/i.test(trimmed)) inStyle = false;
+      continue;
+    }
+
+    // Skip blank lines before content starts
+    if (!inDesc && !trimmed) continue;
+    // Skip headings, list items, and other HTML tags
+    if (!inDesc && /^[#*<]/.test(trimmed)) {
+      bodyStartIdx = i;
+      break;
+    }
+    if (!inDesc) {
+      inDesc = true;
+      bodyStartIdx = i;
+    }
+    // Blank line ends the first paragraph
+    if (inDesc && !trimmed) {
+      bodyStartIdx = i + 1;
+      break;
+    }
+    descLines.push(trimmed);
+  }
+
+  return {
+    description: descLines.join(' '),
+    body: lines.slice(bodyStartIdx).join('\n'),
+  };
+}
+
+// Generate anchor ID matching gatsby-remark-autolink-headers (github-slugger)
+function slugifyHeading(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+// Parse top-level # headings from raw markdown body to build sidebar nav items
+function parseHeadingsForSidebar(rawBody) {
+  const items = [];
+  for (const line of rawBody.split('\n')) {
+    const match = line.match(/^# (.+)/);
+    if (match) {
+      const text = match[1]
+        .replace(/!\[.*?\]\(.*?\)/g, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .trim();
+      if (text) items.push({ label: text, href: `#${slugifyHeading(text)}` });
+    }
+  }
+  return items;
+}
+
+// Find the first group of 2+ consecutive `* [text](url)` bullet links,
+// extract them as resource cards, and return bodyBefore/bodyAfter so the
+// cards can be inserted at exactly the right position in the page.
+function parseAndExtractBulletCards(rawBody) {
+  const lines = rawBody.split('\n');
+  let groupStart = -1;
+  let groupLen = 0;
+  let cards = [];
+  let curStart = -1;
+  let curCards = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^\* \[([^\]]+)\]\(([^)]+)\)/);
+    if (m) {
+      if (curStart === -1) curStart = i;
+      curCards.push({ title: m[1], link: m[2] });
+    } else {
+      if (curCards.length >= 2) {
+        groupStart = curStart;
+        groupLen = curCards.length;
+        cards = curCards;
+        break;
+      }
+      curStart = -1;
+      curCards = [];
+    }
+  }
+  if (groupStart === -1 && curCards.length >= 2) {
+    groupStart = curStart;
+    groupLen = curCards.length;
+    cards = curCards;
+  }
+  if (groupStart === -1) return { cards: [], bodyBefore: rawBody, bodyAfter: '' };
+
+  return {
+    cards,
+    bodyBefore: lines.slice(0, groupStart).join('\n'),
+    bodyAfter: lines.slice(groupStart + groupLen).join('\n'),
+  };
+}
 function renderMenu(items) {
   if (!items) return null;
   return (
@@ -86,12 +257,27 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags, sidebar, useLayoutSideBar } = post.frontmatter;
+  const { title, description, tags } = post.frontmatter;
+
+  // Split off the first paragraph as the hero description
+  const { description: heroDescription, body: bodyWithoutDesc } = extractDescriptionAndBody(rawMarkdownBody);
+  // Auto-parse sidebar nav from headings; auto-extract bullet link cards from remaining body
+  const parsedSidebarItems = parseHeadingsForSidebar(bodyWithoutDesc);
+  const { cards: activeCards, bodyBefore, bodyAfter } = parseAndExtractBulletCards(bodyWithoutDesc);
+  const sidebarItems = parsedSidebarItems;
+
+  const hero = (
+    <PlatformHeroSectionGrommet
+      title={title}
+      description={heroDescription}
+      navItems={sidebarItems}
+    />
+  );
 
   const content =(
     <>
       <SEO title={title} description={description || excerpt} />
-      <Box flex overflow="auto" gap="medium" pad="small">
+      <Box flex overflow="auto" gap="12px" pad="small">
         <Box flex={false} direction="row-responsive">
           <Box pad={{ vertical: 'large', horizontal: 'xlarge' }}>
             {/* <Image
@@ -101,9 +287,66 @@ function PlatformTemplate({ data }) {
                 alt="platform logo"
               /> */}
           </Box>
-          <Content gap="medium" margin={{ vertical: 'large' }}>
-            {!useLayoutSideBar && <Heading margin="none">{title}</Heading>}
-            <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+          <Content id="platform-content" gap="12px" margin={{ vertical: 'large' }}>
+            <Box direction="row" align="center" gap="xsmall" margin={{ bottom: 'small' }}>
+              <Link to="/platforms" style={{ textDecoration: 'none' }}>
+                <Text color="brand" size="small">{title}</Text>
+              </Link>
+              <Text size="small" color="dark-4">/</Text>
+              <Text size="small" color="dark-4">Getting started</Text>
+            </Box>
+            <MarkdownLayout>{bodyBefore}</MarkdownLayout>
+            {activeCards.length > 0 && (
+              <Box
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
+                  gap: '16px',
+                  margin: '16px 0',
+                  width: '100%',
+                }}
+              >
+                {activeCards.map((card, i) => {
+                  const Icon = CARD_ICONS[i % CARD_ICONS.length];
+                  return (
+                    <Box
+                      key={i}
+                      border={{ color: 'light-4' }}
+                      round="small"
+                      pad="medium"
+                      background="white"
+                      elevation="xsmall"
+                      gap="small"
+                      style={{ display: 'flex', flexDirection: 'column' }}
+                    >
+                      <Box
+                        pad="small"
+                        background="light-1"
+                        round="small"
+                        width="48px"
+                        height="48px"
+                        align="center"
+                        justify="center"
+                      >
+                        <Icon size="medium" color="brand" />
+                      </Box>
+                      <Text weight="bold" size="small">{card.title}</Text>
+                      <Text size="xsmall" color="dark-4" style={{ flex: 1 }}>
+                        {card.description}
+                      </Text>
+                      <Anchor
+                        href={card.link}
+                        label="Explore more →"
+                        color="brand"
+                        size="small"
+                        style={{ fontWeight: 600, marginTop: '8px' }}
+                      />
+                    </Box>
+                  );
+                })}
+              </Box>
+            )}
+            {bodyAfter && <MarkdownLayout>{bodyAfter}</MarkdownLayout>}
             {blogs.length > 0 && tags && (
               <SectionHeader title="Related Blogs" color="border">
                 <ResponsiveGrid gap="large" rows={rows} columns={columns}>
@@ -148,17 +391,15 @@ function PlatformTemplate({ data }) {
       </Box>
     </>
   )
-  return useLayoutSideBar ? (
+  return (
     <LayoutSideBar
       title={siteTitle}
-      sidebarContent={sidebar && renderMenu(sidebar)}
+      sectionTitle="Getting started"
+      sidebarContent={sidebarItems.length > 0 ? renderMenu(sidebarItems) : null}
+      heroContent={hero}
     >
       {content}
     </LayoutSideBar>
-  ) : (
-    <Layout title={siteTitle}>
-    {content}
-  </Layout>
   );
 }
 
@@ -178,6 +419,7 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
         image: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
+
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -252,16 +494,6 @@ export const pageQuery = graphql`
         description
         image
         tags
-        sidebar {
-          label
-          href
-          separator
-          items {
-            label
-            href
-          }
-        }
-        useLayoutSideBar
       }
       fields {
         slug

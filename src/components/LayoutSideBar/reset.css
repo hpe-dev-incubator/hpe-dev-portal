@@ -34,7 +34,7 @@ img {
   padding: 0;
   margin: 0;
   position: sticky;
-  top: 0;
+  top: 80px;
   align-self: flex-start;
   z-index: 10;
   display: flex;
