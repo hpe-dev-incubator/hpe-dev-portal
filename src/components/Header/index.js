@@ -28,7 +28,7 @@ const MainHeader = styled(GrommetHeader)`
 
 const HeaderOuter = styled(Box)`
   width: 100%;
-  background: #F7F7F7;
+  background: #f7f7f7;
 `;
 
 const TextAlignLeft = styled(Box)`
@@ -37,7 +37,7 @@ const TextAlignLeft = styled(Box)`
     font-weight: 400;
     padding: 0 30px;
     margin-bottom: 26px;
-   }
+  }
   & > a:first-of-type {
     margin-top: 26px;
   }

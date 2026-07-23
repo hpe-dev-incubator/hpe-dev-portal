@@ -79,6 +79,7 @@ window.HPEHF_CFG = {
       {title: 'Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Products',
         navLinks: [
           {title: 'All Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Products'},
+          {title: 'HPE Networking', href: 'https://developer.arubanetworks.com', newWindow: true, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Networking'},
           {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
           {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'},
           {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
