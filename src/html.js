@@ -97,22 +97,27 @@ window.HPEHF_CFG = {
           {title: 'iLO RESTful API', href: '/platform/ilo-restful-api/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|iLO RESTful API'}
         ]
       },
-      {title: 'Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Open Source',
+      {title: 'Learn', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Learn',
         navLinks: [
+          {title: 'Blog', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Blog'},
+          {title: 'Events', href: '/events', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Events'},
+          {title: 'Training', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Training'},
+          {title: 'Workshops-on-Demand', href: '/hackshack/workshops', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Workshops-on-Demand'}
+        ]
+      },
+      {title: 'Community', href: '/community', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community',
+        navLinks: [
+          {title: 'Join the Community', href: '/community', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Join the Community'},
+          {title: 'All Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Open Source'},
           {title: 'Chapel', href: '/platform/chapel/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Chapel'},
           {title: 'Determined AI', href: '/platform/determined-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Determined AI OS'},
           {title: 'DragonHPC', href: '/platform/dragonhpc/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|DragonHPC'},
           {title: 'Grommet', href: '/platform/grommet/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Grommet'},
           {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
           {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
-          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'},
-          {title: 'All Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Open Source'}
+          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'}
         ]
       },
-      {title: 'Blog', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Blog'},
-      {title: 'Events', href: '/events', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Events'},
-      {title: 'Training', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Training'},
-      {title: 'Join the Community', href: '/community', newWindow: false, type: 'cta', dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community'}
     ]
   },
   headerSearch: {
