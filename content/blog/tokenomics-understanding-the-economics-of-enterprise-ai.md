@@ -5,8 +5,8 @@ author: Aaron Lamond | Enterprise AI | HPE ProLiant Marketing
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
 tags:
-  -ai
-  -compute 
+  - compute
+  - AI
 ---
 Most organizations can likely tell you how much they spend
 on servers. They can likely tell you how much they spend on cloud. They can likely
