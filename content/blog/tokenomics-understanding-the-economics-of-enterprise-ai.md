@@ -4,6 +4,9 @@ date: 2026-07-27T10:00:00.000Z
 author: Aaron Lamond | Enterprise AI | HPE ProLiant Marketing
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
+tags:
+  -ai
+  -compute 
 ---
 Most organizations can likely tell you how much they spend
 on servers. They can likely tell you how much they spend on cloud. They can likely
@@ -108,3 +111,5 @@ The question is no longer whether AI will impact the business. For many organiza
 **The question now** is whether they can predict, govern, and justify the cost of intelligence as AI becomes part of everyday operations. If you are looking for help or wanting to understand how we have helped other enterprises are navigate Tokenomics please reach out to your local HPE representative. 
 
 *The future of AI belongs to organizations that understand not just how AI works, but how AI pays off.*
+
+Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about AI and get more insights on how you can use it in your everyday operations.
