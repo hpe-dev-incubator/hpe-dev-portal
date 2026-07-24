@@ -1,6 +1,6 @@
 ---
 title: Automating Kubernetes Pod troubleshooting in HPE Private Cloud AI
-date: 2026-05-19T15:09:28.396Z
+date: 2026-07-24T10:25:00.000Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
