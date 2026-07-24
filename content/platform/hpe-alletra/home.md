@@ -108,8 +108,9 @@ HPE Alletra Storage MP integrates with Kubernetes using industry-standard storag
 
 The definitive source for end-user documentation using Kubernetes and neighboring partner ecosystems with HPE Alletra MP B10000.
 
-[* Storage Container Orchestrator Documentation](https://github.com/hpe-storage/scod)
+* [Storage Container Orchestrator Documentation](https://github.com/hpe-storage/scod)
 * [Explore the SCOD portal ](https://scod.hpedev.io/)
+
 
 ### HPE Alletra Storage MP B10000 Container Storage Interface (CSI) 
 
@@ -122,6 +123,7 @@ The HPE Alletra Storage MP B10000 is designed for stateful Kubernetes workloads 
 * [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
 * [Visit documentation on SCOD] (https://scod.hpedev.io/csi_driver/index.html)
 
+
 ### Prometheus Array Exporter
 
 A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
@@ -131,7 +133,9 @@ A Prometheus array exporter that may be deployed as a standalone binary or direc
 * [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
 
+
 ## Training
+
 
 ### Workshops-on-Demand
 
@@ -141,6 +145,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
+
 
 ### Technical Demos:
 
@@ -156,7 +161,9 @@ HPE Alletra Storage MP B10000: Agentic Support Automation                       
 <br/>
 
 
+
 ## Community
+
 
 ### Any questions on HPE Alletra?
 
