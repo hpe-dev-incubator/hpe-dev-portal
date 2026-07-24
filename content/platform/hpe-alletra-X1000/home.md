@@ -86,7 +86,7 @@ Together, the B10000 and X10000 enable organizations to support both traditional
 
 
 
-## Dev Resource
+## Dev Resources
 
 
 The HPE Alletra Storage MP X10000 is designed for cloud-native development and data-intensive applications. It provides standards-based interfaces and APIs that allow developers to build applications that store, retrieve, analyze, and manage large volumes of unstructured data. 
@@ -121,7 +121,9 @@ Available APIs:
 
 * Object Storage API:  [GreenLake for Object Storage REST APIs ](https://developer.greenlake.hpe.com/docs/greenlake/services/object-storage/public/openapi/object-storage-public-v1alpha1/object-storage-api)
 
-## Kubernetes Container Storage Interface (CSI) and Container Object Storage Interface (COSI) 
+
+### Kubernetes Container Storage Interface (CSI) and Container Object Storage Interface (COSI) 
+
 
 HPE Alletra Storage MP integrates with Kubernetes using industry-standard storage interfaces that enable applications to dynamically provision persistent storage.  The X10000 supports both CSI and COSI, allowing Kubernetes applications to consume either:
 
@@ -130,12 +132,15 @@ HPE Alletra Storage MP integrates with Kubernetes using industry-standard storag
 
 **Storage Container Orchestrator Documentation(SCOD)**
 
+
 The primary source for end-user documentation covering Kubernetes and related ecosystem integrations with HPE Alletra Storage MP X10000 is the Storage Container Orchestrator Documentation (SCOD) portal. 
 
 * [SCOD portal](https://scod.hpedev.io/)
 * HPE Storage GitHub Repository: [SCOD Repository![](Github)](https://github.com/hpe-storage/scod)
 
+
 **HPE CSI Driver**
+
 
 The HPE CSI Driver enables Kubernetes clusters to dynamically provision and manage NFS exports on the X10000 platform. This capability supports applications that require persistent shared file storage across multiple pods or nodes with RWX, RWO, and ROX access modes. 
 
@@ -148,6 +153,7 @@ Documentation and Resources:
 
 **HPE COSI Driver**
 
+
 The HPE COSI Driver enables Kubernetes applications to dynamically provision and manage Amazon S3-compatible object storage buckets directly on the X10000 platform. This provides cloud-native object storage services for applications that require scalable, API-driven object storage. 
 
 Documentation and Resources: 
@@ -156,9 +162,11 @@ Documentation and Resources:
 * [Deployment guides](https://scod.hpedev.io/cosi_driver/deployment.html)
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-cosi-driver) 
 
-Together, the HPE CSI and COSI drivers provide Kubernetes administrators and developers with a unified approach to consuming both file and object storage services from HPE Alletra Storage MP X10000 using cloud-native standards. 
+Together, the HPE CSI and COSI drivers provide Kubernetes administrators and developers with a unified approach to consuming both file and object storage services from HPE Alletra Storage MP X10000 using cloud-native standards.
+
 
 ## Model Context Protocol (MCP) Server 
+
 
 The HPE Alletra Storage MP X10000 includes a native Model Context Protocol (MCP) Server that enables AI assistants, Large Language Models (LLMs), and autonomous AI agents to securely interact with object storage using the open Model Context Protocol standard. 
 
