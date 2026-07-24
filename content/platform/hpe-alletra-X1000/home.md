@@ -50,6 +50,7 @@ Accelerate AI pipelines with a high-performance, intelligent data platform—boo
 
 ## Features
 
+
 HPE Alletra MP is Hewlett Packard Enterprise's modular, cloud-operational storage platform designed to consolidate enterprise storage workloads while providing independent scaling of compute and capacity. Built with a disaggregated architecture, HPE Alletra MP enables organizations to deploy different storage personalities on a common hardware platform, improving flexibility, efficiency, and operational simplicity. 
 
 
@@ -84,7 +85,9 @@ Together, the B10000 and X10000 enable organizations to support both traditional
 [For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](/content/platform/hpe-alletra/home.md)
 
 
+
 ## Dev Resource
+
 
 The HPE Alletra Storage MP X10000 is designed for cloud-native development and data-intensive applications. It provides standards-based interfaces and APIs that allow developers to build applications that store, retrieve, analyze, and manage large volumes of unstructured data. 
 
@@ -104,7 +107,9 @@ Supported SDKs and tools include:
 * AWS Command Line interface (AWS CLI)
 * S3-compatible backup, archive, and data management applications 
 
+
 ### GreenLake API 
+
 
 The GreenLake Cloud Platform and the GreenLake dedicated platform (on premises) provides a comprehensive suite of REST APIs that enable developers, administrators, and automation platforms to programmatically manage HPE Alletra Storage MP X10000 environments. These APIs provide a unified management framework across HPE infrastructure, allowing organizations to provision and configure unstructured storage resources, monitor system healthand performance, collect operational telemetry, and automate  routine administrative tasks. By exposing management capabilities through standardized REST interfaces, the platform facilitates integration with third-party tools, orchestration frameworks, and custom applications, helping organizations streamline operations, improve efficiency, and implement Infrastructure-as-Code (IaC) and DevOps-driven workflows.
 
@@ -126,7 +131,6 @@ HPE Alletra Storage MP integrates with Kubernetes using industry-standard storag
 **Storage Container Orchestrator Documentation(SCOD)**
 
 The primary source for end-user documentation covering Kubernetes and related ecosystem integrations with HPE Alletra Storage MP X10000 is the Storage Container Orchestrator Documentation (SCOD) portal. 
-
 
 * [SCOD portal](https://scod.hpedev.io/)
 * HPE Storage GitHub Repository: [SCOD Repository![](Github)](https://github.com/hpe-storage/scod)
@@ -152,7 +156,6 @@ Documentation and Resources:
 * [Deployment guides](https://scod.hpedev.io/cosi_driver/deployment.html)
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-cosi-driver) 
 
- 
 Together, the HPE CSI and COSI drivers provide Kubernetes administrators and developers with a unified approach to consuming both file and object storage services from HPE Alletra Storage MP X10000 using cloud-native standards. 
 
 ## Model Context Protocol (MCP) Server 
@@ -164,7 +167,8 @@ The MCP Server follows the standard MCP architecture consisting of:
 * Host – The AI application or MCP host (for example, Claude Desktop, VS Code, or an AI orchestration platform) 
 * Client – Establishes and manages the MCP session with the X10000 
 * MCP Server – Provides storage tools, resources, and prompts for interacting with the X10000 
-å
+
+
 Rather than requiring developers to build custom integrations with REST APIs or directly invoke Amazon S3 operations, the MCP Server exposes storage resources and operations through standardized MCP tools. This simplifies the development of AI-powered applications while providing secure, governed access to enterprise data. 
 
 MCP User Guide Documentation: 
@@ -173,7 +177,9 @@ MCP User Guide Documentation:
 * [HPE Alletra Storage MP X10000 Model Context Protocol (MCP) Client Registration User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007927en_us) 
 
 
+
 ## Training
+
 
 ### Workshops-on-Demand
 
@@ -204,6 +210,7 @@ HPE Alletra Storage MP X10000 Explainer Video                         | Accelera
 
 
 ## Community
+
 
 ### Any questions on HPE Alletra?
 
