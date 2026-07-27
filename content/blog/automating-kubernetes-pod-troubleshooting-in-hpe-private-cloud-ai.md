@@ -66,6 +66,10 @@ The deployment examples in the following sections use the kubectl CLI and kubeco
 
 ### Configure a Slack channel and Webhook URL
 
+Slack is a cloud-based collaboration platform that brings people, information, and tools together in a single workspace. It enables teams to communicate through organized channels, collaborate in real time, and quickly access shared conversations, documents, and decisions.
+
+In the HPE Private Cloud AI environment, Slack channels provide immediate visibility into pod restart events, including restart reasons, logs, and Kubernetes events. By centralizing critical operational insights and alerts, Slack enables teams to identify issues faster, collaborate more effectively, and accelerate troubleshooting and resolution, ultimately improving operational efficiency and platform reliability.
+
 If you don’t already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
 
 In this blog post, I’m using my HPE Slack account and its associated workspace, *'HPE'*, as the environment for hosting the Slack channel and the Slack Webhook URL, along with the workspace’s API token.
@@ -88,7 +92,7 @@ After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to th
 ### Deploy Pod restart info collector using the Import Framework
 
 
-Based on the official K8s Pod restart info collector [Helm charts from *Airwallex*](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm), a revised version, available in the GitHub repository [*'pcai-helm-examples'*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector), provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. 
+Based on the official [K8s Pod restart info collector Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the GitHub repository [*'pcai-helm-examples'*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector), provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. Prior to deployment, update the configuration values for *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and Slack settings of your environment.
 
 
 
