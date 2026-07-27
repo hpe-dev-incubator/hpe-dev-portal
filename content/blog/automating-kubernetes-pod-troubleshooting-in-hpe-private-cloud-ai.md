@@ -70,30 +70,29 @@ If you don’t already have a Slack account, you can create one by following Sla
 
 In this blog post, I’m using my HPE Slack account and its associated workspace, *'HPE'*, as the environment for hosting the Slack channel and the Slack Webhook URL, along with the workspace’s API token.
 
-Below are the details of the Webhook URL configured for the workspace *HPE*, together with the channel *pcai-pod-monitoring*.
+Below are the details of the Slack channel, *pcai-pod-monitoring*, created in the workspace *HPE*, along with its associated Webhook URL associated.
 
 ![](/img/slack-webhook-url.png)
 
-Run the following *curl* command to send the testing text body to the Slack channel via its configured Slack Webhook URL.
+Run the following *curl* command to post a test message to the Slack channel using its configured Slack Webhook URL.
 
 ```shell
 
 $ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, PCAI Pod monitor!"}' https://hooks.slack.com/services/<hidden>
 ```
 
-The text *'Hello, PCAI Pod monitor!'* shows in the Slack channel *#pcai-pod-monitoring*.
+After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to the Slack channel *#pcai-pod-monitoring*.
 
 ![](/img/pcai-pod-monitoring-hello.png)
-
 
 ### Deploy Pod restart info collector using the Import Framework
 
 
-Based on the official K8s Pod restart info collector Helm charts, a revised version, available in the GitHub repository pcai-helm-examples, provides HPE Private Cloud AI compatible deployment configurations. This updated chart includes the required Istio VirtualService and Kyverno ClusterPolicy manifests to ensure alignment with PCAI’s service mesh and policy controls. It also incorporates modifications for pulling the user code image from the local Harbor registry.
+Based on the official K8s Pod restart info collector [Helm charts from *Airwallex*](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm), a revised version, available in the GitHub repository [*'pcai-helm-examples'*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector), provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. 
 
 
 
-Follow the steps below to deploy *Pod-Restart-Info-Collector* into HPE Private Cloud AI using the *Import Framework*.   
+Follow the steps below to deploy the Pod restart info collector *'PodCollect'* into HPE Private Cloud AI using the *Import Framework*.   
 
 
 
@@ -105,7 +104,7 @@ Follow the steps below to deploy *Pod-Restart-Info-Collector* into HPE Private C
 
 
 
-* By following the Import Framework wizard workflow, *Pod restart info collector* can be deployed into the PCAI environment within minutes.
+* By following the Import Framework wizard workflow, *PodCollect* can be deployed into the PCAI environment within minutes.
 
 
 
