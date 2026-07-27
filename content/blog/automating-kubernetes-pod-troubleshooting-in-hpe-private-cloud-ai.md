@@ -64,7 +64,7 @@ Ensure that the following prerequisites are fulfilled:
 
 The deployment examples in the following sections use the kubectl CLI and kubeconfig to display deployment details in the PCAI Kubernetes (K8s) cluster for illustration purposes only. Direct cluster access via kubectl is generally not required, as the full framework setup can be completed through the Import Framework UI.
 
-### Set up a Slack Webhook URL and channel
+### Configure a Slack channel and Webhook URL
 
 If you don’t already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
 
@@ -74,11 +74,14 @@ Below are the details of the Webhook URL configured for the workspace *HPE*, tog
 
 ![](/img/slack-webhook-url.png)
 
+Run the following *curl* command to send the testing text body to the Slack channel via its configured Slack Webhook URL.
 
 ```shell
 
 $ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, PCAI Pod monitor!"}' https://hooks.slack.com/services/<hidden>
 ```
+
+The text *'Hello, PCAI Pod monitor!'* shows in the Slack channel *#pcai-pod-monitoring*.
 
 ![](/img/pcai-pod-monitoring-hello.png)
 
