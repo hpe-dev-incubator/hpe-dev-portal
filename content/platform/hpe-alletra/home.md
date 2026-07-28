@@ -79,7 +79,11 @@ The HPE Alletra MP platform provides a common hardware foundation capable of sup
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
+<<<<<<< HEAD
 [For Developers Resources for HPE Alletra Storage MP X10000 (Unstructured Data)](/https://developer.hpe.com/platform/hpe-alletra-X10000/home.md)
+=======
+[For Developers Resources for HPE Alletra Storage MP X10000 (Unstructured Data)](https://developer.hpe.com/platform/hpe-alletra-X10000/home.md)
+>>>>>>> aad806ea3 (Updated the commit message to reflect the renaming of the file from "hpe-alletra-X1000" to "hpe-alletra-X10000" and the modification made to "content/platform/hpe-alletra/home.md")
 
 ## Dev Resources
 
@@ -109,7 +113,11 @@ HPE Alletra Storage MP integrates with Kubernetes using industry-standard storag
 The definitive source for end-user documentation using Kubernetes and neighboring partner ecosystems with HPE Alletra MP B10000.
 
 * [Storage Container Orchestrator Documentation](https://github.com/hpe-storage/scod)
+<<<<<<< HEAD
 * [Explore the SCOD portal ](https://scod.hpedev.io/)
+=======
+* [Explore the SCOD portal](https://scod.hpedev.io/)
+>>>>>>> aad806ea3 (Updated the commit message to reflect the renaming of the file from "hpe-alletra-X1000" to "hpe-alletra-X10000" and the modification made to "content/platform/hpe-alletra/home.md")
 
 
 ### HPE Alletra Storage MP B10000 Container Storage Interface (CSI) 
@@ -122,7 +130,10 @@ The HPE Alletra Storage MP B10000 is designed for stateful Kubernetes workloads 
 * [Operator for Kubernetes](https://artifacthub.io/packages/olm/community-operators/hpe-csi-operator)
 * [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
 * [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
+<<<<<<< HEAD
 
+=======
+>>>>>>> aad806ea3 (Updated the commit message to reflect the renaming of the file from "hpe-alletra-X1000" to "hpe-alletra-X10000" and the modification made to "content/platform/hpe-alletra/home.md")
 
 ### Prometheus Array Exporter
 
