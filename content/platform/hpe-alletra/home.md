@@ -79,7 +79,7 @@ The HPE Alletra MP platform provides a common hardware foundation capable of sup
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
-[For Developers Resources for HPE Alletra Storage MP X10000 (Unstructured Data)](/content/platform/hpe-alletra-X1000/home.md)
+[For Developers Resources for HPE Alletra Storage MP X10000 (Unstructured Data)](/https://developer.hpe.com/platform/hpe-alletra-X10000/home.md)
 
 ## Dev Resources
 
@@ -121,7 +121,7 @@ The HPE Alletra Storage MP B10000 is designed for stateful Kubernetes workloads 
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
 * [Operator for Kubernetes](https://artifacthub.io/packages/olm/community-operators/hpe-csi-operator)
 * [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
-* [Visit documentation on SCOD] (https://scod.hpedev.io/csi_driver/index.html)
+* [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
 
 
 ### Prometheus Array Exporter
