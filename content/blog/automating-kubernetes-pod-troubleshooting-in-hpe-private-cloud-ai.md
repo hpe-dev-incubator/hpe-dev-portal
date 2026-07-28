@@ -167,41 +167,13 @@ Click ***Show more***, a detailed Slack alert message is shown, including *Reaso
 
 ![](/img/pcai-pod-monitoring-oom-demo-details.png)
 
-fgs
+The Pod Restart Collector deployment uses the default value of the *muteSeconds* parameter (i.e., 600 seconds / 10 minutes) to suppress duplicate Pod restart alerts within the configured mute window. Once the 10-minute mute interval expires, a new Pod restart alert is sent to the Slack channel.
 
 ![](/img/pcai-pod-monitoring-oom-demo-10m.png)
 
+Click ***Configure*** on the *PodCollect* tile under *Tools & Frameworks* to modify the Pod collector configuration. You can customize various parameters, such as *watchedPodNamePrefixes*, to monitor a specific set of Pod name prefixes within your AI workload.
+
 ![](/img/tools-frameworks-podcollect-config.png)
-
-```shell
-
-```
-
-```shell
-# kubectl get pod oom-demo -n podc -o yaml
-apiVersion: v1
-kind: Pod
-…
-  - containerID: containerd://9820d784412581930a83e946ffd5631087b2f529d9dc0adbff4f08f18301aac7
-    image: docker.io/polinux/stress:latest
-    imageID: docker.io/polinux/stress@sha256:b6144f84f9c15dac80deb48d3a646b55c7043ab1d83ea0a697c09097aaad21aa
-    lastState:
-      terminated:
-        containerID: containerd://9820d784412581930a83e946ffd5631087b2f529d9dc0adbff4f08f18301aac7
-        exitCode: 1
-        finishedAt: "2026-05-07T14:32:28Z"
-        reason: OOMKilled
-        startedAt: "2026-05-07T14:32:28Z"
-    name: oomkilled-demo
-    ready: false
-    restartCount: 5
-    started: false
-    state:
-      waiting:
-        message: back-off 2m40s restarting failed container=oomkilled-demo pod=oom-demo_podc(7528832d-7c0b-4fdd-be13-6d3673e6cee3)
-        reason: CrashLoopBackOff
-…
-```
 
 ```shell
 # kubectl delete pod oom-demo -n podc
