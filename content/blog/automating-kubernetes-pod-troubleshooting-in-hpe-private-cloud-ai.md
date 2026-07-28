@@ -164,31 +164,31 @@ spec:
 
 ```
 
-Type the following command to deploy the Pod to the namespace *'podc'*. 
+Type the following command to deploy the Pod *'oom-demo'* to the namespace *'podc'*. 
 
 ```shell
 # kubectl apply -f oom-pod.yaml -n podc
 pod/oom-demo created
 ```
 
-After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* enters *'CrashLoopBackOff'*, is restarted after being *OOMKilled*, and repeats this cycle continously, causing the *RESTARTS* count to keep increasing.
+After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* transitions to *'CrashLoopBackOff'* and then is *OOMKilled*. K8s restarts the Pod, which encounters the same out-of-memory (OOM) condition and is *OOMKilled* again. This cycle repeats continuously, causing the *RESTARTS* count to increase over time. 
 
 ```shell
 
 # kubectl  get pods -n podc -w
 NAME                          READY   STATUS             RESTARTS     AGE
-oom-demo                      0/1     CrashLoopBackOff   1 (3s ago)   10s
-podcollect-66dff44cb8-gdc5h   1/1     Running            0            97m
+oom-demo                      0/1     CrashLoopBackOff   1 (3s ago)    10s
+
 oom-demo                      0/1     OOMKilled          2 (18s ago)   25s
 oom-demo                      0/1     CrashLoopBackOff   2 (12s ago)   36s
 oom-demo                      1/1     Running            3 (25s ago)   49s
 oom-demo                      0/1     OOMKilled          3 (26s ago)   50s
 oom-demo                      0/1     CrashLoopBackOff   3 (13s ago)   62s
 oom-demo                      0/1     OOMKilled          4 (44s ago)   93s
-oom-demo                      0/1     CrashLoopBackOff   4 (14s ago)   107s
+oom-demo                      0/1     CrashLoopBackOff   4 (14s ago)  107s
+...
 ```
-
-Here is the alert *'Pod restarted'* showing from the Slack channel *'pcai-pod-monitoring'* showing the Pod name *oom-demo* from the namespace *podc*.
+The alert *'Pod restarted'* was sent to the Slack channel *'pcai-pod-monitoring'*, specifying the Pod name *oom-demo* and its namespace *podc*.
 
 ![](/img/pcai-pod-monitoring-oom-demo.png)
 
