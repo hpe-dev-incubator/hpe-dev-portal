@@ -82,7 +82,7 @@ The HPE Alletra MP platform provides a common hardware foundation capable of sup
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
-[For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](/content/platform/hpe-alletra/home.md)
+[For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](https://developer.hpe.com/platform/hpe-alletra/home.md)
 
 
 
