@@ -79,7 +79,13 @@ After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to th
 
 ![](/img/pcai-pod-monitoring-hello.png)
 
-### Deploy Pod restart info collector using the Import Framework
+### Pod restart information collector 
+
+#### k8s-pod-restart-info-collector 
+
+[k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). It is implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library and continuously monitors Pod changes through the K8s API. The controller detects Pod restart events and automatically gathers comprehensive diagnostic information, including restart timestamps, reasons, exit/error codes, container logs, K8svents, and other relevant runtime metadata. The collected Pod restart diagnostics are then aggregated and delivered to a designated Slack channel, enabling operations and platform engineering teams to accelerate root cause analysis, incident investigation, and troubleshooting of Pod stability issues.
+
+#### Deploy Pod restart info collector using the Import Framework
 
 Based on the official [K8s Pod restart info collector Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the GitHub repository *['pcai-helm-examples'](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector)*, provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. Prior to deployment, update the configuration values for *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and Slack settings of your environment.
 
