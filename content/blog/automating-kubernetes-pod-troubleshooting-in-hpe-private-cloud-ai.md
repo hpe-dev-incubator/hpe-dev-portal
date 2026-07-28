@@ -171,6 +171,7 @@ Type the following command to deploy the Pod to the namespace *'podc'*.
 pod/oom-demo created
 ```
 
+After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* enters *'CrashLoopBackOff'*, is restarted after being *OOMKilled*, and repeats this cycle continously, causing the *RESTARTS* count to keep increasing.
 
 ```shell
 
@@ -186,6 +187,8 @@ oom-demo                      0/1     CrashLoopBackOff   3 (13s ago)   62s
 oom-demo                      0/1     OOMKilled          4 (44s ago)   93s
 oom-demo                      0/1     CrashLoopBackOff   4 (14s ago)   107s
 ```
+
+Here is the alert *'Pod restarted'* showing from the Slack channel *'pcai-pod-monitoring'* showing the Pod name *oom-demo* from the namespace *podc*.
 
 ![](/img/pcai-pod-monitoring-oom-demo.png)
 
