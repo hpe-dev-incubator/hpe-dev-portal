@@ -136,7 +136,11 @@ replicaset.apps/podcollect-b68c587b7    0         0         0       97m
 ![](/img/tools-frameworks-podcollect.png)
 
 
-### OOM demo
+### Demonstrate Pod restarts through memory stress testing
+
+To validate the capabilities of the deployed Pod restart collector, a test K8s pod was created and placed under memory pressure using *polinux/stress*, a lightweight utility that generates synthetic CPU, memory, I/O, and other system workloads. By increasing the Pod's memory consumption beyond its available resources, the test triggered K8s to terminate and restart the Pod as expected. This controlled scenario effectively demonstrated the collector’s ability to detect pod restart events, capture relevant diagnostic information, and publish the results to Slack, enabling faster troubleshooting and operational analysis under realistic failure conditions.
+
+The following YAML manifest defines the test K8s Pod. 
 
 ```shell
 [root@ai-cluster ~]# cat oom-pod.yaml
@@ -160,12 +164,15 @@ spec:
 
 ```
 
-
+Type the following command to deploy the Pod to the namespace *'podc'*. 
 
 ```shell
 # kubectl apply -f oom-pod.yaml -n podc
 pod/oom-demo created
+```
 
+
+```shell
 
 # kubectl  get pods -n podc -w
 NAME                          READY   STATUS             RESTARTS     AGE
@@ -241,6 +248,8 @@ pod "oom-demo" deleted
 
 
 This blog post explored the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the HPE Private Cloud AI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and clear separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally within the HPE Private Cloud AI environment, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enriches the platform with a clean, asset-oriented orchestration approach that enhances pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
+
+As the pod exceeded its available resources, Kubernetes terminated and restarted it as expected. This scenario provided a realistic way to verify that k8s-pod-restart-info-collector accurately detected the restart event and captured the relevant diagnostic information needed for troubleshooting and analysis.
 
 
 
