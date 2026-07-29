@@ -1,6 +1,5 @@
 ---
-title: "Automating HPE OpsRamp Software with Terraform: Infrastructure as Code
-  for autonomous IT operations"
+title: "Automating HPE OpsRamp Software with Terraform: Infrastructure as Code for autonomous IT operations"
 date: 2026-05-25T08:00:00.000Z
 author: Enrique Larriba
 authorimage: /img/blog_440894421_450_0_72_rgb.jpg
