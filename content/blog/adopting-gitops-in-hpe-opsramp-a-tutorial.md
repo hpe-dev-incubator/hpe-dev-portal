@@ -1,8 +1,8 @@
 ---
 title: "Adopting GitOps in HPE OpsRamp: a tutorial"
-date: 2026-08-01T08:00:00.000Z
+date: 2026-09-01T09:00:00.000Z
 author: Jorge Martínez López
-authorimage: /img/j-final5-square.jpg
+authorimage: /img/j-final5-square-blog.jpg
 disable: false
 tags:
   - hpe-opsramp
@@ -17,9 +17,9 @@ tags:
 Our HPE colleague Enrique Larriba wrote an excellent post on [automating HPE OpsRamp using Terraform Infrastructure as Code](https://developer.hpe.com/blog/automating-opsramp-with-terraform-infrastructure-as-code-for-autonomous-it-operations/). Customers successfully adopting this practice will benefit from the speed and consistency of deploying configuration declaratively, but may face two challenges in their adoption journey:
 
 1. Unless the configuration is used for a one-off provisioning activity, they will need to maintain a ''golden'' configuration as source of truth.
-2. Users running provisioning and configuration activities will need to share the state file that represents the infrastructure that has been built using OpenTofu / Terraform. This state file contains secrets and sensitive information so the file will need to be encrypted and stored in a secure location.
+2. Users running provisioning and configuration activities will need to share the state file that tracks the infrastructure that has been built using OpenTofu (or Terraform). This state file contains secrets and other sensitive information so the file will need to be encrypted and stored in a secure location.
 
-Fortunately, the first challenge has already been resolved by version control solutions such as Git. The second one can be resolved by setting up a secure file repository and state file encryption.
+Fortunately, the first challenge has already been resolved by version control solutions such as Git and [workflows](https://opentofu.org/docs/intro/core-workflow/#working-as-a-team) such as branching and pull requests. The second one can be resolved by setting up a secure file repository and state file encryption.
 
 This post is a tutorial on how to set up a basic GitOps environment with GitHub as configuration and secret credentials version-controlled repository and Amazon Web Services (AWS) S3 as shared storage for the state file.
 
@@ -42,6 +42,8 @@ We will then click on the Generate Key button and take a note of the Tenant ID, 
 
 There is no need to map any attributes, configure any properties, and the Outbound page can be left empty.
 
+![A screenshot of the HPE OpsRamp custom integration configuration page.](/img/screenshot_8-7-2026_115556_cstm-sedemo.app.opsramp.com.jpeg "Custom integration configuration")
+
 ## Creating a GitHub repository
 
 We will then [create a new GitHub repository](https://github.com/new) where we are going to manage our configuration. The URL of the repository will look like https://github.com/YOUR_ORGANIZATION/YOUR_REPO and we will take a note of both the name of the organisation and the repository as we will need it in the next step.
@@ -50,7 +52,7 @@ We will then [create a new GitHub repository](https://github.com/new) where we a
 
 Log into your AWS account, on IAM [create an OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) with URL https://token.actions.githubusercontent.com and then [create a trust policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub) with the following content, replacing `AWS_ACCOUNT_ID` with your AWS Account ID, and `YOUR_ORGANIZATION` and `YOUR_REPO` with the values from GitHub repository creation step above.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -79,7 +81,7 @@ Then create a S3 bucket and take note of its name and the region where it is loc
 
 We are going now to change our configuration so it uses the AWS S3 backend to store the state file. We can create a `backend.tf` file in our configuration that looks like this:
 
-```
+```hcl
 terraform {
   backend "s3" {
     bucket = var.opentofu_state_bucket
@@ -91,7 +93,7 @@ terraform {
 
 We will need to declare these variables in the configuration, for instance in `variables.tf`:
 
-```
+```hcl
 variable "hpe_opsramp_client_id" {
   type = string
 }
@@ -149,11 +151,11 @@ These are the bare minimum variables and secrets we need to define to get our se
 
 It is time now to [clone the GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into our machine and write the initial [HPE OpsRamp provider configuration](https://registry.terraform.io/providers/HPE/hpe/latest/docs).
 
-We are then going to set GitHub Actions to run the OpenTofu plan and apply operations for us. The ''main'' branch will represent our desired state, so we are going to trigger the plan operation when a pull request is opened with proposed changes to ''main'', and we will run plan and apply when the pull request is approved and merged into ''main''.
+We are then going to set GitHub Actions to run the OpenTofu plan and apply operations for us. The ''main'' branch will represent our desired state, so we are going to trigger the OpenTofu ''plan'' operation when a pull request is opened with proposed changes to ''main'', and we will run ''plan'' and ''apply'' once the pull request is approved and merged into ''main''.
 
 In our repo we are going to create file `.github/workflows/opentofu.yml`. The first few lines of the file will configure when the workflow is going to trigger, as explained above. We are also pinning a working OpenTofu version:
 
-```
+```yaml
 # .github/workflows/opentofu.yml
 
 name: OpenTofu
@@ -178,13 +180,13 @@ permissions:
 
 env:
   TOFU_VERSION: "1.11.7"
-```   
+```
 
 We are now going to define the ''plan'' steps. We are going to checkout the configuration, [set up OpenTofu](https://github.com/marketplace/actions/opentofu-setup-tofu) in the runner, configure the AWS credentials we need to access the S3 bucket that contains the state file, format the configuration, initialize OpenTofu, validate the configuration, run the plan operation, leave a comment in the pull request with the output of the previous steps, and upload the plan as an artifact.
 
 Note that we are injecting the repository variables (e.g. `${{ vars.HPE_OPSRAMP_ENDPOINT }}`) and secrets (e.g. `${{ secrets.HPE_OPSRAMP_CLIENT_SECRET }}`) as environment variables in the runner, prefixed by `TF_VAR_` so OpenTofu will pick those up and use them where needed.
 
-```
+```yaml
 jobs:
   plan:
     name: Plan
@@ -303,9 +305,9 @@ jobs:
           path: plan.bin
 ```
 
-We will now configure the apply job, it will checkout the configuration, set up OpenTofu, configure the AWS credentials, download the plan from the plan job, initialise OpenTofu, and apply the plan.
+We will now configure the ''apply'' job, it will checkout the configuration, set up OpenTofu, configure the AWS credentials, download the plan from the plan job, initialise OpenTofu, and apply the plan.
 
-```
+```yaml
 apply:
     name: Apply
     needs: plan
@@ -346,7 +348,11 @@ apply:
         run: tofu apply -auto-approve plan.bin
 ```
 
-We can now check in HPE OpsRamp that our provisioning operations have been successful.
+We are now ready to do our first provisioning activity, for the workflow to be effective configuration changes should be made in purpose-specific branches and not directly into the main branch. Once a pull request is created, the ''plan'' job will trigger, and the GitHub bot will leave a comment with the output of the format check, validation, and plan steps to validate and either approve or reject the pull request.
+
+![Screenshot of a GitHub comment, containing information about a OpenTofu plan.](/img/screenshot_22-7-2026_134111_github.com.jpeg "An example of a GitHub bot comment.")
+
+Once the pull request is approved the ''apply'' job will run, making all the necessary changes in HPE OpsRamp.
 
 ## Wrapping up
 
@@ -354,4 +360,4 @@ In this tutorial we have set up a GitHub repository to bring our HPE OpsRamp con
 
 We hope this will allow you to manage your HPE OpsRamp configuration in a quicker and easier way.
 
-Please keep an eye to the [HPE Community blog](https://developer.hpe.com/blog/) for more HPE OpsRamp content. 
+Please keep an eye to the [HPE Community blog](https://developer.hpe.com/blog/) for more HPE OpsRamp content.
