@@ -25,9 +25,9 @@ In large K8s environments, Pod restarts are unavoidable. They can be triggered b
 
 The real challenge is not that Pods restart. It’s understanding why they restart at PCAI scale, and doing it quickly enough to prevent small issues from escalating into major incidences. At scale, this becomes a tedious, error‑prone routine: engineers jumping between *kubectl* commands, combing through logs, checking events, and trying to reconstruct what happened moments before the restart. Multiply that by dozens or hundreds of Pods, and the operational burden becomes overwhelming.
 
-Fortunately, this entire troubleshooting workflow can be automated using existing tooling. This blog post outlines one such automation pipeline built around an existing open-source tool, called *k8s‑pod‑restart-info-collector*. After deploying it into PCAI via the Import Frameworks, the tool acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack channel. This automation reduces manual effort, accelerates troubleshooting, and significantly improves observability coverage across PCAI clusters, ensuring that AI workloads remain stable, predictable, and easier to support.
+Fortunately, this entire troubleshooting workflow can be automated using existing tooling. This blog post outlines one such automation pipeline built around an existing open-source tool, called *k8s‑pod‑restart-info-collector*. After deploying it into PCAI via *Import Framework*, the tool acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack channel. This automation reduces manual effort, accelerates troubleshooting, and significantly improves observability coverage across PCAI clusters, ensuring that AI workloads remain stable, predictable, and easier to support.
 
-### Pod restart information collector 
+### Pod restart information collector
 
 [k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). Implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library, this tool continuously monitors Pod lifecycle changes through the K8s API and automatically captures diagnostic data whenever a Pod restart is detected. Instead of requiring engineers to manually gather logs, events, exit codes, timestamps, and runtime context from multiple sources, the controller collects and consolidates this information into a structured report and delivers it directly to a designated Slack channel. By providing immediate visibility into Pod restart causes and surrounding conditions, the tool transforms Pod restarts from isolated signals into actionable operational insights, helping platform and SRE teams accelerate root cause analysis, reduce troubleshooting effort, and identify recurring reliability issues across large-scale K8s environments.
 
@@ -67,11 +67,11 @@ After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to th
 
 ![](/img/pcai-pod-monitoring-hello.png)
 
-### Deploy Pod restart info collector using the Import Framework
+### Deploy Pod restart info collector via *Import Framework*
 
 Based on the official [K8s Pod restart info collector Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the GitHub repository *['pcai-helm-examples'](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector)*, provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. Prior to deployment, update the configuration values for *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and Slack settings of your environment.
 
-Follow the steps below to deploy the Pod restart info collector *'PodCollect'* into HPE Private Cloud AI using the *Import Framework*.   
+Follow the steps below to deploy the Pod restart info collector *'PodCollect'* into HPE Private Cloud AI using *Import Framework*.   
 
 * In the PCAI left navigation panel, select **Tools & Frameworks**. Click ***Import Framework***.
 
@@ -97,7 +97,7 @@ replicaset.apps/podcollect-778547dcc9   0         0         0       4h9m
 replicaset.apps/podcollect-b68c587b7    0         0         0       97m
 ```
 
-After Pod info collector is deployed via the *Import Framework*, an imported *PodCollect* tile appears under **Tools & Frameworks**.
+After Pod info collector is deployed via *Import Framework*, an imported *PodCollect* tile appears under **Tools & Frameworks**.
 
 ![](/img/tools-frameworks-podcollect.png)
 
@@ -164,11 +164,6 @@ The Pod Restart Collector deployment uses the default value of the *muteSeconds*
 Click ***Configure*** on the *PodCollect* tile under **Tools & Frameworks** to modify the Pod collector configuration. You can customize various parameters, such as *'watchedPodNamePrefixes'* to monitor a specific set of Pod name prefixes within your AI workload and *'watchedNamespaces'* to watch only namespaces that run your AI workloads.
 
 ![](/img/tools-frameworks-podcollect-config.png)
-
-```shell
-# kubectl delete pod oom-demo -n podc
-pod "oom-demo" deleted
-```
 
 ### Conclusion
 
