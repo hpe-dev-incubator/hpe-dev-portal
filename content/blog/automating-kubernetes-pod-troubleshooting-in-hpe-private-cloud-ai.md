@@ -1,6 +1,6 @@
 ---
-title: Automating Kubernetes Pod troubleshooting in HPE Private Cloud AI
-date: 2026-07-24T10:25:00.000Z
+title: Automating Kubernetes Pod restart troubleshooting in HPE Private Cloud AI
+date: 2026-07-29T09:39:00.000Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -15,17 +15,28 @@ tags:
   - Istio VirtualService
   - Kyverno ClusterPolicy
 ---
-[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) runs large‑scale AI and machine learning (ML) workloads on an underlying Kubernetes (K8s) cluster with a large number of K8s Pods executing long‑lived, resource‑intensive jobs continuously. Due to K8s' inherently ephemeral design, Pod restarts are common and expected. However, some Pod restarts can disrupt long‑running training jobs, interrupt inference services, or degrade data-processing pipelines, making it essential to understand the cause of each Pod restart event proactively. Ensuring reliability at PCAI scale requires early visibility into every restart event so engineering teams can detect anomalies quicly and remediate issues before they impact AI workloads. Although K8s provides native diagnostics, node conditions, event streams, and Pod-level status, engineers must manually run the same sequence of commands for each restart event, a workflow that does not scale in PCAI's large cluster environment where workloads are long-running, compute-intensive, and highly sensitive to interruptions. 
+[HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) runs large‑scale AI and machine learning (ML) workloads on an underlying Kubernetes (K8s) cluster with a large number of K8s Pods executing long‑lived, resource‑intensive jobs continuously. Due to K8s' inherently ephemeral design, Pod restarts are common and expected. However, some Pod restarts can disrupt long‑running training jobs, interrupt inference services, or degrade data-processing pipelines, making it essential to understand the cause of each Pod restart event proactively. Ensuring reliability at PCAI scale requires early visibility into every restart event so engineering teams can detect anomalies quickly and remediate issues before they impact AI workloads. Although K8s provides native diagnostics, node conditions, event streams, and Pod-level status, engineers must manually run the same sequence of commands for each restart event, a workflow that does not scale in PCAI's large cluster environment where workloads are long-running, compute-intensive, and highly sensitive to interruptions. 
 
 This blog post introduces an automated restart‑analysis pipeline designed to eliminate this manual operational burden. Whenever a Pod restarts, the system automatically triggers the Pod info collector, gathers node conditions, Pod events, and contextual signals, and publishes a structured diagnostic report directly to *Slack*. Engineers receive immediate, actionable insight without running a single command. This automation improves observability on the PCAI cluster, accelerates root‑cause identification, and reduces manual overhead, ensuring PCAI workloads remain stable, predictable, and easier to support. 
 
-### The mystery behind every Pod rstart
+### The mystery behind every Pod restart
 
-In large Kubernetes environments, Pod restarts are unavoidable. They can be triggered by memory pressure, transient node instability, failing liveness or readiness probes, application crashes, or simply the platform’s normal reconciliation behavior. Most of the time, these restarts are harmless. But in AI‑ and data‑intensive platforms like HPE Private Cloud AI, even a single unexpected restart can ripple across the system — slowing long‑running training jobs, interrupting inference services, or degrading user‑facing performance.
+In large K8s environments, Pod restarts are unavoidable. They can be triggered by memory pressure, transient node instability, failing liveness or readiness probes, application crashes, or simply the platform’s normal reconciliation behavior. Most of the time, these restarts are harmless. But in AI and data intensive platforms like HPE Private Cloud AI, even a single unexpected Pod restart can ripple across the system, slowing long‑running training jobs, interrupting inference services, or degrading user‑facing performance.
 
-The real challenge isn’t that Pods restart. It’s understanding why they restart, and doing it quickly enough to prevent small issues from escalating into major incidents. At scale, this becomes a tedious, error‑prone routine: engineers jumping between kubectl commands, combing through logs, checking events, and trying to reconstruct what happened moments before the restart. Multiply that by dozens or hundreds of Pods, and the operational burden becomes overwhelming.
+The real challenge is not that Pods restart. It’s understanding why they restart at PCAI scale, and doing it quickly enough to prevent small issues from escalating into major incidences. At scale, this becomes a tedious, error‑prone routine: engineers jumping between *kubectl* commands, combing through logs, checking events, and trying to reconstruct what happened moments before the restart. Multiply that by dozens or hundreds of Pods, and the operational burden becomes overwhelming.
 
-Fortunately, this entire troubleshooting workflow can be automated using existing tooling. This blog post outlines one such automation pipeline built around k8s‑pod‑restart-info-collector — an open‑source utility that quietly solves a noisy problem. Developed by the Airwallex engineering team, it acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack workspace.
+Fortunately, this entire troubleshooting workflow can be automated using existing tooling. This blog post outlines one such automation pipeline built around an existing open-source tool, called *k8s‑pod‑restart-info-collector*. After deploying it into PCAI via the Import Frameworks, the tool acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack channel. This automation reduces manual effort, accelerates troubleshooting, and significantly improves observability coverage across PCAI clusters, ensuring that AI workloads remain stable, predictable, and easier to support.
+
+### Pod restart information collector 
+
+[k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). Implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library, this tool continuously monitors Pod lifecycle changes through the K8s API and automatically captures rich diagnostic data whenever a Pod restart is detected. Instead of requiring engineers to manually gather logs, events, exit codes, timestamps, and runtime context from multiple sources, the controller collects and consolidates this information into a structured report and delivers it directly to a designated Slack channel. By providing immediate visibility into Pod restart causes and surrounding conditions, the tool transforms Pod restarts from isolated signals into actionable operational insights, helping platform and SRE teams accelerate root cause analysis, reduce troubleshooting effort, and identify recurring reliability issues across large-scale K8s environments.
+
+The following sections describe how to leverage an existing open-source solution by deploying *k8s-pod-restart-info-collector* within HPE Private Cloud AI and integrating it with a dedicated Slack channel. This approach builds on PCAI's existing K8s infrastructure to automate Pod restart diagnostics and accelerate troubleshooting.
+
+
+It is implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library and continuously monitors Pod changes through the K8s API. The controller detects Pod restart events and automatically gathers comprehensive diagnostic information, including restart timestamps, reasons, exit/error codes, container logs, K8svents, and other relevant runtime metadata. The collected Pod restart diagnostics are then aggregated and delivered to a designated Slack channel, enabling operations and platform engineering teams to accelerate root cause analysis, incident investigation, and troubleshooting of Pod stability issues.
+
+an open‑source utility that quietly solves a noisy problem. Developed by the Airwallex engineering team, it acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack workspace.
 
 At its core, the project is a custom Kubernetes controller powered by the client‑go library. It continuously watches Pod lifecycle changes through the Kubernetes API, and the moment a restart occurs, it springs into action. The controller gathers everything an engineer would normally hunt down manually: restart reasons, timestamps, logs, events, and other contextual signals that explain why the Pod restarted and what happened immediately beforehand.
 
@@ -49,11 +60,11 @@ In this blog post, we walk through how this automation works, how it leverages e
 
 Ensure that the following prerequisites are fulfilled:
 
-* HPE Private Cloud AI version 1.5.0 or later, running HPE AI Essentials version 1.9.1 or later.
+* HPE Private Cloud AI version 1.6.0 or later, running HPE AI Essentials version 1.9.1 or later.
 * Access to an HPE Private Cloud AI workspace (with the Private Cloud AI Administrator role), allowing to perform administrative operations.
 * Slack app, Webhook URL and a Slack channel.
 
-The deployment examples in the following sections use the kubectl CLI and kubeconfig to display deployment details in the PCAI Kubernetes (K8s) cluster for illustration purposes only. Direct cluster access via kubectl is generally not required, as the full framework setup can be completed through the Import Framework UI.
+The deployment examples in the following sections use the *kubectl* CLI and kubeconfig to display deployment details in the PCAI K8s cluster for illustration purposes only. Direct cluster access via *kubectl* is generally not required, as the full framework setup can be completed through the Import Framework UI.
 
 ### Configure a Slack channel and Webhook URL
 
@@ -79,13 +90,7 @@ After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to th
 
 ![](/img/pcai-pod-monitoring-hello.png)
 
-### Pod restart information collector 
-
-#### k8s-pod-restart-info-collector 
-
-[k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). It is implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library and continuously monitors Pod changes through the K8s API. The controller detects Pod restart events and automatically gathers comprehensive diagnostic information, including restart timestamps, reasons, exit/error codes, container logs, K8svents, and other relevant runtime metadata. The collected Pod restart diagnostics are then aggregated and delivered to a designated Slack channel, enabling operations and platform engineering teams to accelerate root cause analysis, incident investigation, and troubleshooting of Pod stability issues.
-
-#### Deploy Pod restart info collector using the Import Framework
+### Deploy Pod restart info collector using the Import Framework
 
 Based on the official [K8s Pod restart info collector Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the GitHub repository *['pcai-helm-examples'](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector)*, provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. Prior to deployment, update the configuration values for *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and Slack settings of your environment.
 
@@ -99,7 +104,7 @@ Follow the steps below to deploy the Pod restart info collector *'PodCollect'* i
 
 ![](/img/tools-frameworks-import-podcollect.png)
 
-* Run the following *kubectl* commands to verify the *PodCollect* deployment in the namespace 'podc' of the PCAI K8s cluster.
+* Run the following *kubectl* commands to verify the *PodCollect* deployment in the namespace *'podc'* of the PCAI K8s cluster.
 
 ```shell
 $ kubectl get all -n podc
@@ -114,6 +119,8 @@ replicaset.apps/podcollect-66dff44cb8   1         1         1       95m
 replicaset.apps/podcollect-778547dcc9   0         0         0       4h9m
 replicaset.apps/podcollect-b68c587b7    0         0         0       97m
 ```
+
+After Pod info collector is deployed via the *Import Framework*, an imported *PodCollect* tile appears under **Tools & Frameworks**.
 
 ![](/img/tools-frameworks-podcollect.png)
 
