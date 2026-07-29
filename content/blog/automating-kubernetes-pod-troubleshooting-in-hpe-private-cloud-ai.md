@@ -29,32 +29,9 @@ Fortunately, this entire troubleshooting workflow can be automated using existin
 
 ### Pod restart information collector 
 
-[k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). Implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library, this tool continuously monitors Pod lifecycle changes through the K8s API and automatically captures rich diagnostic data whenever a Pod restart is detected. Instead of requiring engineers to manually gather logs, events, exit codes, timestamps, and runtime context from multiple sources, the controller collects and consolidates this information into a structured report and delivers it directly to a designated Slack channel. By providing immediate visibility into Pod restart causes and surrounding conditions, the tool transforms Pod restarts from isolated signals into actionable operational insights, helping platform and SRE teams accelerate root cause analysis, reduce troubleshooting effort, and identify recurring reliability issues across large-scale K8s environments.
+[k8s-pod-restart-info-collector](https://github.com/airwallex/k8s-pod-restart-info-collector) is an open-source K8s troubleshooting tool developed by [Airwallex](https://www.airwallex.com/). Implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library, this tool continuously monitors Pod lifecycle changes through the K8s API and automatically captures diagnostic data whenever a Pod restart is detected. Instead of requiring engineers to manually gather logs, events, exit codes, timestamps, and runtime context from multiple sources, the controller collects and consolidates this information into a structured report and delivers it directly to a designated Slack channel. By providing immediate visibility into Pod restart causes and surrounding conditions, the tool transforms Pod restarts from isolated signals into actionable operational insights, helping platform and SRE teams accelerate root cause analysis, reduce troubleshooting effort, and identify recurring reliability issues across large-scale K8s environments.
 
 The following sections describe how to leverage an existing open-source solution by deploying *k8s-pod-restart-info-collector* within HPE Private Cloud AI and integrating it with a dedicated Slack channel. This approach builds on PCAI's existing K8s infrastructure to automate Pod restart diagnostics and accelerate troubleshooting.
-
-
-It is implemented as a K8s *custom controller* using the [client-go](https://github.com/kubernetes/client-go) library and continuously monitors Pod changes through the K8s API. The controller detects Pod restart events and automatically gathers comprehensive diagnostic information, including restart timestamps, reasons, exit/error codes, container logs, K8svents, and other relevant runtime metadata. The collected Pod restart diagnostics are then aggregated and delivered to a designated Slack channel, enabling operations and platform engineering teams to accelerate root cause analysis, incident investigation, and troubleshooting of Pod stability issues.
-
-an open‑source utility that quietly solves a noisy problem. Developed by the Airwallex engineering team, it acts as a dedicated watchdog for Pod restarts, automatically capturing the full story behind each event and delivering it straight to your Slack workspace.
-
-At its core, the project is a custom Kubernetes controller powered by the client‑go library. It continuously watches Pod lifecycle changes through the Kubernetes API, and the moment a restart occurs, it springs into action. The controller gathers everything an engineer would normally hunt down manually: restart reasons, timestamps, logs, events, and other contextual signals that explain why the Pod restarted and what happened immediately beforehand.
-
-Once collected, the tool formats these insights into a clean, structured report and posts it to your chosen Slack channel. The result is a lightweight, automated observability loop that keeps teams informed without dashboards, polling, or guesswork — delivering automatic detection, automatic collection, and automatic visibility for every Pod restart.
-
-where reliability and fast diagnosis are critical. With thousands of K8s Pods running long-lived, resource-intensive jobs, such as training pipelines and inference services, distributed across more than a hundred clusters, even small disruptions can impact  or data processing jobs. Because Kubernetes Pods are inherently ephemeral, restart events are common and can be triggered by memory pressure (e.g., OOMKilled), CPU contention, probe failures, infrastructure instability, or application level crashes.
-
-The real challenge is not that Pods restart — it’s understanding why they restart at PCAI scale.
-Although Kubernetes provides built in commands to inspect node conditions, events, and Pod level diagnostics, engineers must manually run the same sequence of commands for every restart event. This becomes especially inefficient in PCAI environments where AI workloads are long running, resource intensive, and sensitive to interruptions. Tools like k8s pod info collector help gather node and Pod context, but the workflow still requires manual execution and interpretation.
-
-This repetitive troubleshooting loop slows down incident response and increases operational overhead for our engineering teams.
-
-(may move it to the below section late) The blog details how the automation works, how it leverages existing open‑source tooling, and how it transforms Pod troubleshooting in HPE Private Cloud AI.
-
-To address this, we developed an automated approach that integrates with PCAI’s existing Kubernetes infrastructure. Instead of requiring engineers to fetch diagnostics manually, our system automatically detects each Pod restart event and uses k8s pod info collector to gather node status, Pod events, and relevant context. The collected information is then published directly to Slack, giving engineers immediate visibility into the root cause without running a single command.
-
-This automation reduces manual effort, accelerates troubleshooting, and significantly improves observability coverage across PCAI clusters — ensuring that AI workloads remain stable, predictable, and easier to support.
-In this blog post, we walk through how this automation works, how it leverages existing open source tooling, and how it transforms Pod troubleshooting in HPE Private Cloud AI.
 
 ### Prerequisites
 
@@ -184,7 +161,7 @@ The Pod Restart Collector deployment uses the default value of the *muteSeconds*
 
 ![](/img/pcai-pod-monitoring-oom-demo-10m.png)
 
-Click ***Configure*** on the *PodCollect* tile under *Tools & Frameworks* to modify the Pod collector configuration. You can customize various parameters, such as *watchedPodNamePrefixes*, to monitor a specific set of Pod name prefixes within your AI workload.
+Click ***Configure*** on the *PodCollect* tile under **Tools & Frameworks** to modify the Pod collector configuration. You can customize various parameters, such as *'watchedPodNamePrefixes'* to monitor a specific set of Pod name prefixes within your AI workload and *'watchedNamespaces'* to watch only namespaces that run your AI workloads.
 
 ![](/img/tools-frameworks-podcollect-config.png)
 
@@ -195,8 +172,10 @@ pod "oom-demo" deleted
 
 ### Conclusion
 
-This blog post explored the pre-curated orchestration toolchain available within PCAI and introduced *Dagster* as a modern, asset-centric framework that can be integrated seamlessly into the HPE Private Cloud AI environment via the *Import Framework*. When deployed alongside existing orchestration services such as *Airflow*, *Kubeflow*, and *Ray*, *Dagster* operates as an additional, fully compatible orchestration layer within PCAI. Its modular architecture and clear separation between infrastructure and user code allow all user-defined pipeline definitions to be deployed and executed locally within the HPE Private Cloud AI environment, ensuring strong data sovereignty guarantees. By aligning naturally with PCAI's service model and operational patterns, *Dagster* enriches the platform with a clean, asset-oriented orchestration approach that enhances pipeline reliability while remaining fully compliant with PCAI’s security and governance expectations.
+This blog post examined the challenges of troubleshooting Pod restarts in K8s environments, especially within HPE Private Cloud AI deployments where large-scale AI workloads demand high availability, performance, and reliability. Traditional troubleshooting approaches often require engineers to manually collect and analyze diagnostic data for each Pod restart event, resulting in repetitive workflows, slower incident resolution, and increased operational overhead.
 
-As the pod exceeded its available resources, Kubernetes terminated and restarted it as expected. This scenario provided a realistic way to verify that k8s-pod-restart-info-collector accurately detected the restart event and captured the relevant diagnostic information needed for troubleshooting and analysis.
+To address these challenges, this blog post introduced an automated solution that integrates an existing Pod restart information collection tool into the HPE Private Cloud AI platform. The solution continuously monitors for Pod restart events, automatically gathers relevant Pod and node diagnostics, and delivers the collected insights directly to Slack. This automation removes the need for manual data gathering and significantly simplifies the root cause analysis process, enabling engineers to identify and resolve issues faster.
+
+By building on proven open-source tooling and automating the diagnostic workflow end to end, this approach improves observability, accelerates troubleshooting, and reduces the operational burden on engineering teams. Ultimately, it enhances the stability and reliability of AI workloads while helping organizations operate HPE Private Cloud AI environments more efficiently at scale.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
