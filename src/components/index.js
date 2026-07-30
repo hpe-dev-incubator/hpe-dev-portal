@@ -15,7 +15,7 @@ import NewsletterCard from './NewsletterCard';
 import OpenSourceCard from './OpenSourceCard';
 import PageDescription from './PageDescription';
 import PlatformCard from './PlatformCard';
-import PlatformHeroSection from './PlatformHeroSection';
+import PlatformHeroSectionGrommet from './PlatformHeroSectionGrommet';
 import Questions from './Questions';
 import ResponsiveGrid from './ResponsiveGrid';
 import SEO from './Seo';
@@ -33,7 +33,7 @@ export {
   Hero,
   HighlightedText,
   Layout,
-  LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, PlatformHeroSection, Questions, ResponsiveGrid, SEO,
+  LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, PlatformHeroSectionGrommet, Questions, ResponsiveGrid, SEO,
   Share,
   SocialMedia
 };
