@@ -95,7 +95,7 @@ deployment.apps/podcollect   1/1     1            1           4h9m
 
 NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/podcollect-66dff44cb8   1         1         1       95m
-replicaset.apps/podcollect-778547dcc9   0         0         0       4h9m
+replicaset.apps/podcollect-778547dcc9   0         0         0      4h9m
 replicaset.apps/podcollect-b68c587b7    0         0         0       97m
 ```
 
@@ -110,7 +110,7 @@ To validate the capabilities of the deployed Pod restart information collector, 
 The following YAML manifest defines the test K8s Pod *'oom-demo'*. 
 
 ```shell
-[root@ai-cluster ~]# cat oom-pod.yaml
+$ cat oom-pod.yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -131,14 +131,14 @@ spec:
 Run the following command to deploy the Pod *'oom-demo'* to the namespace *'podc'*. 
 
 ```shell
-# kubectl apply -f oom-pod.yaml -n podc
+$ kubectl apply -f oom-pod.yaml -n podc
 pod/oom-demo created
 ```
 
 After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* transitions to *'CrashLoopBackOff'* and then is *OOMKilled* due to an OOM condition. K8s restarts the Pod according to its restart policy. Because the underlying memory-pressure condition remains unchanged, the restarted Pod encounters the same OOM condition and is OOMKilled again. This restart cycle continues repeatedly, causing the *RESTARTS* count to increase over time. 
 
 ```shell
-# kubectl  get pods -n podc -w
+$ kubectl  get pods -n podc -w
 NAME                          READY   STATUS             RESTARTS     AGE
 oom-demo                      0/1     CrashLoopBackOff   1 (3s ago)    10s
 oom-demo                      0/1     OOMKilled          2 (18s ago)   25s
