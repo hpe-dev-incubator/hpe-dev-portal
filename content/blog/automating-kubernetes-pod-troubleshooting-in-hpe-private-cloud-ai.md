@@ -40,50 +40,50 @@ The following sections describe how to leverage this open-source solution by dep
 Ensure that the following prerequisites are fulfilled:
 
 * HPE Private Cloud AI version 1.6.0 or later, running HPE AI Essentials version 1.9.1 or later.
-* Access to an HPE Private Cloud AI workspace (with the Private Cloud AI Administrator role), allowing to perform administrative operations.
-* Slack app, Webhook URL and a Slack channel.
+* Access to an HPE Private Cloud AI workspace (with the *Private Cloud AI Administrator* role), allowing to perform administrative operations.
+* Slack app, a Slack channel and Webhook URL.
 
-The deployment examples in the following sections use the *kubectl* CLI and kubeconfig to display deployment details in the PCAI K8s cluster for illustration purposes only. Direct cluster access via *kubectl* is generally not required, as the full framework setup can be completed through the Import Framework UI.
+The deployment examples in the following sections use the *kubectl* CLI and the *kubeconfig* to display deployment details in the PCAI K8s cluster for illustration purposes only. Direct cluster access via *kubectl* is generally not required, as the full framework setup can be completed through the *Import Framework* UI.
 
 ### Configure a Slack channel and Webhook URL
 
-Slack is a cloud-based collaboration platform that brings people, information, and tools together in a single workspace. It enables teams to communicate through organized channels, collaborate in real time, and quickly access shared conversations, documents, and decisions.
+Slack is a cloud-based collaboration platform that brings people, information, and tools together in a single workspace. It enables teams to communicate through organized channels, collaborate in real time, and quickly access shared conversations, documents, and operational information efficiently.
 
-In the HPE Private Cloud AI environment, Slack channels provide immediate visibility into pod restart events, including restart reasons, logs, and Kubernetes events. By centralizing critical operational insights and alerts, Slack enables teams to identify issues faster, collaborate more effectively, and accelerate troubleshooting and resolution, ultimately improving operational efficiency and platform reliability.
+In HPE Private Cloud AI environment, Slack channels provide immediate visibility into Pod restart events, including Pod restart reasons, logs, K8s events, and other diagnostic information collected during the restart-analysis process. By centralizing critical operational insights and alerts in a common collaboration platform, Slack enables teams to detect issues faster, collaborate more effectively, and accelerate troubleshooting and resolution, ultimately improving operational efficiency and platform reliability.
 
-If you don’t already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
+If you do not already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
 
-In this blog post, I’m using my HPE Slack account and its associated workspace, *'HPE'*, as the environment for hosting the Slack channel and the Slack Webhook URL, along with the workspace’s API token.
+In this blog post, the HPE Slack account and its associated workspace, *HPE*, is used as the environment for hosting the Slack channel, Webhook URL, and associated workspace API token required for integration with k8s-pod-restart-info-collector..
 
-Below are the details of the Slack channel, *pcai-pod-monitoring*, created in the workspace *HPE*, along with its associated Webhook URL.
+The following example shows the Slack channel, *pcai-pod-monitoring*, created within the *HPE* workspace, along with its associated Webhook URL configuration used to receive automated Pod restart notifications and diagnostic reports..
 
 ![](/img/slack-webhook-url.png)
 
-Run the following *curl* command to post a test message to the Slack channel via its configured Slack Webhook URL.
+Run the following *curl* command to post a test message to the Slack channel using the configured Slack Webhook URL.
 
 ```shell
 $ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, PCAI Pod monitor!"}' https://hooks.slack.com/services/<hidden>
 ```
 
-After running the command, the text *'Hello, PCAI Pod monitor!'* is posted to the Slack channel *\#pcai-pod-monitoring*.
+After running the command, the message *'Hello, PCAI Pod monitor!'* is successfully delivered to the Slack channel *\# pcai-pod-monitoring*.
 
 ![](/img/pcai-pod-monitoring-hello.png)
 
 ### Deploy Pod restart info collector via *Import Framework*
 
-Based on the official [K8s Pod restart info collector Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the GitHub repository *['pcai-helm-examples'](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector)*, provides HPE Private Cloud AI compatible deployment configurations. This updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* manifests to ensure alignment with PCAI’s service mesh and policy controls. Prior to deployment, update the configuration values for *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and Slack settings of your environment.
+Based on the official [*k8s-pod-restart-info-collector* Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the *GitHub* repository [*'pcai-helm-examples'*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector), provides HPE Private Cloud AI compatible deployment configurations. The updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* resources to align with PCAI’s service mesh and policy controls. Prior to deployment, update the values of *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and the Slack configuration used in your environment.
 
-Follow the steps below to deploy the Pod restart info collector *'PodCollect'* into HPE Private Cloud AI using *Import Framework*.   
+Follow the steps below to deploy the Pod restart information collector, *'PodCollect'*, into HPE Private Cloud AI using the *Import Framework*.   
 
 * In the PCAI left navigation panel, select **Tools & Frameworks**. Click ***Import Framework***.
 
 ![](/img/pcai-tools-frameworks-import-framework.png)
 
-* By following the Import Framework wizard workflow, *PodCollect* can be deployed into the PCAI environment within minutes.
+* By following the *Import Framework* wizard workflow, *PodCollect* can be deployed into the PCAI environment within minutes.
 
 ![](/img/tools-frameworks-import-podcollect.png)
 
-* Run the following *kubectl* commands to verify the *PodCollect* deployment in the namespace *'podc'* of the PCAI K8s cluster.
+* Run the following *kubectl* commands to verify that *PodCollect* has been successfully deployed in the namespace *'podc'* of the PCAI K8s cluster.
 
 ```shell
 $ kubectl get all -n podc
@@ -99,15 +99,15 @@ replicaset.apps/podcollect-778547dcc9   0         0         0       4h9m
 replicaset.apps/podcollect-b68c587b7    0         0         0       97m
 ```
 
-After Pod info collector is deployed via *Import Framework*, an imported *PodCollect* tile appears under **Tools & Frameworks**.
+After the Pod restart information collector is deployed, an imported *PodCollect* tile appears under **Tools & Frameworks**.
 
 ![](/img/tools-frameworks-podcollect.png)
 
 ### Demonstrate Pod restarts through memory stress testing
 
-To validate the capabilities of the deployed Pod restart collector, a test K8s pod was created and placed under memory pressure using *polinux/stress*, a lightweight utility that generates synthetic CPU, memory, I/O, and other system workloads. By increasing the Pod's memory consumption beyond its available resources, the test triggered K8s to terminate and restart the Pod as expected. This controlled scenario effectively demonstrated the collector’s ability to detect pod restart events, capture relevant diagnostic information, and publish the results to Slack, enabling faster troubleshooting and operational analysis under realistic failure conditions.
+To validate the capabilities of the deployed Pod restart information collector, a test K8s pod was created and placed under memory pressure using *polinux/stress*, a lightweight utility for generating synthetic CPU, memory, I/O, and other system workloads. By increasing the Pod's memory consumption beyond its allocated resources, the test triggered an *Out-of-Memory* (OOM) condition, causing K8s to terminate and restart the Pod as expected. This controlled scenario demonstrated the collector’s ability to detect pod restart events, automatically gather relevant diagnostic information, and publish the results to Slack, enabling faster troubleshooting and operational analysis under realistic failure conditions.
 
-The following YAML manifest defines the test K8s Pod. 
+The following YAML manifest defines the test K8s Pod *'oom-demo'*. 
 
 ```shell
 [root@ai-cluster ~]# cat oom-pod.yaml
@@ -128,14 +128,14 @@ spec:
     args: ["--vm", "1", "--vm-bytes", "250M", "--vm-hang", "1"]
 ```
 
-Type the following command to deploy the Pod *'oom-demo'* to the namespace *'podc'*. 
+Run the following command to deploy the Pod *'oom-demo'* to the namespace *'podc'*. 
 
 ```shell
 # kubectl apply -f oom-pod.yaml -n podc
 pod/oom-demo created
 ```
 
-After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* transitions to *'CrashLoopBackOff'* and then is *OOMKilled*. K8s restarts the Pod, which encounters the same out-of-memory (OOM) condition and is *OOMKilled* again. This cycle repeats continuously, causing the *RESTARTS* count to increase over time. 
+After a brief period in the *'Running'* state, the deployed Pod *'oom-demo'* transitions to *'CrashLoopBackOff'* and then is *OOMKilled* due to an OOM condition. K8s restarts the Pod according to its restart policy. Because the underlying memory-pressure condition remains unchanged, the restarted Pod encounters the same OOM condition and is OOMKilled again. This restart cycle continues repeatedly, causing the *RESTARTS* count to increase over time. 
 
 ```shell
 # kubectl  get pods -n podc -w
@@ -151,28 +151,28 @@ oom-demo                      0/1     CrashLoopBackOff   4 (14s ago)  107s
 ...
 ```
 
-The alert *'Pod restarted'* was sent to the Slack channel *'pcai-pod-monitoring'*, showing the Pod name *oom-demo* and its namespace *podc*.
+The *'Pod restarted'* alert was sent to the Slack channel *'pcai-pod-monitoring'*, displaying the Pod name *oom-demo* and its namespace *podc*.
 
 ![](/img/pcai-pod-monitoring-oom-demo.png)
 
-Click ***Show more***, a detailed Slack alert message is shown, including *Reason*, *Pod Status*, *Pod Events*, *Node Status and Events*, and *Pod Logs Before Restart*.
+Click ***Show more*** to display a detailed Slack alert message that includes *Reason*, *Pod Status*, *Pod Events*, *Node Status and Events*, and *Pod Logs Before Restart*.
 
 ![](/img/pcai-pod-monitoring-oom-demo-details.png)
 
-The Pod Restart Collector deployment uses the default value of the *muteSeconds* parameter (i.e., 600 seconds / 10 minutes) to suppress duplicate Pod restart alerts within the configured mute window. Once the 10-minute mute interval expires, a new Pod restart alert is sent to the Slack channel.
+The Pod restart information collector deployment uses the default *muteSeconds* value of 600 seconds (10 minutes) to suppress duplicate Pod restart alerts within the configured mute window. After the 10-minute mute period expires, a new Pod restart alert is sent to the Slack channel.
 
 ![](/img/pcai-pod-monitoring-oom-demo-10m.png)
 
-Click ***Configure*** on the *PodCollect* tile under **Tools & Frameworks** to modify the Pod collector configuration. You can customize various parameters, such as *'watchedPodNamePrefixes'* to monitor a specific set of Pod name prefixes within your AI workload and *'watchedNamespaces'* to watch only namespaces that run your AI workloads.
+Click ***Configure*** on the *PodCollect* tile under **Tools & Frameworks** to update the Pod restart information collector configuration. You can customize a variety of settings, including *'watchedPodNamePrefixes'* to monitor specific Pod name prefixes associated with your AI workloads, and *'watchedNamespaces'* to limit monitoring to the namespaces where your AI workloads are deployed. This flexibility allows you to scope Pod restart monitoring to the workloads and namespaces that are most relevant to your environment.
 
 ![](/img/tools-frameworks-podcollect-config.png)
 
 ### Conclusion
 
-This blog post examined the challenges of troubleshooting Pod restarts in K8s environments, especially within HPE Private Cloud AI deployments where large-scale AI workloads demand high availability, performance, and reliability. Traditional troubleshooting approaches often require engineers to manually collect and analyze diagnostic data for each Pod restart event, resulting in repetitive workflows, slower incident resolution, and increased operational overhead.
+This blog post explored the challenges associated with troubleshooting Pod restart events in K8s environments, particularly within HPE Private Cloud AI environments where large-scale AI and machine learning workloads require high levels of availability, performance, and reliability. Traditional troubleshooting approaches often require engineers to manually collect and analyze diagnostic information for each Pod restart event, resulting in repetitive workflows, slower root-cause analysis, and increased operational overhead.
 
-To address these challenges, this blog post introduced an automated solution that integrates an existing Pod restart information collection tool into the HPE Private Cloud AI platform. The solution continuously monitors for Pod restart events, automatically gathers relevant Pod and node diagnostics, and delivers the collected insights directly to Slack. This automation removes the need for manual data gathering and significantly simplifies the root cause analysis process, enabling engineers to identify and resolve issues faster.
+To address these challenges, this blog post introduced an automated solution that integrates the open-source *k8s-pod-restart-info-collector* into the HPE Private Cloud AI platform. The solution continuously monitors Pod restart events, automatically collects relevant diagnostic information from Pods and nodes, and publishes the resulting insights directly to Slack. By eliminating the need for manual data collection and analysis, the solution streamlines the troubleshooting process and enables engineering teams to identify and resolve issues more quickly.
 
-By building on proven open-source tooling and automating the diagnostic workflow end to end, this approach improves observability, accelerates troubleshooting, and reduces the operational burden on engineering teams. Ultimately, it enhances the stability and reliability of AI workloads while helping organizations operate HPE Private Cloud AI environments more efficiently at scale.
+By leveraging proven open-source tooling and automating the end-to-end diagnostic workflow, this approach improves observability on PCAI K8s clusters, accelerates troubleshooting and root-cause identification, and reduces the operational burden on platform and SRE teams. Ultimately, it helps enhance the stability, reliability, and operational efficiency of AI workloads, enabling organizations to operate HPE Private Cloud AI environments more effectively at scale.
 
 Please keep coming back to the [HPE Developer Community blog](https://developer.hpe.com/blog/) to learn more about HPE Private Cloud AI and get more ideas on how you can use it in your everyday operations.
