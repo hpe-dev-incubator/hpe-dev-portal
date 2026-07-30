@@ -1,19 +1,36 @@
 import { Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect, useMemo, useState } from 'react';
 
-const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
-  const allItems = [
-    { label: 'Getting started', href: '#platform-content' },
-    ...navItems,
-  ];
+const PlatformHeroSectionGrommet = ({
+  title,
+  description,
+  navItems,
+  activeHref: controlledActiveHref,
+  onNavClick,
+  onActiveHrefChange,
+}) => {
+  const allItems = useMemo(
+    () => [
+      { label: 'Getting started', href: '#platform-content' },
+      ...navItems,
+    ],
+    [navItems],
+  );
 
-  const [activeHref, setActiveHref] = useState(allItems[0].href);
+  const [internalActiveHref, setInternalActiveHref] = useState(allItems[0].href);
+  const activeHref = controlledActiveHref || internalActiveHref;
+
+  const updateActiveHref = (href) => {
+    if (onActiveHrefChange) onActiveHrefChange(href);
+    if (!controlledActiveHref) setInternalActiveHref(href);
+  };
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+
     const onScroll = () => {
-      let current = allItems[0].href;
+      let current = window.location.hash || allItems[0].href;
       for (const item of allItems) {
         const id = item.href.startsWith('#') ? item.href.slice(1) : null;
         if (!id || id === 'platform-content') continue;
@@ -22,11 +39,44 @@ const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
           current = item.href;
         }
       }
-      setActiveHref(current);
+      updateActiveHref(current);
     };
+
+    const onHashChange = () => {
+      updateActiveHref(window.location.hash || allItems[0].href);
+    };
+
+    onHashChange();
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    window.addEventListener('hashchange', onHashChange);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, [allItems, controlledActiveHref, onActiveHrefChange]);
+
+  const handleNavClick = (event, href) => {
+    if (typeof window === 'undefined') return;
+
+    event.preventDefault();
+    updateActiveHref(href);
+
+    if (onNavClick) {
+      onNavClick(event, href);
+      return;
+    }
+
+    window.history.replaceState(null, '', href);
+
+    const id = href.startsWith('#') ? href.slice(1) : '';
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
    <Box
@@ -43,21 +93,21 @@ const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
       backgroundPosition: 'center right',
   }}
 >
-  {/* Background image layer with 30% opacity */}
+  {/* Background image layer with 30% opacity
   <div
     style={{
-    //   position: 'absolute',
-    //   top: 0,
-    //   left: 0,
-    //   right: 0,
-    //   bottom: 0,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
       backgroundImage: "url('/images/background-hero-bar.jpg')",
-    //   backgroundSize: 'cover',
-    //   backgroundPosition: 'center right',
-      opacity: 0.2,
-    //   zIndex: 1,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center right',
+      opacity: 0.3,
+      zIndex: 1,
     }}
-  />
+  /> */}
 
       {/* Breadcrumb: Products / {Title} */}
       <Box direction="row" align="center" gap="xsmall">
@@ -122,24 +172,25 @@ const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
             align="center"
             round="large"
             pad="2px"
-            height="80px"
+            height="60px"
             width="fit-content"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.06)'}}
           >
-            {allItems.map((item, i) => {
+            {allItems.map((item) => {
               const isActive = item.href === activeHref;
               return (
                 <Box
-                  key={i}
+                  key={item.href}
                   as="a"
                   href={item.href}
+                  onClick={(event) => handleNavClick(event, item.href)}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    borderRadius: '100px',
-                    padding: '12px 20px',
-                    height: '65px',
+                    borderRadius: '90px',
+                    padding: '5px 15px',
+                    height: '50px',
                     boxSizing: 'border-box',
                     backgroundColor: isActive ? '#292D3A' : 'transparent',
                     color: isActive ? '#FFFFFF' : '#292D3A',
@@ -166,6 +217,9 @@ const PlatformHeroSectionGrommet = ({ title, description, navItems }) => {
 PlatformHeroSectionGrommet.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  activeHref: PropTypes.string,
+  onNavClick: PropTypes.func,
+  onActiveHrefChange: PropTypes.func,
   navItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -176,6 +230,9 @@ PlatformHeroSectionGrommet.propTypes = {
 
 PlatformHeroSectionGrommet.defaultProps = {
   description: '',
+  activeHref: '',
+  onNavClick: undefined,
+  onActiveHrefChange: undefined,
   navItems: [],
 };
 
