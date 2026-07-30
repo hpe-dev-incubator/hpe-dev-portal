@@ -21,7 +21,7 @@ This blog post introduces an automated Pod restart analysis pipeline designed to
 
 ### The mystery behind every Pod restart
 
-In large K8s environments, Pod restarts are unavoidable. They can be triggered by memory pressure, transient node instability, failing liveness or readiness probes, application crashes, or simply the platform’s normal reconciliation behavior. In most cases, these restarts are are expected and have minimal impact. However, in AI and data intensive platforms such as HPE Private Cloud AI, even a single unexpected Pod restart can have downstream effects, slowing long‑running training jobs, interrupting inference services, or degrading user‑facing workload performance.
+In large K8s environments, Pod restarts are unavoidable. They can be triggered by memory pressure, transient node instability, failing liveness or readiness probes, application crashes, or simply the platform’s normal reconciliation behavior. In most cases, these restarts are expected and have minimal impact. However, in AI and data intensive platforms such as HPE Private Cloud AI, even a single unexpected Pod restart can have downstream effects, slowing long‑running training jobs, interrupting inference services, or degrading user‑facing workload performance.
 
 The real challenge is not that Pods restart, but understanding why they restart at PCAI scale and doing so quickly enough to prevent minor issues from evolving into major incidents. At scale, Pod restart investigation becomes a tedious, repetitive and error-prone operational task, requiring engineers to execute multiple *kubectl* commands, inspect logs, review Pod events, examine node conditions, and manually reconstruct the sequence of events leading up to the restart. When multiplied across dozens or hundreds of Pods, this workflow creates a significant operational burden and does not scale effectively in large PCAI environments.
 
@@ -53,9 +53,9 @@ In HPE Private Cloud AI environment, Slack channels provide immediate visibility
 
 If you do not already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
 
-In this blog post, the HPE Slack account and its associated workspace, *HPE*, is used as the environment for hosting the Slack channel, Webhook URL, and associated workspace API token required for integration with k8s-pod-restart-info-collector..
+In this blog post, the HPE Slack account and its associated workspace, *HPE*, is used as the environment for hosting the Slack channel, Webhook URL, and associated workspace API token required for integration with k8s-pod-restart-info-collector.
 
-The following example shows the Slack channel, *pcai-pod-monitoring*, created within the *HPE* workspace, along with its associated Webhook URL configuration used to receive automated Pod restart notifications and diagnostic reports..
+The following example shows the Slack channel, *pcai-pod-monitoring*, created within the *HPE* workspace, along with its associated Webhook URL configuration used to receive automated Pod restart notifications and diagnostic reports.
 
 ![](/img/slack-webhook-url.png)
 
@@ -71,7 +71,7 @@ After running the command, the message *'Hello, PCAI Pod monitor!'* is successfu
 
 ### Deploy Pod restart info collector via *Import Framework*
 
-Based on the official [*k8s-pod-restart-info-collector* Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the *GitHub* repository [*'pcai-helm-examples'*](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector), provides HPE Private Cloud AI compatible deployment configurations. The updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* resources to align with PCAI’s service mesh and policy controls. Prior to deployment, update the values of *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and the Slack configuration used in your environment.
+Based on the official [*k8s-pod-restart-info-collector* Helm charts](https://github.com/airwallex/k8s-pod-restart-info-collector/tree/master/helm) maintained by *Airwallex*, a revised version, available in the *GitHub* repository *['pcai-helm-examples'](https://github.com/GuopingJia/pcai-helm-examples/tree/main/pod-restart-collector)*, provides HPE Private Cloud AI compatible deployment configurations. The updated Helm chart includes the required Istio *VirtualService* and Kyverno *ClusterPolicy* resources to align with PCAI’s service mesh and policy controls. Prior to deployment, update the values of *clusterName*, *slackWebhookUrl*, and *slackChannel* to match the target PCAI cluster and the Slack configuration used in your environment.
 
 Follow the steps below to deploy the Pod restart information collector, *'PodCollect'*, into HPE Private Cloud AI using the *Import Framework*.   
 
