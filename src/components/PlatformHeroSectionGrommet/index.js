@@ -1,6 +1,6 @@
 import { Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
-import React,{ useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const PlatformHeroSectionGrommet = ({
   title,
@@ -18,7 +18,9 @@ const PlatformHeroSectionGrommet = ({
     [navItems],
   );
 
-  const [internalActiveHref, setInternalActiveHref] = useState(allItems[0].href);
+  const [internalActiveHref, setInternalActiveHref] = useState(
+    allItems[0].href,
+  );
   const activeHref = controlledActiveHref || internalActiveHref;
 
   const updateActiveHref = (href) => {
@@ -79,49 +81,62 @@ const PlatformHeroSectionGrommet = ({
   };
 
   return (
-   <Box
-  height="560px"
-  overflow="hidden"
-  pad={{ top: '72px', bottom: '72px', left: '160px', right: '160px' }}
-  gap="large"
-  direction="column"
-  style={{
-    position: 'relative',
-    backgroundColor: '#F7F7F7',
-    backgroundImage: "url('/images/background-hero-bar.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center right',
-  }}
->
-  {/* Background image layer with 30% opacity
-  <div
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundImage: "url('/images/background-hero-bar.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center right',
-      opacity: 0.3,
-      zIndex: 1,
-    }}
-  /> */}
+    <Box
+      overflow="hidden"
+      direction="column"
+      style={{
+        position: 'relative',
+        backgroundColor: '#F7F7F7',
+        gap: '36px',
+        fontFamily: 'HPE Graphik, Metric, sans-serif',
+        padding: '96px max(160px, calc((100% - 1600px) / 2))',
+      }}
+    >
+      {/* Background image at 30% opacity per Figma */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      >
+        <img
+          alt=""
+          src="/images/background-hero-bar.jpg"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.3,
+          }}
+        />
+      </div>
 
       {/* Breadcrumb: Products / {Title} */}
-      <Box direction="row" align="center" gap="xsmall">
+      <Box
+        direction="row"
+        align="center"
+        gap="12px"
+        style={{ position: 'relative', zIndex: 1 }}
+      >
         <Image
           src="/images/vector-product.png"
-          width="25px"
-          height="25px"
+          width="36px"
+          height="36px"
           alt=""
         />
         <Text
-          size="26px"
+          size="28px"
           weight={400}
           color="#292D3A"
-          style={{ letterSpacing: '-0.5px', lineHeight: '100%', fontFamily: 'HPE Graphik' }}
+          style={{
+            letterSpacing: '-0.5px',
+            lineHeight: '100%',
+          }}
         >
           Products / {title}
         </Text>
@@ -133,7 +148,14 @@ const PlatformHeroSectionGrommet = ({
         size="72px"
         weight={500}
         color="#292D3A"
-        style={{ lineHeight: '100%', margin: 0, padding: 0 }}
+        style={{
+          lineHeight: 'normal',
+          letterSpacing: '-1.04px',
+          margin: 0,
+          padding: 0,
+          position: 'relative',
+          zIndex: 1,
+        }}
       >
         {title}
       </Text>
@@ -142,17 +164,16 @@ const PlatformHeroSectionGrommet = ({
       {description && (
         <div
           style={{
-            fontSize: '30px',
+            fontSize: '32px',
             fontWeight: 400,
             color: '#606A70',
             lineHeight: '43px',
+            letterSpacing: '-0.2px',
             maxWidth: '1600px',
             margin: 0,
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
             flexShrink: 0,
+            position: 'relative',
+            zIndex: 1,
           }}
         >
           {description}
@@ -162,19 +183,17 @@ const PlatformHeroSectionGrommet = ({
       {/* Horizontal nav pill bar */}
       {allItems.length > 0 && (
         <Box
-          height="80px"
           overflow={{ horizontal: 'auto', vertical: 'hidden' }}
-          style={{ maxWidth: '1400px', flexShrink: 0, paddingTop:'-10px' }}
-
+          width="100%"
+          style={{ flexShrink: 0, position: 'relative', zIndex: 1 }}
         >
           <Box
             direction="row"
             align="center"
             round="large"
-            pad="2px"
-            height="60px"
+            pad="12px"
             width="fit-content"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.06)'}}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}
           >
             {allItems.map((item) => {
               const isActive = item.href === activeHref;
@@ -188,13 +207,12 @@ const PlatformHeroSectionGrommet = ({
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    borderRadius: '90px',
-                    padding: '5px 15px',
-                    height: '50px',
+                    borderRadius: isActive ? '100px' : '8px',
+                    padding: '20px 36px',
                     boxSizing: 'border-box',
                     backgroundColor: isActive ? '#292D3A' : 'transparent',
                     color: isActive ? '#FFFFFF' : '#292D3A',
-                    fontSize: '18px',
+                    fontSize: '20px',
                     fontWeight: isActive ? 500 : 400,
                     lineHeight: '100%',
                     letterSpacing: '0px',

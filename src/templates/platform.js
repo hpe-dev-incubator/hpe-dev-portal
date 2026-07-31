@@ -1,6 +1,6 @@
 import { graphql, navigate } from 'gatsby';
-import { Anchor, Avatar, Box, Button, Heading, Paragraph, Text } from 'grommet';
-import { Book, Catalog, CircleQuestion, Copy, FormNextLink, FormPreviousLink, HelpBook } from 'grommet-icons';
+import { Anchor, Avatar, Box, Heading, Paragraph, Text } from 'grommet';
+import { Book, Catalog, CircleQuestion, Copy, HelpBook } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
@@ -11,8 +11,9 @@ import {
   LayoutSideBar,
   Markdown,
   SectionHeader,
-  SEO
+  SEO,
 } from '../components';
+import CarouselNavButtons from '../components/CarouselNavButtons';
 import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
@@ -27,8 +28,8 @@ const MarkdownLayout = styled(Markdown)`
   }
 
   .button {
-    background-color: #292D3A;
-    color: #FFFFFF;
+    background-color: #292d3a;
+    color: #ffffff;
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -220,7 +221,7 @@ function normalizeDocTypeTag(rawType = '') {
     guide: DOC_CARD_CATEGORY.GUIDE,
     developer: DOC_CARD_CATEGORY.GUIDE,
     'developer-guide': DOC_CARD_CATEGORY.GUIDE,
-    'developer_guide': DOC_CARD_CATEGORY.GUIDE,
+    developer_guide: DOC_CARD_CATEGORY.GUIDE,
     docs: DOC_CARD_CATEGORY.DOCS,
     doc: DOC_CARD_CATEGORY.DOCS,
     documentation: DOC_CARD_CATEGORY.DOCS,
@@ -230,14 +231,23 @@ function normalizeDocTypeTag(rawType = '') {
   return typeMap[value] || '';
 }
 
-function classifyDocCard({ type = '', title = '', description = '', link = '' }) {
+function classifyDocCard({
+  type = '',
+  title = '',
+  description = '',
+  link = '',
+}) {
   const explicitType = normalizeDocTypeTag(type);
   if (explicitType) return explicitType;
 
   const text = `${title} ${description} ${link}`.trim();
   if (!text) return DOC_CARD_CATEGORY.OTHER;
 
-  for (const category of [DOC_CARD_CATEGORY.GUIDE, DOC_CARD_CATEGORY.DOCS, DOC_CARD_CATEGORY.FAQ]) {
+  for (const category of [
+    DOC_CARD_CATEGORY.GUIDE,
+    DOC_CARD_CATEGORY.DOCS,
+    DOC_CARD_CATEGORY.FAQ,
+  ]) {
     if (DOC_CARD_MATCHERS[category].some((pattern) => pattern.test(text))) {
       return category;
     }
@@ -349,7 +359,8 @@ function parseHeadingsForSidebar(rawBody) {
 function parseAndExtractBulletCards(rawBody) {
   const lines = rawBody.split('\n');
   const groups = [];
-  const taggedBulletPattern = /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)\s*$/;
+  const taggedBulletPattern =
+    /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)\s*$/;
   const legacyBulletPattern = /^\*\s+\[([^\]]+)\]\(([^)]+)\)\s*$/;
 
   const parseBullet = (line) => {
@@ -400,8 +411,12 @@ function parseAndExtractBulletCards(rawBody) {
         if (parseBullet(trimmed)) break;
         if (trimmed === '') {
           let lookahead = i + 1;
-          while (lookahead < lines.length && lines[lookahead].trim() === '') lookahead += 1;
-          if (lookahead < lines.length && parseBullet(lines[lookahead].trim())) {
+          while (lookahead < lines.length && lines[lookahead].trim() === '')
+            lookahead += 1;
+          if (
+            lookahead < lines.length &&
+            parseBullet(lines[lookahead].trim())
+          ) {
             i = lookahead;
             break;
           }
@@ -425,7 +440,10 @@ function parseAndExtractBulletCards(rawBody) {
 
     const nextIndex = i;
     if (cards.length >= 2) {
-      const typedTagHits = cards.reduce((acc, card) => acc + (normalizeDocTypeTag(card.type) ? 1 : 0), 0);
+      const typedTagHits = cards.reduce(
+        (acc, card) => acc + (normalizeDocTypeTag(card.type) ? 1 : 0),
+        0,
+      );
       const docTagHits = cards.reduce((acc, card) => {
         const category = classifyDocCard(card);
         return acc + (category !== DOC_CARD_CATEGORY.OTHER ? 1 : 0);
@@ -446,7 +464,9 @@ function parseAndExtractBulletCards(rawBody) {
 
   const taggedPreferredGroup = groups
     .filter((group) => group.typedTagHits > 0)
-    .sort((a, b) => b.typedTagHits - a.typedTagHits || b.docTagHits - a.docTagHits)[0];
+    .sort(
+      (a, b) => b.typedTagHits - a.typedTagHits || b.docTagHits - a.docTagHits,
+    )[0];
 
   const inferredPreferredGroup = groups
     .filter((group) => group.docTagHits > 0)
@@ -468,7 +488,9 @@ function parseAndExtractBulletCards(rawBody) {
 // Split platform body into intro (before first level-2 heading) and the rest.
 function splitIntroSection(rawBody) {
   const lines = rawBody.split('\n');
-  const firstHeadingIndex = lines.findIndex((line) => /^##\s+/.test(line.trim()));
+  const firstHeadingIndex = lines.findIndex((line) =>
+    /^##\s+/.test(line.trim()),
+  );
 
   if (firstHeadingIndex === -1) {
     return { intro: rawBody, rest: '' };
@@ -493,22 +515,24 @@ function sanitizeMarkdownBody(rawBody) {
 // Returns plain text only for display in excerpts
 function stripMarkdownAndHTML(text) {
   if (!text) return '';
-  return text
-    // Remove <style>...</style> blocks
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
-    // Remove HTML tags
-    .replace(/<[^>]+>/g, '')
-    // Remove markdown links [text](url) -> text (and handle empty links [](url))
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    // Remove heading markers (#, ##, ###, etc.)
-    .replace(/^#+\s*/gm, '')
-    // Remove markdown bold/italic markers
-    .replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, '$1')
-    // Remove remaining ** or __ markers that weren't caught
-    .replace(/[\*_]+/g, '')
-    // Remove leading/trailing whitespace and collapse multiple spaces
-    .trim()
-    .replace(/\s+/g, ' ');
+  return (
+    text
+      // Remove <style>...</style> blocks
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+      // Remove HTML tags
+      .replace(/<[^>]+>/g, '')
+      // Remove markdown links [text](url) -> text (and handle empty links [](url))
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+      // Remove heading markers (#, ##, ###, etc.)
+      .replace(/^#+\s*/gm, '')
+      // Remove markdown bold/italic markers
+      .replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, '$1')
+      // Remove remaining ** or __ markers that weren't caught
+      .replace(/[\*_]+/g, '')
+      // Remove leading/trailing whitespace and collapse multiple spaces
+      .trim()
+      .replace(/\s+/g, ' ')
+  );
 }
 
 function renderMenu(items, activeHref, onLinkClick, keyPrefix = 'root') {
@@ -531,9 +555,14 @@ function renderMenu(items, activeHref, onLinkClick, keyPrefix = 'root') {
             </a>
             {item.items &&
               item.items.length > 0 &&
-              renderMenu(item.items, activeHref, onLinkClick, `${keyPrefix}-${item.href || index}`)}
+              renderMenu(
+                item.items,
+                activeHref,
+                onLinkClick,
+                `${keyPrefix}-${item.href || index}`,
+              )}
           </li>
-        )
+        ),
       )}
     </ul>
   );
@@ -548,16 +577,22 @@ function PlatformTemplate({ data }) {
   const { title, description, tags } = post.frontmatter;
 
   // Split off the first paragraph as the hero description
-  const { description: heroDescription, body: bodyWithoutDesc } = extractDescriptionAndBody(rawMarkdownBody);
+  const { description: heroDescription, body: bodyWithoutDesc } =
+    extractDescriptionAndBody(rawMarkdownBody);
   const sanitizedBody = sanitizeMarkdownBody(bodyWithoutDesc);
   // Build dedicated intro section and keep remaining markdown sections unchanged.
-  const { intro: introBody, rest: sectionBody } = splitIntroSection(sanitizedBody);
+  const { intro: introBody, rest: sectionBody } =
+    splitIntroSection(sanitizedBody);
   // Auto-parse sidebar nav from headings; auto-extract bullet link cards from remaining body
   const parsedSidebarItems = useMemo(
     () => parseHeadingsForSidebar(sectionBody),
     [sectionBody],
   );
-  const { cards: activeCards, bodyBefore, bodyAfter } = parseAndExtractBulletCards(sectionBody);
+  const {
+    cards: activeCards,
+    bodyBefore,
+    bodyAfter,
+  } = parseAndExtractBulletCards(sectionBody);
   const sidebarItems = useMemo(
     () => [
       { label: 'Getting started', href: '#platform-content' },
@@ -565,12 +600,17 @@ function PlatformTemplate({ data }) {
     ],
     [parsedSidebarItems],
   );
-  const [activeSidebarHref, setActiveSidebarHref] = useState(sidebarItems[0]?.href || '');
+  const [activeSidebarHref, setActiveSidebarHref] = useState(
+    sidebarItems[0]?.href || '',
+  );
   const relatedBlogs = useMemo(
     () =>
       blogs
         .map(({ node }) => node)
-        .filter((node) => node && (node.frontmatter.authorimage || node.frontmatter.author)),
+        .filter(
+          (node) =>
+            node && (node.frontmatter.authorimage || node.frontmatter.author),
+        ),
     [blogs],
   );
   const [currentBlogPage, setCurrentBlogPage] = useState(0);
@@ -608,7 +648,8 @@ function PlatformTemplate({ data }) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const getActiveHref = () => window.location.hash || sidebarItems[0]?.href || '';
+    const getActiveHref = () =>
+      window.location.hash || sidebarItems[0]?.href || '';
 
     setActiveSidebarHref(getActiveHref());
 
@@ -624,16 +665,18 @@ function PlatformTemplate({ data }) {
     if (typeof window === 'undefined' || !activeSidebarHref) return;
 
     // Find the active sidebar link and scroll it into view
-    const activeLink = document.querySelector(`.sidebar a[href="${activeSidebarHref}"]`);
+    const activeLink = document.querySelector(
+      `.sidebar a[href="${activeSidebarHref}"]`,
+    );
     const sidebarContainer = document.querySelector('.sidebar-content');
-    
+
     if (activeLink && sidebarContainer) {
       const linkTop = activeLink.offsetTop;
       const linkHeight = activeLink.offsetHeight;
       const containerHeight = sidebarContainer.clientHeight;
-      
+
       // Scroll to position the active link in the middle of the visible area
-      const scrollPosition = linkTop - (containerHeight / 2) + (linkHeight / 2);
+      const scrollPosition = linkTop - containerHeight / 2 + linkHeight / 2;
       sidebarContainer.scrollTop = Math.max(0, scrollPosition);
     }
   }, [activeSidebarHref]);
@@ -681,10 +724,15 @@ function PlatformTemplate({ data }) {
     />
   );
 
-  const content =(
+  const content = (
     <>
       <SEO title={title} description={description || excerpt} />
-      <Box flex overflow="visible" gap="10px" pad={{ top: '0', right: 'small', bottom: 'small', left: 'small' }}>
+      <Box
+        flex
+        overflow="visible"
+        gap="10px"
+        pad={{ top: '0', right: 'small', bottom: 'small', left: 'small' }}
+      >
         <Box flex={false} direction="row-responsive" align="start">
           <Box pad="none">
             {/* <Image
@@ -694,74 +742,85 @@ function PlatformTemplate({ data }) {
                 alt="platform logo"
               /> */}
           </Box>
-          <Content id="platform-content" gap="8px"
-          style={{
-            marginTop: '-12px',
-            width: '100%',
-            maxWidth: '1192px',
-          }}>
-              <Box
-                direction="row"
-                align="center"
-                gap="16px"
-                width="100%"
-                height="50px"
-                style={{
-                  minHeight: '64px',
-                  paddingTop: '20px',
-                  paddingBottom: '20px',
-                  borderRadius: '16px',
-                  opacity: 1,
-                }}
-              >
-                <Box direction="row" align="center" gap="small">
-                  <Text
-                    style={{
-                      fontWeight: 400,
-                      fontSize: '20px',
-                      lineHeight: '24px',
-                      letterSpacing: '0px',
-                      color: '#606A70',
-                      fontFamily: 'HPE Graphik, Metric, sans-serif',
-                    }}
-                  >
-                    {title}
-                  </Text>
-                  <Text
-                    style={{
-                      color: '#606A70',
-                      fontSize: '20px',
-                      lineHeight: '24px',
-                      fontFamily: 'HPE Graphik, Metric, sans-serif',
-                    }}
-                  >
-                    /
-                  </Text>
-                  <Text
-                    style={{
-                      fontWeight: 600,
-                      fontSize: '20px',
-                      lineHeight: '24px',
-                      letterSpacing: '0px',
-                      color: '#3E4550',
-                      fontFamily: 'HPE Graphik, Metric, sans-serif',
-                    }}
-                  >
-                    Getting Started
-                  </Text>
-                </Box>
+          <Content
+            id="platform-content"
+            gap="8px"
+            style={{
+              marginTop: '-12px',
+              width: '100%',
+              maxWidth: '1192px',
+            }}
+          >
+            <Box
+              direction="row"
+              align="center"
+              gap="16px"
+              width="100%"
+              height="50px"
+              style={{
+                minHeight: '64px',
+                paddingTop: '20px',
+                paddingBottom: '20px',
+                borderRadius: '16px',
+                opacity: 1,
+              }}
+            >
+              <Box direction="row" align="center" gap="small">
+                <Text
+                  style={{
+                    fontWeight: 400,
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    letterSpacing: '0px',
+                    color: '#606A70',
+                    fontFamily: 'HPE Graphik, Metric, sans-serif',
+                  }}
+                >
+                  {title}
+                </Text>
+                <Text
+                  style={{
+                    color: '#606A70',
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    fontFamily: 'HPE Graphik, Metric, sans-serif',
+                  }}
+                >
+                  /
+                </Text>
+                <Text
+                  style={{
+                    fontWeight: 600,
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    letterSpacing: '0px',
+                    color: '#3E4550',
+                    fontFamily: 'HPE Graphik, Metric, sans-serif',
+                  }}
+                >
+                  Getting Started
+                </Text>
               </Box>
-              <Text
-                as="h1"
-                size="72px"
-                weight={500}
-                color="#292D3A"
-                style={{ lineHeight: '100%', margin: 0 }}
-              >
-                {title}
-              </Text>
-              {introBody && <MarkdownLayout components={platformHeadingStyles}>{introBody}</MarkdownLayout>}
-            {bodyBefore && <MarkdownLayout components={platformHeadingStyles}>{bodyBefore}</MarkdownLayout>}
+            </Box>
+            <Text
+              as="h1"
+              size="72px"
+              weight={500}
+              color="#292D3A"
+              style={{ lineHeight: '100%', margin: 0 }}
+            >
+              {title}
+            </Text>
+            {introBody && (
+              <MarkdownLayout components={platformHeadingStyles}>
+                {introBody}
+              </MarkdownLayout>
+            )}
+            {bodyBefore && (
+              <MarkdownLayout components={platformHeadingStyles}>
+                {bodyBefore}
+              </MarkdownLayout>
+            )}
             {activeCards.length > 0 && (
               <Box
                 style={{
@@ -774,7 +833,8 @@ function PlatformTemplate({ data }) {
               >
                 {activeCards.map((card, i) => {
                   const Icon = getCardIcon(card, i);
-                  const isGuideCard = classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
+                  const isGuideCard =
+                    classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
                   return (
                     <Box
                       key={`${card.link}-${i}`}
@@ -824,10 +884,10 @@ function PlatformTemplate({ data }) {
                       >
                         <Text
                           style={{
-                            fontWeight: 600,
-                            fontSize: '22px',
+                            fontWeight: 500,
+                            fontSize: '18px',
                             width: '100%',
-                            lineHeight: '26px',
+                            lineHeight: '24px',
                             color: '#292D3A',
                             overflowWrap: 'anywhere',
                             wordBreak: 'break-word',
@@ -852,7 +912,7 @@ function PlatformTemplate({ data }) {
                       <Anchor
                         href={card.link}
                         label="Explore more →"
-                        color="#1b8f76"
+                        color="#068667"
                         size="small"
                         style={{
                           fontWeight: 600,
@@ -869,19 +929,22 @@ function PlatformTemplate({ data }) {
                 })}
               </Box>
             )}
-            {bodyAfter && <MarkdownLayout components={platformHeadingStyles}>{bodyAfter}</MarkdownLayout>}
-            {bodyAfter && <MarkdownLayout>{bodyAfter}</MarkdownLayout>} 
+            {bodyAfter && (
+              <MarkdownLayout components={platformHeadingStyles}>
+                {bodyAfter}
+              </MarkdownLayout>
+            )}
             {relatedBlogs.length > 0 && tags && (
-              <Box margin={{ top: '36px', bottom: '36px' }} pad={{ horizontal: 'medium' }}>
+              <Box margin={{ top: '48px' }}>
                 <Heading
                   level={2}
-                  margin={{ top: '0', bottom: '36px' }}
+                  margin={{ top: '0', bottom: '48px' }}
                   style={{
-                    fontSize: '54px',
-                    lineHeight: '60px',
+                    fontSize: '52px',
+                    lineHeight: '58px',
                     fontWeight: 500,
-                    letterSpacing: '-0.8px',
-                    color: '#2f3244',
+                    letterSpacing: '-1.04px',
+                    color: '#292D3A',
                   }}
                 >
                   Related blogs
@@ -891,7 +954,7 @@ function PlatformTemplate({ data }) {
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                    gap: '32px',
+                    gap: '40px',
                     width: '100%',
                   }}
                 >
@@ -899,9 +962,8 @@ function PlatformTemplate({ data }) {
                     <Box
                       key={`${node.fields?.slug || node.frontmatter?.title || 'blog'}-${index}`}
                       background="#f7f7f7"
-                      pad={{ top: '36px', right: '32px', bottom: '30px', left: '32px' }}
+                      pad="32px"
                       style={{
-                        height: '450px',
                         boxSizing: 'border-box',
                         display: 'flex',
                         flexDirection: 'column',
@@ -909,23 +971,29 @@ function PlatformTemplate({ data }) {
                     >
                       <Heading
                         level={3}
-                        margin={{ top: '0', bottom: '18px' }}
+                        margin={{ top: '0', bottom: '24px' }}
                         style={{
-                          fontSize: '22px',
+                          fontSize: '28px',
                           lineHeight: '34px',
                           fontWeight: 500,
-                          color: '#2f3244',
-                          letterSpacing: '-0.4px',
+                          color: '#292D3A',
+                          letterSpacing: '-0.28px',
                         }}
                       >
                         {node.frontmatter.title}
                       </Heading>
 
-                      {(node.frontmatter.authorimage || node.frontmatter.author) && (
-                        <Box direction="row" align="center" gap="small" margin={{ bottom: '20px' }}>
+                      {(node.frontmatter.authorimage ||
+                        node.frontmatter.author) && (
+                        <Box
+                          direction="row"
+                          align="center"
+                          gap="8px"
+                          margin={{ bottom: '12px' }}
+                        >
                           {node.frontmatter.authorimage && (
                             <Avatar
-                              size="34px"
+                              size="32px"
                               src={node.frontmatter.authorimage}
                               alt={node.frontmatter.author || 'Author'}
                             />
@@ -933,9 +1001,9 @@ function PlatformTemplate({ data }) {
                           {node.frontmatter.author && (
                             <Text
                               style={{
-                                fontSize: '15px',
-                                lineHeight: '22px',
-                                color: '#545a6b',
+                                fontSize: '16px',
+                                lineHeight: '24px',
+                                color: '#3e4550',
                               }}
                             >
                               by {node.frontmatter.author}
@@ -946,9 +1014,9 @@ function PlatformTemplate({ data }) {
 
                       <Text
                         style={{
-                          fontSize: '18px',
-                          lineHeight: '34px',
-                          color: '#5f6676',
+                          fontSize: '16px',
+                          lineHeight: '24px',
+                          color: '#3e4550',
                           flex: 1,
                           overflow: 'hidden',
                           display: '-webkit-box',
@@ -960,19 +1028,22 @@ function PlatformTemplate({ data }) {
                       </Text>
 
                       <Anchor
-                        href={node.frontmatter.externalLink || `/${node.fields.sourceInstanceName}${node.fields.slug}`}
+                        href={
+                          node.frontmatter.externalLink ||
+                          `/${node.fields.sourceInstanceName}${node.fields.slug}`
+                        }
                         onClick={(event) => {
                           event.preventDefault();
                           openBlog(node);
                         }}
-                        label="Read more  →"
-                        color="#178972"
+                        label="Read more →"
+                        color="#006750"
                         size="small"
                         style={{
                           marginTop: '24px',
-                          fontWeight: 600,
-                          fontSize: '18px',
-                          lineHeight: '26px',
+                          fontWeight: 500,
+                          fontSize: '20px',
+                          lineHeight: '24px',
                           textDecoration: 'none',
                         }}
                       />
@@ -981,46 +1052,23 @@ function PlatformTemplate({ data }) {
                 </Box>
 
                 {blogPageCount > 1 && (
-                  <Box direction="row" gap="small" margin={{ top: '28px' }}>
-                    <Button
-                      plain
-                      disabled={currentBlogPage === 0}
-                      onClick={() => setCurrentBlogPage((page) => Math.max(0, page - 1))}
-                      icon={
-                        <Box
-                          width="56px"
-                          height="56px"
-                          round="full"
-                          align="center"
-                          justify="center"
-                          background={currentBlogPage === 0 ? '#d6dce6' : '#4e5668'}
-                        >
-                          <FormPreviousLink color="#ffffff" size="medium" />
-                        </Box>
-                      }
-                    />
-                    <Button
-                      plain
-                      disabled={currentBlogPage >= blogPageCount - 1}
-                      onClick={() =>
-                        setCurrentBlogPage((page) => Math.min(blogPageCount - 1, page + 1))
-                      }
-                      icon={
-                        <Box
-                          width="56px"
-                          height="56px"
-                          round="full"
-                          align="center"
-                          justify="center"
-                          background={currentBlogPage >= blogPageCount - 1 ? '#d6dce6' : '#4e5668'}
-                        >
-                          <FormNextLink color="#ffffff" size="medium" />
-                        </Box>
-                      }
-                    />
-                  </Box>
+                  <CarouselNavButtons
+                    onPrev={() =>
+                      setCurrentBlogPage((page) => Math.max(0, page - 1))
+                    }
+                    onNext={() =>
+                      setCurrentBlogPage((page) =>
+                        Math.min(blogPageCount - 1, page + 1),
+                      )
+                    }
+                    disablePrev={currentBlogPage === 0}
+                    disableNext={currentBlogPage >= blogPageCount - 1}
+                    ariaLabelPrev="Previous blogs"
+                    ariaLabelNext="Next blogs"
+                    marginTop="40px"
+                  />
                 )}
-              </Box> 
+              </Box>
             )}
             {events.length > 0 && tags && (
               <SectionHeader title="Related Events" color="border">
@@ -1043,16 +1091,9 @@ function PlatformTemplate({ data }) {
             )}
           </Content>
         </Box>
-        <Box alignSelf="start">
-          <ButtonLink
-            icon={<FormPreviousLink />}
-            label="Go to Platforms Page"
-            to="/platforms"
-          />
-        </Box>
       </Box>
     </>
-  )
+  );
   return (
     <LayoutSideBar
       layoutClassName="platform-layout"
@@ -1086,7 +1127,6 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
         image: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
-
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,

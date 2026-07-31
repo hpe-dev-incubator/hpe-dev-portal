@@ -6,7 +6,13 @@ import { Header } from '../index';
 import './reset.css';
 import theme from './theme';
 
-const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, layoutClassName }) => {
+const LayoutSideBar = ({
+  children,
+  sidebarContent,
+  sectionTitle,
+  heroContent,
+  layoutClassName,
+}) => {
   const isPlatformLayout = layoutClassName === 'platform-layout';
 
   return (
@@ -14,44 +20,64 @@ const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, la
       <Header />
       {heroContent && heroContent}
       {sectionTitle && (
-        <Box
-          align="center"
-          pad={{ horizontal: '160px', vertical: '50px' }}
-        >
+        <Box pad={{ horizontal: '160px', top: '96px', bottom: '0' }}>
           <Box
             direction="row"
             align="center"
             justify="between"
-            width="1600px"
+            width="100%"
             margin="none"
-            height="70px"
-            style={{ opacity: 1, margin:'none' }}
           >
             <Heading
               level={2}
               margin="none"
               style={{
                 fontWeight: 500,
-                fontSize: '50px',
-                lineHeight: '100%',
-                letterSpacing: '0px',
+                fontSize: '60px',
+                lineHeight: 'normal',
+                letterSpacing: '-1.04px',
                 color: '#292D3A',
               }}
             >
               {sectionTitle}
             </Heading>
-            <Box
-              direction="row"
-              gap="8px"
-              align="center"
-              justify="end"
-              width="296px"
-              height="100px"
-            >
-              <Anchor icon={<Upload size="20px" color="dark-1" />} href="#" />
-              <Anchor icon={<LinkedinOption size="20px" color="dark-1" />} href="https://www.linkedin.com/company/hewlett-packard-enterprise" />
-              <Anchor icon={<X size="20px" color="dark-1" />} href="https://twitter.com/HPE_Developer" />
-              <Anchor icon={<Facebook size="20px" color="dark-1" />} href="https://facebook.com/hewlettpackardenterprise" />
+            <Box direction="row" gap="8px" align="center" justify="end">
+              <Anchor
+                icon={<Upload size="36px" color="dark-1" />}
+                href="#"
+                style={{
+                  padding: '16px',
+                  borderRadius: '100%',
+                  display: 'flex',
+                }}
+              />
+              <Anchor
+                icon={<LinkedinOption size="36px" color="dark-1" />}
+                href="https://www.linkedin.com/company/hewlett-packard-enterprise"
+                style={{
+                  padding: '16px',
+                  borderRadius: '100%',
+                  display: 'flex',
+                }}
+              />
+              <Anchor
+                icon={<X size="36px" color="dark-1" />}
+                href="https://twitter.com/HPE_Developer"
+                style={{
+                  padding: '16px',
+                  borderRadius: '100%',
+                  display: 'flex',
+                }}
+              />
+              <Anchor
+                icon={<Facebook size="36px" color="dark-1" />}
+                href="https://facebook.com/hewlettpackardenterprise"
+                style={{
+                  padding: '16px',
+                  borderRadius: '100%',
+                  display: 'flex',
+                }}
+              />
             </Box>
           </Box>
         </Box>
@@ -62,7 +88,7 @@ const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, la
         justify="start"
         margin="none"
         pad={{
-          top: isPlatformLayout ? '24px' : '96px',
+          top: isPlatformLayout ? '48px' : '96px',
           right: '160px',
           bottom: '96px',
           left: '160px',
@@ -74,18 +100,13 @@ const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, la
           margin: '0 auto',
         }}
       >
-        <Box
-          fill
-          flex="shrink"
-          margin="none"
-          pad="none"
-        >
+        <Box fill flex="shrink" margin="none" pad="none">
           <Box
             direction="row"
             align="start"
             margin="none"
             pad="none"
-            gap="48px"
+            gap="72px"
             width="100%"
             style={{ maxWidth: '1600px', opacity: 1 }}
           >
@@ -97,7 +118,7 @@ const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, la
                 pad="none"
                 flex={{ shrink: 0 }}
                 margin="none"
-                overflow="scroll"
+                overflow={{ vertical: 'auto', horizontal: 'hidden' }}
                 style={{
                   maxHeight: 'calc(100vh - 100px)',
                 }}
@@ -106,7 +127,7 @@ const LayoutSideBar = ({ children, sidebarContent, sectionTitle, heroContent, la
               </Box>
             )}
             {/* Main Content */}
-            <Main flex={true} fill={undefined} overflow="visible" margin="none" >
+            <Main flex={true} fill={undefined} overflow="visible" margin="none">
               {children}
             </Main>
           </Box>
