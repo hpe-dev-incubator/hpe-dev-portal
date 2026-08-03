@@ -77,9 +77,9 @@ I log into my AWS account, on IAM I [create an OIDC identity provider](https://d
 
 Then, I create a S3 bucket and take note of its name and the region where it is located.
 
-## Configuring the backend
+## Configuring the OpenTofu backend
 
-I am now going to change the configuration so it uses the AWS S3 backend to store the state file. I create a `backend.tf` file in the configuration that looks like this:
+I am now going to change the configuration, so it uses the AWS S3 backend to store the state file. I create a `backend.tf` file in the configuration that looks like this:
 
 ```hcl
 terraform {
@@ -127,7 +127,7 @@ variable "opentofu_passphrase" {
 
 I have also added the HPE OpsRamp variables I will use to configure the provider.
 
-## Configuring the repository variables and secrets
+## Storing variables and secrets in the repository
 
 Now, I head back to Github, and in the repository settings I click on the "Secrets and Variables", and then "Actions" link.
 
@@ -147,7 +147,7 @@ Then, I create four new repository [variables](https://docs.github.com/en/action
 
 These are the bare minimum variables and secrets I need to define to get my setup working. Other resources in the configuration can use the same feature, for instance to store a client name which changes with the environment.
 
-## Configuring the GitHub Actions workflows
+## Defining GitHub Actions workflows
 
 It is time now to [clone the GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into my machine and write the initial [HPE OpsRamp provider configuration](https://registry.terraform.io/providers/HPE/hpe/latest/docs).
 
