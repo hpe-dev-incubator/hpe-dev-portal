@@ -10,12 +10,8 @@ tags:
   - Pods
   - Import Framework
   - Slack
-  - Slack Webhook URL
-  - "  Helm chart "
-  - Istio VirtualService
-  - Kyverno ClusterPolicy
 ---
-<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+<style> li { font-size: 16px; line-height: 30px; max-width: none; } </style>
 
 [HPE Private Cloud AI (PCAI)](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) runs large‑scale AI and machine learning (ML) workloads on its underlying Kubernetes (K8s) cluster with a large number of K8s Pods executing long‑lived, resource‑intensive jobs. Due to K8s' inherently ephemeral design, Pod restarts are common and expected operational events. However, certain Pod restarts can disrupt long‑running training workloads, interrupt inference services, or degrade data-processing pipelines, making it essential to proactively understand the cause of each Pod restart. Ensuring reliability at PCAI scale requires early visibility into every Pod restart event so engineering teams can quickly detect anomalies and remediate issues before they impact AI workloads. Although K8s provides native diagnostics through node conditions, event streams, container state information, and Pod-level status, engineers must manually perform the same sequence of investigative commands for each restart event. This operational workflow does not scale effectively in PCAI's large-cluster environment, where workloads are long-running, compute-intensive, and highly sensitive to interruptions. 
 
@@ -53,7 +49,7 @@ Slack is a cloud-based collaboration platform that brings people, information, a
 
 In HPE Private Cloud AI environment, Slack channels provide immediate visibility into Pod restart events, including Pod restart reasons, logs, K8s events, and other diagnostic information collected during the restart-analysis process. By centralizing critical operational insights and alerts in a common collaboration platform, Slack enables teams to detect issues faster, collaborate more effectively, and accelerate troubleshooting and resolution, ultimately improving operational efficiency and platform reliability.
 
-If you do not already have a Slack account, you can create one by following Slack’s [*Getting Started* guide](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
+If you do not already have a Slack account, you can create one by following Slack’s [*Getting Started guide*](https://slack.com/intl/en-in/help/categories/360000049043-Getting-started).
 
 In this blog post, the HPE Slack account and its associated workspace, *HPE*, is used as the environment for hosting the Slack channel, Webhook URL, and associated workspace API token required for integration with *k8s-pod-restart-info-collector*.
 
