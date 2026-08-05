@@ -7,6 +7,15 @@ width: large
 priority: 1
 date: 2026-06-06T12:51:24+02:00
 active: true
+quickLinks:
+  - label: 'Demos'
+    url: '#overview-demos'
+  - label: 'Technical Demos'
+    url: '#technical-demos'
+  - label: 'Resources'
+    url: '#resources'
+  - label: 'GitHub'
+    url: '#github-repositories'
 tags:
   - hpe-private-cloud-ai
 ---

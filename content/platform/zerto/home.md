@@ -8,6 +8,13 @@ width: large
 priority: 11
 date: 2024-12-16T15:27:43-05:00
 active: true
+quickLinks:
+  - label: 'Hacker Hub'
+    url: '#welcome-to-the-zerto-hacker-hub'
+  - label: 'Resources'
+    url: '#resources'
+  - label: 'Zerto Website'
+    url: 'https://www.zerto.com/'
 tags:
   - zerto
   - recovery

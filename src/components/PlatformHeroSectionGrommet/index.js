@@ -1,83 +1,75 @@
-import { Box, Image, Text } from 'grommet';
+import { Anchor, Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 
-const PlatformHeroSectionGrommet = ({
-  title,
-  description,
-  navItems,
-  activeHref: controlledActiveHref,
-  onNavClick,
-  onActiveHrefChange,
-}) => {
-  const allItems = useMemo(
-    () => [
-      { label: 'Getting started', href: '#platform-content' },
-      ...navItems,
-    ],
-    [navItems],
-  );
+/* hides webkit scrollbar track while preserving scroll functionality */
+const ScrollBox = styled(Box)`
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
-  const [internalActiveHref, setInternalActiveHref] = useState(
-    allItems[0].href,
-  );
-  const activeHref = controlledActiveHref || internalActiveHref;
+/* suppresses Grommet HPE theme focus ring; active state provides visual feedback */
+const PillAnchor = styled(Anchor)`
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+`;
 
-  const updateActiveHref = (href) => {
-    if (onActiveHrefChange) onActiveHrefChange(href);
-    if (!controlledActiveHref) setInternalActiveHref(href);
-  };
+const isExternal = (url) => /^https?:\/\//i.test(url);
 
+const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
+  const visibleLinks = (quickLinks || []).slice(0, 5);
+  const firstAnchor = visibleLinks.find((l) => l.url.startsWith('#'));
+  const [activeUrl, setActiveUrl] = useState(firstAnchor?.url || null);
+  /* prevents scroll listener from overriding click-set active during smooth scroll */
+  const clickLockRef = useRef(false);
+  const lastScrollYRef = useRef(0);
+
+  /* mirror the original scroll-based active tracking: default to first anchor,
+     then update to the last section whose top has crossed 160px */
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') return undefined;
 
-    const onScroll = () => {
-      let current = window.location.hash || allItems[0].href;
-      for (const item of allItems) {
-        const id = item.href.startsWith('#') ? item.href.slice(1) : null;
-        if (!id || id === 'platform-content') continue;
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 160) {
-          current = item.href;
-        }
+    const anchorLinks = visibleLinks.filter((l) => l.url.startsWith('#'));
+    if (!anchorLinks.length) return undefined;
+
+    const update = () => {
+      if (clickLockRef.current) return;
+      const currentY = window.scrollY;
+      const goingDown = currentY >= lastScrollYRef.current;
+      lastScrollYRef.current = currentY;
+      if (!goingDown) return; // scrolling back up — keep current active pill
+      let matched = null;
+      for (const link of anchorLinks) {
+        const el = document.getElementById(link.url.slice(1));
+        if (el && el.getBoundingClientRect().top <= 160) matched = link.url;
       }
-      updateActiveHref(current);
+      if (matched) setActiveUrl(matched);
     };
 
-    const onHashChange = () => {
-      updateActiveHref(window.location.hash || allItems[0].href);
-    };
-
-    onHashChange();
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('hashchange', onHashChange);
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('hashchange', update);
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('hashchange', update);
     };
-  }, [allItems, controlledActiveHref, onActiveHrefChange]);
+  }, [visibleLinks]);
 
-  const handleNavClick = (event, href) => {
-    if (typeof window === 'undefined') return;
-
-    event.preventDefault();
-    updateActiveHref(href);
-
-    if (onNavClick) {
-      onNavClick(event, href);
-      return;
+  const handleClick = (event, url) => {
+    if (url.startsWith('#')) {
+      event.preventDefault();
+      const el = document.getElementById(url.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-    window.history.replaceState(null, '', href);
-
-    const id = href.startsWith('#') ? href.slice(1) : '';
-    if (!id) return;
-
-    const target = document.getElementById(id);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    setActiveUrl(url);
+    clickLockRef.current = true;
+    setTimeout(() => {
+      clickLockRef.current = false;
+    }, 800);
   };
 
   return (
@@ -93,28 +85,29 @@ const PlatformHeroSectionGrommet = ({
       }}
     >
       {/* Background image at 30% opacity per Figma */}
-      <div
-        aria-hidden
+      <Box
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
           zIndex: 0,
+          overflow: 'hidden',
         }}
       >
-        <img
+        <Image
           alt=""
           src="/images/background-hero-bar.jpg"
+          fit="cover"
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
             opacity: 0.3,
           }}
         />
-      </div>
+      </Box>
 
       {/* Breadcrumb: Products / {Title} */}
       <Box
@@ -133,10 +126,7 @@ const PlatformHeroSectionGrommet = ({
           size="28px"
           weight={400}
           color="#292D3A"
-          style={{
-            letterSpacing: '-0.5px',
-            lineHeight: '100%',
-          }}
+          style={{ letterSpacing: '-0.5px', lineHeight: '100%' }}
         >
           Products / {title}
         </Text>
@@ -162,7 +152,7 @@ const PlatformHeroSectionGrommet = ({
 
       {/* Description — first paragraph from markdown body */}
       {description && (
-        <div
+        <Box
           style={{
             fontSize: '32px',
             fontWeight: 400,
@@ -177,56 +167,70 @@ const PlatformHeroSectionGrommet = ({
           }}
         >
           {description}
-        </div>
+        </Box>
       )}
 
-      {/* Horizontal nav pill bar */}
-      {allItems.length > 0 && (
-        <Box
-          overflow={{ horizontal: 'auto', vertical: 'hidden' }}
-          width="100%"
-          style={{ flexShrink: 0, position: 'relative', zIndex: 1 }}
+      {/* Quick links pill bar — driven by frontmatter, max 5 */}
+      {visibleLinks.length > 0 && (
+        <ScrollBox
+          style={{
+            overflowX: 'auto',
+            overflowY: 'hidden',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            flexShrink: 0,
+            minWidth: 0,
+            position: 'relative',
+            zIndex: 1,
+          }}
         >
           <Box
             direction="row"
             align="center"
-            round="large"
-            pad="12px"
-            width="fit-content"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}
+            style={{
+              display: 'inline-flex',
+              flexWrap: 'nowrap',
+              backgroundColor: 'rgba(0, 0, 0, 0.04)',
+              borderRadius: '100px',
+              padding: '12px',
+            }}
           >
-            {allItems.map((item) => {
-              const isActive = item.href === activeHref;
+            {visibleLinks.map((link) => {
+              const active = activeUrl === link.url;
               return (
-                <Box
-                  key={item.href}
-                  as="a"
-                  href={item.href}
-                  onClick={(event) => handleNavClick(event, item.href)}
+                <PillAnchor
+                  key={link.url}
+                  href={link.url}
+                  onClick={(event) => handleClick(event, link.url)}
+                  target={isExternal(link.url) ? '_blank' : undefined}
+                  rel={isExternal(link.url) ? 'noopener noreferrer' : undefined}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    borderRadius: isActive ? '100px' : '8px',
+                    flexShrink: 0,
+                    borderRadius: active ? '100px' : '8px',
                     padding: '20px 36px',
                     boxSizing: 'border-box',
-                    backgroundColor: isActive ? '#292D3A' : 'transparent',
-                    color: isActive ? '#FFFFFF' : '#292D3A',
+                    backgroundColor: active ? '#292D3A' : 'transparent',
+                    color: active ? '#FFFFFF' : '#292D3A',
                     fontSize: '20px',
-                    fontWeight: isActive ? 500 : 400,
+                    fontWeight: active ? 500 : 400,
                     lineHeight: '100%',
                     letterSpacing: '0px',
                     textDecoration: 'none',
                     whiteSpace: 'nowrap',
                     transition: 'background-color 0.15s ease, color 0.15s ease',
+                    fontFamily: 'inherit',
                   }}
                 >
-                  {item.label}
-                </Box>
+                  {link.label}
+                </PillAnchor>
               );
             })}
           </Box>
-        </Box>
+        </ScrollBox>
       )}
     </Box>
   );
@@ -235,23 +239,17 @@ const PlatformHeroSectionGrommet = ({
 PlatformHeroSectionGrommet.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  activeHref: PropTypes.string,
-  onNavClick: PropTypes.func,
-  onActiveHrefChange: PropTypes.func,
-  navItems: PropTypes.arrayOf(
+  quickLinks: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
     }),
   ),
 };
 
 PlatformHeroSectionGrommet.defaultProps = {
   description: '',
-  activeHref: '',
-  onNavClick: undefined,
-  onActiveHrefChange: undefined,
-  navItems: [],
+  quickLinks: [],
 };
 
 export default PlatformHeroSectionGrommet;

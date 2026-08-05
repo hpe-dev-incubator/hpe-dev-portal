@@ -9,6 +9,13 @@ priority: 3
 frontpage: false
 date: 2024-12-06T17:54:51+01:00
 active: true
+quickLinks:
+  - label: 'Articles'
+    url: '#articles'
+  - label: 'Learn More'
+    url: '#learn-more-about-hpe-swarm-learning-and-its-underlying-technology'
+  - label: 'Resources'
+    url: '#resources'
 tags:
   - swarm-learning
 ---

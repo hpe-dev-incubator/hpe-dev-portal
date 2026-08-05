@@ -30,6 +30,7 @@ const LayoutSideBar = ({
           >
             <Heading
               level={2}
+              responsive={false}
               margin="none"
               style={{
                 fontWeight: 500,
@@ -37,17 +38,18 @@ const LayoutSideBar = ({
                 lineHeight: 'normal',
                 letterSpacing: '-1.04px',
                 color: '#292D3A',
+                whiteSpace: 'nowrap',
               }}
             >
               {sectionTitle}
             </Heading>
-            <Box direction="row" gap="8px" align="center" justify="end">
+            <Box direction="row" gap="8px" align="start">
               <Anchor
                 icon={<Upload size="36px" color="dark-1" />}
                 href="#"
                 style={{
                   padding: '16px',
-                  borderRadius: '100%',
+                  borderRadius: '100px',
                   display: 'flex',
                 }}
               />
@@ -56,7 +58,7 @@ const LayoutSideBar = ({
                 href="https://www.linkedin.com/company/hewlett-packard-enterprise"
                 style={{
                   padding: '16px',
-                  borderRadius: '100%',
+                  borderRadius: '100px',
                   display: 'flex',
                 }}
               />
@@ -65,7 +67,7 @@ const LayoutSideBar = ({
                 href="https://twitter.com/HPE_Developer"
                 style={{
                   padding: '16px',
-                  borderRadius: '100%',
+                  borderRadius: '100px',
                   display: 'flex',
                 }}
               />
@@ -74,7 +76,7 @@ const LayoutSideBar = ({
                 href="https://facebook.com/hewlettpackardenterprise"
                 style={{
                   padding: '16px',
-                  borderRadius: '100%',
+                  borderRadius: '100px',
                   display: 'flex',
                 }}
               />

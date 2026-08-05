@@ -7,6 +7,15 @@ width: large
 priority: 12
 date: 2025-06-16T09:12:23+02:00
 active: true
+quickLinks:
+  - label: 'Features'
+    url: '#features'
+  - label: 'Dev Resources'
+    url: '#dev-resources'
+  - label: 'Training'
+    url: '#training'
+  - label: 'Community'
+    url: '#community'
 tags:
   - storage
   - B10000

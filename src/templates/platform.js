@@ -574,7 +574,7 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags } = post.frontmatter;
+  const { title, description, tags, quickLinks } = post.frontmatter;
 
   // Split off the first paragraph as the hero description
   const { description: heroDescription, body: bodyWithoutDesc } =
@@ -602,6 +602,13 @@ function PlatformTemplate({ data }) {
   );
   const [activeSidebarHref, setActiveSidebarHref] = useState(
     sidebarItems[0]?.href || '',
+  );
+  const activeSidebarLabel = useMemo(
+    () =>
+      sidebarItems.find((item) => item.href === activeSidebarHref)?.label ||
+      sidebarItems[0]?.label ||
+      '',
+    [sidebarItems, activeSidebarHref],
   );
   const relatedBlogs = useMemo(
     () =>
@@ -688,17 +695,6 @@ function PlatformTemplate({ data }) {
     navigateToHash(href);
   };
 
-  const handleNavLinkClick = (event, href) => {
-    event.preventDefault();
-    setActiveSidebarHref(href);
-
-    navigateToHash(href);
-  };
-
-  const handleHeroHashChange = (href) => {
-    setActiveSidebarHref(href);
-  };
-
   const openBlog = (node) => {
     const externalLink = node?.externalLink || node?.frontmatter?.externalLink;
     if (externalLink) {
@@ -717,10 +713,7 @@ function PlatformTemplate({ data }) {
     <PlatformHeroSectionGrommet
       title={title}
       description={heroDescription}
-      navItems={parsedSidebarItems}
-      activeHref={activeSidebarHref}
-      onNavClick={handleNavLinkClick}
-      onActiveHrefChange={handleHeroHashChange}
+      quickLinks={quickLinks || []}
     />
   );
 
@@ -798,7 +791,7 @@ function PlatformTemplate({ data }) {
                     fontFamily: 'HPE Graphik, Metric, sans-serif',
                   }}
                 >
-                  Getting Started
+                  {activeSidebarLabel}
                 </Text>
               </Box>
             </Box>
@@ -1098,7 +1091,7 @@ function PlatformTemplate({ data }) {
     <LayoutSideBar
       layoutClassName="platform-layout"
       title={siteTitle}
-      sectionTitle="Getting started"
+      sectionTitle={activeSidebarLabel || title}
       sidebarContent={
         sidebarItems.length > 0
           ? renderMenu(sidebarItems, activeSidebarHref, handleSidebarLinkClick)
@@ -1127,6 +1120,12 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
         image: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
+        quickLinks: PropTypes.arrayOf(
+          PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+          }),
+        ),
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -1201,6 +1200,10 @@ export const pageQuery = graphql`
         description
         image
         tags
+        quickLinks {
+          label
+          url
+        }
       }
       fields {
         slug
