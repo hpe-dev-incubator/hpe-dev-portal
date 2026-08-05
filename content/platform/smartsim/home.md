@@ -8,6 +8,13 @@ width: large
 priority: 10
 active: false
 date: 2022-12-05T11:31:31+01:00
+quickLinks:
+  - label: 'What is SmartSim?'
+    url: '#what-is-smartsim'
+  - label: 'GitHub'
+    url: 'https://github.com/CrayLabs/SmartSim'
+  - label: 'Docs'
+    url: 'https://www.craylabs.org/docs/overview.html'
 tags:
   - SmartSim
 ---

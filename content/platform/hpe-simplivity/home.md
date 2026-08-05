@@ -9,6 +9,13 @@ priority: 18
 frontpage: true
 date: 2022-06-24T17:01:59+02:00
 active: true
+quickLinks:
+  - label: 'OmniStack REST API'
+    url: '#hpe-omnistack-rest-api'
+  - label: 'Projects'
+    url: '#projects'
+  - label: 'Language Bindings'
+    url: '#language-bindings'
 tags:
   - hpe-simplivity
 ---

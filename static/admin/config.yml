@@ -544,6 +544,20 @@ collections:
           required: false,
           hint: "date the platform was added or last significantly updated — used to determine order in the What's New section",
         }
+      - label: 'Quick Links'
+        name: 'quickLinks'
+        widget: 'list'
+        required: false
+        max: 5
+        hint: 'Up to 5 shortcut links shown in the hero banner. External URLs open in a new tab.'
+        fields:
+          - { label: 'Label', name: 'label', widget: 'string' }
+          - {
+              label: 'URL',
+              name: 'url',
+              widget: 'string',
+              hint: 'Use #section-id for page anchors, /path for internal pages, or https:// for external links.',
+            }
       - {
           label: 'Tags',
           name: 'tags',
@@ -553,7 +567,6 @@ collections:
           field: { label: 'Tag', name: 'tag', widget: 'string' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  # Community collection
   - name: 'community'
     label: 'Community'
     folder: 'content/community'
