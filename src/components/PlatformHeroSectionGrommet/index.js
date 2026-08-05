@@ -62,6 +62,10 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
   const handleClick = (event, url) => {
     if (url.startsWith('#')) {
       event.preventDefault();
+      /* replaceState updates the hash without a native scroll jump or hashchange */
+      window.history.replaceState(null, '', url);
+      /* dispatch manually so platform.js hashchange listener syncs the sidenav */
+      window.dispatchEvent(new Event('hashchange'));
       const el = document.getElementById(url.slice(1));
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
