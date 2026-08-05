@@ -1,10 +1,8 @@
-import React, { forwardRef, Fragment } from 'react';
-import Markdown from 'markdown-to-jsx';
 import {
-  Heading,
-  Paragraph,
   Anchor,
+  Heading,
   Image,
+  Paragraph,
   Table,
   TableBody,
   TableCell,
@@ -12,6 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from 'grommet';
+import Markdown from 'markdown-to-jsx';
+import React,{ forwardRef, Fragment } from 'react';
 
 const isObject = (item) =>
   item && typeof item === 'object' && !Array.isArray(item);
@@ -112,5 +112,5 @@ const GrommetMarkdown = forwardRef(
   },
 );
 
-export { GrommetMarkdown };
-export { headingStyles };
+export { GrommetMarkdown, headingStyles };
+
