@@ -6,7 +6,6 @@ image: /img/simplivity.jpg
 frontpage: false
 priority: 2
 tags: ["hpe-simplivity"]
-disable: true
 ---
 
 HTTP error code reference
