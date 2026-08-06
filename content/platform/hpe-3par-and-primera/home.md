@@ -10,6 +10,13 @@ priority: 13
 frontpage: true
 date: 2022-06-24T17:05:42+02:00
 active: true
+quickLinks:
+  - label: 'Projects'
+    url: '#projects'
+  - label: 'GitHub'
+    url: 'https://github.com/hpe-storage'
+  - label: 'Questions'
+    url: '#any-questions-on-3par-and-primera'
 tags:
   - hpe-3par-and-primera
 ---

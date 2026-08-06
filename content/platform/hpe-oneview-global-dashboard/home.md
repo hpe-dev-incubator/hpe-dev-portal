@@ -10,6 +10,13 @@ priority: 17
 frontpage: true
 date: 2022-06-24T17:03:50+02:00
 active: true
+quickLinks:
+  - label: 'Overview'
+    url: '#unified-view-of-infrastructure-across-data-centers-in-multiple-locations'
+  - label: 'API Reference'
+    url: '#api-reference'
+  - label: 'GitHub'
+    url: 'https://github.com/HewlettPackard/oneview-global-dashboard-nodejs'
 tags:
   - hpe-oneview-global-dashboard
 ---

@@ -10,6 +10,13 @@ priority: 14
 frontpage: true
 date: 2022-06-24T17:05:07+02:00
 active: true
+quickLinks:
+  - label: 'Projects'
+    url: '#projects'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
+  - label: 'GitHub'
+    url: 'https://github.com/hpe-storage'
 tags:
   - hpe-nimble-storage
 ---

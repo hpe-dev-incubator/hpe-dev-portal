@@ -9,6 +9,15 @@ priority: 2
 frontpage: false
 active: false
 date: 2024-11-05T11:31:31+01:00
+quickLinks:
+  - label: 'Tutorials'
+    url: '#tutorials-on-github'
+  - label: 'YouTube Videos'
+    url: '#youtube-videos'
+  - label: 'Free Training'
+    url: '#free-on-demand-training'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - hpe-ezmeral-data-fabric
 ---
