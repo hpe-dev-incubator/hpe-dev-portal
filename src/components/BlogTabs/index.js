@@ -45,7 +45,6 @@ function BlogTabs({ data, columns }) {
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   const totalGreenLakeBlogsCount = data.greenlakeBlogsCount.totalCount;
-  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
 
   useEffect(() => {
     // loads persisted platform data when the user goes back to the blog page
@@ -199,7 +198,7 @@ function BlogTabs({ data, columns }) {
     });
 
   const previousTabContent = (previousTabIndex) => {
-    const { allBlogs, openSourceBlogs, greenlakeBlogs, othersBlogs } = data;
+    const { allBlogs, openSourceBlogs, greenlakeBlogs } = data;
     switch (previousTabIndex) {
       case 0:
         return allBlogs;
@@ -207,8 +206,6 @@ function BlogTabs({ data, columns }) {
         return greenlakeBlogs;
       case 2:
         return openSourceBlogs;
-      case 3:
-        return othersBlogs;
       default:
         return allBlogs;
     }
@@ -340,16 +337,6 @@ function BlogTabs({ data, columns }) {
           setPreviousTab={setPreviousTab}
         />
       </Tab> */}
-      <Tab title={`Others (${totalOthersBlogsCount})`}>
-        <BlogTabContent
-          key={index}
-          initialPage={data.othersBlogs}
-          columns={columns}
-          activeTab={index}
-          setPlatform={setPlatform}
-          setPreviousTab={setPreviousTab}
-        />
-      </Tab>
     </Tabs>
   );
 }
@@ -403,7 +390,6 @@ BlogTabs.propTypes = {
     allBlogs: blogsPropType,
     openSourceBlogs: blogsPropType,
     greenlakeBlogs: blogsPropType,
-    othersBlogs: blogsPropType,
     allBlogsCount: PropTypes.objectOf(PropTypes.number),
     openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
@@ -429,7 +415,6 @@ BlogTabs.propTypes = {
     hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeOpsRampBlogsCount: PropTypes.objectOf(PropTypes.number),
     hpeMorpheusBlogsCount: PropTypes.objectOf(PropTypes.number),
-    othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({
     small: PropTypes.string,
