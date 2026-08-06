@@ -18,9 +18,11 @@ import PlatformCard from './PlatformCard';
 import PlatformHeroSectionGrommet from './PlatformHeroSectionGrommet';
 import Questions from './Questions';
 import ResponsiveGrid from './ResponsiveGrid';
+import ReusableInfoTilesRow from './ReusableInfoTilesRow';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
+import TrainingHeroSection from './TrainingHeroSection';
 
 export * from './BlogCard';
 export * from './Card';
@@ -28,13 +30,14 @@ export * from './Link';
 export * from './Markdown';
 
 export {
-  Aside, BlogTabContent, BlogTabs, CommunityCard, Content, EventCard, FeaturedTopicsSection, Footer,
-  Header,
-  Hero,
-  HighlightedText,
-  Layout,
-  LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, PlatformHeroSectionGrommet, Questions, ResponsiveGrid, SEO,
-  Share,
-  SocialMedia
+    Aside, BlogTabContent, BlogTabs, CommunityCard, Content, EventCard, FeaturedTopicsSection, Footer,
+    Header,
+    Hero,
+    HighlightedText,
+    Layout,
+    LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, PlatformHeroSectionGrommet, Questions, ResponsiveGrid, ReusableInfoTilesRow, SEO,
+    Share,
+    SocialMedia,
+    TrainingHeroSection
 };
 
