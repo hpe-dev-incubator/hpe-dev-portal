@@ -20,6 +20,8 @@ import BlogTabs from './BlogTabs';
 import BlogTabContent from './BlogTabContent';
 import Questions from './Questions';
 import FeaturedTopicsSection from './FeaturedTopicsSection';
+import ReusableInfoTilesRow from './ReusableInfoTilesRow';
+import TrainingHeroSection from './TrainingHeroSection';
 
 export * from './Card';
 export * from './Link';
@@ -49,4 +51,6 @@ export {
   BlogTabContent,
   Questions,
   FeaturedTopicsSection,
+  ReusableInfoTilesRow,
+  TrainingHeroSection,
 };
