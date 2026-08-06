@@ -8,7 +8,6 @@ tags:
   - "HPE Private Cloud AI "
   - Kubernetes
   - Pods
-  - Import Framework
   - Slack
 ---
 <style> li { font-size: 16px; line-height: 30px; max-width: none; } </style>
