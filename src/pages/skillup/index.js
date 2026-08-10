@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 import {
   Layout,
+  ReusableHeroSection,
   ReusableInfoTilesRow,
-  SEO,
-  TrainingHeroSection
+  SEO
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -43,7 +43,7 @@ function Skillup({ data }) {
   return (
     <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Training" />
-      <TrainingHeroSection
+      <ReusableHeroSection
         image="/img/skillup/training_bg.jpg"
         title="Training"
         alt="training dev logo"
@@ -52,7 +52,7 @@ function Skillup({ data }) {
           With technology constantly evolving, it can be challenging to keep up. Bookmark this<br />
           page to access a great set of free technical training resources to expand your skill set.
         </Text>
-      </TrainingHeroSection>
+      </ReusableHeroSection>
       <ReusableInfoTilesRow
         items={learningTiles}
       />

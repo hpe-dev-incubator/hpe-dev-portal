@@ -1,56 +1,41 @@
 import Aside from './Aside';
+import BlogTabContent from './BlogTabContent';
+import BlogTabs from './BlogTabs';
+import CommunityCard from './CommunityCard';
 import Content from './Content';
+import EventCard from './EventCard';
+import FeaturedTopicsSection from './FeaturedTopicsSection';
 import Footer from './Footer';
-import Hero from './Hero';
 import Header from './Header';
+import Hero from './Hero';
 import HighlightedText from './HighlightedText';
 import Layout from './Layout';
 import LayoutSideBar from './LayoutSideBar';
+import NewsletterCard from './NewsletterCard';
+import OpenSourceCard from './OpenSourceCard';
+import PageDescription from './PageDescription';
+import PlatformCard from './PlatformCard';
+import Questions from './Questions';
+import ResponsiveGrid from './ResponsiveGrid';
+import ReusableHeroSection from './ReusableHeroSection';
+import ReusableInfoTilesRow from './ReusableInfoTilesRow';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
-import PageDescription from './PageDescription';
-import EventCard from './EventCard';
-import ResponsiveGrid from './ResponsiveGrid';
-import PlatformCard from './PlatformCard';
-import OpenSourceCard from './OpenSourceCard';
-import NewsletterCard from './NewsletterCard';
-import CommunityCard from './CommunityCard';
-import BlogTabs from './BlogTabs';
-import BlogTabContent from './BlogTabContent';
-import Questions from './Questions';
-import FeaturedTopicsSection from './FeaturedTopicsSection';
-import ReusableInfoTilesRow from './ReusableInfoTilesRow';
-import TrainingHeroSection from './TrainingHeroSection';
 
+export * from './BlogCard';
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
-export * from './BlogCard';
 
 export {
-  Aside,
-  Content,
-  Footer,
-  Header,
-  Hero,
-  HighlightedText,
-  Layout,
-  LayoutSideBar,
-  SEO,
-  Share,
-  SocialMedia,
-  PageDescription,
-  EventCard,
-  ResponsiveGrid,
-  PlatformCard,
-  OpenSourceCard,
-  NewsletterCard,
-  CommunityCard,
-  BlogTabs,
-  BlogTabContent,
-  Questions,
-  FeaturedTopicsSection,
-  ReusableInfoTilesRow,
-  TrainingHeroSection,
+    Aside, BlogTabContent, BlogTabs, CommunityCard, Content, EventCard, FeaturedTopicsSection, Footer,
+    Header,
+    Hero,
+    HighlightedText,
+    Layout,
+    LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, Questions, ResponsiveGrid, ReusableHeroSection, ReusableInfoTilesRow, SEO,
+    Share,
+    SocialMedia
 };
+

@@ -1,13 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Heading, Text } from 'grommet';
+import PropTypes from 'prop-types';
 
 import {
   Layout,
+  ReusableHeroSection,
   ReusableInfoTilesRow,
   SEO,
-  TrainingHeroSection,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -30,7 +30,7 @@ function Community({ data }) {
   return (
     <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Community" />
-      <TrainingHeroSection
+      <ReusableHeroSection
         image="/img/community/community_hero_bg.jpg"
         title="Community"
         alt="community page logo"
@@ -40,7 +40,7 @@ function Community({ data }) {
           A community is all about connection. Discover the many different ways
           you can connect<br/> with members of the HPE Developer Community here.
         </Text>
-      </TrainingHeroSection>
+      </ReusableHeroSection>
       <ReusableInfoTilesRow items={communityTiles} />
     </Layout>
   );
