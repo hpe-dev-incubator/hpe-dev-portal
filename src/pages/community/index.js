@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Heading, Paragraph } from 'grommet';
+import { Heading, Text } from 'grommet';
 
 import {
-  PageDescription,
   Layout,
+  ReusableInfoTilesRow,
   SEO,
-  CommunityCard,
-  SectionHeader,
-  ResponsiveGrid,
+  TrainingHeroSection,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -17,43 +15,33 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto'],
-};
-
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
 function Community({ data }) {
   const communities = data.allMarkdownRemark.edges;
+  const communityTiles = communities.map((community) => ({
+    title: community.node.frontmatter.title,
+    description: community.node.frontmatter.description,
+    actionLabel: community.node.frontmatter.linkname || 'Learn more',
+    actionHref: community.node.frontmatter.link,
+    variant: 'light',
+  }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Community" />
-      <PageDescription
-        image="/img/community/community.svg"
+      <TrainingHeroSection
+        image="/img/community/community_hero_bg.jpg"
         title="Community"
         alt="community page logo"
+        backgroundPosition="50% 33%"
       >
-        <Paragraph size="large">
+        <Text size="large">
           A community is all about connection. Discover the many different ways
-          you can connect with members of the HPE Developer Community here.
-        </Paragraph>
-      </PageDescription>
-      <SectionHeader>
-        <ResponsiveGrid rows={rows} columns={columns}>
-          {communities.map((community) => (
-            <CommunityCard key={community.node.id} node={community.node} />
-          ))}
-        </ResponsiveGrid>
-      </SectionHeader>
+          you can connect<br/> with members of the HPE Developer Community here.
+        </Text>
+      </TrainingHeroSection>
+      <ReusableInfoTilesRow items={communityTiles} />
     </Layout>
   );
 }

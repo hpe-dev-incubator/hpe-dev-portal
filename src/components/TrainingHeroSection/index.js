@@ -2,7 +2,7 @@ import { Box, Heading } from 'grommet';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TrainingHeroSection = ({ title, children, image, alt }) => {
+const TrainingHeroSection = ({ title, children, image, alt,backgroundPosition }) => {
   return (
     <Box
       fill="horizontal"
@@ -10,7 +10,7 @@ const TrainingHeroSection = ({ title, children, image, alt }) => {
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition,
         backgroundRepeat: 'no-repeat',
         position: 'relative',
         overflow: 'hidden',
@@ -69,9 +69,11 @@ const TrainingHeroSection = ({ title, children, image, alt }) => {
             style={{
               fontFamily: "'HPE Graphik', 'Metric', Arial, sans-serif",
               fontWeight: 400,
+              fontStyle: 'normal',
               fontSize: '28px',
               lineHeight: '38px',
               letterSpacing: '-0.28px',
+              verticalAlign: 'middle',
               color: 'white',
             }}
           >
@@ -88,6 +90,7 @@ TrainingHeroSection.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node,
   alt: PropTypes.string,
+  backgroundPosition: PropTypes.string,
 };
 
 TrainingHeroSection.defaultProps = {
@@ -95,6 +98,7 @@ TrainingHeroSection.defaultProps = {
   title: '',
   children: null,
   alt: '',
+  backgroundPosition: 'center',
 };
 
 export default TrainingHeroSection;

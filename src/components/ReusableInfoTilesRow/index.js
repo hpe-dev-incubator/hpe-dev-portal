@@ -15,7 +15,7 @@ const tileThemes = {
     background: '#F7F7F7',
     titleColor: '#292D3A',
     bodyColor: '#3E4550',
-    actionColor: '#00C781',
+    actionColor: '#006750',
   },
 };
 
@@ -84,9 +84,11 @@ const getTitleStyle = (theme) => ({
 const getBodyStyle = (theme) => ({
   fontFamily: "'HPE Graphik', 'Metric', Arial, sans-serif",
   fontWeight: 400,
+  fontStyle: 'normal',
   fontSize: '16px',
   lineHeight: '24px',
   letterSpacing: '0',
+  verticalAlign: 'middle',
   color: theme.bodyColor,
   wordBreak: 'break-word',
 });
