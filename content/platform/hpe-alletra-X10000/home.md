@@ -74,24 +74,17 @@ The HPE Alletra MP platform provides a common hardware foundation capable of sup
 | **Feature**           | **B10000**                                                 | **X10000**                                  |
 | :----------------- | :-------------------------------------------------------------------------- | :-------------------------------------------------- |
 | Data Type     | Structured                            | Unstructured                       |
-| Primary Storage| Block Storage                         | Object Storage and File  |
-| Typical Workloads  | Databases, Virtulization, ERP                                                       | AI, Data Lakes, Backup, Media             |
-| Performance Focus    | Low Latency & HIgh IOPS                                       | Massive Scale & Throughput                         |
+| Primary Storage| Block and file Storage                         | Object Storage and File  |
+| Typical Workloads  | Databases, Virtualization, ERP                                                       | AI, Data Lakes, Backup, Media             |
+| Performance Focus    | Low Latency & Intensive IOPS                                       | Massive Scale & Throughput                         |
 | Protocols   | NVME, Fibre Channel, iSCSI, File                                      | S3, Object Storage, NFS           |
 | Scalability    | HPE GreenLake & Infosight | HPE GreenLake & Integrated Services |
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
-[For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](https://developer.hpe.com/platform/hpe-alletra/home.md)
-
-
-<<<<<<< HEAD:content/platform/hpe-alletra-X1000/home.md
+[For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](https://developer.hpe.com/platform/hpe-alletra/home)
 
 ## Dev Resources
-
-=======
-## Dev Resources
->>>>>>> aad806ea3 (Updated the commit message to reflect the renaming of the file from "hpe-alletra-X1000" to "hpe-alletra-X10000" and the modification made to "content/platform/hpe-alletra/home.md"):content/platform/hpe-alletra-X10000/home.md
 
 The HPE Alletra Storage MP X10000 is designed for cloud-native development and data-intensive applications. It provides standards-based interfaces and APIs that allow developers to build applications that store, retrieve, analyze, and manage large volumes of unstructured data. 
 
@@ -111,13 +104,7 @@ Supported SDKs and tools include:
 * AWS Command Line interface (AWS CLI)
 * S3-compatible backup, archive, and data management applications 
 
-<<<<<<< HEAD:content/platform/hpe-alletra-X1000/home.md
-
-### GreenLake API 
-=======
 ### GreenLake APIs 
->>>>>>> aad806ea3 (Updated the commit message to reflect the renaming of the file from "hpe-alletra-X1000" to "hpe-alletra-X10000" and the modification made to "content/platform/hpe-alletra/home.md"):content/platform/hpe-alletra-X10000/home.md
-
 
 The GreenLake Cloud Platform and the GreenLake dedicated platform (on premises) provides a comprehensive suite of REST APIs that enable developers, administrators, and automation platforms to programmatically manage HPE Alletra Storage MP X10000 environments. These APIs provide a unified management framework across HPE infrastructure, allowing organizations to provision and configure unstructured storage resources, monitor system healthand performance, collect operational telemetry, and automate  routine administrative tasks. By exposing management capabilities through standardized REST interfaces, the platform facilitates integration with third-party tools, orchestration frameworks, and custom applications, helping organizations streamline operations, improve efficiency, and implement Infrastructure-as-Code (IaC) and DevOps-driven workflows.
 
@@ -230,6 +217,6 @@ HPE Alletra Storage MP X10000 Explainer Video                         | Accelera
 
 ### Any questions on HPE Alletra?
 
-Join the [HPE DEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
+Join the [HPE DEV Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
 
 - - -
