@@ -1,9 +1,9 @@
+import { Box, Grommet, Main } from 'grommet';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grommet, Box, Main } from 'grommet';
-import theme from './theme';
-import './reset.css';
 import { Header } from '../index';
+import './reset.css';
+import theme from './theme';
 
 const Layout = ({ children, fullWidth = false }) => {
   return (

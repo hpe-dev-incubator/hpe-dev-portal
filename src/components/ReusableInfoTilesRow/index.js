@@ -93,6 +93,16 @@ const getBodyStyle = (theme) => ({
   wordBreak: 'break-word',
 });
 
+const getCategoryStyle = () => ({
+  fontFamily: "'HPE Graphik', 'Metric', Arial, sans-serif",
+  fontWeight: 400,
+  fontStyle: 'normal',
+  fontSize: '16px',
+  lineHeight: '24px',
+  letterSpacing: '0',
+  color: 'var(--color-text-default, #3E4550)',
+});
+
 const getActionTextStyle = (theme) => ({
   fontFamily: "'HPE Graphik', 'Metric', Arial, sans-serif",
   fontWeight: 500,
@@ -115,6 +125,7 @@ const TileCard = ({ item, theme, onAction, isSpaciousDesktopRow, tileKey }) => (
     }}
   >
     <Box gap="12px">
+      {item.category && <Text style={getCategoryStyle()}>{item.category}</Text>}
       <Text style={getTitleStyle(theme)}>{item.title}</Text>
       <Text style={getBodyStyle(theme)}>{item.description}</Text>
     </Box>
@@ -138,6 +149,7 @@ const TileCard = ({ item, theme, onAction, isSpaciousDesktopRow, tileKey }) => (
 
 TileCard.propTypes = {
   item: PropTypes.shape({
+    category: PropTypes.string,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     actionLabel: PropTypes.string,
@@ -246,6 +258,7 @@ const ReusableInfoTilesRow = ({ items, margin, maxWidth, containerPad }) => {
 ReusableInfoTilesRow.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      category: PropTypes.string,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       actionLabel: PropTypes.string,

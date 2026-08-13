@@ -4,10 +4,10 @@ import { Heading, Text } from 'grommet';
 import PropTypes from 'prop-types';
 
 import {
-  Layout,
-  ReusableHeroSection,
-  ReusableInfoTilesRow,
-  SEO,
+    Layout,
+    ReusableHeroSection,
+    ReusableInfoTilesRow,
+    SEO,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 

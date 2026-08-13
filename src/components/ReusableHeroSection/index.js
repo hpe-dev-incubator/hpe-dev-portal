@@ -2,7 +2,15 @@ import { Box, Heading } from 'grommet';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ReusableHeroSection = ({ title, children, image, alt, backgroundPosition }) => {
+const ReusableHeroSection = ({
+  title,
+  children,
+  image,
+  alt,
+  backgroundPosition,
+  showRightMidGradient,
+}) => {
+
   return (
     <Box
       fill="horizontal"
@@ -29,6 +37,21 @@ const ReusableHeroSection = ({ title, children, image, alt, backgroundPosition }
           pointerEvents: 'none',
         }}
       />
+
+      {showRightMidGradient && (
+        <Box
+          fill
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(270deg, rgba(41, 45, 58, 0.62) 0%, rgba(41, 45, 58, 0.34) 28%, rgba(41, 45, 58, 0.12) 44%, rgba(41, 45, 58, 0) 50%)',
+            pointerEvents: 'none',
+          }}
+        />
+      )}
       
       {/* Content */}
       <Box
@@ -91,6 +114,7 @@ ReusableHeroSection.propTypes = {
   children: PropTypes.node,
   alt: PropTypes.string,
   backgroundPosition: PropTypes.string,
+  showRightMidGradient: PropTypes.bool,
 };
 
 ReusableHeroSection.defaultProps = {
@@ -99,6 +123,7 @@ ReusableHeroSection.defaultProps = {
   children: null,
   alt: '',
   backgroundPosition: 'center',
+  showRightMidGradient: false,
 };
 
 export default ReusableHeroSection;
