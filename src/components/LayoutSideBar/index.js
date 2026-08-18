@@ -1,6 +1,5 @@
 import React from 'react';
-import { Anchor, Box, Grommet, Heading, Main } from 'grommet';
-import { Facebook, LinkedinOption, Upload, X } from 'grommet-icons';
+import { Box, Grommet, Main } from 'grommet';
 import PropTypes from 'prop-types';
 import { Header } from '../index';
 import './reset.css';
@@ -9,7 +8,6 @@ import theme from './theme';
 const LayoutSideBar = ({
   children,
   sidebarContent,
-  sectionTitle,
   heroContent,
   layoutClassName,
 }) => {
@@ -19,71 +17,6 @@ const LayoutSideBar = ({
     <Grommet theme={theme}>
       <Header />
       {heroContent && heroContent}
-      {sectionTitle && (
-        <Box pad={{ horizontal: '160px', top: '96px', bottom: '0' }}>
-          <Box
-            direction="row"
-            align="center"
-            justify="between"
-            width="100%"
-            margin="none"
-          >
-            <Heading
-              level={2}
-              responsive={false}
-              margin="none"
-              style={{
-                fontWeight: 500,
-                fontSize: '60px',
-                lineHeight: 'normal',
-                letterSpacing: '-1.04px',
-                color: '#292D3A',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {sectionTitle}
-            </Heading>
-            <Box direction="row" gap="8px" align="start">
-              <Anchor
-                icon={<Upload size="36px" color="dark-1" />}
-                href="#"
-                style={{
-                  padding: '16px',
-                  borderRadius: '100px',
-                  display: 'flex',
-                }}
-              />
-              <Anchor
-                icon={<LinkedinOption size="36px" color="dark-1" />}
-                href="https://www.linkedin.com/company/hewlett-packard-enterprise"
-                style={{
-                  padding: '16px',
-                  borderRadius: '100px',
-                  display: 'flex',
-                }}
-              />
-              <Anchor
-                icon={<X size="36px" color="dark-1" />}
-                href="https://twitter.com/HPE_Developer"
-                style={{
-                  padding: '16px',
-                  borderRadius: '100px',
-                  display: 'flex',
-                }}
-              />
-              <Anchor
-                icon={<Facebook size="36px" color="dark-1" />}
-                href="https://facebook.com/hewlettpackardenterprise"
-                style={{
-                  padding: '16px',
-                  borderRadius: '100px',
-                  display: 'flex',
-                }}
-              />
-            </Box>
-          </Box>
-        </Box>
-      )}
       <Box
         className={layoutClassName}
         direction="row"
@@ -142,7 +75,6 @@ const LayoutSideBar = ({
 LayoutSideBar.propTypes = {
   children: PropTypes.node.isRequired,
   sidebarContent: PropTypes.node,
-  sectionTitle: PropTypes.string,
   heroContent: PropTypes.node,
   layoutClassName: PropTypes.string,
 };

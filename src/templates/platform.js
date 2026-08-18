@@ -1,6 +1,16 @@
 import { graphql, navigate } from 'gatsby';
 import { Anchor, Avatar, Box, Heading, Paragraph, Text } from 'grommet';
-import { Book, Catalog, CircleQuestion, Copy, HelpBook } from 'grommet-icons';
+import {
+  Book,
+  Catalog,
+  CircleQuestion,
+  Copy,
+  Facebook,
+  HelpBook,
+  LinkedinOption,
+  Upload,
+  X,
+} from 'grommet-icons';
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
@@ -747,9 +757,9 @@ function PlatformTemplate({ data }) {
             <Box
               direction="row"
               align="center"
+              justify="between"
               gap="16px"
               width="100%"
-              height="50px"
               style={{
                 minHeight: '64px',
                 paddingTop: '20px',
@@ -793,6 +803,49 @@ function PlatformTemplate({ data }) {
                 >
                   {activeSidebarLabel}
                 </Text>
+              </Box>
+              <Box
+                direction="row"
+                gap="8px"
+                align="center"
+                flex={{ shrink: 0 }}
+              >
+                <Anchor
+                  icon={<Upload size="32px" color="dark-1" />}
+                  href="#"
+                  style={{
+                    padding: '16px',
+                    borderRadius: '100px',
+                    display: 'flex',
+                  }}
+                />
+                <Anchor
+                  icon={<LinkedinOption size="32px" color="dark-1" />}
+                  href="https://www.linkedin.com/company/hewlett-packard-enterprise"
+                  style={{
+                    padding: '16px',
+                    borderRadius: '100px',
+                    display: 'flex',
+                  }}
+                />
+                <Anchor
+                  icon={<X size="32px" color="dark-1" />}
+                  href="https://twitter.com/HPE_Developer"
+                  style={{
+                    padding: '16px',
+                    borderRadius: '100px',
+                    display: 'flex',
+                  }}
+                />
+                <Anchor
+                  icon={<Facebook size="32px" color="dark-1" />}
+                  href="https://facebook.com/hewlettpackardenterprise"
+                  style={{
+                    padding: '16px',
+                    borderRadius: '100px',
+                    display: 'flex',
+                  }}
+                />
               </Box>
             </Box>
             <Text

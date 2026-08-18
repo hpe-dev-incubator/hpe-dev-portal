@@ -198,6 +198,7 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
               borderRadius: '100px',
               padding: '12px',
+              width: 'fit-content',
             }}
           >
             {visibleLinks.map((link) => {
