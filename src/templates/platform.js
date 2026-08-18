@@ -1,5 +1,5 @@
 import { graphql, navigate } from 'gatsby';
-import { Anchor, Avatar, Box, Heading, Paragraph, Text } from 'grommet';
+import { Anchor, Avatar, Box, Heading, Paragraph, Text, Tip } from 'grommet';
 import {
   Book,
   Catalog,
@@ -8,7 +8,6 @@ import {
   Facebook,
   HelpBook,
   LinkedinOption,
-  Upload,
   X,
 } from 'grommet-icons';
 import PropTypes from 'prop-types';
@@ -630,6 +629,7 @@ function PlatformTemplate({ data }) {
         ),
     [blogs],
   );
+  const [copied, setCopied] = useState(false);
   const [currentBlogPage, setCurrentBlogPage] = useState(0);
   const blogPageCount = Math.ceil(relatedBlogs.length / BLOGS_PER_PAGE);
   const pagedBlogs = useMemo(() => {
@@ -722,7 +722,7 @@ function PlatformTemplate({ data }) {
   const hero = (
     <PlatformHeroSectionGrommet
       title={title}
-      description={heroDescription}
+      description={description}
       quickLinks={quickLinks || []}
     />
   );
@@ -811,15 +811,6 @@ function PlatformTemplate({ data }) {
                 flex={{ shrink: 0 }}
               >
                 <Anchor
-                  icon={<Upload size="32px" color="dark-1" />}
-                  href="#"
-                  style={{
-                    padding: '16px',
-                    borderRadius: '100px',
-                    display: 'flex',
-                  }}
-                />
-                <Anchor
                   icon={<LinkedinOption size="32px" color="dark-1" />}
                   href="https://www.linkedin.com/company/hewlett-packard-enterprise"
                   style={{
@@ -846,6 +837,29 @@ function PlatformTemplate({ data }) {
                     display: 'flex',
                   }}
                 />
+                <Tip content="Click to copy the URL to clipboard">
+                  <Anchor
+                    icon={
+                      <Copy size="32px" color={copied ? 'brand' : 'dark-1'} />
+                    }
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (typeof window === 'undefined') return;
+                      navigator.clipboard
+                        .writeText(window.location.href)
+                        .then(() => {
+                          setCopied(true);
+                          setTimeout(() => setCopied(false), 2000);
+                        });
+                    }}
+                    style={{
+                      padding: '16px',
+                      borderRadius: '100px',
+                      display: 'flex',
+                    }}
+                  />
+                </Tip>
               </Box>
             </Box>
             <Text

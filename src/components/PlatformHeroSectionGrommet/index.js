@@ -22,12 +22,23 @@ const PillAnchor = styled(Anchor)`
 const isExternal = (url) => /^https?:\/\//i.test(url);
 
 const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
-  const visibleLinks = (quickLinks || []).slice(0, 5);
+  const visibleLinks = (quickLinks || []).slice(0, 8);
   const firstAnchor = visibleLinks.find((l) => l.url.startsWith('#'));
   const [activeUrl, setActiveUrl] = useState(firstAnchor?.url || null);
   /* prevents scroll listener from overriding click-set active during smooth scroll */
   const clickLockRef = useRef(false);
   const lastScrollYRef = useRef(0);
+
+  /* auto-select pill whose path matches the current page on initial load */
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const currentPath = window.location.pathname;
+    const pageMatch = visibleLinks.find(
+      (l) =>
+        !l.url.startsWith('#') && !isExternal(l.url) && l.url === currentPath,
+    );
+    if (pageMatch) setActiveUrl(pageMatch.url);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* mirror the original scroll-based active tracking: default to first anchor,
      then update to the last section whose top has crossed 160px */

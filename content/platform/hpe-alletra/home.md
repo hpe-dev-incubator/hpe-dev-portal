@@ -8,14 +8,22 @@ priority: 12
 date: 2025-06-16T09:12:23+02:00
 active: true
 quickLinks:
-  - label: 'Features'
-    url: '#features'
-  - label: 'Dev Resources'
-    url: '#dev-resources'
-  - label: 'Training'
-    url: '#training'
-  - label: 'Community'
-    url: '#community'
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - storage
   - B10000
@@ -54,37 +62,32 @@ th {
 }
 </style>
 
-
-HPE Alletra MP is Hewlett Packard Enterprise's modular, cloud-operational storage platform designed to consolidate enterprise storage workloads while providing independent scaling of compute and capacity. 
-
+HPE Alletra MP is Hewlett Packard Enterprise's modular, cloud-operational storage platform designed to consolidate enterprise storage workloads while providing independent scaling of compute and capacity.
 
 ## Features
 
-Built with a disaggregated architecture, HPE Alletra MP enables organizations to deploy different storage personalities on a common hardware platform, improving flexibility, efficiency, and operational simplicity. 
+Built with a disaggregated architecture, HPE Alletra MP enables organizations to deploy different storage personalities on a common hardware platform, improving flexibility, efficiency, and operational simplicity.
 
 ![](/img/platforms/x10000.png)
 
-
-Key benefits include: 
+Key benefits include:
 
 * Get the agility of cloud — everywhere
 * Run any app — without compromise
 * Free your data across hybrid cloud
 
-
 ### Summary
 
-The HPE Alletra MP platform provides a common hardware foundation capable of supporting multiple storage personalities. 
+The HPE Alletra MP platform provides a common hardware foundation capable of supporting multiple storage personalities.
 
-
-| **Feature**           | **B10000**                                                 | **X10000**                                  |
+| **Feature** | **B10000** | **X10000** |
 | :----------------- | :-------------------------------------------------------------------------- | :-------------------------------------------------- |
-| Data Type     | Structured                            | Unstructured                       |
-| Primary Storage| Block Storage                         | Object Storage and File  |
-| Typical Workloads  | Databases, Virtulization, ERP                                                       | AI, Data Lakes, Backup, Media             |
-| Performance Focus    | Low Latency & HIgh IOPS                                       | Massive Scale & Throughput                         |
-| Protocols   | NVME, Fibre Channel, iSCSI, File                                      | S3, Object Storage, NFS           |
-| Scalability    | HPE GreenLake & Infosight | HPE GreenLake & Integrated Services |
+| Data Type | Structured | Unstructured |
+| Primary Storage | Block Storage | Object Storage and File |
+| Typical Workloads | Databases, Virtulization, ERP | AI, Data Lakes, Backup, Media |
+| Performance Focus | Low Latency & HIgh IOPS | Massive Scale & Throughput |
+| Protocols | NVME, Fibre Channel, iSCSI, File | S3, Object Storage, NFS |
+| Scalability | HPE GreenLake & Infosight | HPE GreenLake & Integrated Services |
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
@@ -92,15 +95,15 @@ Together, the B10000 and X10000 enable organizations to support both traditional
 
 ## Dev Resources
 
-The B10000 provides Developers with SDKs, sample code, and REST-based APIs for storage provisioning, monitoring, automation, and lifecycle management. These APIs can be integrated into orchestration platforms, custom portals, and enterprise automation frameworks. 
+The B10000 provides Developers with SDKs, sample code, and REST-based APIs for storage provisioning, monitoring, automation, and lifecycle management. These APIs can be integrated into orchestration platforms, custom portals, and enterprise automation frameworks.
 
-HPE GreenLake API Documentation 
+HPE GreenLake API Documentation
 
-Kubernetes Integration 
+Kubernetes Integration
 
-HPE Storage SDKs 
+HPE Storage SDKs
 
-HPE GitHub repositories containing automation examples, Ansible collections, Terraform providers, and PowerShell modules 
+HPE GitHub repositories containing automation examples, Ansible collections, Terraform providers, and PowerShell modules
 
 ### HPE Alletra Storage MP B10000 Web Service API v3
 
@@ -113,28 +116,25 @@ The HPE Alletra Storage MP B10000 platform offers a rich set of REST APIs to man
 * [faq] [FAQ](https://www.hpe.com/psnow/doc/a00148521enw)
   HPE Alletra Storage Web Services API v3 FAQ.
 
+### Kubernetes Integration
 
-### Kubernetes Integration 
-
-HPE Alletra Storage MP integrates with Kubernetes using industry-standard storage interfaces that enable applications to dynamically provision persistent storage. Depending on the storage personality, developers can use the Container Storage Interface (CSI) for block and file storage 
+HPE Alletra Storage MP integrates with Kubernetes using industry-standard storage interfaces that enable applications to dynamically provision persistent storage. Depending on the storage personality, developers can use the Container Storage Interface (CSI) for block and file storage
 
 The definitive source for end-user documentation using Kubernetes and neighboring partner ecosystems with HPE Alletra MP B10000.
 
 * [Storage Container Orchestrator Documentation](https://github.com/hpe-storage/scod)
-* [Explore the SCOD portal ](https://scod.hpedev.io/)
+* [Explore the SCOD portal](https://scod.hpedev.io/)
 
+### HPE Alletra Storage MP B10000 Container Storage Interface (CSI)
 
-### HPE Alletra Storage MP B10000 Container Storage Interface (CSI) 
+The HPE Alletra Storage MP B10000 is designed for stateful Kubernetes workloads that require high-performance enterprise block storage. The HPE CSI Driver enables Kubernetes to dynamically provision, manage, and consume persistent storage directly from the B10000 platform.
 
-The HPE Alletra Storage MP B10000 is designed for stateful Kubernetes workloads that require high-performance enterprise block storage. The HPE CSI Driver enables Kubernetes to dynamically provision, manage, and consume persistent storage directly from the B10000 platform. 
-
-* [CSI Driver Repository ](https://github.com/hpe-storage/csi-driver)
-* [View the API documentation ](https://developer.hpe.com/api/hpe-nimble-csp/)
+* [CSI Driver Repository](https://github.com/hpe-storage/csi-driver)
+* [View the API documentation](https://developer.hpe.com/api/hpe-nimble-csp/)
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
 * [Operator for Kubernetes](https://artifacthub.io/packages/olm/community-operators/hpe-csi-operator)
 * [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
-* [Visit documentation on SCOD] (https://scod.hpedev.io/csi_driver/index.html)
-
+* [Visit documentation on SCOD] (<https://scod.hpedev.io/csi_driver/index.html>)
 
 ### Prometheus Array Exporter
 
@@ -144,10 +144,7 @@ A Prometheus array exporter that may be deployed as a standalone binary or direc
 * [Read the documentation](https://hpe-storage.github.io/array-exporter)
 * [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
-
-
 ## Training
-
 
 ### Workshops-on-Demand
 
@@ -158,8 +155,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
-
-### Technical Demos:
+### Technical Demos
 
 ![](/img/platforms/x10000-console.png)
 
@@ -167,15 +163,13 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 | Demo                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 
+|
 HPE Alletra Storage MP B10000: Agentic Support Automation                        | In this video, HPE demonstrates how Agentic Support Automation for HPE Alletra Storage MP B10000 uses AI-driven anomaly detection, operational intelligence, and proactive remediation to identify and resolve potential issues before they impact business operations.                                                            | [Video](https://www.hpe.com/ca/fr/resource-library.video.hpe-alletra-storage-mp-b10000-agentic-support-automation.v100014858.html)                                                     |
-| HPE Alletra Storage MP B10000 An industry leading architecture                          | This video explores the HPE Alletra Storage MP B10000, a cutting-edge, scalable storage platform built for high performance and efficiency. | [Video](https://www.hpe.com/emea_europe/en/resource-library.video.hpe-alletra-storage-mp-b10000-an-industry-leading-architecture.v100006684.html)                                                                                                                                                   | 
+| HPE Alletra Storage MP B10000 An industry leading architecture                          | This video explores the HPE Alletra Storage MP B10000, a cutting-edge, scalable storage platform built for high performance and efficiency. | [Video](https://www.hpe.com/emea_europe/en/resource-library.video.hpe-alletra-storage-mp-b10000-an-industry-leading-architecture.v100006684.html)                                                                                                                                                   |
+
 <br/>
 
-
-
 ## Community
-
 
 ### Any questions on HPE Alletra?
 

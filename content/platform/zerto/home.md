@@ -9,12 +9,22 @@ priority: 11
 date: 2024-12-16T15:27:43-05:00
 active: true
 quickLinks:
-  - label: 'Hacker Hub'
-    url: '#welcome-to-the-zerto-hacker-hub'
-  - label: 'Resources'
-    url: '#resources'
-  - label: 'Zerto Website'
-    url: 'https://www.zerto.com/'
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - zerto
   - recovery
@@ -23,7 +33,7 @@ Zerto, a Hewlett Packard Enterprise company, empowers customers to run an always
 
 Learn more about [Zerto](https://www.hpe.com/us/en/zerto.html)
 
-## Welcome to the Zerto Hacker Hub!
+## Welcome to the Zerto Hacker Hub
 
 On this page, will be provided the tools to help you get started in deploying and managing Zerto’s CDP, which leverages its proprietary near-synchronous replication capabilities to protect and restore virtual machines and public cloud instances. Zerto offers an extensive REST API with Swagger support that enables users to programmatically create and manage end-to-end disaster recovery workflows.  
 
@@ -51,9 +61,9 @@ Explore the Zerto Resiliency Observation Console today on our [GitHub page](http
 
 ### Zerto In-Cloud for AWS
 
-Zerto In-Cloud for AWS is disaster recovery for EC2 instances between regions and availability zones. Zerto In-Cloud for AWS blends the familiar Zerto approach to disaster recovery for workloads with the AWS native platform capabilities and services. Zerto In-Cloud for AWS features virtual protection groups, non-disruptive to production failover testing to isolated environments, and disaster recovery failover orchestration. 
+Zerto In-Cloud for AWS is disaster recovery for EC2 instances between regions and availability zones. Zerto In-Cloud for AWS blends the familiar Zerto approach to disaster recovery for workloads with the AWS native platform capabilities and services. Zerto In-Cloud for AWS features virtual protection groups, non-disruptive to production failover testing to isolated environments, and disaster recovery failover orchestration.
 
-Zerto In-Cloud for AWS supports 1000+ instance types and is 100% API-first developed to enable automation tools integration. 
+Zerto In-Cloud for AWS supports 1000+ instance types and is 100% API-first developed to enable automation tools integration.
 
 Linked to our [GitHub here](https://github.com/ZertoPublic/ZIC-AWS) are the Terraform files you can use to start experimenting with Zerto In-Cloud for AWS.  
 
@@ -63,7 +73,7 @@ Ready to learn more? Read the [Zerto-In Cloud for AWS datasheet](https://www.zer
 
 Ready to learn more about Zerto? Browse through the [Zerto portal](https://www.zerto.com/).
 
-Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.com/myzerto/labs)
+Looking to try Zerto out? Sign up for our [Hands on Labs!](https://www.zerto.com/myzerto/labs)
 
 <br />
 
@@ -73,4 +83,4 @@ Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.co
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#zerto](https://hpedev.slack.com/archives/C03J3EGDDM0) channel.
 
-Not a Slack user? Send us an email to zertotm@hpe.com
+Not a Slack user? Send us an email to <zertotm@hpe.com>

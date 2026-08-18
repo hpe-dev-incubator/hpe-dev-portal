@@ -11,12 +11,22 @@ frontpage: true
 date: 2022-06-24T17:05:42+02:00
 active: true
 quickLinks:
-  - label: 'Projects'
-    url: '#projects'
-  - label: 'GitHub'
-    url: 'https://github.com/hpe-storage'
-  - label: 'Questions'
-    url: '#any-questions-on-3par-and-primera'
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - hpe-3par-and-primera
 ---
@@ -33,49 +43,49 @@ SDKs, Plugins and Language Bindings
 
 HPE 3PAR and Primera StoreServ Storage PowerShell Toolkit provides storage administrators the convenience of managing HPE 3PAR StoreServ Storage Systems from a Microsoft Windows PowerShell environment.
 
-- [View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
+* [View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
 
-### [Chef ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+### [Chef ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit)
 
 Chef Cookbook and examples for HPE 3PAR StoreServ.
 
-- [Go to Chef Supermarket](https://supermarket.chef.io/cookbooks/hpe3par)
+* [Go to Chef Supermarket](https://supermarket.chef.io/cookbooks/hpe3par)
 
-### [Ansible ![](Github)](https://github.com/HewlettPackard/hpe3par_ansible_module) 
+### [Ansible ![](Github)](https://github.com/HewlettPackard/hpe3par_ansible_module)
 
 The HPE 3PAR and Primera modules for Ansible to enable automation of storage provisioning for the HPE 3PAR and Primera StoreServ array.
 
-### [Puppet ![](Github)](https://github.com/HewlettPackard/hpe3par_puppet_module) 
+### [Puppet ![](Github)](https://github.com/HewlettPackard/hpe3par_puppet_module)
 
 Puppet module and examples for HPE 3PAR StoreServ.
 
-- [Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
+* [Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
 
 ### [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
 
 A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
 
-- [Read the documentation](https://hpe-storage.github.io/array-exporter)
-- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+* [Read the documentation](https://hpe-storage.github.io/array-exporter)
+* [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
-### [Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin) 
+### [Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin)
 
 HPE Docker Volume Plugin, provides persistent block storage for containerized applications using HPE 3PAR and Primera StoreServ.
 
-- [Go to Docker Store](https://hub.docker.com/r/hpestorage/legacyvolumeplugin)
+* [Go to Docker Store](https://hub.docker.com/r/hpestorage/legacyvolumeplugin)
 
-### [Language SDKs ![](Github)](https://github.com/HewlettPackard) 
+### [Language SDKs ![](Github)](https://github.com/HewlettPackard)
 
 Client libraries in different languages which provide access to the HPE 3PAR array over WSAPI.
 
-- [Go to Python Client](https://github.com/hpe-storage/python-3parclient)
-- [Go to Ruby Client](https://github.com/HewlettPackard/hpe3par_ruby_sdk)
+* [Go to Python Client](https://github.com/hpe-storage/python-3parclient)
+* [Go to Ruby Client](https://github.com/HewlettPackard/hpe3par_ruby_sdk)
 
-### [OpenStack ![](Github)](https://github.com/hpe-storage/) 
+### [OpenStack ![](Github)](https://github.com/hpe-storage/)
 
 The HPE 3PAR and Primera Cinder storage driver for use with Openstack implementations.
 
-- [Go to Openstack Driver](https://docs.openstack.org/cinder/pike/configuration/block-storage/drivers/hpe-3par-driver.html)
+* [Go to Openstack Driver](https://docs.openstack.org/cinder/pike/configuration/block-storage/drivers/hpe-3par-driver.html)
 
 - - -
 
