@@ -28,6 +28,59 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
+
+/* hidden on mobile — sidenav breadcrumb row is not needed without a sidebar */
+const BreadcrumbRow = styled(Box)`
+  @media (max-width: 768px) {
+    justify-content: flex-start !important;
+  }
+`;
+
+/* breadcrumb text hidden on mobile; social icons in the same row remain visible */
+const BreadcrumbText = styled(Box)`
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+`;
+
+const SocialIconsBox = styled(Box)`
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
+`;
+
+const DocCardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin: 20px 0 30px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const BlogCardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
 const MarkdownLayout = styled(Markdown)`
   max-width: 100%;
   width: 100%;
@@ -754,7 +807,7 @@ function PlatformTemplate({ data }) {
               maxWidth: '1192px',
             }}
           >
-            <Box
+            <BreadcrumbRow
               direction="row"
               align="center"
               justify="between"
@@ -768,7 +821,7 @@ function PlatformTemplate({ data }) {
                 opacity: 1,
               }}
             >
-              <Box direction="row" align="center" gap="small">
+              <BreadcrumbText direction="row" align="center" gap="small">
                 <Text
                   style={{
                     fontWeight: 400,
@@ -803,8 +856,8 @@ function PlatformTemplate({ data }) {
                 >
                   {activeSidebarLabel}
                 </Text>
-              </Box>
-              <Box
+              </BreadcrumbText>
+              <SocialIconsBox
                 direction="row"
                 gap="8px"
                 align="center"
@@ -860,14 +913,17 @@ function PlatformTemplate({ data }) {
                     }}
                   />
                 </Tip>
-              </Box>
-            </Box>
+              </SocialIconsBox>
+            </BreadcrumbRow>
             <Text
               as="h1"
-              size="72px"
               weight={500}
               color="#292D3A"
-              style={{ lineHeight: '100%', margin: 0 }}
+              style={{
+                fontSize: 'clamp(36px, 6vw, 72px)',
+                lineHeight: '100%',
+                margin: 0,
+              }}
             >
               {title}
             </Text>
@@ -882,15 +938,7 @@ function PlatformTemplate({ data }) {
               </MarkdownLayout>
             )}
             {activeCards.length > 0 && (
-              <Box
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                  gap: '30px',
-                  margin: '20px 0 30px',
-                  width: '100%',
-                }}
-              >
+              <DocCardsGrid>
                 {activeCards.map((card, i) => {
                   const Icon = getCardIcon(card, i);
                   const isGuideCard =
@@ -987,7 +1035,7 @@ function PlatformTemplate({ data }) {
                     </Box>
                   );
                 })}
-              </Box>
+              </DocCardsGrid>
             )}
             {bodyAfter && (
               <MarkdownLayout components={platformHeadingStyles}>
@@ -1010,14 +1058,7 @@ function PlatformTemplate({ data }) {
                   Related blogs
                 </Heading>
 
-                <Box
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                    gap: '40px',
-                    width: '100%',
-                  }}
-                >
+                <BlogCardsGrid>
                   {pagedBlogs.map((node, index) => (
                     <Box
                       key={`${node.fields?.slug || node.frontmatter?.title || 'blog'}-${index}`}
@@ -1109,7 +1150,7 @@ function PlatformTemplate({ data }) {
                       />
                     </Box>
                   ))}
-                </Box>
+                </BlogCardsGrid>
 
                 {blogPageCount > 1 && (
                   <CarouselNavButtons

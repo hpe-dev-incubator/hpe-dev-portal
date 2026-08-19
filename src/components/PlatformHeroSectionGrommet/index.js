@@ -3,10 +3,74 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-/* hides webkit scrollbar track while preserving scroll functionality */
-const ScrollBox = styled(Box)`
+/* outer hero container — responsive padding and gap */
+const HeroContainer = styled(Box)`
+  position: relative;
+  background-color: #f7f7f7;
+  gap: 36px;
+  font-family:
+    HPE Graphik,
+    Metric,
+    sans-serif;
+  padding: 96px max(160px, calc((100% - 1600px) / 2));
+
+  @media (max-width: 1024px) {
+    padding: 48px 48px;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 48px 24px;
+  }
+`;
+
+/* scroll wrapper — scroll on desktop, static on mobile */
+const QuickLinksOuter = styled.div`
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-shrink: 0;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 1024px) {
+    overflow: visible;
+  }
+`;
+
+/* pill container — inline-flex row on desktop, CSS Grid on mobile */
+const QuickLinksInner = styled.div`
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 100px;
+  padding: 12px;
+  width: fit-content;
+
+  @media (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 24px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -16,6 +80,18 @@ const PillAnchor = styled(Anchor)`
   &:focus-visible {
     outline: none;
     box-shadow: none;
+  }
+
+  @media (max-width: 1024px) {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    white-space: normal !important;
+    word-break: break-word;
+    font-size: 16px !important;
+    padding: 14px 16px !important;
+    flex-shrink: unset !important;
+    text-align: center;
   }
 `;
 
@@ -88,17 +164,7 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
   };
 
   return (
-    <Box
-      overflow="hidden"
-      direction="column"
-      style={{
-        position: 'relative',
-        backgroundColor: '#F7F7F7',
-        gap: '36px',
-        fontFamily: 'HPE Graphik, Metric, sans-serif',
-        padding: '96px max(160px, calc((100% - 1600px) / 2))',
-      }}
-    >
+    <HeroContainer overflow="hidden" direction="column">
       {/* Background image at 30% opacity per Figma */}
       <Box
         aria-hidden="true"
@@ -138,10 +204,13 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
           alt=""
         />
         <Text
-          size="28px"
           weight={400}
           color="#292D3A"
-          style={{ letterSpacing: '-0.5px', lineHeight: '100%' }}
+          style={{
+            fontSize: 'clamp(16px, 3vw, 28px)',
+            letterSpacing: '-0.5px',
+            lineHeight: '100%',
+          }}
         >
           Products / {title}
         </Text>
@@ -150,10 +219,10 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
       {/* H1 title */}
       <Text
         as="h1"
-        size="72px"
         weight={500}
         color="#292D3A"
         style={{
+          fontSize: 'clamp(36px, 8vw, 72px)',
           lineHeight: 'normal',
           letterSpacing: '-1.04px',
           margin: 0,
@@ -169,10 +238,10 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
       {description && (
         <Box
           style={{
-            fontSize: '32px',
+            fontSize: 'clamp(18px, 3.5vw, 32px)',
             fontWeight: 400,
             color: '#606A70',
-            lineHeight: '43px',
+            lineHeight: '1.35',
             letterSpacing: '-0.2px',
             maxWidth: '1600px',
             margin: 0,
@@ -185,33 +254,10 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
         </Box>
       )}
 
-      {/* Quick links pill bar — driven by frontmatter, max 5 */}
+      {/* Quick links pill bar — driven by frontmatter, max 8 */}
       {visibleLinks.length > 0 && (
-        <ScrollBox
-          style={{
-            overflowX: 'auto',
-            overflowY: 'hidden',
-            WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            flexShrink: 0,
-            minWidth: 0,
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          <Box
-            direction="row"
-            align="center"
-            style={{
-              display: 'inline-flex',
-              flexWrap: 'nowrap',
-              backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              borderRadius: '100px',
-              padding: '12px',
-              width: 'fit-content',
-            }}
-          >
+        <QuickLinksOuter>
+          <QuickLinksInner>
             {visibleLinks.map((link) => {
               const active = activeUrl === link.url;
               return (
@@ -239,16 +285,17 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
                     whiteSpace: 'nowrap',
                     transition: 'background-color 0.15s ease, color 0.15s ease',
                     fontFamily: 'inherit',
+                    minHeight: '100%',
                   }}
                 >
                   {link.label}
                 </PillAnchor>
               );
             })}
-          </Box>
-        </ScrollBox>
+          </QuickLinksInner>
+        </QuickLinksOuter>
       )}
-    </Box>
+    </HeroContainer>
   );
 };
 

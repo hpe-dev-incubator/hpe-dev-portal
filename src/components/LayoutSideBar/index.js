@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grommet, Main } from 'grommet';
+import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
 import { Header } from '../index';
 import './reset.css';
@@ -15,59 +15,74 @@ const LayoutSideBar = ({
 
   return (
     <Grommet theme={theme}>
-      <Header />
-      {heroContent && heroContent}
-      <Box
-        className={layoutClassName}
-        direction="row"
-        justify="start"
-        margin="none"
-        pad={{
-          top: isPlatformLayout ? '48px' : '96px',
-          right: '160px',
-          bottom: '96px',
-          left: '160px',
-        }}
-        style={{
-          width: '100%',
-          maxWidth: '1920px',
-          opacity: 1,
-          margin: '0 auto',
-        }}
-      >
-        <Box fill flex="shrink" margin="none" pad="none">
-          <Box
-            direction="row"
-            align="start"
-            margin="none"
-            pad="none"
-            gap="72px"
-            width="100%"
-            style={{ maxWidth: '1600px', opacity: 1 }}
-          >
-            {/* Sidebar */}
-            {sidebarContent && (
+      <ResponsiveContext.Consumer>
+        {(size) => {
+          const isMobile = size === 'small' || size === 'medium';
+          const isTablet = size === 'medium';
+          return (
+            <>
+              <Header />
+              {heroContent && heroContent}
               <Box
-                className="sidebar-content"
-                width="336px"
-                pad="none"
-                flex={{ shrink: 0 }}
+                className={layoutClassName}
+                direction="row"
+                justify="start"
                 margin="none"
-                overflow={{ vertical: 'auto', horizontal: 'hidden' }}
+                pad={{
+                  top: isPlatformLayout ? '48px' : '96px',
+                  right: isMobile ? (isTablet ? '48px' : '20px') : '160px',
+                  bottom: '96px',
+                  left: isMobile ? (isTablet ? '48px' : '20px') : '160px',
+                }}
                 style={{
-                  maxHeight: 'calc(100vh - 100px)',
+                  width: '100%',
+                  maxWidth: '1920px',
+                  opacity: 1,
+                  margin: '0 auto',
                 }}
               >
-                {sidebarContent}
+                <Box fill flex="shrink" margin="none" pad="none">
+                  <Box
+                    direction="row"
+                    align="start"
+                    margin="none"
+                    pad="none"
+                    gap="72px"
+                    width="100%"
+                    style={{ maxWidth: '1600px', opacity: 1 }}
+                  >
+                    {/* Sidebar — hidden on mobile */}
+                    {sidebarContent && !isMobile && (
+                      <Box
+                        className="sidebar-content"
+                        width="336px"
+                        pad="none"
+                        flex={{ shrink: 0 }}
+                        margin="none"
+                        overflow={{ vertical: 'auto', horizontal: 'hidden' }}
+                        style={{
+                          maxHeight: 'calc(100vh - 100px)',
+                        }}
+                      >
+                        {sidebarContent}
+                      </Box>
+                    )}
+                    {/* Main Content */}
+                    <Main
+                      flex={true}
+                      fill={undefined}
+                      overflow="visible"
+                      margin="none"
+                    >
+                      {children}
+                    </Main>
+                  </Box>
+                </Box>
               </Box>
-            )}
-            {/* Main Content */}
-            <Main flex={true} fill={undefined} overflow="visible" margin="none">
-              {children}
-            </Main>
-          </Box>
-        </Box>
-      </Box>
+            </>
+          );
+        }}
+      </ResponsiveContext.Consumer>
     </Grommet>
   );
 };
