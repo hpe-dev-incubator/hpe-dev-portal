@@ -35,8 +35,7 @@ export default function HTML(props) {
             __html: `
             :root { color-scheme: only light; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; }
-            .hpehf-centered-content { padding-left: max(24px, calc((100% - 1600px) / 2)) !important; padding-right: max(24px, calc((100% - 1600px) / 2)) !important; box-sizing: border-box !important; }`,
+            #header { background-color: #ffffff; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -131,7 +130,7 @@ window.HPEHF_CFG = {
         />
         {/* HPE Header Framework scripts — jQuery first, then the framework */}
         <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
-        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js&expand_view=true" />
+        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js" />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>
         {/* HPE global header — populated by HPEHF framework */}
