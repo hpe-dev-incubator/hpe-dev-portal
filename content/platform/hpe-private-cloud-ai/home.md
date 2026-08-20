@@ -46,6 +46,11 @@ th {
     background-color: #f5f5f5;
     font-weight: bold !important;
 }
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 120px;
+  white-space: nowrap;
+}
 </style>
 
 

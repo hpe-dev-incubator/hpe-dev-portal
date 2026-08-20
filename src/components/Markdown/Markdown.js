@@ -113,6 +113,12 @@ const StyledMarkdownTableHeaderCell = styled(TableCell)`
   word-break: break-word;
 `;
 
+const MarkdownContainer = styled.div`
+  strong {
+    font-weight: 700;
+  }
+`;
+
 const GrommetMarkdown = forwardRef(
   ({ children, components, options, theme, ...rest }, ref) => {
     const heading = [1, 2, 3, 4].reduce((obj, level) => {
@@ -151,12 +157,12 @@ const GrommetMarkdown = forwardRef(
     // we use Fragment as the wrapper so we can assign the ref with the div
     // wrapper can still be overridden with the options.
     return (
-      <div ref={ref} {...rest}>
+      <MarkdownContainer ref={ref} {...rest}>
         <Markdown
           {...{ children }}
           options={{ wrapper: Fragment, ...options, overrides }}
         />
-      </div>
+      </MarkdownContainer>
     );
   },
 );
