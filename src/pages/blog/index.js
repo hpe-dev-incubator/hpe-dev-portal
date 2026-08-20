@@ -154,7 +154,7 @@ export const pageQuery = graphql`
             slug
             sourceInstanceName
           }
-          excerpt(format: MARKDOWN)
+          excerpt
           frontmatter {
             title
             date
