@@ -10,6 +10,15 @@ priority: 7
 frontpage: true
 active: false
 date: 2023-12-05T11:31:31+01:00
+quickLinks:
+  - label: 'Learn from Experts'
+    url: '#learn-from-the-experts'
+  - label: 'GitHub'
+    url: '#github-repositories'
+  - label: 'Integrations'
+    url: '#integrations'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - spiffe-and-spire-projects
 ---
