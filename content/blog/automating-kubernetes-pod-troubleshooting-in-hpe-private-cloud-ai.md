@@ -1,6 +1,6 @@
 ---
 title: Automating Kubernetes Pod restart troubleshooting in HPE Private Cloud AI
-date: 2026-07-29T09:39:00.000Z
+date: 2026-08-03T09:39:00.000Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
