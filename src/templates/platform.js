@@ -866,6 +866,8 @@ function PlatformTemplate({ data }) {
                 <Anchor
                   icon={<LinkedinOption size="32px" color="dark-1" />}
                   href="https://www.linkedin.com/company/hewlett-packard-enterprise"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     padding: '16px',
                     borderRadius: '100px',
@@ -875,6 +877,8 @@ function PlatformTemplate({ data }) {
                 <Anchor
                   icon={<X size="32px" color="dark-1" />}
                   href="https://twitter.com/HPE_Developer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     padding: '16px',
                     borderRadius: '100px',
@@ -884,6 +888,8 @@ function PlatformTemplate({ data }) {
                 <Anchor
                   icon={<Facebook size="32px" color="dark-1" />}
                   href="https://facebook.com/hewlettpackardenterprise"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     padding: '16px',
                     borderRadius: '100px',
@@ -963,9 +969,7 @@ function PlatformTemplate({ data }) {
                         paddingBottom: '40px',
                         paddingLeft: '28px',
                         borderRadius: '0px',
-                        background: isGuideCard
-                          ? 'radial-gradient(90% 55% at 100% 100%, rgba(121, 233, 218, 0.58) 0%, rgba(191, 245, 236, 0.38) 32%, rgba(247, 247, 247, 0) 72%), linear-gradient(180deg, rgba(247, 247, 247, 0) 0%, rgba(121, 233, 218, 0.06) 100%), #f7f7f7'
-                          : '#f7f7f7',
+                        background: 'rgb(247, 247, 247)',
                         boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.04) inset',
                       }}
                     >
