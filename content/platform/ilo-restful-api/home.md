@@ -8,6 +8,15 @@ priority: 19
 frontpage: true
 date: 2024-12-05T11:38:35+01:00
 active: true
+quickLinks:
+  - label: 'Overview'
+    url: '#one-interface-for-server-management-automation'
+  - label: 'Redfish API'
+    url: '#hpe-redfish-api-implementation'
+  - label: 'GitHub'
+    url: '#github-and-powershell-repositories'
+  - label: 'SDKs'
+    url: '#sdks-and-language-bindings'
 tags:
   - ilo-restful-api
   - Redfish

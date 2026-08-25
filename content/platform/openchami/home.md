@@ -9,6 +9,13 @@ priority: 6
 frontpage: true
 date: 2026-01-21T11:04:37-06:00
 active: true
+quickLinks:
+  - label: 'About'
+    url: '#open-composable-heterogeneous-adaptable-management-infrastructure'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
+  - label: 'GitHub'
+    url: 'https://github.com/OpenCHAMI'
 tags:
   - open source
   - openchami

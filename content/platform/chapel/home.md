@@ -9,6 +9,15 @@ priority: 9
 frontpage: true
 active: false
 date: 2026-04-05T11:31:31+01:00
+quickLinks:
+  - label: 'What is Chapel?'
+    url: '#what-is-chapel'
+  - label: 'Projects'
+    url: '#projects-powered-by-chapel'
+  - label: 'Chapel Website'
+    url: 'https://chapel-lang.org/'
+  - label: 'GitHub'
+    url: 'https://github.com/chapel-lang/chapel'
 tags:
   - chapel
 ---
