@@ -31,10 +31,80 @@ An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Serv
 
 We use the as MCP Server exposed Langflow Flow, manage the access and costs in LiteLLM and use OpenWebUI as Frontend to interact with it. Additionally we will create a sample Guardrail to block any Insults.
 
-
-
 ## Prerequisites
 
 This tutorial requires a feature available in newer Private Cloud AI versions—specifically the ezPresto MCP Server, supported since **AIE 1.12**. In addition we are using LiteLLM and OpenWebUI, new default Frameworks included since AIE 1.13/2026070. If you are working on an older version, you can import the frameworks as explained for LiteLLM [here. ](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)
 
-[](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)[](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)We expect an agentic Langflow Flow to be already existing. You can follow [this tutorial](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) in order to create one. For creating this sample Agent you will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in that linked instruction is using a GPU. You also need a **HuggingFace account** to deploy the LLM.
+We expect an agentic Langflow Flow to be already existing. You can follow [this tutorial](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) in order to create one. For creating this sample Agent you will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in that linked instruction is using a GPU. You also need a **HuggingFace account** to deploy the LLM.
+
+## Manage your Langflow Flow in LiteLLM as MCP Server
+
+Your Langflow should look similar to this, a project, can be the Starter Project or also another Project, has at least one flow with your agent in it.
+
+![Langflow Flow Overview](/img/langflow-flow-overview.png)
+
+When you open your flow you have a Chat Input, a Chat Output and something in between that is your Agent interaction. In our example we have an Agent with a custom RAG tool available, and a connection to the ezPresto MCP Server.
+
+![Flight Support Agent Flow](/img/flight-support-agent-flow.png)
+
+You can also use your own custom flow. Every Langflow Project is exposed as MCP Server per default. Each Flow in this Project is one tool available in the MCP Server. Navigate to your Project and instead of 'Flows' select 'MCP Server'. 
+
+![Flow Overview MCP Server](/img/flow-overview-mcp-server.png)
+
+This is the MCP Server we are about to use. If you are using the Starter Project you might want to enable Auth.
+
+When you want to edit the name or the description of the tools available in your MCP Server you can click Edit Tools in order to change those.
+
+![Langflow Edit Tools](/img/langflow-edit-tools.png)
+
+Within the 'JSON' configuration file for Transport Type 'Streamable HTTP' we can see the URL for our MCP Server. This information we need for later. Also when you click on Generate API Key it fills into the JSON a fresh created API Key. These two informations are needed for adding it into LiteLLM.
+
+![Langflow MCP Server URL](/img/langflow-mcp-server-url.png)
+
+Let's proceed to LiteLLM. Here we navigate to MCP Servers. In this example we already have a connection to the EzPresto MCP Server. 
+
+![LiteLLM MCP Servers](/img/litellm-mcp-servers.png)
+
+Let's add a new one, therefore click on the button 'Add New MCP Server'.  There are a few predefined, but we will need to create a custom one.
+
+![LiteLLM Add MCP Server](/img/litellm-add-mcp-server.png)
+
+Select 'Custom MCP Sever'. You can fill in a custom name and description for your MCP server, for example 'flightagent'. Please select for the Transport Type 'Streamable HTTP'.
+
+![LiteLLM Add Langflow MCP Server Transport Type](/img/litellm-add-langflow-mcp-server-transport-type.png)
+
+For the MCP Server URL we enter the URL we got from the JSON in Langflow. As Authentication we choose API Key and paste in the API Key we have generated within Langflow. The connection status should switch immediately to connected. You will see the tools listed, equalling the flows you have available in your Project, and can define in the Tool Configuration which of these tools can be called by a user. Within the Cost Configuration you can define a default cost for a Tool Call of this MCP Server.
+
+![LiteLLM Add Langflow MCP Server URL and API Key](/img/litellm-add-langflow-mcp-server-url-and-api-key.png)
+
+Regarding access you can manage your Teams within LiteLLM and add this new MCP Server to those teams. When creating a Virtual Key you can select within the Optional Settings in the MCP Settings which MCP Servers are allowed with this Virtual Key. Or you can allow the access to this MCP Server per default for all virtual keys. To achieve that click on the Permission Management/Access Control and toggle the 'Allow All LiteLLM Keys'. 
+
+![LiteLLM Add Langflow MCP Server Allow All Keys](/img/litellm-add-langflow-mcp-server-allow-all-keys.png)
+
+With this setting any Virtual Key you create will have access to this MCP Server. Let's click 'Add MCP Server'.
+
+## Interact with your Langflow Flow managed in LiteLLM via Open WebUI
+
+In order to interact with this MCP Server we can use a frontend, like for example Open WebUI. Therefore we need to add an integration. Let's go into Open WebUI -> Admin Panel. 
+
+![OpenWebUI Admin Panel](/img/openwebui-admin-panel.png)
+
+Go to Settings -> Integrations. Click on + to Add a Connection.
+
+![OpenWebUI Add Integration](/img/openwebui-integrations.png)
+
+Change the type to MCP Streamable HTTP add a custom name for example 'flightagent'. The URL is the endpoint of your LiteLLM, usually that would be https://litellm.YOURDOMAINNAME we need to append after that /NAMEOFYOURMCPSERVER/mcp . This results in our example into *https://litellm.YOURDOMAINNAIME/flightagent/mcp* . As Token add any virtualkey you have already created within LiteLLM or create a new one (Virtual Keys -> Create New Key). Click 'Save'.
+
+![OpenWebUI Add MCP Connection](/img/openwebui-add-mcp-connection.png)
+
+In order to now interact with this Agentflow we create a 'new Chat'. You can select a model to chat with, in this example we use a gpt-oss-120b deployed on the same Private Cloud AI, managed via LiteLLM. This can be any model with tool calling enabled. When you click Integrations under tools your add Integration should appear. Click the toggle to enable it for your chat message.
+
+![OpenWebUI new chat](/img/openwebui-new-chat.png)
+
+Now when we enter a chat message, for example 'Hi my name is John and I got downgraded on flight A105. What is my refund' the Langflow Flow is being executed and we get our chat output. In our case the Langflow Flow retrieves the refund policies from a VectorDB and combines this with executing the zePrestoMCP server for some more information on John, eg how much he paid for his ticket.
+
+![](/img/openwebui-chat-with-langflow-agent.png "OpenwebUI chat with Langflow Agent")
+
+This is great. Let's explore how we can add Guardrails to this flow.
+
+## Add a guardrail in LiteLLM
