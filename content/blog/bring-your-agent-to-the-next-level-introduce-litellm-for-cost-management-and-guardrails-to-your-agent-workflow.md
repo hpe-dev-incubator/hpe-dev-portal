@@ -46,10 +46,20 @@ Within LiteLLM navigate to MCP Servers. In this example we already have a connec
 
 ![](/img/litellm-add-mcp-server.png)
 
-
 Adapt the name of the MCP Server as well as the description if you want. Select the GitHub Logo as your Logo. The following fields 'Transport Type' and 'MCP Server URL' are already filled.
 
 ![](/img/litellm-github-mcp-server-logo.png)
+
+For Authentication select 'Bearer Token' and provide here your GitHub Personal Access Token. Within the Tool Configuration you can select which tools the user can call. How many and which tools you see here depends on what your MCP Server offers. In our case it depends also on the rights you assigned when you created the GitHub Personal Access Token. Feel free to remove for example all the Write and Delete Tools for now.
+
+![](/img/litellm-github-mcp-server.png)
+
+When providing access to the MCP server later you can assign a MCP Server for example to 'Teams' within LiteLLM. Or when creating a Virtual Key the access to the MCP Server can be granted. For now within Permission Control / Access Control toggle the Allow All LiteLLM Keys. With this setting any virtual key created will have access to this GitHub MCP Server.
+
+![](/img/litellm-github-mcp-server-all-virtual-keys.png)
+
+For a custom MCP Server follow the next section. If you are not familiar with Langflow yet feel free to continue with 'Interact with your MCP Server managed in LiteLLM via Open WebUI'.
+
 
 ### Advanced: A Langflow Flow
 
@@ -97,7 +107,7 @@ Regarding access you can manage your Teams within LiteLLM and add this new MCP S
 
 With this setting any Virtual Key you create will have access to this MCP Server. Let's click 'Add MCP Server'.
 
-## Interact with your Langflow Flow managed in LiteLLM via Open WebUI
+## Interact with your MCP Server managed in LiteLLM via Open WebUI
 
 In order to interact with this MCP Server we can use a frontend, like for example Open WebUI. Therefore we need to add an integration. Navigate to Open WebUI -> Admin Panel. 
 
@@ -107,7 +117,7 @@ Go to Settings -> Integrations. Click on + to Add a Connection.
 
 ![OpenWebUI Add Integration](/img/openwebui-integrations.png)
 
-Change the type to MCP Streamable HTTP add a custom name for example 'flightagent'. The URL is the endpoint of your LiteLLM, usually that would be https://litellm.YOURDOMAINNAME we need to append after that /NAMEOFYOURMCPSERVER/mcp . This results in our example into *https://litellm.YOURDOMAINNAIME/flightagent/mcp* . As Token add any virtualkey you have already created within LiteLLM or create a new one (Virtual Keys -> Create New Key). Click 'Save'.
+Change the type to MCP Streamable HTTP add a custom name for example 'flightagent'. The URL is the endpoint of your LiteLLM, usually that would be https://litellm.YOURDOMAINNAME we need to append after that /NAMEOFYOURMCPSERVER/mcp . This results in our example into *https://litellm.YOURDOMAINNAIME/github/mcp* OR for the Langflow example *https://litellm.YOURDOMAINNAIME/flightagent/mcp* . As Token add any virtualkey you have already created within LiteLLM or create a new one (Virtual Keys -> Create New Key). Click 'Save'.
 
 ![OpenWebUI Add MCP Connection](/img/openwebui-add-mcp-connection.png)
 
@@ -119,7 +129,9 @@ In order to interact with this Agentflow create a 'new Chat'. You can select a m
 
 ![OpenWebUI new chat](/img/openwebui-new-chat.png)
 
-Now enter a chat message, for example 'Hi my name is John and I got downgraded on flight A105. What is my refund' and the Langflow Flow is being executed. In this example the Langflow Flow retrieves the refund policies from a VectorDB and combines it with executing the *ezPrestoMCP* server for some more information on John, eg how much he paid for his ticket.
+Now enter a chat message, for example 'To which GitHub Repositories have we contributed?'. The model will use the configured GitHub MCP Server to solve this question. 
+
+Or for the Langflow flow a sample question could be 'Hi my name is John and I got downgraded on flight A105. What is my refund?' and the Langflow Flow is being executed. In this example the Langflow Flow retrieves the refund policies from a VectorDB and combines it with executing the *ezPrestoMCP* server for some more information on John, eg how much he paid for his ticket.
 
 ![](/img/openwebui-chat-with-langflow-agent.png "OpenwebUI chat with Langflow Agent")
 
