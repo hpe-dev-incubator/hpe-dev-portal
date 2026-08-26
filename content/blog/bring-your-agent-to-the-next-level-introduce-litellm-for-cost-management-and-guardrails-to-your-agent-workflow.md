@@ -1,6 +1,6 @@
 ---
-title: Bring your agent to the next level - Introduce LiteLLM for Cost
-  management and Guardrails to your Agent Workflow
+title: Bring your agent to the next level - Introduce LiteLLM for MCP Cost
+  management and Guardrails
 date: 2026-08-26T14:46:00.000Z
 featuredBlog: false
 author: Isabelle Steinhauser & Claudio Calderon
@@ -28,15 +28,30 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 ## Use Case
 
-An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents and Guardrails. This tutorial covers how to manage access and costs of an existing Agent, for example the Flight Support Agent or Citizen Passport agent, as described [here, ](<>)exposed as MCP Server in LiteLLM and use OpenWebUI as Frontend to interact with it. Additionally Guardrails are introduced.
+An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents and Guardrails. This tutorial covers how to manage access and costs to MCP Servers in LiteLLM, for example the GitHub MCP Server or a Langflow Flow like the Flight Support Agent or Citizen Passport agent, as described [here, ](<>)and use OpenWebUI as Frontend to interact with it. Additionally Guardrails are introduced.
 
 ## Prerequisites
 
 This tutorial requires a feature available in newer Private Cloud AI versions—specifically the ezPresto MCP Server, supported since **AIE 1.12**. In addition we are using LiteLLM and OpenWebUI, new default Frameworks included since **AIE 1.13/2026070**. If you are working on an older version, you can import the frameworks as explained for LiteLLM [here. ](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)
 
-this tutorial assumes the agentic Langflow Flow to be already existing. You can follow [this tutorial](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) in order to create one. For creating this sample Agent you will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in that linked instruction is using a GPU. You also need a **HuggingFace account** to deploy the LLM.
+This tutorial assumes you use the GitHub MCP Server which requires a **GitHub Account** and a Personal Access Token (you can create one in your User Settings -> Developer Settings). If you want to interact with this MCP Server you will need at least **1 free GPU** to deploy a **Large Language Model with tool-calling enabled**. If you are looking for a guide for deployment, you can leverage for example [this one](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow#mlis-setup-in-pcai). A **HuggingFace account** is required.
 
-## Manage a Langflow Flow in LiteLLM as MCP Server
+The more advanced example assumes an agentic Langflow Flow to be already existing. You can follow [this tutorial](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) in order to create one. For creating this sample Agent you will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in that linked instruction is using a GPU. You also need a **HuggingFace account** to deploy the LLM.
+
+## Managing a MCP Server in LiteLLM
+
+### A simple GitHub MCP Server
+
+Within LiteLLM navigate to MCP Servers. In this example we already have a connection to the EzPresto MCP Server. Let's create a new MCP Server. Select 'GitHub' from the options we are provided.
+
+![](/img/litellm-add-mcp-server.png)
+
+
+Adapt the name of the MCP Server as well as the description if you want. Select the GitHub Logo as your Logo. The following fields 'Transport Type' and 'MCP Server URL' are already filled.
+
+![](/img/litellm-github-mcp-server-logo.png)
+
+### Advanced: A Langflow Flow
 
 Your Langflow should look similar to this, a project, can be the Starter Project or also another Project, has at least one flow with your agent in it.
 
@@ -56,7 +71,7 @@ When you want to edit the name or the description of the tools available in your
 
 ![Langflow Edit Tools](/img/langflow-edit-tools.png)
 
-Within the 'JSON' configuration file for Transport Type 'Streamable HTTP' we can see the URL for our MCP Server. This information we need for later. Click on Generate API key in order to have a JSON with a fresh created API Key. These two informations are needed for adding it into LiteLLM in a later step.
+Within the 'JSON' configuration file for Transport Type 'Streamable HTTP' we can see the URL for our MCP Server. This information we need for later. Click on Generate API key in order to have a JSON with a fresh created API Key. These two informations are needed for adding it into LiteLLM.
 
 ![Langflow MCP Server URL](/img/langflow-mcp-server-url.png)
 
@@ -64,7 +79,7 @@ Let's proceed to LiteLLM. Navigate to MCP Servers. In this example we already ha
 
 ![LiteLLM MCP Servers](/img/litellm-mcp-servers.png)
 
-Let's add a new one, therefore click on the button 'Add New MCP Server'.  There are a few predefined, but we will need to create a custom one.
+Let's add a new one, therefore click on the button 'Add New MCP Server'.  There are a few predefined, like the GitHub one, but for Langflow create a custom one.
 
 ![LiteLLM Add MCP Server](/img/litellm-add-mcp-server.png)
 
@@ -135,8 +150,6 @@ In the next steps you can add specific patterns, samples like E Mail addresses o
 Without any further action the Guardrail immediately applies to all calls to our AI Gateway. The reason for this is the selection of Always on. Let's test it in Open WebUI. If you insult the Agent, your request will be blocked.
 
 ![OpenWebUI Request Blocked](/img/openwebui-request-blocked.png)
-
-
 
 This concludes the tutorial on how to bring your agent to the next level by introducing Tokenomics and Guardrails.
 
