@@ -2,7 +2,7 @@
 title: Bring your agent to the next level - Introduce LiteLLM for Cost
   management and Guardrails to your Agent Workflow
 date: 2026-08-26T14:46:00.000Z
-featuredBlog: true
+featuredBlog: false
 author: Isabelle Steinhauser & Claudio Calderon
 authorimage: /img/steinhauser_isabelle-copy-copy.jpg
 disable: false
@@ -12,6 +12,7 @@ tags:
   - LiteLLM
   - Agent
   - tutorial
+  - AI
 ---
 This article provides step by step instructions to enhance your existing Langflow Agent Flow with Guardrails and Cost Management via LiteLLM.
 
