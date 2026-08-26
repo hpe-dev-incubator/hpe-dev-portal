@@ -6,6 +6,12 @@ featuredBlog: false
 author: Isabelle Steinhauser & Claudio Calderon
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - hpe-private-cloud-ai
+  - Langflow
+  - LiteLLM
+  - Agent
+  - tutorial
 ---
 This article provides step by step instructions to enhance your existing Langflow Agent Flow with Guardrails and Cost Management via LiteLLM.
 
@@ -19,12 +25,16 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 [HPE AI Essentials (AIE)](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us) Software is the integrated software layer that provides the tools for building, deploying, and managing generative AI applications, including HPE MLIS. It provides a flexible **Import Framework** that enables organizations to deploy their own applications or third-party solutions, like Langflow.
 
-
-
 ## Use Case
 
 An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents and Guardrails. We use an existing Agent, created with a Langflow Flow, for example the Flight Support Agent or Citizen Passport agent, as described [here](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/).
 
-We will 
+We use the as MCP Server exposed Langflow Flow, manage the access and costs in LiteLLM and use OpenWebUI as Frontend to interact with it. Additionally we will create a sample Guardrail to block any Insults.
 
-An AI Agent can autonomously act leveraging tools provided. In our example the AI Agent gets triggered by a users chat message. As tools regular RAG (Retrieval Augmented Generation) will be provided for retrieving information out of a PDF and the ezPresto MCP (Model Context Protocol) Server that has tools available to retrieve information from a Database. There are two sets of sample data to choose from, one for a flight support agent to answer questions regarding refunds, and one for citizen passport queries, to answer questions around requested passports. In this tutorial we will take the flight support agent example. In order to use the Citizen Passport queries use the according [dataset](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-agent-langflow/data/passport).
+
+
+## Prerequisites
+
+This tutorial requires a feature available in newer Private Cloud AI versions—specifically the ezPresto MCP Server, supported since **AIE 1.12**. In addition we are using LiteLLM and OpenWebUI, new default Frameworks included since AIE 1.13/2026070. If you are working on an older version, you can import the frameworks as explained for LiteLLM [here. ](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)
+
+[](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)[](https://developer.hpe.com/blog/llm-observability-and-cost-management-on-hpe-private-cloud-ai/)We expect an agentic Langflow Flow to be already existing. You can follow [this tutorial](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) in order to create one. For creating this sample Agent you will need **at least 1 free GPU** in your platform or a model with tool calling enabled, that's already deployed. If you only have one free GPU you will need to switch to a CPU only embedding model, the one included in that linked instruction is using a GPU. You also need a **HuggingFace account** to deploy the LLM.
