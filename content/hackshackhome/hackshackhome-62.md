@@ -1,6 +1,6 @@
 ---
 title: "Building Network Analytics Visualizers with HPE APIs"
-active: true
+active: false
 fit: contain
 path: https://www.youtube.com/watch?v=T-XBFDkRfrg
 imageBackground: white
