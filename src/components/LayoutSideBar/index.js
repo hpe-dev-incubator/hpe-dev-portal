@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
-import { Header } from '../index';
 import './reset.css';
 import theme from './theme';
 
@@ -21,7 +20,6 @@ const LayoutSideBar = ({
           const isTablet = size === 'medium';
           return (
             <>
-              <Header />
               {heroContent && heroContent}
               <Box
                 className={layoutClassName}
