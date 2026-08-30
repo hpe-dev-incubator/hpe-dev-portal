@@ -173,7 +173,7 @@ export const pageQuery = graphql`
     allBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { featuredBlog: { ne: true }, disable: { ne: true } }
+        frontmatter: { disable: { ne: true } }
       }
       sort: { frontmatter: { date: DESC } }
     ) {
@@ -788,52 +788,6 @@ export const pageQuery = graphql`
       collection {
         id
       }
-    }
-    othersBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "others-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    othersBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          disable: { ne: true }
-          tags: {
-            nin: [
-              "opensource"
-              "hpe-ezmeral-container-platform"
-              "hpe-ezmeral"
-              "spiffe-and-spire-projects"
-              "hpe-ezmeral-data-fabric"
-              "hpe-greenlake"
-              "chapel"
-              "grommet"
-              "hpe-alletra"
-              "deep-learning-cookbook"
-              "hpe-3par-and-primera"
-              "hpe-nimble-storage"
-              "hpe-oneview"
-              "hpe-oneview-global-dashboard"
-              "ilo"
-              "data-services-cloud-console"
-              "determined-ai"
-              "cray"
-            ]
-          }
-        }
-      }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      totalCount
     }
   }
 `;
