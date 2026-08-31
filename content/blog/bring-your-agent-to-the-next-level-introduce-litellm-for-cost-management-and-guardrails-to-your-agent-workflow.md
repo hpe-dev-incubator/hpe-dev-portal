@@ -28,7 +28,7 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 ## Use Case
 
-An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents and Guardrails. This tutorial covers how to manage access and costs to MCP Servers in LiteLLM, for example the GitHub MCP Server or a Langflow Flow like the Flight Support Agent or Citizen Passport agent, as described [here, ](<>)and use OpenWebUI as Frontend to interact with it. Additionally Guardrails are introduced.
+An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents, and Guardrails. This tutorial covers how to manage access and costs to MCP Servers in LiteLLM. I will use the GitHub MCP Server or a Langflow Flow like the Flight Support Agent or Citizen Passport agent, as described [here, ](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) and use OpenWebUI as Frontend to interact with it as an example. Additionally, Guardrails are introduced.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Select 'Custom MCP Sever'. Fill in a custom name and description for your MCP se
 
 ![LiteLLM Add Langflow MCP Server Transport Type](/img/litellm-add-langflow-mcp-server-transport-type.png)
 
-For the MCP Server URL, enter the URL retrieved from the JSON in Langflow. For Authentication, choose API Key and paste in the API Key previously generated within Langflow. The connection status should switch immediately to connected. You will see the tools listed, being the flows you have available in your Project, and can define in the Tool Configuration which of these tools can be called by a user. Within the Cost Configuration define a default cost for a Tool Call of this MCP Server.
+For the MCP Server URL, enter the URL retrieved from the JSON in Langflow. For Authentication, choose API Key and paste in the API Key previously generated within Langflow. The connection status should immediately switch  to connected. You will see the tools listed, being the flows you have available in your Project, and can define in the Tool Configuration which of these tools can be called by a user. Within the Cost Configuration define a default cost for a Tool Call of this MCP Server.
 
 ![LiteLLM Add Langflow MCP Server URL and API Key](/img/litellm-add-langflow-mcp-server-url-and-api-key.png)
 
@@ -122,7 +122,7 @@ Append after that /NAMEOFYOURMCPSERVER/mcp . This results for this example into 
 
 ![OpenWebUI Add MCP Connection](/img/openwebui-add-mcp-connection.png)
 
-In order to interact with this Agentflow, create a 'new Chat'. You can select a model to chat with. In this example, we use a gpt-oss-120b deployed on the same Private Cloud AI, managed via LiteLLM.
+In order to interact with this Agentflow, create a 'new Chat'. You can select a model to chat with. In this example, I use a gpt-oss-120b deployed on the same Private Cloud AI, managed via LiteLLM.
 
 ![](/img/models-deployed-in-aie.png "Models deployed in HPEs Private Cloud AI")
 
@@ -142,7 +142,7 @@ This is great. What about adding Guardrails to this flow?
 
 ## Add a guardrail in LiteLLM
 
-Within LiteLLM navigate to Guardrails -> Guardrails and select 'Add New Guardrail'. Click on 'Add Provider Guardrail'.
+Within LiteLLM, navigate to Guardrails -> Guardrails and select 'Add New Guardrail'. Click on 'Add Provider Guardrail'.
 
 ![LiteLLM Add Provider Guardrail](/img/litellm-add-provider-guardrail.png)
 
@@ -150,7 +150,7 @@ You need to enter a Guardrail Name. Choose between several Guardrail Providers, 
 
 ![LiteLLM Create Guardrail](/img/litellm-create-guardrail.png)
 
-In order to proceed click Next. In this view select the Topics you want to block. There are several to choose from, as we want to block Insults select 'Insult & Personal Attacks'. When you select a Topic, you get a preview of the YAML that applies and contains several keywords that are blocked with this topic. Click the '+ Add' Button additionally in order to add this Topic to your Guardrail.
+In order to proceed, click Next. In this view select the Topics you want to block. There are several to choose from, as we want to block Insults select 'Insult & Personal Attacks'. When you select a Topic, you get a preview of the YAML that applies and contains several keywords that are blocked with this topic. Click the '+ Add' Button additionally in order to add this Topic to your Guardrail.
 
 ![LiteLLM Guardrail Topics](/img/litellm-guardrail-topics.png)
 
