@@ -78,22 +78,14 @@ window.HPEHF_CFG = {
       {title: 'Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Products',
         navLinks: [
           {title: 'All Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Products'},
-          {title: 'HPE Networking', href: 'https://developer.arubanetworks.com', newWindow: true, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Networking'},
+          {title: 'HPE Compute', href: '/platform/hpe-compute/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Compute'},
+          {title: 'HPE Networking', href: '/platform/hpe-networking/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Networking'},
+          {title: 'HPE Storage', href: '/platform/hpe-storage/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Storage'},
           {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
-          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'},
-          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
-          {title: 'HPE NonStop', href: '/platform/hpe-nonstop/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE NonStop'},
-          {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
-          {title: 'Morpheus', href: '/platform/morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Morpheus'},
           {title: 'HPE OpsRamp', href: '/platform/hpe-opsramp/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
-          {title: 'Zerto', href: '/platform/zerto/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Zerto'},
-          {title: 'HPE Alletra', href: '/platform/hpe-alletra/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Alletra'},
-          {title: 'HPE 3PAR and Primera', href: '/platform/hpe-3par-and-primera/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE 3PAR and Primera'},
-          {title: 'HPE Nimble Storage', href: '/platform/hpe-nimble-storage/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Nimble Storage'},
-          {title: 'HPE OneView', href: '/platform/hpe-oneview/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView'},
-          {title: 'HPE OneView Global Dashboard', href: '/platform/hpe-oneview-global-dashboard/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OneView Global Dashboard'},
-          {title: 'HPE SimpliVity', href: '/platform/hpe-simplivity/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE SimpliVity'},
-          {title: 'iLO RESTful API', href: '/platform/ilo-restful-api/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|iLO RESTful API'}
+          {title: 'HPE Morpheus', href: '/platform/morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Morpheus'},
+          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
+          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
         ]
       },
       {title: 'Learn', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Learn',

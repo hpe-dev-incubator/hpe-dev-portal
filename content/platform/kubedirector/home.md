@@ -8,6 +8,15 @@ width: large
 priority: 5
 date: 2021-12-05T11:31:31+01:00
 active: false
+quickLinks:
+  - label: 'Introduction'
+    url: '#introduction-to-kubedirector'
+  - label: 'GitHub'
+    url: '#github-repositories'
+  - label: 'Documentation'
+    url: '#documentation-and-tutorials'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - kubedirector
 ---

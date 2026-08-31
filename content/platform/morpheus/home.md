@@ -8,6 +8,15 @@ width: large
 priority: 7
 date: 2025-12-05T11:31:31+01:00
 active: true
+quickLinks:
+  - label: 'API Docs'
+    url: '#api-documentation'
+  - label: 'Plugin Portal'
+    url: '#plugin-developer-portal'
+  - label: 'Integrations'
+    url: '#morpheus-integrations'
+  - label: 'Morpheus Website'
+    url: 'https://morpheusdata.com/'
 tags:
   - morpheus
 ---

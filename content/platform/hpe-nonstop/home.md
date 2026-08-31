@@ -8,6 +8,13 @@ width: large
 priority: 6
 date: 2025-08-11T13:59:29+02:00
 active: true
+quickLinks:
+  - label: 'YouTube Videos'
+    url: '#youtube-videos'
+  - label: 'Resources'
+    url: '#resources'
+  - label: 'HPE NonStop'
+    url: 'https://www.hpe.com/us/en/servers/nonstop.html'
 tags:
   - hpe-nonstop
 ---
