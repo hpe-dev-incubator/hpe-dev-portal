@@ -304,7 +304,7 @@ These control who can do what:
 |---|---|
 | `hpe_morpheus_user` | A single user account. |
 | `hpe_morpheus_role` | A set of permissions, assignable to a user or a tenant. |
-| `hpe_morpheus_tenant` | A tenant — an isolated account — in a multi-tenant setup (more on this later). |
+| `hpe_morpheus_tenant` | A tenant — an isolated account — in a multi-tenant setup (covered in a future post). |
 
 ### Automation resources
 
@@ -726,28 +726,6 @@ reach.
 
 ---
 
-## A note on multitenancy
-
-Everything above assumes a single tenant, but the HPE provider also supports
-Morpheus's **multi-tenant** model. A "tenant" here means an isolated account
-within the same Morpheus appliance — think of it like separate customers or
-business units sharing one platform, each with their own users, clouds, and
-groups, but unable to see each other's resources. Resources like
-`hpe_morpheus_tenant`, tenant-scoped roles, and per-tenant clouds/groups/users
-let you set up several of these isolated tenants from one configuration.
-
-There's real nuance here — in the `HPE/hpe` provider's account model, Morpheus
-tenancy is *flat* (sub-tenants aren't nested under whichever tenant created
-them), while roles marked as multi-tenant can be propagated from a master
-tenant. That's enough complexity that it deserves its own dedicated post.
-(Worth noting: the Morpheus platform itself now supports **True N-Tier /
-recursive** multi-tenancy as of Enterprise **v8.1.0**, and the provider's
-schema may not have fully caught up yet.) We won't go further into it here —
-just treat multitenancy as a *"yes, this scales to many tenants"* footnote, and
-a pointer toward a future, dedicated walkthrough.
-
----
-
 ## A follow-up: Morpheus, MCP, and GreenLake Intelligence
 
 This post focuses on building a solid foundation with the `HPE/hpe`
@@ -804,3 +782,4 @@ You can be up and running in a few minutes:
 Then describe the next thing you want, review what comes back, and let that
 feedback loop do the rest. Give it a try on a small change today — and if you
 build something worth sharing, let me know how it went.
+
