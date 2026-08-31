@@ -28,7 +28,7 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 ## Use Case
 
-An AI Gateway like LiteLLM can not only manage Model Ednpoints but also MCP Servers, Agents, and Guardrails. This tutorial covers how to manage access and costs to MCP Servers in LiteLLM. I will use the GitHub MCP Server or a Langflow Flow like the Flight Support Agent or Citizen Passport agent, as described [here, ](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) and use OpenWebUI as Frontend to interact with it as an example. Additionally, Guardrails are introduced.
+An AI Gateway like LiteLLM can not only manage Model Endpoints but also MCP Servers, Agents, and Guardrails. This tutorial covers how to manage access and costs to MCP Servers in LiteLLM. I will use the GitHub MCP Server or a Langflow Flow like the Flight Support Agent or Citizen Passport agent, as described [here, ](https://developer.hpe.com/blog/hpe-private-cloud-ai-build-your-first-agent/) and use OpenWebUI as Frontend to interact with it as an example. Additionally, Guardrails are introduced.
 
 ## Prerequisites
 
