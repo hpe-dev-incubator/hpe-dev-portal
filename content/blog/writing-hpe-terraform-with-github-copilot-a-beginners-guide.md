@@ -11,6 +11,7 @@ tags:
   - opentou
   - automation
   - AI
+  - tutorial
 ---
 
 > This post is an introduction to using GitHub Copilot as a coding assistant
