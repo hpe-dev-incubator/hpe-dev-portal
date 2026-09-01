@@ -13,12 +13,12 @@ tags:
   - AI
 ---
 
-This post is an introduction to using GitHub Copilot as a coding assistant
+> *This post is an introduction to using GitHub Copilot as a coding assistant
 while you write [`HPE/hpe`](https://registry.terraform.io/providers/HPE/hpe/latest)
 Terraform configuration. It takes you from an empty folder to a successful
 `terraform plan`. The post is for people who are still learning Terraform or
 OpenTofu, so it explains terms as they appear. It also shows how to check the
-assistant's output against provider documentation.
+assistant's output against provider documentation.*
 
 > **Sources.** Everything below is checked against the official
 > [`HPE/hpe` provider documentation](https://registry.terraform.io/providers/HPE/hpe/latest/docs)
