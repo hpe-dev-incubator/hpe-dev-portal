@@ -6,11 +6,11 @@ authorimage: https://gravatar.com/artisannoisy16ee8f8ec1
 thumbnailimage: https://gravatar.com/artisannoisy16ee8f8ec1
 disable: false
 tags:
-- morpheus
-- terraform
-- opentou
-- automation
-- AI
+  - morpheus
+  - terraform
+  - opentou
+  - automation
+  - AI
 ---
 
 This post is an introduction to using GitHub Copilot as a coding assistant
@@ -763,4 +763,4 @@ To try the workflow:
 Then describe the next change, review the response, and repeat the process.
 Start with a small change and share what you learn.
 
-
+Please keep coming back to the [`HPE Developer Community blog`](https://developer.hpe.com/blog/) to learn more about HPE terraform provider and get more ideas on how you can use it in your everyday operations.
