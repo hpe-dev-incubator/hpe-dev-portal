@@ -3,7 +3,7 @@ title: "Writing HPE Terraform with GitHub Copilot: A Beginner's Guide"
 date: 2026-08-31T10:06:00.000Z
 author: John Lenihan
 authorimage: https://gravatar.com/avatar/1cca11a22ad8226d15aa4dcaf27c28ea?s=96
-thumbnailimage: https://gravatar.com/avatar/1cca11a22ad8226d15aa4dcaf27c28ea?s=96
+thumbnailimage: ""
 disable: false
 tags:
   - morpheus
