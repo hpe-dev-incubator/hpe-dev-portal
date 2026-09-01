@@ -6,85 +6,78 @@ authorimage: https://gravatar.com/artisannoisy16ee8f8ec1
 thumbnailimage: https://gravatar.com/artisannoisy16ee8f8ec1
 disable: false
 ---
-# Writing HPE Terraform with GitHub Copilot: A Beginner's Guide
+# Writing HPE Terraform with GitHub Copilot: A beginner's guide
 
 *This post is an introduction to using GitHub Copilot as a coding assistant
 while you write [`HPE/hpe`](https://registry.terraform.io/providers/HPE/hpe/latest)
-Terraform configuration — from an empty folder to a successful `terraform plan`.
-It's written for people who are still getting comfortable with Terraform or
-OpenTofu, so we'll explain terms as we go. Along the way, we'll also cover how
-to check what the assistant writes against real provider documentation, rather
-than just trusting it.*
+Terraform configuration. It takes you from an empty folder to a successful
+`terraform plan`. The post is for people who are still learning Terraform or
+OpenTofu, so it explains terms as they appear. It also shows how to check the
+assistant's output against provider documentation.*
 
 > **Sources.** Everything below is checked against the official
 > [`HPE/hpe` provider documentation](https://registry.terraform.io/providers/HPE/hpe/latest/docs)
 > and its source code repository,
 > [`HPE/terraform-provider-hpe`](https://github.com/HPE/terraform-provider-hpe).
-> Provider details change between versions, so always check the docs for the
+> Provider details change between versions, so always check the documentation for the
 > version you're actually using before you apply anything.
 
 ---
 
-## The challenge: there's a lot to remember
+## The challenge: many details to remember
 
-If you've started writing Terraform for a real provider, you've probably hit
-this problem: providers have a *lot* of resources, and each resource has its
-own long list of precisely spelled attribute names. The `HPE/hpe` provider,
-which manages Morpheus (HPE's cloud management platform), is no exception —
-names like `provision_type_code`, `default_group_access`, and
-`password_wo_version` aren't things anyone just remembers. They also change
-between provider versions.
+Terraform providers can have many resources. Each resource has a long list of
+precisely spelled attribute names. The `HPE/hpe` provider,
+which manages HPE Morpheus Enterprise Software, is no exception. Names such as
+`provision_type_code`, `default_group_access`, and
+`password_wo_version` are difficult to remember. They can also change between
+provider versions.
 
 In practice, this means a lot of switching back and forth between your editor
 and the documentation: copying an example, running a check, seeing an
-`Unsupported argument` error, and fixing it. An AI coding assistant like
-GitHub Copilot can take over a lot of that repetitive back-and-forth. But
-here's the catch: if you don't give it the right information to work from, it
-can just as easily suggest an attribute that *sounds* right but doesn't
-actually exist in your provider version.
+`Unsupported argument` error, and fixing it. An AI coding assistant such as
+GitHub Copilot can reduce that repetitive work. However, without the right
+information, it can suggest an attribute that sounds correct but doesn't exist
+in your provider version.
 
 This post shows how to use Copilot to write the repetitive parts of your
-configuration, while you keep checking its suggestions against real provider
-sources — so the `.tf` files you end up with actually work.
+configuration. You check its suggestions against provider sources so that the
+resulting `.tf` files work as expected.
 
 ---
 
 ## What do we mean by "AI-assisted" infrastructure code?
 
-First, a quick primer if you're new to this: **Terraform** (and its
-open-source sibling **OpenTofu**) let you describe infrastructure — servers,
-networks, user accounts, and so on — as plain text configuration files, using
-a language called HCL. Instead of clicking through a web console, you write
-down what you *want to exist*, and Terraform figures out how to make it so.
-This general approach is called "infrastructure as code."
+**Terraform** and its open-source sibling **OpenTofu** let you describe
+infrastructure, including servers, networks, and user accounts, in plain text
+configuration files. These files use HashiCorp Configuration Language (HCL).
+Instead of selecting options in a web console, you describe the resources that
+you want. Terraform then determines how to create them. This approach is called
+"infrastructure as code."
 
-In an AI-assisted workflow, you describe what you need in plain English, and
-the assistant drafts a first version of the configuration for you. You then
-read through what it produced, correct anything that's off, and use
-Terraform's own commands to check the result. Terraform happens to be a great
-fit for this kind of back-and-forth, for three reasons:
+In an AI-assisted workflow, you describe what you need in plain English. The
+assistant drafts the first version of the configuration. You review and
+correct its output, and then use Terraform commands to check the result.
+Terraform works well for this process for three reasons:
 
-- **It's declarative.** You describe the end result you want, not a list of
-  steps to get there. That maps naturally onto a plain-language request like
-  *"give me a Morpheus group and a VMware cloud inside it."*
-- **It's checkable.** Two built-in commands, `terraform validate` and
-  `terraform plan`, give you (and the assistant) a fast, reliable way to know
-  whether the configuration actually works — before anything is created for
-  real.
-- **It's well documented.** Providers publish machine-readable schemas
-  (precise descriptions of every resource and attribute) and generated docs,
-  so an assistant that's pointed at the right source can look up the *exact*
-  attribute name instead of guessing.
+- **Declarative configuration.** You describe the end result, not a list of
+  steps to get there. That maps naturally onto a plain-language request such as
+  *"give me an infrastructure group and a VMware cloud inside it."*
+- **Built-in checks.** The `terraform validate` and `terraform plan` commands
+  check whether the configuration works before Terraform creates resources.
+- **Detailed documentation.** Providers publish machine-readable schemas and
+  generated documentation. These sources describe each resource and
+  attribute, so the assistant can use exact names instead of guessing.
 
 None of this replaces your own judgment. The assistant helps with the
 repetitive, syntax-heavy parts of the job. You're still the one deciding
 things like which cloud type, which permissions, and which tenant are
 actually correct for your situation.
 
-This post uses the **HPE Terraform provider** (`HPE/hpe`) as its running
-example. It's HPE's single, actively developed provider, and it's gradually
-replacing the older `gomorpheus/morpheus` provider. GitHub Copilot plays the
-role of pair-programmer throughout.
+This post uses the **HPE Terraform provider** (`HPE/hpe`) for its examples.
+This actively developed provider is gradually replacing the older
+`gomorpheus/morpheus` provider. GitHub Copilot provides coding assistance
+throughout the examples.
 
 ---
 
@@ -98,30 +91,28 @@ to work in, and an assistant that has enough context to be useful.
 - **Terraform 1.11 or later, *or* OpenTofu 1.11 or later.** The `HPE/hpe`
   provider is published to both the
   [Terraform Registry](https://registry.terraform.io/providers/HPE/hpe/latest)
-  and the [OpenTofu Registry](https://search.opentofu.org/provider/hpe/hpe/latest),
-  and it works the same way with either one — they both speak the same
-  provider plugin protocol under the hood. This minimum version is also needed
-  for features used later in the article, including the write-only password
-  field on `hpe_morpheus_user`.
+  and the [OpenTofu Registry](https://search.opentofu.org/provider/hpe/hpe/latest).
+  It works with either tool because both use the same provider plugin protocol.
+  This minimum version is also needed for features used later in the article,
+  including the write-only password field on `hpe_morpheus_user`.
 - **GitHub Copilot** — in your editor (VS Code, JetBrains, Neovim, and so on)
-  and/or the **Copilot CLI** in your terminal, if you'd rather work
+  or the **Copilot CLI** in your terminal, if you'd rather work
   conversationally.
 - **The HPE Terraform provider itself**, declared in a `required_providers`
   block (you'll see one below). Terraform (or OpenTofu) downloads it
-  automatically the first time you run `terraform init` / `tofu init`.
+  automatically the first time you run `terraform init` or `tofu init`.
 
 > **Terraform or OpenTofu — does it matter?** Not really, for the purposes of
 > this post. We say "Terraform" throughout to keep things simple, but
 > everything here applies equally to OpenTofu: the same `HPE/hpe` provider,
-> the same configuration files, the same feedback loop. Just swap the command
+> the same configuration files, and the same review cycle. Swap the command
 > name (`terraform validate` becomes `tofu validate`, and so on). Use whichever
 > your team has already standardized on.
 
 ### 2. Scaffold the project
 
-"Scaffolding" just means setting up the basic file layout before you write any
-real configuration. Ask Copilot to do this and you'll typically get something
-like:
+"Scaffolding" means setting up the basic file layout before you write the
+configuration. Ask Copilot to create this structure:
 
 ```
 .
@@ -132,29 +123,27 @@ like:
 └── terraform.tfvars   # your (gitignored) values
 ```
 
-The trick to a good first prompt is being specific about **provider, version,
-and what you actually want**:
+A useful first prompt specifies the **provider, version, and required
+resources**:
 
-> *"Scaffold a Terraform project using the HPE/hpe provider (v1.5+) that connects
-> to a Morpheus appliance. Put the provider config in versions.tf, take the URL
-> and an access token from variables, and support a toggle for self-signed
-> certs."*
+> *"Scaffold a Terraform project using version 1.5.0 or later of the HPE/hpe
+> provider. Connect it to an HPE Morpheus Enterprise Software appliance. Put
+> the provider configuration in versions.tf. Take the URL and an access token
+> from variables, and support a setting for self-signed certificates."*
 
 ### 3. Give the assistant the right context
 
-If there's one thing that makes the biggest difference to output quality,
-it's **context** — the information you give the assistant before asking it to
-generate anything. Before you start:
+**Context** is the information you give the assistant before asking it to
+generate configuration. Better context improves the output. Before you start:
 
 - Open (or point Copilot at) any `.tf` files you already have, so it follows
   your existing conventions instead of inventing new ones.
 - Tell it the **exact provider version** you're using. Attribute names and
   requirements change between versions — saying "the HPE provider" is vague,
   but "`HPE/hpe` 1.5.0" isn't.
-- Mention any **quirks of your environment** up front — for example, *"the
-  appliance has a self-signed certificate"* — so the generated configuration
-  includes `insecure = true` from the start, instead of failing the first time
-  you try to apply it.
+- Mention any **environment details** in the prompt. For example, state that
+  *"the appliance has a self-signed certificate."* The generated configuration
+  can then include `insecure = true` before you try to apply it.
 
 ### 4. Initialize and validate
 
@@ -164,65 +153,58 @@ terraform validate  # type-checks the configuration
 terraform plan      # shows what would change (read-only)
 ```
 
-Think of `validate` and `plan` as your safety net. `validate` checks that your
+Use `validate` and `plan` as verification steps. `validate` checks that your
 configuration is syntactically correct and that every attribute you've used
 actually exists on that resource. `plan` goes further: it shows you exactly
 what Terraform *would* create, change, or destroy — without actually doing
-it. In a CLI-based workflow, Copilot can run these commands itself and read
-the output, so a misspelled attribute gets caught and fixed within seconds,
-long before anything reaches your real appliance.
+it. In a command-line interface (CLI) workflow, Copilot can run these commands
+and read the output. It can then correct a misspelled attribute before the
+configuration reaches the appliance.
 
 ---
 
 ## How to double-check what the assistant writes
 
 An AI-generated configuration can include a resource type or attribute that
-*looks* completely reasonable but simply isn't supported by the provider
-version you're using. The safest habit is to check each thing you're unsure
-about against a real source, and then let the Terraform toolchain confirm the
-whole configuration. Here's a practical pecking order for where to look,
-starting with what's most reliable.
+looks reasonable but isn't supported by the provider version you're using.
+Check uncertain details against a reliable source. Then use the Terraform
+toolchain to confirm the complete configuration. Use the following sources in
+order, starting with the most reliable.
 
 ### 1. Your own codebase (check here first)
 
 Before looking anywhere else, look at the `.tf` files already in your
-project. If your repository already uses `hpe_morpheus_task_shell_script` a
-particular way, that working example beats any outside documentation — it's
-real, it matches the provider version you're actually running, and it follows
-your team's own conventions. Search your own repo before searching the web.
+project. An existing use of `hpe_morpheus_task_shell_script` confirms how your
+team uses the resource. It also matches the provider version and conventions
+in your repository. Search your repository before searching the web.
 
-### 2. The GitHub MCP server — reading the provider's source directly
+### 2. The GitHub MCP server: read the provider source directly
 
-You may not have run into **MCP** before: it stands for
-[Model Context Protocol](https://modelcontextprotocol.io/), and it's a way of
-giving an AI assistant *tools* to use, not just text to read. The **GitHub MCP
-server** is one such tool — it lets Copilot read files and search code
-directly inside the `HPE/terraform-provider-hpe` repository. That means it
-can open the generated documentation for the exact resource you're asking
-about — say, `docs/resources/morpheus_cloud.md` — and copy the attribute
-names straight from the provider's own source tree, instead of relying on
-memory. Reading the definition directly from the provider's repository is the
-difference between *assuming* an attribute is called `group_id` and actually
-confirming it.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) gives an AI
+assistant controlled access to tools and information. The **GitHub MCP server**
+lets Copilot read files and search code in the
+`HPE/terraform-provider-hpe` repository. For example, it can open the generated
+documentation in `docs/resources/morpheus_cloud.md`. It can then confirm
+whether an attribute is called `group_id`.
 
-### 3. The official docs and the Terraform Registry
+### 3. Official documentation and the Terraform Registry
 
 The [Terraform Registry](https://registry.terraform.io/providers/HPE/hpe/latest/docs)
-publishes that same generated schema, along with — importantly — the
-**provider version** each attribute belongs to, plus hand-written guides for
-migration and examples. If your question is "does version 1.5.0 support X?",
-the Registry (which is pinned to a specific version) has a real answer, in a
-way that an AI model's general memory simply can't.
+publishes the same generated schema. It also identifies the **provider
+version** for each attribute and includes written guides for migration and
+examples. Use the Registry for version-specific questions, such as whether
+version 1.5.0 supports an attribute.
 
-### 4. A targeted web search — for anything that moves quickly
+### 4. A targeted web search for updated information
 
-Some details — the shape of a REST API response, a recent behavior change, an
-error message you've never seen before — live outside the provider's own
-docs. A focused search of official HPE documentation can fill those gaps.
+Some details, such as the shape of an application programming interface (API)
+response, a recent behavior change, or an unfamiliar error message, are outside
+the provider documentation. A focused search of official HPE documentation can
+fill those gaps.
 Stick to first-party sources where you can, and treat anything you find as a
 claim that still needs to be checked, not a settled fact.
 
-### 5. Prove it with the toolchain
+### 5. Verify it with the toolchain
 
 Reading the source material tells you the code *should* be correct; running
 the toolchain tells you whether the whole configuration actually *is*:
@@ -241,28 +223,27 @@ there is one, fix it, and validate again.
 
 ### The underlying principle
 
-> Ground every resource definition in a real source — your own code, the
-> provider source via MCP, or the versioned docs — and then let
-> `validate`/`plan` confirm it works. Confidence comes from **checking a
+> Verify every resource definition against a reliable source: your code, the
+> provider source by using MCP, or the versioned documentation. Then let
+> `validate` and `plan` confirm that it works. Confidence comes from **checking a
 > source and then verifying it**, never from an AI model's memory alone.
 
-Working this way makes AI-assisted infrastructure code more trustworthy: every
-generated resource can be traced back to a real definition, and checked with
-exactly the same tools you'd use if you'd typed it all by hand.
+This process makes AI-assisted infrastructure code more trustworthy. You can
+trace each generated resource to a real definition and check it with the same
+tools used for manually written configuration.
 
 ---
 
 ## The basic building blocks
 
-Most Morpheus configurations are built from a fairly small set of resource
-types. Once you (and the assistant) know these, most requests just become
-different combinations of the same pieces.
+Most configurations for the platform use a small set of resource types. Once
+you know these types, you can combine them to meet different requirements.
 
 ### The provider block
 
-Everything starts here. In Terraform, a **provider** is the plugin that knows
-how to talk to a particular system — in this case, Morpheus. Morpheus-related
-resources live inside a `morpheus {}` block on the `hpe` provider:
+Start with the provider block. In Terraform, a **provider** is the plugin that
+communicates with a particular system. Resources for HPE Morpheus Enterprise
+Software use a `morpheus {}` block on the `hpe` provider:
 
 ```terraform
 terraform {
@@ -280,7 +261,7 @@ provider "hpe" {
   morpheus {
     url          = var.morpheus_url
     access_token = var.morpheus_access_token
-    insecure     = var.morpheus_insecure # true for self-signed certs
+    insecure     = var.morpheus_insecure # true for self-signed certificates
   }
 }
 ```
@@ -291,10 +272,10 @@ These are the resources that describe where things live:
 
 | Resource | What it is |
 |---|---|
-| `hpe_morpheus_group` | An infrastructure group — think of it as a folder that organizes clouds and instances. |
-| `hpe_morpheus_cloud` | A connection to an actual cloud environment (for example HPE VME/HVM, or VMware). |
+| `hpe_morpheus_group` | An infrastructure group that organizes clouds and instances. |
+| `hpe_morpheus_cloud` | A connection to a cloud environment, such as HPE VM Essentials or VMware. |
 | `hpe_morpheus_network` | A network attached to a cloud. |
-| `hpe_morpheus_service_plan` | A sizing plan — the CPU, memory, and storage that instances get provisioned with. |
+| `hpe_morpheus_service_plan` | A sizing plan for the processor, memory, and storage assigned to instances. |
 
 ### Identity and access resources
 
@@ -308,21 +289,20 @@ These control who can do what:
 
 ### Automation resources
 
-These let Morpheus do things on a schedule or in response to events:
+These resources let the platform run tasks on a schedule or in response to events:
 
 | Resource | What it is |
 |---|---|
-| `hpe_morpheus_task_shell_script` / `_python_script` / `_powershell_script` | A task that runs a script, either on a guest machine or on the appliance itself. |
-| `hpe_morpheus_workflow_operational` / `_provisioning` | A workflow that chains several tasks together. |
+| `hpe_morpheus_task_shell_script`, `_python_script`, and `_powershell_script` | Tasks that run scripts on a guest machine or the appliance. |
+| `hpe_morpheus_workflow_operational` and `_provisioning` | Workflows that connect several tasks. |
 | `hpe_morpheus_execute_schedule` | A schedule that decides when a job runs. |
 | `hpe_morpheus_job_workflow` | A job that connects a workflow to a target and, optionally, a schedule. |
 
 ### Data sources: look things up, don't recreate them
 
-If something already exists — say, a cloud your team set up months ago — you
-don't want Terraform trying to create it again. Instead, use a **data
-source**: a read-only lookup that finds an existing object by name and gives
-you its ID, so you can reference it from your own resources:
+If a resource already exists, you don't want Terraform to create it again.
+Instead, use a **data source**. This read-only lookup finds an existing object
+by name and provides its identifier (ID) for other resources:
 
 ```terraform
 data "hpe_morpheus_cloud" "existing" {
@@ -336,18 +316,19 @@ resource "hpe_morpheus_group" "payments" {
 ```
 
 This example looks up an existing cloud and gives a new group access to it.
-That's the basic pattern behind the AI-assisted workflow: describe the
-structure you want, ask the assistant for a starting point, check it, and
-review the plan before you apply anything.
+This is the basic AI-assisted workflow. Describe the structure, ask the
+assistant for a starting point, check the configuration, and review the plan
+before applying it.
 
 ---
 
-## Authentication: username/password or access token?
+## Authentication: username and password or access token?
 
-The `HPE/hpe` provider supports username/password and access-token
-authentication for a Morpheus appliance. Both need the appliance's `url`, and
+The `HPE/hpe` provider supports authentication by username and password or by
+access token. Both methods need the appliance's `url`, and
 both accept an `insecure = true` setting if your appliance uses a self-signed
-(untrusted) TLS certificate. Newer provider versions also support identity
+(untrusted) Transport Layer Security (TLS) certificate. Newer provider
+versions also support identity
 options for HPE Private Cloud Enterprise deployments; check the authentication
 guide for the provider version you're using.
 
@@ -363,8 +344,8 @@ provider "hpe" {
 }
 ```
 
-- **Good for:** simplicity — there's no token to generate ahead of time.
-- **Watch out for:** these are *standing* credentials — long-lived and
+- **Benefit:** There's no token to generate in advance.
+- **Consideration:** These are *standing* credentials — long-lived and
   powerful. If they leak, whoever has them can do anything that account can
   do, until the password gets changed. Never write them directly into a
   `.tf` file; load them from variables backed by a secrets manager or
@@ -383,19 +364,20 @@ provider "hpe" {
 }
 ```
 
-- **Good for:** it keeps your username and password out of the Terraform
+- **Benefit:** It keeps your username and password out of the Terraform
   configuration and can be revoked or rotated independently. This is usually
-  the better option for automated pipelines and CI/CD.
-- **Watch out for:** a token is still a credential. Its lifetime and effective
-  permissions depend on your Morpheus configuration and the account that
+  the better option for automated pipelines and continuous integration and
+  continuous delivery (CI/CD).
+- **Consideration:** A token is still a credential. Its lifetime and effective
+  permissions depend on the platform configuration and the account that
   created it, so store and rotate it as carefully as a password.
 
 ### So which should you use?
 
-For quick, interactive experimentation on your own machine, username/password
-may be the simplest option. For **anything automated or shared** — pipelines,
-scheduled jobs, or a team environment — prefer an **access token**, so your
-primary username and password stay out of the configuration.
+For interactive experiments on your own machine, a username and password might
+be the simplest option. For automated or shared uses, such as pipelines,
+scheduled jobs, or team environments, prefer an **access token**. This keeps
+your primary username and password out of the configuration.
 
 Whichever one you choose, the same basic rules apply. It's worth stating
 these to your assistant explicitly, so it never quietly writes a secret
@@ -415,15 +397,16 @@ Individual building blocks are easy to understand on their own. The real
 value shows up when you combine them. Here's a more involved, realistic
 request you might hand to the assistant:
 
-> *"Stand up a self-service environment for the **Payments** team: their own
-> infrastructure group on our existing HVM cloud, a dedicated network, a
-> memory-optimised service plan, a locked-down role, two users, and a nightly
-> housekeeping workflow that runs a shell task. Add the existing cloud to the
-> group rather than recreate it, keep all credentials in variables, and schedule
-> the workflow for 02:00."*
+> *"Create a self-service environment for the **Payments** team: their own
+> infrastructure group on our existing HPE VM Essentials cloud, a dedicated
+> network, a memory-optimized service plan, and a restricted role. Add two users
+> and a nightly housekeeping workflow that runs a shell task. Add the existing
+> cloud to the group rather than recreate it, keep all credentials in variables,
+> and schedule the workflow for 2 a.m. UTC."*
 
 That one request touches almost every building block from the previous
-section. A well-grounded assistant turns it into something like this:
+section. The provider uses HVM identifiers for HPE VM Essentials resources. An
+assistant that uses verified sources produces configuration like this:
 
 ```terraform
 # --- versions.tf ---
@@ -498,8 +481,8 @@ resource "hpe_morpheus_network" "payments" {
 }
 
 resource "hpe_morpheus_service_plan" "payments_mem" {
-  name                = "payments-mem-optimised"
-  code                = "payments-mem-optimised"
+  name                = "payments-mem-optimized"
+  code                = "payments-mem-optimized"
   provision_type_code = "kvm"
   max_memory          = 16 * 1024 * 1024 * 1024  # 16 GB, in bytes
   max_storage         = 100 * 1024 * 1024 * 1024 # 100 GB, in bytes
@@ -507,7 +490,7 @@ resource "hpe_morpheus_service_plan" "payments_mem" {
   max_cores           = 4
 }
 
-# 2. Identity & access: a scoped role and two users.
+# 2. Identity and access: a scoped role and two users.
 resource "hpe_morpheus_role" "payments_dev" {
   name        = "payments-developer"
   description = "Provision and manage instances in the Payments group"
@@ -587,20 +570,20 @@ resource "hpe_morpheus_job_workflow" "nightly_housekeeping" {
 ```
 
 The network type and its `config` settings are inputs because they depend on
-the cloud and network integration configured in your Morpheus appliance. Look
+the cloud and network integration configured in the platform appliance. Look
 up the supported network type and its required settings before supplying those
-values in `terraform.tfvars`. Using an input here avoids presenting an
-environment-specific numeric ID as though it were universal.
+values in `terraform.tfvars`. Using an input avoids presenting an
+environment-specific numeric ID as a universal value.
 
-Notice a few things the assistant *didn't* do: it didn't invent the cloud
-from scratch (it looked it up with a data source), it didn't write the token
-or either user's password directly into the file, and every ID is wired
-through a reference rather than typed out as a literal value. The two users
-also use the provider's **write-only** `password_wo` attribute — a value that
-Terraform or OpenTofu sends to Morpheus but never saves in its own state file,
-which needs Terraform 1.11 or later or OpenTofu 1.11 or later. Those habits are
-exactly what checking sources instead of guessing gets you — and, in fact, this
-whole block passes `terraform validate` against `HPE/hpe` as written.
+The assistant looks up the cloud with a data source instead of creating it. It
+doesn't write the token or either user's password directly into the file.
+Every ID uses a reference instead of a literal value.
+
+The two users also use the provider's **write-only** `password_wo` attribute.
+Terraform or OpenTofu sends this value to the platform but never saves it in
+the state file. This attribute requires Terraform 1.11 or later or OpenTofu
+1.11 or later. The complete block passes `terraform validate` against
+`HPE/hpe` as written.
 
 ### What that example builds
 
@@ -646,19 +629,18 @@ graph TB
   SCHED -->|execution_schedule_id| JOB
 ```
 
-The solid arrows are hard references — Terraform's dependency graph makes
-sure it creates the cloud lookup, the role, the task, the workflow, and the
-schedule *before* whatever depends on them. The four tiers — the **existing**
-cloud, the **structural** group/network/plan, **identity** (role and users), and
-**automation** (task/workflow/schedule/job) — stack top-to-bottom in the
-diagram, which roughly matches the order Terraform creates them in. (The
-Payments group also logically *scopes* the network and users; that relationship
-is left off the diagram to keep the arrows readable.)
+The solid arrows are references. Terraform's dependency graph creates the
+cloud lookup, role, task, workflow, and schedule before the resources that
+depend on them. The diagram has four tiers: the **existing** cloud; the
+**structural** group, network, and plan; **identity**, with a role and users;
+and **automation**, with a task, workflow, schedule, and job. This order
+approximately matches the resource creation order. The diagram omits the
+Payments group's relationship to the network and users to keep it readable.
 
 ### A closer look at the role
 
-The first draft of that role was actually a little *too* bare-bones — just a
-`name` and a `description`:
+The first draft of that role was too limited. It had only a `name` and a
+`description`:
 
 ```terraform
 resource "hpe_morpheus_role" "payments_dev" {
@@ -667,23 +649,21 @@ resource "hpe_morpheus_role" "payments_dev" {
 }
 ```
 
-That's valid Terraform — it passes `validate` just fine — but it's
-misleading. The description *promises* group-scoped, provision-only access,
-but nothing in the resource actually enforces it. `name` is the only
-required attribute, so you'd end up with a role that just gets whatever
-defaults the provider happens to apply — the "…within the Payments group
-only" part is just a comment, as far as the API is concerned. This is exactly
-the kind of gap that checking the real schema uncovers: it turns out the role
-resource has a lot more to offer.
+This configuration is valid Terraform and passes `validate`, but it's
+misleading. The description states that access is restricted to a group and
+provisioning tasks, but the resource doesn't enforce those limits. Because
+`name` is the only required attribute, the provider applies its defaults. The
+phrase "within the Payments group only" has no effect on the API. Checking the
+schema reveals the additional settings needed to enforce the restrictions.
 
 The `hpe_morpheus_role` resource has two things worth understanding:
 
 - **`role_type`** — either `user` or `tenant`. A *user* role controls what an
   individual user can access — features, groups, instance types. A *tenant*
   role sets the **ceiling** of permissions an entire sub-tenant can be granted.
-  They're not interchangeable, and some attributes only make sense for one or
-  the other (`default_group_access` is a user-role idea; `multitenant` belongs
-  to tenant/master roles).
+  These role types aren't interchangeable, and some attributes apply to only
+  one type. For example, `default_group_access` applies to user roles, while
+  `multitenant` applies to tenant and master roles.
 - **`permissions`** — a nested block that's where the actual authority lives.
   It combines broad **defaults** (`default_group_access`,
   `default_instance_type_access`, `default_task_access`,
@@ -693,10 +673,10 @@ The `hpe_morpheus_role` resource has two things worth understanding:
   `workflow_permissions`, and more). Access levels are typically one of
   `none`, `read`, `full`, or `default`.
 
-So the fuller version above actually *does* what its description claims: it
-denies access to every group by default, grants `full` access to the Payments
-group, enables listing, creating, editing, deleting, powering, and reconfiguring
-instances, and leaves the administration surface (`admin-zones`) switched off:
+The complete version enforces the restrictions in its description. It denies
+access to every group by default and grants `full` access to the Payments
+group. It also enables common instance operations and disables administration
+through `admin-zones`:
 
 ```terraform
 permissions = {
@@ -716,62 +696,58 @@ permissions = {
 }
 ```
 
-Those `feature_permissions` codes (`provisioning`, `admin-zones`, `backups`,
-`catalog`, and so on) come from a fixed list the provider documents in full —
-another place where checking the docs beats guessing, since they're easy to
-misremember. A handy pattern to reach for is **deny-by-default,
-grant-by-exception**: set the `default_*` levels low, and then list only the
-specific groups, clouds, and features the role should actually be able to
-reach.
+The provider documentation lists the available `feature_permissions` codes,
+including `provisioning`, `admin-zones`, `backups`, and `catalog`. Check this
+list instead of relying on memory. Use a **deny-by-default,
+grant-by-exception** approach: set restrictive `default_*` levels, and then
+list only the groups, clouds, and features that the role needs.
 
 ---
 
-## A follow-up: Morpheus, MCP, and GreenLake Intelligence
+## A follow-up: HPE Morpheus Enterprise Software, Model Context Protocol, and HPE GreenLake Intelligence
 
 This post focuses on building a solid foundation with the `HPE/hpe`
-provider. A follow-up post will explore how this workflow grows beyond just
-generating configuration, by bringing in Morpheus's own capabilities and
+provider. A follow-up post will explain how this workflow can extend beyond
+configuration generation by using the platform's capabilities and
 [HPE GreenLake Intelligence](https://www.hpe.com/us/en/greenlake/intelligence.html)
 to support broader AI-assisted operations across a hybrid environment.
 
-That follow-up will also look more closely at where
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) fits in. In
-this post, the GitHub MCP server gives Copilot controlled access to the
-provider's source and documentation. A second post will consider MCP-based
-connections to operational tools and Morpheus workflows — while being careful
-to separate what's available today from what's still a prototype or just
-planned.
+That follow-up will also examine
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/). In this post,
+the GitHub MCP server gives Copilot controlled access to the provider source
+and documentation. The second post will consider MCP-based connections to
+operational tools and platform workflows. It will distinguish currently
+available features from prototypes and planned work.
 
 ---
 
 ## Wrapping up
 
-The AI-assisted workflow for HPE Terraform boils down to a short, repeatable
-loop:
+The AI-assisted workflow for HPE Terraform has five repeatable steps:
 
 1. **Scaffold** the project with a specific, version-pinned prompt.
 2. Combine the **basic building blocks** (groups, clouds, networks, users,
    roles, tasks, workflows) to build what you actually need.
 3. Pick an **authentication model** — access tokens for anything automated.
-4. Let the assistant **ground** each definition in your own code, the
-   provider source (via MCP), or the versioned docs…
-5. …and **prove** it works with `validate` / `plan` before you apply anything.
+4. Ask the assistant to **verify** each definition against your code, the
+   provider source by using MCP, or the versioned documentation.
+5. **Confirm** the configuration with `validate` and `plan` before applying it.
 
 You're still responsible for the design and the review; the assistant just
 takes on the repetitive configuration and provider syntax. Multitenancy,
-richer automation, Morpheus and GreenLake Intelligence integration, and
+richer automation, platform and HPE GreenLake Intelligence integration, and
 migrating off the legacy provider are all natural next topics that build on
 this same foundation.
 
 ## Try it yourself
 
-You can be up and running in a few minutes:
+To try the workflow:
 
 1. Install the [HPE Terraform provider](https://registry.terraform.io/providers/HPE/hpe/latest)
    (pin `version = ">= 1.5.0"`) and open the project in an editor with **GitHub
    Copilot** enabled.
 2. Point Copilot at the provider source via the [GitHub MCP server](https://github.com/github/github-mcp-server),
-   so it can ground resource and data-source definitions in
+   so it can verify resource and data-source definitions against
    `HPE/terraform-provider-hpe` instead of guessing.
 3. Scaffold with a specific, version-pinned prompt (see *Getting started*),
    then combine the **building blocks** into whatever you need — feel free to
@@ -779,7 +755,7 @@ You can be up and running in a few minutes:
 4. Run `terraform validate` and `terraform plan` on every change, and keep
    your credentials in variables and out of git.
 
-Then describe the next thing you want, review what comes back, and let that
-feedback loop do the rest. Give it a try on a small change today — and if you
-build something worth sharing, let me know how it went.
+Then describe the next change, review the response, and repeat the process.
+Start with a small change and share what you learn.
+
 
