@@ -17,13 +17,20 @@ quickLinks:
     url: '#api-reference'
   - label: 'GitHub'
     url: 'https://github.com/HewlettPackard/oneview-global-dashboard-nodejs'
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
+  - label: 'iLO RESTful API'
+    url: '/platform/ilo-restful-api/home/'
+  - label: 'HPE OneView'
+    url: '/platform/hpe-oneview/home/'
+  - label: 'HPE NonStop'
+    url: '/platform/hpe-nonstop/home/'
 tags:
   - hpe-oneview-global-dashboard
 ---
 # Unified View of Infrastructure Across Data Centers in Multiple Locations
+
 The HPE OneView Global Dashboard provides a unified view of the health and inventory of Hewlett Packard Enterprise servers, profiles, enclosures, HPE Synergy frames, HPE 3PAR and HPE Primera storage systems across multiple appliances for ease of management.
-
-
 
 Aggregates critical activities from multiple appliances into a single feed to quickly identify issues occurring on monitored hardware for prompt resolution.
 
@@ -34,8 +41,8 @@ One click navigation of managed resources with single sign-on managing appliance
 - [Learn more about Global Dashboard](https://hpe.com/products/ovglobaldashboard)
 
 # API Reference
-Global Dashboard provides a public REST API to can be used to retrieve information about resources.  For example, you can retrieve server-hardware information about thousands of servers from datacenters scattered across the global with a single API call.
 
+Global Dashboard provides a public REST API to can be used to retrieve information about resources.  For example, you can retrieve server-hardware information about thousands of servers from datacenters scattered across the global with a single API call.
 
 ### [OpenAPI Definition ![](Github)](https://github.com/HewlettPackard/hpe-globaldashboard-swagger "OpenAPI (Swagger) definition of the Global Dashboard API")
 

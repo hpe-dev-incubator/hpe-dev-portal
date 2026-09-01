@@ -106,6 +106,7 @@ window.HPEHF_CFG = {
           {title: 'Grommet', href: '/platform/grommet/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Grommet'},
           {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
           {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
+          {title: 'SmartSim', href: '/platform/smartsim/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SmartSim'},
           {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'}
         ]
       },
