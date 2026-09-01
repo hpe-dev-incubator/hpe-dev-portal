@@ -1,12 +1,18 @@
 ---
 title: The rise of purpose-built compute for Edge AI
 date: 2026-09-09T07:00:00.000Z
-priority: ""
 author: Aaron Lamond | Enterprise AI Marketing | HPE ProLiant
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
 tags:
-  - ProLiant EL2000, EL220, EL240, servers, Edge AI, Ruggedized, SWaP, MIL-SPEC
+  - compute
+  - ProLiant EL2000
+  - EL220, EL240
+  - servers
+  - Edge AI
+  - Ruggedized
+  - SWaP
+  - MIL-SPEC
 ---
 > *What enterprise customers are teaching us about infrastructure, resilience, and the realities of edge computing.*
 
