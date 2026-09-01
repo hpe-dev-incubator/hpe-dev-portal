@@ -1,6 +1,8 @@
 ---
 title: "Adopting GitOps in HPE OpsRamp: a tutorial"
 date: 2026-09-01T09:00:00.000Z
+featuredBlog: true
+priority: 3
 author: Jorge Martínez López
 authorimage: /img/j-final5-square-blog.jpg
 disable: false
