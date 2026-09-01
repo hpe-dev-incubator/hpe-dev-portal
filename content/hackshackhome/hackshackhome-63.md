@@ -1,6 +1,6 @@
 ---
 title: "Exploring HPE Morpheus and Terraform: Key features, innovations, and demos"
-active: true
+active: false
 fit: contain
 path: https://www.youtube.com/watch?v=69efIUKsbvw
 imageBackground: white
