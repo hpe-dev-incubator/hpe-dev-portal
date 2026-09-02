@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Heading, Paragraph } from 'grommet';
+import { Heading, Text } from 'grommet';
+import PropTypes from 'prop-types';
 
 import {
-  PageDescription,
   Layout,
-  SEO,
-  CommunityCard,
-  SectionHeader,
-  ResponsiveGrid,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
+  SEO
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -30,31 +28,34 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
+
 function Skillup({ data }) {
   const communities = data.allMarkdownRemark.edges;
+  const learningTiles = communities.map((community) => ({
+    title: community.node.frontmatter.title,
+    description: community.node.frontmatter.description,
+    actionLabel: community.node.frontmatter.linkname || 'Learn more',
+    actionHref: community.node.frontmatter.link,
+    variant: 'dark',
+  }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Training" />
-      <PageDescription
-        image="/img/skillup/skill_up.svg"
+      <ReusableHeroSection
+        image="/img/skillup/training_bg.jpg"
         title="Training"
         alt="training dev logo"
       >
-        <Paragraph size="large">
-          With technology constantly evolving, it can be challenging to keep up.
-          Bookmark this page to access a great set of free technical training
-          resources to expand your skill set.
-        </Paragraph>
-      </PageDescription>
-      <SectionHeader>
-        <ResponsiveGrid rows={rows} columns={columns}>
-          {communities.map((community) => (
-            <CommunityCard key={community.node.id} node={community.node} />
-          ))}
-        </ResponsiveGrid>
-      </SectionHeader>
+        <Text size="large">
+          With technology constantly evolving, it can be challenging to keep up. Bookmark this<br />
+          page to access a great set of free technical training resources to expand your skill set.
+        </Text>
+      </ReusableHeroSection>
+      <ReusableInfoTilesRow
+        items={learningTiles}
+      />
     </Layout>
   );
 }
