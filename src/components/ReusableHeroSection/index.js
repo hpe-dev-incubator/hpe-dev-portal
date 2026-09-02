@@ -10,11 +10,10 @@ const ReusableHeroSection = ({
   backgroundPosition,
   showRightMidGradient,
 }) => {
-
   return (
     <Box
       fill="horizontal"
-      height="374px"
+      height="583px"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -33,7 +32,8 @@ const ReusableHeroSection = ({
           position: 'absolute',
           top: 0,
           left: 0,
-          background: 'linear-gradient(-42.143deg, rgba(41, 45, 58, 0) 10.197%, rgb(41, 45, 58) 89.615%)',
+          background:
+            'linear-gradient(-42.143deg, rgba(41, 45, 58, 0) 10.197%, rgb(41, 45, 58) 89.615%)',
           pointerEvents: 'none',
         }}
       />
@@ -47,17 +47,17 @@ const ReusableHeroSection = ({
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'linear-gradient(270deg, rgba(41, 45, 58, 0.62) 0%, rgba(41, 45, 58, 0.34) 28%, rgba(41, 45, 58, 0.12) 44%, rgba(41, 45, 58, 0) 50%)',
+            background:
+              'linear-gradient(270deg, rgba(41, 45, 58, 0.62) 0%, rgba(41, 45, 58, 0.34) 28%, rgba(41, 45, 58, 0.12) 44%, rgba(41, 45, 58, 0) 50%)',
             pointerEvents: 'none',
           }}
         />
       )}
-      
+
       {/* Content */}
       <Box
         fill="horizontal"
         height="100%"
-        pad={{ top: '96px', bottom: '96px', left: '160px', right: '440px' }}
         align="start"
         justify="center"
         direction="column"
@@ -66,6 +66,7 @@ const ReusableHeroSection = ({
           zIndex: 1,
           boxSizing: 'border-box',
           minWidth: 0,
+          padding: '96px max(160px, calc((100% - 1600px) / 2))',
         }}
       >
         <Box
