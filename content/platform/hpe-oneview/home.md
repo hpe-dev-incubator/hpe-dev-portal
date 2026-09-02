@@ -8,6 +8,15 @@ priority: 16
 frontpage: true
 date: 2022-06-24T17:04:12+02:00
 active: true
+quickLinks:
+  - label: 'Developers Hub'
+    url: '#hpe-oneview-developers-hub'
+  - label: 'Integrations'
+    url: '#hpe-oneview-integrations'
+  - label: 'SDKs'
+    url: '#sdks-and-language-bindings'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - hpe-oneview
 ---

@@ -29,13 +29,28 @@ export * from './Link';
 export * from './Markdown';
 
 export {
-    Aside, BlogTabContent, BlogTabs, CommunityCard, Content, EventCard, FeaturedTopicsSection, Footer,
-    Header,
-    Hero,
-    HighlightedText,
-    Layout,
-    LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, Questions, ResponsiveGrid, ReusableHeroSection, ReusableInfoTilesRow, SEO,
-    Share,
-    SocialMedia
+  Aside,
+  BlogTabContent,
+  BlogTabs,
+  CommunityCard,
+  Content,
+  EventCard,
+  FeaturedTopicsSection,
+  Footer,
+  Header,
+  Hero,
+  HighlightedText,
+  Layout,
+  LayoutSideBar,
+  NewsletterCard,
+  OpenSourceCard,
+  PageDescription,
+  PlatformCard,
+  Questions,
+  ResponsiveGrid,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
+  SEO,
+  Share,
+  SocialMedia,
 };
-

@@ -9,7 +9,7 @@ tags:
 - api
 - hpe networking
 image: /img/events/events3.jpg
-link: https://hpe.zoom.us/webinar/register/8917827189363/WN_IZlIKf5UQtWEnchyYiWY4A
+link: https://www.youtube.com/watch?v=kCKT2OkG78E
 width: large
 ---
-Join our next meetup session to learn about HPE network analytics visualizers. HPE network analytics visualizers turn raw telemetry into clear, real-time insight across devices, clients, and services. Discover how to build dashboards that surface performance trends, detect anomalies faster, and reveal operational impact in seconds to accelerate troubleshooting and decision-making.
+Watch this meetup session to learn about HPE network analytics visualizers. HPE network analytics visualizers turn raw telemetry into clear, real-time insight across devices, clients, and services. Discover how to build dashboards that surface performance trends, detect anomalies faster, and reveal operational impact in seconds to accelerate troubleshooting and decision-making.
