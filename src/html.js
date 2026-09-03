@@ -65,7 +65,7 @@ window.HPEHF_CFG = {
         ]
       },
       {
-        title: 'GreenLake', href: '/greenlake', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|GreenLake',
+        title: 'GreenLake', href: '/greenlake/hpe-greenlake-platform/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|GreenLake',
         navLinks: [
           {title: 'HPE Aruba Networking Central', href: '/greenlake/aruba-central/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Aruba Central'},
           {title: 'Data Services Cloud Console', href: '/greenlake/data-services-cloud-console/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Data Services Cloud Console'},
@@ -151,7 +151,6 @@ window.HPEHF_CFG = {
             __html: `
         <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.23.0/phaser.min.js" integrity="sha512-FgqGgzXpW1P9AjZuhLDIE5E5jH1ntIkrv3VKB36HoET27Ek2w60HenbIr21+rCu1qZ/Fvl64PkxNRP51a9m2Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" src="https://www.hpe.com/global/metrics/easy/basic_measurement.js"></script>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script type="text/javascript">	
           function pageLoaded() {
             var header = document.getElementById('hpe_slim_header');	
