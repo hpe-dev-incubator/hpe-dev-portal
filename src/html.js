@@ -33,13 +33,101 @@ export default function HTML(props) {
         <style
           dangerouslySetInnerHTML={{
             __html: `
-            #site-branding {
-              left: -15px;
-            }`,
+            :root { color-scheme: only light; }
+            body { background-color: #ffffff; }
+            #header { background-color: #ffffff; }`,
           }}
         />
+        {/* HPE Header Framework config — must be set before framework scripts load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.HPEHF_CFG = {
+  mainNav: {
+    micrositeLogoArea: {
+      logo: {
+        href: '/',
+        title: 'HPE Developer portal',
+        dataAnalyticsRegionId: 'gmenu|HPE Developer portal'
+      },
+      micrositeTitle: 'Developer'
+    },
+    navLinks: [
+      {
+        title: 'Topics', href: '/topics', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Topics',
+        navLinks: [
+          {title: 'AI & Data', href: '/topic/ai-and-data/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|AI & Data'},
+          {title: 'Compute', href: '/topic/compute/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Compute'},
+          {title: 'Hybrid Cloud', href: '/topic/hybrid-cloud/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Hybrid Cloud'},
+          {title: 'Networking', href: '/topic/networking/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Networking'},
+          {title: 'Software & Services', href: '/topic/software-and-services/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Software & Services'},
+          {title: 'Storage', href: '/topic/storage/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Storage'}
+        ]
+      },
+      {
+        title: 'GreenLake', href: '/greenlake/hpe-greenlake-platform/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|GreenLake',
+        navLinks: [
+          {title: 'HPE Aruba Networking Central', href: '/greenlake/aruba-central/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Aruba Central'},
+          {title: 'Data Services Cloud Console', href: '/greenlake/data-services-cloud-console/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Data Services Cloud Console'},
+          {title: 'Data Services on the HPE GreenLake platform', href: '/greenlake/data-services-on-the-hpe-greenlake-platform/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Data Services GreenLake'},
+          {title: 'HPE GreenLake edge-to-cloud platform', href: '/greenlake/hpe-greenlake-cloud-platform/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|GreenLake edge-to-cloud'},
+          {title: 'HPE Compute Ops Management', href: '/greenlake/hpe-greenlake-for-compute-ops-management/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Compute Ops Management'},
+          {title: 'HPE Private Cloud Enterprise', href: '/greenlake/hpe-greenlake-for-private-cloud-enterprise/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Private Cloud Enterprise'}
+        ]
+      },
+      {title: 'Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Products',
+        navLinks: [
+          {title: 'All Products', href: '/platforms', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Products'},
+          {title: 'HPE Compute', href: '/platform/hpe-compute/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Compute'},
+          {title: 'HPE Networking', href: '/platform/hpe-networking/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Networking'},
+          {title: 'HPE Storage', href: '/platform/hpe-storage/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Storage'},
+          {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
+          {title: 'HPE OpsRamp', href: '/platform/hpe-opsramp/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
+          {title: 'HPE Morpheus', href: '/platform/morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Morpheus'},
+          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
+          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
+        ]
+      },
+      {title: 'Learn', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Learn',
+        navLinks: [
+          {title: 'Blog', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Blog'},
+          {title: 'Events', href: '/events', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Events'},
+          {title: 'Training', href: '/skillup', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Training'},
+          {title: 'Workshops-on-Demand', href: '/hackshack/workshops', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Workshops-on-Demand'}
+        ]
+      },
+      {title: 'Community', href: '/community', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Community',
+        navLinks: [
+          {title: 'Join the Community', href: '/community', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Join the Community'},
+          {title: 'All Open Source', href: '/opensource', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|All Open Source'},
+          {title: 'Chapel', href: '/platform/chapel/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Chapel'},
+          {title: 'Determined AI', href: '/platform/determined-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Determined AI OS'},
+          {title: 'DragonHPC', href: '/platform/dragonhpc/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|DragonHPC'},
+          {title: 'Grommet', href: '/platform/grommet/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Grommet'},
+          {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
+          {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
+          {title: 'SmartSim', href: '/platform/smartsim/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SmartSim'},
+          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'}
+        ]
+      },
+    ]
+  },
+  headerSearch: {
+    placeholderText: 'Search HPE Developer portal...',
+    action: 'https://developer.hpe.com/search/',
+    inputName: 'term'
+  }
+};
+`,
+          }}
+        />
+        {/* HPE Header Framework scripts — jQuery first, then the framework */}
+        <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
+        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js" />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>
+        {/* HPE global header — populated by HPEHF framework */}
+        <div id="header" className="header" />
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
@@ -63,7 +151,6 @@ export default function HTML(props) {
             __html: `
         <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.23.0/phaser.min.js" integrity="sha512-FgqGgzXpW1P9AjZuhLDIE5E5jH1ntIkrv3VKB36HoET27Ek2w60HenbIr21+rCu1qZ/Fvl64PkxNRP51a9m2Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" src="https://www.hpe.com/global/metrics/easy/basic_measurement.js"></script>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script type="text/javascript">	
           function pageLoaded() {
             var header = document.getElementById('hpe_slim_header');	

@@ -11,7 +11,6 @@ import { Grommet, Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 import { ResponsiveLayout, StyledLayer } from './styles';
 import { Header as HackShackHeader, SideNav } from '../index';
-import { Header as HPEDevHeader } from '../../index';
 import { AppContext } from '../../../providers/AppProvider';
 import lightTheme from '../../Layout/theme';
 
@@ -32,15 +31,8 @@ const Layout = ({ children, background }) => {
   return (
     <ResponsiveLayout justify="between" layer={layer}>
       <Box>
-        <Grommet
-          theme={lightTheme}
-          style={{ position: 'sticky', top: 0, zIndex: 10 }}
-        >
-          {location.pathname.includes('/hackshack') && size !== 'small' ? (
-            <HPEDevHeader data={data} />
-          ) : (
-            <HackShackHeader setLayer={setLayer} />
-          )}
+        <Grommet theme={lightTheme}>
+          {size === 'small' && <HackShackHeader setLayer={setLayer} />}
         </Grommet>
 
         <Box
