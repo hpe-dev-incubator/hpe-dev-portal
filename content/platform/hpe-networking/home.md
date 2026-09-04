@@ -8,7 +8,7 @@ priority: 12
 date: 2026-08-17T00:00:00+00:00
 active: true
 quickLinks:
-  - label: 'HPE Networking Dev Hub'
+  - label: 'HPE Networking Developer Hub'
     url: 'https://developer.networking.hpe.com'
   - label: 'Getting Started'
     url: 'https://developer.networking.hpe.com/get-started/home'
@@ -24,16 +24,40 @@ tags:
 HPE Networking Developer Hub is providing APIs references, Guides and code sample thanks to Code Exchange.
 Find tutorials, documentation, and curated learning content to start a project with HPE Juniper Networking or HPE Aruba Networking products.
 
-* Cloud Management Platforms
-* Security
-* Network Design & Orchestration
-* Monitoring & Analytics
-* Switching Platforms
+## Cloud Management Platforms
+
+* [Central](https://developer.networking.hpe.com/get-started/central/)
+* [Classic Central](https://developer.networking.hpe.com/get-started/classic-central/)
+* [Mist](https://developer.networking.hpe.com/get-started/mist/)
+
+## Security
+
+* [ClearPass Policy Manager](https://developer.networking.hpe.com/get-started/clearpass-policy-manager/)
+* [Security Director Cloud](https://developer.networking.hpe.com/get-started/security-director-cloud/)
+* [ATP Cloud](https://developer.networking.hpe.com/get-started/atp-cloud/)
+
+## Network Design & Orchestration
+
+* [Fabric Composer](https://developer.networking.hpe.com/get-started/fabric-composer/)
+* [EdgeConnect](https://developer.networking.hpe.com/get-started/edgeconnect/)
+* [Paragon](https://developer.networking.hpe.com/get-started/paragon/)
+* [Apstra](https://developer.networking.hpe.com/get-started/apstra/)
+
+## Monitoring & Analytics
+
+* [User Experience Insight](https://developer.networking.hpe.com/get-started/user-experience-insight/)
+* [Support Insights](https://developer.networking.hpe.com/get-started/support-insights/)
+
+## Switching Platforms
+
+* [AOS-CX](https://developer.networking.hpe.com/get-started/aos-cx/)
+* [AOS 8](https://developer.networking.hpe.com/get-started/aos-8/)
+* [Junos](https://developer.networking.hpe.com/get-started/junos/)
 
 ## Additional resources
 
-- [HPE Networking Developer Hub](https://developer.networking.hpe.com)
-- [HPE Developer Community Slack](https://hpedev.slack.com)
+* [HPE Networking Developer Hub](https://developer.networking.hpe.com)
+* [HPE Developer Community Slack](https://hpedev.slack.com)
 
 - - -
 

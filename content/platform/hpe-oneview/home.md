@@ -17,6 +17,14 @@ quickLinks:
     url: '#sdks-and-language-bindings'
   - label: 'Workshops'
     url: '#workshops-on-demand'
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
+  - label: 'iLO RESTful API'
+    url: '/platform/ilo-restful-api/home/'
+  - label: 'HPE OneView Global Dashboard'
+    url: '/platform/hpe-oneview-global-dashboard/home/'
+  - label: 'HPE NonStop'
+    url: '/platform/hpe-nonstop/home/'
 tags:
   - hpe-oneview
 ---
@@ -44,8 +52,6 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Installation and user guide](https://psnow.ext.hpe.com/doc/a50003411enw?jumpid=in_lit-psnow-red)
 
 - - -
-
-
 
 - - -
 

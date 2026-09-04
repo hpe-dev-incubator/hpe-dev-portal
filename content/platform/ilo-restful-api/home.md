@@ -17,6 +17,14 @@ quickLinks:
     url: '#github-and-powershell-repositories'
   - label: 'SDKs'
     url: '#sdks-and-language-bindings'
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
+  - label: 'HPE OneView'
+    url: '/platform/hpe-oneview/home/'
+  - label: 'HPE OneView Global Dashboard'
+    url: '/platform/hpe-oneview-global-dashboard/home/'
+  - label: 'HPE NonStop'
+    url: '/platform/hpe-nonstop/home/'
 tags:
   - ilo-restful-api
   - Redfish
