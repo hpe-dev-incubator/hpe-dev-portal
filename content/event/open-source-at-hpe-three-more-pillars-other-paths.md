@@ -11,7 +11,7 @@ tags:
 - chapel
 - sonic
 image: /img/events/events7.jpg
-link: https://hpe.zoom.us/webinar/register/7817881764180/WN_gFnquh2ASjSIDnD7ANfvUw
+link: https://www.youtube.com/watch?v=E8PnRqlTZQ8
 width: large
 ---
 09/16/2026
