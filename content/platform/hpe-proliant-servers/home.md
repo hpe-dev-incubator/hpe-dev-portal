@@ -49,14 +49,11 @@ business-critical applications>
 
 \- - -
 
- 
-
 \## Dev Resources 
 
 <HPE ProLiant home page>
 
 <https://www.hpe.com/us/en/products/compute/proliant.html>
-
 
 <HPE Compute Ops Management>
 
@@ -64,6 +61,7 @@ business-critical applications>
 
 <https://www.hpe.com/us/en/products/compute/compute-ops-management.html>
 
+[https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/](https://www.hpe.com/us/en/products/compute/compute-ops-management.html)
 
 <HPE iLO>
 
@@ -71,15 +69,13 @@ business-critical applications>
 
 <https://www.hpe.com/us/en/products/compute/integrated-lights-out-ilo.html>
 
+[https://developer.hpe.com/platform/ilo-restful-api/home/](https://www.hpe.com/us/en/products/compute/integrated-lights-out-ilo.html)
 
 <HPE AI Servers >
 
 <Purpose-built for AI training, tuning and inferencing>
 
 <https://www.hpe.com/us/en/compute/ai-servers.html>
-
-
-
 
 \## Any questions about HPE ProLiant?
 
