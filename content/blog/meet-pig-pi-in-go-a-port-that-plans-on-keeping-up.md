@@ -6,6 +6,7 @@ authorimage: /img/img-8cda0090-1177-445f-b844-2eb8574c7830.png
 thumbnailimage: /img/thumbnail.png
 disable: false
 tags:
+  - AI
   - Gen-AI
   - LLM
   - Harness
