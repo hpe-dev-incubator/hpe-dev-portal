@@ -2,7 +2,8 @@
 title: Bring your agent to the next level - Introduce LiteLLM for MCP Cost
   management and Guardrails
 date: 2026-08-26T14:46:00.000Z
-featuredBlog: false
+featuredBlog: true
+priority: 2
 author: Isabelle Steinhauser & Claudio Calderon
 authorimage: /img/steinhauser_isabelle-copy-copy.jpg
 disable: false
