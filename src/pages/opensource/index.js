@@ -22,7 +22,7 @@ function Opensource({ data }) {
   }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-   
+
   return (
     <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Open Source" />
@@ -32,6 +32,7 @@ function Opensource({ data }) {
         alt="opensource logo"
         backgroundPosition="50% 33%"
         showRightMidGradient={true}
+        height="auto"
       >
         <Text size="large">
           Dedicated to innovation through collaboration, HPE is proud to lead
@@ -77,7 +78,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "opensource" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {

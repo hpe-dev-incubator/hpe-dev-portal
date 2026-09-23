@@ -4,10 +4,10 @@ import { Heading, Text } from 'grommet';
 import PropTypes from 'prop-types';
 
 import {
-    Layout,
-    ReusableHeroSection,
-    ReusableInfoTilesRow,
-    SEO,
+  Layout,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
+  SEO,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -35,10 +35,12 @@ function Community({ data }) {
         title="Community"
         alt="community page logo"
         backgroundPosition="50% 33%"
+        height="auto"
       >
         <Text size="large">
           A community is all about connection. Discover the many different ways
-          you can connect<br/> with members of the HPE Developer Community here.
+          you can connect
+          <br /> with members of the HPE Developer Community here.
         </Text>
       </ReusableHeroSection>
       <ReusableInfoTilesRow items={communityTiles} />
@@ -81,7 +83,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "community" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {

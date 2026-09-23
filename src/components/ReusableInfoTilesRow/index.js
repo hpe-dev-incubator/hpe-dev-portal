@@ -62,9 +62,9 @@ const buildAutoDesktopPattern = (itemCount, minPerRow = 2, maxPerRow = 4) => {
     return [itemCount];
   }
 
-  return new Array(rowCount).fill(baseCount).map((count, index) => (
-    index >= rowCount - remainder ? count + 1 : count
-  ));
+  return new Array(rowCount)
+    .fill(baseCount)
+    .map((count, index) => (index >= rowCount - remainder ? count + 1 : count));
 };
 
 const getTilePadding = (isSpaciousDesktopRow) => ({
@@ -106,8 +106,8 @@ const getCategoryStyle = () => ({
 const getActionTextStyle = (theme) => ({
   fontFamily: "'HPE Graphik', 'Metric', Arial, sans-serif",
   fontWeight: 500,
-  fontSize: '24px',
-  lineHeight: '34px',
+  fontSize: '20px',
+  lineHeight: '24px',
   letterSpacing: '0',
   color: theme.actionColor,
 });
@@ -136,9 +136,9 @@ const TileCard = ({ item, theme, onAction, isSpaciousDesktopRow, tileKey }) => (
           plain
           onClick={onAction || undefined}
           label={
-            <Box direction="row" gap="small" align="center">
+            <Box direction="row" gap="12px" align="center">
               <Text style={getActionTextStyle(theme)}>{item.actionLabel}</Text>
-              <LinkNext color={theme.actionColor} size="24px" />
+              <LinkNext color={theme.actionColor} size="18px" />
             </Box>
           }
         />
@@ -176,11 +176,18 @@ const ReusableInfoTilesRow = ({ items, margin, maxWidth, containerPad }) => {
       {(size) => {
         const isSmall = size === 'small';
         const isMedium = size === 'medium';
-        const desktopRows = buildDesktopRows(items, buildAutoDesktopPattern(items.length));
-        const horizontalPad = isSmall ? containerPad.small.horizontal : containerPad.medium.horizontal;
-        const verticalPad = isSmall ? containerPad.small.vertical : containerPad.medium.vertical;
-        const cardGap = isSmall ? '20px' : '32px';
-        const rowGap = isSmall ? '20px' : '32px';
+        const desktopRows = buildDesktopRows(
+          items,
+          buildAutoDesktopPattern(items.length),
+        );
+        const horizontalPad = isSmall
+          ? containerPad.small.horizontal
+          : containerPad.medium.horizontal;
+        const verticalPad = isSmall
+          ? containerPad.small.vertical
+          : containerPad.medium.vertical;
+        const cardGap = isSmall ? '20px' : '24px';
+        const rowGap = isSmall ? '20px' : '24px';
 
         return (
           <Box
@@ -229,7 +236,8 @@ const ReusableInfoTilesRow = ({ items, margin, maxWidth, containerPad }) => {
                       gap={cardGap}
                     >
                       {rowItems.map((item, index) => {
-                        const theme = tileThemes[item.variant] || tileThemes.light;
+                        const theme =
+                          tileThemes[item.variant] || tileThemes.light;
                         const onAction = resolveAction(item);
                         const isSpaciousDesktopRow = rowItems.length <= 3;
 

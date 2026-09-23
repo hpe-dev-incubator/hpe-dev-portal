@@ -7,7 +7,7 @@ import {
   Layout,
   ReusableHeroSection,
   ReusableInfoTilesRow,
-  SEO
+  SEO,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -47,15 +47,17 @@ function Skillup({ data }) {
         image="/img/skillup/training_bg.jpg"
         title="Training"
         alt="training dev logo"
+        height="auto"
       >
         <Text size="large">
-          With technology constantly evolving, it can be challenging to keep up. Bookmark this<br />
-          page to access a great set of free technical training resources to expand your skill set.
+          With technology constantly evolving, it can be challenging to keep up.
+          Bookmark this
+          <br />
+          page to access a great set of free technical training resources to
+          expand your skill set.
         </Text>
       </ReusableHeroSection>
-      <ReusableInfoTilesRow
-        items={learningTiles}
-      />
+      <ReusableInfoTilesRow items={learningTiles} />
     </Layout>
   );
 }
