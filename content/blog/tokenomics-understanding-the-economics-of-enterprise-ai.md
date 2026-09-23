@@ -1,6 +1,8 @@
 ---
 title: Tokenomics - understanding the economics of enterprise AI
 date: 2026-07-27T10:00:00.000Z
+featuredBlog: true
+priority: 4
 author: Aaron Lamond | Enterprise AI | HPE ProLiant Marketing
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
