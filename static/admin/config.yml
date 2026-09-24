@@ -548,8 +548,7 @@ collections:
         name: 'quickLinks'
         widget: 'list'
         required: false
-        max: 5
-        hint: 'Up to 5 shortcut links shown in the hero banner. External URLs open in a new tab.'
+        hint: 'Shortcut links shown in the hero banner, or in the persistent subheader (for category landing pages) when "Show in subheader" is checked. External URLs open in a new tab.'
         fields:
           - { label: 'Label', name: 'label', widget: 'string' }
           - {
@@ -557,6 +556,14 @@ collections:
               name: 'url',
               widget: 'string',
               hint: 'Use #section-id for page anchors, /path for internal pages, or https:// for external links.',
+            }
+          - {
+              label: 'Show in subheader',
+              name: 'subNav',
+              widget: 'boolean',
+              default: false,
+              required: false,
+              hint: 'Category landing pages only (e.g. HPE Storage, HPE Compute, HPE Networking): show this link in the persistent subheader instead of the hero pill bar.',
             }
       - {
           label: 'Tags',
