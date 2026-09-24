@@ -20,13 +20,12 @@ import {
   Link,
 } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
+import Breadcrumbs from '../components/Breadcrumbs';
 import {
   HeroBanner,
   HeroBgImage,
   HeroGradient,
   HeroContent,
-  BreadcrumbRow,
-  BreadcrumbText,
   HeroBody,
   HeroTitle,
   HeroDescription,
@@ -245,17 +244,10 @@ function TopicTemplate({ data }) {
           <HeroGradient aria-hidden="true" />
           {/* Content */}
           <HeroContent>
-            {/* Breadcrumb */}
-            <BreadcrumbRow>
-              <img
-                src="/img/topics/sparkle.png"
-                width="32"
-                height="31"
-                aria-hidden="true"
-                alt=""
-              />
-              <BreadcrumbText>Topic / {title}</BreadcrumbText>
-            </BreadcrumbRow>
+            <Breadcrumbs
+              inverse
+              items={[{ label: 'Topics', href: '/topics' }, { label: title }]}
+            />
 
             {/* Hero */}
             <HeroBody>
