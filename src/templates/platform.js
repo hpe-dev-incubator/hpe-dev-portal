@@ -25,6 +25,7 @@ import {
 import CarouselNavButtons from '../components/CarouselNavButtons';
 import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
+import useHfSubNav from '../hooks/use-hf-sub-nav';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -629,7 +630,7 @@ function renderMenu(items, activeHref, onLinkClick, keyPrefix = 'root') {
     </ul>
   );
 }
-function PlatformTemplate({ data }) {
+function PlatformTemplate({ data, pageContext }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
   const { edges: events } = data.events;
@@ -637,6 +638,13 @@ function PlatformTemplate({ data }) {
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
   const { title, description, tags, quickLinks } = post.frontmatter;
+  // Entries flagged subNav:true render in the persistent HPEHF subheader
+  // (see gatsby-node.js/src/html.js) instead of the hero pill bar.
+  const heroQuickLinks = useMemo(
+    () => (quickLinks || []).filter((link) => !link.subNav),
+    [quickLinks],
+  );
+  useHfSubNav(pageContext?.subNavConfig);
 
   // Split off the first paragraph as the hero description
   const { description: heroDescription, body: bodyWithoutDesc } =
@@ -776,7 +784,7 @@ function PlatformTemplate({ data }) {
     <PlatformHeroSectionGrommet
       title={title}
       description={description}
-      quickLinks={quickLinks || []}
+      quickLinks={heroQuickLinks}
     />
   );
 
@@ -1236,6 +1244,7 @@ PlatformTemplate.propTypes = {
           PropTypes.shape({
             label: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,
+            subNav: PropTypes.bool,
           }),
         ),
       }).isRequired,
@@ -1290,6 +1299,23 @@ PlatformTemplate.propTypes = {
       }),
     }),
   }).isRequired,
+  pageContext: PropTypes.shape({
+    subNavConfig: PropTypes.shape({
+      title: PropTypes.string,
+      parentHref: PropTypes.string,
+      homeHref: PropTypes.string,
+      navLinks: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          href: PropTypes.string,
+        }),
+      ),
+    }),
+  }),
+};
+
+PlatformTemplate.defaultProps = {
+  pageContext: {},
 };
 
 export default PlatformTemplate;
@@ -1315,6 +1341,7 @@ export const pageQuery = graphql`
         quickLinks {
           label
           url
+          subNav
         }
       }
       fields {

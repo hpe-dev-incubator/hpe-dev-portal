@@ -118,12 +118,44 @@ window.HPEHF_CFG = {
     inputName: 'term'
   }
 };
+
+// --- Persistent subheader support (HPEHF renderDynamicNavigation) ---
+// TESTING ONLY: relies on the HFWS "test.r" build below. The 'secondaryNav'
+// config shape ({ sectionTitle, navLinks, CTA }) was verified by introspecting
+// window.HPEHF's own validateDynamicNavigationSectionShape/initSecondaryNav
+// functions on test.r (the header team has not published written docs for it
+// yet) — confirm with them before relying on it in production.
+window.__hpDevBaseHFCfg = window.HPEHF_CFG;
+window.__hpDevPendingSubNav = undefined;
+window.__hpDevApplySubNav = function applySubNav(subNavConfig) {
+  // Omitting the 'secondaryNav' key entirely (rather than setting it to
+  // null) is what triggers HPEHF's own reset-to-default DOM behavior.
+  var cfg = Object.assign({}, window.__hpDevBaseHFCfg);
+  if (subNavConfig) {
+    cfg.secondaryNav = {
+      sectionTitle: subNavConfig.title,
+      navLinks: subNavConfig.navLinks || []
+    };
+  }
+  if (window.HPEHF && window.HPEHF.hfInitialized) {
+    window.HPEHF.renderDynamicNavigation(cfg);
+    return;
+  }
+  window.__hpDevPendingSubNav = cfg;
+  document.addEventListener('HPEHF.READY', function onHfReady() {
+    document.removeEventListener('HPEHF.READY', onHfReady);
+    if (window.__hpDevPendingSubNav) {
+      window.HPEHF.renderDynamicNavigation(window.__hpDevPendingSubNav);
+    }
+  });
+};
 `,
           }}
         />
         {/* HPE Header Framework scripts — jQuery first, then the framework */}
         <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
-        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js" />
+        {/* TESTING test.r build (subheader/renderDynamicNavigation support) — revert to latest.r before production */}
+        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/test.r/root?contentType=js" />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>
         {/* HPE global header — populated by HPEHF framework */}

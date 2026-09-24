@@ -10,8 +10,10 @@ active: true
 quickLinks:
   - label: 'HPE Networking Developer Hub'
     url: 'https://developer.networking.hpe.com'
+    subNav: true
   - label: 'Getting Started'
     url: 'https://developer.networking.hpe.com/get-started/home'
+    subNav: true
 tags:
   - hpe networking
   - networking
