@@ -36,6 +36,7 @@ function Community({ data }) {
         alt="community page logo"
         backgroundPosition="50% 33%"
         height="auto"
+        overlayGradient="linear-gradient(-42.143deg, rgba(41, 45, 58, .55) 10.197%, rgb(41, 45, 58) 77.615%)"
       >
         <Text size="large">
           A community is all about connection. Discover the many different ways

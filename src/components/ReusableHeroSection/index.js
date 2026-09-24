@@ -10,6 +10,7 @@ const ReusableHeroSection = ({
   backgroundPosition,
   showRightMidGradient,
   height,
+  overlayGradient,
 }) => {
   return (
     <Box
@@ -33,8 +34,7 @@ const ReusableHeroSection = ({
           position: 'absolute',
           top: 0,
           left: 0,
-          background:
-            'linear-gradient(-42.143deg, rgba(41, 45, 58, 0) 10.197%, rgb(41, 45, 58) 89.615%)',
+          background: overlayGradient,
           pointerEvents: 'none',
         }}
       />
@@ -118,6 +118,7 @@ ReusableHeroSection.propTypes = {
   backgroundPosition: PropTypes.string,
   showRightMidGradient: PropTypes.bool,
   height: PropTypes.string,
+  overlayGradient: PropTypes.string,
 };
 
 ReusableHeroSection.defaultProps = {
@@ -128,6 +129,8 @@ ReusableHeroSection.defaultProps = {
   backgroundPosition: 'center',
   showRightMidGradient: false,
   height: '583px',
+  overlayGradient:
+    'linear-gradient(-42.143deg, rgba(41, 45, 58, 0) 10.197%, rgb(41, 45, 58) 89.615%)',
 };
 
 export default ReusableHeroSection;
