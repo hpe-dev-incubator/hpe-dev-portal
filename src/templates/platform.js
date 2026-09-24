@@ -22,6 +22,7 @@ import {
   SectionHeader,
   SEO,
 } from '../components';
+import Breadcrumbs from '../components/Breadcrumbs';
 import CarouselNavButtons from '../components/CarouselNavButtons';
 import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
@@ -29,24 +30,24 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
 
-/* hidden on mobile — sidenav breadcrumb row is not needed without a sidebar */
-const BreadcrumbRow = styled(Box)`
-  @media (max-width: 768px) {
-    justify-content: flex-start !important;
+const BreadcrumbRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+  min-width: 0;
+
+  > nav {
+    flex: 1 1 32rem;
   }
 `;
 
-/* breadcrumb text hidden on mobile; social icons in the same row remain visible */
-const BreadcrumbText = styled(Box)`
-  @media (max-width: 768px) {
-    display: none !important;
-  }
-`;
-
-const SocialIconsBox = styled(Box)`
-  @media (max-width: 768px) {
-    align-items: flex-start;
-  }
+const SocialIconsBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
 `;
 
 const DocCardsGrid = styled.div`
@@ -807,62 +808,19 @@ function PlatformTemplate({ data }) {
               maxWidth: '1192px',
             }}
           >
-            <BreadcrumbRow
-              direction="row"
-              align="center"
-              justify="between"
-              gap="16px"
-              width="100%"
-              style={{
-                minHeight: '64px',
-                paddingTop: '20px',
-                paddingBottom: '20px',
-                borderRadius: '16px',
-                opacity: 1,
-              }}
-            >
-              <BreadcrumbText direction="row" align="center" gap="small">
-                <Text
-                  style={{
-                    fontWeight: 400,
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    letterSpacing: '0px',
-                    color: '#606A70',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  {title}
-                </Text>
-                <Text
-                  style={{
-                    color: '#606A70',
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  /
-                </Text>
-                <Text
-                  style={{
-                    fontWeight: 600,
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    letterSpacing: '0px',
-                    color: '#3E4550',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  {activeSidebarLabel}
-                </Text>
-              </BreadcrumbText>
-              <SocialIconsBox
-                direction="row"
-                gap="8px"
-                align="center"
-                flex={{ shrink: 0 }}
-              >
+            <BreadcrumbRow>
+              <Breadcrumbs
+                items={[
+                  {
+                    label: title,
+                    href: '#platform-content',
+                    onClick: (event) =>
+                      handleSidebarLinkClick(event, '#platform-content'),
+                  },
+                  { label: activeSidebarLabel },
+                ]}
+              />
+              <SocialIconsBox>
                 <Anchor
                   icon={<LinkedinOption size="32px" color="dark-1" />}
                   href="https://www.linkedin.com/company/hewlett-packard-enterprise"

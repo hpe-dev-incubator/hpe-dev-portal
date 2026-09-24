@@ -35,19 +35,6 @@ export const HeroContent = styled.div`
   justify-content: flex-end;
 `;
 
-export const BreadcrumbRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`;
-
-export const BreadcrumbText = styled.span`
-  color: white;
-  font-size: 28px;
-  letter-spacing: -0.5px;
-  white-space: nowrap;
-`;
-
 export const HeroBody = styled.div`
   display: flex;
   flex-direction: column;
