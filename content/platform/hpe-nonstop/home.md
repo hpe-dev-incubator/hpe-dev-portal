@@ -9,22 +9,15 @@ priority: 6
 date: 2025-08-11T13:59:29+02:00
 active: true
 quickLinks:
-  - label: 'YouTube Videos'
-    url: '#youtube-videos'
-  - label: 'Resources'
-    url: '#resources'
-  - label: 'HPE NonStop'
-    url: 'https://www.hpe.com/us/en/servers/nonstop.html'
   - label: 'HPE Compute'
     url: '/platform/hpe-compute/home/'
-  - label: 'iLO RESTful API'
-    url: '/platform/ilo-restful-api/home/'
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
+  - label: 'Resources'
+    url: '#resources'
+  - label: 'HPE NonStop product page'
+    url: 'https://www.hpe.com/us/en/products/compute/nonstop-servers.html'
 tags:
   - hpe-nonstop
+  - hpe-compute
 ---
 HPE NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people travel and executing massive amounts of transactions in global payments networks, HPE NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds.
 
@@ -36,10 +29,7 @@ HPE NonStop is a platform that runs some of the world’s most exciting workload
 
 ## Resources
 
-[HPE NonStop Home Page](https://www.hpe.com/us/en/servers/nonstop.html)
-
-[HPE NonStop Family of Systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
-
-[NonStop 101: Training Wheels for NonStop OS](https://shaniceabigail.github.io/nonstop101/)
-
-[Sample Code for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
+* [HPE NonStop Home Page](https://www.hpe.com/us/en/products/compute/nonstop-servers.html)
+* [HPE NonStop Family of Systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
+* [NonStop 101: Training Wheels for NonStop OS](https://shaniceabigail.github.io/nonstop101)
+* [Sample Code for HPE NonStop products](https://github.com/HewlettPackard/NonStop)

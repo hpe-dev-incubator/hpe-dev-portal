@@ -80,8 +80,8 @@ Every business is facing tough challenges – to digitally transform, address se
 ## Additional resources
 
 * [HPE ProLiant Servers](https://www.hpe.com/us/en/servers/proliant-servers.html)
-* [HPE iLO Documentation](https://www.hpe.com/info/ilo-docs)
-* [HPE OneView Documentation](https://www.hpe.com/info/oneview-docs)
+* [HPE iLO Documents](https://www.hpe.com/info/ilo-docs)
+* [HPE OneView Documents](https://www.hpe.com/info/oneview-docs)
 * [HPE NonStop](https://www.hpe.com/us/en/servers/nonstop.html)
 * [HPE Developer Community Slack](https://developer.hpe.com/slack-signup)
 

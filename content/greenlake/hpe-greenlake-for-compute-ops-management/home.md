@@ -8,6 +8,9 @@ image: /img/platforms/hpe-element.png
 width: large
 priority: 4
 active: true
+quickLinks:
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
 tags:
   - hpe-greenlake-for-compute-ops-management
   - hpe-compute-ops-management
@@ -37,4 +40,4 @@ HPE Compute Ops Management customers and partners can take advantage of our well
 
 ## Any questions on HPE Compute Ops Management?
 
-Please join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [](https://hpedev.slack.com/archives/C03QTQWC213)[\#hpe-compute-ops-management](https://hpedev.slack.com/archives/C03QTQWC213) channel.
+Please join the [HPE Developer Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in our [](https://hpedev.slack.com/archives/C03QTQWC213)[\#hpe-compute-ops-management](https://hpedev.slack.com/archives/C03QTQWC213) channel.

@@ -9,24 +9,16 @@ frontpage: true
 date: 2022-06-24T17:04:12+02:00
 active: true
 quickLinks:
-  - label: 'Developers Hub'
-    url: '#hpe-oneview-developers-hub'
-  - label: 'Integrations'
-    url: '#hpe-oneview-integrations'
-  - label: 'SDKs'
-    url: '#sdks-and-language-bindings'
-  - label: 'Workshops'
-    url: '#workshops-on-demand'
   - label: 'HPE Compute'
     url: '/platform/hpe-compute/home/'
-  - label: 'iLO RESTful API'
-    url: '/platform/ilo-restful-api/home/'
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
-  - label: 'HPE NonStop'
-    url: '/platform/hpe-nonstop/home/'
+  - label: 'Ansible'
+    url: '#hpe-oneview-integrationss'
+  - label: 'Developer Librairies'
+    url: '#sdks-and-language-bindings'
 tags:
   - hpe-oneview
+  - hpe-compute
+  - server management
 ---
 ## HPE OneView Developers Hub
 
@@ -44,14 +36,9 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 [Ansible](https://www.ansible.com/home) by Red Hat automates the provisioning of physical infrastructure on-demand using software-defined templates from HPE OneView.
 
-* [Read the Deployment Guide](https://www.redhat.com/en/resources/automate-container-deployment-with-hpe-datasheet)
-* [Read the Accelerating DevOps White Paper](https://h20195.www2.hpe.com/v2/GetDocument.aspx?docname=4AA6-6229ENW)
-* [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible#.XJVbZCdMEio)
 * [Watch the Demo](https://www.youtube.com/watch?v=PVJgUEH0Quw&feature=youtu.be)
-* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible-collection)
+* [Ansible Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible-collection)
 * [Installation and user guide](https://psnow.ext.hpe.com/doc/a50003411enw?jumpid=in_lit-psnow-red)
-
-- - -
 
 - - -
 
@@ -69,7 +56,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 * [Terraform Overview](https://www.terraform.io/intro/index.html)
 * [Getting started with Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
-* [Terraform Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-terraform)
+* [Terraform Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-terraform)
 
 - - -
 
@@ -81,17 +68,11 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 - - -
 
-- - -
-
-- - -
-
 ### Red Hat® OpenShift®
 
 Enable IT operations and application development teams to deliver applications faster using the [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) integration.
 
-* [Read the Synergy Reference Configuration](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=A00038916ENW)
-* [Read the Technical White Paper](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/automate_red_hat_openshift_container_platform_deployment_on_hpe_proliant_servers_with_ansible_tower_and_hpe_oneview/)
-* [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible)
+* [HPE OneView Operator on the Red Hat Ecosystem Catalog](https://catalog.redhat.com/en/software/container-stacks/detail/6927e8bf1b4ef0fd517e4ecd)
 
 - - -
 
@@ -131,15 +112,13 @@ This library provides a pure Windows PowerShell interface to the HPE OneView RES
 
 This library provides a pure Python interface to the HPE OneView REST APIs.
 
-* [OneView Python SDK Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-python)
+* [OneView Python SDK Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-python)
 
 - - -
 
 ### [Redfish ![](Github)](https://github.com/HewlettPackard/oneview-redfish-toolkit)
 
 The Redfish toolkit allows customers to take automations that use the Redfish specification and apply them to HPE OneView without need for extensive scripting.
-
-- - -
 
 - - -
 
@@ -183,4 +162,4 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on HPE OneView?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#oneview](https://hpedev.slack.com/archives/C5TMA1TK5) channel.
+Join the [HPEDEV Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in our [\#oneview](https://hpedev.slack.com/archives/C5TMA1TK5) channel.
