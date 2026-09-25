@@ -198,8 +198,6 @@ Keeping PiG faithful to Pi is our job, not Pi's. Anything useful we find should 
 
 I'm one person with a day job, and more work (even just within HPE) depends on PiG every month. If you've run open-source projects and care about governance, releases, security review, documentation, artwork, or community, I'd welcome your help in any capacity.
 
-
-
 I'd also like PiG to be a place to learn open source, with scoped work, a real review, and your name on the result. If you run an educational program, student group, or bootcamp, reach out. There's no program to announce yet. There's a repository, a backlog, and an open community.
 
 ## What's next
