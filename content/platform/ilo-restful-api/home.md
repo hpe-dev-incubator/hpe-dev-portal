@@ -9,6 +9,8 @@ frontpage: true
 date: 2024-12-05T11:38:35+01:00
 active: true
 quickLinks:
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
   - label: 'Overview'
     url: '#one-interface-for-server-management-automation'
   - label: 'Redfish API'
@@ -16,13 +18,11 @@ quickLinks:
   - label: 'GitHub'
     url: '#github-and-powershell-repositories'
   - label: 'SDKs'
-    url: '#sdks-and-language-bindings'
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
+    url: '#sdks-and-language-bindings'  
+  - label: 'Compute Ops management'
+    url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
   - label: 'HPE OneView'
     url: '/platform/hpe-oneview/home/'
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
   - label: 'HPE NonStop'
     url: '/platform/hpe-nonstop/home/'
 tags:
@@ -125,4 +125,4 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on iLO or Redfish?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#redfish](https://hpedev.slack.com/archives/C9RRCL9TJ) channel.
+Join the [HPEDEV Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in our [\#redfish](https://hpedev.slack.com/archives/C9RRCL9TJ) channel.

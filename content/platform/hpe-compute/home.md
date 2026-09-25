@@ -8,12 +8,14 @@ priority: 11
 date: 2026-09-01T00:00:00+00:00
 active: true
 quickLinks:
+  - label: 'HPE ProLiant'
+    url: '/platform/hpe-proliant/home/'
   - label: 'iLO RESTful API'
     url: '/platform/ilo-restful-api/home/'
+  - label: 'Compute Ops management'
+    url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
   - label: 'HPE OneView'
     url: '/platform/hpe-oneview/home/'
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
   - label: 'HPE NonStop'
     url: '/platform/hpe-nonstop/home/'
 tags:
@@ -45,6 +47,15 @@ HPE compute platforms provide the foundation for modern workloads, from edge to 
 * SDKs and libraries available for Python, PowerShell, and Go
 * Integrates with Ansible, Terraform, and common infrastructure automation pipelines
 
+### HPE Compute Ops Management
+
+Every business is facing tough challenges – to digitally transform, address security risks, and operate efficiently. Complex server management is a distraction from these challenges, consuming IT resources and slowing innovation.[HPE Compute Ops Management](/greenlake/hpe-greenlake-for-compute-ops-management/home.md) solves these challenges by simplifying and unifying operations across the server lifecycle, for the whole environment, no matter where your compute infrastructure lives. The service provides a consistent, secure cloud experience that scales elastically and unifies compute management.
+
+
+* Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.   
+* Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).   
+* Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.   
+
 ### HPE OneView
 
 [HPE OneView](/platform/hpe-oneview/home/) is a software-defined infrastructure management platform that provides a unified view of compute, storage, and networking resources. It exposes a comprehensive REST API for lifecycle automation across physical and virtual infrastructure.
@@ -54,13 +65,6 @@ HPE compute platforms provide the foundation for modern workloads, from edge to 
 * Integration with VMware, Microsoft, and open-source virtualization platforms
 * Supports HPE Synergy and HPE ProLiant environments
 
-### HPE OneView Global Dashboard
-
-[HPE OneView Global Dashboard](/platform/hpe-oneview-global-dashboard/home/) provides centralized visibility and management across multiple HPE OneView instances and data centers. It enables fleet-wide health monitoring, firmware compliance reporting, and operational visibility at scale.
-
-* Aggregated view across multiple HPE OneView appliances
-* Firmware and compliance baseline management at scale
-* REST API for reporting and operational integration
 
 ## Mission-critical computing
 
@@ -76,8 +80,8 @@ HPE compute platforms provide the foundation for modern workloads, from edge to 
 ## Additional resources
 
 * [HPE ProLiant Servers](https://www.hpe.com/us/en/servers/proliant-servers.html)
-* [HPE iLO Documentation](https://www.hpe.com/info/ilo-docs)
-* [HPE OneView Documentation](https://www.hpe.com/info/oneview-docs)
+* [HPE iLO Documents](https://www.hpe.com/info/ilo-docs)
+* [HPE OneView Documents](https://www.hpe.com/info/oneview-docs)
 * [HPE NonStop](https://www.hpe.com/us/en/servers/nonstop.html)
 * [HPE Developer Community Slack](https://developer.hpe.com/slack-signup)
 
