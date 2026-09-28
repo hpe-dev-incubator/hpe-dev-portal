@@ -59,23 +59,19 @@ Supports files, object, NoSQL databases, and streams
 
 ### Technical Demos
 
-#### What's a data fabric and how does it work?
+![](/img/platforms/x10000-console.png)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qi6sTvu8osk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
 
-#### How to size an HPE Data Fabric system
+| Title                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|What's a data fabric and how does it work?                         | Ted Dunning and Ellen Friedman discuss the value of a data fabric to distributed businesses today. They also introduce the HPE Ezmeral Data Fabric and explain how it works. This introduction to data fabric is an ideal introduction to the basic concepts.  | [Video](https://www.youtube.com/watch?v=XE9V2Fj9XqM)                                                     |
+| HPE Data Fabric 101—Get to Know the Basics Around the Data Fabric                          | A hands-on workshop replay , where you’ll learn how to create/delete/update volumes, set up disaster recovery mechanisms, and apply security policies. | [Video](https://www.youtube.com/watch?v=HL_tAv5Dpjo)                                                                                                                                                   |
+| Practical Erasure Coding in a Data Fabric.                                    | This discussion is technical, but does not require any specific technical background and has generality beyond just the HPE Data Fabric to the concept of data fabrics in general.                      | [Video](https://www.youtube.com/watch?v=-6IBKLiOb_Q) |
+| HPE Data Fabric Software - Technical Demo  | In this technical demo, Alaric Thomas showcases HPE Data Fabric Software in action, highlighting its core features and real-world performance advantages.                                                                  | [Video](https://www.youtube.com/watch?v=SVfLwTF2lpI)                                                                                                                                                   |
+| HPE Data Fabric Software: Mission Control for Agentic AI               | In this video, HPE showcases how HPE Data Fabric Software and HPE Alletra Storage MP X10000 provide governance, optimization, and real-time access to AI-ready data, enabling organizations to accelerate agentic AI initiatives across hybrid environments.                                                                      | [Video](https://www.youtube.com/watch?v=tItbQzs1eKA)                                                                                                                                                   |
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6khp9SanXhY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-#### Practical Erasure Coding in a Data Fabric
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-#### Data Fabric File and Object Store Overview
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S19rkDF_oPs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-To learn more about HPE Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
+<br/>
 
 
 ### Free On-Demand Training
@@ -99,7 +95,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
-- - -
 ## Community
 
 ### Any questions on HPE Data Fabric Software?
