@@ -2,6 +2,7 @@ import { Anchor, Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import Breadcrumbs from '../Breadcrumbs';
 
 /* outer hero container — responsive padding and gap */
 const HeroContainer = styled(Box)`
@@ -190,31 +191,9 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
         />
       </Box>
 
-      {/* Breadcrumb: Products / {Title} */}
-      <Box
-        direction="row"
-        align="center"
-        gap="12px"
-        style={{ position: 'relative', zIndex: 1 }}
-      >
-        <Image
-          src="/images/vector-product.png"
-          width="36px"
-          height="36px"
-          alt=""
-        />
-        <Text
-          weight={400}
-          color="#292D3A"
-          style={{
-            fontSize: 'clamp(16px, 3vw, 28px)',
-            letterSpacing: '-0.5px',
-            lineHeight: '100%',
-          }}
-        >
-          Products / {title}
-        </Text>
-      </Box>
+      <Breadcrumbs
+        items={[{ label: 'Products', href: '/platforms' }, { label: title }]}
+      />
 
       {/* H1 title */}
       <Text
