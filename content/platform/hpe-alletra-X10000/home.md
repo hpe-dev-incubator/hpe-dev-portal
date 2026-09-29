@@ -1,5 +1,5 @@
 ---
-title: HPE X10000
+title: HPE Alletra Storage MP X10000
 version: v0.1
 description: A paradigm shift in data infrastructure.
 image: /img/alletra-element-small.png
@@ -8,22 +8,14 @@ priority: 12
 date: 2026-07-16T09:12:23+02:00
 active: true
 quickLinks:
-  - label: 'For Kubernetes'
-    url: 'https://scod.hpedev.io/welcome/index.html'
-  - label: 'Analytics'
-    url: '/platform/hpe-ezmeral-data-fabric/home/'
-  - label: 'B10000'
-    url: '/platform/hpe-alletra/home/'
-  - label: 'X10000'
-    url: '/platform/hpe-alletra-X10000/home/'
-  - label: 'SimpliVity'
-    url: '/platform/hpe-simplivity/home/'
-  - label: 'Nimble'
-    url: '/platform/hpe-nimble-storage/home/'
-  - label: '3PAR'
-    url: '/platform/hpe-3par-and-primera/home/'
-  - label: 'Zerto'
-    url: '/platform/zerto/home/'
+  - label: 'CSI'
+    url: '#hpe-csi-driver'
+  - label: 'COSI'
+    url: '#hpe-cosi-driver'
+  - label: 'MCP'
+    url: '#mcp-server'
+  - label: 'Slack Channel'
+    url: 'https://hpedev.slack.com/archives/C0C41228XHD'
 tags:
   - hpe-alletra
   - storage
@@ -82,16 +74,16 @@ The HPE Alletra MP platform provides a common hardware foundation capable of sup
 
 | **Feature** | **B10000** | **X10000** |
 | :----------------- | :-------------------------------------------------------------------------- | :-------------------------------------------------- |
-| Data Type | Structured | Unstructured |
-| Primary Storage | Block and file Storage | Object Storage and File |
-| Typical Workloads | Databases, Virtualization, ERP | AI, Data Lakes, Backup, Media |
-| Performance Focus | Low Latency & Intensive IOPS | Massive Scale & Throughput |
-| Protocols | NVME, Fibre Channel, iSCSI, File | S3, Object Storage, NFS |
-| Scalability | HPE GreenLake & Infosight | HPE GreenLake & Integrated Services |
+| Data Type | Unstructured | Structured |
+| Primary Storage | Object Storage and File | Block and file Storage |
+| Typical Workloads | AI, Data Lakes, Backup, Media | Databases, Virtualization, ERP |
+| Performance Focus | Massive Scale & Throughput | Low Latency & Intensive IOPS |
+| Protocols | S3, Object Storage, NFS | NVME, Fibre Channel, iSCSI, File |
+| Scalability | HPE GreenLake & Integrated Services | HPE GreenLake & Infosight |
 
 Together, the B10000 and X10000 enable organizations to support both traditional enterprise applications and modern data-intensive workloads on the HPE Alletra MP platform, providing a unified operational experience while optimizing storage for different data types.
 
-[For Developers Resources for HPE Alletra Storage MP B10000 (Unstructured Data)](https://developer.hpe.com/platform/hpe-alletra/home)
+[For Developers Resources for HPE Alletra Storage MP B10000 (Structured Data)](/platform/hpe-alletra-B10000/home/)
 
 ## Dev Resources
 
@@ -101,7 +93,7 @@ The HPE Alletra Storage MP X10000 is designed for cloud-native development and d
 
 HPE Alletra Storage MP X10000 provides an Amazon S3-compatible object storage interface, enabling developers and applications to interact with object storage using familiar AWS S3 APIs. This compatibility allows organizations to leverage existing S3-based tools, applications, and development workflows with minimal or no application code changes.
 
-'Note: The complete and current list of supported Amazon S3 APIs is available through HPE support documentation and product release notes'
+'Note: The complete and current list of supported Amazon S3 APIs is available through [HPE support documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00008534en_us&page=GUID-05463747-AE49-4A72-AE75-47FAF2460F0B.html&docLocale=en_US) and product release notes'
 
 Supported SDKs and tools include:
 
@@ -124,8 +116,9 @@ Available APIs:
 
 * Object Storage API:  [GreenLake for Object Storage REST APIs](https://developer.greenlake.hpe.com/docs/greenlake/services/object-storage/public/openapi/object-storage-public-v1alpha1/object-storage-api)
 
-### Kubernetes Container Storage Interface (CSI) and Container Object Storage Interface (COSI)
+### CSI and COSI
 
+Kubernetes Container Storage Interface (CSI) and Container Object Storage Interface (COSI)
 HPE Alletra Storage MP integrates with Kubernetes using industry-standard storage interfaces that enable applications to dynamically provision persistent storage.  The X10000 supports both CSI and COSI, allowing Kubernetes applications to consume either:
 
 * NFS-based persistent file storage using CSI
@@ -138,7 +131,7 @@ The primary source for end-user documentation covering Kubernetes and related ec
 * [SCOD portal](https://scod.hpedev.io/)
 * HPE Storage GitHub Repository: [SCOD Repository![](Github)](https://github.com/hpe-storage/scod)
 
-**HPE CSI Driver**
+### HPE CSI Driver
 
 The HPE CSI Driver enables Kubernetes clusters to dynamically provision and manage NFS exports on the X10000 platform. This capability supports applications that require persistent shared file storage across multiple pods or nodes with RWX, RWO, and ROX access modes.
 
@@ -149,7 +142,9 @@ Documentation and Resources:
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
 * [Operator for Kubernetes :![](Github)](https://github.com/hpe-storage)
 
-**HPE COSI Driver**
+
+### HPE COSI Driver
+
 
 The HPE COSI Driver enables Kubernetes applications to dynamically provision and manage Amazon S3-compatible object storage buckets directly on the X10000 platform. This provides cloud-native object storage services for applications that require scalable, API-driven object storage.
 
@@ -161,8 +156,9 @@ Documentation and Resources:
 
 Together, the HPE CSI and COSI drivers provide Kubernetes administrators and developers with a unified approach to consuming both file and object storage services from HPE Alletra Storage MP X10000 using cloud-native standards.
 
-## Model Context Protocol (MCP) Server
+## MCP Server
 
+Model Context Protocol (MCP) Server:
 The HPE Alletra Storage MP X10000 includes a native Model Context Protocol (MCP) Server that enables AI assistants, Large Language Models (LLMs), and autonomous AI agents to securely interact with object storage using the open Model Context Protocol standard.
 
 The MCP Server follows the standard MCP architecture consisting of:
@@ -208,8 +204,8 @@ HPE Alletra Storage MP X10000 Explainer Video                         | Accelera
 
 ## Community
 
-### Any questions on HPE Alletra?
+### Any questions on HPE Alletra MP X10000?
 
-Join the [HPE DEV Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
+Join the [HPE DEV Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C0C41228XHD) channel.
 
 - - -
