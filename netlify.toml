@@ -586,6 +586,12 @@ from = "/blog/links"
 to = "/campaign/links"
 status = 301
 force = false
+
+[[redirects]]
+from = "/platform/morpheus/home/"
+to = "/platform/hpe-morpheus/home/"
+status = 301
+force = false
   
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/netlify-dev-plugin#project-detection
