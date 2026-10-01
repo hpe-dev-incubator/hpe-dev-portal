@@ -1,70 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Card, CardBody } from 'grommet';
-import { Layout, SEO, ButtonLink } from '../../components';
+import { Text } from 'grommet';
+import {
+  Layout,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
+  SEO,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 function Topics({ data }) {
   const topics = data.allMarkdownRemark.edges;
+  const topicTiles = topics.map(({ node }) => ({
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    actionLabel: `Explore ${node.frontmatter.title} →`,
+    actionHref: `/topic${node.fields.slug}`,
+    variant: 'light',
+  }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Topics" />
-      <Box pad={{ horizontal: 'xlarge', vertical: 'large' }} gap="large">
-        <Box gap="small">
-          <Heading level={1} margin="none">
-            Topics
-          </Heading>
-          <Text size="large" color="text-weak">
-            Explore curated resources across the most important technology areas
-            for HPE developers.
-          </Text>
-        </Box>
-        <Box
-          direction="row-responsive"
-          wrap
-          gap="medium"
-        >
-          {topics.map(({ node }) => {
-            const { title, description } = node.frontmatter;
-            const { slug } = node.fields;
-            return (
-              <Card
-                key={slug}
-                width={{ min: '280px', max: '360px' }}
-                elevation="small"
-                round="small"
-                pad="medium"
-                gap="small"
-                background="white"
-              >
-                <CardBody gap="small">
-                  <Heading level={3} margin="none">
-                    {title}
-                  </Heading>
-                  {description && (
-                    <Text size="small" color="text-weak">
-                      {description.length > 150
-                        ? `${description.substring(0, 147)}...`
-                        : description}
-                    </Text>
-                  )}
-                  <Box>
-                    <ButtonLink
-                      label={`Explore ${title} →`}
-                      to={`/topic${slug}`}
-                      alignSelf="start"
-                    />
-                  </Box>
-                </CardBody>
-              </Card>
-            );
-          })}
-        </Box>
-      </Box>
+      <ReusableHeroSection
+        image="/img/topics/TopicBg.jpg"
+        title="Topics"
+        alt="topics background"
+        backgroundPosition="50% 33%"
+        showRightMidGradient={true}
+        height="auto"
+      >
+        <Text size="large">
+          Explore curated resources across the most important technology areas
+          for HPE developers.
+        </Text>
+      </ReusableHeroSection>
+      <ReusableInfoTilesRow items={topicTiles} />
     </Layout>
   );
 }
