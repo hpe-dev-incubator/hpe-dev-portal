@@ -15,6 +15,7 @@ tags:
   - hpe-opsramp
   - opsramp
   - morpheus
+  - hpe-morpheus
 priority: 2
 active: true
 ctaLabel: Get started with Hybrid Cloud

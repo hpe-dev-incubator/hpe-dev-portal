@@ -9,12 +9,29 @@ priority: 2
 frontpage: false
 active: false
 date: 2024-11-05T11:31:31+01:00
+quickLinks:
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - hpe-ezmeral-data-fabric
 ---
-HPE Ezmeral Data Fabric centralizes different data types across on-premises, multiple clouds, and edge deployments into a single logical data store.  It breaks down silos and stops the endless cycle of merging, remerging, and redeploying data silos into new silos. 
+HPE Ezmeral Data Fabric centralizes different data types across on-premises, multiple clouds, and edge deployments into a single logical data store.  It breaks down silos and stops the endless cycle of merging, remerging, and redeploying data silos into new silos.
 
-HPE Ezmeral Data Fabric allows data analysts, engineers, and scientists to deliver real-time and predictive models organizations can trust. Built-in industry-standard APIs, languages, and protocols increase productivity by preserving existing access mechanisms without low-value refactoring. 
+HPE Ezmeral Data Fabric allows data analysts, engineers, and scientists to deliver real-time and predictive models organizations can trust. Built-in industry-standard APIs, languages, and protocols increase productivity by preserving existing access mechanisms without low-value refactoring.
 
 Supports files, object, NoSQL databases, and streams
 

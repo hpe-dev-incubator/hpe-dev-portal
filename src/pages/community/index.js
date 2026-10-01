@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Heading, Paragraph } from 'grommet';
+import { Heading, Text } from 'grommet';
+import PropTypes from 'prop-types';
 
 import {
-  PageDescription,
   Layout,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
   SEO,
-  CommunityCard,
-  SectionHeader,
-  ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -17,43 +15,36 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto'],
-};
-
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
 function Community({ data }) {
   const communities = data.allMarkdownRemark.edges;
+  const communityTiles = communities.map((community) => ({
+    title: community.node.frontmatter.title,
+    description: community.node.frontmatter.description,
+    actionLabel: community.node.frontmatter.linkname || 'Learn more',
+    actionHref: community.node.frontmatter.link,
+    variant: 'light',
+  }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Community" />
-      <PageDescription
-        image="/img/community/community.svg"
+      <ReusableHeroSection
+        image="/img/community/community_hero_bg.jpg"
         title="Community"
         alt="community page logo"
+        backgroundPosition="50% 33%"
+        height="auto"
+        overlayGradient="linear-gradient(-42.143deg, rgba(41, 45, 58, .55) 10.197%, rgb(41, 45, 58) 77.615%)"
       >
-        <Paragraph size="large">
+        <Text size="large">
           A community is all about connection. Discover the many different ways
-          you can connect with members of the HPE Developer Community here.
-        </Paragraph>
-      </PageDescription>
-      <SectionHeader>
-        <ResponsiveGrid rows={rows} columns={columns}>
-          {communities.map((community) => (
-            <CommunityCard key={community.node.id} node={community.node} />
-          ))}
-        </ResponsiveGrid>
-      </SectionHeader>
+          you can connect
+          <br /> with members of the HPE Developer Community here.
+        </Text>
+      </ReusableHeroSection>
+      <ReusableInfoTilesRow items={communityTiles} />
     </Layout>
   );
 }
@@ -93,7 +84,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "community" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: {frontmatter: {priority: ASC}}
+      sort: { frontmatter: { priority: ASC } }
     ) {
       edges {
         node {

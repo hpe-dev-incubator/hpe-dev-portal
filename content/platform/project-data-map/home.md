@@ -8,6 +8,15 @@ image: /img/platforms/hpe-element.png
 width: large
 priority: 4
 active: false
+quickLinks:
+  - label: 'Features'
+    url: '#features'
+  - label: 'Resources'
+    url: '#resources'
+  - label: 'Collaborations'
+    url: '#collaborations'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - project-data-map
 ---

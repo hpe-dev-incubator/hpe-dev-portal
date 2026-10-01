@@ -7,6 +7,13 @@ width: large
 priority: 4
 active: false
 date: 2019-12-05T11:31:31+01:00
+quickLinks:
+  - label: 'Key Advantages'
+    url: '#key-advantages-of-using-dragonhpc'
+  - label: 'Online Resources'
+    url: '#online-resources-for-getting-up-and-running-with-dragonhpc'
+  - label: 'GitHub'
+    url: 'https://github.com/DragonHPC/dragon'
 tags:
   - dragonhpc
 ---

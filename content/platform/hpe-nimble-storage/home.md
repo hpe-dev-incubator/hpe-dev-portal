@@ -10,6 +10,23 @@ priority: 14
 frontpage: true
 date: 2022-06-24T17:05:07+02:00
 active: true
+quickLinks:
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - hpe-nimble-storage
 ---
@@ -17,8 +34,8 @@ tags:
   .button {
     background-color: rgba(23,235,160,1);
     box-sizing: border-box;
-    color: #000000; 
-    font-size: 18px; 
+    color: #000000;
+    font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
     vertical-align: middle;
@@ -32,7 +49,7 @@ tags:
     margin: 0;
     line-height: 24px;
     font-weight: 700;
-  } 
+  }
 </style>
 HPE Nimble Storage customers and partners have full access to the REST API of the arrays. We also provide open source projects for various automation platforms, language SDKs and container ecosystems.
 
@@ -50,50 +67,50 @@ Plugins, SDKs and documentation.
 
 A Container Storage Interface (CSI) Driver for Kubernetes. The HPE CSI Driver for Kubernetes allows you to use a Container Storage Provider to perform data management operations on storage resources.
 
-- [View the API documentation](https://developer.hpe.com/api/hpe-nimble-csp/)
+* [View the API documentation](https://developer.hpe.com/api/hpe-nimble-csp/)
 
-- [Helm Chart](https://hub.helm.sh/charts/hpe-storage/hpe-csi-driver)
+* [Helm Chart](https://hub.helm.sh/charts/hpe-storage/hpe-csi-driver)
 
-- [Operator for Kubernetes](https://operatorhub.io/operator/hpe-csi-driver-operator)
+* [Operator for Kubernetes](https://operatorhub.io/operator/hpe-csi-driver-operator)
 
-- [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
+* [Operator for OpenShift](https://access.redhat.com/containers/#/registry.connect.redhat.com/hpestorage/csi-driver-operator)
 
-- [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
+* [Visit documentation on SCOD](https://scod.hpedev.io/csi_driver/index.html)
 
 ### [Storage Container Orchestrator Documentation ![](Github)](https://github.com/hpe-storage/scod)
 
 The definitive source for end-user documentation for HPE storage integration with Kubernetes, Docker and neighboring partner ecosystems, including the HPE Container Platform.
 
-- [Explore the SCOD portal](https://scod.hpedev.io/)
+* [Explore the SCOD portal](https://scod.hpedev.io/)
 
 ### [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
 
 A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
 
-- [Read the documentation](https://hpe-storage.github.io/array-exporter)
-- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+* [Read the documentation](https://hpe-storage.github.io/array-exporter)
+* [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
 ### [Volume Driver for Kubernetes FlexVolume Plugin ![](Github)](https://github.com/hpe-storage/flexvolume-driver)
 
 Legacy FlexVolume driver for Container Provider-based storage systems, Nimble Storage and Cloud Volumes, for integration with Kubernetes FlexVolume Plugin.
 
-- [View documentation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
+* [View documentation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
 
 ### [Docker Volume plugin ![](Github)](https://github.com/hpe-storage/common-host-utils/tree/master/cmd/dockervolumed/managedplugin)
 
 Comprehensive Docker Volume plugin that serves as a foundation for all major container orchestration frameworks, including Docker Swarm, Kubernetes and Mesos.
 
-- [Visit on the Docker Store](https://store.docker.com/plugins/nimble)
+* [Visit on the Docker Store](https://store.docker.com/plugins/nimble)
 
-- [View documentation on SCOD](https://scod.hpedev.io/docker_volume_plugins/hpe_nimble_storage/index.html)
+* [View documentation on SCOD](https://scod.hpedev.io/docker_volume_plugins/hpe_nimble_storage/index.html)
 
 ### [SDK for Python ![](Github)](https://github.com/hpe-storage/nimble-python-sdk)
 
 A client Python Software Development Kit for HPE Nimble Storage arrays leveraging the REST APIs.
 
-- [Check out the package on PyPi](https://pypi.org/project/nimble-sdk/)
+* [Check out the package on PyPi](https://pypi.org/project/nimble-sdk/)
 
-- [View documentation](https://hpe-storage.github.io/nimble-python-sdk/)
+* [View documentation](https://hpe-storage.github.io/nimble-python-sdk/)
 
 ### [SDK for Go ![](Github)](https://github.com/hpe-storage/nimble-golang-sdk)
 
@@ -103,23 +120,23 @@ A client Go Software Development Kit for HPE Nimble Storage arrays leveraging th
 
 HPE Nimble Storage Content Collection for Ansible is a certified collection of Ansible modules to manage HPE Nimble Storage array resources.
 
-- [Download from Ansible Galaxy](https://galaxy.ansible.com/hpe/nimble)
+* [Download from Ansible Galaxy](https://galaxy.ansible.com/hpe/nimble)
 
-- [Read the documentation](https://hpe-storage.github.io/nimble-ansible-modules)
+* [Read the documentation](https://hpe-storage.github.io/nimble-ansible-modules)
 
-- [View on Red Hat Automation Hub](https://cloud.redhat.com/ansible/automation-hub/hpe/nimble/)
+* [View on Red Hat Automation Hub](https://cloud.redhat.com/ansible/automation-hub/hpe/nimble/)
 
 ### PowerShell Toolkit
 
 Windows PowerShell scripting toolkit for HPE Nimble Storage arrays.
 
-- [Visit the PowerShell Gallery](https://www.powershellgallery.com/packages/HPENimblePowerShellToolkit/3.0.0)
+* [Visit the PowerShell Gallery](https://www.powershellgallery.com/packages/HPENimblePowerShellToolkit/3.0.0)
 
 ### [Puppet Module ![](Github)](https://github.com/NimbleStorage/nimble-puppet)
 
 Puppet module to manage Nimble Storage arrays.
 
-- [View on Puppet Forge](https://forge.puppet.com/nimblestorage/nimblestorage)
+* [View on Puppet Forge](https://forge.puppet.com/nimblestorage/nimblestorage)
 
 ### [Storage and Infrastructure Automation ![](Github)](https://github.com/NimbleStorage/automation-examples)
 
@@ -137,11 +154,11 @@ The HPE Nimble Storage Application Snapshot Agent for SAP HANA uses the HPE Nimb
 
 Use HPE Nimble Storage with OpenStack Cinder.
 
-- [Documentation](https://docs.openstack.org/cinder/latest/configuration/block-storage/drivers/nimble-volume-driver.html)
+* [Documentation](https://docs.openstack.org/cinder/latest/configuration/block-storage/drivers/nimble-volume-driver.html)
 
-- [View OpenStack Cinder source](https://opendev.org/openstack/cinder)
+* [View OpenStack Cinder source](https://opendev.org/openstack/cinder)
 
-- [OpenStack Fuel Plugin](https://github.com/NimbleStorage/nimble-fuel-cinder-plugin)
+* [OpenStack Fuel Plugin](https://github.com/NimbleStorage/nimble-fuel-cinder-plugin)
 
 Nimble Storage Cinder integration with OpenStack Fuel
 
