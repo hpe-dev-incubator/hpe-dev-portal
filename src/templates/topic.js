@@ -25,6 +25,7 @@ import {
   HeroBanner,
   HeroBgImage,
   HeroGradient,
+  HeroRightMidGradient,
   HeroContent,
   HeroBody,
   HeroTitle,
@@ -242,6 +243,7 @@ function TopicTemplate({ data }) {
           />
           {/* Right-side gradient overlay */}
           <HeroGradient aria-hidden="true" />
+          <HeroRightMidGradient aria-hidden="true" />
           {/* Content */}
           <HeroContent>
             <Breadcrumbs
