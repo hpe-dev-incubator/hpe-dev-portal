@@ -3,6 +3,7 @@ import { Anchor, Avatar, Box, Heading, Paragraph, Text, Tip } from 'grommet';
 import {
   Book,
   Catalog,
+  CirclePlay,
   CircleQuestion,
   Copy,
   Facebook,
@@ -234,6 +235,7 @@ const DOC_CARD_CATEGORY = {
   GUIDE: 'guide',
   DOCS: 'docs',
   FAQ: 'faq',
+  VIDEO: 'video',
   OTHER: 'other',
 };
 
@@ -289,6 +291,7 @@ function normalizeDocTypeTag(rawType = '') {
     doc: DOC_CARD_CATEGORY.DOCS,
     documentation: DOC_CARD_CATEGORY.DOCS,
     faq: DOC_CARD_CATEGORY.FAQ,
+    video: DOC_CARD_CATEGORY.VIDEO,
   };
 
   return typeMap[value] || '';
@@ -327,7 +330,7 @@ function normalizeDocCardTitle(title) {
   return title;
 }
 
-function getCardDisplayTitle(card) {
+export function getCardDisplayTitle(card) {
   if (normalizeDocTypeTag(card.type)) {
     return card.title;
   }
@@ -335,11 +338,12 @@ function getCardDisplayTitle(card) {
   return normalizeDocCardTitle(card.title);
 }
 
-function getCardIcon(card, index) {
+export function getCardIcon(card, index) {
   const category = classifyDocCard(card);
   if (category === DOC_CARD_CATEGORY.GUIDE) return Copy;
   if (category === DOC_CARD_CATEGORY.DOCS) return Book;
   if (category === DOC_CARD_CATEGORY.FAQ) return HelpBook;
+  if (category === DOC_CARD_CATEGORY.VIDEO) return CirclePlay;
   return CARD_ICONS[index % CARD_ICONS.length];
 }
 
@@ -416,14 +420,19 @@ function parseHeadingsForSidebar(rawBody) {
   return items;
 }
 
-// Find the first group of 2+ consecutive `* [text](url)` bullet links,
-// extract them as resource cards, and return bodyBefore/bodyAfter so the
-// cards can be inserted at exactly the right position in the page.
-function parseAndExtractBulletCards(rawBody) {
+// Render all 2+ link groups containing explicit resource-type tags.
+// Untagged pages retain their single inferred group. Keep markdown between grids.
+export function parseAndExtractBulletCards(
+  rawBody,
+  { inferAfterFirstHeading = false } = {},
+) {
   const lines = rawBody.split('\n');
+  const firstHeadingIndex = lines.findIndex((line) =>
+    /^##\s+/.test(line.trim()),
+  );
   const groups = [];
   const taggedBulletPattern =
-    /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)\s*$/;
+    /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)(?:[ \t]+(.*))?\s*$/;
   const legacyBulletPattern = /^\*\s+\[([^\]]+)\]\(([^)]+)\)\s*$/;
 
   const parseBullet = (line) => {
@@ -433,6 +442,7 @@ function parseAndExtractBulletCards(rawBody) {
         type: taggedMatch[1].trim(),
         title: taggedMatch[2].trim(),
         link: taggedMatch[3].trim(),
+        description: (taggedMatch[4] || '').trim(),
       };
     }
 
@@ -464,13 +474,16 @@ function parseAndExtractBulletCards(rawBody) {
       if (!parsedLine) break;
 
       const { type, title, link } = parsedLine;
-      const descriptionLines = [];
+      const descriptionLines = parsedLine.description
+        ? [parsedLine.description]
+        : [];
       i += 1;
 
       while (i < lines.length) {
         const nextLine = lines[i];
         const trimmed = nextLine.trim();
 
+        if (/^#{1,6}\s+/.test(trimmed)) break;
         if (parseBullet(trimmed)) break;
         if (trimmed === '') {
           let lookahead = i + 1;
@@ -521,31 +534,30 @@ function parseAndExtractBulletCards(rawBody) {
     }
   }
 
-  if (groups.length === 0) {
-    return { cards: [], bodyBefore: rawBody, bodyAfter: '' };
+  let selectedGroups = groups.filter((group) => group.typedTagHits > 0);
+  if (selectedGroups.length === 0) {
+    const inferredPreferredGroup = groups
+      .filter(
+        (group) =>
+          group.docTagHits > 0 &&
+          (!inferAfterFirstHeading ||
+            (firstHeadingIndex !== -1 && group.start >= firstHeadingIndex)),
+      )
+      .sort((a, b) => b.docTagHits - a.docTagHits)[0];
+    if (inferredPreferredGroup) selectedGroups = [inferredPreferredGroup];
   }
 
-  const taggedPreferredGroup = groups
-    .filter((group) => group.typedTagHits > 0)
-    .sort(
-      (a, b) => b.typedTagHits - a.typedTagHits || b.docTagHits - a.docTagHits,
-    )[0];
-
-  const inferredPreferredGroup = groups
-    .filter((group) => group.docTagHits > 0)
-    .sort((a, b) => b.docTagHits - a.docTagHits)[0];
-
-  const preferredGroup = taggedPreferredGroup || inferredPreferredGroup;
-
-  if (!preferredGroup) {
-    return { cards: [], bodyBefore: rawBody, bodyAfter: '' };
-  }
-
-  return {
-    cards: preferredGroup.cards,
-    bodyBefore: lines.slice(0, preferredGroup.start).join('\n'),
-    bodyAfter: lines.slice(preferredGroup.nextIndex).join('\n'),
-  };
+  const sections = [];
+  let cursor = 0;
+  selectedGroups.forEach((group) => {
+    const body = lines.slice(cursor, group.start).join('\n');
+    if (body) sections.push({ kind: 'markdown', start: cursor, body });
+    sections.push({ kind: 'cards', start: group.start, cards: group.cards });
+    cursor = group.nextIndex;
+  });
+  const body = lines.slice(cursor).join('\n');
+  if (body) sections.push({ kind: 'markdown', start: cursor, body });
+  return sections;
 }
 
 // Split platform body into intro (before first level-2 heading) and the rest.
@@ -643,19 +655,15 @@ function PlatformTemplate({ data }) {
   const { description: heroDescription, body: bodyWithoutDesc } =
     extractDescriptionAndBody(rawMarkdownBody);
   const sanitizedBody = sanitizeMarkdownBody(bodyWithoutDesc);
-  // Build dedicated intro section and keep remaining markdown sections unchanged.
-  const { intro: introBody, rest: sectionBody } =
-    splitIntroSection(sanitizedBody);
-  // Auto-parse sidebar nav from headings; auto-extract bullet link cards from remaining body
+  const { rest: sectionBody } = splitIntroSection(sanitizedBody);
+  // Keep untagged intro lists as markdown, but allow tagged tiles anywhere.
   const parsedSidebarItems = useMemo(
     () => parseHeadingsForSidebar(sectionBody),
     [sectionBody],
   );
-  const {
-    cards: activeCards,
-    bodyBefore,
-    bodyAfter,
-  } = parseAndExtractBulletCards(sectionBody);
+  const contentSections = parseAndExtractBulletCards(sanitizedBody, {
+    inferAfterFirstHeading: true,
+  });
   const sidebarItems = useMemo(
     () => [
       { label: 'Getting started', href: '#platform-content' },
@@ -891,118 +899,112 @@ function PlatformTemplate({ data }) {
             >
               {title}
             </Text>
-            {introBody && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {introBody}
-              </MarkdownLayout>
-            )}
-            {bodyBefore && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {bodyBefore}
-              </MarkdownLayout>
-            )}
-            {activeCards.length > 0 && (
-              <DocCardsGrid>
-                {activeCards.map((card, i) => {
-                  const Icon = getCardIcon(card, i);
-                  const isGuideCard =
-                    classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
-                  return (
-                    <Box
-                      key={`${card.link}-${i}`}
-                      pad="none"
-                      background="transparent"
-                      elevation="none"
-                      gap="small"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '100%',
-                        maxWidth: '385px',
-                        // height: 'auto',
-                        gap: '20px',
-                        boxSizing: 'border-box',
-                        paddingTop: '40px',
-                        paddingRight: '28px',
-                        paddingBottom: '40px',
-                        paddingLeft: '28px',
-                        borderRadius: '0px',
-                        background: 'rgb(247, 247, 247)',
-                        boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.04) inset',
-                      }}
-                    >
+            {contentSections.map((section) =>
+              section.kind === 'markdown' ? (
+                <MarkdownLayout
+                  key={`markdown-${section.start}`}
+                  components={platformHeadingStyles}
+                >
+                  {section.body}
+                </MarkdownLayout>
+              ) : (
+                <DocCardsGrid key={`cards-${section.start}`}>
+                  {section.cards.map((card, i) => {
+                    const Icon = getCardIcon(card, i);
+                    const isGuideCard =
+                      classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
+                    return (
                       <Box
+                        key={`${card.link}-${i}`}
                         pad="none"
                         background="transparent"
-                        round="0px"
-                        width="48px"
-                        height="48px"
-                        align="start"
-                        justify="start"
-                        style={{ marginBottom: '8px' }}
-                      >
-                        <Icon size="large" color="#3e4550" />
-                      </Box>
-                      <Box
+                        elevation="none"
+                        gap="small"
                         style={{
                           display: 'flex',
                           flexDirection: 'column',
-                          gap: '8px',
-                          flex: 1,
-                          minHeight: 0,
+                          width: '100%',
+                          maxWidth: '385px',
+                          // height: 'auto',
+                          gap: '20px',
+                          boxSizing: 'border-box',
+                          paddingTop: '40px',
+                          paddingRight: '28px',
+                          paddingBottom: '40px',
+                          paddingLeft: '28px',
+                          borderRadius: '0px',
+                          background: 'rgb(247, 247, 247)',
+                          boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.04) inset',
                         }}
                       >
-                        <Text
+                        <Box
+                          pad="none"
+                          background="transparent"
+                          round="0px"
+                          width="48px"
+                          height="48px"
+                          align="start"
+                          justify="start"
+                          style={{ marginBottom: '8px' }}
+                        >
+                          <Icon size="large" color="#3e4550" />
+                        </Box>
+                        <Box
                           style={{
-                            fontWeight: 500,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                            flex: 1,
+                            minHeight: 0,
+                          }}
+                        >
+                          <Text
+                            style={{
+                              fontWeight: 500,
+                              fontSize: '18px',
+                              width: '100%',
+                              lineHeight: '24px',
+                              color: '#292D3A',
+                              overflowWrap: 'anywhere',
+                              wordBreak: 'break-word',
+                              fontFamily: 'HPE Graphik, Metric, sans-serif',
+                            }}
+                          >
+                            {getCardDisplayTitle(card)}
+                          </Text>
+                          <Text
+                            style={{
+                              fontSize: '18px',
+                              lineHeight: '28px',
+                              color: '#606A70',
+                              overflowWrap: 'anywhere',
+                              wordBreak: 'break-word',
+                              fontFamily: 'HPE Graphik, Metric, sans-serif',
+                            }}
+                          >
+                            {card.description}
+                          </Text>
+                        </Box>
+                        <Anchor
+                          href={card.link}
+                          label="Explore more →"
+                          color="#068667"
+                          size="small"
+                          style={{
+                            fontWeight: 600,
+                            marginTop: 'auto',
                             fontSize: '18px',
-                            width: '100%',
                             lineHeight: '24px',
-                            color: '#292D3A',
+                            whiteSpace: 'normal',
                             overflowWrap: 'anywhere',
                             wordBreak: 'break-word',
-                            fontFamily: 'HPE Graphik, Metric, sans-serif',
                           }}
-                        >
-                          {getCardDisplayTitle(card)}
-                        </Text>
-                        <Text
-                          style={{
-                            fontSize: '18px',
-                            lineHeight: '28px',
-                            color: '#606A70',
-                            overflowWrap: 'anywhere',
-                            wordBreak: 'break-word',
-                            fontFamily: 'HPE Graphik, Metric, sans-serif',
-                          }}
-                        >
-                          {card.description}
-                        </Text>
+                        />
                       </Box>
-                      <Anchor
-                        href={card.link}
-                        label="Explore more →"
-                        color="#068667"
-                        size="small"
-                        style={{
-                          fontWeight: 600,
-                          marginTop: 'auto',
-                          fontSize: '18px',
-                          lineHeight: '24px',
-                          whiteSpace: 'normal',
-                          overflowWrap: 'anywhere',
-                          wordBreak: 'break-word',
-                        }}
-                      />
-                    </Box>
-                  );
-                })}
-              </DocCardsGrid>
-            )}
-            {bodyAfter && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {bodyAfter}
-              </MarkdownLayout>
+                    );
+                  })}
+                </DocCardsGrid>
+              ),
             )}
             {relatedBlogs.length > 0 && tags && (
               <Box margin={{ top: '48px' }}>
