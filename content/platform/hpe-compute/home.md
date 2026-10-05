@@ -1,8 +1,13 @@
 ---
 title: HPE Compute
 version: v0.1
-description: HPE compute platforms, server management APIs, and infrastructure automation for modern workloads.
-image: /img/platforms/dev-thumb-compute.png
+description: >-
+  Discover developer resources across the HPE compute portfolio, from ProLiant
+  servers to mission-critical NonStop systems. Explore server management APIs,
+  SDKs, and automation tools with HPE iLO, HPE OneView, and HPE Compute Ops
+  Management to build infrastructure workflows and simplify lifecycle operations
+  from edge to cloud.
+image: /img/platforms/HPE202601300372_800_0_72_RGB.jpg
 width: large
 priority: 11
 date: 2026-09-01T00:00:00+00:00
