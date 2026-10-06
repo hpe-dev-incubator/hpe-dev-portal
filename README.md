@@ -29,6 +29,19 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
+## Platform sharing
+
+Platform and GreenLake pages provide LinkedIn, X, Facebook, and email share links.
+These links share the public page URL from `siteMetadata.siteUrl`, rather than
+the local development URL or a sidebar section hash. X also includes the page
+title. The icons open the social network's sharing interface in a new tab.
+Email sharing opens the user's mail application with the page title as the
+subject and the public page URL in the message body.
+Platform frontmatter images are included as absolute public URLs in Open Graph
+and Twitter metadata. Pages without an image omit image metadata; no default
+image is substituted. Social previews require the shared page and image to be
+publicly available; localhost-only or unpublished pages cannot be scraped.
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.

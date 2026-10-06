@@ -8,6 +8,7 @@ import {
   Facebook,
   HelpBook,
   LinkedinOption,
+  MailOption,
   X,
 } from 'grommet-icons';
 import PropTypes from 'prop-types';
@@ -26,6 +27,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import CarouselNavButtons from '../components/CarouselNavButtons';
 import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
+import getPlatformShareLinks from './platform-share';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -637,7 +639,13 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags, quickLinks } = post.frontmatter;
+  const { title, description, image, tags, quickLinks } = post.frontmatter;
+  const shareLinks = getPlatformShareLinks(
+    siteMetadata.siteUrl,
+    post.fields.sourceInstanceName,
+    post.fields.slug,
+    title,
+  );
 
   // Split off the first paragraph as the hero description
   const { description: heroDescription, body: bodyWithoutDesc } =
@@ -783,7 +791,11 @@ function PlatformTemplate({ data }) {
 
   const content = (
     <>
-      <SEO title={title} description={description || excerpt} />
+      <SEO
+        title={title}
+        description={description || excerpt}
+        image={image}
+      />
       <Box
         flex
         overflow="visible"
@@ -823,7 +835,8 @@ function PlatformTemplate({ data }) {
               <SocialIconsBox>
                 <Anchor
                   icon={<LinkedinOption size="32px" color="dark-1" />}
-                  href="https://www.linkedin.com/company/hewlett-packard-enterprise"
+                  href={shareLinks.linkedin}
+                  a11yTitle="Share on LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -834,7 +847,8 @@ function PlatformTemplate({ data }) {
                 />
                 <Anchor
                   icon={<X size="32px" color="dark-1" />}
-                  href="https://twitter.com/HPE_Developer"
+                  href={shareLinks.x}
+                  a11yTitle="Share on X"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -845,9 +859,20 @@ function PlatformTemplate({ data }) {
                 />
                 <Anchor
                   icon={<Facebook size="32px" color="dark-1" />}
-                  href="https://facebook.com/hewlettpackardenterprise"
+                  href={shareLinks.facebook}
+                  a11yTitle="Share on Facebook"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{
+                    padding: '16px',
+                    borderRadius: '100px',
+                    display: 'flex',
+                  }}
+                />
+                <Anchor
+                  icon={<MailOption size="32px" color="dark-1" />}
+                  href={shareLinks.email}
+                  a11yTitle="Share by email"
                   style={{
                     padding: '16px',
                     borderRadius: '100px',
@@ -1199,6 +1224,7 @@ PlatformTemplate.propTypes = {
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
+        sourceInstanceName: PropTypes.string.isRequired,
       }),
     }).isRequired,
     blogs: PropTypes.shape({
@@ -1277,6 +1303,7 @@ export const pageQuery = graphql`
       }
       fields {
         slug
+        sourceInstanceName
       }
     }
     blogs: allMarkdownRemark(

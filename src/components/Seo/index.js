@@ -14,6 +14,17 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 function SEO({ description, lang, meta, title, image }) {
   const siteMetadata = useSiteMetadata();
   const metaDescription = description || siteMetadata.description;
+  const imageUrl = image
+    ? new URL(image, siteMetadata.siteUrl).href
+    : undefined;
+  const imageMeta = imageUrl
+    ? [
+        { property: 'og:image', content: imageUrl },
+        { property: 'og:image:width', content: '200' },
+        { property: 'og:image:height', content: '200' },
+        { name: 'twitter:image', content: imageUrl },
+      ]
+    : [];
 
   return (
     <Helmet
@@ -36,18 +47,6 @@ function SEO({ description, lang, meta, title, image }) {
           content: metaDescription,
         },
         {
-          property: 'og:image',
-          content: image,
-        },
-        {
-          property: 'og:image:width',
-          content: '200',
-        },
-        {
-          property: 'og:image:height',
-          content: '200',
-        },
-        {
           property: 'og:type',
           content: 'website',
         },
@@ -67,11 +66,7 @@ function SEO({ description, lang, meta, title, image }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-        {
-          name: 'twitter:image',
-          content: image,
-        },
-      ].concat(meta)}
+      ].concat(imageMeta, meta)}
     ></Helmet>
   );
 }
