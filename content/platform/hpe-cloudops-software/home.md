@@ -7,7 +7,7 @@ description: Discover how the HPE CloudOps Software suite empowers IT teams with
 image: /img/platforms/opsramp1.jpg
 width: large
 priority: 9
-active: "true"
+active: true
 date: 2026-10-06T21:25:00.000Z
 quickLinks:
   - label: HPE Opsramp
