@@ -15,7 +15,7 @@ quickLinks:
   - label: HPE Morpheus
     url: /platform/hpe-morpheus/home/
   - label: HPE Zerto Software
-    url: /platform/hpe-zerto-software/home
+    url: /platform/hpe-zerto-software/home/
 tags:
   - hybrid-cloud
   - morpheus
