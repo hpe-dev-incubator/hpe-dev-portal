@@ -4,6 +4,10 @@ date: 2026-10-07T09:29:00.000Z
 author: Isabelle Steinhauser
 authorimage: /img/steinhauser_isabelle-copy-copy.jpg
 disable: false
+tags:
+  - hpe-private-cloud-ai
+  - tutorial
+  - coding-assistant
 ---
 This article provides step-by-step instructions for using OpenCode for automated PR Reviews leveraging GitHub Actions and a model running on HPEs Private Cloud AI. A pitfall when deploying a model on more than 1 GPU is discussed as well.
 
@@ -21,7 +25,7 @@ AI generated Code is everywhere, the PR reviews are the new bottleneck. Within t
 
 # Prerequisites
 
-This tutorial assumes the Code and PRs to be reviewed are hosted within GitHub, therefore you require a **GitHub Account**. Additionally you need to be the **owner of the Repository** where you want to introduce the automatic AI based PR Review. The repository can be public or private.
+This tutorial assumes the Code and PRs to be reviewed are hosted within GitHub, therefore you require a **GitHub Account**. Additionally you need to be the **owner or maintainer of the Repository** where you want to introduce the automatic AI based PR Review. The repository can be public or private. If a private repository is leveraged keep in mind, that the GitHub Runner is using GitHub resources where the free amount is limited. In order to avoid costs being created make sure that Stop usage is enabled for your GitHub Account in Settings/Budgets and licensing/Budgets and alerts for the Product "Actions".
 
 The AI Model to be used is deployed on HPEs PCAI. Either you require the Model Endpoint, Model ID and Token of a PCAI Hosted Model or access to a HPE PCAI with at least **1 free GPU**. A **HuggingFace account** is required.
 
@@ -93,7 +97,7 @@ In order to use OpenCode with a local deployed model in GitHub Actions a *openco
 }
 ```
 
-Replace the following values:
+**Replace the following values**:
 
 * DEPLOYMENT URL/v1 replace this with your Model Endpoint URL. Remember to add / keep the /v1 at the end
 * DEPLOYMENT MODEL ID replace this with your Model ID. It needs to be the complete model ID you find in GenAI Model Endpoints, like for example deepseek-ai/DeepSeek-V4-Flash-0731
@@ -105,4 +109,76 @@ The apiKey referenced in this config refers to environment variable, this will b
 
 ## Configuring the GitHub Action
 
-Within your repository
+Within your repository a *review.yaml* file is required. Add this file under the path *.github/workflows* . This File defines the GitHub Action review.
+
+```
+name: opencode-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Setup credentials to access private repositories
+        run: git config --global url.https://${{ secrets.MY_PAT }}@github.com/.insteadOf https://github.com/
+      - uses: anomalyco/opencode/github@latest
+        env:
+          MYPROVIDER_API_KEY: ${{ secrets.MYPROVIDER_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          model: pcai/DEPLOYMENT MODEL ID
+          use_github_token: true
+          prompt: |
+            Review this pull request:
+            - Check for code quality issues
+            - Look for potential bugs
+            - Suggest improvements
+            - comment it with yay this works
+```
+
+This defines the action review to be executed whenever a PR is opened, synchronized, reopened or ready for review.
+
+**Replace the following values**:
+
+* DEPLOYMENT MODEL ID replace this with your Model ID as defined in opencode.json. It needs to be the complete model ID you find in GenAI Model Endpoints, like for example deepseek-ai/DeepSeek-V4-Flash-0731
+
+Within jobs the job review is defined to run on *ubuntu-latest*. This defines the image used for the runner to execute this tasks. This configuration as is leverages the runners on GitHub Cloud, which have a low amount of credits to be used for free. A custom defined runner running locally is also possible, this can be VMs that are spinned up and down or Containers in a Kubernetes Cluster as described [here](https://github.com/actions/actions-runner-controller). 
+
+The permissions section defines the permission the runner executing the action gets.
+
+Within steps the steps to be executed are defined. If you are working in a public repository the step *Setup credentials to access private repositories* can be removed.
+
+The environment variables defined starting line 22 need to be configured within the repositories settings, this is explained in the next section of the post.
+
+Adapt the prompt (starting line 28) with the instructions you want to give the model for your review.
+
+## Configuring the secrets
+
+In order to not expose the GitHub Token or the Token of the model it is being referred to secrets. In order to create a secret open your GitHub Repository in a Browser. Navigate to "Settings" of the Repository. Within the Security and quality section of Settings proceed to "Secrets and variables", select "Actions". Define here the following **Repository Secrets:**
+
+* MYGITHUB_TOKEN a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
+* MYPROVIDER_API_KEY as the Token for your Model deployed on HPEs PCAI. You can create a new token within AIE by navigating to GenAI->ModelEndpoints->Select your Model-> Click Create Token.
+* MY_PAT a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
+
+# Working with automatic triggered AI based PR Reviews
+
+Once the setup is completed, for every new PR or reopened PR a run of the defined action is triggered. These runs can be followed by navigating to Actions within the used GitHub Repository. The workflow "opencode-review" will appear. The specific runs, successful or non successful, can be followed from this view.
+
+This is a sample AI based PR review triggered with the configuration described in this blogpost:
+
+![GitHub PR comments](/img/bildschirmfoto-2026-10-07-um-11.02.15.png)
+
+As instructed the comment ends with yay this works.
+
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI use cases.
