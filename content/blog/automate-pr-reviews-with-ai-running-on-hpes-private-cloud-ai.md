@@ -21,7 +21,7 @@ HPE Machine Learning Inference Software (MLIS) is an enterprise-grade solution d
 
 # Use Case
 
-AI generated Code is everywhere, the PR reviews are the new bottleneck. Within this article we introduce AI into the PR Review process, where AI will flag standard-issues and double-check the coding standards are followed, so the human can focus on the more complex problems. 
+AI generated Code is everywhere, the PR reviews are the new bottleneck. Within this article we introduce AI into the PR Review process, where AI will flag standard-issues and double-check the coding standards are followed, so the human can focus on the more complex problems. If you are looking for instructions to setup an AI Coding Assistant, please refer to [this tutorial](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-code-assistant-opencode).
 
 # Prerequisites
 
@@ -59,7 +59,7 @@ The volume needs to have the same indentation as `tolerations` or `maxReplicas` 
 
 The VolumeMount needs the same indentation as `image` `name` or `ports` of the `kserve-container` .
 
-After the inferenceservice is updated, the old revision leveraging the old inferenceservice configuration needs to be removed. Identify the old revision with `kubectl get revision `. Delete the old revision with `kubectl delete revision <yourrevisionname> `. The new inferenceservice creates a new revision. Wait until the model deploys, it will take some time. You can check the logs of the model deployment by identifying the pod of your model with `kubectl get pods` . And then the logs of it with `kubectl logs <yourmodelpodname>` .
+After the inferenceservice is updated, the old revision leveraging the old inferenceservice configuration needs to be removed. Identify the old revision with `kubectl get revision`. Delete the old revision with `kubectl delete revision <yourrevisionname>`. The new inferenceservice creates a new revision. Wait until the model deploys, it will take some time. You can check the logs of the model deployment by identifying the pod of your model with `kubectl get pods` . And then the logs of it with `kubectl logs <yourmodelpodname>` .
 
 ## Configuring OpenCode
 
@@ -180,5 +180,11 @@ This is a sample AI based PR review triggered with the configuration described i
 ![GitHub PR comments](/img/bildschirmfoto-2026-10-07-um-11.02.15.png)
 
 As instructed the comment ends with yay this works.
+
+## Credits
+
+Credits where Credits are due:
+
+**Tanguy Pomas** - for documenting the AI Coding Assistant with OpenCode and jointly working with me on figuring out how to setup OpenCode in GitHub Actions to use a custom opencode config.
 
 Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI use cases.
