@@ -142,14 +142,10 @@ As agentic AI simplifies automation and provides consistent profitability from A
 * [Customer support resolution](https://www.hpe.com/us/en/private-cloud-ai.html#tab2)
 * [Detection and prediction](https://www.hpe.com/us/en/private-cloud-ai.html#tab3)
 * [Employee onboarding and training](https://www.hpe.com/us/en/private-cloud-ai.html#tab4)
-* [Knowledge base copilots](https://www.hpe.com/us/en/private-cloud-ai.html#tab5
-)
-* [Self-service portals](https://www.hpe.com/us/en/private-cloud-ai.html#tab6
-)
-[Virtual agents and chatbots](https://www.hpe.com/us/en/private-cloud-ai.html#tab7
-)
-* [Visual computing](https://www.hpe.com/us/en/private-cloud-ai.html#tab8
-)
+* [Knowledge base copilots](https://www.hpe.com/us/en/private-cloud-ai.html#tab5)
+* [Self-service portals](https://www.hpe.com/us/en/private-cloud-ai.html#tab6)
+* [Virtual agents and chatbots](https://www.hpe.com/us/en/private-cloud-ai.html#tab7)
+* [Visual computing](https://www.hpe.com/us/en/private-cloud-ai.html#tab8)
 
 
 ## Github Repositories
@@ -160,9 +156,12 @@ As agentic AI simplifies automation and provides consistent profitability from A
 
 ## HPE Private Cloud AI Documentation
 
-* [Product Documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007655en_us&page=GUID-33D37640-E8D8-46BE-B319-AAA414136886.html)
-* [Administration Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007592en_us)
-* [HPE AI Essentials Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us)
+* [doc] [Product Documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007655en_us&page=GUID-33D37640-E8D8-46BE-B319-AAA414136886.html)
+  Official product documentation for HPE Private Cloud AI.
+* [guide] [Administration Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007592en_us)
+  Step-by-step admin guidance for managing and operating the platform.
+* [guide] [HPE AI Essentials Software](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie112hen_us)
+  Guidance for setup and operation of HPE AI Essentials Software.
 
 ## Tutorials - HPE AI Essentials
 
