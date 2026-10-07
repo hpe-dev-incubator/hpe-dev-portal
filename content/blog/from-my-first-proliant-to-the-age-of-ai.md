@@ -49,7 +49,7 @@ When AI operates at machine speed, the systems establishing and maintaining trus
 
 > **When AI moves at machine speed, trust must be built in**
 
-## The third weakness AI exposes is complexity 
+## The third weakness AI exposes is complexity
 
 Perhaps the biggest surprise is how often AI projects encounter difficulty not because an organization lacks technology, but because it has accumulated too much complexity.
 
@@ -83,4 +83,4 @@ For more detail on gen13 be sure to check out my **[ProLiant Gen13 technical blo
 
 No single technology can solve an AI strategy on its own. But if the compute powering AI is inefficient, difficult to trust, or overly complex, everything built on top of it becomes harder.
 
-> **AI is often described as the technology that will change everything. Perhaps its first contribution is to show us what still needs to change?**
+***AI is often described as the technology that will change everything. Perhaps its first contribution is to show us what still needs to change?***
