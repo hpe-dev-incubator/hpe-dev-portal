@@ -67,7 +67,7 @@ Operational simplicity is not about making the technology itself simple. AI infr
 
 Much of today’s AI conversation focuses on models, agents, and inference. But beneath every production deployment is infrastructure that must perform consistently, use resources efficiently, remain secure, and be manageable at scale.
 
-> ***That brings me back to my first ProLiant more than 30 years ago. Technology has changed dramatically, but the questions remain familiar***
+> ***That brings me back to my first ProLiant. Technology has changed dramatically, but the questions remain familiar***
 
 **•	Will it perform under pressure?** 
 
