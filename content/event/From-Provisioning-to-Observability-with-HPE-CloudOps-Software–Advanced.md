@@ -9,7 +9,7 @@ tags:
 - observability
 - hpe-cloudops
 image: /img/events/events5.jpg
-link: https://hpe.zoom.us/webinar/register/1817881930609/WN_O_bSTqnOSJmiFMr8-tRMVg
+link: https://youtu.be/joJQ3i_3i4A
 width: large
 ---
 09/30/2026
