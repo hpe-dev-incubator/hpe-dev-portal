@@ -4,7 +4,7 @@ active: true
 fit: contain
 path: https://youtu.be/joJQ3i_3i4A
 imageBackground: white
-description: "September 30, 2026: Check our meetup session to learn about Exploring HPE CloudOps Software – Advanced"
+description: "September 30, 2026: Check our meetup session to learn about Exploring HPE CloudOps Software – advanced"
 background: rgba(0, 86, 122, 0.8);
 label: Replay Now!
 priority: 3
