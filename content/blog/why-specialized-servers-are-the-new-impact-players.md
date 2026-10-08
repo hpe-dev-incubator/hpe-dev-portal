@@ -1,6 +1,6 @@
 ---
 title: Why specialized servers are the new impact players
-date: 2026-10-20T06:00:00.000Z
+date: 2026-10-21T07:00:00.000Z
 featuredBlog: false
 author: Aaron Lamond | Worldwide Product Marketing | Enterprise AI | HPE ProLiant
 authorimage: /img/aaron-lamond-2.jpg
