@@ -8,6 +8,15 @@ priority: 8
 frontpage: true
 active: false
 date: 2020-12-05T11:31:31+01:00
+quickLinks:
+  - label: Components
+    url: 'https://v2.grommet.io/components'
+  - label: GitHub
+    url: 'https://github.com/grommet/grommet'
+  - label: Storybook
+    url: 'https://storybook.grommet.io/'
+  - label: Docs
+    url: '#build-awesome-apps-with-grommet'
 tags:
   - Grommet
 ---
@@ -20,7 +29,7 @@ Grommet is used by developers and designers alike to build both enterprise-class
 * [View Grommet Components](https://v2.grommet.io/components)
 * [Join the conversation on Slack](https://grommet.slack.com/)
 
-[Join HPE and the active Grommet Community on GitHub ![](Github)](https://github.com/grommet/grommet) 
+[Join HPE and the active Grommet Community on GitHub ![](Github)](https://github.com/grommet/grommet)
 
 - - -
 
@@ -62,4 +71,3 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 ## Any questions on Grommet?
 
 Join the [Grommet Slack Workspace](https://grommet.slack.com/) and start a discussion.
-

@@ -7,6 +7,11 @@ width: large
 priority: 1
 active: false
 date: 2024-12-01T11:31:31+01:00
+quickLinks:
+  - label: 'HPE Complete Care'
+    url: 'https://www.hpe.com/us/en/services/complete-care.html'
+  - label: 'ITOps'
+    url: 'https://www.hpe.com/h20195/v2/getpdf.aspx/a00120892enw.pdf'
 tags:
   - hpe-complete-care-itops
   - activation-and-onboarding-in-hpe-complete-care-service-itops

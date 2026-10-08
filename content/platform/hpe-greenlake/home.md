@@ -10,6 +10,15 @@ priority: 2
 frontpage: true
 active: false
 date: 2024-12-05T11:31:31+01:00
+quickLinks:
+  - label: 'APIs & Docs'
+    url: '#apis-and-documentation'
+  - label: 'Manage Workloads'
+    url: '#manage-workloads-with-the-hpe-greenlake-edge-to-cloud-platform'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
+  - label: 'Developer Portal'
+    url: 'https://developer.greenlake.hpe.com/'
 tags:
   - hpe-greenlake
 ---

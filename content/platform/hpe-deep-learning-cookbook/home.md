@@ -9,6 +9,11 @@ image: /img/platforms/HPEDeepLearningCookbook.svg
 frontpage: true
 date: 2021-12-05T11:31:31+01:00
 active: false
+quickLinks:
+  - label: 'Components'
+    url: '#components-of-the-cookbook'
+  - label: 'Related Resources'
+    url: '#related-resources'
 tags:
   - hpe-deep-learning-cookbook
 ---

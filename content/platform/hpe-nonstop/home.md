@@ -8,23 +8,44 @@ width: large
 priority: 6
 date: 2025-08-11T13:59:29+02:00
 active: true
+quickLinks:
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
+  - label: 'Developer resources'
+    url: '#developer-resources'
+  - label: 'Operations management'
+    url: '#operations-management'
+  - label: 'Platform updates'
+    url: '#platform-updates'
+  - label: 'HPE NonStop product page'
+    url: 'https://www.hpe.com/us/en/products/compute/nonstop-servers.html'
 tags:
   - hpe-nonstop
+  - hpe-compute
 ---
-HPE NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people travel and executing massive amounts of transactions in global payments networks, HPE NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds.
+HPE NonStop is designed for mission-critical workloads that need continuous availability, including payment processing, manufacturing, and transportation. Developers can explore sample applications and DevOps starter kits, while operations teams can learn about system-management tools such as Web ViewPoint Enterprise.
 
-## YouTube Videos
+## Developer resources
 
-#### HPE NonStop NS8: Uncompromising availability, performance and scale for mission-critical workloads
+HPE's public [NonStop examples repository](https://github.com/HewlettPackard/NonStop) is a practical starting point for developers. It includes [DevOps starter kits](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops) with sample applications and CI/CD pipeline examples for C/C++, Java, and Python, plus continuous deployment examples using the NonStop Manageability Framework and Ansible.
 
-[![HPE NonStop NS8](https://img.youtube.com/vi/M5vq2OxwTDI/hqdefault.jpg)](https://www.youtube.com/watch?v=M5vq2OxwTDI)
+* [HPE NonStop DevOps](https://developer.hpe.com/blog/hpe-nonstop-devops/) — an introduction to the DevOps approach and starter kits for NonStop. The article provides context; use the repository for the example applications and pipeline files.
+* [NonStop 101: Training Wheels for NonStop OS](https://shaniceabigail.github.io/nonstop101)
+* [Using Python and ODBC to connect to HPE NonStop SQL/MX](https://developer.hpe.com/blog/python-how-to-use-odbc-to-connect-hpe-nonstop-sql-mx/)
 
-## Resources
+## Operations management
 
-[HPE NonStop Home Page](https://www.hpe.com/us/en/servers/nonstop.html)
+Web ViewPoint Enterprise is a browser-based operations management toolset for monitoring and managing HPE NonStop environments. It is relevant to teams operating NonStop systems, rather than an application development SDK.
 
-[HPE NonStop Family of Systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
+* [Web ViewPoint Enterprise software data sheet](https://www.hpe.com/psnow/downloadDoc/HPE%20NonStop%20Web%20ViewPoint%20Enterprise%20software%20data%20sheet-4aa1-1041enw.pdf?id=4aa1-1041enw.pdf&isFutureVersion=false&form=false&preview=false&hf=regular&isLinearized=false&contentDisposition=attachment)
+* [Web ViewPoint Enterprise manuals and support resources](https://support.hpe.com/connect/s/product?language=en_US&kmpmoid=5324426&tab=manuals)
 
-[NonStop 101: Training Wheels for NonStop OS](https://shaniceabigail.github.io/nonstop101/)
+## Platform updates
 
-[Sample Code for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
+* [HPE enhances robust compute platforms for mission-critical operations](https://www.hpe.com/us/en/newsroom/press-release/2025/06/hewlett-packard-enterprise-enhances-robust-compute-platforms-for-mission-critical-operations.html) — announcement of the HPE NonStop Compute NS5 X5 and NS9 X5.
+* [HPE NonStop Compute: two new fault-tolerant solutions for mission-critical operations](https://community.hpe.com/t5/servers-systems-the-right/hpe-nonstop-compute-two-new-fault-tolerant-solutions-for-mission/ba-p/7243927) — HPE Community coverage of the new systems.
+
+## Product resources
+
+* [HPE NonStop Compute product page](https://www.hpe.com/us/en/products/compute/nonstop-servers.html)
+* [HPE NonStop Family of Systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)

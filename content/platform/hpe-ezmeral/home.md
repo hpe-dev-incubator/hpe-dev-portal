@@ -9,6 +9,13 @@ width: large
 priority: 1
 active: false
 date: 2023-10-05T11:31:31+01:00
+quickLinks:
+  - label: 'HPE Ezmeral'
+    url: 'https://www.hpe.com/us/en/software/ezmeral.html'
+  - label: 'GitHub'
+    url: 'https://github.com/HPEEzmeral'
+  - label: 'Questions'
+    url: '#any-questions-on-hpe-ezmeral-software'
 tags:
   - hpe-ezmeral
   - hpe-ezmeral-data-fabric

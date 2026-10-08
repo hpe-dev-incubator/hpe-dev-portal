@@ -12,6 +12,13 @@ width: large
 priority: 4
 active: false
 date: 2023-12-05T11:31:31+01:00
+quickLinks:
+  - label: 'HPE MLDE'
+    url: 'https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html'
+  - label: 'Determined AI'
+    url: 'https://www.determined.ai/'
+  - label: 'GitHub'
+    url: 'https://github.com/determined-ai/determined'
 tags:
   - AI
   - hpe-machine-learning-development-environment
