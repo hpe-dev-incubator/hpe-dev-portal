@@ -42,6 +42,32 @@ and Twitter metadata. Pages without an image omit image metadata; no default
 image is substituted. Social previews require the shared page and image to be
 publicly available; localhost-only or unpublished pages cannot be scraped.
 
+## Platform resource tiles
+
+In platform pages, use two or more consecutive bullet links with explicit
+`guide`, `docs`, `faq`, or `video` tags to display a resource tile group:
+
+```markdown
+* [guide] [Getting started](https://example.com/getting-started)
+* [docs] [API reference](https://example.com/api)
+* [video] [Video walkthrough](https://example.com/video) Watch a hands-on demo.
+```
+
+Every eligible tagged group renders as tiles in its original position, retaining
+the link titles, including groups in the introduction before the first heading.
+Untagged introduction lists remain Markdown.
+Separate groups with headings or paragraphs separated by blank
+lines. Single-link lists remain Markdown.
+Tagged links can include a description after the URL on the same line, with
+additional description text on subsequent lines.
+
+The `video` tag uses the CirclePlay icon. Video categories must be explicitly
+tagged; video titles and URLs are not automatically classified as videos.
+
+Pages without eligible tagged groups retain the existing behavior: only the
+untagged group with the most recognized documentation, guide, or FAQ links
+becomes tiles. When tagged groups exist, other untagged lists remain Markdown.
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.

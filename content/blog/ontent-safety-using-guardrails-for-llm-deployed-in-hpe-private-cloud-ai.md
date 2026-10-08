@@ -86,7 +86,9 @@ Note: the values provided above are for the Qwen3-8b model. However, it might va
 
 ![Nemotron storage configuration](/img/6_storage_config_nemo_new.jpg "Nemotron storage configuration")
 
-  1.11 Provide the resource configuration details
+**Note:** If you use the Playground feature to access the packaged model endpoint, do not select 'Custom' as the Model format. Instead, select 'vLLM' and leave the image field empty. The packaged	model will automatically use the default vLLM image supported by the the platform.  
+
+1.11 Provide the resource configuration details
 
 ![Nemotron resource configuration](/img/7_resource_config_nemo.png "Nemotron resource configuration")
 
