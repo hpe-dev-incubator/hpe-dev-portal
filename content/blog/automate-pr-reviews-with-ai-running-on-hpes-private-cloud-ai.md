@@ -1,5 +1,5 @@
 ---
-title: Automate PR Reviews with AI running on HPEs Private Cloud AI
+title: Automate PR Reviews with AI running on HPE Private Cloud AI
 date: 2026-10-07T09:29:00.000Z
 author: Isabelle Steinhauser
 authorimage: /img/steinhauser_isabelle-copy-copy.jpg
@@ -27,7 +27,7 @@ AI generated Code is everywhere, the PR reviews are the new bottleneck. Within t
 
 This tutorial assumes the Code and PRs to be reviewed are hosted within GitHub, therefore you require a **GitHub Account**. Additionally you need to be the **owner or maintainer of the Repository** where you want to introduce the automatic AI based PR Review. The repository can be public or private. If a private repository is leveraged keep in mind, that the GitHub Runner is using GitHub resources where the free amount is limited. In order to avoid costs being created make sure that Stop usage is enabled for your GitHub Account in Settings/Budgets and licensing/Budgets and alerts for the Product "Actions".
 
-The AI Model to be used is deployed on HPEs PCAI. Either you require the Model Endpoint, Model ID and Token of a PCAI Hosted Model or access to a HPE PCAI with at least **1 free GPU**. A **HuggingFace account** is required.
+The AI Model to be used is deployed on HPEs PCAI. Either you require the Model Endpoint, Model ID and Token of a PCAI Hosted Model or access to a HPE PCAI with at least **1 free GPU**. A **HuggingFace account** might be required for model deployment.
 
 # Setup
 
@@ -82,17 +82,6 @@ In order to use OpenCode with a local deployed model in GitHub Actions a *openco
         }
       }
     }
-  },
-  "permission": {
-  "edit": "allow",
-  "read": "allow",
-  "glob": "allow",
-  "question": "allow",
-  "webfetch": "ask",
-  "websearch": "ask",
-  "codesearch": "ask",
-  "external_directory": "deny",
-  "doom_loop": "deny"
   }
 }
 ```
@@ -102,8 +91,6 @@ In order to use OpenCode with a local deployed model in GitHub Actions a *openco
 * DEPLOYMENT URL/v1 replace this with your Model Endpoint URL. Remember to add / keep the /v1 at the end
 * DEPLOYMENT MODEL ID replace this with your Model ID. It needs to be the complete model ID you find in GenAI Model Endpoints, like for example deepseek-ai/DeepSeek-V4-Flash-0731
 * MODEL NAME DISPLAYED IN OPENCODE replace this with whatever you want this model to be called
-
-For the permission level this sample here works. Feel free to explore more about the action tools and the permissions in the [OpenCode documentation](https://opencode.ai/docs/permissions/).
 
 The apiKey referenced in this config refers to environment variable, this will be defined within the GitHub Action Workflow.
 
@@ -135,7 +122,7 @@ jobs:
       - uses: anomalyco/opencode/github@latest
         env:
           MYPROVIDER_API_KEY: ${{ secrets.MYPROVIDER_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
         with:
           model: pcai/DEPLOYMENT MODEL ID
           use_github_token: true
@@ -167,7 +154,6 @@ Adapt the prompt (starting line 28) with the instructions you want to give the m
 
 In order to not expose the GitHub Token or the Token of the model it is being referred to secrets. In order to create a secret open your GitHub Repository in a Browser. Navigate to "Settings" of the Repository. Within the Security and quality section of Settings proceed to "Secrets and variables", select "Actions". Define here the following **Repository Secrets:**
 
-* MYGITHUB_TOKEN a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
 * MYPROVIDER_API_KEY as the Token for your Model deployed on HPEs PCAI. You can create a new token within AIE by navigating to GenAI->ModelEndpoints->Select your Model-> Click Create Token.
 * MY_PAT a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
 
