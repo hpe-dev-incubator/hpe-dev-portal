@@ -10,7 +10,7 @@ date: 2025-12-05T11:31:31+01:00
 active: true
 quickLinks:
   - label: 'Technical resources'
-    url: '#technical-ressources'
+    url: '#technical-resources'
   - label: 'HPE Terraform Provider'
     url: '#hpe-morpheus-api'
   - label: 'Plugin Framework'
@@ -26,12 +26,12 @@ tags:
 ---
 HPE Morpheus Software is the governed control plane for the agentic enterprise—simplifying management, automating operations, and reducing costs across VMs, containers, clouds, and AI-era infrastructure.
 
-Learn more on hpe.com
+Learn more on [hpe.com](https://www.hpe.com/us/en/home.html)
 
 * [faq] [HPE Morpheus Software](https://www.hpe.com/us/en/products/software/morpheus-software.html)
 Official product overview and resources.
-* [guide] [Features comparaison](https://www.hpe.com/us/en/products/software/morpheus-software/features.html)
-between HPE Mopheus Software versions.
+* [guide] [Features comparison](https://www.hpe.com/us/en/products/software/morpheus-software/features.html)
+between HPE Morpheus Software versions.
 
 ## HPE Morpheus Software Integrations
 
@@ -40,11 +40,10 @@ It offers [90+ codeless integrations](https://www.hpe.com/us/en/products/softwar
 
 ![HPE Morpheus platform](/img/platforms/Morpheus-integration-logos-16-9.avif)
 
-# Technical ressources
+## Technical resources
 
 * [doc] [HPE Morpheus Software - VM Essentials](http://www.hpe.com/support/vme-docs) Access product support documents and manuals, software, download drivers by operating environment, and view product support videos.
 * [doc] [HPE Morpheus Software - VM Essentials manuals](http://www.hpe.com/support/morpheus-docs) Access product support documents and manuals, software, download drivers by operating environment, and view product support videos.
-
 
 ## HPE Morpheus API
 
@@ -55,7 +54,8 @@ The Morpheus REST API lets you manage the appliance and deploy workloads across 
 
 ## HPE Terraform provider
 
-Manage your hybrid-cloud device in an infranstructure as a code manner:
+Manage your hybrid-cloud device in an infrastructure as a code manner:
+
 * [HPE Terraform provider documentation](https://registry.terraform.io/providers/HPE/hpe/latest/docs)
 
 ## HPE Morpheus CLI
@@ -69,6 +69,7 @@ The Morpheus CLI provides command-line access to the appliance through the Morph
 In addition to the integrated products, Extend HPE Morpheus with custom plugins for clouds, task types, UI tabs, reports, approvals, Cypher, IPAM, backups, and other integration points.
 
 These developer references and articles were published under the Morpheus Data name and remain useful for plugin development.
+
 * [guide] [Available plugin](https://share.morpheusdata.com/plugin) List of available plugins, official and from the community
 * [guide] [Plugin developer zone](https://developer.morpheusdata.com) Use the Morpheus Plugin Generator Tool to quickly get started building your own plugin.
 * [faq] [Build and compile an HPE Morpheus plugin](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/) Step by step Blog article on how to create your own plugin.

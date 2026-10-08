@@ -30,12 +30,19 @@ export default function HTML(props) {
         <link rel="icon" sizes="32x32" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+        {/* Warm up the HPE header framework's origin before its scripts are requested */}
+        <link
+          rel="preconnect"
+          href="https://h50007.www5.hpe.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://h50007.www5.hpe.com" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
             :root { color-scheme: only light; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; }`,
+            #header { background-color: #ffffff; min-height: 80px; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -121,9 +128,16 @@ window.HPEHF_CFG = {
 `,
           }}
         />
-        {/* HPE Header Framework scripts — jQuery first, then the framework */}
-        <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
-        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js" />
+        {/* HPE Header Framework scripts — jQuery first, then the framework. */}
+        {/* defer keeps them off the critical rendering path so body content isn't blocked waiting on this origin. */}
+        <script
+          defer
+          src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js"
+        />
+        <script
+          defer
+          src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js"
+        />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>
         {/* HPE global header — populated by HPEHF framework */}

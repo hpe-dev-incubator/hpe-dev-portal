@@ -225,6 +225,13 @@ const platformHeadingStyles = {
       },
     },
   },
+  a: {
+    component: Anchor,
+    props: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+  },
 };
 
 const BLOGS_PER_PAGE = 3;
@@ -664,12 +671,25 @@ function PlatformTemplate({ data }) {
   const contentSections = parseAndExtractBulletCards(sanitizedBody, {
     inferAfterFirstHeading: true,
   });
+  const relatedBlogs = useMemo(
+    () =>
+      blogs
+        .map(({ node }) => node)
+        .filter(
+          (node) =>
+            node && (node.frontmatter.authorimage || node.frontmatter.author),
+        ),
+    [blogs],
+  );
   const sidebarItems = useMemo(
     () => [
       { label: 'Getting started', href: '#platform-content' },
       ...parsedSidebarItems,
+      ...(relatedBlogs.length > 0 && tags
+        ? [{ label: 'Related blogs', href: '#related-blogs' }]
+        : []),
     ],
-    [parsedSidebarItems],
+    [parsedSidebarItems, relatedBlogs, tags],
   );
   const [activeSidebarHref, setActiveSidebarHref] = useState(
     sidebarItems[0]?.href || '',
@@ -680,16 +700,6 @@ function PlatformTemplate({ data }) {
       sidebarItems[0]?.label ||
       '',
     [sidebarItems, activeSidebarHref],
-  );
-  const relatedBlogs = useMemo(
-    () =>
-      blogs
-        .map(({ node }) => node)
-        .filter(
-          (node) =>
-            node && (node.frontmatter.authorimage || node.frontmatter.author),
-        ),
-    [blogs],
   );
   const [copied, setCopied] = useState(false);
   const [currentBlogPage, setCurrentBlogPage] = useState(0);
@@ -988,6 +998,8 @@ function PlatformTemplate({ data }) {
                         <Anchor
                           href={card.link}
                           label="Explore more →"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           color="#068667"
                           size="small"
                           style={{
@@ -1007,7 +1019,7 @@ function PlatformTemplate({ data }) {
               ),
             )}
             {relatedBlogs.length > 0 && tags && (
-              <Box margin={{ top: '48px' }}>
+              <Box margin={{ top: '48px' }} id="related-blogs">
                 <Heading
                   level={2}
                   margin={{ top: '0', bottom: '48px' }}
