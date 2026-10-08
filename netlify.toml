@@ -20,6 +20,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer"
     Feature-Policy = "microphone 'none'; geolocation 'none'"
+    # Overrides Netlify's automatic noindex on deploy previews/branch deploys so link-preview crawlers (e.g. LinkedIn) can scrape them.
+    X-Robots-Tag = "all"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
