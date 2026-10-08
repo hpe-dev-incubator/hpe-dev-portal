@@ -1,8 +1,12 @@
 ---
 title: HPE ProLiant
 version: v0.1
-description: HPE ProLiant servers, automation and IAC
-image: /img/platforms/dev-thumb-compute.png
+description: >-
+  Explore APIs, SDKs, and automation tools for HPE ProLiant servers. Use HPE iLO
+  and Redfish, HPE OneView, and HPE Compute Ops Management to provision,
+  configure, monitor, and manage servers from edge to data center, and integrate
+  infrastructure as code into your development workflows.
+image: /img/platforms/HPE202601300236_800_0_72_RGB.jpg
 width: large
 priority: 12
 date: 2026-10-17T00:00:00+00:00

@@ -237,6 +237,8 @@ HPE Machine Learning Inference Software (MLIS) is natively integrated into PCAI 
 
 * Under the **Storage** tab, set *Registry* to *'s3-minio-registry'*, choose *Model format* as *'Custom'*, specify *image* as *'vllm/vllm-openai:latest'*, set *URL* to *'s3://s3-ai-models/Qwen3-0.6B-Base'*, and select *Model category* as *'llm'*. Click ***Next***.
 
+ ***Note***: If you use the *Playground* feature to access the packaged model endpoint, do **not** select *'Custom'* as the *Model format*. Instead, select *'vLLM'* and leave the *image* field empty. The packaged model will automatically use the default vLLM image supported by the platform.
+
 ![](/img/create-s3-packaged-model-storage.png)
 
 * Under the **Resources** tab, select *Resource Template*, for example as *'gpu-tiny'*. Click ***Next***.  
