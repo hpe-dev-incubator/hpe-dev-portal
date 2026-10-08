@@ -11,12 +11,16 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
+// LinkedIn, X, and Facebook crawlers don't rasterize SVG for og:image/twitter:image.
+const UNSUPPORTED_SOCIAL_IMAGE = /\.svg(\?.*)?$/i;
+
 function SEO({ description, lang, meta, title, image }) {
   const siteMetadata = useSiteMetadata();
   const metaDescription = description || siteMetadata.description;
-  const imageUrl = image
-    ? new URL(image, siteMetadata.siteUrl).href
-    : undefined;
+  const imageUrl =
+    image && !UNSUPPORTED_SOCIAL_IMAGE.test(image)
+      ? new URL(image, siteMetadata.siteUrl).href
+      : undefined;
   const imageMeta = imageUrl
     ? [
         { property: 'og:image', content: imageUrl },

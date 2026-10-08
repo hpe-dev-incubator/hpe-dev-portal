@@ -38,6 +38,17 @@ describe('Seo', () => {
     tree.unmount();
   });
 
+  it('omits image metadata for SVG images, which LinkedIn/X cannot render', () => {
+    const tree = renderer.create(
+      <Seo title="Platform" image="/img/platforms/Greenlake.svg" />,
+    );
+    const { meta } = tree.root.findByType(Helmet).props;
+    expect(
+      meta.filter((entry) => /image/.test(entry.property || entry.name)),
+    ).toEqual([]);
+    tree.unmount();
+  });
+
   it('renders correctly', () => {
     const tree = renderer
       .create(

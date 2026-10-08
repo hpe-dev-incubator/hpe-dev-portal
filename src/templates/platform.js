@@ -659,8 +659,14 @@ function PlatformTemplate({ data }) {
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
   const { title, description, image, tags, quickLinks } = post.frontmatter;
+  // Share the URL for wherever this page is actually hosted (local/preview/
+  // staging/production) rather than always the configured production siteUrl.
+  const [shareSiteUrl, setShareSiteUrl] = useState(siteMetadata.siteUrl);
+  useEffect(() => {
+    setShareSiteUrl(`${window.location.origin}/`);
+  }, []);
   const shareLinks = getPlatformShareLinks(
-    siteMetadata.siteUrl,
+    shareSiteUrl,
     post.fields.sourceInstanceName,
     post.fields.slug,
     title,
@@ -809,11 +815,7 @@ function PlatformTemplate({ data }) {
 
   const content = (
     <>
-      <SEO
-        title={title}
-        description={description || excerpt}
-        image={image}
-      />
+      <SEO title={title} description={description || excerpt} image={image} />
       <Box
         flex
         overflow="visible"
