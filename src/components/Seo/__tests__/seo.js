@@ -17,35 +17,76 @@ beforeEach(() => {
 });
 
 describe('Seo', () => {
-  it.each([undefined, ''])('omits image metadata when image is %s', (image) => {
+  it.each([undefined, ''])('uses the default image when image is %s', (image) => {
     const tree = renderer.create(<Seo title="Platform" image={image} />);
     const { meta } = tree.root.findByType(Helmet).props;
-    expect(
-      meta.filter((entry) => /image/.test(entry.property || entry.name)),
-    ).toEqual([]);
+    expect(meta).toContainEqual({
+      property: 'og:image',
+      content: 'https://developer.hpe.com/images/developer-og.jpg',
+    });
+    expect(meta).toContainEqual({
+      name: 'twitter:image',
+      content: 'https://developer.hpe.com/images/developer-og.jpg',
+    });
+    expect(meta).toContainEqual({
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    });
     expect(meta).toContainEqual({ property: 'og:title', content: 'Platform' });
     tree.unmount();
   });
 
   it.each([
-    ['/img/platform.png', 'https://developer.hpe.com/img/platform.png'],
-    ['https://example.com/image.png', 'https://example.com/image.png'],
-  ])('uses an absolute image URL for %s', (image, expected) => {
+    '/img/platform.png',
+    'https://example.com/image.png',
+  ])('uses the site-wide image instead of %s', (image) => {
     const tree = renderer.create(<Seo title="Platform" image={image} />);
     const { meta } = tree.root.findByType(Helmet).props;
+    const expected = 'https://developer.hpe.com/images/developer-og.jpg';
     expect(meta).toContainEqual({ property: 'og:image', content: expected });
     expect(meta).toContainEqual({ name: 'twitter:image', content: expected });
+    expect(
+      meta.filter((entry) => /og:image:(width|height)/.test(entry.property)),
+    ).toEqual([]);
     tree.unmount();
   });
 
-  it('omits image metadata for SVG images, which LinkedIn/X cannot render', () => {
+  it('uses the default image for SVG images, which LinkedIn/X cannot render', () => {
     const tree = renderer.create(
       <Seo title="Platform" image="/img/platforms/Greenlake.svg" />,
     );
     const { meta } = tree.root.findByType(Helmet).props;
+    expect(meta).toContainEqual({
+      property: 'og:image',
+      content: 'https://developer.hpe.com/images/developer-og.jpg',
+    });
+    expect(meta).toContainEqual({
+      name: 'twitter:image',
+      content: 'https://developer.hpe.com/images/developer-og.jpg',
+    });
+    tree.unmount();
+  });
+
+  it('prevents custom metadata from overriding the site-wide image', () => {
+    const tree = renderer.create(
+      <Seo
+        title="Article"
+        meta={[
+          { property: 'og:image', content: '/img/old.jpg' },
+          { property: 'og:image:width', content: '200' },
+          { name: 'twitter:image', content: '/img/old.jpg' },
+          { name: 'robots', content: 'index,follow' },
+        ]}
+      />,
+    );
+    const { meta } = tree.root.findByType(Helmet).props;
     expect(
-      meta.filter((entry) => /image/.test(entry.property || entry.name)),
-    ).toEqual([]);
+      meta.filter((entry) => /^(og:image|twitter:image)/.test(entry.property || entry.name)),
+    ).toEqual([
+      { property: 'og:image', content: 'https://developer.hpe.com/images/developer-og.jpg' },
+      { name: 'twitter:image', content: 'https://developer.hpe.com/images/developer-og.jpg' },
+    ]);
+    expect(meta).toContainEqual({ name: 'robots', content: 'index,follow' });
     tree.unmount();
   });
 

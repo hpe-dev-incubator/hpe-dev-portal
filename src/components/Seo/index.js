@@ -11,24 +11,17 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-// LinkedIn, X, and Facebook crawlers don't rasterize SVG for og:image/twitter:image.
-const UNSUPPORTED_SOCIAL_IMAGE = /\.svg(\?.*)?$/i;
-
-function SEO({ description, lang, meta, title, image }) {
+function SEO({ description, lang, meta, title }) {
   const siteMetadata = useSiteMetadata();
   const metaDescription = description || siteMetadata.description;
-  const imageUrl =
-    image && !UNSUPPORTED_SOCIAL_IMAGE.test(image)
-      ? new URL(image, siteMetadata.siteUrl).href
-      : undefined;
-  const imageMeta = imageUrl
-    ? [
-        { property: 'og:image', content: imageUrl },
-        { property: 'og:image:width', content: '200' },
-        { property: 'og:image:height', content: '200' },
-        { name: 'twitter:image', content: imageUrl },
-      ]
-    : [];
+  const imageUrl = new URL('/images/developer-og.jpg', siteMetadata.siteUrl).href;
+  const pageMeta = meta.filter(
+    (entry) => !/^(og:image|twitter:image)(:|$)/.test(entry.property || entry.name),
+  );
+  const imageMeta = [
+    { property: 'og:image', content: imageUrl },
+    { name: 'twitter:image', content: imageUrl },
+  ];
 
   return (
     <Helmet
@@ -56,7 +49,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: 'twitter:card',
-          content: 'summary',
+          content: 'summary_large_image',
         },
         {
           name: 'twitter:creator',
@@ -70,7 +63,7 @@ function SEO({ description, lang, meta, title, image }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(imageMeta, meta)}
+      ].concat(pageMeta, imageMeta)}
     ></Helmet>
   );
 }
@@ -86,7 +79,6 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  image: PropTypes.string,
 };
 
 export default SEO;
