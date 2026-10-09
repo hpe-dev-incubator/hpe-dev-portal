@@ -36,10 +36,20 @@ the local development URL or a sidebar section hash. X also includes the page
 title. The icons open the social network's sharing interface in a new tab.
 Email sharing opens the user's mail application with the page title as the
 subject and the public page URL in the message body.
-Platform frontmatter images are included as absolute public URLs in Open Graph
-and Twitter metadata. Pages without an image omit image metadata; no default
-image is substituted. Social previews require the shared page and image to be
-publicly available; localhost-only or unpublished pages cannot be scraped.
+
+All pages using the shared SEO component use `static/images/developer-og.jpg`
+for Open Graph and Twitter previews, regardless of page-specific images. The
+image URL is resolved against `siteMetadata.siteUrl`, and Twitter uses the
+`summary_large_image` card. Titles and descriptions remain page-specific when
+provided; missing descriptions fall back to the site description.
+
+Social previews require the shared page and image to be publicly available;
+localhost-only or unpublished pages cannot be scraped by external services.
+For local checks, inspect the rendered metadata and load
+`http://localhost:8000/images/developer-og.jpg`. To check crawler-visible HTML,
+use a production build served locally, since Gatsby's development server may
+add metadata only after JavaScript runs. Keep Netlify's default preview
+`noindex` protection; local testing does not require enabling search indexing.
 
 ## Platform resource tiles
 
