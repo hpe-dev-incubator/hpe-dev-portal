@@ -11,9 +11,17 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-function SEO({ description, lang, meta, title, image }) {
+function SEO({ description, lang, meta, title }) {
   const siteMetadata = useSiteMetadata();
   const metaDescription = description || siteMetadata.description;
+  const imageUrl = new URL('/images/developer-og.jpg', siteMetadata.siteUrl).href;
+  const pageMeta = meta.filter(
+    (entry) => !/^(og:image|twitter:image)(:|$)/.test(entry.property || entry.name),
+  );
+  const imageMeta = [
+    { property: 'og:image', content: imageUrl },
+    { name: 'twitter:image', content: imageUrl },
+  ];
 
   return (
     <Helmet
@@ -36,24 +44,12 @@ function SEO({ description, lang, meta, title, image }) {
           content: metaDescription,
         },
         {
-          property: 'og:image',
-          content: image,
-        },
-        {
-          property: 'og:image:width',
-          content: '200',
-        },
-        {
-          property: 'og:image:height',
-          content: '200',
-        },
-        {
           property: 'og:type',
           content: 'website',
         },
         {
           name: 'twitter:card',
-          content: 'summary',
+          content: 'summary_large_image',
         },
         {
           name: 'twitter:creator',
@@ -67,11 +63,7 @@ function SEO({ description, lang, meta, title, image }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-        {
-          name: 'twitter:image',
-          content: image,
-        },
-      ].concat(meta)}
+      ].concat(pageMeta, imageMeta)}
     ></Helmet>
   );
 }
@@ -87,7 +79,6 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  image: PropTypes.string,
 };
 
 export default SEO;
