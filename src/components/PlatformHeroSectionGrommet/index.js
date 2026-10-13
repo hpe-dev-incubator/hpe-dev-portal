@@ -98,7 +98,13 @@ const PillAnchor = styled(Anchor)`
 
 const isExternal = (url) => /^https?:\/\//i.test(url);
 
-const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
+const PlatformHeroSectionGrommet = ({
+  title,
+  description,
+  quickLinks,
+  breadcrumbLabel,
+  breadcrumbHref,
+}) => {
   const visibleLinks = (quickLinks || []).slice(0, 8);
   const firstAnchor = visibleLinks.find((l) => l.url.startsWith('#'));
   const [activeUrl, setActiveUrl] = useState(firstAnchor?.url || null);
@@ -192,7 +198,10 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
       </Box>
 
       <Breadcrumbs
-        items={[{ label: 'Products', href: '/platforms' }, { label: title }]}
+        items={[
+          { label: breadcrumbLabel, href: breadcrumbHref },
+          { label: title },
+        ]}
       />
 
       {/* H1 title */}
@@ -281,6 +290,8 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
 PlatformHeroSectionGrommet.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  breadcrumbLabel: PropTypes.string,
+  breadcrumbHref: PropTypes.string,
   quickLinks: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -292,6 +303,8 @@ PlatformHeroSectionGrommet.propTypes = {
 PlatformHeroSectionGrommet.defaultProps = {
   description: '',
   quickLinks: [],
+  breadcrumbLabel: 'Products',
+  breadcrumbHref: '/platforms',
 };
 
 export default PlatformHeroSectionGrommet;

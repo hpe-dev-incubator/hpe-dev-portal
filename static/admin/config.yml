@@ -538,6 +538,15 @@ collections:
           hint: 'selecting true adds the card on the Platform page',
         }
       - {
+          label: 'Section',
+          name: 'section',
+          widget: 'select',
+          options: ['platform', 'opensource'],
+          default: 'platform',
+          required: false,
+          hint: 'controls which breadcrumb (Products or Open Source) this page links back to',
+        }
+      - {
           label: 'Date',
           name: 'date',
           widget: 'datetime',
