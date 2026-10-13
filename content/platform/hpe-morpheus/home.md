@@ -17,7 +17,7 @@ quickLinks:
     url: '#extensibility-plugin-framework'
   - label: 'Community Edition'
     url: '#community-edition'
-  - label: 'Related blogs'
+  - label: 'Blogs'
     url: '#community'
 tags:
   - hpe-morpheus
@@ -25,8 +25,6 @@ tags:
   - hybrid-cloud
 ---
 HPE Morpheus Software is the governed control plane for the agentic enterprise—simplifying management, automating operations, and reducing costs across VMs, containers, clouds, and AI-era infrastructure.
-
-Learn more on [hpe.com](https://www.hpe.com/us/en/home.html)
 
 * [faq] [HPE Morpheus Software](https://www.hpe.com/us/en/products/software/morpheus-software.html)
 Official product overview and resources.
@@ -43,7 +41,7 @@ It offers [90+ codeless integrations](https://www.hpe.com/us/en/products/softwar
 ## Technical resources
 
 * [doc] [HPE Morpheus Software - VM Essentials](http://www.hpe.com/support/vme-docs) Access product support documents and manuals, software, download drivers by operating environment, and view product support videos.
-* [doc] [HPE Morpheus Software - VM Essentials manuals](http://www.hpe.com/support/morpheus-docs) Access product support documents and manuals, software, download drivers by operating environment, and view product support videos.
+* [doc] [HPE Morpheus Software - Enterprise](http://www.hpe.com/support/morpheus-docs) Access product support documents and manuals, software, download drivers by operating environment, and view product support videos.
 
 ## HPE Morpheus API
 
@@ -54,7 +52,7 @@ The Morpheus REST API lets you manage the appliance and deploy workloads across 
 
 ## HPE Terraform provider
 
-Manage your hybrid-cloud device in an infrastructure as a code manner:
+Manage your hybrid-cloud infrastructure as code:
 
 * [HPE Terraform provider documentation](https://registry.terraform.io/providers/HPE/hpe/latest/docs)
 
@@ -66,13 +64,13 @@ The Morpheus CLI provides command-line access to the appliance through the Morph
 
 ## Extensibility: Plugin Framework
 
-In addition to the integrated products, Extend HPE Morpheus with custom plugins for clouds, task types, UI tabs, reports, approvals, Cypher, IPAM, backups, and other integration points.
+In addition to the integrated products, you can extend HPE Morpheus with custom plugins for clouds, task types, UI tabs, reports, approvals, Cypher, IPAM, backups, and other integration points.
 
 These developer references and articles were published under the Morpheus Data name and remain useful for plugin development.
 
-* [guide] [Available plugin](https://share.morpheusdata.com/plugin) List of available plugins, official and from the community
+* [guide] [Available plugins](https://share.morpheusdata.com/plugin) List of available plugins, official and from the community.
 * [guide] [Plugin developer zone](https://developer.morpheusdata.com) Use the Morpheus Plugin Generator Tool to quickly get started building your own plugin.
-* [faq] [Build and compile an HPE Morpheus plugin](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/) Step by step Blog article on how to create your own plugin.
+* [faq] [Build and compile an HPE Morpheus plugin](https://developer.hpe.com/blog/morpheus-plugin-tutorial-how-to-build-and-compile/) Step-by-step blog article on creating your own plugin.
 * [docs] [Plugin documentation](https://developer.morpheusdata.com/docs) The Morpheus Plugin API is a Java 8 based library for creating Plugins that add functionality to Morpheus.
 
 ## Community Edition
@@ -91,8 +89,8 @@ Explore free, Jupyter Notebook-based Workshops-on-Demand in the [Hack Shack](/ha
 
 ![HPE Morpheus demo console](/img/platforms/x10000-console.png)
 
-* [video] [HPE Morpheus YouTube playlist](https://www.youtube.com/playlist?list=PLtS6YX0YOX4e6iZPN6ywDyLmCQ-DOBMr7) Short set of video covering HPE Morpheus product features.
-* [video] [HPE Morpheus VM Essentials Software](https://www.youtube.com/watch?v=jtlp3WU95mQ) Overview of unified cloud management, automation, and governance across hybrid environments:
+* [video] [HPE Morpheus YouTube playlist](https://www.youtube.com/playlist?list=PLtS6YX0YOX4e6iZPN6ywDyLmCQ-DOBMr7) Short set of videos covering HPE Morpheus product features.
+* [video] [HPE Morpheus VM Essentials Software](https://www.youtube.com/watch?v=jtlp3WU95mQ) Overview of unified cloud management, automation, and governance across hybrid environments.
 * [video] [Integrating Morpheus and GitHub Actions](https://www.youtube.com/watch?v=VY5dQfsUkho) A tech brief on Morpheus integration with GitHub Actions and CI/CD.
 * [video] [Morpheus Orchestration Copilot demo](https://www.youtube.com/watch?v=Q_AVNgsEn28) Demonstrates infrastructure data, automation, and AI-driven operations through a conversational control plane.
 * [video] [Getting started with the Morpheus REST API](https://www.youtube.com/watch?v=QDhM6yJ04Aw) Introductory guide to using the Morpheus REST API.
