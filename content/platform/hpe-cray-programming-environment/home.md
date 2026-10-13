@@ -12,6 +12,15 @@ width: large
 priority: 5
 date: 2023-12-18T10:54:48+01:00
 active: true
+quickLinks:
+  - label: 'User Environment'
+    url: '#hpe-cray-user-environment'
+  - label: 'Compiling Environment'
+    url: '#hpe-cray-compiling-environment'
+  - label: 'Debugging Tools'
+    url: '#debugging-tools'
+  - label: 'Profiling Tools'
+    url: '#profiling-and-performance-optimization-tools'
 tags:
   - cray
   - CPE

@@ -9,6 +9,16 @@ priority: 9
 frontpage: true
 active: false
 date: 2026-04-05T11:31:31+01:00
+section: opensource
+quickLinks:
+  - label: 'What is Chapel?'
+    url: '#what-is-chapel'
+  - label: 'Projects'
+    url: '#projects-powered-by-chapel'
+  - label: 'Chapel Website'
+    url: 'https://chapel-lang.org/'
+  - label: 'GitHub'
+    url: 'https://github.com/chapel-lang/chapel'
 tags:
   - chapel
 ---
@@ -20,41 +30,39 @@ Chapel supports a multithreaded execution model via high-level abstractions for 
 
 Chapel was designed from first principles rather than by extending an existing language. It is an imperative block-structured language, designed to be easy to learn for users of Python, C, C++, Fortran, Java, Matlab, and the like. While Chapel builds on concepts and syntax from many previous languages, its parallel features are most directly influenced by ZPL, High-Performance Fortran (HPF), and the Cray MTA™/Cray XMT™ extensions to C and Fortran.
 
-
 - [Try Chapel Tutorials for Yourself](https://chapel-lang.org/docs/examples/index.html)
 - [Learn more about Chapel](https://chapel-lang.org/)
 - [Read the Introduction to Chapel Whitepaper](https://chapel-lang.org/publications/PMfPC-Chapel.pdf)
 - [See Chapel's Performance](https://chapel-lang.org/performance.html)
-- [Check out Chapel Newsletters](https://chapel.discourse.group/c/newsletters) 
+- [Check out Chapel Newsletters](https://chapel.discourse.group/c/newsletters)
 
-
-[Join HPE and the active Chapel community on GitHub ![](Github)](https://github.com/chapel-lang/chapel) 
+[Join HPE and the active Chapel community on GitHub ![](Github)](https://github.com/chapel-lang/chapel)
 
 ---
 
 # Projects Powered by Chapel
 
-[Arkouda ![](Github)](https://github.com/mhmerrill/arkouda) 
+[Arkouda ![](Github)](https://github.com/mhmerrill/arkouda)
 
 Arkouda allows a user to interactively issue from the Python3 interpreter massively parallel computations on distributed data using functions and syntax that mimic NumPy, the underlying computational library used in the vast majority of Python data science workflows. The computational heart of Arkouda is a Chapel interpreter that accepts a pre-defined set of commands from a client (currently implemented in Python) and uses Chapel's built-in machinery for multi-locale and multithreaded execution. Arkouda has benefited greatly from Chapel's distinctive features and has also helped guide the development of the language.
 
-[CHAMPS ![](Github)](https://www.polymtl.ca/expertises/en/laurendeau-eric) 
+[CHAMPS ![](Github)](https://www.polymtl.ca/expertises/en/laurendeau-eric)
 
 CHAMPS is multi-physics software oriented toward fluid dynamics, written completely in Chapel and developed to solve systems of equations in a general manner. A key theme is to easily expand the capabilities of the software while keeping good performance on distributed memory. The software currently handles 2D and 3D unstructured grids to solve RANS equations with a finite volume approach using the Spalart-Allmaras turbulence model for closure. Different spatial discretization schemes and linear solvers can be used, including a variety of solvers from the PETSc library for which an API has been developed. Other C libraries for which APIs were developed in this project include the CGNS (CFD General Notation System) library, the Intel MKL library and the METIS library. The overall performance achieved with Chapel is comparable to equivalent C/C++/MPI approaches. Future developments will include multi-fidelty simulations in aerodynamics, aero-elasticity, and aero-icing.
 
-[CHGL ![](Github)](https://github.com/pnnl/chgl) 
+[CHGL ![](Github)](https://github.com/pnnl/chgl)
 
 The Chapel Hypergraph Library (CHGL) is a library for hypergraph computation in the Chapel language. Hypergraphs generalize graphs, where a hypergraph edge can connect any number of vertices. Thus, hypergraphs capture high-order, high-dimensional interactions between multiple entities that are not directly expressible in graphs. CHGL is designed to provide HPC-class computation with high-level abstractions and modern language support for parallel computing on shared- and distributed memory systems.
 
-[ChOp ![](Github)](https://www.sciencedirect.com/science/article/abs/pii/S0167739X1930946X) 
+[ChOp ![](Github)](https://www.sciencedirect.com/science/article/abs/pii/S0167739X1930946X)
 
 This project aims at programming distributed algorithms for solving big instances of combinatorial optimization problems, taking into account productivity, parallel efficiency, heterogeneity, and fault tolerance. This project comprises heuristic and exact optimization algorithms, and its main application is a distributed Branch-and-Bound for solving permutation-based combinatorial problems.
 
-[ChplUltra ![](Github)](https://github.com/sourceryinstitute/PAW/raw/gh-pages/PAW-ATM19/extendedAbstracts/PAW-ATM2019_abstract2.pdf) 
+[ChplUltra ![](Github)](https://github.com/sourceryinstitute/PAW/raw/gh-pages/PAW-ATM19/extendedAbstracts/PAW-ATM2019_abstract2.pdf)
 
 chplUltra is designed to simulate the dynamics of ultra-light dark matter for astrophysics. Ultralight dark matter is a relatively new proposal designed to alleviate some of the challenges faced by the more traditional WIMP (weakly interacting massive particles) candidates. It has a rich phenomenology, including the formation of Bose-Einstein condensate solitons and interference effects from the wave-like behavior of the particles. chplUltra is a pseudo-spectral fixed grid code designed to evolve the Schrodinger-Poisson equations. The code uses a Chapel distributed FFT routine, built around the serial FFTW library. Using Chapel allows the authors to rapidly extend the code and to simultaneously scale it out to ~100s of nodes. The code has been run on up to 512 nodes (18k cores) on a Cray XC system.
 
-[CrayAI ![](Github)](https://cray.github.io/crayai/) 
+[CrayAI ![](Github)](https://cray.github.io/crayai/)
 
 CrayAI is a suite of distributed machine learning workflow libraries designed with HPC in mind. These libraries are portable, running on anything from a laptop up to a supercomputer. The core back-end of these libraries is written in Chapel, while the user-facing interface is Python. CrayAI currently consists of Cray HPO and Cray FS. Cray HPO is a distributed black-box hyperparameter optimization framework and Cray FS is a distributed feature selection library.
 
@@ -63,4 +71,3 @@ CrayAI is a suite of distributed machine learning workflow libraries designed wi
 # Any questions on Chapel?
 
 Join the conversation by chat on our [Chapel Gitter Channel](https://gitter.im/chapel-lang/chapel) or by posting to our [Chapel Discourse Forum](https://chapel.discourse.group/latest).
-

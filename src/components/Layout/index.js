@@ -1,14 +1,12 @@
+import { Box, Grommet, Main } from 'grommet';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grommet, Box, Main } from 'grommet';
 import theme from './theme';
 import './reset.css';
-import { Header } from '../index';
 
 const Layout = ({ children, fullWidth = false }) => {
   return (
     <Grommet theme={theme}>
-      <Header />
       <Box direction="row" justify={fullWidth ? undefined : 'center'}>
         <Box
           basis={fullWidth ? undefined : 'xxlarge'}

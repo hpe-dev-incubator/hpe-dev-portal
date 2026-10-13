@@ -9,6 +9,23 @@ priority: 18
 frontpage: true
 date: 2022-06-24T17:01:59+02:00
 active: true
+quickLinks:
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
+  - label: 'B10000'
+    url: '/platform/hpe-alletra/home/'
+  - label: 'X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'SimpliVity'
+    url: '/platform/hpe-simplivity/home/'
+  - label: 'Nimble'
+    url: '/platform/hpe-nimble-storage/home/'
+  - label: '3PAR'
+    url: '/platform/hpe-3par-and-primera/home/'
+  - label: 'Zerto'
+    url: '/platform/zerto/home/'
 tags:
   - hpe-simplivity
 ---
@@ -142,10 +159,5 @@ Learn how to host and administer any Citrix service on HPE SimpliVity
 ### [Go SDK ![](Github)](https://github.com/HewlettPackard/simplivity-go)
 
 ### [Ansible Library ![](Github)](https://github.com/HewlettPackard/simplivity-ansible)
+
 - [Download the library from GitHub](https://github.com/HewlettPackard/simplivity-ansible/releases/tag/v1.0.0)
-
-
-
-
-
-

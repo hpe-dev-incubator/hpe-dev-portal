@@ -1,0 +1,105 @@
+.training-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.training-hero-heading {
+  /* heading/h1/medium - Figma specs */
+  font-family: 'HPE Graphik', 'Metric', Arial, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 68px !important;
+  line-height: 74px !important;
+  letter-spacing: -2.72px !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.training-hero-children,
+.training-hero-children p {
+  /* paragraph/large-body-copy - Figma specs */
+  font-family: 'HPE Graphik', 'Metric', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 28px !important;
+  line-height: 38px !important;
+  letter-spacing: -0.28px !important;
+  color: white !important;
+  margin: 0 !important;
+  vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .training-hero-content {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    padding-left: 80px !important;
+    padding-right: 200px !important;
+  }
+
+  .training-hero-heading {
+    font-size: 52px !important;
+    line-height: 60px !important;
+    letter-spacing: -2.08px !important;
+  }
+
+  .training-hero-children,
+  .training-hero-children p {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    letter-spacing: -0.22px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .training-hero-section {
+    height: auto !important;
+    min-height: 300px;
+  }
+
+  .training-hero-content {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .training-hero-heading {
+    font-size: 42px !important;
+    line-height: 50px !important;
+    letter-spacing: -1.68px !important;
+  }
+
+  .training-hero-children,
+  .training-hero-children p {
+    font-size: 18px !important;
+    line-height: 26px !important;
+    letter-spacing: -0.18px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .training-hero-section {
+    min-height: 250px;
+  }
+
+  .training-hero-content {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .training-hero-heading {
+    font-size: 32px !important;
+    line-height: 40px !important;
+    letter-spacing: -1.28px !important;
+  }
+
+  .training-hero-children,
+  .training-hero-children p {
+    font-size: 16px !important;
+    line-height: 22px !important;
+    letter-spacing: -0.16px !important;
+  }
+}

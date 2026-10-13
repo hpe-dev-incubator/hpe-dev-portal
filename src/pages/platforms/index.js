@@ -1,38 +1,25 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Heading, Paragraph } from 'grommet';
+import { Text } from 'grommet';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
 import {
-  PlatformCard,
   Layout,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
   SEO,
-  PageDescription,
-  ResponsiveGrid,
-  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-Heading.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto'],
-};
-
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
-
 function Platform({ data, location }) {
   const platforms = data.allMarkdownRemark.edges;
+  const platformTiles = platforms.map(({ node }) => ({
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    actionLabel: 'Learn more',
+    actionHref: `/${node.fields.sourceInstanceName}${node.fields.slug}`,
+    variant: 'dark',
+  }));
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
@@ -54,34 +41,21 @@ function Platform({ data, location }) {
   }, []);
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title="Our Technologies" />
-      <PageDescription
-        image="/img/platforms/PlatformsPage.svg"
+      <ReusableHeroSection
+        image="/img/opensource/open-source-hero-bg.jpg"
         title="Our Technologies"
         alt="technology page logo"
+        backgroundPosition="50% 33%"
       >
-        <Paragraph size="large">
+        <Text size="large">
           Supporting developers, data scientists, and architects is what we do.
           Find APIs, GitHub repositories and many of the other resources you
           need here.
-        </Paragraph>
-      </PageDescription>
-      <SectionHeader>
-        <ResponsiveGrid rows={rows} columns={columns}>
-          {platforms.map(({ node }) => (
-            <PlatformCard
-              key={node.id}
-              title={node.frontmatter.title}
-              description={node.frontmatter.description}
-              link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-              // image={node.frontmatter.image}
-              category={node.frontmatter.category}
-              flex
-            />
-          ))}
-        </ResponsiveGrid>
-      </SectionHeader>
+        </Text>
+      </ReusableHeroSection>
+      <ReusableInfoTilesRow items={platformTiles} />
     </Layout>
   );
 }

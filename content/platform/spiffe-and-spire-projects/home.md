@@ -10,6 +10,16 @@ priority: 7
 frontpage: true
 active: false
 date: 2023-12-05T11:31:31+01:00
+section: opensource
+quickLinks:
+  - label: 'Learn from Experts'
+    url: '#learn-from-the-experts'
+  - label: 'GitHub'
+    url: '#github-repositories'
+  - label: 'Integrations'
+    url: '#integrations'
+  - label: 'Workshops'
+    url: '#workshops-on-demand'
 tags:
   - spiffe-and-spire-projects
 ---
@@ -38,7 +48,6 @@ In this lightboard video, Evan Gilman, co-author of O’Reilly’s book Zero Tru
 In this video, Evan Gilman, co-author of O’Reilly’s book Zero Trust Networks and a maintainer for SPIRE, explains how SPIRE addresses zero trust challenges in a distributed environment.
 
 [![Zero Trust challenges](https://img.youtube.com/vi/QNDWRQY0t-o/hqdefault.jpg)](https://www.youtube.com/watch?v=QNDWRQY0t-o)
-
 
 - - -
 
