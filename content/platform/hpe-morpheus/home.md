@@ -17,7 +17,7 @@ quickLinks:
     url: '#extensibility-plugin-framework'
   - label: 'Community Edition'
     url: '#community-edition'
-  - label: 'Related blogs'
+  - label: 'Blogs'
     url: '#community'
 tags:
   - hpe-morpheus
