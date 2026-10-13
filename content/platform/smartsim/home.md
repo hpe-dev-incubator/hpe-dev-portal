@@ -8,6 +8,7 @@ width: large
 priority: 10
 active: false
 date: 2022-12-05T11:31:31+01:00
+section: opensource
 quickLinks:
   - label: 'What is SmartSim?'
     url: '#what-is-smartsim'

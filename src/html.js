@@ -91,8 +91,7 @@ window.HPEHF_CFG = {
           {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
           {title: 'HPE OpsRamp', href: '/platform/hpe-opsramp/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
           {title: 'HPE Morpheus', href: '/platform/hpe-morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Morpheus'},
-          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
-          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
+          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'}
         ]
       },
       {title: 'Learn', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Learn',
@@ -114,7 +113,8 @@ window.HPEHF_CFG = {
           {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
           {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
           {title: 'SmartSim', href: '/platform/smartsim/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SmartSim'},
-          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'}
+          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'},
+          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
         ]
       },
     ]

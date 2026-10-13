@@ -649,6 +649,7 @@ function renderMenu(items, activeHref, onLinkClick, keyPrefix = 'root') {
     </ul>
   );
 }
+
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
@@ -656,7 +657,10 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags, quickLinks } = post.frontmatter;
+  const { title, description, tags, quickLinks, section } = post.frontmatter;
+  const isOpenSource = section === 'opensource';
+  const breadcrumbLabel = isOpenSource ? 'Open Source' : 'Products';
+  const breadcrumbHref = isOpenSource ? '/opensource' : '/platforms';
 
   // Split off the first paragraph as the hero description
   const { description: heroDescription, body: bodyWithoutDesc } =
@@ -796,6 +800,8 @@ function PlatformTemplate({ data }) {
       title={title}
       description={description}
       quickLinks={quickLinks || []}
+      breadcrumbLabel={breadcrumbLabel}
+      breadcrumbHref={breadcrumbHref}
     />
   );
 
@@ -1204,6 +1210,7 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
         image: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
+        section: PropTypes.string,
         quickLinks: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -1284,6 +1291,7 @@ export const pageQuery = graphql`
         description
         image
         tags
+        section
         quickLinks {
           label
           url
