@@ -7,6 +7,7 @@ width: large
 priority: 4
 active: false
 date: 2019-12-05T11:31:31+01:00
+section: opensource
 quickLinks:
   - label: 'Key Advantages'
     url: '#key-advantages-of-using-dragonhpc'

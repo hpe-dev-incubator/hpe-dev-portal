@@ -2,6 +2,7 @@ import { Anchor, Box, Image, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import Breadcrumbs from '../Breadcrumbs';
 
 /* outer hero container — responsive padding and gap */
 const HeroContainer = styled(Box)`
@@ -97,7 +98,13 @@ const PillAnchor = styled(Anchor)`
 
 const isExternal = (url) => /^https?:\/\//i.test(url);
 
-const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
+const PlatformHeroSectionGrommet = ({
+  title,
+  description,
+  quickLinks,
+  breadcrumbLabel,
+  breadcrumbHref,
+}) => {
   const visibleLinks = (quickLinks || []).slice(0, 8);
   const firstAnchor = visibleLinks.find((l) => l.url.startsWith('#'));
   const [activeUrl, setActiveUrl] = useState(firstAnchor?.url || null);
@@ -190,31 +197,12 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
         />
       </Box>
 
-      {/* Breadcrumb: Products / {Title} */}
-      <Box
-        direction="row"
-        align="center"
-        gap="12px"
-        style={{ position: 'relative', zIndex: 1 }}
-      >
-        <Image
-          src="/images/vector-product.png"
-          width="36px"
-          height="36px"
-          alt=""
-        />
-        <Text
-          weight={400}
-          color="#292D3A"
-          style={{
-            fontSize: 'clamp(16px, 3vw, 28px)',
-            letterSpacing: '-0.5px',
-            lineHeight: '100%',
-          }}
-        >
-          Products / {title}
-        </Text>
-      </Box>
+      <Breadcrumbs
+        items={[
+          { label: breadcrumbLabel, href: breadcrumbHref },
+          { label: title },
+        ]}
+      />
 
       {/* H1 title */}
       <Text
@@ -302,6 +290,8 @@ const PlatformHeroSectionGrommet = ({ title, description, quickLinks }) => {
 PlatformHeroSectionGrommet.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  breadcrumbLabel: PropTypes.string,
+  breadcrumbHref: PropTypes.string,
   quickLinks: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -313,6 +303,8 @@ PlatformHeroSectionGrommet.propTypes = {
 PlatformHeroSectionGrommet.defaultProps = {
   description: '',
   quickLinks: [],
+  breadcrumbLabel: 'Products',
+  breadcrumbHref: '/platforms',
 };
 
 export default PlatformHeroSectionGrommet;

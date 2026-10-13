@@ -15,9 +15,10 @@ import NewsletterCard from './NewsletterCard';
 import OpenSourceCard from './OpenSourceCard';
 import PageDescription from './PageDescription';
 import PlatformCard from './PlatformCard';
-import PlatformHeroSectionGrommet from './PlatformHeroSectionGrommet';
 import Questions from './Questions';
 import ResponsiveGrid from './ResponsiveGrid';
+import ReusableHeroSection from './ReusableHeroSection';
+import ReusableInfoTilesRow from './ReusableInfoTilesRow';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
@@ -28,13 +29,28 @@ export * from './Link';
 export * from './Markdown';
 
 export {
-  Aside, BlogTabContent, BlogTabs, CommunityCard, Content, EventCard, FeaturedTopicsSection, Footer,
+  Aside,
+  BlogTabContent,
+  BlogTabs,
+  CommunityCard,
+  Content,
+  EventCard,
+  FeaturedTopicsSection,
+  Footer,
   Header,
   Hero,
   HighlightedText,
   Layout,
-  LayoutSideBar, NewsletterCard, OpenSourceCard, PageDescription, PlatformCard, PlatformHeroSectionGrommet, Questions, ResponsiveGrid, SEO,
+  LayoutSideBar,
+  NewsletterCard,
+  OpenSourceCard,
+  PageDescription,
+  PlatformCard,
+  Questions,
+  ResponsiveGrid,
+  ReusableHeroSection,
+  ReusableInfoTilesRow,
+  SEO,
   Share,
-  SocialMedia
+  SocialMedia,
 };
-

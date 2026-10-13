@@ -30,12 +30,19 @@ export default function HTML(props) {
         <link rel="icon" sizes="32x32" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+        {/* Warm up the HPE header framework's origin before its scripts are requested */}
+        <link
+          rel="preconnect"
+          href="https://h50007.www5.hpe.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://h50007.www5.hpe.com" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
             :root { color-scheme: only light; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; }`,
+            #header { background-color: #ffffff; min-height: 80px; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -83,9 +90,8 @@ window.HPEHF_CFG = {
           {title: 'HPE Storage', href: '/platform/hpe-storage/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Storage'},
           {title: 'HPE Private Cloud AI', href: '/platform/hpe-private-cloud-ai/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Private Cloud AI'},
           {title: 'HPE OpsRamp', href: '/platform/hpe-opsramp/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE OpsRamp'},
-          {title: 'HPE Morpheus', href: '/platform/morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Morpheus'},
-          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'},
-          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
+          {title: 'HPE Morpheus', href: '/platform/hpe-morpheus/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Morpheus'},
+          {title: 'HPE Cray Programming Environment', href: '/platform/hpe-cray-programming-environment/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Cray Programming Environment'}
         ]
       },
       {title: 'Learn', href: '/blog', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|Learn',
@@ -107,7 +113,8 @@ window.HPEHF_CFG = {
           {title: 'KubeDirector', href: '/platform/kubedirector/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|KubeDirector'},
           {title: 'OpenCHAMI', href: '/platform/openchami/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|OpenCHAMI'},
           {title: 'SmartSim', href: '/platform/smartsim/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SmartSim'},
-          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'}
+          {title: 'SPIFFE & SPIRE', href: '/platform/spiffe-and-spire-projects/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|SPIFFE SPIRE'},
+          {title: 'HPE Swarm Learning', href: '/platform/swarm-learning/home/', newWindow: false, dataAnalyticsRegionId: 'gmenu|HPE Developer Main Nav|HPE Swarm Learning'}
         ]
       },
     ]
@@ -152,10 +159,17 @@ window.__hpDevApplySubNav = function applySubNav(subNavConfig) {
 `,
           }}
         />
-        {/* HPE Header Framework scripts — jQuery first, then the framework */}
-        <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
+        {/* HPE Header Framework scripts — jQuery first, then the framework. */}
+        {/* defer keeps them off the critical rendering path so body content isn't blocked waiting on this origin. */}
+        <script
+          defer
+          src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js"
+        />
         {/* TESTING test.r build (subheader/renderDynamicNavigation support) — revert to latest.r before production */}
-        <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/test.r/root?contentType=js" />
+        <script
+          defer
+          src="https://h50007.www5.hpe.com/hfws/us/en/hpe/test.r/root?contentType=js"
+        />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>
         {/* HPE global header — populated by HPEHF framework */}

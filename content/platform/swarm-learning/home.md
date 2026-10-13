@@ -6,9 +6,10 @@ description: "HPE Swarm Learning is a decentralized, privacy-preserving Machine
 image: /img/platforms/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg
 width: large
 priority: 3
-frontpage: false
+frontpage: true
 date: 2024-12-06T17:54:51+01:00
 active: true
+section: opensource
 quickLinks:
   - label: 'Articles'
     url: '#articles'
@@ -25,11 +26,11 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 Swarm Learning nodes works in collaboration with other Swarm Learning nodes in the network. It regularly shares its learnings with the other nodes and incorporates their insights. This process continues until the Swarm Learning nodes train the model to desired state. User can monitor the progress of the current training as shown in the below image. It shows all running Swarm nodes, loss, model metric (for example, accuracy) and overall training progress for each User ML node. On hovering over the "progress bar", one can see the number of completed epochs and the total number of epochs.
 
-![](/img/guid-cb6f59c9-7cd9-4ee8-ba7c-3082f07b8491-high.png "HPE Swarm Learning Topology")
+![HPE Swarm Learning Topology](/img/guid-cb6f59c9-7cd9-4ee8-ba7c-3082f07b8491-high.png "HPE Swarm Learning Topology")
 
 ![HPE Swarm Learning architecture](/img/guid-899b556f-d33f-42d1-8d0d-37f191715709-high.jpg "HPE Swarm Learning architecture")
 
-User can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
+User can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the [instructions to extend Swarm client](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
 
 We are happy to announce [Swarm 2.2.0 community release](https://github.com/HewlettPackard/swarm-learning/releases/tag/v2.2.0). In this release, we have delivered key enhancements on UI/UX, which includes experiment tracking for easier “birds-eye” visualization of past training rounds, parallel Swarm installation on multiple hosts, Podman support via SLM-UI etc., that will significantly enhance user experience. We have also added powerful features to Swarm manageability framework for better management of user ML workloads.
 
@@ -62,11 +63,11 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 
 - - -
 
-## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
+## [Resources](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
-* [**HPE Swarm Learning community edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
-* [**Try HPE Swarm Learning examples ![](Github)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
-* [**H﻿PE Swarm Learning client ![](Github)**](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md)
+* [**HPE Swarm Learning community edition ![GitHub](Github)**](https://github.com/HewlettPackard/swarm-learning)
+* [**Try HPE Swarm Learning examples ![GitHub](Github)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
+* [**H﻿PE Swarm Learning client ![GitHub](Github)**](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md)
 
 - - -
 

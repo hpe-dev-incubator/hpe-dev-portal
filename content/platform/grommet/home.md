@@ -8,6 +8,7 @@ priority: 8
 frontpage: true
 active: false
 date: 2020-12-05T11:31:31+01:00
+section: opensource
 quickLinks:
   - label: Components
     url: 'https://v2.grommet.io/components'

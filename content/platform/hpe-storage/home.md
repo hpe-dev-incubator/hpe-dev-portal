@@ -8,6 +8,16 @@ priority: 12
 date: 2026-08-17T00:00:00+00:00
 active: true
 quickLinks:
+  - label: 'HPE Data Fabric Software'
+    url: '/platform/hpe-data-fabric-software/home/'
+  - label: 'HPE Alletra Storage MP B10000'
+    url: '/platform/hpe-alletra-B10000/home/'
+  - label: 'HPE Alletra Storage MP X10000'
+    url: '/platform/hpe-alletra-X10000/home/'
+  - label: 'HPE Zerto Software'
+    url: '/platform/hpe-zerto-software/home/'
+  - label: 'HPE Legacy Products'
+    url: '#legacy-and-adjacent-storage-products'
   - label: 'For Kubernetes'
     url: 'https://scod.hpedev.io/welcome/index.html'
   - label: 'Analytics'
@@ -54,10 +64,10 @@ HPE storage and data platform solutions span the modern hybrid cloud estate, fro
 ## Current HPE data platform portfolio
 
 * [HPE GreenLake Data Services Cloud Console](https://www.hpe.com/us/en/greenlake/data-services.html) — cloud-managed control plane for provisioning and operating storage and data services across hybrid environments.
-* [HPE Alletra Storage MP B10000](/platform/hpe-alletra/home/) — next-generation storage platform for mission-critical, AI-ready, and modern enterprise workloads.
-* HPE Alletra Storage MP X10000 — high-performance storage platform for larger, data-intensive environments and modern enterprise workloads.
-* [HPE Data Fabric Software](/platform/hpe-ezmeral-data-fabric/home/) — unified data management and analytics platform for distributed data, AI, and modern application environments.
-* [HPE Zerto](/platform/zerto/home/) — continuous data protection, disaster recovery, and cloud mobility for business-critical workloads.
+* [HPE Alletra Storage MP B10000](/platform/hpe-alletra-B10000/home/) — next-generation storage platform for mission-critical, AI-ready, and modern enterprise workloads.
+* [HPE Alletra Storage MP X10000](/platform/hpe-alletra-X10000/home/) — high-performance storage platform for larger, data-intensive environments and modern enterprise workloads.
+* [HPE Data Fabric Software](/platform/hpe-data-fabric-software/home/) — unified data management and analytics platform for distributed data, AI, and modern application environments.
+* [HPE Zerto Software](/platform/hpe-zerto-software/home/) — continuous data protection, disaster recovery, and cloud mobility for business-critical workloads.
 
 ## Legacy and adjacent storage products
 
@@ -82,7 +92,7 @@ A modern storage portfolio built for block, file, and data services workloads ac
 
 Data management and analytics software that helps organizations move, govern, and access data across hybrid and multi-cloud estates.
 
-### HPE Zerto
+### HPE Zerto Software
 
 Disaster recovery, backup, and migration solutions that keep business-critical applications available across environments.
 

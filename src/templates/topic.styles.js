@@ -11,7 +11,7 @@ export const HeroBgImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3;
+  object-position: 50% 33%;
   pointer-events: none;
 `;
 
@@ -19,9 +19,22 @@ export const HeroGradient = styled.div`
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(41, 45, 58, 0) 0%,
-    rgba(41, 45, 58, 0.8) 78.846%
+    -42.143deg,
+    rgba(41, 45, 58, 0) 10.197%,
+    rgb(41, 45, 58) 89.615%
+  );
+  pointer-events: none;
+`;
+
+export const HeroRightMidGradient = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(41, 45, 58, 0.62) 0%,
+    rgba(41, 45, 58, 0.34) 28%,
+    rgba(41, 45, 58, 0.12) 44%,
+    rgba(41, 45, 58, 0) 50%
   );
   pointer-events: none;
 `;
@@ -33,19 +46,6 @@ export const HeroContent = styled.div`
   flex-direction: column;
   gap: 36px;
   justify-content: flex-end;
-`;
-
-export const BreadcrumbRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`;
-
-export const BreadcrumbText = styled.span`
-  color: white;
-  font-size: 28px;
-  letter-spacing: -0.5px;
-  white-space: nowrap;
 `;
 
 export const HeroBody = styled.div`

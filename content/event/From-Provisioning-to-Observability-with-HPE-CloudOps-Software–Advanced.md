@@ -9,10 +9,10 @@ tags:
 - observability
 - hpe-cloudops
 image: /img/events/events5.jpg
-link: https://hpe.zoom.us/webinar/register/1817881930609/WN_O_bSTqnOSJmiFMr8-tRMVg
+link: https://youtu.be/joJQ3i_3i4A
 width: large
 ---
 09/30/2026
 
-Join us to explore HPE CloudOps Software – Advanced and discover how integrated provisioning and observability can simplify private cloud operations. Learn how teams can automate infrastructure deployment, improve operational visibility, and accelerate troubleshooting through a unified cloud operations experience.
+Explore HPE CloudOps Software – advanced and discover how integrated provisioning and observability can simplify private cloud operations. Learn how teams can automate infrastructure deployment, improve operational visibility, and accelerate troubleshooting through a unified cloud operations experience.
 This session includes an overview of core capabilities, practical use cases, and demonstrations showing how CloudOps Advanced helps organizations modernize private cloud management.

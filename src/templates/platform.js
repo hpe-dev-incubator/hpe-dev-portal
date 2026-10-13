@@ -3,6 +3,7 @@ import { Anchor, Avatar, Box, Heading, Paragraph, Text, Tip } from 'grommet';
 import {
   Book,
   Catalog,
+  CirclePlay,
   CircleQuestion,
   Copy,
   Facebook,
@@ -22,6 +23,7 @@ import {
   SectionHeader,
   SEO,
 } from '../components';
+import Breadcrumbs from '../components/Breadcrumbs';
 import CarouselNavButtons from '../components/CarouselNavButtons';
 import PlatformHeroSectionGrommet from '../components/PlatformHeroSectionGrommet';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
@@ -30,24 +32,24 @@ import useHfSubNav from '../hooks/use-hf-sub-nav';
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
 
-/* hidden on mobile — sidenav breadcrumb row is not needed without a sidebar */
-const BreadcrumbRow = styled(Box)`
-  @media (max-width: 768px) {
-    justify-content: flex-start !important;
+const BreadcrumbRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+  min-width: 0;
+
+  > nav {
+    flex: 1 1 32rem;
   }
 `;
 
-/* breadcrumb text hidden on mobile; social icons in the same row remain visible */
-const BreadcrumbText = styled(Box)`
-  @media (max-width: 768px) {
-    display: none !important;
-  }
-`;
-
-const SocialIconsBox = styled(Box)`
-  @media (max-width: 768px) {
-    align-items: flex-start;
-  }
+const SocialIconsBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
 `;
 
 const DocCardsGrid = styled.div`
@@ -224,6 +226,13 @@ const platformHeadingStyles = {
       },
     },
   },
+  a: {
+    component: Anchor,
+    props: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+  },
 };
 
 const BLOGS_PER_PAGE = 3;
@@ -234,6 +243,7 @@ const DOC_CARD_CATEGORY = {
   GUIDE: 'guide',
   DOCS: 'docs',
   FAQ: 'faq',
+  VIDEO: 'video',
   OTHER: 'other',
 };
 
@@ -289,6 +299,7 @@ function normalizeDocTypeTag(rawType = '') {
     doc: DOC_CARD_CATEGORY.DOCS,
     documentation: DOC_CARD_CATEGORY.DOCS,
     faq: DOC_CARD_CATEGORY.FAQ,
+    video: DOC_CARD_CATEGORY.VIDEO,
   };
 
   return typeMap[value] || '';
@@ -327,7 +338,7 @@ function normalizeDocCardTitle(title) {
   return title;
 }
 
-function getCardDisplayTitle(card) {
+export function getCardDisplayTitle(card) {
   if (normalizeDocTypeTag(card.type)) {
     return card.title;
   }
@@ -335,11 +346,12 @@ function getCardDisplayTitle(card) {
   return normalizeDocCardTitle(card.title);
 }
 
-function getCardIcon(card, index) {
+export function getCardIcon(card, index) {
   const category = classifyDocCard(card);
   if (category === DOC_CARD_CATEGORY.GUIDE) return Copy;
   if (category === DOC_CARD_CATEGORY.DOCS) return Book;
   if (category === DOC_CARD_CATEGORY.FAQ) return HelpBook;
+  if (category === DOC_CARD_CATEGORY.VIDEO) return CirclePlay;
   return CARD_ICONS[index % CARD_ICONS.length];
 }
 
@@ -416,14 +428,19 @@ function parseHeadingsForSidebar(rawBody) {
   return items;
 }
 
-// Find the first group of 2+ consecutive `* [text](url)` bullet links,
-// extract them as resource cards, and return bodyBefore/bodyAfter so the
-// cards can be inserted at exactly the right position in the page.
-function parseAndExtractBulletCards(rawBody) {
+// Render all 2+ link groups containing explicit resource-type tags.
+// Untagged pages retain their single inferred group. Keep markdown between grids.
+export function parseAndExtractBulletCards(
+  rawBody,
+  { inferAfterFirstHeading = false } = {},
+) {
   const lines = rawBody.split('\n');
+  const firstHeadingIndex = lines.findIndex((line) =>
+    /^##\s+/.test(line.trim()),
+  );
   const groups = [];
   const taggedBulletPattern =
-    /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)\s*$/;
+    /^\*\s+\[([^\]]+)\]\s*\[([^\]]+)\]\(([^)]+)\)(?:[ \t]+(.*))?\s*$/;
   const legacyBulletPattern = /^\*\s+\[([^\]]+)\]\(([^)]+)\)\s*$/;
 
   const parseBullet = (line) => {
@@ -433,6 +450,7 @@ function parseAndExtractBulletCards(rawBody) {
         type: taggedMatch[1].trim(),
         title: taggedMatch[2].trim(),
         link: taggedMatch[3].trim(),
+        description: (taggedMatch[4] || '').trim(),
       };
     }
 
@@ -464,13 +482,16 @@ function parseAndExtractBulletCards(rawBody) {
       if (!parsedLine) break;
 
       const { type, title, link } = parsedLine;
-      const descriptionLines = [];
+      const descriptionLines = parsedLine.description
+        ? [parsedLine.description]
+        : [];
       i += 1;
 
       while (i < lines.length) {
         const nextLine = lines[i];
         const trimmed = nextLine.trim();
 
+        if (/^#{1,6}\s+/.test(trimmed)) break;
         if (parseBullet(trimmed)) break;
         if (trimmed === '') {
           let lookahead = i + 1;
@@ -521,31 +542,30 @@ function parseAndExtractBulletCards(rawBody) {
     }
   }
 
-  if (groups.length === 0) {
-    return { cards: [], bodyBefore: rawBody, bodyAfter: '' };
+  let selectedGroups = groups.filter((group) => group.typedTagHits > 0);
+  if (selectedGroups.length === 0) {
+    const inferredPreferredGroup = groups
+      .filter(
+        (group) =>
+          group.docTagHits > 0 &&
+          (!inferAfterFirstHeading ||
+            (firstHeadingIndex !== -1 && group.start >= firstHeadingIndex)),
+      )
+      .sort((a, b) => b.docTagHits - a.docTagHits)[0];
+    if (inferredPreferredGroup) selectedGroups = [inferredPreferredGroup];
   }
 
-  const taggedPreferredGroup = groups
-    .filter((group) => group.typedTagHits > 0)
-    .sort(
-      (a, b) => b.typedTagHits - a.typedTagHits || b.docTagHits - a.docTagHits,
-    )[0];
-
-  const inferredPreferredGroup = groups
-    .filter((group) => group.docTagHits > 0)
-    .sort((a, b) => b.docTagHits - a.docTagHits)[0];
-
-  const preferredGroup = taggedPreferredGroup || inferredPreferredGroup;
-
-  if (!preferredGroup) {
-    return { cards: [], bodyBefore: rawBody, bodyAfter: '' };
-  }
-
-  return {
-    cards: preferredGroup.cards,
-    bodyBefore: lines.slice(0, preferredGroup.start).join('\n'),
-    bodyAfter: lines.slice(preferredGroup.nextIndex).join('\n'),
-  };
+  const sections = [];
+  let cursor = 0;
+  selectedGroups.forEach((group) => {
+    const body = lines.slice(cursor, group.start).join('\n');
+    if (body) sections.push({ kind: 'markdown', start: cursor, body });
+    sections.push({ kind: 'cards', start: group.start, cards: group.cards });
+    cursor = group.nextIndex;
+  });
+  const body = lines.slice(cursor).join('\n');
+  if (body) sections.push({ kind: 'markdown', start: cursor, body });
+  return sections;
 }
 
 // Split platform body into intro (before first level-2 heading) and the rest.
@@ -637,7 +657,10 @@ function PlatformTemplate({ data, pageContext }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, tags, quickLinks } = post.frontmatter;
+  const { title, description, tags, quickLinks, section } = post.frontmatter;
+  const isOpenSource = section === 'opensource';
+  const breadcrumbLabel = isOpenSource ? 'Open Source' : 'Products';
+  const breadcrumbHref = isOpenSource ? '/opensource' : '/platforms';
   // Entries flagged subNav:true render in the persistent HPEHF subheader
   // (see gatsby-node.js/src/html.js) instead of the hero pill bar.
   const heroQuickLinks = useMemo(
@@ -650,25 +673,34 @@ function PlatformTemplate({ data, pageContext }) {
   const { description: heroDescription, body: bodyWithoutDesc } =
     extractDescriptionAndBody(rawMarkdownBody);
   const sanitizedBody = sanitizeMarkdownBody(bodyWithoutDesc);
-  // Build dedicated intro section and keep remaining markdown sections unchanged.
-  const { intro: introBody, rest: sectionBody } =
-    splitIntroSection(sanitizedBody);
-  // Auto-parse sidebar nav from headings; auto-extract bullet link cards from remaining body
+  const { rest: sectionBody } = splitIntroSection(sanitizedBody);
+  // Keep untagged intro lists as markdown, but allow tagged tiles anywhere.
   const parsedSidebarItems = useMemo(
     () => parseHeadingsForSidebar(sectionBody),
     [sectionBody],
   );
-  const {
-    cards: activeCards,
-    bodyBefore,
-    bodyAfter,
-  } = parseAndExtractBulletCards(sectionBody);
+  const contentSections = parseAndExtractBulletCards(sanitizedBody, {
+    inferAfterFirstHeading: true,
+  });
+  const relatedBlogs = useMemo(
+    () =>
+      blogs
+        .map(({ node }) => node)
+        .filter(
+          (node) =>
+            node && (node.frontmatter.authorimage || node.frontmatter.author),
+        ),
+    [blogs],
+  );
   const sidebarItems = useMemo(
     () => [
       { label: 'Getting started', href: '#platform-content' },
       ...parsedSidebarItems,
+      ...(relatedBlogs.length > 0 && tags
+        ? [{ label: 'Related blogs', href: '#related-blogs' }]
+        : []),
     ],
-    [parsedSidebarItems],
+    [parsedSidebarItems, relatedBlogs, tags],
   );
   const [activeSidebarHref, setActiveSidebarHref] = useState(
     sidebarItems[0]?.href || '',
@@ -679,16 +711,6 @@ function PlatformTemplate({ data, pageContext }) {
       sidebarItems[0]?.label ||
       '',
     [sidebarItems, activeSidebarHref],
-  );
-  const relatedBlogs = useMemo(
-    () =>
-      blogs
-        .map(({ node }) => node)
-        .filter(
-          (node) =>
-            node && (node.frontmatter.authorimage || node.frontmatter.author),
-        ),
-    [blogs],
   );
   const [copied, setCopied] = useState(false);
   const [currentBlogPage, setCurrentBlogPage] = useState(0);
@@ -785,6 +807,8 @@ function PlatformTemplate({ data, pageContext }) {
       title={title}
       description={description}
       quickLinks={heroQuickLinks}
+      breadcrumbLabel={breadcrumbLabel}
+      breadcrumbHref={breadcrumbHref}
     />
   );
 
@@ -815,62 +839,19 @@ function PlatformTemplate({ data, pageContext }) {
               maxWidth: '1192px',
             }}
           >
-            <BreadcrumbRow
-              direction="row"
-              align="center"
-              justify="between"
-              gap="16px"
-              width="100%"
-              style={{
-                minHeight: '64px',
-                paddingTop: '20px',
-                paddingBottom: '20px',
-                borderRadius: '16px',
-                opacity: 1,
-              }}
-            >
-              <BreadcrumbText direction="row" align="center" gap="small">
-                <Text
-                  style={{
-                    fontWeight: 400,
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    letterSpacing: '0px',
-                    color: '#606A70',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  {title}
-                </Text>
-                <Text
-                  style={{
-                    color: '#606A70',
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  /
-                </Text>
-                <Text
-                  style={{
-                    fontWeight: 600,
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    letterSpacing: '0px',
-                    color: '#3E4550',
-                    fontFamily: 'HPE Graphik, Metric, sans-serif',
-                  }}
-                >
-                  {activeSidebarLabel}
-                </Text>
-              </BreadcrumbText>
-              <SocialIconsBox
-                direction="row"
-                gap="8px"
-                align="center"
-                flex={{ shrink: 0 }}
-              >
+            <BreadcrumbRow>
+              <Breadcrumbs
+                items={[
+                  {
+                    label: title,
+                    href: '#platform-content',
+                    onClick: (event) =>
+                      handleSidebarLinkClick(event, '#platform-content'),
+                  },
+                  { label: activeSidebarLabel },
+                ]}
+              />
+              <SocialIconsBox>
                 <Anchor
                   icon={<LinkedinOption size="32px" color="dark-1" />}
                   href="https://www.linkedin.com/company/hewlett-packard-enterprise"
@@ -941,121 +922,117 @@ function PlatformTemplate({ data, pageContext }) {
             >
               {title}
             </Text>
-            {introBody && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {introBody}
-              </MarkdownLayout>
-            )}
-            {bodyBefore && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {bodyBefore}
-              </MarkdownLayout>
-            )}
-            {activeCards.length > 0 && (
-              <DocCardsGrid>
-                {activeCards.map((card, i) => {
-                  const Icon = getCardIcon(card, i);
-                  const isGuideCard =
-                    classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
-                  return (
-                    <Box
-                      key={`${card.link}-${i}`}
-                      pad="none"
-                      background="transparent"
-                      elevation="none"
-                      gap="small"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '100%',
-                        maxWidth: '385px',
-                        // height: 'auto',
-                        gap: '20px',
-                        boxSizing: 'border-box',
-                        paddingTop: '40px',
-                        paddingRight: '28px',
-                        paddingBottom: '40px',
-                        paddingLeft: '28px',
-                        borderRadius: '0px',
-                        background: 'rgb(247, 247, 247)',
-                        boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.04) inset',
-                      }}
-                    >
+            {contentSections.map((section) =>
+              section.kind === 'markdown' ? (
+                <MarkdownLayout
+                  key={`markdown-${section.start}`}
+                  components={platformHeadingStyles}
+                >
+                  {section.body}
+                </MarkdownLayout>
+              ) : (
+                <DocCardsGrid key={`cards-${section.start}`}>
+                  {section.cards.map((card, i) => {
+                    const Icon = getCardIcon(card, i);
+                    const isGuideCard =
+                      classifyDocCard(card) === DOC_CARD_CATEGORY.GUIDE;
+                    return (
                       <Box
+                        key={`${card.link}-${i}`}
                         pad="none"
                         background="transparent"
-                        round="0px"
-                        width="48px"
-                        height="48px"
-                        align="start"
-                        justify="start"
-                        style={{ marginBottom: '8px' }}
-                      >
-                        <Icon size="large" color="#3e4550" />
-                      </Box>
-                      <Box
+                        elevation="none"
+                        gap="small"
                         style={{
                           display: 'flex',
                           flexDirection: 'column',
-                          gap: '8px',
-                          flex: 1,
-                          minHeight: 0,
+                          width: '100%',
+                          maxWidth: '385px',
+                          // height: 'auto',
+                          gap: '20px',
+                          boxSizing: 'border-box',
+                          paddingTop: '40px',
+                          paddingRight: '28px',
+                          paddingBottom: '40px',
+                          paddingLeft: '28px',
+                          borderRadius: '0px',
+                          background: 'rgb(247, 247, 247)',
+                          boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.04) inset',
                         }}
                       >
-                        <Text
+                        <Box
+                          pad="none"
+                          background="transparent"
+                          round="0px"
+                          width="48px"
+                          height="48px"
+                          align="start"
+                          justify="start"
+                          style={{ marginBottom: '8px' }}
+                        >
+                          <Icon size="large" color="#3e4550" />
+                        </Box>
+                        <Box
                           style={{
-                            fontWeight: 500,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                            flex: 1,
+                            minHeight: 0,
+                          }}
+                        >
+                          <Text
+                            style={{
+                              fontWeight: 500,
+                              fontSize: '18px',
+                              width: '100%',
+                              lineHeight: '24px',
+                              color: '#292D3A',
+                              overflowWrap: 'anywhere',
+                              wordBreak: 'break-word',
+                              fontFamily: 'HPE Graphik, Metric, sans-serif',
+                            }}
+                          >
+                            {getCardDisplayTitle(card)}
+                          </Text>
+                          <Text
+                            style={{
+                              fontSize: '18px',
+                              lineHeight: '28px',
+                              color: '#606A70',
+                              overflowWrap: 'anywhere',
+                              wordBreak: 'break-word',
+                              fontFamily: 'HPE Graphik, Metric, sans-serif',
+                            }}
+                          >
+                            {card.description}
+                          </Text>
+                        </Box>
+                        <Anchor
+                          href={card.link}
+                          label="Explore more →"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          color="#068667"
+                          size="small"
+                          style={{
+                            fontWeight: 600,
+                            marginTop: 'auto',
                             fontSize: '18px',
-                            width: '100%',
                             lineHeight: '24px',
-                            color: '#292D3A',
+                            whiteSpace: 'normal',
                             overflowWrap: 'anywhere',
                             wordBreak: 'break-word',
-                            fontFamily: 'HPE Graphik, Metric, sans-serif',
                           }}
-                        >
-                          {getCardDisplayTitle(card)}
-                        </Text>
-                        <Text
-                          style={{
-                            fontSize: '18px',
-                            lineHeight: '28px',
-                            color: '#606A70',
-                            overflowWrap: 'anywhere',
-                            wordBreak: 'break-word',
-                            fontFamily: 'HPE Graphik, Metric, sans-serif',
-                          }}
-                        >
-                          {card.description}
-                        </Text>
+                        />
                       </Box>
-                      <Anchor
-                        href={card.link}
-                        label="Explore more →"
-                        color="#068667"
-                        size="small"
-                        style={{
-                          fontWeight: 600,
-                          marginTop: 'auto',
-                          fontSize: '18px',
-                          lineHeight: '24px',
-                          whiteSpace: 'normal',
-                          overflowWrap: 'anywhere',
-                          wordBreak: 'break-word',
-                        }}
-                      />
-                    </Box>
-                  );
-                })}
-              </DocCardsGrid>
-            )}
-            {bodyAfter && (
-              <MarkdownLayout components={platformHeadingStyles}>
-                {bodyAfter}
-              </MarkdownLayout>
+                    );
+                  })}
+                </DocCardsGrid>
+              ),
             )}
             {relatedBlogs.length > 0 && tags && (
-              <Box margin={{ top: '48px' }}>
+              <Box margin={{ top: '48px' }} id="related-blogs">
                 <Heading
                   level={2}
                   margin={{ top: '0', bottom: '48px' }}
@@ -1240,6 +1217,7 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
         image: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
+        section: PropTypes.string,
         quickLinks: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -1338,6 +1316,7 @@ export const pageQuery = graphql`
         description
         image
         tags
+        section
         quickLinks {
           label
           url
