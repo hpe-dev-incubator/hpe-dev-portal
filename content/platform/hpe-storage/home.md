@@ -10,36 +10,20 @@ active: true
 quickLinks:
   - label: 'HPE Data Fabric Software'
     url: '/platform/hpe-data-fabric-software/home/'
+    subNav: true
   - label: 'HPE Alletra Storage MP B10000'
     url: '/platform/hpe-alletra-B10000/home/'
+    subNav: true
   - label: 'HPE Alletra Storage MP X10000'
     url: '/platform/hpe-alletra-X10000/home/'
+    subNav: true
   - label: 'HPE Zerto Software'
     url: '/platform/hpe-zerto-software/home/'
+    subNav: true
   - label: 'HPE Legacy Products'
     url: '#legacy-and-adjacent-storage-products'
-  - label: 'For Kubernetes'
-    url: 'https://scod.hpedev.io/welcome/index.html'
-  - label: 'Analytics'
-    url: '/platform/hpe-ezmeral-data-fabric/home/'
-  - label: 'B10000'
-    url: '/platform/hpe-alletra/home/'
     subNav: true
-  - label: 'X10000'
-    url: '/platform/hpe-alletra-X10000/home/'
-    subNav: true
-  - label: 'SimpliVity'
-    url: '/platform/hpe-simplivity/home/'
-    subNav: true
-  - label: 'Nimble'
-    url: '/platform/hpe-nimble-storage/home/'
-    subNav: true
-  - label: '3PAR'
-    url: '/platform/hpe-3par-and-primera/home/'
-    subNav: true
-  - label: 'Zerto'
-    url: '/platform/zerto/home/'
-    subNav: true
+  
 tags:
   - hpe-storage
   - data platforms

@@ -41,8 +41,12 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
             :root { color-scheme: only light; }
+            /* #header (HPEHF two-row nav + persistent subheader) is ~160px
+               tall; reserve that much room above in-page anchor targets so
+               the sticky header never ends up overlapping/hiding them. */
+            html { scroll-padding-top: 180px; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; min-height: 80px; }`,
+            #header { background-color: #ffffff; min-height: 80px; position: sticky; top: 0; z-index: 1000; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -127,11 +131,10 @@ window.HPEHF_CFG = {
 };
 
 // --- Persistent subheader support (HPEHF renderDynamicNavigation) ---
-// TESTING ONLY: relies on the HFWS "test.r" build below. The 'secondaryNav'
-// config shape ({ sectionTitle, navLinks, CTA }) was verified by introspecting
-// window.HPEHF's own validateDynamicNavigationSectionShape/initSecondaryNav
-// functions on test.r (the header team has not published written docs for it
-// yet) — confirm with them before relying on it in production.
+// The 'secondaryNav' config shape ({ sectionTitle, navLinks, CTA }) was
+// verified by introspecting window.HPEHF's own
+// validateDynamicNavigationSectionShape/initSecondaryNav functions on the
+// latest.r build (the header team has not published written docs for it yet).
 window.__hpDevBaseHFCfg = window.HPEHF_CFG;
 window.__hpDevPendingSubNav = undefined;
 window.__hpDevApplySubNav = function applySubNav(subNavConfig) {
@@ -165,10 +168,9 @@ window.__hpDevApplySubNav = function applySubNav(subNavConfig) {
           defer
           src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js"
         />
-        {/* TESTING test.r build (subheader/renderDynamicNavigation support) — revert to latest.r before production */}
         <script
           defer
-          src="https://h50007.www5.hpe.com/hfws/us/en/hpe/test.r/root?contentType=js"
+          src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js"
         />
       </head>
       <body style={{ margin: 0 }} {...props.bodyAttributes}>

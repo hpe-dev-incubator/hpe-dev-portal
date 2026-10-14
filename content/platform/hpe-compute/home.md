@@ -15,16 +15,15 @@ active: true
 quickLinks:
   - label: 'HPE ProLiant'
     url: '/platform/hpe-proliant/home/'
-  - label: 'Compute Ops management'
-    url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
+    subNav: true
   - label: 'iLO RESTful API'
     url: '/platform/ilo-restful-api/home/'
     subNav: true
+  - label: 'Compute Ops management'
+    url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
+    subNav: true
   - label: 'HPE OneView'
     url: '/platform/hpe-oneview/home/'
-    subNav: true
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
     subNav: true
   - label: 'HPE NonStop'
     url: '/platform/hpe-nonstop/home/'
@@ -62,10 +61,9 @@ HPE compute platforms provide the foundation for modern workloads, from edge to 
 
 Every business is facing tough challenges – to digitally transform, address security risks, and operate efficiently. Complex server management is a distraction from these challenges, consuming IT resources and slowing innovation.[HPE Compute Ops Management](/greenlake/hpe-greenlake-for-compute-ops-management/home.md) solves these challenges by simplifying and unifying operations across the server lifecycle, for the whole environment, no matter where your compute infrastructure lives. The service provides a consistent, secure cloud experience that scales elastically and unifies compute management.
 
-
-* Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.   
-* Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).   
-* Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.   
+* Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.
+* Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).
+* Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.
 
 ### HPE OneView
 
@@ -75,7 +73,6 @@ Every business is facing tough challenges – to digitally transform, address se
 * Templates and profiles for consistent, repeatable server deployments
 * Integration with VMware, Microsoft, and open-source virtualization platforms
 * Supports HPE Synergy and HPE ProLiant environments
-
 
 ## Mission-critical computing
 
