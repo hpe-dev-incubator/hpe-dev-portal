@@ -21,18 +21,6 @@ quickLinks:
     url: '#sdks-and-language-bindings'
   - label: 'Compute Ops management'
     url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
-    subNav: true
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-    subNav: true
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
-    subNav: true
-  - label: 'HPE NonStop'
-    url: '/platform/hpe-nonstop/home/'
-    subNav: true
 tags:
   - ilo-restful-api
   - Redfish

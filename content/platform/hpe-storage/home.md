@@ -21,9 +21,8 @@ quickLinks:
     url: '/platform/hpe-zerto-software/home/'
     subNav: true
   - label: 'HPE Legacy Products'
-    url: '#legacy-and-adjacent-storage-products'
+    url: '/platform/hpe-storage/home/#legacy-and-adjacent-storage-products'
     subNav: true
-  
 tags:
   - hpe-storage
   - data platforms

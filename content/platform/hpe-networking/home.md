@@ -10,10 +10,6 @@ active: true
 quickLinks:
   - label: 'HPE Networking Developer Hub'
     url: 'https://developer.networking.hpe.com'
-    subNav: true
-  - label: 'Getting Started'
-    url: 'https://developer.networking.hpe.com/get-started/home'
-    subNav: true
 tags:
   - hpe networking
   - networking
@@ -26,6 +22,8 @@ tags:
 HPE Networking Developer Hub is providing APIs references, Guides and code sample thanks to Code Exchange.
 Find tutorials, documentation, and curated learning content to start a project with HPE Juniper Networking or HPE Aruba Networking products.
 
+* [docs] [Developer Hub](https://developer.networking.hpe.com/get-started/home/) Getting started
+* [faq] [Developer Hub](https://developer.networking.hpe.com) Welcome page
 ## Cloud Management Platforms
 
 * [Central](https://developer.networking.hpe.com/get-started/central/)
