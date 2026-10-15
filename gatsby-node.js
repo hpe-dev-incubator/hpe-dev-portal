@@ -272,6 +272,65 @@ exports.createPages = async ({ graphql, actions }) => {
   // setPagination(hpeMorpheusQueryResult);
   setPagination(othersQueryResult);
 
+  // Build a folder -> subheader config map from category landing pages
+  // (e.g. HPE Storage, HPE Compute, HPE Networking) whose quickLinks are
+  // flagged subNav: true. Every platform page whose folder is either the
+  // category page itself or one of its subNav siblings picks up the same
+  // subheader config, so it persists across product detail pages too.
+  const subNavQueryResult = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          fields: { sourceInstanceName: { eq: "platform" } }
+          frontmatter: { quickLinks: { elemMatch: { subNav: { eq: true } } } }
+        }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              quickLinks {
+                label
+                url
+                subNav
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (subNavQueryResult.errors) {
+    throw subNavQueryResult.errors;
+  }
+
+  const folderToSubNav = {};
+  subNavQueryResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const categoryFolder = node.fields.slug.split('/')[1];
+    const siblings = (node.frontmatter.quickLinks || [])
+      .filter((link) => link.subNav)
+      .map((link) => ({ title: link.label, href: link.url }));
+
+    if (!siblings.length) return;
+
+    const subNavConfig = {
+      title: node.frontmatter.title,
+      parentHref: '/platforms',
+      homeHref: `/platform${node.fields.slug}`,
+      navLinks: siblings,
+    };
+
+    folderToSubNav[categoryFolder] = subNavConfig;
+    siblings.forEach((sibling) => {
+      const match = sibling.href.match(/^\/platform\/([^/]+)\//);
+      if (match) folderToSubNav[match[1]] = subNavConfig;
+    });
+  });
+
   return graphql(`
     {
       allMarkdownRemark(
@@ -347,6 +406,7 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
+              subNavConfig: folderToSubNav[slug.split('/')[1]] || null,
             },
           });
         } else if (post.node.fields.sourceInstanceName === 'greenlake') {

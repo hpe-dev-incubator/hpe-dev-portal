@@ -9,12 +9,22 @@ frontpage: true
 date: 2022-06-24T17:04:12+02:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
   - label: 'Ansible'
     url: '#hpe-oneview-integrationss'
   - label: 'Developer Librairies'
     url: '#sdks-and-language-bindings'
+  - label: 'HPE Compute'
+    url: '/platform/hpe-compute/home/'
+    subNav: true
+  - label: 'iLO RESTful API'
+    url: '/platform/ilo-restful-api/home/'
+    subNav: true
+  - label: 'HPE OneView Global Dashboard'
+    url: '/platform/hpe-oneview-global-dashboard/home/'
+    subNav: true
+  - label: 'HPE NonStop'
+    url: '/platform/hpe-nonstop/home/'
+    subNav: true
 tags:
   - hpe-oneview
   - hpe-compute
