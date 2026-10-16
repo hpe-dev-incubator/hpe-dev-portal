@@ -1,7 +1,7 @@
 ---
 title: "HPE at PyTorch Conference NA 2026: Open Innovation, Built to Scale"
 date: 2026-10-15T22:05:00.000Z
-featuredBlog: true
+featuredBlog: false
 priority: 0
 externalLink: https://www.hpe.com/us/en/open-source.html
 author: Ria Farrell Schalnat
