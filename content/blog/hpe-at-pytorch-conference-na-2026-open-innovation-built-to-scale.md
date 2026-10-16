@@ -3,7 +3,6 @@ title: "HPE at PyTorch Conference NA 2026: Open Innovation, Built to Scale"
 date: 2026-10-15T22:05:00.000Z
 featuredBlog: false
 priority: 0
-externalLink: https://www.hpe.com/us/en/open-source.html
 author: Ria Farrell Schalnat
 authorimage: /img/pytorch-sponsorship.png
 disable: false
@@ -59,4 +58,6 @@ For enterprise leaders, that translates into something equally important. Open s
 
 That is also why community participation matters. Open source is a two-way street. HPE depends on open projects, and those projects benefit when infrastructure vendors contribute real-world engineering experience upstream. Being part of PyTorchCon helps us make sure the paths developers want to use remain performant, portable, and practical on the systems enterprises depend on.
 
-If you are at PyTorch Conference North America in San Jose, October 20–21, come find HPE at Booth #14, catch the theater session and posters, and talk with the engineers behind the work. Bring the scaling problem, I/O bottleneck, inference challenge, or operational headache you are wrestling with—we would love to compare notes.
+If you are at PyTorch Conference North America in San Jose, October 20–21, come find HPE at Booth #14, catch the theater session and posters, and talk with the engineers behind the work. Bring the scaling problem, I/O bottleneck, inference challenge, or operational headache you are wrestling with, we would love to compare notes.
+
+Learn more about [HPE and open source] (https://www.hpe.com/us/en/open-source.html)
