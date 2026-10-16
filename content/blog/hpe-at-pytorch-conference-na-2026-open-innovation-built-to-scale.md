@@ -11,6 +11,10 @@ tags:
   - opensource
   - developer
 ---
+
+![Pytorch-conference](https://pytorch.org/wp-content/uploads/2025/12/PyTorch-Conference-North-America-2026.png)
+
+
 Artificial Intelligence moves fast, especially when it is open. The harder part is turning that innovation into something teams can operate securely, reliably, and at scale—without forcing developers to become experts in every layer of infrastructure underneath their models.
 
 That is why HPE is proud to be a gold sponsor of PyTorch Conference North America 2026, taking place October 20–21 in San Jose. PyTorchCon brings together the people building the open AI stack, from PyTorch and vLLM to training, inference, kernel engineering, and the infrastructure that makes all of it work. For HPE, showing up is more than sponsorship. It is about contributing engineering, learning from the community, and helping make open AI easier to mature from experimentation to sustained enterprise use.
