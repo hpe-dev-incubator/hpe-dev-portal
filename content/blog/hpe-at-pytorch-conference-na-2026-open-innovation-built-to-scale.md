@@ -7,11 +7,14 @@ externalLink: https://www.hpe.com/us/en/open-source.html
 author: Ria Farrell Schalnat
 authorimage: /img/pytorch-sponsorship.png
 disable: false
-tags: []
+tags:
+  - AI
+  - opensource
+  - developer
 ---
 Artificial Intelligence moves fast, especially when it is open. The harder part is turning that innovation into something teams can operate securely, reliably, and at scale—without forcing developers to become experts in every layer of infrastructure underneath their models.
 
-That is why HPE is proud to be a gold sponsor of PyTorch Conference North America 2026, occurring October 20–21 in San Jose. PyTorchCon brings together the people building the open AI stack, from PyTorch and vLLM to training, inference, kernel engineering, and the infrastructure that makes all of it work. For HPE, showing up is more than sponsorship. It is about contributing engineering, learning from the community, and helping make open AI easier to mature from experimentation to sustained enterprise use.
+That is why HPE is proud to be a gold sponsor of PyTorch Conference North America 2026, taking place October 20–21 in San Jose. PyTorchCon brings together the people building the open AI stack, from PyTorch and vLLM to training, inference, kernel engineering, and the infrastructure that makes all of it work. For HPE, showing up is more than sponsorship. It is about contributing engineering, learning from the community, and helping make open AI easier to mature from experimentation to sustained enterprise use.
 
 Our theme is simple: open innovation, built to scale.
 
@@ -21,7 +24,7 @@ Developers should be able to choose the frameworks, accelerators, networks, and 
 
 Those are exactly the areas where HPE teams have been working. At PyTorchCon, we will share practical work across communication, storage, distributed Python, validation, and production inferencing—not as isolated products, but as pieces of an interoperable AI environment.
 
-***HPE Demos, Talks and Posters***
+***HPE demos, talks, and posters***
 
 *OpenCLIC: Open Communication for Distributed Inference*
 
@@ -33,7 +36,7 @@ Naveen Ravichandrasekaran and Nathan Wichmann will share posters focused on conn
 
 *DAOS + PyTorch: Accelerating the Data Path*
 
-Andrey Kudryavtsev will demonstrate how DAOS can serve as an open, high-performance backend for PyTorch datasets and checkpoints while keeping familiar DataLoader and save/load patterns. The interesting part for a PyTorch developer is what does not have to change: training loops can stay familiar while data loading, model loading, and checkpointing take advantage of a distributed storage architecture designed for scale. HPE is a primary developer of DAOS and makes the technology deployable and supportable for enterprise environments.
+Andrey Kudryavtsev will demonstrate how DAOS can serve as an open, high-performance backend for PyTorch datasets and checkpoints while keeping familiar DataLoader and save/load patterns. The interesting part for a PyTorch developer is what does not need to change: training loops can stay familiar while data loading, model loading, and checkpointing take advantage of a distributed storage architecture designed for scale. HPE is a primary developer of DAOS and makes the technology deployable and supportable for enterprise environments.
 
 *DragonHPC for Inference and Training*
 
@@ -45,10 +48,10 @@ Isa Wazirzada will show how HPE's open source Torch Hammer work can validate GPU
 
 *Deploy, Load, Observe: A PyTorch Model's Journey to Production Inference*
 
-Anda Zhou will highlight a PyTorch workflow that starts in a Jupyter notebook and moves through deployment to a live inference endpoint with HPE Private Cloud AI and AI Essentials. The demo trains a LoRA adapter in a notebook and serves production traffic on a vLLM endpoint minutes later, with live observability for latency, usage, and throughput throughout. It is a concrete look at the gap between having a model and operating one—and how much of that operational work can be made repeatable.
+Anda Zhou will highlight a PyTorch workflow that starts in a Jupyter notebook and moves through deployment to a live inference endpoint with HPE Private Cloud AI and HPE AI Essentials. The demo trains a LoRA adapter in a notebook and serves production traffic on a vLLM endpoint minutes later, with live observability for latency, usage, and throughput throughout. It is a concrete look at the gap between having a model and operating one—and how much of that operational work can be made repeatable.
 
 
-***Why This Matters Beyond the Conference***
+***Why this matters beyond the conference***
 
 There is a business story behind all of this, but it starts with a developer truth: the easiest infrastructure to adopt is the infrastructure that works with the software people already choose.
 
