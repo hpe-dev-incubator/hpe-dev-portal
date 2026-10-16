@@ -15,15 +15,15 @@ Artificial Intelligence moves fast, especially when it is open. The harder part 
 
 That is why HPE is proud to be a gold sponsor of PyTorch Conference North America 2026, taking place October 20–21 in San Jose. PyTorchCon brings together the people building the open AI stack, from PyTorch and vLLM to training, inference, kernel engineering, and the infrastructure that makes all of it work. For HPE, showing up is more than sponsorship. It is about contributing engineering, learning from the community, and helping make open AI easier to mature from experimentation to sustained enterprise use.
 
-# Our theme is simple: open innovation, built to scale.
+## Our theme is simple: open innovation, built to scale.
 
-## Start with the Developer Problem
+### Start with the Developer Problem
 
 Developers should be able to choose the frameworks, accelerators, networks, and data platforms that fit their workloads. But as AI systems grow, seemingly straightforward code runs into very real systems problems: moving data fast enough, coordinating work across GPUs and nodes, validating hardware before it reaches production, scaling inference, recovering from failures, and understanding what is happening once a model is serving real traffic.
 
 Those are exactly the areas where HPE teams have been working. At PyTorchCon, we will share practical work across communication, storage, distributed Python, validation, and production inferencing—not as isolated products, but as pieces of an interoperable AI environment.
 
-## HPE demos, talks, and posters***
+### HPE demos, talks, and posters
 
 **OpenCLIC: Open Communication for Distributed Inference**
 
@@ -50,7 +50,7 @@ Isa Wazirzada will show how HPE's open source Torch Hammer work can validate GPU
 Anda Zhou will highlight a PyTorch workflow that starts in a Jupyter notebook and moves through deployment to a live inference endpoint with HPE Private Cloud AI and HPE AI Essentials. The demo trains a LoRA adapter in a notebook and serves production traffic on a vLLM endpoint minutes later, with live observability for latency, usage, and throughput throughout. It is a concrete look at the gap between having a model and operating one—and how much of that operational work can be made repeatable.
 
 
-## Why this matters beyond the conference
+### Why this matters beyond the conference
 
 There is a business story behind all of this, but it starts with a developer truth: the easiest infrastructure to adopt is the infrastructure that works with the software people already choose.
 
