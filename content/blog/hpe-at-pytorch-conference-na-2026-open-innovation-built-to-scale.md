@@ -4,7 +4,7 @@ date: 2026-10-15T22:05:00.000Z
 featuredBlog: false
 priority: 0
 author: Ria Farrell Schalnat
-authorimage: ‎static/img/riapic.jpg
+authorimage: ‎img/riapic.jpg
 disable: false
 tags:
   - AI
