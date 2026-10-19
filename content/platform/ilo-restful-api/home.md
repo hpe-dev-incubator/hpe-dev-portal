@@ -9,8 +9,6 @@ frontpage: true
 date: 2024-12-05T11:38:35+01:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
   - label: 'Overview'
     url: '#one-interface-for-server-management-automation'
   - label: 'Redfish API'

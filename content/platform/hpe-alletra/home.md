@@ -8,28 +8,10 @@ priority: 12
 date: 2025-06-16T09:12:23+02:00
 active: true
 quickLinks:
+  - label: 'Back to HPE Storage'
+    url: '/platform/hpe-storage/home/'
   - label: 'For Kubernetes'
     url: 'https://scod.hpedev.io/welcome/index.html'
-  - label: 'Analytics'
-    url: '/platform/hpe-ezmeral-data-fabric/home/'
-  - label: 'B10000'
-    url: '/platform/hpe-alletra/home/'
-    subNav: true
-  - label: 'X10000'
-    url: '/platform/hpe-alletra-X10000/home/'
-    subNav: true
-  - label: 'SimpliVity'
-    url: '/platform/hpe-simplivity/home/'
-    subNav: true
-  - label: 'Nimble'
-    url: '/platform/hpe-nimble-storage/home/'
-    subNav: true
-  - label: '3PAR'
-    url: '/platform/hpe-3par-and-primera/home/'
-    subNav: true
-  - label: 'Zerto'
-    url: '/platform/zerto/home/'
-    subNav: true
 tags:
   - storage
   - B10000
