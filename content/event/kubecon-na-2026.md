@@ -13,7 +13,7 @@ tags:
 - hpe opsramp
 - pcai
 image: /img/events/kubecon26.png
-link: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/
+link: https://www.hpe.com/us/en/events/kubecon.html
 width: large
 ---
 **Kubernetes without another operational silo**
