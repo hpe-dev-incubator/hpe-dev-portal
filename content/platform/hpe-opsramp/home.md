@@ -85,19 +85,12 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ### Technical Demos
 
-![](/img/platforms/x10000-console.png)
+![HPE OpsRamp demo console](/img/platforms/x10000-console.png)
 
-<br/>
+* [video] [HPE OpsRamp Product Demo](https://www.youtube.com/watch?v=EATO9OZblac)  Deep dive into the technical features and functionality of HPE OpsRamp.
+* [video] [HPE OpsRamp Service Maps](https://www.youtube.com/watch?v=T-XBFDkRfrg) This video showcases HPE OpsRamp Service Maps  that bring your complex IT landscape to life with dynamic, real-time visualization of service and infrastructure dependencies.
+* [video] [HPE OpsRamp: Agentic Monitoring for AI Factories](https://www.youtube.com/watch?v=O_i0CbS0NOk) In this video, learn how HPE OpsRamp provides a unified operational view across AI applications, models, GPUs, storage, networking, and Kubernetes to quickly identify root causes, optimize performance, and operate AI factories with confidence.
 
-| Demo                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|
-HPE OpsRamp Product Demo                        | Deep dive into the technical features and functionality of HPE OpsRamp.                                                            | [Video](hhttps://www.youtube.com/watch?v=EATO9OZblac)                                                     |
-| HPE OpsRamp Service Maps                        | This video showcases HPE OpsRamp Service Maps  that bring your complex IT landscape to life with dynamic, real-time visualization of service and infrastructure dependencies. | [Video](https://www.youtube.com/watch?v=T-XBFDkRfrg)|
-| HPE OpsRamp: Agentic Monitoring for AI Factories                                    | In this video, learn how HPE OpsRamp provides a unified operational view across AI applications, models, GPUs, storage, networking, and Kubernetes to quickly identify root causes, optimize performance, and operate AI factories with confidence.                     | [Video](https://www.youtube.com/watch?v=O_i0CbS0NOk) |
-
-
-<br/>
 
 ## Community
 
