@@ -142,13 +142,13 @@ This defines the action review to be executed whenever a PR is opened, synchroni
 
 Within jobs the job review is defined to run on *ubuntu-latest*. This defines the image used for the runner to execute this tasks. This configuration uses runners provided by GitHub.com. Usage is free for public repositories, while private repositories have a limited free allowance depending on your GitHub plan. A custom defined runner running locally is also possible, this can be VMs that are spinned up and down or Containers in a Kubernetes Cluster as described [here](https://github.com/actions/actions-runner-controller).
 
-The permissions section defines the permission the runner executing the action gets.
+The `permissions` section defines the permissions granted to the runner executing the action.
 
-Within steps the steps to be executed are defined. If you are working in a public repository the step *Setup credentials to access private repositories* can be removed.
+The `steps` section defines the tasks to be executed. If you are working in a public repository, you can remove the *Setup credentials to access private repositories* step.
 
-The environment variables defined starting line 22 need to be configured within the repositories settings, this is explained in the next section of the post.
+The environment variables in the workflow need to be configured in the repository settings, as explained in the next section.
 
-Adapt the prompt (starting line 28) with the instructions you want to give the model for your review.
+Adapt the prompt with the instructions you want the model to follow during its review.
 
 ### Configuring the secrets
 
