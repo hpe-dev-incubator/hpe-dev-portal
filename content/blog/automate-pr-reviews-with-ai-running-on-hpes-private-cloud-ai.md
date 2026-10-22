@@ -165,7 +165,7 @@ This is a sample AI based PR review triggered with the configuration described i
 
 ![GitHub PR comments](/img/bildschirmfoto-2026-10-07-um-11.02.15.png)
 
-As instructed the comment ends with yay this works.
+As instructed, the comment ends with "yay this works".
 
 ## Credits
 
