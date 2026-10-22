@@ -96,7 +96,7 @@ The apiKey referenced in this config refers to environment variable, this will b
 
 ### Configuring the GitHub Action
 
-Within your repository a *review.yaml* file is required. Add this file under the path *.github/workflows* . This File defines the GitHub Action review.
+Your repository needs a *review.yaml* file. Add it under *.github/workflows*. This file defines the GitHub Actions review workflow.
 
 ```yaml
 name: opencode-review
