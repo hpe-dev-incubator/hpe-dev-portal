@@ -134,7 +134,7 @@ jobs:
             - comment it with yay this works
 ```
 
-This defines the action review to be executed whenever a PR is opened, synchronized, reopened or ready for review.
+This configuration runs the review action whenever a PR is opened, synchronized, reopened, or marked as ready for review.
 
 **Replace the following values**:
 
