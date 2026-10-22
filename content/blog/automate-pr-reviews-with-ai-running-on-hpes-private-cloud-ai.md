@@ -37,9 +37,9 @@ Several guides are available for deploying a model on HPE PCAI, including [this 
 
 In order to deploy a model on more than one GPU select more than one GPU during Packaged Model Creation in the Resources Tab. Multi-GPU deployments are relying on shared memory under `/dev/shm` that is mounted in the inference service container. The default size of it is 64MiB, which often is not large enough. Increasing that memory is crucial in that case to have a successful deployment, which is why in AIE 2026-07 the environment variable [AIOLI_SHM_SIZE](https://support.hpe.com/hpesc/public/docDisplay?docId=a00aie202607hen_us&page=MLIS/deployments/advanced-configuration.html) is introduced. You can set this either for your Packaged Model or also during the Deployment creation. Specify the allocation as a Kubernetes quantity string (e.g. 512Mi, 2Gi, 4Gi).
 
-If you are running an older AIE version increasing the size of `/dev/shm` is still possible but a more manual process involving kubectl commands. These can be run from your terminal if you have the kubeconfig for your cluster or alternatively when deploying the model in your personal user project also within a Jupyter Notebook Server in a terminal window.
+If you are running an older version of AIE, you can still increase the size of `/dev/shm`, but the process is more manual and involves `kubectl` commands. You can run these commands from your terminal if you have the kubeconfig for your cluster. Alternatively, if you are deploying the model in your personal user project, you can run them in a terminal window in a Jupyter Notebook Server.
 
-Create your packaged model and deploy it. Once it's deployed you will see in the namespace a Inferenceservice created `kubectl get isvc` . Identify the inferenceservice belonging to your model deployment and edit it with `kubectl edit isvc <yourinferenceservice>` . We will need to add a volume and a volume mount at the path /dev/shm to it:
+Create and deploy your packaged model. Once it is deployed, you will see an InferenceService in the namespace when you run `kubectl get isvc`. Identify the InferenceService for your model deployment and edit it with `kubectl edit isvc <yourinferenceservice>`. Add a volume and a volume mount at `/dev/shm`:
 
 ```yaml
 volumes:
