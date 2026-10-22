@@ -169,8 +169,8 @@ As instructed the comment ends with yay this works.
 
 ## Credits
 
-Credits where Credits are due:
+Credit where credit is due:
 
-**Tanguy Pomas** - for documenting the AI Coding Assistant with OpenCode and jointly working with me on figuring out how to setup OpenCode in GitHub Actions to use a custom opencode config.
+**Tanguy Pomas** - for documenting the AI coding assistant with OpenCode and working with me to figure out how to set up OpenCode in GitHub Actions to use a custom OpenCode configuration.
 
-Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on leveraging HPE Private Cloud AI for your AI use cases.
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more guides and best practices on using HPE Private Cloud AI for your AI use cases.
