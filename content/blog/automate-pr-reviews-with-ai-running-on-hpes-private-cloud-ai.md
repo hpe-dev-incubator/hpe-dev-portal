@@ -11,7 +11,7 @@ tags:
 ---
 This article provides step-by-step instructions for using OpenCode to automate PR reviews with GitHub Actions and a model running on HPE Private Cloud AI. It also discusses a pitfall to avoid when deploying a model across multiple GPUs.
 
-### HPE Private Cloud AI
+## HPE Private Cloud AI
 
 [HPE Private Cloud AI](https://developer.hpe.com/platform/hpe-private-cloud-ai/home/) (HPE PCAI) offers a comprehensive, turnkey AI solution designed to address key enterprise challenges, from selecting the appropriate LLMs to efficiently hosting and deploying them. Beyond these core functions, HPE Private Cloud AI empowers organizations to take full control of their AI adoption journey by offering a curated set of pre-integrated NVIDIA Inference Microservices (NIM) LLMs, along with a powerful suite of AI tools and frameworks for data engineering, analytics, and data science.
 
