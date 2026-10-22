@@ -63,7 +63,7 @@ After updating the InferenceService, remove the old revision that uses the previ
 
 ### Configuring OpenCode
 
-In order to use OpenCode with a local deployed model in GitHub Actions a *opencode.json* at the root level of the GitHub Repository is required. This configuration file defines the permissions of the model as well as which model is being used. In order to create this the Model Endpoint URL, Model ID and Token of the Model are required. You can find this information within AI Essentials, GenAI, selecting your Model.
+To use OpenCode with a locally deployed model in GitHub Actions, you need an *opencode.json* file at the root of your GitHub repository. This configuration file defines the model's permissions and specifies which model to use. To create it, you need the model endpoint URL, model ID, and model token. You can find this information in AI Essentials under GenAI by selecting your model.
 
 ```json
 {
