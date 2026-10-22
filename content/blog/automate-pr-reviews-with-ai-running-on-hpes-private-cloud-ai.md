@@ -88,11 +88,11 @@ To use OpenCode with a locally deployed model in GitHub Actions, you need an *op
 
 **Replace the following values**:
 
-* 'DEPLOYMENT URL/v1' replace this with your Model Endpoint URL. Remember to add / keep the /v1 at the end
-* 'DEPLOYMENT MODEL ID' replace this with your Model ID. It needs to be the complete model ID you find in GenAI Model Endpoints, like for example: *deepseek-ai/DeepSeek-V4-Flash-0731*
-* 'MODEL NAME DISPLAYED IN OPENCODE' replace this with whatever you want this model to be called
+* `DEPLOYMENT URL/v1`: Replace this with your model endpoint URL. Keep `/v1` at the end.
+* `DEPLOYMENT MODEL ID`: Replace this with the complete model ID shown in GenAI Model Endpoints, for example, `deepseek-ai/DeepSeek-V4-Flash-0731`.
+* `MODEL NAME DISPLAYED IN OPENCODE`: Replace this with the name you want to use for the model in OpenCode.
 
-The apiKey referenced in this config refers to environment variable, this will be defined within the GitHub Action Workflow.
+The `apiKey` in this configuration refers to an environment variable, which will be defined in the GitHub Actions workflow.
 
 ### Configuring the GitHub Action
 
