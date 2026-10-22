@@ -152,10 +152,10 @@ Adapt the prompt (starting line 28) with the instructions you want to give the m
 
 ### Configuring the secrets
 
-In order to not expose the GitHub Token or the Token of the model it is being referred to secrets. In order to create a secret open your GitHub Repository in a Browser. Navigate to "Settings" of the Repository. Within the Security and quality section of Settings proceed to "Secrets and variables", select "Actions". Define here the following **Repository Secrets:**
+To avoid exposing your GitHub token or model token, store them as secrets. To create a secret, open your GitHub repository in a browser and navigate to Settings. Under the Security and quality section, go to Secrets and variables, then select Actions. Define the following **repository secrets**:
 
-* 'MYPROVIDER_API_KEY' as the Token for your Model deployed on HPEs PCAI. You can create a new token within AIE by navigating to GenAI->ModelEndpoints->Select your Model-> Click Create Token.
-* 'MY_PAT' a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
+* `MYPROVIDER_API_KEY`: The token for your model deployed on HPE PCAI. You can create a new token in AIE by navigating to GenAI > Model Endpoints, selecting your model, and clicking Create Token.
+* `MY_PAT`: A personal access token created for your GitHub user under GitHub Settings > Developer settings. If you are using a fine-grained, repository-scoped token, remember to grant it access to the private repository.
 
 ## Working with automatically triggered AI-based PR reviews
 
