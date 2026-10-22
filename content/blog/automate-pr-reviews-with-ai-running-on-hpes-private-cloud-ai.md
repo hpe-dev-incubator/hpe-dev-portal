@@ -49,7 +49,7 @@ volumes:
   name: dshm
 ```
 
-The volume needs to have the same indentation as `tolerations` or `maxReplicas` .
+The volume needs to have the same indentation as `tolerations` or `maxReplicas`.
 
 ```yaml
   volumeMounts:
