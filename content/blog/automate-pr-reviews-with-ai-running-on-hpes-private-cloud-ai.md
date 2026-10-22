@@ -21,7 +21,7 @@ This article provides step-by-step instructions for using OpenCode to automate P
 
 ## Use Case
 
-AI generated Code is everywhere, the PR reviews are the new bottleneck. Within this article we introduce AI into the PR Review process, where AI will flag standard-issues and double-check the coding standards are followed, so the human can focus on the more complex problems. If you are looking for instructions to setup an AI Coding Assistant, please refer to [this tutorial](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-code-assistant-opencode).
+AI-generated code is everywhere, and PR reviews are becoming the new bottleneck. In this article, we introduce AI into the PR review process. AI can flag standard issues and check that coding standards are followed, allowing people to focus on more complex problems. For instructions on setting up an AI coding assistant, please refer to [this tutorial](https://github.com/ai-solution-eng/ai-solution-demos/tree/main/basic-code-assistant-opencode).
 
 ### Prerequisites
 
