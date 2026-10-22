@@ -57,9 +57,9 @@ The volume needs to have the same indentation as `tolerations` or `maxReplicas`.
     name: dshm
 ```
 
-The VolumeMount needs the same indentation as `image` `name` or `ports` of the `kserve-container` .
+The `volumeMounts` section needs the same indentation as `image`, `name`, or `ports` within the `kserve-container`.
 
-After the inferenceservice is updated, the old revision leveraging the old inferenceservice configuration needs to be removed. Identify the old revision with `kubectl get revision`. Delete the old revision with `kubectl delete revision <yourrevisionname>`. The new inferenceservice creates a new revision. Wait until the model deploys, it will take some time. You can check the logs of the model deployment by identifying the pod of your model with `kubectl get pods` . And then the logs of it with `kubectl logs <yourmodelpodname>` .
+After updating the InferenceService, remove the old revision that uses the previous configuration. Identify it with `kubectl get revision`, then delete it with `kubectl delete revision <yourrevisionname>`. The updated InferenceService will create a new revision. Wait for the model to deploy; this may take some time. To check the deployment logs, identify your model's pod with `kubectl get pods`, then view its logs with `kubectl logs <yourmodelpodname>`.
 
 ### Configuring OpenCode
 
