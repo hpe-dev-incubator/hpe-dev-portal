@@ -157,11 +157,11 @@ In order to not expose the GitHub Token or the Token of the model it is being re
 * 'MYPROVIDER_API_KEY' as the Token for your Model deployed on HPEs PCAI. You can create a new token within AIE by navigating to GenAI->ModelEndpoints->Select your Model-> Click Create Token.
 * 'MY_PAT' a personal access token created for your GitHub User within the GitHub Settings, Developer Settings. If you are using fine-grained repo-scoped tokens remember to define access to the private repo being used
 
-# Working with automatic triggered AI based PR Reviews
+## Working with automatically triggered AI-based PR reviews
 
-Once the setup is completed, for every new PR or reopened PR a run of the defined action is triggered. These runs can be followed by navigating to Actions within the used GitHub Repository. The workflow "opencode-review" will appear. The specific runs, successful or non successful, can be followed from this view.
+Once setup is complete, the defined action is triggered whenever a PR is opened, synchronized, reopened, or marked as ready for review. You can follow these runs by navigating to Actions in your GitHub repository. The *opencode-review* workflow will appear there, along with its individual runs and their success or failure status.
 
-This is a sample AI based PR review triggered with the configuration described in this blogpost:
+This is a sample AI-based PR review triggered by the configuration described in this blog post:
 
 ![GitHub PR comments](/img/bildschirmfoto-2026-10-07-um-11.02.15.png)
 
