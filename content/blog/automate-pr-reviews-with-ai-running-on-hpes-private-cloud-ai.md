@@ -140,7 +140,7 @@ This defines the action review to be executed whenever a PR is opened, synchroni
 
 * DEPLOYMENT MODEL ID replace this with your Model ID as defined in opencode.json. It needs to be the complete model ID you find in GenAI Model Endpoints, like for example deepseek-ai/DeepSeek-V4-Flash-0731
 
-Within jobs the job review is defined to run on *ubuntu-latest*. This defines the image used for the runner to execute this tasks. This configuration as is leverages the runners on GitHub Cloud, which have a low amount of credits to be used for free. A custom defined runner running locally is also possible, this can be VMs that are spinned up and down or Containers in a Kubernetes Cluster as described [here](https://github.com/actions/actions-runner-controller). 
+Within jobs the job review is defined to run on *ubuntu-latest*. This defines the image used for the runner to execute this tasks. This configuration uses runners provided by GitHub.com. Usage is free for public repositories, while private repositories have a limited free allowance depending on your GitHub plan. A custom defined runner running locally is also possible, this can be VMs that are spinned up and down or Containers in a Kubernetes Cluster as described [here](https://github.com/actions/actions-runner-controller).
 
 The permissions section defines the permission the runner executing the action gets.
 
