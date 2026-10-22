@@ -25,9 +25,9 @@ AI-generated code is everywhere, and PR reviews are becoming the new bottleneck.
 
 ### Prerequisites
 
-This tutorial assumes the Code and PRs to be reviewed are hosted within GitHub, therefore you require a **GitHub Account**. Additionally you MUST be the **owner or maintainer of the Repository** where you want to introduce the automatic AI based PR Review. The repository can be public or private. If a private repository is leveraged keep in mind, that the GitHub Runner is using GitHub resources where the free amount is limited. In order to avoid costs being created make sure that Stop usage is enabled for your GitHub Account in Settings/Budgets and licensing/Budgets and alerts for the Product "Actions".
+This tutorial assumes that the code and PRs to be reviewed are hosted on GitHub, so you need a **GitHub account**. You must also be the **owner or maintainer of the repository** where you want to introduce automated AI-based PR reviews. The repository can be public or private. If you use a private repository, keep in mind that the GitHub runner uses GitHub resources, and the free allowance is limited. To avoid unexpected costs, make sure that "Stop usage" is enabled for your GitHub account under Settings > Budgets and licensing > Budgets and alerts for the "Actions" product.
 
-The AI Model to be used is deployed on HPE PCAI. Either you require the Model Endpoint, Model ID and Token of a PCAI Hosted Model or access to a HPE PCAI with at least **1 free GPU**. A **Hugging Face account** might be required for model deployment.
+The AI model used in this tutorial is deployed on HPE PCAI. You will need either the model endpoint, model ID, and token for a model hosted on PCAI, or access to an HPE PCAI system with at least **one free GPU**. A **Hugging Face account** might also be required for model deployment.
 
 ## Setup
 
