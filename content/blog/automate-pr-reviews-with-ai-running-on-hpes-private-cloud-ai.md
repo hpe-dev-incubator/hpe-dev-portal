@@ -9,7 +9,7 @@ tags:
   - tutorial
   - coding-assistant
 ---
-This article provides step-by-step instructions for using OpenCode for automated PR Reviews leveraging GitHub Actions and a model running on HPE Private Cloud AI. A pitfall when deploying a model on more than 1 GPU is discussed as well.
+This article provides step-by-step instructions for using OpenCode to automate PR reviews with GitHub Actions and a model running on HPE Private Cloud AI. It also discusses a pitfall to avoid when deploying a model across multiple GPUs.
 
 ### HPE Private Cloud AI
 
