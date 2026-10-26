@@ -77,7 +77,7 @@ Looking to try Zerto out? Sign up for our [Hands on Labs!](https://www.zerto.com
 
 ### Technical Demos
 
-![HPE Zerto Software Demo console](/img/platforms/x10000-console.png)
+![](/img/platforms/x10000-console.png)
 
 * [video] [HPE Zerto Software product walkthrough](https://paths.ext.hpe.com/c/v100015980?x=2dxIPC&cc=us&lang=en&lb-height=100&lb-width=100&lb-mode=overlay&pf_route=v100015904) This demo presents an overview of the different features from HPE Zerto Software.
 * [video] [HPE Zerto VMware to HVM demo ](https://www.youtube.com/watch?v=B-ANvvV1TQI) This video demonstrates how Zerto 10.9 enables seamless migration from VMware to HVM, supporting efficient workload portability and modernization.

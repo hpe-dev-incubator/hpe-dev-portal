@@ -85,7 +85,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ### Technical Demos
 
-![HPE OpsRamp demo console](/img/platforms/x10000-console.png)
+![](/img/platforms/x10000-console.png)
 
 * [video] [HPE OpsRamp Product Demo](https://www.youtube.com/watch?v=EATO9OZblac)  Deep dive into the technical features and functionality of HPE OpsRamp.
 * [video] [HPE OpsRamp Service Maps](https://www.youtube.com/watch?v=T-XBFDkRfrg) This video showcases HPE OpsRamp Service Maps  that bring your complex IT landscape to life with dynamic, real-time visualization of service and infrastructure dependencies.
