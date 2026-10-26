@@ -42,7 +42,7 @@ th {
     background-color: #f5f5f5;
     font-weight: bold !important;
 }
-</style>ß
+</style>
 
 ![](/img/events/kubecon26.png)
 
