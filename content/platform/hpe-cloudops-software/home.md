@@ -35,12 +35,12 @@ Learn more about [HPE CloudOps Software](https://www.hpe.com/lamerica/en/product
 
 * **Provision**
 
-  ```
   Provision, govern, and optimize workloads at scale with HPE Morpheus Software, enabling greater agility, consistency, and control across your hybrid cloud environment.
-  ```
+
 * **Observe**
 
    Harness unified observability with HPE OpsRamp Software to gain actionable insights, reduce operational blind spots, and ensure peak performance across infrastructure, applications, and services.
+
 * **Protect**
 
   Leverage HPE Zerto Software to continuously protect data, accelerate recovery from disruptions, and strengthen cyber resilience across your hybrid cloud footprint.
@@ -49,7 +49,20 @@ Learn more about [HPE CloudOps Software](https://www.hpe.com/lamerica/en/product
 
 ## API Documentation
 
+
+* **Provision**
+
+HPE Morpheus 
+
+
+* **Observe**
+
 HPE OpsRamp offers a robust set of RESTful APIs designed to integrate and automate various IT operations management processes. These APIs allow developers to interact programmatically with the OpsRamp platform, enabling advanced customization, data exchange, and workflow automation across IT environments. Detailed information can be found on the [OpsRamp documentation](https://develop.opsramp.com/v2) site.
+
+* **Protect**
+
+HPE Zerto Software...
+
 
 ## Integrations
 
