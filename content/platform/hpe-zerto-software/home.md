@@ -79,17 +79,9 @@ Looking to try Zerto out? Sign up for our [Hands on Labs!](https://www.zerto.com
 
 ![](/img/platforms/x10000-console.png)
 
-<br/>
-
-| Title                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| HPE Zerto Software product walkthrough.                                                            | This demo presents an overview of the different features from HPE Zerto Software.                      | [Video](https://paths.ext.hpe.com/c/v100015980?x=2dxIPC&cc=us&lang=en&lb-height=100&lb-width=100&lb-mode=overlay&pf_route=v100015904) |
-| HPE Zerto VMware to HVM demo                           | This video demonstrates how Zerto 10.9 enables seamless migration from VMware to HVM, supporting efficient workload portability and modernization.. | [Video](https://www.youtube.com/watch?v=B-ANvvV1TQI) |                                                                                        
-| HPE Zerto Microsoft Defender integration demo                         | In this demo you will see how Microsoft Defender integrates with HPE Zerto to add layers of cyber detection and helps identify clean recovery points for cyber resilience.   | [Video](https://www.youtube.com/watch?v=9T5Wfjaru2M)  |
-
-
-<br/>
-
+* [video] [HPE Zerto Software product walkthrough](https://paths.ext.hpe.com/c/v100015980?x=2dxIPC&cc=us&lang=en&lb-height=100&lb-width=100&lb-mode=overlay&pf_route=v100015904) This demo presents an overview of the different features from HPE Zerto Software.
+* [video] [HPE Zerto VMware to HVM demo ](https://www.youtube.com/watch?v=B-ANvvV1TQI) This video demonstrates how Zerto 10.9 enables seamless migration from VMware to HVM, supporting efficient workload portability and modernization.
+* [video] [HPE Zerto Microsoft Defender integration demo](https://www.youtube.com/watch?v=9T5Wfjaru2M) In this demo you will see how Microsoft Defender integrates with HPE Zerto to add layers of cyber detection and helps identify clean recovery points for cyber resilience.
 
 ### Free On-Demand Training
 
