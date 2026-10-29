@@ -17,14 +17,6 @@ quickLinks:
     url: '#api-reference'
   - label: 'GitHub'
     url: 'https://github.com/HewlettPackard/oneview-global-dashboard-nodejs'
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
-  - label: 'iLO RESTful API'
-    url: '/platform/ilo-restful-api/home/'
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-  - label: 'HPE NonStop'
-    url: '/platform/hpe-nonstop/home/'
 tags:
   - hpe-oneview-global-dashboard
 ---

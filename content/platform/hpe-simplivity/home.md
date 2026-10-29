@@ -10,22 +10,8 @@ frontpage: true
 date: 2022-06-24T17:01:59+02:00
 active: true
 quickLinks:
-  - label: 'For Kubernetes'
-    url: 'https://scod.hpedev.io/welcome/index.html'
-  - label: 'Analytics'
-    url: '/platform/hpe-ezmeral-data-fabric/home/'
-  - label: 'B10000'
-    url: '/platform/hpe-alletra/home/'
-  - label: 'X10000'
-    url: '/platform/hpe-alletra-X10000/home/'
-  - label: 'SimpliVity'
-    url: '/platform/hpe-simplivity/home/'
-  - label: 'Nimble'
-    url: '/platform/hpe-nimble-storage/home/'
-  - label: '3PAR'
-    url: '/platform/hpe-3par-and-primera/home/'
-  - label: 'Zerto'
-    url: '/platform/zerto/home/'
+  - label: 'Back to HPE Storage'
+    url: '/platform/hpe-storage/home/'
 tags:
   - hpe-simplivity
 ---

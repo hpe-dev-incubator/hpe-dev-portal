@@ -9,8 +9,6 @@ frontpage: true
 date: 2024-12-05T11:38:35+01:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
   - label: 'Overview'
     url: '#one-interface-for-server-management-automation'
   - label: 'Redfish API'
@@ -18,13 +16,9 @@ quickLinks:
   - label: 'GitHub'
     url: '#github-and-powershell-repositories'
   - label: 'SDKs'
-    url: '#sdks-and-language-bindings'  
+    url: '#sdks-and-language-bindings'
   - label: 'Compute Ops management'
     url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-  - label: 'HPE NonStop'
-    url: '/platform/hpe-nonstop/home/'
 tags:
   - ilo-restful-api
   - Redfish

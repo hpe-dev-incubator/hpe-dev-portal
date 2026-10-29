@@ -8,9 +8,6 @@ image: /img/platforms/hpe-element.png
 width: large
 priority: 4
 active: true
-quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
 tags:
   - hpe-greenlake-for-compute-ops-management
   - hpe-compute-ops-management
@@ -21,18 +18,18 @@ Every business is facing tough challenges – to digitally transform, address se
 
 With HPE Compute Ops Management, you can:
 
-* **Unify compute management**    
-Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.   
-* **Simplify and automate**   
-  Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).   
-* **Secure cloud operations**    
-  Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.   
+* **Unify compute management**
+Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.
+* **Simplify and automate**
+  Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).
+* **Secure cloud operations**
+  Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.
 
 ### [Learn more about HPE Compute Ops Management](https://www.hpe.com/us/en/compute/management-software.html)
 
 ## APIs and documentation
 
-HPE Compute Ops Management customers and partners can take advantage of our well-documented, secure, and scalable APIs found on the HPE GreenLake developer portal. 
+HPE Compute Ops Management customers and partners can take advantage of our well-documented, secure, and scalable APIs found on the HPE GreenLake developer portal.
 
 ### [Check out the HPE Compute Ops Management APIs on the HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/)
 

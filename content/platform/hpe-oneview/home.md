@@ -9,8 +9,6 @@ frontpage: true
 date: 2022-06-24T17:04:12+02:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
   - label: 'Ansible'
     url: '#hpe-oneview-integrationss'
   - label: 'Developer Librairies'
