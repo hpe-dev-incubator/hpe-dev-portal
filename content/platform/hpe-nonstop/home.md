@@ -17,18 +17,6 @@ quickLinks:
     url: '#platform-updates'
   - label: 'HPE NonStop product page'
     url: 'https://www.hpe.com/us/en/products/compute/nonstop-servers.html'
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
-    subNav: true
-  - label: 'iLO RESTful API'
-    url: '/platform/ilo-restful-api/home/'
-    subNav: true
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-    subNav: true
-  - label: 'HPE OneView Global Dashboard'
-    url: '/platform/hpe-oneview-global-dashboard/home/'
-    subNav: true
 tags:
   - hpe-nonstop
   - hpe-compute

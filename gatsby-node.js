@@ -309,6 +309,10 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const folderToSubNav = {};
+  const ownCategoryFolders = new Set();
+
+  // Pass 1: every category page always keeps its own subheader config, even
+  // if another category page also lists it as one of its subNav siblings.
   subNavQueryResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const categoryFolder = node.fields.slug.split('/')[1];
     const siblings = (node.frontmatter.quickLinks || [])
@@ -317,17 +321,27 @@ exports.createPages = async ({ graphql, actions }) => {
 
     if (!siblings.length) return;
 
-    const subNavConfig = {
+    folderToSubNav[categoryFolder] = {
       title: node.frontmatter.title,
       parentHref: '/platforms',
       homeHref: `/platform${node.fields.slug}`,
       navLinks: siblings,
     };
+    ownCategoryFolders.add(categoryFolder);
+  });
 
-    folderToSubNav[categoryFolder] = subNavConfig;
-    siblings.forEach((sibling) => {
-      const match = sibling.href.match(/^\/platform\/([^/]+)\//);
-      if (match) folderToSubNav[match[1]] = subNavConfig;
+  // Pass 2: have each sibling inherit its category's subheader, unless that
+  // sibling is itself a category page with its own config from pass 1.
+  Object.keys(folderToSubNav).forEach((categoryFolder) => {
+    const subNavConfig = folderToSubNav[categoryFolder];
+    subNavConfig.navLinks.forEach((sibling) => {
+      // Siblings can live under either /platform/ or /greenlake/ (e.g. HPE
+      // Compute Ops Management is sourced from content/greenlake but still
+      // needs to inherit the HPE Compute subheader).
+      const match = sibling.href.match(/^\/(?:platform|greenlake)\/([^/]+)\//);
+      if (match && !ownCategoryFolders.has(match[1])) {
+        folderToSubNav[match[1]] = subNavConfig;
+      }
     });
   });
 
@@ -421,6 +435,7 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
+              subNavConfig: folderToSubNav[slug.split('/')[1]] || null,
             },
           });
         } else if (post.node.fields.sourceInstanceName === 'event') {
