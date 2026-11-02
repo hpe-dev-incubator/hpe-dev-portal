@@ -34,7 +34,7 @@ A simulation or analytics workload may benefit from a platform like the HPE ProL
 
 That's why specialized servers are becoming impact players. They are designed to remove the constraints standing between a workload and the business outcome it's expected to deliver.
 
-![HPE ProLiant AI Server Portfolio ](/img/hpe-proliant-ai-server-portfolio-.jpg)
+![HPE ProLiant AI Server Portfolio ](/img/proliant-ai-server-portfolio.jpg)
 
 ## Specialization without operational fragmentation
 
