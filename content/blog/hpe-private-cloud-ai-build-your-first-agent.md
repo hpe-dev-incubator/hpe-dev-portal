@@ -84,6 +84,10 @@ To create your Packaged Model, use the following configuration (skip registry cr
 * Advanced Environment Variables: HUGGING_FACE_HUB_TOKEN your HuggingfaceToken
 * Arguments: --model Qwen/Qwen3-8B --enable-reasoning --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser hermes --port 8080
 
+
+
+* ***Note***: If you want to use the *Playground* feature to access the packaged model endpoint, do **not** select *'Custom'* as the *Model format*. Instead, select *'vLLM'* and leave the *image* field empty. The packaged model will automatically use the default vLLM image supported by the platform.
+
 ## Data Source Setup
 
 ### Upload CSV File
