@@ -650,6 +650,22 @@ collections:
           required: false,
           hint: 'selecting true will block the campaign page to be created',
         }
+      - {
+          label: 'Hero Image',
+          name: 'heroImage',
+          widget: 'image',
+          required: false,
+          media_folder: '/static/img',
+          public_folder: '/img',
+          hint: 'optional hero banner background image; when set, the page renders with a hero banner and zebra-striped agenda table layout',
+        }
+      - {
+          label: 'Hero Description',
+          name: 'heroDescription',
+          widget: 'text',
+          required: false,
+          hint: 'optional description text shown inside the hero banner, below the title',
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Skillup collection
   - name: 'skillup'
