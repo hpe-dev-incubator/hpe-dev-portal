@@ -7,7 +7,7 @@ tags:
 - compute
 - openbmc
 image: /img/events/hpe202601291868_450_0_72_rgb.jpg
-link: https://hpe.zoom.us/webinar/register/5817894592430/WN_oweVxuKXSDa_Gg5QVUbX2g
+link: https://www.youtube.com/watch?v=jIypM9dTww8
 width: large
 ---
 Join this session to learn how HPE provides the possibility to use OpenBMC on selected HPE ProLiant servers.
