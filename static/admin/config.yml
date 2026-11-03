@@ -251,14 +251,14 @@ collections:
           name: 'featuredBlog',
           widget: 'boolean',
           required: false,
-          hint: 'selecting true adds the card in the Featured Blog section on the Blog page',
+          hint: 'selecting true adds the blog to the Featured tab on the Blog page. Also set a Priority (1-10) to show it in the Featured Blogs section at the top of the page',
         }
       - {
           label: 'Priority',
           name: 'priority',
           widget: 'number',
           required: false,
-          hint: 'controls the card position in the Featured Blog section of the blog page',
+          hint: 'position in the Featured Blogs section of the Blog page (1-10). 1 is the large card at the top, 2-10 appear in the carousel below it in order',
         }
       - {
           label: 'External Link',
@@ -266,6 +266,13 @@ collections:
           widget: 'string',
           required: false,
           hint: 'provide link to the blog written outside HPE Developer portal',
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'short summary (1-2 sentences) shown on the large Featured Blogs card and used for search engine previews. If empty, an excerpt of the blog body is used',
         }
       - { label: 'Author', name: 'author', widget: 'string' }
       - {
@@ -275,7 +282,7 @@ collections:
           default: '/img/Avatar1.svg',
           media_folder: '/static/img',
           public_folder: '/img',
-          hint: 'author image shown next to content',
+          hint: 'author image shown next to the author name on blog cards',
         }
       - {
           label: 'Thumbnail Image',
@@ -284,7 +291,7 @@ collections:
           widget: 'image',
           media_folder: '/static/img',
           public_folder: '/img',
-          hint: 'thumbnail image shown next to content',
+          hint: 'cover image of the Featured Blogs cards (recommended 1274x600 for the large card, 872x544 for carousel cards). If empty, the first image in the blog body is used',
         }
       - {
           label: 'Disable',
@@ -292,7 +299,7 @@ collections:
           widget: 'boolean',
           default: false,
           required: false,
-          hint: 'selecting true disable the card on the blog page',
+          hint: 'selecting true hides the blog from the Blog page',
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - {

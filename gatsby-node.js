@@ -171,6 +171,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const greenLakeQueryResult = await graphql(
     paginatedCollectionQuery('greenlake-posts'),
   );
+  const featuredQueryResult = await graphql(
+    paginatedCollectionQuery('featured-posts'),
+  );
   const chapelQueryResult = await graphql(
     paginatedCollectionQuery('chapel-posts'),
   );
@@ -248,6 +251,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(ezmeralRuntimeQueryResult);
   setPagination(spiffeQueryResult);
   setPagination(greenLakeQueryResult);
+  setPagination(featuredQueryResult);
   setPagination(chapelQueryResult);
   setPagination(grommetQueryResult);
   setPagination(alletraQueryResult);
