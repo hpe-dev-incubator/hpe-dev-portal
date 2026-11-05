@@ -5,6 +5,9 @@ featuredBlog: false
 author: Aaron Lamond | Worldwide Product Marketing | Enterprise AI | HPE ProLiant
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
+tags:
+  - compute
+  - ProLiant Server
 ---
 ## The workloads are changing. The server is changing with them
 
