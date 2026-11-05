@@ -10,7 +10,7 @@ disable: false
 
 Not long ago, most servers played similar roles. They provided the compute foundation for applications, databases, and business systems, while infrastructure teams focused on keeping them secure, available, and performing reliably. Today, that's changing.
 
-Modern workloads are placing very different demands on infrastructure. Simulation and modeling require massive compute density and memory bandwidth. Virtualization demands greater consolidation and efficiency. AI applications depend on fast data movement, accelerator utilization, and the ability to generate insight in real time.
+Modern workloads are placing very different demands on infrastructure. Simulation and modeling require massive compute density and memory bandwidth. Virtualization demands greater consolidation and efficiency. AI applications depend on fast data movement, accelerator utilization, and the ability to generate insights in real time.
 
 As organizations race to process information faster and turn data into intelligence, the server is no longer just supporting the workload. It's becoming an impact player.
 
@@ -18,7 +18,7 @@ This shift is being driven by two powerful forces reshaping enterprise computing
 
 > **Enterprise computing is becoming more specialized.**
 
-## From general purpose to purpose built
+## From general-purpose to purpose-built
 
 For a long time, a relatively small number of server architectures could support the vast majority of business workloads, with additional performance delivered through scale.
 
@@ -28,9 +28,9 @@ AI inferencing, simulation, analytics, visualization, accelerated computing, vir
 
 The challenge is no longer simply providing more infrastructure. It's identifying the constraint that limits workload performance and selecting an architecture designed to remove it.
 
-As a result, infrastructure decisions are becoming less about server specifications and more about workload architecture. Organizations are increasingly choosing platforms based on the outcome they need to achieve.
+As a result, infrastructure decisions are becoming less about server specifications and more about workload architecture. Organizations are increasingly choosing platforms based on the outcomes they need to achieve.
 
-A simulation or analytics workload may benefit from a platform like the HPE ProLiant DL525 Gen13 Server. Production AI inferencing may require the GPU density and scalability of the HPE ProLiant DL585a Gen13 Server. Accelerated AI and HPC workloads may demand the purpose-built architecture of the HPE ProLiant Compute DL394. Edge environments may require enterprise-class performance in locations where space, power, and environmental conditions matter, making platforms like the HPE ProLiant Compute EL2000 a natural fit.
+A simulation or analytics workload may benefit from a platform such as the HPE ProLiant DL525 Gen13 Server. Production AI inferencing may require the GPU density and scalability of the HPE ProLiant DL585a Gen13 Server. Accelerated AI and HPC workloads may demand the purpose-built architecture of the HPE ProLiant Compute DL394. Edge environments may require enterprise-class performance in locations where space, power, and environmental conditions matter, making platforms like the HPE ProLiant Compute EL2000 a natural fit.
 
 That's why specialized servers are becoming impact players. They are designed to remove the constraints standing between a workload and the business outcome it's expected to deliver.
 
@@ -56,7 +56,7 @@ The future is likely to include a broader mix of specialized infrastructure: AI 
 
 ## A new chapter in enterprise computing
 
-For more than three decades, ProLiant has helped organizations run some of their most important workloads. While those workloads have changed dramatically, one thing hasn't: when the outcome matters, the infrastructure behind it matters too.
+For more than three decades, ProLiant has helped organizations run some of their most important workloads. While those workloads have changed dramatically, one thing hasn't: when the outcome matters, the infrastructure behind it matters, too.
 
 As workloads become more specialized, organizations are increasingly selecting architectures designed around specific outcomes rather than broad, general-purpose use cases.
 
@@ -66,7 +66,7 @@ For a closer look at the latest additions to the HPE ProLiant portfolio, see my 
 
 **That's why specialized servers are becoming the new impact players.**
 
-**Not because they can do everything. Because they're built to excel at something that matters.**
+**Not because they can do everything but because they're built to excel at something that matters.**
 
 **www.hpe.com/ProLiant** 
 
