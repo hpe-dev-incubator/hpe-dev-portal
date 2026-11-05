@@ -10,14 +10,19 @@ active: true
 quickLinks:
   - label: 'HPE Data Fabric Software'
     url: '/platform/hpe-data-fabric-software/home/'
+    subNav: true
   - label: 'HPE Alletra Storage MP B10000'
     url: '/platform/hpe-alletra-B10000/home/'
+    subNav: true
   - label: 'HPE Alletra Storage MP X10000'
     url: '/platform/hpe-alletra-X10000/home/'
+    subNav: true
   - label: 'HPE Zerto Software'
     url: '/platform/hpe-zerto-software/home/'
+    subNav: true
   - label: 'HPE Legacy Products'
-    url: '#legacy-and-adjacent-storage-products'
+    url: '/platform/hpe-storage/home/#legacy-and-adjacent-storage-products'
+    subNav: true
 tags:
   - hpe-storage
   - data platforms

@@ -12,16 +12,8 @@ priority: 12
 date: 2026-10-17T00:00:00+00:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
-  - label: 'iLO RESTful API'
-    url: '/platform/ilo-restful-api/home/'
-  - label: 'Compute Ops management'
-    url: '/greenlake/hpe-greenlake-for-compute-ops-management/home/'
-  - label: 'HPE OneView'
-    url: '/platform/hpe-oneview/home/'
-  - label: 'HPE NonStop'
-    url: '/platform/hpe-nonstop/home/'
+  - label: 'Firmware'
+    url: '#firmware-and-lifecycle-tooling'
 tags:
   - hpe-proliant
   - hpe-compute
@@ -122,13 +114,14 @@ standard interface for out-of-band provisioning, configuration, inventory, and m
 
 ### Firmware and lifecycle tooling
 
-* [Service Pack for ProLiant (SPP)](https://www.hpe.com/us/en/servers/service-pack.html) – a curated, tested bundle of firmware, drivers, and system software for ProLiant servers
-* [Smart Update Manager (SUM)](https://www.hpe.com/info/sum) – automated, agentless deployment of SPP updates across your fleet
+* [Service Pack for ProLiant (SPP)](https://www.hpe.com/info/spp) – a curated, tested bundle of firmware, drivers, and system software for ProLiant servers.
+* [Software Delivery Repository](https://downloads.linux.hpe.com) - all you need from a linux perspective.
 
 ### Additional resources
 
 * [HPE ProLiant product page](https://www.hpe.com/us/en/products/compute/proliant.html) – full portfolio, specifications, and configurations
 * [HPE AI Servers](https://www.hpe.com/us/en/compute/ai-servers.html) – purpose-built ProLiant systems for AI training, tuning, and inferencing
+* [iLO support documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00004310en_us)
 * [Workshops-on-Demand](/hackshack/workshops) – free, Jupyter-Notebook based, hands-on iLO/Redfish workshops in the [Hack Shack](/hackshack/)
 
 ## Any questions about HPE ProLiant?

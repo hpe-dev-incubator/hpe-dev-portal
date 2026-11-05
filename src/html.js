@@ -41,8 +41,12 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
             :root { color-scheme: only light; }
+            /* #header (HPEHF two-row nav + persistent subheader) is ~160px
+               tall; reserve that much room above in-page anchor targets so
+               the sticky header never ends up overlapping/hiding them. */
+            html { scroll-padding-top: 180px; }
             body { background-color: #ffffff; }
-            #header { background-color: #ffffff; min-height: 80px; }`,
+            #header { background-color: #ffffff; min-height: 80px; position: sticky; top: 0; z-index: 1000; }`,
           }}
         />
         {/* HPE Header Framework config — must be set before framework scripts load */}
@@ -124,6 +128,36 @@ window.HPEHF_CFG = {
     action: 'https://developer.hpe.com/search/',
     inputName: 'term'
   }
+};
+
+// --- Persistent subheader support (HPEHF renderDynamicNavigation) ---
+// The 'secondaryNav' config shape ({ sectionTitle, navLinks, CTA }) was
+// verified by introspecting window.HPEHF's own
+// validateDynamicNavigationSectionShape/initSecondaryNav functions on the
+// latest.r build (the header team has not published written docs for it yet).
+window.__hpDevBaseHFCfg = window.HPEHF_CFG;
+window.__hpDevPendingSubNav = undefined;
+window.__hpDevApplySubNav = function applySubNav(subNavConfig) {
+  // Omitting the 'secondaryNav' key entirely (rather than setting it to
+  // null) is what triggers HPEHF's own reset-to-default DOM behavior.
+  var cfg = Object.assign({}, window.__hpDevBaseHFCfg);
+  if (subNavConfig) {
+    cfg.secondaryNav = {
+      sectionTitle: subNavConfig.title,
+      navLinks: subNavConfig.navLinks || []
+    };
+  }
+  if (window.HPEHF && window.HPEHF.hfInitialized) {
+    window.HPEHF.renderDynamicNavigation(cfg);
+    return;
+  }
+  window.__hpDevPendingSubNav = cfg;
+  document.addEventListener('HPEHF.READY', function onHfReady() {
+    document.removeEventListener('HPEHF.READY', onHfReady);
+    if (window.__hpDevPendingSubNav) {
+      window.HPEHF.renderDynamicNavigation(window.__hpDevPendingSubNav);
+    }
+  });
 };
 `,
           }}
