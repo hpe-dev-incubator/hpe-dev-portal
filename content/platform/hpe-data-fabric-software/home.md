@@ -31,16 +31,16 @@ HPE  Data Fabric allows data analysts, engineers, and scientists to deliver real
 
 Supports files, object, NoSQL databases, and streams
 
-* [HPE Data Fabric file store](https://docs.datafabric.hpe.com/70/MapROverview/File-Store.html#MapR-XD)
-* [HPE Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
-* [HPE Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
-* [HPE Data Fabric data streams](https://docs.datafabric.hpe.com/70/MapROverview/c_mapr_streams.html)
+* [HPE Data Fabric file store](https://docs.datafabric.hpe.com/82/MapROverview/File-Store.html#MapR-XD)
+* [HPE Data Fabric object store](https://docs.datafabric.hpe.com/82/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
+* [HPE Data Fabric database](https://docs.datafabric.hpe.com/82/MapROverview/maprDB-overview.html#maprDB-overview)
+* [HPE Data Fabric data streams](https://docs.datafabric.hpe.com/82/MapROverview/c_mapr_streams.html)
 
-[HPE Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
+[HPE Ecosystem Pack includes](https://docs.datafabric.hpe.com/82/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
 
 ## API reference guide
-[API Documentation](https://docs.ezmeral.hpe.com/datafabric-customer-managed/81/APIdocs.html?hl=api%2Cdocumentation) for app development.
+[API Documentation](https://docs.ezmeral.hpe.com/datafabric-customer-managed/82/APIdocs.html?hl=api%2Cdocumentation) for app development.
 
 
 ## Github repositories
