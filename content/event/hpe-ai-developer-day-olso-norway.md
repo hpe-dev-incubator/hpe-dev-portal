@@ -1,7 +1,7 @@
 ---
 title: Build your own Agent Oslo, Norway
 dateStart: 2026-11-17T08:30:36.204Z
-dateEnd: 2026-11-24T16:00:36.215Z
+dateEnd: 2026-11-17T16:00:36.215Z
 category: HPE AI Developer Day
 tags:
 - AI
