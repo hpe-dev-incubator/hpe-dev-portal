@@ -8,8 +8,8 @@ priority: 12
 date: 2025-06-16T09:12:23+02:00
 active: true
 quickLinks:
-  - label: 'Web Service API'
-    url: '#Hhpe-alletra-storage-mp-b10000-web-service-api-v3'
+  - label: 'Web Services API'
+    url: '#hpe-alletra-storage-mp-b10000-web-service-api-v3'
   - label: 'CSI'
     url: '#csi-driver'
   - label: 'SCOD Portal'
@@ -93,9 +93,10 @@ Together, the B10000 and X10000 enable organizations to support both traditional
 
 The HPE Alletra Storage MP B10000 platform offers a rich set of REST APIs to manage the system configuration, provision storage, and run other administrative operations.  See the links below for additional information about the REST API and how to use them:  
 
-* [HPE Alletra Storage MP B10000: Web Services API Developer Guide v3](https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide)
-* [HPE Alletra Storage MP B10000: Web Services API Documentation and v3 OpenAPI specification](/ws/api-spec)
-* [HPE Alletra Storage MP B10000 Web Services API v3 FAQ](https://www.hpe.com/psnow/doc/a00148521enw)  
+* [guide] [Web Services API Developer Guide](https://www.hpe.com/support/AlletraMP-B10000-WSAPIV3-devguide) HPE Alletra Storage MP B10000:
+  WSAPI Developer Guide
+* [doc] [Web Services API Documentation](/ws/api-spec) HPE Alletra Storage MP B10000: WSAPI OpenAPI specification
+* [faq] [Web Services API FAQ](https://www.hpe.com/psnow/doc/a00148521enw) HPE Alletra Storage MP B10000: WSAPI Frequently Asked Questions
 
 
 # Projects
