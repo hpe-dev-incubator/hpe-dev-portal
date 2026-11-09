@@ -16,6 +16,10 @@ quickLinks:
     url: '#mcp-server'
   - label: 'Slack Channel'
     url: 'https://hpedev.slack.com/archives/C0C41228XHD'
+  - label: 'For Kubernetes'
+    url: 'https://scod.hpedev.io/welcome/index.html'
+  - label: 'Analytics'
+    url: '/platform/hpe-ezmeral-data-fabric/home/'
 tags:
   - hpe-alletra
   - storage
@@ -142,9 +146,7 @@ Documentation and Resources:
 * [Helm Chart](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
 * [Operator for Kubernetes :![](Github)](https://github.com/hpe-storage)
 
-
 ### HPE COSI Driver
-
 
 The HPE COSI Driver enables Kubernetes applications to dynamically provision and manage Amazon S3-compatible object storage buckets directly on the X10000 platform. This provides cloud-native object storage services for applications that require scalable, API-driven object storage.
 

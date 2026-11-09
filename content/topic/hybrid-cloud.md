@@ -20,4 +20,5 @@ priority: 2
 active: true
 ctaLabel: Get started with Hybrid Cloud
 ctaLink: /greenlake/hpe-greenlake-platform/home/
-learnMoreLink: https://www.hpe.com/us/en/solutions/cloud.html---
+learnMoreLink: https://www.hpe.com/us/en/solutions/cloud.html
+---

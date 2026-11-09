@@ -9,8 +9,6 @@ priority: 6
 date: 2025-08-11T13:59:29+02:00
 active: true
 quickLinks:
-  - label: 'HPE Compute'
-    url: '/platform/hpe-compute/home/'
   - label: 'Developer resources'
     url: '#developer-resources'
   - label: 'Operations management'

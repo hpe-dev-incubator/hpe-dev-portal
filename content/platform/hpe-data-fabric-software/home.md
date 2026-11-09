@@ -31,16 +31,16 @@ HPE  Data Fabric allows data analysts, engineers, and scientists to deliver real
 
 Supports files, object, NoSQL databases, and streams
 
-* [HPE Data Fabric file store](https://docs.datafabric.hpe.com/70/MapROverview/File-Store.html#MapR-XD)
-* [HPE Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
-* [HPE Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
-* [HPE Data Fabric data streams](https://docs.datafabric.hpe.com/70/MapROverview/c_mapr_streams.html)
+* [HPE Data Fabric file store](https://docs.datafabric.hpe.com/82/MapROverview/File-Store.html#MapR-XD)
+* [HPE Data Fabric object store](https://docs.datafabric.hpe.com/82/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
+* [HPE Data Fabric database](https://docs.datafabric.hpe.com/82/MapROverview/maprDB-overview.html#maprDB-overview)
+* [HPE Data Fabric data streams](https://docs.datafabric.hpe.com/82/MapROverview/c_mapr_streams.html)
 
-[HPE Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
+[HPE Ecosystem Pack includes](https://docs.datafabric.hpe.com/82/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
 
 ## API reference guide
-[API Documentation](https://docs.ezmeral.hpe.com/datafabric-customer-managed/81/APIdocs.html?hl=api%2Cdocumentation) for app development.
+[API Documentation](https://docs.ezmeral.hpe.com/datafabric-customer-managed/82/APIdocs.html?hl=api%2Cdocumentation) for app development.
 
 
 ## Github repositories
@@ -61,18 +61,12 @@ Supports files, object, NoSQL databases, and streams
 
 ![](/img/platforms/x10000-console.png)
 
-<br/>
 
-| Title                                                                        | Description                                                                                                                                                                                                                              | Link                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|What's a data fabric and how does it work?                         | Ted Dunning and Ellen Friedman discuss the value of a data fabric to distributed businesses today. They also introduce the HPE Ezmeral Data Fabric and explain how it works. This introduction to data fabric is an ideal introduction to the basic concepts.  | [Video](https://www.youtube.com/watch?v=XE9V2Fj9XqM)                                                     |
-| HPE Data Fabric 101—Get to Know the Basics Around the Data Fabric                          | A hands-on workshop replay , where you’ll learn how to create/delete/update volumes, set up disaster recovery mechanisms, and apply security policies. | [Video](https://www.youtube.com/watch?v=HL_tAv5Dpjo)                                                                                                                                                   |
-| Practical Erasure Coding in a Data Fabric.                                    | This discussion is technical, but does not require any specific technical background and has generality beyond just the HPE Data Fabric to the concept of data fabrics in general.                      | [Video](https://www.youtube.com/watch?v=-6IBKLiOb_Q) |
-| HPE Data Fabric Software - Technical Demo  | In this technical demo, Alaric Thomas showcases HPE Data Fabric Software in action, highlighting its core features and real-world performance advantages.                                                                  | [Video](https://www.youtube.com/watch?v=SVfLwTF2lpI)                                                                                                                                                   |
-| HPE Data Fabric Software: Mission Control for Agentic AI               | In this video, HPE showcases how HPE Data Fabric Software and HPE Alletra Storage MP X10000 provide governance, optimization, and real-time access to AI-ready data, enabling organizations to accelerate agentic AI initiatives across hybrid environments.                                                                      | [Video](https://www.youtube.com/watch?v=tItbQzs1eKA)                                                                                                                                                   |
-
-<br/>
-
+* [video] [What's a data fabric and how does it work?](https://www.youtube.com/watch?v=XE9V2Fj9XqM) Ted Dunning and Ellen Friedman discuss the value of a data fabric to distributed businesses today. They also introduce the HPE Ezmeral Data Fabric and explain how it works. This introduction to data fabric is an ideal introduction to the basic concepts.
+* [video] [HPE Data Fabric 101—Get to Know the Basics Around the Data Fabric](https://www.youtube.com/watch?v=HL_tAv5Dpjo) A hands-on workshop replay , where you’ll learn how to create/delete/update volumes, set up disaster recovery mechanisms, and apply security policies.
+* [video] [Practical Erasure Coding in a Data Fabric](https://www.youtube.com/watch?v=-6IBKLiOb_Q) This discussion is technical, but does not require any specific technical background and has generality beyond just the HPE Data Fabric to the concept of data fabrics in general.
+* [video] [HPE Data Fabric Software - Technical Demo](https://www.youtube.com/watch?v=SVfLwTF2lpI) In this technical demo, Alaric Thomas showcases HPE Data Fabric Software in action, highlighting its core features and real-world performance advantages.
+* [video] [HPE Data Fabric Software: Mission Control for Agentic](https://www.youtube.com/watch?v=tItbQzs1eKA) In this video, HPE showcases how HPE Data Fabric Software and HPE Alletra Storage MP X10000 provide governance, optimization, and real-time access to AI-ready data, enabling organizations to accelerate agentic AI initiatives across hybrid environments.                                                                                      
 
 ### Free On-Demand Training
 
