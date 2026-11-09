@@ -20,7 +20,11 @@ const stripMarkdown = async (markdown) => {
   return markedup.contents;
 };
 
-const paginatedCollection = (name, tag) => {
+const paginatedCollection = (
+  name,
+  tag,
+  frontmatterFilter = `tags: {eq: "${tag}"}`,
+) => {
   return {
     resolve: 'gatsby-plugin-paginated-collection',
     options: {
@@ -29,7 +33,7 @@ const paginatedCollection = (name, tag) => {
       query: `
       {
         allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-      }, frontmatter: {disable:{ne: true},tags: {eq: "${tag}"}}},
+      }, frontmatter: {disable:{ne: true},${frontmatterFilter}}},
         sort: {frontmatter: {date: DESC}}) {
           nodes {
             id
@@ -360,7 +364,7 @@ module.exports = {
         query: `
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-        }, frontmatter: {disable:{ne: true},featuredBlog: {ne: true}}},
+        }, frontmatter: {disable:{ne: true}}},
           sort: {frontmatter: {date: DESC}}) {
             nodes {
               id
@@ -477,6 +481,7 @@ module.exports = {
     paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral'),
     paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
     paginatedCollection('greenlake-posts', 'hpe-greenlake'),
+    paginatedCollection('featured-posts', null, 'featuredBlog: {eq: true}'),
     paginatedCollection('chapel-posts', 'chapel'),
     paginatedCollection('grommet-posts', 'grommet'),
     paginatedCollection('alletra-posts', 'hpe-alletra'),
