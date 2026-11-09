@@ -28,6 +28,6 @@ tags:
 priority: 6
 active: true
 ctaLabel: Get started with Software & Services
-ctaLink: https://scod.hpedev.io/welcome/index.html
+ctaLink: https://developer.hpe.com/platforms
 learnMoreLink: https://www.hpe.com/us/en/software.html
 ---
