@@ -1,46 +1,16 @@
 ---
 title: Meetups
 authorimage: /img/Meetups_192_192.svg
+heroImage: /img/events/munch-learn-meetups-hero-bg.jpg
+heroDescription: >-
+  Connect with the experts to dive deep and learn more about some of today's most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how they may help in your particular situation.
 ---
-Connect with the experts to dive deep and learn more about some of today’s most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how they may help in your particular situation.
-
 Hosted by the HPE Developer Community, these meetups are held on a monthly basis at 5PM CET (8AM PST).  Read more about Meetups [in this blog](https://developer.hpe.com/blog/new-for-2022-hpe-dev-meetups/) post.
 
-<style>
-table {
-    display: block;
-    width: 100%;
-    width: max-content;
-    max-width: 100%;
-    overflow: auto;
-     -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-}
-td {
-   -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-    text-align: left !important;
-    padding: 10px !important;
-}
-thead tr:first-child td {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border:1px solid grey;
-  text-align: center !important;
-  padding: 20px !important;
-  font-weight: bold !important;
-}
-</style>
-
-| &nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp; | Title                                                                                                                                                                                                                               | Speaker(s)                                                     | Company                    | Link                                                                                                        |
+| Date                                                   | Title                                                                                                                                                                                                                               | Speaker(s)                                                     | Company                    | Link                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | 28-Oct-26                                        | OpenBMC on HPE ProLiant servers - Overview and Demo | François Donzé / Ian Woloschin / Vincent Berger                    | HPE                    |  [Register](https://hpe.zoom.us/webinar/register/4117894592305/WN_oweVxuKXSDa_Gg5QVUbX2g)                                                                                                                      |
-| 30-Sep-26                                        | From Provisioning to Observability with HPE CloudOps Software - advanced  | Michelle Yee / Satish Anupindi / Calvin Zito / Khatib Malik / Ellie Ruano                   | HPE                    |  [Replay](https://youtu.be/joJQ3i_3i4A)                                                                                                                    |    
+| 30-Sep-26                                        | From Provisioning to Observability with HPE CloudOps Software - advanced  | Michelle Yee / Satish Anupindi / Calvin Zito / Khatib Malik / Ellie Ruano                   | HPE                    |  [Replay](https://youtu.be/joJQ3i_3i4A)                                                                                                                    |
 | 26-Aug-26                                        | [Exploring HPE Morpheus and Terraform: Key features, innovations, and demos](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/HPEDEV+Meetup+++26-08+-+Morpheus_software_and_Terraform.pdf) | Don Wake / Eamonn O'Toole                         | HPE                    |  [Replay](https://www.youtube.com/watch?v=69efIUKsbvw)                                                                                                                 |
 | 29-July-26                                        | [Building Network Analytics Visualizers with HPE APIs](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/HPE_Dev_meetup_Jul_26+-+Building+Network+Analytics+Visualizers+with+HPE+APIs.pdf) | Lucas Voron / Alvin Castro                         | HPE                    |  [Replay](https://www.youtube.com/watch?v=kCKT2OkG78E)                                                                                                             |
 | 24-June-26                                        | [HPE OpsRamp Service Maps - Introduction and Demo](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/HPE-OpsRamp+Service+Maps++v2.pdf) | J C Prasad Vasireddy / Ravi Kiran Srirangam Sadananda                         | HPE                    |  [Replay](https://www.youtube.com/watch?v=T-XBFDkRfrg)                                                                                                             |
