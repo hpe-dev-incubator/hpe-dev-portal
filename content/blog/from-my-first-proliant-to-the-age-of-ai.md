@@ -4,6 +4,10 @@ date: 2026-10-13T06:02:00.000Z
 author: Aaron Lamond | Worldwide Product Marketing | Enterprise AI | HPE ProLiant
 authorimage: /img/aaron-lamond-2.jpg
 disable: false
+tags:
+  - AI
+  - compute
+  - ProLiant Server
 ---
 ## *Efficiency, trust, and simplicity matter more than ever.*
 

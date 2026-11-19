@@ -21,5 +21,6 @@ tags:
 priority: 4
 active: true
 ctaLabel: Get started with Compute
-ctaLink: /greenlake/hpe-greenlake-for-compute-ops-management/home/
-learnMoreLink: https://www.hpe.com/us/en/compute.html---
+ctaLink: /platform/hpe-compute/home/
+learnMoreLink: https://www.hpe.com/us/en/compute.html
+---
