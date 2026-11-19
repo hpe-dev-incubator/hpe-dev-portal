@@ -141,11 +141,13 @@ Blog.propTypes = {
     }).isRequired,
     allBlogs: paginatedPagePropType,
     greenlakeBlogs: paginatedPagePropType,
+    aiBlogs: paginatedPagePropType,
     openSourceBlogs: paginatedPagePropType,
     featuredBlogs: paginatedPagePropType,
     othersBlogs: paginatedPagePropType,
     allBlogsCount: countPropType,
     greenlakeBlogsCount: countPropType,
+    aiBlogsCount: countPropType,
     openSourceBlogsCount: countPropType,
     featuredBlogsCount: countPropType,
     othersBlogsCount: countPropType,
@@ -239,6 +241,27 @@ export const pageQuery = graphql`
         id
       }
     }
+    aiBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { regex: "/^ai$/i" }, disable: { ne: true } }
+      }
+    ) {
+      totalCount
+    }
+    aiBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "ai-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -307,6 +330,8 @@ export const pageQuery = graphql`
               "spiffe-and-spire-projects"
               "hpe-ezmeral-data-fabric"
               "hpe-greenlake"
+              "ai"
+              "AI"
               "chapel"
               "grommet"
               "hpe-alletra"

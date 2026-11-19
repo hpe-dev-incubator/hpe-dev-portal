@@ -77,6 +77,12 @@ function BlogTabs({ data }) {
       page: data.greenlakeBlogs,
     },
     {
+      key: 'ai',
+      label: 'AI',
+      count: data.aiBlogsCount?.totalCount,
+      page: data.aiBlogs,
+    },
+    {
       key: 'opensource',
       label: 'Open Source',
       count: data.openSourceBlogsCount?.totalCount,
@@ -169,11 +175,13 @@ BlogTabs.propTypes = {
   data: PropTypes.shape({
     allBlogs: blogsPropType,
     greenlakeBlogs: blogsPropType,
+    aiBlogs: blogsPropType,
     openSourceBlogs: blogsPropType,
     featuredBlogs: blogsPropType,
     othersBlogs: blogsPropType,
     allBlogsCount: countPropType,
     greenlakeBlogsCount: countPropType,
+    aiBlogsCount: countPropType,
     openSourceBlogsCount: countPropType,
     featuredBlogsCount: countPropType,
     othersBlogsCount: countPropType,
