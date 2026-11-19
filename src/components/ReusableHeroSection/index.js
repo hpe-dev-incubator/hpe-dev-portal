@@ -1,6 +1,25 @@
 import { Box, Heading } from 'grommet';
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { ButtonLink } from '../Link';
+
+// Pill-shaped CTA button matching the primary hero buttons used on the
+// Home page (HeroBannerSection) and product pages, kept here so any page
+// built on ReusableHeroSection gets a visually consistent CTA for free.
+export const HeroCtaButton = styled(ButtonLink)`
+  min-height: 64px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #292d3a;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+`;
 
 const ReusableHeroSection = ({
   title,

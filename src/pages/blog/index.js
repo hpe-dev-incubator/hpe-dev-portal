@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
 import { Text } from 'grommet';
+import { LinkNext } from 'grommet-icons';
 import styled from 'styled-components';
 import {
   BlogTabs,
-  ButtonLink,
   FeaturedBlogsSection,
+  HeroCtaButton,
   Layout,
   ReusableHeroSection,
   SEO,
@@ -74,10 +75,24 @@ function Blog({ data, location }) {
           through our library of tutorials and articles to learn new ways to do
           things. Or, click on the Get Started button to write your own!
         </Text>
-        <ButtonLink
-          primary
-          label="Get Started"
+        <HeroCtaButton
           to="/contribute"
+          label={
+            <Text
+              size="20px"
+              weight={500}
+              color="#292d3a"
+              style={{ lineHeight: '24px', whiteSpace: 'nowrap' }}
+            >
+              Get Started
+            </Text>
+          }
+          icon={<LinkNext color="#292d3a" size="24px" />}
+          reverse
+          plain={false}
+          round="full"
+          pad={{ horizontal: '36px', vertical: '20px' }}
+          gap="12px"
           alignSelf="start"
           margin={{ top: 'medium' }}
         />

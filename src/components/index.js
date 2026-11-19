@@ -28,6 +28,7 @@ export * from './BlogCard';
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
+export * from './ReusableHeroSection';
 
 export {
   Aside,
