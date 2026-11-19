@@ -1,6 +1,6 @@
 ---
 title: "Open Source at HPE: Three More Pillars, and other Paths"
-active: true
+active: false
 fit: contain
 path: https://www.youtube.com/watch?v=E8PnRqlTZQ8
 imageBackground: white
