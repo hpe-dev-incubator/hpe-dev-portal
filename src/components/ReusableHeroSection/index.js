@@ -13,10 +13,15 @@ export const HeroCtaButton = styled(ButtonLink)`
   background: #ffffff;
   color: #292d3a;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    opacity 0.2s;
 
   &:hover {
     opacity: 0.9;
+    background: #ffffff;
+    color: #292d3a;
     text-decoration: none;
   }
 `;
