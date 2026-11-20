@@ -5,6 +5,7 @@ import CommunityCard from './CommunityCard';
 import Content from './Content';
 import EventCard from './EventCard';
 import FeaturedBlogsSection from './FeaturedBlogsSection';
+import FeaturedEventsSection from './FeaturedEventsSection';
 import FeaturedTopicsSection from './FeaturedTopicsSection';
 import Footer from './Footer';
 import Header from './Header';
@@ -15,6 +16,7 @@ import LayoutSideBar from './LayoutSideBar';
 import NewsletterCard from './NewsletterCard';
 import OpenSourceCard from './OpenSourceCard';
 import PageDescription from './PageDescription';
+import PastEventsSection from './PastEventsSection';
 import PlatformCard from './PlatformCard';
 import Questions from './Questions';
 import ResponsiveGrid from './ResponsiveGrid';
@@ -38,6 +40,7 @@ export {
   Content,
   EventCard,
   FeaturedBlogsSection,
+  FeaturedEventsSection,
   FeaturedTopicsSection,
   Footer,
   Header,
@@ -48,6 +51,7 @@ export {
   NewsletterCard,
   OpenSourceCard,
   PageDescription,
+  PastEventsSection,
   PlatformCard,
   Questions,
   ResponsiveGrid,
