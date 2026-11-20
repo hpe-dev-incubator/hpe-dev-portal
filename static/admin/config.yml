@@ -244,37 +244,52 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          hint: 'Use a concise title in sentence case.',
+        }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          hint: 'The date shown on the blog post and used to order posts.',
+        }
       - {
           label: 'Featured',
           name: 'featuredBlog',
           widget: 'boolean',
           required: false,
-          hint: 'selecting true adds the blog to the Featured tab on the Blog page. Also set a Priority (1-10) to show it in the Featured Blogs section at the top of the page',
+          hint: 'Leave off unless directed by the HPE Developer team. Adds the post to the Featured tab; set a priority to include it in Featured Blogs.',
         }
       - {
           label: 'Priority',
           name: 'priority',
           widget: 'number',
           required: false,
-          hint: 'position in the Featured Blogs section of the Blog page (1-10). 1 is the large card at the top, 2-10 appear in the carousel below it in order',
+          hint: 'For Featured Blogs, enter 1 to 10. Lower numbers appear first; the first post gets the large card. Leave blank unless directed.',
         }
       - {
           label: 'External Link',
           name: 'externalLink',
           widget: 'string',
           required: false,
-          hint: 'provide link to the blog written outside HPE Developer portal',
+          hint: 'For a post hosted elsewhere, enter its URL. The blog card will open that link instead.',
         }
       - {
           label: 'Description',
           name: 'description',
           widget: 'text',
           required: false,
-          hint: 'short summary (1-2 sentences) shown on the large Featured Blogs card and used for search engine previews. If empty, an excerpt of the blog body is used',
+          hint: 'A short summary for the large featured card and search previews. If blank, an excerpt of the post is used.',
         }
-      - { label: 'Author', name: 'author', widget: 'string' }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'string',
+          hint: 'Enter the name of the author or authors.',
+        }
       - {
           label: 'Author Image',
           name: 'authorimage',
@@ -282,7 +297,7 @@ collections:
           default: '/img/Avatar1.svg',
           media_folder: '/static/img',
           public_folder: '/img',
-          hint: 'author image shown next to the author name on blog cards',
+          hint: 'Shown beside the author name. A 192 x 192 image is recommended; the default avatar can be used for multiple authors.',
         }
       - {
           label: 'Thumbnail Image',
@@ -291,7 +306,7 @@ collections:
           widget: 'image',
           media_folder: '/static/img',
           public_folder: '/img',
-          hint: 'cover image of the Featured Blogs cards (recommended 1274x600 for the large card, 872x544 for carousel cards). If empty, the first image in the blog body is used',
+          hint: 'Used on featured cards and for social sharing. Recommended sizes: 1274 x 600 for the large card, 872 x 544 for carousel cards. If omitted, the first image in the post is used when available.',
         }
       - {
           label: 'Disable',
@@ -299,16 +314,22 @@ collections:
           widget: 'boolean',
           default: false,
           required: false,
-          hint: 'selecting true hides the blog from the Blog page',
+          hint: 'Hide this post from blog listings and exclude its page from the next site build.',
         }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          hint: 'Write the post in rich text or Markdown. For an external blog link, enter "External blog".',
+        }
       - {
           label: 'Tags',
           name: 'tags',
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          hint: 'Add tags individually. Select an existing suggestion or type a new tag; reuse matching tags to connect related content.',
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
   # Video collection
   - name: 'video'
@@ -361,7 +382,7 @@ collections:
           allow_add: true,
           required: true,
           hint: 'Must match at least one tag from the target topic page (e.g. AI, storage, networking, open-source, compute, hybrid-cloud)',
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
   # Event collectionel:
   - name: 'event'
@@ -407,7 +428,7 @@ collections:
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Newsletter collection
@@ -487,7 +508,7 @@ collections:
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Platform collection - TODO: hierarchical content/platform/{name}/home.md
@@ -587,7 +608,7 @@ collections:
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'community'
@@ -808,7 +829,7 @@ collections:
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Explore Use Cases collection
@@ -860,7 +881,7 @@ collections:
           widget: 'list',
           allow_add: true,
           required: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Topic collection
@@ -895,7 +916,7 @@ collections:
           widget: 'list',
           allow_add: true,
           hint: 'Tags used to aggregate matching blogs, events, and platforms onto this topic page.',
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          field: { label: 'Tag', name: 'tag', widget: 'tag-suggestion' },
         }
       - {
           label: 'CTA Button Label',
