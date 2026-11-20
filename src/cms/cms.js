@@ -1,4 +1,7 @@
 import CMS from 'decap-cms-app';
+import TagSuggestionControl from './tag-suggestion-control';
+
+CMS.registerWidget('tag-suggestion', TagSuggestionControl);
 
 const injectCustomStyle = () => {
   const style = document.createElement('style');
