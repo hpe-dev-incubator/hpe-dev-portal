@@ -74,6 +74,16 @@ const SORT_OPTIONS = [
   { value: 'oldest', label: 'Oldest first' },
 ];
 
+// Preferred display order for known categories; any category not listed
+// here (e.g. a future new one) is appended after, sorted by frequency.
+const CATEGORY_ORDER = [
+  'HPE AI Developer Day',
+  'AI Jam Session',
+  'Meetup',
+  'Munch & Learn',
+  'Event',
+];
+
 // Past events are already loaded in full (no pagination needed at this
 // volume), so filtering, sorting and the grid all happen client-side.
 const PastEventsSection = ({ events }) => {
@@ -87,7 +97,16 @@ const PastEventsSection = ({ events }) => {
       if (!category) return;
       counts.set(category, (counts.get(category) || 0) + 1);
     });
-    return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+    return [...counts.entries()].sort(([aCategory, aCount], [bCategory, bCount]) => {
+      const aIndex = CATEGORY_ORDER.indexOf(aCategory);
+      const bIndex = CATEGORY_ORDER.indexOf(bCategory);
+      if (aIndex !== -1 || bIndex !== -1) {
+        if (aIndex === -1) return 1;
+        if (bIndex === -1) return -1;
+        return aIndex - bIndex;
+      }
+      return bCount - aCount;
+    });
   }, [events]);
 
   const filteredEvents = useMemo(() => {

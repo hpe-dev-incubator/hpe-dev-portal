@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
-import { LinkNext } from 'grommet-icons';
+import { CirclePlay, LinkNext } from 'grommet-icons';
 
 export const FONT = "'HPE Graphik', 'Metric', Arial, sans-serif";
 
@@ -45,6 +45,13 @@ export const getEventLink = (node) => {
   if (slug && source) return { href: `/${source}${slug}`, external: false };
   return { href: null, external: false };
 };
+
+// Past events most often link out to a recorded video (YouTube, Vimeo)
+// rather than a generic page; surface those as a "Watch replay" CTA
+// instead of the default "Learn more".
+const VIDEO_LINK_PATTERN = /(?:youtube\.com|youtu\.be|vimeo\.com)/i;
+
+export const isVideoLink = (url) => !!url && VIDEO_LINK_PATTERN.test(url);
 
 export const EventCategory = styled.div`
   font-family: ${FONT};
@@ -116,6 +123,8 @@ const EventListCard = ({ node }) => {
   const { title, category, dateStart, dateEnd } = node.frontmatter;
   if (!href) return null;
 
+  const isReplay = isVideoLink(href);
+
   const content = (
     <>
       <CardText>
@@ -124,8 +133,12 @@ const EventListCard = ({ node }) => {
         {dateStart && <EventDate>{formatEventDate(dateStart, dateEnd)}</EventDate>}
       </CardText>
       <ReadMore>
-        Learn more
-        <LinkNext size="small" color="#006750" />
+        {isReplay ? 'Watch replay' : 'Learn more'}
+        {isReplay ? (
+          <CirclePlay size="small" color="#006750" />
+        ) : (
+          <LinkNext size="small" color="#006750" />
+        )}
       </ReadMore>
     </>
   );
