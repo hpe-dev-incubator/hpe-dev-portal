@@ -1,0 +1,24 @@
+/* Override table borders embedded in older Markdown content. */
+table {
+  border: 0 !important;
+  border-collapse: collapse !important;
+}
+
+table > thead > tr {
+  border-bottom: 4px solid #b1b9be !important;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+  font-size: 24px !important;
+}
+
+table > tbody > tr {
+  border-top: 1px solid #d4d8db !important;
+  border-bottom: 1px solid #d4d8db !important;
+}
+
+table tr > th,
+table tr > td {
+  border: 0 !important;
+}
