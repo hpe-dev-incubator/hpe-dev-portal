@@ -1,7 +1,7 @@
 ---
 title: "Bringing AI Home: Splitting RAG and Inference Across Two Servers"
 date: 2026-11-23T15:26:00.000Z
-featuredBlog: true
+featuredBlog: false
 author: Mark B. Simpkins
 authorimage: /img/mbs-pic-git.jpg
 disable: false
