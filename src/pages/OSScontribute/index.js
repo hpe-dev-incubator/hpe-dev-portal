@@ -12,6 +12,18 @@ import {
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
+const titleStyle = {
+  fontSize: 'clamp(36px, 8vw, 72px)',
+  fontWeight: 500,
+  lineHeight: 'normal',
+  letterSpacing: '-1.04px',
+  color: '#292D3A',
+  margin: 0,
+  padding: 0,
+  position: 'relative',
+  zIndex: 1,
+};
+
 function OSScontribute({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
@@ -36,6 +48,7 @@ function OSScontribute({ data }) {
       <PageDescription
         image="/img/community/contribute_248px.svg"
         title={title}
+        titleStyle={titleStyle}
         alt="oss contribute page logo"
       >
         <Content width="large">

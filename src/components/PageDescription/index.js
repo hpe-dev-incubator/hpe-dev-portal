@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
 
-const PageDescription = ({ title, children }) => {
+const PageDescription = ({ title, titleStyle, children }) => {
   return (
     <Box
       direction="row-responsive"
@@ -13,7 +13,9 @@ const PageDescription = ({ title, children }) => {
         <Image src={image} alt={alt} />
       </Box> */}
       <Box justify="center" pad={{ horizontal: 'large' }}>
-        <Heading margin="none">{title}</Heading>
+        <Heading margin="none" style={titleStyle}>
+          {title}
+        </Heading>
         {children}
       </Box>
     </Box>
@@ -23,6 +25,7 @@ const PageDescription = ({ title, children }) => {
 PageDescription.propTypes = {
   // image: PropTypes.string,
   title: PropTypes.string,
+  titleStyle: PropTypes.object,
   children: PropTypes.node,
   // alt: PropTypes.string,
 };

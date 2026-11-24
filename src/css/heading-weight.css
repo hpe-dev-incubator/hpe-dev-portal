@@ -1,0 +1,9 @@
+/* Enforce the heading token over Grommet and existing inline styles. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500 !important;
+}
