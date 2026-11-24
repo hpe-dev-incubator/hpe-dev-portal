@@ -13,10 +13,9 @@ tags:
   - AI infrastructure
 ---
 What if your AI ran next to your data instead of in a distant
-data center? Here’s how I split inference onto a GPU workstation and retrieval
-onto a ProLiant MicroServer to build a private AI system at home.
+data center? Here’s how I split the workload: inference runs on a GPU workstation, while retrieval runs on a ProLiant MicroServer to build a private AI system at home.
 
-AI is remarkably easy to reach now: I can open a browser,
+AI is remarkably easy to access now: I can open a browser,
 type a question, and an answer appears. But I kept wondering what would happen
 if I brought the AI closer to where my own data actually lives.
 
@@ -30,7 +29,7 @@ Linux system, and Fafnir, an HPE ProLiant MicroServer Gen10 Plus running
 Unraid. Mimir handles inference; Fafnir provides storage and persistent
 application services.
 
-I’m building it incrementally rather than pretending I knew
+I’m building it incrementally rather pretending I knew
 the final architecture before I started. This is a record of the work as it
 develops: which choices hold up, which change, and what it takes to make
 private local AI useful.
@@ -41,19 +40,19 @@ Cloud AI has enormous advantages. The largest models and the
 infrastructure behind them aren’t things I’m going to reproduce in my house,
 but that’s not really the point.
 
-Local AI offers a different set of potential advantages: control, availability during Internet
+Local AI offers a different set of potential advantages: control, availability during internet
 outages, lower network dependency, potentially reduced costs, and
 the option to bring a model to local data rather than routinely sending that
 data to a remote service. Those benefits depend on how the system is
 configured; local hosting alone does not guarantee privacy or security.
 
-That is an edge architecture question. At the edge, the
+That is fundamentally an edge-architecture question. At the edge, the
 question isn’t necessarily, “How do I reproduce the cloud?” For me, the better
 question is, “What should I process locally, and
 what architecture makes sense for doing it?”
 
 For this project, I decided to make the boundary explicit. I
-want the LLM itself to operate locally and eventually without routine Internet
+want the LLM itself to operate locally and, eventually without routine internet
 access. I also want it to be able to answer questions using my own documents
 through retrieval-augmented generation, or RAG. I don’t want the inference
 server to do everything, and that distinction is important.
@@ -79,13 +78,13 @@ Initial model: gpt-oss-20b
 For now, the RTX 3090 is the important part of the design.
 Its 24 GB of VRAM makes it a surprisingly capable local inference device, while
 the RTX 5070 Ti remains available for the system’s other graphics duties.
-Rather than immediately trying to pool GPUs or maximize every piece of hardware
+Rather than immediately trying to pool the GPUs or maximize every piece of hardware
 I own, I wanted to establish a clean baseline first.
 
 The initial model is gpt-oss-20b,
 running under Ollama. The architecture I’ve settled on treats Mimir somewhat like
 an appliance: Linux, NVIDIA drivers, Ollama, the model, and as little
-additional infrastructure as practical. That is deliberate: fewer parts mean
+additional infrastructure as possible. That is deliberate: fewer parts mean
 fewer things to break and fewer things to secure.
 
 ![Terminal output from nvidia-smi showing two NVIDIA GPUs, an RTX 3090 and an RTX 5070 Ti, with the gpt-oss-20b model loaded onto the RTX 3090.](/img/figure-1.jpg "Figure 1. nvidia-smi confirming both GPUs are seen and the model is loaded onto the RTX 3090")
@@ -96,13 +95,14 @@ Before adding RAG, vector databases, agents, or anything
 else, I wanted to know whether the basic idea actually worked well enough to be
 useful, and it does.
 
-One Ollama run with gpt-oss-20b produced:
+One Ollama run with gpt-oss-20b produced the following results:
 
 Generated tokens: 1,418
 
 Model evaluation time: 8.842 seconds
 
-Calculated generation rate: ~160.4 tokens/sec
+Calculated generation rate: approximately 160.4 tokens per second
+
 
 Prompt tokens: 94
 
@@ -114,15 +114,15 @@ Mimir.
 ![Console output of an Ollama run for the prompt "What is C programming?" reporting 1,230 generated tokens in 14.059 seconds, about 87.49 tokens per second.](/img/figure-2.jpg "Figure 2. Console run for viability (prompt: “What is C programming?”): 1,230 generated tokens in 14.059 seconds (87.49 tokens/sec).")
 
 A separate console run reported 1,230 generated tokens in
-14.059 seconds, or 87.49 tokens per second. I treat it as a separate
+14.059 seconds, or 87.49 tokens per second. I treat that as a separate
 measurement; the model, runtime, and test conditions need to be recorded before
 comparing the rates. The distinction between evaluation time and total request
 time is worth making. The 160-token-per-second figure describes token
 generation during model evaluation, not the complete end-to-end transaction.
-Loading, prompt processing and other overheads pushed that particular request
+Model Loading, prompt processing and other overheads pushed that particular request
 to about 15.5 seconds overall.
 
-Still, seeing a 20-billion-parameter-class model generate
+Still, seeing a 20-billion-parameter model generate
 about 160 tokens per second on hardware sitting in my house changed the project
 for me. It was no longer just a test of whether local inference could run; it
 was fast enough that I could imagine relying on it. This wasn’t going to be a
@@ -137,8 +137,7 @@ documents need to be ingested, parsed, divided into chunks, converted into
 embeddings, indexed, retrieved, and supplied to the model as context.
 
 I could run all of that on Mimir, but I’ve decided not to.
-Instead, I’m using the HPE ProLiant MicroServer Gen10 Plus already running
-Unraid. Fafnir continues its storage role and will host the project’s Open
+Instead, I’m using the the HPE ProLiant MicroServer Gen10 Plus that is already running [Unraid](https://unraid.net/). Fafnir continues to serve as the storage system and will host the project’s Open
 WebUI and RAG services.
 
 Fafnir has a Xeon E-2246G, 32 GB of ECC memory, four 12 TB
@@ -146,8 +145,7 @@ hard drives, and NVMe storage for faster application data. It isn’t an AI
 powerhouse, and it doesn’t need to be.
 
 The computationally expensive LLM inference belongs on Mimir’s
-RTX 3090. The MicroServer is much better suited to being the persistent
-services machine: document ingestion, embeddings, vector storage, the user
+RTX 3090. The MicroServer is much better suited to being the persistent-services host: document ingestion, embedding generation, vector storage, the user
 interface, storage integration and orchestration. That separation gives each
 system a very clear job.
 
@@ -177,20 +175,16 @@ architecture.
 
 ## Separating knowledge acquisition from inference
 
-An LLM that can access everything is convenient, but it is
-also a large attack surface. If Mimir doesn’t need Internet access, browser
-access, document repositories, credentials or general-purpose tools to perform
+An LLM that can access everything is convenient, but it also presents a large attack surface. If Mimir doesn’t need access to the internet, browsers, document repositories, credentials or general-purpose tools to perform
 inference, why give it those things?
 
 The target network design gives Mimir no routine outbound
-Internet access. Fafnir may have controlled access where required, and it can
-reach Mimir’s Ollama API on the local network. Neither system should accept
+Internet access. Fafnir may have controlled outbound access where required and may reach Mimir’s Ollama API on the local network. Neither system should accept
 unsolicited inbound Internet connections. VLAN and firewall rules to enforce
 this separation are still planned work.
 
-Once those rules are in place, updates can become a
-controlled maintenance operation: temporarily allow outbound access, update
-Linux, drivers, Ollama, or approved models, test the system, then restore the
+Once those rules are in place, updates can be handled as a controlled maintenance operation: temporarily allow outbound access, update
+Linux, the drivers, Ollama, or approved models, test the system, then restore the
 normal “deny” rule.
 
 This isn’t a perfect air gap, nor am I trying to call it one.
@@ -236,7 +230,7 @@ Architecture still matters.
 ## Building it in phases
 
 I’ve deliberately resisted turning this into a giant weekend
-installation where I deploy twelve containers and then spend Sunday evening
+installation in which I deploy twelve containers twelve containers and then spend Sunday evening
 wondering which one broke the other eleven. The project is progressing in
 phases.
 
@@ -287,7 +281,7 @@ Those are edge questions. The scale changes, but the
 underlying architectural problem doesn’t disappear.
 
 I enjoy this project because it lets me explore those
-questions with actual hardware and real constraints instead of PowerPoint
+questions using actual hardware and real constraints instead of PowerPoint
 slides.
 
 ## Bringing AI closer to my data
@@ -297,9 +291,9 @@ is going to be an increasingly interesting middle ground between massive
 centralized AI services and tiny models running independently on individual
 devices.
 
-Private AI can sit between centralized services and device
+Private AI can occupy that middle ground between centralized services and device
 models: close to local data, with enough capacity to serve several devices over
-the network. Mimir and Fafnir are my small-scale experiment in that private AI
+the network. Mimir and Fafnir form my small-scale experiment in that private AI
 edge architecture.
 
 So far, I’ve established that local inference works. One
@@ -307,3 +301,5 @@ Ollama run generated about 160 tokens per second, enough to make the system
 feel practical. Next, I’ll measure retrieval quality and put the VLAN and
 firewall boundaries in place. Each step should show whether private AI can be
 both useful and well contained.
+
+Stay tuned to the [HPE Developer Community blog](https://developer.hpe.com/blog/) for more tutorials and best practices on using AI.
