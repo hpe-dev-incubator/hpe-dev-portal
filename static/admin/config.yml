@@ -382,7 +382,14 @@ collections:
           label: 'Category',
           name: 'category',
           widget: 'select',
-          options: ['Event', 'Virtual Event'],
+          options: [
+            'Event',
+            'Virtual Event',
+            'Meetup',
+            'Munch & Learn',
+            'HPE AI Developer Day',
+            'AI Jam Session',
+          ],
           default: 'Virtual Event',
         }
       - {
