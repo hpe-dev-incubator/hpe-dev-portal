@@ -1,6 +1,6 @@
 ---
 title: "From Provisioning to Observability with HPE CloudOps Software – Advanced"
-active: true
+active: false
 fit: contain
 path: https://youtu.be/joJQ3i_3i4A
 imageBackground: white

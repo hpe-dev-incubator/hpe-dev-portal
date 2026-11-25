@@ -1,39 +1,40 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { withPrefix } from 'gatsby';
 import { Box, Button } from 'grommet';
 import { FormDown } from 'grommet-icons';
-import { BlogCard } from '../BlogCard';
-import ResponsiveGrid from '../ResponsiveGrid';
+import styled from 'styled-components';
+import BlogListCard from '../BlogListCard';
 import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const BlogTabContent = ({
-  initialPage,
-  columns,
-  activeTab,
-  platform,
-  setPlatform,
-  setPreviousTab,
-}) => {
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+`;
+
+const BlogTabContent = ({ initialPage, activeTab, sortOrder }) => {
   const [latestPage, setLatestPage] = useState(initialPage);
-  const [blogPosts, setBlogPosts] = useState(initialPage?.nodes);
-  const [collectionId, setCollectionId] = useState(initialPage?.collection?.id);
+  const [blogPosts, setBlogPosts] = useState(initialPage?.nodes || []);
+  const collectionId = initialPage?.collection?.id;
+  const isLoadingAll = useRef(false);
   /* eslint-disable no-unused-vars */
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
-  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
-  /* eslint-disable no-unused-vars */
-  const [loadMoreBlogData, setLoadMoreBlogData] = useLocalStorage(
-    'loadMoreBlogData',
-  );
+  /* eslint-enable no-unused-vars */
+  const [loadMoreBlogData, setLoadMoreBlogData] =
+    useLocalStorage('loadMoreBlogData');
 
   useEffect(() => {
-    if (!platform) {
-      setCollectionId(initialPage.collection.id);
-      setPlatform(false);
-      setPreviousTab(activeTab);
-      setActivePlatform('');
-    }
-
     setActiveBlogTab(activeTab);
 
     // loads persisted data if the load more btn was
@@ -41,7 +42,7 @@ const BlogTabContent = ({
     if (
       // clear localStorage if new blog post has been published
       loadMoreBlogData &&
-      loadMoreBlogData.latestBlogPosts[0].id !== blogPosts[0].id
+      loadMoreBlogData.latestBlogPosts?.[0]?.id !== blogPosts[0]?.id
     ) {
       localStorage.removeItem('loadMoreBlogData');
     } else if (
@@ -53,27 +54,20 @@ const BlogTabContent = ({
       setLatestPage(loadMoreBlogData.latestPage);
       setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
-  }, [
-    blogPosts,
-    platform,
-    initialPage,
-    setPlatform,
-    setPreviousTab,
-    setActivePlatform,
-    setActiveBlogTab,
-    activeTab,
-    loadMoreBlogData,
-    collectionId,
-  ]);
+  }, [activeTab, blogPosts, collectionId, loadMoreBlogData, setActiveBlogTab]);
+
+  const fetchPage = useCallback(
+    async (pageId) => {
+      const path = withPrefix(`/paginated-data/${collectionId}/${pageId}.json`);
+      const res = await fetch(path);
+      return res.json();
+    },
+    [collectionId],
+  );
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
-    const nextPageId = latestPage.nextPage.id;
-    const path = withPrefix(
-      `/paginated-data/${collectionId}/${nextPageId}.json`,
-    );
-    const res = await fetch(path);
-    const json = await res.json();
+    const json = await fetchPage(latestPage.nextPage.id);
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
 
@@ -82,44 +76,70 @@ const BlogTabContent = ({
       latestPage: json,
       collectionId,
     });
-  }, [latestPage, collectionId, blogPosts, setLoadMoreBlogData]);
+  }, [latestPage, collectionId, blogPosts, fetchPage, setLoadMoreBlogData]);
+
+  // Pages are date-descending, so an oldest-first view needs every page.
+  const loadAllPages = useCallback(async () => {
+    if (isLoadingAll.current) return;
+    isLoadingAll.current = true;
+    try {
+      let page = latestPage;
+      let posts = blogPosts;
+      while (page.hasNextPage) {
+        // eslint-disable-next-line no-await-in-loop
+        const json = await fetchPage(page.nextPage.id);
+        posts = [...posts, ...json.nodes];
+        page = json;
+      }
+      setBlogPosts(posts);
+      setLatestPage(page);
+      setLoadMoreBlogData({
+        latestBlogPosts: posts,
+        latestPage: page,
+        collectionId,
+      });
+    } finally {
+      isLoadingAll.current = false;
+    }
+  }, [latestPage, blogPosts, collectionId, fetchPage, setLoadMoreBlogData]);
+
+  useEffect(() => {
+    if (sortOrder === 'oldest' && latestPage?.hasNextPage) loadAllPages();
+  }, [sortOrder, latestPage, loadAllPages]);
+
+  const sortedPosts = useMemo(
+    () => (sortOrder === 'oldest' ? [...blogPosts].reverse() : blogPosts),
+    [blogPosts, sortOrder],
+  );
 
   return (
     <>
-      <ResponsiveGrid rows={{}} columns={columns}>
-        {blogPosts.map(
+      <Grid>
+        {sortedPosts.map(
           (blogPost) =>
             blogPost.url !== '/' && (
-              <BlogCard key={blogPost.id} node={blogPost} />
+              <BlogListCard key={blogPost.id} node={blogPost} />
             ),
         )}
-      </ResponsiveGrid>
-      <Box align="center" pad="medium">
-        <Button
-          icon={<FormDown />}
-          hoverIndicator
-          reverse
-          onClick={loadNextPage}
-          label="Load More"
-        />
-      </Box>
+      </Grid>
+      {latestPage?.hasNextPage && sortOrder !== 'oldest' && (
+        <Box align="center" pad="medium">
+          <Button
+            icon={<FormDown />}
+            hoverIndicator
+            reverse
+            onClick={loadNextPage}
+            label="Load More"
+          />
+        </Box>
+      )}
     </>
   );
 };
 
 BlogTabContent.propTypes = {
   initialPage: PropTypes.shape({
-    nodes: PropTypes.arrayOf(
-      PropTypes.shape({
-        node: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          author: PropTypes.string.isRequired,
-          date: PropTypes.string,
-          description: PropTypes.string,
-          authorimage: PropTypes.string,
-        }),
-      }).isRequired,
-    ).isRequired,
+    nodes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     hasNextPage: PropTypes.bool.isRequired,
     nextPage: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -128,16 +148,13 @@ BlogTabContent.propTypes = {
       id: PropTypes.string.isRequired,
     }),
   }).isRequired,
-  columns: PropTypes.shape({
-    small: PropTypes.string,
-    medium: PropTypes.arrayOf(PropTypes.string),
-    large: PropTypes.arrayOf(PropTypes.string),
-    xlarge: PropTypes.arrayOf(PropTypes.string),
-  }),
   activeTab: PropTypes.number,
-  platform: PropTypes.bool,
-  setPlatform: PropTypes.func,
-  setPreviousTab: PropTypes.func,
+  sortOrder: PropTypes.oneOf(['newest', 'oldest']),
+};
+
+BlogTabContent.defaultProps = {
+  activeTab: 0,
+  sortOrder: 'newest',
 };
 
 export default BlogTabContent;
