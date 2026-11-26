@@ -1,0 +1,76 @@
+name: Label pull requests
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  pull-requests: write
+
+concurrency:
+  group: pr-labels-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update target and work-type labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: issue_number });
+            const targets = new Map([
+              ['testing', 'target: testing'],
+              ['staging', 'target: staging'],
+              ['main', 'target: live'],
+              ['master', 'target: live'],
+            ]);
+            const desired = targets.get(pr.base.ref);
+            const targetLabels = ['target: testing', 'target: staging', 'target: live'];
+            const current = pr.labels.map(label => label.name);
+            const labelsToAdd = new Set(desired ? [desired] : []);
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: issue_number, per_page: 100,
+            });
+            const contentLabels = new Map([
+              ['blog', 'blog'],
+              ['event', 'event'],
+              ['campaign', 'event'],
+              ['hackshackhome', 'event'],
+              ['newsletter', 'newsletter'],
+            ]);
+            const dependencyFiles = new Set(['package.json', 'package-lock.json', 'yarn.lock']);
+            for (const { filename } of files) {
+              if (filename.startsWith('content/')) {
+                const collection = filename.split('/')[1];
+                labelsToAdd.add(contentLabels.get(collection) || 'content-update');
+              }
+              if (filename.startsWith('static/newsletter/')) {
+                labelsToAdd.add('newsletter');
+              }
+              if (dependencyFiles.has(filename)) {
+                labelsToAdd.add('dependencies');
+              }
+              if (
+                filename.startsWith('.github/') ||
+                filename.startsWith('static/admin/') ||
+                filename.startsWith('src/cms/') ||
+                filename === 'netlify.toml'
+              ) {
+                labelsToAdd.add('housekeeping');
+              }
+            }
+
+            for (const name of targetLabels) {
+              if (name !== desired && current.includes(name)) {
+                await github.rest.issues.removeLabel({ owner, repo, issue_number, name });
+              }
+            }
+            // Only target labels are removed; preserve manually assigned work-type labels.
+            const missing = [...labelsToAdd].filter(name => !current.includes(name));
+            if (missing.length) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: missing });
+            }
