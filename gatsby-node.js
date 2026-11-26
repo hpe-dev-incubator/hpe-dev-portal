@@ -52,6 +52,29 @@ const paginatedCollectionQuery = (paginatedName) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  const tagSuggestions = await graphql(`
+    {
+      allMarkdownRemark {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
+        }
+      }
+    }
+  `);
+  if (tagSuggestions.errors) {
+    throw tagSuggestions.errors;
+  }
+  const tags = tagSuggestions.data.allMarkdownRemark.group
+    .map(({ fieldValue }) => fieldValue)
+    .filter((tag) => typeof tag === 'string' && tag.length > 0)
+    .sort((a, b) => a.localeCompare(b));
+  const adminDir = path.join(__dirname, 'public', 'admin');
+  fs.mkdirSync(adminDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(adminDir, 'tag-suggestions.json'),
+    JSON.stringify(tags),
+  );
+
   // Try to fetch special badges, but continue if service is unavailable
   try {
     // eslint-disable-next-line
