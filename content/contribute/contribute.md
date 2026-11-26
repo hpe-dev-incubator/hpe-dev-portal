@@ -1,5 +1,8 @@
 ---
 title: Be a Blogger!
+heroImage: /img/community/community_hero_bg.jpg
+heroDescription: >-
+  Sharing expertise is a great way to move technology forward. We want to hear from you. Follow the simple steps below to contribute to the HPE Developer blog.
 templateCards:
   - templateType: Microsoft Word
     templateName: Technical Tutorial Template

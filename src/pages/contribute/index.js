@@ -4,11 +4,11 @@ import { graphql, navigate } from 'gatsby';
 import { Box, Text, Heading, Card, Image, Markdown, Paragraph } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 import {
-  Content,
+  HeroContent,
   Layout,
   SEO,
   ButtonLink,
-  PageDescription,
+  ReusableHeroSection,
   ResponsiveGrid,
   Questions,
 } from '../../components';
@@ -33,7 +33,8 @@ function Contribute({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody } = post;
-  const { title, templateCards } = post.frontmatter;
+  const { title, heroImage, heroDescription, templateCards } =
+    post.frontmatter;
 
   const components = {
     p: {
@@ -47,25 +48,19 @@ function Contribute({ data }) {
   };
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth={true}>
       <SEO title={title} />
-      <PageDescription
-        image="/img/community/contribute_248px.svg"
+      <ReusableHeroSection
+        image={heroImage}
         title={title}
-        alt="blog page logo"
+        alt={`${title} hero banner`}
+        height="auto"
+        overlayGradient="linear-gradient(-46.42deg, rgba(41, 45, 58, 0) 15.577%, rgb(41, 45, 58) 73.294%)"
       >
-        <Text size="large" margin={{ top: 'small' }}>
-          Sharing expertise is a great way to move technology forward.
-        </Text>
-        <Text size="large" margin={{ bottom: 'medium' }}>
-          We want to hear from you.
-        </Text>
-        <Text size="large" weight="bold" margin={{ bottom: '-15px' }}>
-          Follow the simple steps below to contribute to the HPE Developer blog.
-        </Text>
-        <Content width="large">
-          <Markdown components={components}>{rawMarkdownBody}</Markdown>
-        </Content>
+        <Text size="large">{heroDescription}</Text>
+      </ReusableHeroSection>
+      <HeroContent gap="medium">
+        <Markdown components={components}>{rawMarkdownBody}</Markdown>
         <Box
           border={{ side: 'horizontal', size: 'small' }}
           pad={{ top: 'small', bottom: 'large' }}
@@ -113,7 +108,7 @@ function Contribute({ data }) {
           </Box>
         </Box>
         <Questions />
-      </PageDescription>
+      </HeroContent>
       <Box alignSelf="start">
         <ButtonLink
           icon={<FormPreviousLink />}
@@ -136,6 +131,8 @@ Contribute.propTypes = {
       rawMarkdownBody: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
+        heroImage: PropTypes.string,
+        heroDescription: PropTypes.string,
         templateCards: PropTypes.arrayOf(
           PropTypes.shape({
             templateType: PropTypes.string,
@@ -161,6 +158,8 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        heroImage
+        heroDescription
         templateCards {
           link
           templateName
