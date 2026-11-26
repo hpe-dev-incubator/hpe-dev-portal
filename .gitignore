@@ -78,3 +78,6 @@ yarn-error.log
 
 # VSCode files
 .vscode/
+
+# GLP SDLC plugin scratch storage
+/glp-design-workflow/.temp/

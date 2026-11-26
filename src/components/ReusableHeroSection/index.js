@@ -35,6 +35,7 @@ const ReusableHeroSection = ({
   showRightMidGradient,
   height,
   overlayGradient,
+  logos,
 }) => {
   return (
     <Box
@@ -100,6 +101,19 @@ const ReusableHeroSection = ({
           style={{ maxWidth: '1152px' }}
           direction="column"
         >
+          {logos && logos.length > 0 && (
+            <Box direction="row" gap="36px" align="center">
+              {logos.map((logo) => (
+                <img
+                  key={logo.src}
+                  src={logo.src}
+                  alt={logo.alt}
+                  height={logo.height || '30px'}
+                  style={{ display: 'block' }}
+                />
+              ))}
+            </Box>
+          )}
           <Heading
             level="1"
             margin="0"
@@ -143,6 +157,13 @@ ReusableHeroSection.propTypes = {
   showRightMidGradient: PropTypes.bool,
   height: PropTypes.string,
   overlayGradient: PropTypes.string,
+  logos: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+      height: PropTypes.string,
+    }),
+  ),
 };
 
 ReusableHeroSection.defaultProps = {
@@ -155,6 +176,7 @@ ReusableHeroSection.defaultProps = {
   height: '583px',
   overlayGradient:
     'linear-gradient(-42.143deg, rgba(41, 45, 58, 0) 10.197%, rgb(41, 45, 58) 89.615%)',
+  logos: null,
 };
 
 export default ReusableHeroSection;

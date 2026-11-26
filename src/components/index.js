@@ -3,6 +3,7 @@ import BlogTabContent from './BlogTabContent';
 import BlogTabs from './BlogTabs';
 import CommunityCard from './CommunityCard';
 import Content from './Content';
+import DeveloperDaysPastEvents from './DeveloperDaysPastEvents';
 import EventCard from './EventCard';
 import FeaturedBlogsSection from './FeaturedBlogsSection';
 import FeaturedTopicsSection from './FeaturedTopicsSection';
@@ -23,6 +24,8 @@ import ReusableInfoTilesRow from './ReusableInfoTilesRow';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
+import UpcomingWorkshopsSection from './UpcomingWorkshopsSection';
+import WorkshopOverviewSection from './WorkshopOverviewSection';
 
 export * from './BlogCard';
 export * from './Card';
@@ -36,6 +39,7 @@ export {
   BlogTabs,
   CommunityCard,
   Content,
+  DeveloperDaysPastEvents,
   EventCard,
   FeaturedBlogsSection,
   FeaturedTopicsSection,
@@ -56,4 +60,6 @@ export {
   SEO,
   Share,
   SocialMedia,
+  UpcomingWorkshopsSection,
+  WorkshopOverviewSection,
 };
