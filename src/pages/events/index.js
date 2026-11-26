@@ -1,51 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-import { Box, Button, Paragraph } from 'grommet';
+import { graphql } from 'gatsby';
+import { Text } from 'grommet';
+import { LinkNext } from 'grommet-icons';
+import styled from 'styled-components';
 import {
+  FeaturedEventsSection,
+  HeroCtaButton,
   Layout,
+  PastEventsSection,
+  ReusableHeroSection,
   SEO,
-  PageDescription,
-  Card,
-  // EventCard,
-  ResponsiveGrid,
-  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-const monthDay = Intl.DateTimeFormat('default', {
-  month: 'long',
-  day: 'numeric',
-});
-const day = Intl.DateTimeFormat('default', {
-  day: 'numeric',
-});
-const year = Intl.DateTimeFormat('default', {
-  year: 'numeric',
-});
+const ListingSection = styled.section`
+  background: #f7f7f7;
+  padding: 64px max(24px, 8.33%, calc((100% - 1600px) / 2)) 96px;
 
-const formatEventDate = (dateStart, dateEnd) => {
-  if (!dateStart) return '';
-  const start = new Date(dateStart);
-  const end = dateEnd ? new Date(dateEnd) : start;
-  const base = monthDay.format(start);
-  const multiDay = day.format(end) > day.format(start);
-  return `${base}${multiDay ? ` - ${day.format(end)}` : ''}, ${year.format(end)}`;
-};
-
-const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto'],
-  xlarge: ['auto', 'auto'],
-};
-
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
+  @media (max-width: 768px) {
+    padding: 40px 24px 64px;
+  }
+`;
 
 function Events({ data }) {
   const pastEvents = data.pastEvents.edges;
@@ -54,156 +30,92 @@ function Events({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
+  // Ongoing events are happening right now, so they take priority over
+  // events that have not started yet; both queries already sort by
+  // dateStart ascending, so concatenating keeps soonest-first order.
+  const featuredEvents = [...onGoingEvents, ...upcomingEvents];
+
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} fullWidth>
       <SEO title="Events" />
-      <PageDescription
-        image="/img/events/EventsPage.svg"
+      <ReusableHeroSection
+        image="/img/events/events-hero-bg.jpg"
         title="Events"
-        alt="events page logo"
+        alt="events page background"
+        backgroundPosition="50% 33%"
+        showRightMidGradient
+        height="auto"
       >
-        <Box gap="small">
-          <Box>
-            <Paragraph size="large">
-              Technology moves fast. Participating in events helps you stay
-              ahead of the curve. Mark your calendar and connect with us at any
-              of these upcoming events.
-            </Paragraph>
-          </Box>
-          <Box>
-            <Link to="/newsletter-signup">
-              <Button primary label="Keep Me Posted" />
-            </Link>
-          </Box>
-        </Box>
-      </PageDescription>
-      {onGoingEvents && onGoingEvents.length > 0 && (
-        <SectionHeader title="Ongoing Events">
-          {onGoingEvents.map(({ node }) => (
-            <Card
-              key={node.id}
-              category={node.frontmatter.category}
-              width={node.frontmatter.width}
-              title={node.frontmatter.title}
-              date={formatEventDate(
-                node.frontmatter.dateStart,
-                node.frontmatter.dateEnd,
-              )}
-              content={node.rawMarkdownBody}
-              link={node.frontmatter.link}
-              image={node.frontmatter.image}
-              basis="auto"
-            />
-          ))}
-        </SectionHeader>
+        <Text size="large">
+          Technology moves fast. Participating in events helps you stay ahead
+          of the curve. Mark your calendar and connect with us at any of
+          these upcoming events.
+        </Text>
+        <HeroCtaButton
+          to="/newsletter-signup"
+          state={{ state: { isNewsletterHeaderClicked: true } }}
+          label={
+            <Text
+              size="20px"
+              weight={500}
+              color="#292d3a"
+              style={{ lineHeight: '24px', whiteSpace: 'nowrap' }}
+            >
+              Keep Me Posted
+            </Text>
+          }
+          icon={<LinkNext color="#292d3a" size="24px" />}
+          reverse
+          plain={false}
+          round="full"
+          pad={{ horizontal: '36px', vertical: '20px' }}
+          gap="12px"
+          alignSelf="start"
+          margin={{ top: 'medium' }}
+        />
+      </ReusableHeroSection>
+      {featuredEvents.length > 0 && (
+        <FeaturedEventsSection events={featuredEvents} />
       )}
-      {upcomingEvents && upcomingEvents.length > 0 && (
-        <SectionHeader title="Upcoming Events">
-          {upcomingEvents.map(({ node }) => (
-            <Card
-              key={node.id}
-              category={node.frontmatter.category}
-              width={node.frontmatter.width}
-              title={node.frontmatter.title}
-              date={formatEventDate(
-                node.frontmatter.dateStart,
-                node.frontmatter.dateEnd,
-              )}
-              content={node.rawMarkdownBody}
-              link={node.frontmatter.link}
-              image={node.frontmatter.image}
-              basis="auto"
-            />
-          ))}
-        </SectionHeader>
-      )}
-      {pastEvents && pastEvents.length > 0 && (
-        <SectionHeader title="Past Events">
-          <ResponsiveGrid
-            rows={rows}
-            columns={columns}
-            style={{ gridGap: 0, margin: 0 }}
-          >
-            {pastEvents.map(({ node }) => (
-              // <EventCard key={node.id} node={node} />
-              <Card
-                key={node.id}
-                category={node.frontmatter.category}
-                width={node.frontmatter.width}
-                title={node.frontmatter.title}
-                date={formatEventDate(
-                  node.frontmatter.dateStart,
-                  node.frontmatter.dateEnd,
-                )}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-                basis="auto"
-              />
-            ))}
-          </ResponsiveGrid>
-        </SectionHeader>
-      )}
+      <ListingSection>
+        <PastEventsSection events={pastEvents} />
+      </ListingSection>
     </Layout>
   );
 }
+
+const eventNodePropType = PropTypes.shape({
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string,
+    image: PropTypes.string,
+    category: PropTypes.string,
+    dateStart: PropTypes.string,
+    dateEnd: PropTypes.string,
+    width: PropTypes.string,
+  }).isRequired,
+  excerpt: PropTypes.string,
+  fields: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    sourceInstanceName: PropTypes.string.isRequired,
+  }),
+});
 
 Events.propTypes = {
   data: PropTypes.shape({
     upcomingEvents: PropTypes.shape({
       edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              link: PropTypes.string.isRequired,
-              image: PropTypes.string,
-              category: PropTypes.string,
-            }).isRequired,
-            excerpt: PropTypes.string.isRequired,
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-              sourceInstanceName: PropTypes.string.isRequired,
-            }),
-          }).isRequired,
-        }).isRequired,
+        PropTypes.shape({ node: eventNodePropType }).isRequired,
       ).isRequired,
     }).isRequired,
     pastEvents: PropTypes.shape({
       edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              link: PropTypes.string.isRequired,
-              image: PropTypes.string,
-              category: PropTypes.string,
-            }).isRequired,
-            excerpt: PropTypes.string.isRequired,
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-              sourceInstanceName: PropTypes.string.isRequired,
-            }),
-          }).isRequired,
-        }).isRequired,
+        PropTypes.shape({ node: eventNodePropType }).isRequired,
       ).isRequired,
     }).isRequired,
     onGoingEvents: PropTypes.shape({
       edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              link: PropTypes.string.isRequired,
-              image: PropTypes.string,
-              category: PropTypes.string,
-            }).isRequired,
-            excerpt: PropTypes.string.isRequired,
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-              sourceInstanceName: PropTypes.string.isRequired,
-            }),
-          }).isRequired,
-        }).isRequired,
+        PropTypes.shape({ node: eventNodePropType }).isRequired,
       ).isRequired,
     }).isRequired,
   }).isRequired,
@@ -223,12 +135,10 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          rawMarkdownBody
           fields {
             slug
             sourceInstanceName
           }
-          excerpt
           frontmatter {
             title
             image
@@ -251,12 +161,11 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          rawMarkdownBody
+          excerpt(pruneLength: 220)
           fields {
             slug
             sourceInstanceName
           }
-          excerpt
           frontmatter {
             title
             image
@@ -279,12 +188,11 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          rawMarkdownBody
+          excerpt(pruneLength: 220)
           fields {
             slug
             sourceInstanceName
           }
-          excerpt
           frontmatter {
             title
             image
