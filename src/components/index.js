@@ -4,6 +4,7 @@ import BlogTabs from './BlogTabs';
 import CommunityCard from './CommunityCard';
 import Content from './Content';
 import EventCard from './EventCard';
+import FeaturedBlogsSection from './FeaturedBlogsSection';
 import FeaturedTopicsSection from './FeaturedTopicsSection';
 import Footer from './Footer';
 import Header from './Header';
@@ -29,6 +30,7 @@ export * from './BlogCard';
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
+export * from './ReusableHeroSection';
 
 export {
   Aside,
@@ -37,6 +39,7 @@ export {
   CommunityCard,
   Content,
   EventCard,
+  FeaturedBlogsSection,
   FeaturedTopicsSection,
   Footer,
   Header,
