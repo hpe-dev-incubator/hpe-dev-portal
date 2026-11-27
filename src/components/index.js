@@ -9,6 +9,7 @@ import FeaturedTopicsSection from './FeaturedTopicsSection';
 import Footer from './Footer';
 import Header from './Header';
 import Hero from './Hero';
+import HeroContent from './HeroContent';
 import HighlightedText from './HighlightedText';
 import Layout from './Layout';
 import LayoutSideBar from './LayoutSideBar';
@@ -24,6 +25,7 @@ import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
 
+export * from './AgendaTable';
 export * from './BlogCard';
 export * from './Card';
 export * from './Link';
@@ -42,6 +44,7 @@ export {
   Footer,
   Header,
   Hero,
+  HeroContent,
   HighlightedText,
   Layout,
   LayoutSideBar,

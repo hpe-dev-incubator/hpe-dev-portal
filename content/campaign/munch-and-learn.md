@@ -1,49 +1,17 @@
 ---
 title: Munch & Learn Technology Talks
 authorimage: /img/Munch_and_Learn_192_192.svg
+heroImage: /img/events/munch-learn-meetups-hero-bg.jpg
+heroDescription: >-
+  Join our free, one-hour webinars to hear from and engage with renowned technologists as they share thought-leadership insights on popular HPE and open source technologies. Get your questions answered while sharing a recipe or two.
 ---
-Join our free, one-hour webinars to hear from and engage with renowned technologists as they share thought-leadership insights on popular HPE and open source technologies. Get your questions answered while sharing a recipe or two.
-
 Hosted by the HPE Developer Community, these gatherings are held on a monthly basis at 5PM CET (8AM PST). You can read more about Munch & Learn Technology Talks [in this blog](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks) post.
 
-<style>
-table {
-    display: block;
-    width: max-content !important;
-    max-width: 100%;
-    overflow: auto;
-     -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-}
-td {
-   -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-    text-align: left !important;
-     font-weight: normal !important;
-    padding: 10px !important;
-}
-thead tr:first-child td {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border:1px solid grey;
-  text-align: center !important;
-  padding: 20px !important;
-  font-weight: bold !important;
-}
-
-
-</style>
-
-| &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date&nbsp; | Title                                                                                                                                                                                                                       | Speaker(s)                                            | Link                                                                                                       |
+| Date                                            | Title                                                                                                                                                                                                                       | Speaker(s)                                            | Link                                                                                                       |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | 16-Sep-26                                       | Open Source at HPE: Three More Pillars, Other Paths                                                                                                                                          | Ria Farrell Schalnat / Brad Chamberlain / Marty Ma / Jesse Tregger                     | [Replay](https://www.youtube.com/watch?v=E8PnRqlTZQ8)
 | 18-Mar-26                                       | [Open Source at HPE: Three Pillars, Many Paths](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/munch-and-learn_Open-Source-at-HPE_Three+Pillars.pdf)                                                                                                                                           | Ria Farrell Schalnat / Alvin Castro /Dr. Andrew Shao –Shaun Tancheff                      | [Replay](https://www.youtube.com/watch?v=c3L13ELQ51o)  
-| 28-Jan-26                                       | [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/Munch-and-Learn-GreenLake-MCP-Jan2026.pdf)                                                                                                                                             | Vandewilly Silva / Roman Nersyan                      | [Replay](https://www.youtube.com/watch?v=-RYmpXaGl2o)           
+| 28-Jan-26                                       | [Work Smarter: Natural Language Access to your infrastructure via GreenLake MCP](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/Munch-and-Learn-GreenLake-MCP-Jan2026.pdf)                                                                                                                                             | Vandewilly Silva / Roman Nersyan                      | [Replay](https://www.youtube.com/watch?v=-RYmpXaGl2o)
 | 21-May-25                                       | HPE Sustainability Insight Center: A Win for both Business and the Environment                                                                                                                                              | Kashish Pahwa / Kevin Tronkowski                      | [Replay](https://www.youtube.com/watch?v=1H0M-c7g744&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)              |
 | 16-Apr-25                                       | DayN+ - A new way to look at observability                                                                                                                                                                                  | Raj Mistry                                            | [Replay](https://www.youtube.com/watch?v=nDa_NQPbbVY&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY)              |
 | 19-Mar-25                                       | ChatHPE Hub: Enabling Secure and Scalable AI Transformation at HPE                                                                                                                                                          | Jose Mejias / Manmeet Dhillon                         | [Replay](https://www.youtube.com/watch?v=cAXwX3Yb62c&list=PLtS6YX0YOX4fWMwKbp9blyI1GLdXlbWjY&index=1)      |

@@ -7,9 +7,12 @@ import { Box, Heading, Text, Image } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 
 import {
+  agendaTableOverrides,
   Content,
+  HeroContent,
   Layout,
   Markdown,
+  ReusableHeroSection,
   SEO,
   Share,
   ButtonLink,
@@ -25,12 +28,45 @@ const MarkdownLayout = styled(Markdown)`
   }
 `;
 
+const agendaMarkdownOptions = { overrides: agendaTableOverrides };
+
+
 function CampaignTemplate({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, authorimage, author } = post.frontmatter;
+  const { title, authorimage, author, heroImage, heroDescription } =
+    post.frontmatter;
+
+  if (heroImage) {
+    return (
+      <Layout title={siteTitle} fullWidth={true}>
+        <SEO title={title} description={excerpt} />
+        <ReusableHeroSection
+          image={heroImage}
+          title={title}
+          alt={`${title} hero banner`}
+          height="auto"
+          overlayGradient="linear-gradient(-46.42deg, rgba(41, 45, 58, 0) 15.577%, rgb(41, 45, 58) 73.294%)"
+        >
+          <Text size="large">{heroDescription}</Text>
+        </ReusableHeroSection>
+        <HeroContent gap="medium">
+          <MarkdownLayout options={agendaMarkdownOptions}>
+            {rawMarkdownBody}
+          </MarkdownLayout>
+          <Box alignSelf="start">
+            <ButtonLink
+              icon={<FormPreviousLink />}
+              label="Go to Training Page"
+              to="/skillup"
+            />
+          </Box>
+        </HeroContent>
+      </Layout>
+    );
+  }
 
   return (
     <Layout title={siteTitle}>
@@ -61,7 +97,7 @@ function CampaignTemplate({ data }) {
         <Box alignSelf="start">
           <ButtonLink
             icon={<FormPreviousLink />}
-            label="Go to Skill Up Page"
+            label="Go to Training Page"
             to="/skillup"
           />
         </Box>
@@ -85,6 +121,8 @@ CampaignTemplate.propTypes = {
         title: PropTypes.string,
         authorimage: PropTypes.string,
         author: PropTypes.string,
+        heroImage: PropTypes.string,
+        heroDescription: PropTypes.string,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -109,6 +147,8 @@ export const pageQuery = graphql`
         title
         authorimage
         author
+        heroImage
+        heroDescription
       }
     }
   }

@@ -1,43 +1,13 @@
 ---
 title: Meetups
 authorimage: /img/Meetups_192_192.svg
+heroImage: /img/events/munch-learn-meetups-hero-bg.jpg
+heroDescription: >-
+  Connect with the experts to dive deep and learn more about some of today's most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how they may help in your particular situation.
 ---
-Connect with the experts to dive deep and learn more about some of today’s most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how they may help in your particular situation.
-
 Hosted by the HPE Developer Community, these meetups are held on a monthly basis at 5PM CET (8AM PST).  Read more about Meetups [in this blog](https://developer.hpe.com/blog/new-for-2022-hpe-dev-meetups/) post.
 
-<style>
-table {
-    display: block;
-    width: 100%;
-    width: max-content;
-    max-width: 100%;
-    overflow: auto;
-     -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-}
-td {
-   -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:1px solid grey;
-    text-align: left !important;
-    padding: 10px !important;
-}
-thead tr:first-child td {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border:1px solid grey;
-  text-align: center !important;
-  padding: 20px !important;
-  font-weight: bold !important;
-}
-</style>
-
-| &nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp; | Title                                                                                                                                                                                                                               | Speaker(s)                                                     | Company                    | Link                                                                                                        |
+| Date                                                   | Title                                                                                                                                                                                                                               | Speaker(s)                                                     | Company                    | Link                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | 24-Nov-26                                        | HPE Slingshot: Bringing Exascale Innovation to HPC and AI Networking | Jesse Treger                   | HPE                    |  [Register](https://hpe.zoom.us/webinar/register/5217936463854/WN_qyFZzXWyS8Szjoe6VB4KlQ)                                                                                                                      |
 | 28-Oct-26                                        | [OpenBMC on HPE ProLiant servers - Overview and Demo](https://hpe-developer-portal.s3.us-east-1.amazonaws.com/Meetup-October26-OpenBMC-Overview.pdf)| François Donzé / Ian Woloschin / Vincent Berger                    | HPE                    |  [Replay](https://www.youtube.com/watch?v=jIypM9dTww8)                                                                                                                      |
