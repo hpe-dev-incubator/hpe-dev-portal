@@ -8,7 +8,7 @@ tags:
 - HPC
 - HPE Networking
 image: /img/events/events5.jpg
-link: https://hpe.zoom.us/webinar/register/5217936463854/WN_qyFZzXWyS8Szjoe6VB4KlQ
+link: https://www.youtube.com/watch?v=SwuV-u3U7ow
 width: large
 ---
 09/30/2026
