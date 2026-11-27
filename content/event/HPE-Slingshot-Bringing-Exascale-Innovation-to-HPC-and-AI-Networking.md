@@ -6,7 +6,7 @@ category: Meetup
 tags:
 - AI
 - HPC
-- HPE Networking
+- HPE Slingshot
 image: /img/events/events5.jpg
 link: https://www.youtube.com/watch?v=SwuV-u3U7ow
 width: large
